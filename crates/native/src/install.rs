@@ -1098,7 +1098,14 @@ pub fn launch(app: &CraftApp, installed: &Installed, paths: &Paths, args: &[Stri
                 }
                 return Err(format!("{} isn't where it was installed ({})", app.name, path.display()));
             }
-            process::launch_binary_with_env(path, args, &env)
+            if let Some(flag) = crate::desktop_entry::appimage_runtime_flag(app, path)
+                && !args.first().is_some_and(|arg| arg == flag)
+            {
+                let args: Vec<String> = std::iter::once(flag.to_owned()).chain(args.iter().cloned()).collect();
+                process::launch_binary_with_env(path, &args, &env)
+            } else {
+                process::launch_binary_with_env(path, args, &env)
+            }
         }
     }
     .map_err(|e| format!("Couldn't open {}: {e}", app.name))

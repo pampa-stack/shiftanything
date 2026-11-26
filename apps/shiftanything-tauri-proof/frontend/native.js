@@ -55,6 +55,14 @@
   let actionError = '';
   status.setAttribute('role','status');
   status.setAttribute('aria-live','polite');
+  let favoritesKey;
+  window.addEventListener('native-favorite-request',async event=>{
+    try {
+      const ids=await invoke('set_favorite',{appId:event.detail.id,favorite:event.detail.favorite});
+      favoritesKey=JSON.stringify(ids);
+      window.dispatchEvent(new CustomEvent('native-favorites',{detail:ids}));
+    } catch(error) {actionError=String(error);status.textContent=actionError;}
+  });
   let current;
   let requesting = false;
   const confirmation = document.createElement('dialog');
@@ -65,6 +73,11 @@
   let pendingId;
   function render(snapshot) {
     current = snapshot;
+    const key=JSON.stringify(snapshot.favorites);
+    if (key!==favoritesKey) {
+      favoritesKey=key;
+      window.dispatchEvent(new CustomEvent('native-favorites',{detail:snapshot.favorites}));
+    }
     const inventory = new Map(snapshot.inventory.apps.map(app => [app.id,app]));
     for (const button of document.querySelectorAll('[data-native-app]')) {
       const app = inventory.get(button.dataset.nativeApp);

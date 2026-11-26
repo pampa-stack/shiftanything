@@ -1,16 +1,16 @@
 (() => {
   const catalog = document.querySelector('[data-catalog]');
-  const storageKey = 'shiftanything.favorites.v1';
   let favorites = new Set();
   const detail = document.querySelector('.catalog-detail');
   const detailContent = detail?.querySelector('[data-app-content]');
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    if (Array.isArray(saved)) favorites = new Set(saved.filter(id => typeof id === 'string'));
-  } catch {}
   function updateHearts() {
     for (const heart of document.querySelectorAll('[data-favorite-app]')) {
-      heart.setAttribute('aria-pressed', favorites.has(heart.dataset.favoriteApp));
+      const active=favorites.has(heart.dataset.favoriteApp);
+      heart.setAttribute('aria-pressed',active);
+      const name=heart.getAttribute('aria-label').split(' · ').slice(1).join(' · ');
+      const label=document.documentElement.lang==='it' ? (active?'Rimuovi dai preferiti':'Salva nei preferiti') : (active?'Remove from favorites':'Save to favorites');
+      heart.setAttribute('aria-label',label+' · '+name);
+      heart.title=label+' · '+name;
     }
   }
   document.addEventListener('error', event => {
@@ -67,16 +67,12 @@
     const heart = event.target.closest('[data-favorite-app]');
     if (!heart) return;
     const id = heart.dataset.favoriteApp;
-    if (favorites.has(id)) favorites.delete(id);
-    else favorites.add(id);
-    try {
-      localStorage.setItem(storageKey, JSON.stringify([...favorites]));
-    } catch {}
+    window.dispatchEvent(new CustomEvent('native-favorite-request',{detail:{id,favorite:!favorites.has(id)}}));
+  });
+  window.addEventListener('native-favorites',event=>{
+    favorites=new Set(event.detail);
     updateHearts();
-    if (catalog) {
-      catalog.dispatchEvent(new Event('favorites-changed'));
-      if (heart.closest('[hidden]')) document.querySelector('[data-favorites-only]').focus();
-    }
+    if (catalog) catalog.dispatchEvent(new Event('favorites-changed'));
   });
   if (!catalog) return;
 

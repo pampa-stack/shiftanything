@@ -22,6 +22,7 @@ pub struct NativeState {
     next_request: u64,
     enabled: bool,
     pub diagnostics: PathBuf,
+    pub favorites: crate::favorites::Favorites,
 }
 
 #[derive(Serialize)]
@@ -39,6 +40,7 @@ pub struct Snapshot {
     inventory: Inventory,
     pending: Option<Request>,
     progress: BTreeMap<String, Progress>,
+    favorites: std::collections::BTreeSet<String>,
 }
 
 impl NativeState {
@@ -76,6 +78,7 @@ impl NativeState {
             pending: None,
             next_request: 0,
             enabled,
+            favorites: crate::favorites::Favorites::load(&root)?,
             diagnostics: root,
         })
     }
@@ -207,6 +210,7 @@ impl NativeState {
             lifecycle_enabled: self.enabled,
             inventory: self.inventory(),
             pending: self.pending.clone(),
+            favorites: self.favorites.ids().clone(),
             progress: self
                 .jobs
                 .iter()

@@ -1,5 +1,6 @@
 //! Local-only desktop proof with explicitly enabled, approved native lifecycle operations.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
+mod favorites;
 mod session;
 #[cfg(target_os = "macos")]
 mod verification;
@@ -31,6 +32,10 @@ fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::
 #[tauri::command]
 fn decide_native_action(request_id: String, approve: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
     state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve)
+}
+#[tauri::command]
+fn set_favorite(app_id: String, favorite: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<std::collections::BTreeSet<String>, String> {
+    state.lock().map_err(|error| error.to_string())?.favorites.set(app_id, favorite)
 }
 #[derive(Deserialize, Serialize)]
 struct Rect {
@@ -98,7 +103,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if !root.is_absolute() {
             return Err("Profile must be absolute".into());
         }
-        std::fs::create_dir(&root)?;
+        let marker = root.join(".shiftanything-proof");
+        if args.iter().any(|argument| argument == "--resume") {
+            let metadata = std::fs::symlink_metadata(&marker)?;
+            if !metadata.is_file()
+                || metadata.file_type().is_symlink()
+                || metadata.len() > 64
+                || std::fs::read(&marker)? != b"shiftanything-tauri-proof-v1\n"
+            {
+                return Err("Resume requires a profile created by this proof".into());
+            }
+        } else {
+            std::fs::create_dir(&root)?;
+            std::fs::write(marker, b"shiftanything-tauri-proof-v1\n")?;
+        }
         let home = root.join("home");
         for path in [&home, &home.join(".Trash"), &home.join("config"), &home.join("data"), &home.join("cache")] {
             std::fs::create_dir_all(path)?;
@@ -156,7 +174,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             native_snapshot,
             record_visual_metrics,
             request_native_action,
-            decide_native_action
+            decide_native_action,
+            set_favorite
         ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]

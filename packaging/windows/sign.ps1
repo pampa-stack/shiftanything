@@ -22,6 +22,7 @@ param(
   [string[]] $Files
 )
 $ErrorActionPreference = 'Stop'
+throw 'Upstream packaging/signing is disabled in Sh*ftAnything; no credentials are accepted.'
 
 function Write-Warn([string] $Message) {
   if ($env:GITHUB_ACTIONS) { Write-Output "::warning::$Message" } else { Write-Warning $Message }

@@ -16,6 +16,7 @@
     "Backblaze Computer Backup",
     "Capture One",
     "Cinema 4D",
+    "Claude Code",
     "ClickUp",
     "Confluence",
     "Cursor",
@@ -26,6 +27,7 @@
     "FL Studio",
     "FreshBooks",
     "Goodnotes",
+    "Google Antigravity",
     "HubSpot CRM",
     "Jira",
     "Microsoft 365",
@@ -1184,70 +1186,70 @@
           }
         },
         {
-          "app_id": "restic",
+          "app_id": "backrest",
           "evidence": {
             "backup_local": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "Supporta repository su disco locale.",
-                "en": "Supports local repositories."
+                "it": "La dashboard gestisce anche repository su disco locale.",
+                "en": "The dashboard also manages local disk repositories."
               }
             },
             "backup_encrypt": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "source": "https://github.com/garethgeorge/backrest#overview",
               "note": {
-                "it": "Il repository è cifrato e protetto da password.",
-                "en": "The repository is encrypted and password-protected."
+                "it": "I backup usano repository restic cifrati.",
+                "en": "Backups use encrypted restic repositories."
               }
             },
             "backup_restore_file": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/050_restore.html",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "Il comando restore accetta un percorso da ripristinare.",
-                "en": "The restore command accepts a path to restore."
+                "it": "Puoi sfogliare le istantanee e ripristinare singoli file dalla dashboard.",
+                "en": "Browse snapshots and restore individual files from the dashboard."
               }
             },
             "backup_schedule_ui": {
-              "state": "unsupported",
-              "source": "https://restic.readthedocs.io/en/stable/040_backup.html#scheduling-backups",
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "La pianificazione usa strumenti esterni come cron o le attività pianificate di Windows.",
-                "en": "Scheduling uses external tools such as cron or Windows Task Scheduler."
+                "it": "Permette di configurare backup e manutenzione pianificati.",
+                "en": "Configure scheduled backups and maintenance."
               }
             },
             "backup_retention": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/060_forget.html",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "Il comando forget applica le regole di conservazione.",
-                "en": "The forget command applies retention policies."
+                "it": "Le operazioni di manutenzione includono la rimozione delle istantanee fuori dalle regole di conservazione.",
+                "en": "Maintenance includes forgetting snapshots outside retention rules."
               }
             },
             "backup_s3": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "Supporta repository S3 e provider compatibili come MinIO.",
-                "en": "Supports S3 repositories and compatible providers such as MinIO."
+                "it": "Supporta repository su Amazon S3 e storage compatibile.",
+                "en": "Supports repositories on Amazon S3 and compatible storage."
               }
             },
             "backup_sftp": {
               "state": "supported",
-              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "Supporta repository su SFTP con accesso SSH configurato.",
-                "en": "Supports SFTP repositories with SSH access configured."
+                "it": "Supporta repository su server SFTP.",
+                "en": "Supports repositories on SFTP servers."
               }
             },
             "backup_s3_lock": {
               "state": "unverified",
-              "source": "https://github.com/restic/restic/issues/4992",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
               "note": {
-                "it": "La discussione ufficiale descrive limiti con Object Lock. Il flusso completo resta da verificare.",
-                "en": "The official discussion describes Object Lock limitations. The complete workflow remains unverified."
+                "it": "Le fonti disponibili non verificano il flusso con Object Lock.",
+                "en": "The available sources do not verify the Object Lock workflow."
               }
             }
           }

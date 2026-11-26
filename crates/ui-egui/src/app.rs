@@ -94,6 +94,7 @@ pub enum Page {
     #[default]
     Apps,
     Catalog,
+    Favorites,
     /// Craft Font Manager (desktop only).
     Fonts,
     Shifter,
@@ -1094,7 +1095,7 @@ impl LauncherUi {
                 self.shifter_page(ui);
                 return;
             }
-            if self.page == Page::Catalog {
+            if matches!(self.page, Page::Catalog | Page::Favorites) {
                 self.curated_page(ui);
                 return;
             }
@@ -1652,10 +1653,13 @@ mod tests {
     }
 
     fn picker_harness(language: &str, width: f32) -> Harness<'static, Option<LauncherUi>> {
+        picker_with_settings(Settings { language: language.into(), notify: false, ..Settings::default() }, width).0
+    }
+
+    fn picker_with_settings(settings: Settings, width: f32) -> (Harness<'static, Option<LauncherUi>>, Rc<RefCell<Vec<Command>>>) {
         let sent = Rc::new(RefCell::new(Vec::new()));
-        let mut backend = Some(Recorder { sent });
-        let settings = Settings { language: language.into(), notify: false, ..Settings::default() };
-        Harness::builder().with_size(egui::vec2(width, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
+        let mut backend = Some(Recorder { sent: sent.clone() });
+        let harness = Harness::builder().with_size(egui::vec2(width, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
             move |ui, state: &mut Option<LauncherUi>| {
                 if state.is_none()
                     && let Some(backend) = backend.take()
@@ -1672,7 +1676,8 @@ mod tests {
                 }
             },
             None,
-        )
+        );
+        (harness, sent)
     }
 
     #[test]
@@ -1893,6 +1898,71 @@ mod tests {
             } else {
                 "Manual comparison. Reuse documented features or add your own."
             });
+        }
+    }
+
+    #[test]
+    fn favorites_grid_table_details_survive_restart_without_native_actions() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["it", "en"] {
+            let (mut h, sent) = picker_with_settings(Settings { language: language.into(), notify: false, ..Settings::default() }, 1440.0);
+            h.run_steps(5);
+            let (catalog, favorites, apps, add, remove) = if language == "it" {
+                ("Catalogo", "Preferiti", "Le mie app", "Aggiungi ai preferiti · Handy", "Rimuovi dai preferiti · Handy")
+            } else {
+                ("Catalog", "Favorites", "My apps", "Add to favorites · Handy", "Remove from favorites · Handy")
+            };
+            assert!(h.get_by_label(catalog).rect().right() <= h.get_by_label(favorites).rect().left());
+            assert!(h.get_by_label(favorites).rect().right() <= h.get_by_label(apps).rect().left());
+            h.get_by_label(add).click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().settings.favorites.contains("handy"));
+            assert_eq!(h.get_by_label(remove).accesskit_node().toggled(), Some(egui::accesskit::Toggled::True));
+            h.get_by_label(if language == "it" { "Mostra le app in elenco" } else { "Show apps as a table" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(remove).click_accesskit();
+            h.run_steps(3);
+            assert!(!h.state().as_ref().unwrap().settings.favorites.contains("handy"));
+            h.get_by_label(add).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(favorites).focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::Space);
+            h.run_steps(3);
+            assert_eq!(h.state().as_ref().unwrap().page, Page::Favorites);
+            assert!(h.query_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).is_none());
+            h.get_by_label("Handy").click_accesskit();
+            h.run_steps(3);
+            assert_eq!(h.state().as_ref().unwrap().curated.detail.as_deref(), Some("handy"));
+            assert_eq!(h.query_all_by_label(remove).count(), 2, "catalog row and detail both expose the selected heart");
+            h.query_all_by_label(remove).last().unwrap().click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().settings.favorites.is_empty());
+            h.get_by_label(add).click_accesskit(); // Only the open detail remains after removing the row.
+            h.run_steps(3);
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            let saved = serde_json::to_vec(&h.state().as_ref().unwrap().settings).unwrap();
+            let (mut restarted, next_sent) = picker_with_settings(serde_json::from_slice(&saved).unwrap(), 1440.0);
+            restarted.run_steps(5);
+            restarted.get_by_label(favorites).click_accesskit();
+            restarted.run_steps(3);
+            restarted.get_by_label(remove);
+            restarted.check_accessibility();
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                restarted.render().unwrap().save(std::path::Path::new(&dir).join(format!("favorites-{language}.png"))).unwrap();
+            }
+            assert!(sent.borrow().iter().chain(next_sent.borrow().iter()).all(|command| !matches!(
+                command,
+                Command::Install { .. }
+                    | Command::InstallAll { .. }
+                    | Command::InstallExpected { .. }
+                    | Command::Replace { .. }
+                    | Command::InstallChosen { .. }
+                    | Command::Uninstall { .. }
+                    | Command::Launch { .. }
+                    | Command::UpdateLauncher
+            )));
         }
     }
 

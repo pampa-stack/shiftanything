@@ -311,7 +311,7 @@ impl LauncherUi {
         let mut compact = false;
         ui.horizontal(|ui| {
             self.page_toggle(ui);
-            if self.page == Page::Catalog {
+            if matches!(self.page, Page::Catalog | Page::Favorites) {
                 self.curated_toolbar(ui);
                 return;
             }
@@ -1567,6 +1567,7 @@ enum PinDropAxis {
 fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
     let mut pages = vec![
         (Page::Catalog, widgets::Cell { label: tl!("Catalog"), tip: tl!("Catalog"), count: None, literal_case: false }),
+        (Page::Favorites, widgets::Cell { label: tl!("Favorites"), tip: tl!("Favorites"), count: None, literal_case: false }),
         (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None, literal_case: false }),
     ];
     if cfg!(not(target_arch = "wasm32")) {

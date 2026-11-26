@@ -42,7 +42,7 @@ impl LauncherUi {
     fn curated_contents(&mut self, ui: &mut egui::Ui) {
         let t = crate::theme::Tokens::get(ui.ctx());
         let all = curated::apps();
-        ui.heading(tl!("All apps"));
+        ui.heading(if self.page == crate::Page::Favorites { tl!("Favorites") } else { tl!("All apps") });
         ui.add_space(12.0);
         ui.horizontal_wrapped(|ui| {
             for (value, label) in [("", tl!("All")), ("base", tl!("Basic")), ("avanz", tl!("Advanced"))] {
@@ -112,7 +112,8 @@ impl LauncherUi {
         let mut apps: Vec<_> = all
             .iter()
             .filter(|a| {
-                (self.curated.level.is_empty() || a.level == self.curated.level)
+                (self.page != crate::Page::Favorites || self.settings.favorites.contains(&a.id))
+                    && (self.curated.level.is_empty() || a.level == self.curated.level)
                     && (self.curated.author.is_empty() || a.author == self.curated.author)
                     && (self.curated.category.is_empty() || a.category == self.curated.category)
                     && format!("{} {} {} {} {} {}", a.name, a.author, a.category, a.description.en, a.description.it, a.alternatives.join(" "))
@@ -126,7 +127,7 @@ impl LauncherUi {
             "latest" => apps.sort_by_key(|a| std::cmp::Reverse(a.release.as_ref().map(|release| release.date.as_str()))),
             _ => {}
         }
-        ui.label(format!("{} · {}", tl!("Catalog"), apps.len()));
+        ui.label(format!("{} · {}", if self.page == crate::Page::Favorites { tl!("Favorites") } else { tl!("Catalog") }, apps.len()));
         egui::ScrollArea::vertical().show(ui, |ui| {
             if self.settings.view == crate::settings::ViewMode::Table {
                 egui::ScrollArea::horizontal().show(ui, |ui| {
@@ -140,6 +141,7 @@ impl LauncherUi {
                                 self.catalog_media(app);
                             }
                             ui.horizontal(|ui| {
+                                self.favorite_button(ui, app);
                                 if let Some(icon) = self.picture_source(&app.id, "catalog-logo").or_else(|| crate::icons::app(&app.id)) {
                                     ui.add(egui::Image::new(icon).fit_to_exact_size(egui::vec2(28.0, 28.0)).alt_text(format!("{} logo", app.name)));
                                 }
@@ -160,21 +162,23 @@ impl LauncherUi {
                                 ui.label(control);
                             }
                             ui.hyperlink_to(&app.license, &app.license_url);
-                            if let Some(stars) = &app.stars {
-                                let count = if stars.count >= 1000 {
-                                    format!("★ {:.1}k", stars.count as f64 / 1000.0)
-                                } else {
-                                    format!("★ {}", stars.count)
-                                };
-                                ui.hyperlink_to(egui::RichText::new(count).color(egui::Color32::from_rgb(187, 143, 45)), &stars.source)
-                                    .on_hover_text(&stars.date);
-                            } else if let Some(popularity) = &app.popularity {
-                                ui.hyperlink_to(popularity.label(), &popularity.page).on_hover_text(&popularity.date);
-                            } else {
-                                ui.label("—");
-                            }
                             ui.horizontal(|ui| {
+                                if let Some(stars) = &app.stars {
+                                    let count = if stars.count >= 1000 {
+                                        format!("★ {:.1}k", stars.count as f64 / 1000.0)
+                                    } else {
+                                        format!("★ {}", stars.count)
+                                    };
+                                    ui.hyperlink_to(egui::RichText::new(count).color(egui::Color32::from_rgb(187, 143, 45)), &stars.source)
+                                        .on_hover_text(&stars.date);
+                                } else if let Some(popularity) = &app.popularity {
+                                    ui.hyperlink_to(popularity.label(), &popularity.page).on_hover_text(&popularity.date);
+                                } else {
+                                    ui.label("—");
+                                }
                                 ui.hyperlink_to(if app.repo.starts_with("https://github.com/") { "GitHub" } else { tl!("Source code") }, &app.repo);
+                            });
+                            ui.horizontal(|ui| {
                                 self.curated_action(ui, app, 112.0);
                                 if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
                                     self.curated.detail = Some(app.id.clone());
@@ -253,10 +257,11 @@ impl LauncherUi {
                     {
                         ui.hyperlink_to(popularity.label(), &popularity.page).on_hover_text(format!("{}\n{}", popularity.date, popularity.source));
                     }
+                    ui.hyperlink_to(if app.repo.starts_with("https://github.com/") { "GitHub" } else { tl!("Source code") }, &app.repo);
                 });
             });
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Min), |ui| {
-                ui.hyperlink_to(if app.repo.starts_with("https://github.com/") { "GitHub" } else { tl!("Source code") }, &app.repo);
+                self.favorite_button(ui, app);
             });
         });
         ui.add(egui::Label::new(if crate::i18n::current().code() == "it" { &app.description.it } else { &app.description.en }).truncate());
@@ -375,6 +380,30 @@ impl LauncherUi {
         } else if let Some(entry) = entry {
             let status = entry.status(self.platform, self.caps.manage_apps);
             self.catalog_action(ui, &entry, &status, width);
+        }
+    }
+
+    fn favorite_button(&mut self, ui: &mut egui::Ui, app: &curated::App) {
+        let selected = self.settings.favorites.contains(&app.id);
+        let image = if selected {
+            egui::include_image!("../../../assets/ui-icons/heart-filled.svg")
+        } else {
+            egui::include_image!("../../../assets/ui-icons/heart-outline.svg")
+        };
+        let label = format!("{} · {}", if selected { tl!("Remove from favorites") } else { tl!("Add to favorites") }, app.name);
+        let response = ui
+            .add(
+                egui::Button::image(egui::Image::new(image).fit_to_exact_size(egui::vec2(16.0, 16.0)).tint(ui.visuals().text_color()))
+                    .min_size(egui::vec2(28.0, 28.0))
+                    .selected(selected),
+            )
+            .accessible_name(&label)
+            .on_hover_text(&label);
+        ui.ctx().accesskit_node_builder(response.id, |node| {
+            node.set_toggled(if selected { egui::accesskit::Toggled::True } else { egui::accesskit::Toggled::False })
+        });
+        if response.clicked() && !self.settings.favorites.remove(&app.id) {
+            self.settings.favorites.insert(app.id.clone());
         }
     }
 

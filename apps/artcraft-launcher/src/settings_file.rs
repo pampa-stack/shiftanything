@@ -111,9 +111,25 @@ mod tests {
     fn settings_saved_with_no_file_read_back() {
         let dir = Scratch::new("settings-round-trip");
         let mut settings = Settings { last_check: Some(1_791_500_000), notify: false, ..Settings::default() };
+        settings.favorites.insert("handy".into());
         settings.launch_flags.insert("photocraft".into(), r#"--dir "My Photos""#.into());
         assert_eq!(save(&dir.file(), "settings", &settings), Ok(()));
         assert_eq!(load::<Settings>(&dir.file(), "settings"), Some(settings));
+    }
+
+    #[test]
+    fn favorite_removal_persists_without_crossing_profiles() {
+        let first = Scratch::new("favorite-first-profile");
+        let second = Scratch::new("favorite-second-profile");
+        let mut settings = Settings::default();
+        settings.favorites.insert("handy".into());
+        save(&first.file(), "settings", &settings).unwrap();
+        assert!(load::<Settings>(&second.file(), "settings").is_none());
+        let mut restarted: Settings = load(&first.file(), "settings").unwrap();
+        assert!(restarted.favorites.remove("handy"));
+        save(&first.file(), "settings", &restarted).unwrap();
+        assert!(load::<Settings>(&first.file(), "settings").unwrap().favorites.is_empty());
+        assert!(!second.file().exists());
     }
 
     #[test]

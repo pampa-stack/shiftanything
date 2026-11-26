@@ -103,7 +103,7 @@ async def main():
 
     if len(sys.argv) > 1:
         config = json.loads(Path(sys.argv[1]).read_text())["mcpServers"]["shiftanything"]
-        packaged = StdioServerParameters(command=sys.executable, args=config["args"][1:])
+        packaged = StdioServerParameters(command=config["command"], args=config["args"])
         async with stdio_client(packaged) as (reader, writer):
             async with ClientSession(reader, writer) as session:
                 await session.initialize()

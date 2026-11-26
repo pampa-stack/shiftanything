@@ -1,6 +1,6 @@
 # Sh*ftAnything: collegare un agente locale
 
-Apri **Collega agente** nel launcher. Scegli JSON (Claude Desktop, Cursor, LM Studio), VS Code oppure TOML (Codex), quindi **Copia configurazione** e incolla nelle impostazioni MCP del client. Il launcher prepara il server e il catalogo soltanto nel proprio profilo; non modifica le configurazioni dei client e non li riavvia. Il comando richiede `uv` nel PATH del client. La prima esecuzione di uv risolve la dipendenza fissata `mcp==1.30.0`.
+Apri **Collega agente** nel launcher. Scegli JSON (Claude Desktop, Cursor, LM Studio), VS Code oppure TOML (Codex), quindi **Copia configurazione** e incolla nelle impostazioni MCP del client. Il launcher prepara il server e il catalogo soltanto nel proprio profilo; non modifica le configurazioni dei client e non li riavvia. Richiede [uv](https://docs.astral.sh/uv/getting-started/installation/). Il launcher risolve un eseguibile assoluto dal PATH o dalle directory utente `.local/bin`, `.cargo/bin` e dalle directory di sistema Homebrew/Unix: la configurazione funziona anche con client avviati dal Finder senza PATH della shell. La prima esecuzione di uv risolve la dipendenza fissata `mcp==1.30.0`.
 
 Il client avvia il server con trasporto stdio e con `--automation-read-root`, `--automation-write-root` e `--bridge-root` limitati alla cartella `automation` di Sh*ftAnything. Non rimuovere queste opzioni. Per usare soltanto il catalogo dal checkout:
 
@@ -47,3 +47,18 @@ cargo test -p artcraft-launcher-ui-egui agent_approval --lib
 ```
 
 Lo script stdio usa directory IPC temporanee e distingue esplicitamente i fixture dagli esiti di esecuzione nativa. Le prove complete attraverso MCP, UI e motore con un pacchetto ufficiale restano da completare: vedi [registro PRO-371](verification/pro-371.md).
+
+
+### Ciclo con fixture macOS proprio
+
+Il test `scoped_mcp_egui_approval_executes_native_fixture_lifecycle` usa un client stdio reale, il bridge a file nativo e pulsanti egui interrogati tramite AccessKit. L'adapter di test esegue le primitive native su due DMG unsigned propri (0.6.0 → 0.7.0), controlla l'esecuzione reale del binario e sposta la copia nel cestino temporaneo. Non è una certificazione di firma/download ufficiali o della coda lavori di produzione. Non apre finestre sul desktop e non tocca installazioni esistenti.
+
+```bash
+PATH="$HOME/.cargo/bin:$PATH" \
+CARGO_TARGET_DIR=/Users/pampa/Documents/shiftanything/target CARGO_BUILD_JOBS=2 \
+SHIFTANYTHING_FIXTURE_LANG=it \
+SHIFTANYTHING_MCP_FIXTURE_SCREENSHOTS=/tmp/shift-mcp-fixture-it \
+cargo test -p artcraft-launcher-native scoped_mcp_egui_approval_executes_native_fixture_lifecycle -- --nocapture
+```
+
+Richiede macOS e `uv`; il catalogo e il server sono materializzati sotto un nuovo profilo `tempfile`, eliminato alla fine. `SHIFTANYTHING_FIXTURE_LANG=en` ripete i pulsanti inglesi. Gli screenshot restano nella cartella indicata. L'esito va letto nel registro: la sola presenza del test non ne certifica il passaggio.

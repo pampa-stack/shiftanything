@@ -4295,6 +4295,8 @@ mod tests {
             panic!("hdiutil create failed after 5 tries: {said}");
         }
 
+        include!("mcp_fixture_tests.rs");
+
         #[test]
         fn temporary_profile_install_launch_update_remove_cycle() {
             use std::os::unix::fs::PermissionsExt;

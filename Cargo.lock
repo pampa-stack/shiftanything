@@ -334,11 +334,14 @@ name = "artcraft-launcher-native"
 version = "0.20.3"
 dependencies = [
  "artcraft-launcher-core",
+ "artcraft-launcher-ui-egui",
  "craft-ai-agents",
  "craft-flags",
  "craft-update",
  "dirs 6.0.0",
  "dunce",
+ "egui",
+ "egui_kittest",
  "flate2",
  "getrandom 0.3.4",
  "log",

@@ -25,18 +25,30 @@ impl LauncherUi {
         }
         if let Some(request) = self.automation_pending.clone() {
             let mut decision = None;
-            egui::Window::new(tl!("Agent request")).collapsible(false).resizable(false).show(ctx, |ui| {
-                ui.label(format!("{:?}: {}", request.operation, request.apps.join(", ")));
-                ui.label(tl!("Approve this action in the launcher"));
-                ui.horizontal(|ui| {
-                    if ui.button(tl!("Reject")).clicked() {
-                        decision = Some(false);
-                    }
-                    if ui.button(tl!("Approve")).clicked() {
-                        decision = Some(true);
-                    }
-                });
-            });
+            egui::Window::new(tl!("Agent request")).anchor(egui::Align2::CENTER_CENTER, egui::Vec2::ZERO).collapsible(false).resizable(false).show(
+                ctx,
+                |ui| {
+                    let label = match request.operation {
+                        Operation::Install => tl!("Install"),
+                        Operation::Update | Operation::UpdateAll => tl!("Update"),
+                        Operation::Open => tl!("Open"),
+                        Operation::Remove => tl!("Uninstall"),
+                        Operation::Cancel => tl!("Cancel"),
+                    };
+                    let apps =
+                        request.apps.iter().map(|id| self.entry(id).map_or(id.as_str(), |entry| entry.app.name)).collect::<Vec<_>>().join(", ");
+                    ui.label(format!("{label}: {apps}"));
+                    ui.label(tl!("Approve this action in the launcher"));
+                    ui.horizontal(|ui| {
+                        if ui.button(tl!("Reject")).clicked() {
+                            decision = Some(false);
+                        }
+                        if ui.button(tl!("Approve")).clicked() {
+                            decision = Some(true);
+                        }
+                    });
+                },
+            );
             if let Some(approve) = decision {
                 self.automation_pending = None;
                 // Revalidate at approval, not only when the request arrived.

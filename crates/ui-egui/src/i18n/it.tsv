@@ -1,0 +1,80 @@
+# Italian catalog for Sh*ftAnything. Partial: remaining engine labels fall back to English.
+# context<TAB>source<TAB>translation
+	Catalog	Catalogo
+	My apps	Le mie app
+	Fonts	Font
+	All apps	Tutte le app
+	All	Tutte
+	Basic	Base
+	Advanced	Avanzate
+	Publisher	Autore
+	Category	Categoria
+	Search	Cerca
+	GitHub stars	Stelle GitHub
+	Reset filters	Azzera filtri
+	Show apps as cards	Mostra le app a schede
+	Show apps as a table	Mostra le app in elenco
+	App details	Vedi scheda
+	Alternative to	Alternative a
+	Managed installation not available	Installazione gestita non disponibile
+	No apps match	Nessuna app corrisponde
+	Settings	Impostazioni
+	Connect agent	Collega agente
+	Copy configuration	Copia configurazione
+	Search the catalog and request app actions. Approve each action in this launcher.	Cerca nel catalogo e richiedi azioni sulle app. Approva ogni azione nel launcher.
+	Requires uv. Copy this configuration into your MCP client, then keep the launcher open.	Richiede uv. Copia questa configurazione nel client MCP e tieni aperto il launcher.
+	Agent request	Richiesta agente
+	Approve this action in the launcher	Approva questa azione nel launcher
+	Approve	Approva
+	Reject	Rifiuta
+	Close	Chiudi
+	Install	Installa
+	Update	Aggiorna
+	Open	Apri
+	Uninstall	Rimuovi
+	Cancel	Annulla
+	Manage app	Gestisci app
+	Preview unavailable	Anteprima non disponibile
+	Media source	Fonte immagini
+	Website	Sito web
+	Office and PDF	Ufficio e PDF
+	Photo and images	Foto e immagini
+	Design and 3D	Design e 3D
+	Audio, video and animation	Audio, video e animazione
+	Voice and meetings	Voce e riunioni
+	Communication	Comunicazione
+	Coding and agents	Coding e agenti
+	Reverse engineering	Reverse engineering
+	AI assistants	Assistenti AI
+	Defensive security	Sicurezza difensiva
+	Monitoring	Monitoraggio
+	System and files	Sistema e file
+	Networking	Rete
+	Data and analytics	Dati e analisi
+	Not checked yet	Controllo non ancora eseguito
+	Checking for updates…	Ricerca aggiornamenti…
+	Featured	In evidenza
+	Latest release	Ultima release
+	Setup unavailable	Configurazione non disponibile
+	Check connection	Verifica connessione
+	Documentation	Documentazione
+	Agent contacted this launcher in the last minute	Un agente ha contattato questo launcher nell’ultimo minuto
+	No recent agent call. Ask your client to call get_inventory.	Nessuna chiamata recente. Chiedi al client di chiamare get_inventory.
+	Examples	Esempi
+	Copy examples	Copia esempi
+	Request history	Storico richieste
+	No requests in this session	Nessuna richiesta in questa sessione
+	Search apps	Cerca app, categoria o alternativa
+	Check for updates	Aggiornamenti
+
+	Desktop app	App desktop
+
+	Last update	Ultimo aggiornamento
+
+	Download size	Dimensione download
+
+	Source code	Codice
+
+	Self-hosted	Self-hosted
+
+	Sort	Ordina per

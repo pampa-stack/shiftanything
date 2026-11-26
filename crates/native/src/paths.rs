@@ -12,7 +12,7 @@ pub struct Paths {
     pub cache: PathBuf,
 }
 
-const DIR: &str = if cfg!(any(target_os = "macos", target_os = "windows")) { "Sh*ftAnything" } else { "shiftanything" };
+const DIR: &str = if cfg!(any(target_os = "macos", target_os = "windows")) { "ShiftAnything" } else { "shiftanything" };
 
 impl Paths {
     pub fn new() -> Result<Self, String> {

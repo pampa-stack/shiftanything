@@ -189,7 +189,12 @@ impl LauncherUi {
             let brand_width =
                 (ui.available_width() - if bar == TitleBar::Custom { widgets::window_buttons_width() } else { 0.0 } - 2.0 * h).clamp(100.0, 240.0);
             let (cell, response) = ui.allocate_exact_size(vec2(brand_width, h), Sense::hover());
-            ui.put(cell, egui::Label::new(RichText::new("Sh*ftAnything").size(24.0).strong().italics().color(t.ink_strong)));
+            ui.put(
+                cell,
+                egui::Label::new(
+                    RichText::new("Sh*ftAnything").font(egui::FontId::new(18.0, crate::theme::display())).strong().italics().color(t.ink_strong),
+                ),
+            );
             response.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Label, true, "Sh*ftAnything"));
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if bar == TitleBar::Custom {
@@ -204,14 +209,9 @@ impl LauncherUi {
                     ui.allocate_ui_with_layout(vec2(width, h), egui::Layout::left_to_right(egui::Align::Center), |ui| self.channel_navigation(ui));
                     ui.add_space(theme::PAD / 2.0);
                 }
-                // The controls reserve their actual widths before the secondary text gets space.
-                ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
-                    if ui.available_width() >= 17.0 + widgets::hud_galley(ui, tl!("Craft App Suite"), t.muted).size().x {
-                        widgets::rule(ui, h);
-                        ui.add_space(16.0);
-                        widgets::hud(ui, tl!("Craft App Suite"), t.muted);
-                    }
-                });
+                if ui.button(tl!("Connect agent")).clicked() {
+                    self.dialog = Some(Dialog::ConnectAgent);
+                }
             });
         });
     }
@@ -311,6 +311,10 @@ impl LauncherUi {
         let mut compact = false;
         ui.horizontal(|ui| {
             self.page_toggle(ui);
+            if self.page == Page::Catalog {
+                self.curated_toolbar(ui);
+                return;
+            }
             // The rest of the row works on the apps; the Fonts page has its own search.
             if self.page != Page::Apps {
                 return;
@@ -455,32 +459,17 @@ impl LauncherUi {
             let short = fmt(tl!("Next check at {time}"), &[("time", &time)]);
             (format!("· {full}"), format!("· {short}"))
         });
-        use artcraft_launcher_core::catalog::{GITHUB_URL, SOCIAL, WEBSITE_URL};
-        // Every link is an icon, reading Website, GitHub, Discord, then the social accounts.
-        let named =
-            |name: &'static str, label: &str, url: &'static str| widgets::IconLink { name, label: label.to_string(), tip: label.to_string(), url };
-        let mut links = vec![
-            named("Website", tl!("Website"), WEBSITE_URL),
-            named("GitHub", tl!("GitHub"), GITHUB_URL),
-            widgets::IconLink {
-                name: "Discord",
-                label: tl!("Discord").to_string(),
-                tip: tl!("Join the ArtCraft community on Discord").to_string(),
-                url: self.discord_url,
-            },
-        ];
-        links.extend(SOCIAL.iter().map(|(name, url)| widgets::IconLink {
-            name,
-            label: (*name).to_string(),
-            tip: fmt(tl!("ArtCraft on {name}"), &[("name", name)]),
-            url,
-        }));
-        let icon = 13.0;
+        let icon = 18.0;
         let spacing = ui.spacing().item_spacing.x;
         // The icons on the right keep their size; the status on the left gets what is left and
         // is cut short with "…", never drawn under them.
         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-            widgets::icon_links(ui, icon, &links);
+            ui.add(
+                egui::Image::new(egui::include_image!("../../../assets/shiftanything/promptica.png"))
+                    .fit_to_exact_size(vec2(icon, icon))
+                    .alt_text("Promptica"),
+            );
+            ui.hyperlink_to("Powered by Promptica", "https://promptica.it");
             ui.add_space(8.0);
             ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                 // While GitHub is rate limited, saying so matters more than when we last checked.

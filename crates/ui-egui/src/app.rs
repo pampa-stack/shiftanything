@@ -75,6 +75,16 @@ pub trait Host {
     }
     /// Quit the launcher for real (not just hide to the tray).
     fn quit(&mut self) {}
+    fn automation_connection(&self) -> Result<bool, String> {
+        Err("Desktop connection unavailable".into())
+    }
+    fn automation_configuration(&self) -> Result<String, String> {
+        Err("MCP connection is available in the desktop launcher".into())
+    }
+    fn automation_request(&mut self) -> Option<artcraft_launcher_core::automation::Request> {
+        None
+    }
+    fn automation_publish(&mut self, _snapshot: &artcraft_launcher_core::automation::Snapshot) {}
 }
 
 /// The launcher's pages, switched by the toggle at the start of the toolbar.
@@ -146,6 +156,7 @@ pub(crate) enum Dialog {
         fallback: String,
     },
     Settings,
+    ConnectAgent,
     LauncherUpdate(artcraft_launcher_core::Release),
     Versions(String),
     LaunchFlags {
@@ -166,6 +177,7 @@ impl Dialog {
             Dialog::Replace { app, .. } => ("replace", app),
             Dialog::GoBackFallback { app, .. } => ("go-back-fallback", app),
             Dialog::Settings => ("settings", ""),
+            Dialog::ConnectAgent => ("connect-agent", ""),
             Dialog::LauncherUpdate(r) => ("launcher-update", &r.tag),
             Dialog::Versions(id) => ("versions", id),
             Dialog::LaunchFlags { app, .. } => ("launch-flags", app),
@@ -211,6 +223,13 @@ pub struct LauncherUi {
     pub(crate) bell_new: std::collections::BTreeSet<String>,
     /// Alerts from the signed notices file, shown as popups until acknowledged.
     pub(crate) alerts: Vec<artcraft_launcher_core::notices::Notice>,
+    pub(crate) automation_format: artcraft_launcher_core::mcp_config::McpConfigFormat,
+    pub(crate) automation_connection: Option<Result<bool, String>>,
+    pub(crate) automation_config: Option<Result<String, String>>,
+    pub(crate) automation_pending: Option<artcraft_launcher_core::automation::Request>,
+    pub(crate) automation_expected: std::collections::HashMap<String, bool>,
+    pub(crate) automation_links: std::collections::HashMap<String, Vec<String>>,
+    pub(crate) automation_results: std::collections::BTreeMap<String, String>,
     pub(crate) curated: crate::curated::Catalog,
     pub(crate) search: String,
     pub(crate) toasts: Vec<Toast>,
@@ -257,7 +276,7 @@ pub struct LauncherUi {
     #[cfg(not(target_arch = "wasm32"))]
     pub(crate) fonts: crate::fonts::FontsTab,
     /// UI actions drawn in this pass, not sent yet.
-    pending: Vec<UiAction>,
+    pub(crate) pending: Vec<UiAction>,
     /// The `egui::Context::cumulative_frame_nr` those actions belong to.
     frame: Option<u64>,
     /// UI actions this visible frame has already sent, so a discarded pass cannot repeat them.
@@ -344,6 +363,13 @@ impl LauncherUi {
             bell_open: false,
             bell_new: std::collections::BTreeSet::new(),
             alerts: Vec::new(),
+            automation_format: artcraft_launcher_core::mcp_config::McpConfigFormat::Json,
+            automation_connection: None,
+            automation_config: None,
+            automation_pending: None,
+            automation_expected: std::collections::HashMap::new(),
+            automation_links: std::collections::HashMap::new(),
+            automation_results: std::collections::BTreeMap::new(),
             curated: crate::curated::Catalog::default(),
             search: String::new(),
             toasts: Vec::new(),
@@ -471,7 +497,10 @@ impl LauncherUi {
                 continue;
             }
             match action {
-                UiAction::Command(command) => self.backend.send(command.clone()),
+                UiAction::Command(command) => {
+                    let command = self.automation_guarded_command(command.clone());
+                    self.backend.send(command);
+                }
                 UiAction::NightlyCommand(command) => self.nightly.send(command.clone(), self.settings.nightly_enabled),
                 UiAction::NightlyConsent(enabled) => {
                     self.settings.nightly_enabled = *enabled;
@@ -797,6 +826,16 @@ impl LauncherUi {
 
     /// Summarizes a job's end as a toast; cancellations have their own messages.
     fn on_job_finished(&mut self, app: String, result: Result<String, String>) {
+        self.automation_expected.remove(&app);
+        let requests = self.automation_links.remove(&app).unwrap_or_default();
+        let outcome = match &result {
+            Ok(message) => format!("completed: {message}"),
+            Err(error) => format!("error: {error}"),
+        };
+        self.automation_results.insert(format!("app:{app}"), outcome.clone());
+        for request in requests {
+            self.automation_results.insert(format!("{request}:{app}"), outcome.clone());
+        }
         let launcher = app == artcraft_launcher_core::catalog::LAUNCHER_ID;
         // What the job was doing when it ended says what a cancellation called off.
         let last = if launcher { self.launcher_job.take() } else { self.entry(&app).and_then(|e| e.job) };
@@ -1046,8 +1085,10 @@ impl LauncherUi {
             ui.add_space(18.0);
             egui::Frame::new().inner_margin(egui::Margin::symmetric(20, 0)).show(ui, |ui| self.apps_page(ui));
         });
+        self.curated_details(&ctx);
         self.details_drawer(&ctx);
         self.dialogs(&ctx, host);
+        self.automation_dialog(&ctx, host);
         self.nightly_consent_modal(&ctx);
         self.flush_actions();
         self.draw_toasts(&ctx);
@@ -1588,10 +1629,14 @@ mod tests {
     /// A UI driven through the real toolbar → Settings → language picker path, with the test-only
     /// font seam, so the selected frame and the single font-gate pass can be inspected exactly.
     fn cjk_picker_harness() -> Harness<'static, Option<LauncherUi>> {
+        picker_harness("en", 1180.0)
+    }
+
+    fn picker_harness(language: &str, width: f32) -> Harness<'static, Option<LauncherUi>> {
         let sent = Rc::new(RefCell::new(Vec::new()));
         let mut backend = Some(Recorder { sent });
-        let settings = Settings { language: "en".into(), notify: false, ..Settings::default() };
-        Harness::builder().with_size(egui::vec2(1180.0, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
+        let settings = Settings { language: language.into(), notify: false, ..Settings::default() };
+        Harness::builder().with_size(egui::vec2(width, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
             move |ui, state: &mut Option<LauncherUi>| {
                 if state.is_none()
                     && let Some(backend) = backend.take()
@@ -1609,6 +1654,153 @@ mod tests {
             },
             None,
         )
+    }
+
+    #[test]
+    fn curated_catalog_navigation_and_filters_are_accessible() {
+        use egui_kittest::kittest::Queryable;
+        let mut h = cjk_picker_harness();
+        h.run_steps(5);
+        h.get_by_label("Catalog");
+        h.get_by_label("My apps");
+        h.get_by_label("Fonts");
+        h.get_by_label("Settings");
+        assert!(
+            h.get_by_label("Image editing").rect().min.y >= h.get_by_label("PhotoCraft").rect().max.y,
+            "card description must be below its title"
+        );
+        assert!(h.query_all_by_label("PromptiCraft").next().is_none());
+        assert!(h.query_all_by_label("EyeCraft").next().is_none());
+        assert!(h.query_all_by_label("OneshotAnything").next().is_none());
+        h.get_by_label("Advanced").click_accesskit();
+        h.run_steps(3);
+        assert_eq!(h.state().as_ref().unwrap().curated.level, "avanz");
+        h.get_by_label("Reset filters").click_accesskit();
+        h.run_steps(3);
+        assert!(h.state().as_ref().unwrap().curated.level.is_empty());
+        if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+            h.render().unwrap().save(std::path::Path::new(&dir).join("catalog.png")).unwrap();
+            println!("Accessibility checked: Catalog, My apps, Fonts, Settings, Advanced, Reset filters; deferred products absent");
+        }
+        h.get_by_label("Show apps as a table").click_accesskit();
+        h.run_steps(3);
+        h.get_by_label("Name");
+        h.get_by_label("App details · PhotoCraft");
+        assert!(h.query_by_label("PhotoCraft preview").is_none(), "table uses rows, not full preview cards");
+        if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+            h.render().unwrap().save(std::path::Path::new(&dir).join("catalog-table-en.png")).unwrap();
+        }
+    }
+
+    #[test]
+    fn catalog_and_agent_connection_render_in_both_languages() {
+        use egui_kittest::kittest::Queryable;
+        for (language, catalog, connect) in [("en", "Catalog", "Connect agent"), ("it", "Catalogo", "Collega agente")] {
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            h.get_by_label(catalog);
+            h.state_mut().as_mut().unwrap().platform =
+                Some(Platform { os: artcraft_launcher_core::Os::MacOs, arch: artcraft_launcher_core::Arch::Arm64 });
+            if let Some(media) = std::env::var_os("SHIFTANYTHING_MEDIA_PROOF") {
+                let ui = h.state_mut().as_mut().unwrap();
+                for id in ["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"] {
+                    for index in ["logo", "shot-0", "shot-1"] {
+                        let path = std::path::Path::new(&media).join(format!("{id}-catalog-{index}.image"));
+                        if let Ok(bytes) = std::fs::read(path) {
+                            ui.pictures.insert((id.into(), format!("catalog-{index}")), crate::details::Picture::from_result(Ok(bytes)));
+                        }
+                    }
+                }
+                h.run_steps(5);
+            }
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("catalog-{language}.png"))).unwrap();
+            }
+            h.get_by_label(connect).click_accesskit();
+            h.run_steps(3);
+            assert!(matches!(h.state().as_ref().unwrap().dialog, Some(Dialog::ConnectAgent)));
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("connect-{language}.png"))).unwrap();
+            }
+            if let Some(path) = std::env::var_os("SHIFTANYTHING_MCP_CONFIG_PROOF") {
+                let config = std::fs::read_to_string(path).unwrap();
+                h.state_mut().as_mut().unwrap().automation_config = Some(Ok(config.clone()));
+                for (label, format) in [
+                    ("JSON", artcraft_launcher_core::mcp_config::McpConfigFormat::Json),
+                    ("VS Code", artcraft_launcher_core::mcp_config::McpConfigFormat::VsCode),
+                    ("TOML", artcraft_launcher_core::mcp_config::McpConfigFormat::CodexToml),
+                ] {
+                    h.run_steps(3);
+                    h.get_by_label(label).click_accesskit();
+                    h.run_steps(3);
+                    assert_eq!(h.state().as_ref().unwrap().automation_format, format);
+                    let copy = if language == "it" { "Copia configurazione" } else { "Copy configuration" };
+                    h.get_by_label(copy).click_accesskit();
+                    let expected = artcraft_launcher_core::mcp_config::catalog_config(format, &config).unwrap();
+                    let mut copied = false;
+                    for _ in 0..3 {
+                        h.step();
+                        copied |= h
+                            .output()
+                            .platform_output
+                            .commands
+                            .iter()
+                            .any(|command| matches!(command, egui::OutputCommand::CopyText(text) if text == &expected));
+                    }
+                    assert!(copied, "selected format must reach the clipboard");
+                    if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                        h.render().unwrap().save(std::path::Path::new(&dir).join(format!("connect-{label}-{language}.png"))).unwrap();
+                    }
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn agent_approval_rejects_changed_state_and_reports_native_outcomes() {
+        use artcraft_launcher_core::automation::{Operation, Request};
+        use egui_kittest::kittest::Queryable;
+        let mut h = cjk_picker_harness();
+        h.run_steps(5);
+        let req = Request { id: "approval-test".into(), operation: Operation::Open, apps: vec!["photocraft".into()] };
+        {
+            let ui = h.state_mut().as_mut().unwrap();
+            ui.caps.manage_apps = true;
+            ui.entries[0].detected = true;
+            ui.automation_pending = Some(req.clone());
+        }
+        h.run_steps(3);
+        h.get_by_label("Approve").click_accesskit();
+        h.run_steps(3);
+        let ui = h.state().as_ref().unwrap();
+        assert_eq!(ui.automation_results[&req.id], "rejected");
+        assert!(ui.automation_links.is_empty(), "Open without an installed copy never dispatches");
+        {
+            let ui = h.state_mut().as_mut().unwrap();
+            ui.automation_pending = Some(Request { id: "reject-test".into(), ..req.clone() });
+        }
+        h.run_steps(3);
+        h.get_by_label("Reject").click_accesskit();
+        h.run_steps(3);
+        assert_eq!(h.state().as_ref().unwrap().automation_results["reject-test"], "rejected");
+        let ui = h.state_mut().as_mut().unwrap();
+        ui.automation_expected.insert("photocraft".into(), true);
+        for _ in 0..2 {
+            assert!(
+                matches!(
+                    ui.automation_guarded_command(Command::Install { app: "photocraft".into() }),
+                    Command::InstallExpected { installed: true, .. }
+                ),
+                "interleaved/repeated commands retain the approved Update guard until a native outcome"
+            );
+        }
+        ui.automation_links.insert("photocraft".into(), vec![req.id.clone(), "cancel-test".into()]);
+        ui.on_job_finished("photocraft".into(), Err("cancelled".into()));
+        assert_eq!(ui.automation_results["approval-test:photocraft"], "error: cancelled");
+        assert_eq!(ui.automation_results["cancel-test:photocraft"], "error: cancelled");
+        ui.automation_links.insert("photocraft".into(), vec!["dialog-cancel".into()]);
+        ui.automation_dialog_closed(&Dialog::Install { app: "photocraft".into(), folder: String::new() });
+        assert_eq!(ui.automation_results["dialog-cancel:photocraft"], "cancelled before native operation");
     }
 
     /// Opens Settings and its language combo through visible labels, leaving the picker open for a

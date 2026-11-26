@@ -29,6 +29,11 @@ pub enum Command {
     Install {
         app: String,
     },
+    /// An approved agent install/update must retain its expected native presence state.
+    InstallExpected {
+        apps: Vec<String>,
+        installed: bool,
+    },
     /// Install or update every app in `apps` together: their downloads run as for [`Command::Install`],
     /// but where the platform needs a permission prompt (polkit on Linux, elevation on Windows)
     /// the batch shares one prompt instead of one per app. Apps already running a job are left out.
@@ -82,6 +87,10 @@ pub enum Command {
     /// Fetch the pictures of an app's details page (`core::details`), one [`Event::Screenshot`]
     /// each, the lead picture first. Pictures already saved on this machine arrive without
     /// touching the network. Asking again while they are on their way does nothing.
+    /// Load catalog-owned logo and preview URLs, never a caller-supplied URL.
+    FetchCatalogMedia {
+        app: String,
+    },
     FetchScreenshots {
         app: String,
     },

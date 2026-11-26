@@ -7,15 +7,21 @@ pub struct App {
     pub name: String,
     pub author: String,
     pub level: String,
+    pub delivery: String,
     pub category: String,
     pub description: Description,
     pub alternatives: Vec<String>,
     pub license: String,
     pub repo: String,
     pub website: String,
+    pub logo: String,
+    pub screenshots: Vec<String>,
+    pub license_url: String,
+    pub media_source: serde_json::Value,
     pub agent: Agent,
     pub release: Option<Release>,
     pub stars: Option<Stars>,
+    pub popularity: Option<Popularity>,
 }
 #[derive(Debug, Deserialize)]
 pub struct Description {
@@ -46,6 +52,26 @@ pub struct Stars {
     pub count: u64,
     pub date: String,
     pub source: String,
+}
+#[derive(Debug, Deserialize)]
+pub struct Popularity {
+    pub kind: String,
+    pub count: u64,
+    pub date: String,
+    pub source: String,
+    pub page: String,
+}
+impl Popularity {
+    pub fn label(&self) -> String {
+        let count = self.count as f64;
+        if self.count >= 1_000_000 {
+            format!("{:.1}M Flathub", count / 1_000_000.0)
+        } else if self.count >= 1_000 {
+            format!("{:.1}K Flathub", count / 1_000.0)
+        } else {
+            format!("{} Flathub", self.count)
+        }
+    }
 }
 pub fn apps() -> &'static [App] {
     static APPS: OnceLock<Vec<App>> = OnceLock::new();
@@ -113,5 +139,33 @@ mod recipe_tests {
         assert!(other.assets.is_empty());
         assert!(!super::HANDY.runs_on(crate::Os::Windows));
         assert_eq!(crate::CraftApp::by_id("handy").map(|app| app.repo), Some("cjpais/Handy"));
+    }
+}
+
+/// Refuse image allocations above the same budget used for native screenshots.
+pub fn media_within_budget(bytes: &[u8]) -> bool {
+    if bytes.starts_with(b"\x89PNG\r\n\x1a\n") {
+        let Some(header) = bytes.get(8..24) else { return false };
+        if header[..8] != [0, 0, 0, 13, b'I', b'H', b'D', b'R'] {
+            return false;
+        }
+        let width = u32::from_be_bytes([header[8], header[9], header[10], header[11]]);
+        let height = u32::from_be_bytes([header[12], header[13], header[14], header[15]]);
+        width > 0 && height > 0 && u64::from(width) * u64::from(height) <= crate::details::MAX_SCREENSHOT_PIXELS
+    } else {
+        crate::details::screenshot_within_budget(bytes)
+    }
+}
+
+#[cfg(test)]
+mod media_tests {
+    #[test]
+    fn png_dimension_budget_precedes_decoding() {
+        let png = |w: u32, h: u32| [b"\x89PNG\r\n\x1a\n\x00\x00\x00\x0dIHDR".as_slice(), &w.to_be_bytes(), &h.to_be_bytes()].concat();
+        assert!(super::media_within_budget(&png(1200, 750)));
+        assert!(!super::media_within_budget(&png(u32::MAX, u32::MAX)));
+        assert!(!super::media_within_budget(&png(0, 750)));
+        assert!(!super::media_within_budget(b"\x89PNG\r\n\x1a\n"));
+        assert!(!super::media_within_budget(b"<svg>"));
     }
 }

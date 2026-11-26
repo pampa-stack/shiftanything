@@ -17,6 +17,7 @@ macro_rules! tl {
 }
 
 mod app;
+mod automation;
 mod bar;
 mod bell;
 mod card_parts;

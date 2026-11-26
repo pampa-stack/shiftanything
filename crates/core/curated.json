@@ -134,6 +134,392 @@
     ]
   },
   {
+    "id": "meetily",
+    "name": "Meetily Community",
+    "repo": "https://github.com/Zackriya-Solutions/meetily",
+    "author": "Zackriya Solutions",
+    "level": "base",
+    "category": "voce",
+    "description": {
+      "it": "Trascrive e riassume riunioni sul dispositivo",
+      "en": "Transcribe and summarize meetings on your device"
+    },
+    "alternatives": [
+      "Granola",
+      "Otter.ai",
+      "Fireflies.ai"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Zackriya-Solutions/meetily/blob/main/LICENSE.md",
+    "website": "https://meetily.ai",
+    "releases": "https://github.com/Zackriya-Solutions/meetily/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/frontend/public/logo-collapsed.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/home.png",
+      "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/summary.png"
+    ],
+    "media_source": "https://github.com/Zackriya-Solutions/meetily/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Zackriya-Solutions/meetily/blob/main/README.md"
+    },
+    "stars": {
+      "count": 33084,
+      "source": "https://github.com/Zackriya-Solutions/meetily/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.5.0",
+      "date": "2026-11-14",
+      "source": "https://github.com/Zackriya-Solutions/meetily/releases/tag/v0.5.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 73859994,
+          "size_max": 145361400
+        },
+        {
+          "platform": "macos",
+          "size_min": 48053942,
+          "size_max": 48053942
+        },
+        {
+          "platform": "windows",
+          "size_min": 42600112,
+          "size_max": 68816896
+        }
+      ]
+    }
+  },
+  {
+    "id": "rizzo-pii",
+    "name": "Rizzo-PII",
+    "repo": "https://github.com/Rizzo-AI-Academy/rizzo-pii",
+    "author": "Rizzo AI Academy",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Oscura dati personali in documenti e immagini con OCR locale",
+      "en": "Redact personal data in documents and images with local OCR"
+    },
+    "alternatives": [
+      "Adobe Acrobat Pro",
+      "Ollama OCR"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Rizzo-AI-Academy/rizzo-pii/blob/main/LICENSE",
+    "website": "https://rizzo-ai-academy.github.io/rizzo-pii/",
+    "releases": "https://github.com/Rizzo-AI-Academy/rizzo-pii/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-pii/blob/main/README.md#the-local-http-api"
+    },
+    "logo": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-pii/main/report/images/mascot_shield.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-pii/main/report/images/app_ocr_pdf_censurato.png"
+    ],
+    "media_source": "https://github.com/Rizzo-AI-Academy/rizzo-pii/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-pii/blob/main/README.md"
+    },
+    "stars": {
+      "count": 1308,
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-pii/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.2.0",
+      "date": "2026-11-16",
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-pii/releases/tag/v2.2.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 253704668,
+          "size_max": 1450400248
+        },
+        {
+          "platform": "macos",
+          "size_min": 197183674,
+          "size_max": 1347574804
+        },
+        {
+          "platform": "windows",
+          "size_min": 161012078,
+          "size_max": 1295342870
+        }
+      ]
+    }
+  },
+  {
+    "id": "normcap",
+    "name": "NormCap",
+    "repo": "https://github.com/dynobo/normcap",
+    "author": "dynobo",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Copia il testo da un’area dello schermo con OCR locale",
+      "en": "Copy text from a screen region with local OCR"
+    },
+    "alternatives": [
+      "TextSniper",
+      "macOS Live Text"
+    ],
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://github.com/dynobo/normcap/blob/main/LICENSE",
+    "website": "https://dynobo.github.io/normcap/",
+    "releases": "https://github.com/dynobo/normcap/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/dynobo/normcap/main/docs/assets/favicon-192x192.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/dynobo/normcap/main/docs/assets/screenshot.png"
+    ],
+    "media_source": "https://github.com/dynobo/normcap/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/dynobo/normcap/blob/main/README.md"
+    },
+    "stars": {
+      "count": 2782,
+      "source": "https://github.com/dynobo/normcap/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.6.0",
+      "date": "2025-08-31",
+      "source": "https://github.com/dynobo/normcap/releases/tag/v0.6.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 81787384,
+          "size_max": 81787384
+        },
+        {
+          "platform": "macos",
+          "size_min": 76008653,
+          "size_max": 76441666
+        },
+        {
+          "platform": "windows",
+          "size_min": 118881634,
+          "size_max": 118881634
+        }
+      ]
+    }
+  },
+  {
+    "id": "libreoffice",
+    "name": "LibreOffice",
+    "repo": "https://git.libreoffice.org/core",
+    "author": "The Document Foundation",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Documenti, fogli e presentazioni",
+      "en": "Documents, spreadsheets and presentations"
+    },
+    "alternatives": [
+      "Microsoft 365"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://flathub.org/apps/org.libreoffice.LibreOffice",
+    "website": "http://www.libreoffice.org/discover/libreoffice/",
+    "releases": "https://flathub.org/apps/org.libreoffice.LibreOffice",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html"
+    },
+    "logo": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/icons/128x128/org.libreoffice.LibreOffice.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-1_1248x873@1.png",
+      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-2_752x436@1.png",
+      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-3_752x546@1.png"
+    ],
+    "screenshot_credits": [
+      "Sample Writer document",
+      "Sample Calc document",
+      "Sample Impress document"
+    ],
+    "media_source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.libreoffice.LibreOffice",
+        "source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
+        "download_size": 331094691,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.libreoffice.LibreOffice",
+        "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "homebrew",
+        "id": "libreoffice",
+        "source": "https://formulae.brew.sh/cask/libreoffice"
+      }
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://flathub.org/apps/org.libreoffice.LibreOffice"
+    },
+    "release": {
+      "version": "26.8.3.1",
+      "date": "2026-11-13",
+      "source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
+      "packages": []
+    },
+    "platform_support": {
+      "windows": "https://www.libreoffice.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 2934786,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.libreoffice.LibreOffice",
+      "page": "https://flathub.org/apps/org.libreoffice.LibreOffice"
+    }
+  },
+  {
+    "id": "joplin",
+    "name": "Joplin",
+    "repo": "https://github.com/laurent22/joplin",
+    "author": "Laurent Cozic e collaboratori",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Raccoglie note, taccuini e pagine salvate dal web",
+      "en": "Collect notes, notebooks and pages clipped from the web"
+    },
+    "alternatives": [
+      "Evernote",
+      "Microsoft OneNote"
+    ],
+    "license": "AGPL-3.0-or-later",
+    "license_url": "https://github.com/laurent22/joplin/blob/dev/LICENSE",
+    "website": "https://joplinapp.org",
+    "releases": "https://github.com/laurent22/joplin/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://joplinapp.org/help/api/references/rest_api/"
+    },
+    "logo": "https://raw.githubusercontent.com/laurent22/joplin/dev/Assets/LinuxIcons/256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/laurent22/joplin/dev/Assets/WebsiteAssets/images/home-top-img.png"
+    ],
+    "media_source": "https://github.com/laurent22/joplin/blob/dev/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/laurent22/joplin/blob/dev/README.md"
+    },
+    "stars": {
+      "count": 57370,
+      "source": "https://github.com/laurent22/joplin/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.7.24",
+      "date": "2026-11-19",
+      "source": "https://github.com/laurent22/joplin/releases/tag/v3.7.24",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 168720160,
+          "size_max": 207407075
+        },
+        {
+          "platform": "macos",
+          "size_min": 209105237,
+          "size_max": 212067439
+        },
+        {
+          "platform": "windows",
+          "size_min": 368718896,
+          "size_max": 368947560
+        }
+      ]
+    }
+  },
+  {
+    "id": "drawio",
+    "name": "draw.io Desktop",
+    "repo": "https://github.com/jgraph/drawio-desktop",
+    "author": "JGraph",
+    "level": "base",
+    "category": "design",
+    "description": {
+      "it": "Disegna diagrammi e schemi anche senza connessione",
+      "en": "Draw diagrams and flowcharts offline"
+    },
+    "alternatives": [
+      "Microsoft Visio",
+      "Lucidchart"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/jgraph/drawio-desktop/blob/dev/LICENSE",
+    "website": "https://www.diagrams.net",
+    "releases": "https://github.com/jgraph/drawio-desktop/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/build/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/screenshot.png"
+    ],
+    "media_source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md"
+    },
+    "stars": {
+      "count": 64166,
+      "source": "https://github.com/jgraph/drawio-desktop/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v32.7.4",
+      "date": "2026-11-17",
+      "source": "https://github.com/jgraph/drawio-desktop/releases/tag/v32.7.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 106411008,
+          "size_max": 155407687
+        },
+        {
+          "platform": "macos",
+          "size_min": 158930055,
+          "size_max": 260790513
+        },
+        {
+          "platform": "windows",
+          "size_min": 127268192,
+          "size_max": 150347776
+        }
+      ]
+    }
+  },
+  {
     "id": "orca",
     "name": "Orca",
     "repo": "https://github.com/stablyai/orca",
@@ -254,73 +640,6 @@
           "size_max": 69934191
         }
       ]
-    }
-  },
-  {
-    "id": "libreoffice",
-    "name": "LibreOffice",
-    "repo": "https://git.libreoffice.org/core",
-    "author": "The Document Foundation",
-    "level": "base",
-    "category": "ufficio",
-    "description": {
-      "it": "Documenti, fogli e presentazioni",
-      "en": "Documents, spreadsheets and presentations"
-    },
-    "alternatives": [
-      "Microsoft 365"
-    ],
-    "license": "MPL-2.0",
-    "license_url": "https://flathub.org/apps/org.libreoffice.LibreOffice",
-    "website": "http://www.libreoffice.org/discover/libreoffice/",
-    "releases": "https://flathub.org/apps/org.libreoffice.LibreOffice",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "cli",
-      "source": "https://help.libreoffice.org/latest/en-US/text/shared/guide/start_parameters.html"
-    },
-    "logo": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/icons/128x128/org.libreoffice.LibreOffice.png",
-    "screenshots": [
-      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-1_1248x873@1.png",
-      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-2_752x436@1.png",
-      "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-3_752x546@1.png"
-    ],
-    "screenshot_credits": [
-      "Sample Writer document",
-      "Sample Calc document",
-      "Sample Impress document"
-    ],
-    "media_source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
-    "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "org.libreoffice.LibreOffice",
-        "source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
-        "download_size": 331094691,
-        "download_size_source": "https://flathub.org/api/v2/summary/org.libreoffice.LibreOffice",
-        "download_size_checked": "2026-11-26"
-      },
-      {
-        "platform": "macos",
-        "manager": "homebrew",
-        "id": "libreoffice",
-        "source": "https://formulae.brew.sh/cask/libreoffice"
-      }
-    ],
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://flathub.org/apps/org.libreoffice.LibreOffice"
-    },
-    "release": {
-      "version": "26.8.3.1",
-      "date": "2026-11-13",
-      "source": "https://flathub.org/apps/org.libreoffice.LibreOffice",
-      "packages": []
-    },
-    "platform_support": {
-      "windows": "https://www.libreoffice.org/download/"
     }
   },
   {
@@ -449,6 +768,13 @@
     },
     "platform_support": {
       "windows": "https://kdenlive.org/en/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1894402,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kdenlive",
+      "page": "https://flathub.org/apps/org.kde.kdenlive"
     }
   },
   {
@@ -841,68 +1167,6 @@
       "macos": "https://github.com/NationalSecurityAgency/ghidra/blob/master/README.md",
       "windows": "https://github.com/NationalSecurityAgency/ghidra/blob/master/README.md",
       "linux": "https://github.com/NationalSecurityAgency/ghidra/blob/master/README.md"
-    }
-  },
-  {
-    "id": "andy",
-    "name": "Andy",
-    "repo": "https://github.com/j-roskopf/Andy",
-    "author": "Josh Roskopf",
-    "level": "avanz",
-    "category": "re",
-    "description": {
-      "it": "Workspace di sviluppo e test su emulatori mobili",
-      "en": "Development and testing workspace for mobile emulators"
-    },
-    "alternatives": [
-      "Android Studio"
-    ],
-    "license": "MIT",
-    "license_url": "https://github.com/j-roskopf/Andy#license",
-    "website": "https://github.com/j-roskopf/Andy",
-    "releases": "https://github.com/j-roskopf/Andy/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "mcp",
-      "source": "https://github.com/j-roskopf/Andy/blob/main/README.md"
-    },
-    "logo": "https://raw.githubusercontent.com/j-roskopf/Andy/main/composeApp/src/desktopMain/resources/icons/andy.png",
-    "screenshots": [
-      "https://raw.githubusercontent.com/j-roskopf/Andy/main/src/screenshotTest/roborazzi/macos/desktop-devices-populated.png",
-      "https://raw.githubusercontent.com/j-roskopf/Andy/main/src/screenshotTest/roborazzi/macos/desktop-live-mirror.png"
-    ],
-    "media_source": "https://github.com/j-roskopf/Andy/blob/main/README.md",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/j-roskopf/Andy/blob/main/README.md"
-    },
-    "stars": {
-      "count": 33,
-      "source": "https://github.com/j-roskopf/Andy/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "release/2026.1126.0607",
-      "date": "2026-11-26",
-      "source": "https://github.com/j-roskopf/Andy/releases/tag/release/2026.1126.0607",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 178505956,
-          "size_max": 178505956
-        },
-        {
-          "platform": "macos",
-          "size_min": 190219803,
-          "size_max": 190219803
-        },
-        {
-          "platform": "windows",
-          "size_min": 186466304,
-          "size_max": 186466304
-        }
-      ]
     }
   },
   {
@@ -1725,68 +1989,6 @@
     }
   },
   {
-    "id": "materialcraft",
-    "name": "MaterialCraft",
-    "repo": "https://github.com/storytold/materialcraft",
-    "author": "ArtCraft",
-    "level": "base",
-    "category": "design",
-    "description": {
-      "it": "Materiali 3D procedurali a nodi",
-      "en": "Procedural material design"
-    },
-    "alternatives": [
-      "Adobe Substance 3D Designer"
-    ],
-    "license": "MIT / Apache-2.0",
-    "license_url": "https://github.com/storytold/materialcraft/blob/main/LICENSE-MIT",
-    "website": "https://getartcraft.com/apps/materialcraft",
-    "releases": "https://github.com/storytold/materialcraft/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "mcp",
-      "source": "https://github.com/storytold/materialcraft/blob/main/docs/control-protocol.md"
-    },
-    "logo": "https://getartcraft.com/launcher-app-icons/materialcraft-2844f2a4cf2b1d06c7eeaec8bddf13c69a0a1c3356e6767e8e97eb6b540a2c7c.png",
-    "screenshots": [
-      "https://raw.githubusercontent.com/storytold/materialcraft/main/docs/images/materialcraft-workspace.png",
-      "https://raw.githubusercontent.com/storytold/materialcraft/main/docs/images/materialcraft-wood.png"
-    ],
-    "media_source": "https://github.com/storytold/materialcraft/blob/main/README.md",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/storytold/materialcraft/blob/main/README.md"
-    },
-    "stars": {
-      "count": 453,
-      "source": "https://github.com/storytold/materialcraft/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "v0.4.1",
-      "date": "2026-11-12",
-      "source": "https://github.com/storytold/materialcraft/releases/tag/v0.4.1",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 19622408,
-          "size_max": 22575954
-        },
-        {
-          "platform": "macos",
-          "size_min": 28363305,
-          "size_max": 28363305
-        },
-        {
-          "platform": "windows",
-          "size_min": 14663680,
-          "size_max": 21772300
-        }
-      ]
-    }
-  },
-  {
     "id": "mailcraft",
     "name": "MailCraft",
     "repo": "https://github.com/UCSLabs/mailcraft",
@@ -2099,6 +2301,13 @@
     },
     "platform_support": {
       "windows": "https://www.gimp.org/downloads/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 3966300,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gimp.GIMP",
+      "page": "https://flathub.org/apps/org.gimp.GIMP"
     }
   },
   {
@@ -2167,6 +2376,13 @@
     },
     "platform_support": {
       "windows": "https://krita.org/en/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1823335,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.krita",
+      "page": "https://flathub.org/apps/org.kde.krita"
     }
   },
   {
@@ -2235,6 +2451,13 @@
     },
     "platform_support": {
       "windows": "https://www.blender.org/download/requirements/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1381729,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.blender.Blender",
+      "page": "https://flathub.org/apps/org.blender.Blender"
     }
   },
   {
@@ -2302,6 +2525,13 @@
     },
     "platform_support": {
       "windows": "https://inkscape.org/release/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1514149,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.inkscape.Inkscape",
+      "page": "https://flathub.org/apps/org.inkscape.Inkscape"
     }
   },
   {
@@ -2519,6 +2749,13 @@
     },
     "platform_support": {
       "windows": "https://images.videolan.org/vlc/download-windows.html"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 6304006,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.videolan.VLC",
+      "page": "https://flathub.org/apps/org.videolan.VLC"
     }
   },
   {
@@ -2883,6 +3120,13 @@
       "date": "2026-10-26",
       "source": "https://flathub.org/apps/org.gnome.Fractal",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 104193,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Fractal",
+      "page": "https://flathub.org/apps/org.gnome.Fractal"
     }
   },
   {
@@ -2933,6 +3177,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.tokodon",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 40276,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.tokodon",
+      "page": "https://flathub.org/apps/org.kde.tokodon"
     }
   },
   {
@@ -3119,6 +3370,13 @@
       "date": "2026-10-09",
       "source": "https://flathub.org/apps/org.gnome.Evolution",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 379382,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Evolution",
+      "page": "https://flathub.org/apps/org.gnome.Evolution"
     }
   },
   {
@@ -3170,6 +3428,13 @@
       "date": "2024-05-20",
       "source": "https://flathub.org/apps/org.gnome.Geary",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 265497,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Geary",
+      "page": "https://flathub.org/apps/org.gnome.Geary"
     }
   },
   {
@@ -3221,6 +3486,13 @@
       "date": "2026-09-13",
       "source": "https://flathub.org/apps/org.gnome.Contacts",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 496187,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Contacts",
+      "page": "https://flathub.org/apps/org.gnome.Contacts"
     }
   },
   {
@@ -3274,6 +3546,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.kontact",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 74811,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kontact",
+      "page": "https://flathub.org/apps/org.kde.kontact"
     }
   },
   {
@@ -3326,6 +3605,13 @@
       "date": "2026-11-15",
       "source": "https://flathub.org/apps/org.gnome.Evince",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 420185,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Evince",
+      "page": "https://flathub.org/apps/org.gnome.Evince"
     }
   },
   {
@@ -3381,6 +3667,13 @@
     },
     "platform_support": {
       "windows": "https://okular.kde.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1216218,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.okular",
+      "page": "https://flathub.org/apps/org.kde.okular"
     }
   },
   {
@@ -3434,6 +3727,13 @@
       "date": "2026-10-09",
       "source": "https://flathub.org/apps/org.gnome.Papers",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 244239,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Papers",
+      "page": "https://flathub.org/apps/org.gnome.Papers"
     }
   },
   {
@@ -3632,6 +3932,13 @@
       "date": "2026-10-08",
       "source": "https://flathub.org/apps/org.gnome.gitlab.somas.Apostrophe",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 258874,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.gitlab.somas.Apostrophe",
+      "page": "https://flathub.org/apps/org.gnome.gitlab.somas.Apostrophe"
     }
   },
   {
@@ -3678,6 +3985,13 @@
       "method": "appstream",
       "date": "2026-11-26",
       "source": "https://flathub.org/apps/org.gnome.TextEditor"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 593394,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.TextEditor",
+      "page": "https://flathub.org/apps/org.gnome.TextEditor"
     }
   },
   {
@@ -3732,6 +4046,13 @@
     },
     "platform_support": {
       "windows": "https://kate-editor.org/get-it/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 183900,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kate",
+      "page": "https://flathub.org/apps/org.kde.kate"
     }
   },
   {
@@ -3856,6 +4177,13 @@
       "date": "2026-09-29",
       "source": "https://flathub.org/apps/re.sonny.Workbench",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 102304,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/re.sonny.Workbench",
+      "page": "https://flathub.org/apps/re.sonny.Workbench"
     }
   },
   {
@@ -3907,6 +4235,13 @@
       "date": "2026-03-17",
       "source": "https://flathub.org/apps/org.gnome.Builder",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 213236,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Builder",
+      "page": "https://flathub.org/apps/org.gnome.Builder"
     }
   },
   {
@@ -4019,6 +4354,13 @@
       "date": "2026-03-14",
       "source": "https://flathub.org/apps/org.gnome.Boxes",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1273565,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Boxes",
+      "page": "https://flathub.org/apps/org.gnome.Boxes"
     }
   },
   {
@@ -4073,6 +4415,13 @@
     },
     "platform_support": {
       "windows": "https://filezilla-project.org/download.php?type=client"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 792084,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.filezillaproject.Filezilla",
+      "page": "https://flathub.org/apps/org.filezillaproject.Filezilla"
     }
   },
   {
@@ -4125,6 +4474,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.filelight",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 600840,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.filelight",
+      "page": "https://flathub.org/apps/org.kde.filelight"
     }
   },
   {
@@ -4287,6 +4643,13 @@
       "date": "2025-10-03",
       "source": "https://flathub.org/apps/org.gnome.Firmware",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 253777,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Firmware",
+      "page": "https://flathub.org/apps/org.gnome.Firmware"
     }
   },
   {
@@ -4569,6 +4932,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.yakuake",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 95960,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.yakuake",
+      "page": "https://flathub.org/apps/org.kde.yakuake"
     }
   },
   {
@@ -4622,6 +4992,13 @@
       "date": "2026-07-24",
       "source": "https://flathub.org/apps/io.missioncenter.MissionCenter",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1309872,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/io.missioncenter.MissionCenter",
+      "page": "https://flathub.org/apps/io.missioncenter.MissionCenter"
     }
   },
   {
@@ -4677,6 +5054,13 @@
     "platform_support": {
       "macos": "https://www.wireshark.org/download.html",
       "windows": "https://www.wireshark.org/download.html"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 307618,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.wireshark.Wireshark",
+      "page": "https://flathub.org/apps/org.wireshark.Wireshark"
     }
   },
   {
@@ -4730,6 +5114,13 @@
       "date": "2026-11-11",
       "source": "https://flathub.org/apps/org.remmina.Remmina",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1135383,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.remmina.Remmina",
+      "page": "https://flathub.org/apps/org.remmina.Remmina"
     }
   },
   {
@@ -4943,6 +5334,13 @@
     "platform_support": {
       "macos": "https://www.digikam.org/download/",
       "windows": "https://www.digikam.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 273705,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.digikam",
+      "page": "https://flathub.org/apps/org.kde.digikam"
     }
   },
   {
@@ -4996,6 +5394,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.gnome.Shotwell",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 378171,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Shotwell",
+      "page": "https://flathub.org/apps/org.gnome.Shotwell"
     }
   },
   {
@@ -5049,6 +5454,13 @@
       "date": "2026-11-09",
       "source": "https://flathub.org/apps/org.gnome.Loupe",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 504673,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Loupe",
+      "page": "https://flathub.org/apps/org.gnome.Loupe"
     }
   },
   {
@@ -5099,6 +5511,13 @@
       "date": "2026-09-14",
       "source": "https://flathub.org/apps/org.gnome.Snapshot",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1185441,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Snapshot",
+      "page": "https://flathub.org/apps/org.gnome.Snapshot"
     }
   },
   {
@@ -5148,6 +5567,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.koko",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 67592,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.koko",
+      "page": "https://flathub.org/apps/org.kde.koko"
     }
   },
   {
@@ -5197,6 +5623,13 @@
       "date": "2026-09-27",
       "source": "https://flathub.org/apps/org.gnome.design.IconLibrary",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 58458,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.design.IconLibrary",
+      "page": "https://flathub.org/apps/org.gnome.design.IconLibrary"
     }
   },
   {
@@ -5246,6 +5679,13 @@
       "date": "2025-06-19",
       "source": "https://flathub.org/apps/org.gnome.design.Palette",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 31080,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.design.Palette",
+      "page": "https://flathub.org/apps/org.gnome.design.Palette"
     }
   },
   {
@@ -5306,6 +5746,13 @@
       "date": "2025-12-15",
       "source": "https://flathub.org/apps/net.scribus.Scribus",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 272524,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/net.scribus.Scribus",
+      "page": "https://flathub.org/apps/net.scribus.Scribus"
     }
   },
   {
@@ -6228,6 +6675,13 @@
       "date": "2023-03-26",
       "source": "https://flathub.org/apps/org.pitivi.Pitivi",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 249228,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.pitivi.Pitivi",
+      "page": "https://flathub.org/apps/org.pitivi.Pitivi"
     }
   },
   {
@@ -6335,6 +6789,13 @@
       "date": "2026-11-21",
       "source": "https://flathub.org/apps/org.gnome.Showtime",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 196965,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Showtime",
+      "page": "https://flathub.org/apps/org.gnome.Showtime"
     }
   },
   {
@@ -6519,78 +6980,6 @@
     }
   },
   {
-    "id": "subtitld",
-    "name": "Subtitld",
-    "repo": "https://github.com/Subtitld/subtitld",
-    "author": "Jonatã Bolzan Loss",
-    "level": "base",
-    "category": "video",
-    "description": {
-      "it": "Creazione e modifica di sottotitoli",
-      "en": "Create, translate and dub subtitles"
-    },
-    "alternatives": [],
-    "license": "GPL-3.0-or-later",
-    "license_url": "https://flathub.org/apps/org.subtitld.Subtitld",
-    "website": "https://subtitld.org",
-    "releases": "https://flathub.org/apps/org.subtitld.Subtitld",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://dl.flathub.org/media/org/subtitld/Subtitld/b6eb662f238eb8898539a2890a16a05d/icons/128x128/org.subtitld.Subtitld.png",
-    "screenshots": [
-      "https://dl.flathub.org/media/org/subtitld/Subtitld/b6eb662f238eb8898539a2890a16a05d/screenshots/image-1_752x423@1.png",
-      "https://dl.flathub.org/media/org/subtitld/Subtitld/b6eb662f238eb8898539a2890a16a05d/screenshots/image-2_752x423@1.png",
-      "https://dl.flathub.org/media/org/subtitld/Subtitld/b6eb662f238eb8898539a2890a16a05d/screenshots/image-3_752x423@1.png"
-    ],
-    "media_source": "https://flathub.org/apps/org.subtitld.Subtitld",
-    "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "org.subtitld.Subtitld",
-        "source": "https://flathub.org/apps/org.subtitld.Subtitld",
-        "download_size": 379110226,
-        "download_size_source": "https://flathub.org/api/v2/summary/org.subtitld.Subtitld",
-        "download_size_checked": "2026-11-26"
-      }
-    ],
-    "review": {
-      "method": "appstream",
-      "date": "2026-11-26",
-      "source": "https://flathub.org/apps/org.subtitld.Subtitld"
-    },
-    "stars": {
-      "count": 15,
-      "source": "https://github.com/Subtitld/subtitld/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "v26.11",
-      "date": "2026-11-18",
-      "source": "https://github.com/Subtitld/subtitld/releases/tag/v26.11",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 471763448,
-          "size_max": 471763448
-        },
-        {
-          "platform": "macos",
-          "size_min": 304290232,
-          "size_max": 304290232
-        },
-        {
-          "platform": "windows",
-          "size_min": 505141238,
-          "size_max": 525397794
-        }
-      ]
-    }
-  },
-  {
     "id": "gnome-sound-recorder",
     "name": "GNOME Sound Recorder",
     "repo": "https://gitlab.gnome.org/World/vocalis",
@@ -6638,6 +7027,13 @@
       "date": "2022-03-19",
       "source": "https://flathub.org/apps/org.gnome.SoundRecorder",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 243616,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.SoundRecorder",
+      "page": "https://flathub.org/apps/org.gnome.SoundRecorder"
     }
   },
   {
@@ -6687,6 +7083,13 @@
       "date": "2024-09-18",
       "source": "https://flathub.org/apps/org.gnome.seahorse.Application",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 116326,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.seahorse.Application",
+      "page": "https://flathub.org/apps/org.gnome.seahorse.Application"
     }
   },
   {
@@ -6883,6 +7286,13 @@
     },
     "platform_support": {
       "windows": "https://librewolf.net/installation/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 2047832,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/io.gitlab.librewolf-community",
+      "page": "https://flathub.org/apps/io.gitlab.librewolf-community"
     }
   },
   {
@@ -7085,6 +7495,13 @@
       "date": "2026-08-24",
       "source": "https://flathub.org/apps/org.gnome.Rhythmbox3",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 379380,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Rhythmbox3",
+      "page": "https://flathub.org/apps/org.gnome.Rhythmbox3"
     }
   },
   {
@@ -7340,6 +7757,13 @@
       "date": "2024-05-30",
       "source": "https://flathub.org/apps/de.haeckerfelix.Fragments",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 330913,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/de.haeckerfelix.Fragments",
+      "page": "https://flathub.org/apps/de.haeckerfelix.Fragments"
     }
   },
   {
@@ -7587,6 +8011,13 @@
       "date": "2026-08-04",
       "source": "https://flathub.org/apps/org.gnome.World.PikaBackup",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 457658,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.World.PikaBackup",
+      "page": "https://flathub.org/apps/org.gnome.World.PikaBackup"
     }
   },
   {
@@ -7640,6 +8071,13 @@
       "date": "2026-09-05",
       "source": "https://flathub.org/apps/org.gnome.DejaDup",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 413488,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.DejaDup",
+      "page": "https://flathub.org/apps/org.gnome.DejaDup"
     }
   },
   {
@@ -7689,6 +8127,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.kbackup",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1659,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kbackup",
+      "page": "https://flathub.org/apps/org.kde.kbackup"
     }
   },
   {
@@ -7740,6 +8185,13 @@
       "date": "2026-10-10",
       "source": "https://flathub.org/apps/org.gnome.Calculator",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 738615,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Calculator",
+      "page": "https://flathub.org/apps/org.gnome.Calculator"
     }
   },
   {
@@ -7793,6 +8245,13 @@
       "date": "2026-09-11",
       "source": "https://flathub.org/apps/org.gnome.Calendar",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 512909,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Calendar",
+      "page": "https://flathub.org/apps/org.gnome.Calendar"
     }
   },
   {
@@ -7844,6 +8303,13 @@
       "date": "2026-11-21",
       "source": "https://flathub.org/apps/org.gnome.Maps",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 547123,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Maps",
+      "page": "https://flathub.org/apps/org.gnome.Maps"
     }
   },
   {
@@ -7895,6 +8361,13 @@
       "date": "2026-09-14",
       "source": "https://flathub.org/apps/org.gnome.clocks",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 481379,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.clocks",
+      "page": "https://flathub.org/apps/org.gnome.clocks"
     }
   },
   {
@@ -7946,6 +8419,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.ark",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 246447,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.ark",
+      "page": "https://flathub.org/apps/org.kde.ark"
     }
   },
   {
@@ -7997,6 +8477,13 @@
       "date": "2026-06-22",
       "source": "https://flathub.org/apps/org.gnome.FileRoller",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 363882,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.FileRoller",
+      "page": "https://flathub.org/apps/org.gnome.FileRoller"
     }
   },
   {
@@ -8048,6 +8535,13 @@
       "date": "2026-04-02",
       "source": "https://flathub.org/apps/org.gnome.SimpleScan",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 369037,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.SimpleScan",
+      "page": "https://flathub.org/apps/org.gnome.SimpleScan"
     }
   },
   {
@@ -8166,6 +8660,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.neochat",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 39057,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.neochat",
+      "page": "https://flathub.org/apps/org.kde.neochat"
     }
   },
   {
@@ -8220,6 +8721,13 @@
     },
     "platform_support": {
       "windows": "https://octave.org/download.html"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 133923,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.octave.Octave",
+      "page": "https://flathub.org/apps/org.octave.Octave"
     }
   },
   {
@@ -8347,6 +8855,13 @@
       "date": "2026-05-26",
       "source": "https://flathub.org/apps/org.gnome.gitlab.YaLTeR.VideoTrimmer",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 305197,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.gitlab.YaLTeR.VideoTrimmer",
+      "page": "https://flathub.org/apps/org.gnome.gitlab.YaLTeR.VideoTrimmer"
     }
   },
   {
@@ -8406,62 +8921,6 @@
     }
   },
   {
-    "id": "ffaudioconverter",
-    "name": "FFaudioConverter",
-    "repo": "https://github.com/Bleuzen/FFaudioConverter",
-    "author": "Bleuzen",
-    "level": "base",
-    "category": "video",
-    "description": {
-      "it": "Conversione dei file audio in batch",
-      "en": "Batch audio converter and effects processor"
-    },
-    "alternatives": [],
-    "license": "GPL-3.0",
-    "license_url": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter",
-    "website": "https://github.com/Bleuzen/FFaudioConverter",
-    "releases": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://dl.flathub.org/media/com/github/Bleuzen.FFaudioConverter/70806c6847fa279668f5cfbe8a8ff522/icons/128x128/com.github.Bleuzen.FFaudioConverter.png",
-    "screenshots": [
-      "https://dl.flathub.org/media/com/github/Bleuzen.FFaudioConverter/70806c6847fa279668f5cfbe8a8ff522/screenshots/image-1_orig.png",
-      "https://dl.flathub.org/media/com/github/Bleuzen.FFaudioConverter/70806c6847fa279668f5cfbe8a8ff522/screenshots/image-2_orig.png",
-      "https://dl.flathub.org/media/com/github/Bleuzen.FFaudioConverter/70806c6847fa279668f5cfbe8a8ff522/screenshots/image-3_orig.png"
-    ],
-    "media_source": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter",
-    "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "com.github.Bleuzen.FFaudioConverter",
-        "source": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter",
-        "download_size": 15222985,
-        "download_size_source": "https://flathub.org/api/v2/summary/com.github.Bleuzen.FFaudioConverter",
-        "download_size_checked": "2026-11-26"
-      }
-    ],
-    "review": {
-      "method": "appstream",
-      "date": "2026-11-26",
-      "source": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter"
-    },
-    "stars": {
-      "count": 138,
-      "source": "https://github.com/Bleuzen/FFaudioConverter/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "0.32.0",
-      "date": "2024-04-06",
-      "source": "https://flathub.org/apps/com.github.Bleuzen.FFaudioConverter",
-      "packages": []
-    }
-  },
-  {
     "id": "secrets",
     "name": "Secrets",
     "repo": "https://gitlab.gnome.org/World/secrets",
@@ -8512,6 +8971,13 @@
       "date": "2026-11-20",
       "source": "https://flathub.org/apps/org.gnome.World.Secrets",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 192508,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.World.Secrets",
+      "page": "https://flathub.org/apps/org.gnome.World.Secrets"
     }
   },
   {
@@ -9390,6 +9856,13 @@
       "date": "2026-01-13",
       "source": "https://flathub.org/apps/org.winehq.Wine",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 1469185,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.winehq.Wine",
+      "page": "https://flathub.org/apps/org.winehq.Wine"
     }
   },
   {
@@ -9521,6 +9994,13 @@
       "date": "2026-11-13",
       "source": "https://www.gethomebank.org/ChangeLog",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 125147,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/fr.free.Homebank",
+      "page": "https://flathub.org/apps/fr.free.Homebank"
     }
   },
   {
@@ -9790,6 +10270,13 @@
       "date": "2026-10-15",
       "source": "https://help.scilab.org/docs/2027.0.0/en_US/CHANGES.html",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 50622,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.scilab.Scilab",
+      "page": "https://flathub.org/apps/org.scilab.Scilab"
     }
   },
   {
@@ -9918,6 +10405,13 @@
       "date": "2026-10-08",
       "source": "https://flathub.org/apps/org.kde.kid3",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 85278,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kid3",
+      "page": "https://flathub.org/apps/org.kde.kid3"
     }
   },
   {
@@ -10113,6 +10607,13 @@
     "platform_support": {
       "macos": "https://www.kicad.org/download/",
       "windows": "https://www.kicad.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 521226,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kicad.KiCad",
+      "page": "https://flathub.org/apps/org.kicad.KiCad"
     }
   },
   {
@@ -10253,6 +10754,13 @@
       "date": "2026-11-05",
       "source": "https://flathub.org/apps/org.kde.dolphin",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 503411,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.dolphin",
+      "page": "https://flathub.org/apps/org.kde.dolphin"
     }
   },
   {
@@ -10466,6 +10974,13 @@
       "date": "2026-10-16",
       "source": "https://flathub.org/apps/org.openrgb.OpenRGB",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 513355,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.openrgb.OpenRGB",
+      "page": "https://flathub.org/apps/org.openrgb.OpenRGB"
     }
   },
   {
@@ -10679,6 +11194,13 @@
       "date": "2026-11-09",
       "source": "https://gitlab.gnome.org/World/bazaar/-/releases/v0.10.0",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 602198,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/io.github.kolunmi.Bazaar",
+      "page": "https://flathub.org/apps/io.github.kolunmi.Bazaar"
     }
   },
   {
@@ -11101,6 +11623,13 @@
       "date": "2026-02-17",
       "source": "https://flathub.org/apps/com.abisource.AbiWord",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 106620,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/com.abisource.AbiWord",
+      "page": "https://flathub.org/apps/com.abisource.AbiWord"
     }
   },
   {
@@ -11301,6 +11830,13 @@
       "date": "2025-08-18",
       "source": "https://flathub.org/apps/org.kde.subtitlecomposer",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 48446,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.subtitlecomposer",
+      "page": "https://flathub.org/apps/org.kde.subtitlecomposer"
     }
   },
   {
@@ -11425,6 +11961,13 @@
       "date": "2026-09-17",
       "source": "https://git.jami.net/savoirfairelinux/jami-client-qt/-/wikis/Changelog#nightlystable-20260917",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 69457,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/net.jami.Jami",
+      "page": "https://flathub.org/apps/net.jami.Jami"
     }
   },
   {
@@ -11873,6 +12416,13 @@
       "date": "2026-10-01",
       "source": "https://flathub.org/apps/org.kde.kstars",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 88367,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.kstars",
+      "page": "https://flathub.org/apps/org.kde.kstars"
     }
   },
   {
@@ -12061,6 +12611,13 @@
       "date": "2026-09-14",
       "source": "https://flathub.org/apps/org.gnome.Connections",
       "packages": []
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 340943,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.gnome.Connections",
+      "page": "https://flathub.org/apps/org.gnome.Connections"
     }
   },
   {
@@ -12194,6 +12751,637 @@
           "platform": "linux",
           "size_min": 161843413,
           "size_max": 215388378
+        }
+      ]
+    }
+  },
+  {
+    "id": "kaneo",
+    "name": "Kaneo",
+    "repo": "https://github.com/usekaneo/kaneo",
+    "author": "Kaneo",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza progetti e attività su una bacheca che puoi ospitare",
+      "en": "Organize projects and tasks on a board you can self-host"
+    },
+    "alternatives": [
+      "Linear",
+      "Trello",
+      "Asana"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/usekaneo/kaneo/blob/main/LICENSE",
+    "website": "https://kaneo.app/",
+    "releases": "https://github.com/usekaneo/kaneo/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://kaneo.app/docs/core/integrations/mcp"
+    },
+    "logo": "https://raw.githubusercontent.com/usekaneo/kaneo/main/apps/site/public/logo-512.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/usekaneo/kaneo/main/screenshots/readme%401x.png"
+    ],
+    "media_source": "https://github.com/usekaneo/kaneo/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/usekaneo/kaneo/blob/main/README.md"
+    },
+    "stars": {
+      "count": 9911,
+      "source": "https://github.com/usekaneo/kaneo/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.50.0",
+      "date": "2026-11-19",
+      "source": "https://github.com/usekaneo/kaneo/releases/tag/v2.50.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "plane",
+    "name": "Plane Community",
+    "repo": "https://github.com/makeplane/plane",
+    "author": "Plane",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza attività, cicli e documentazione dei progetti",
+      "en": "Organize project work, cycles and documentation"
+    },
+    "alternatives": [
+      "Linear",
+      "Jira",
+      "Asana"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/makeplane/plane/blob/preview/LICENSE.txt",
+    "website": "http://plane.so",
+    "releases": "https://github.com/makeplane/plane/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/makeplane/plane/preview/apps/web/public/favicon/android-chrome-192x192.png",
+    "screenshots": [
+      "https://media.docs.plane.so/GitHub-readme/github-work-items.webp"
+    ],
+    "media_source": "https://github.com/makeplane/plane/blob/preview/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/makeplane/plane/blob/preview/README.md"
+    },
+    "stars": {
+      "count": 63221,
+      "source": "https://github.com/makeplane/plane/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.5.1",
+      "date": "2026-11-25",
+      "source": "https://github.com/makeplane/plane/releases/tag/v1.5.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "paperless-ngx",
+    "name": "Paperless-ngx",
+    "repo": "https://github.com/paperless-ngx/paperless-ngx",
+    "author": "Paperless-ngx",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Archivia e ritrova PDF e scansioni con l’OCR",
+      "en": "Archive and search PDFs and scans with OCR"
+    },
+    "alternatives": [
+      "Evernote",
+      "DEVONthink"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/paperless-ngx/paperless-ngx/blob/dev/LICENSE",
+    "website": "http://docs.paperless-ngx.com/",
+    "releases": "https://github.com/paperless-ngx/paperless-ngx/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.paperless-ngx.com/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/dev/docs/assets/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/paperless-ngx/paperless-ngx/dev/docs/assets/screenshots/documents-smallcards-dark.png"
+    ],
+    "media_source": "https://github.com/paperless-ngx/paperless-ngx/blob/dev/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/paperless-ngx/paperless-ngx/blob/dev/README.md"
+    },
+    "stars": {
+      "count": 48669,
+      "source": "https://github.com/paperless-ngx/paperless-ngx/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.5.1",
+      "date": "2026-11-18",
+      "source": "https://github.com/paperless-ngx/paperless-ngx/releases/tag/v3.5.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "penpot",
+    "name": "Penpot",
+    "repo": "https://github.com/penpot/penpot",
+    "author": "Penpot",
+    "level": "avanz",
+    "category": "design",
+    "description": {
+      "it": "Disegna interfacce, componenti e prototipi condivisi",
+      "en": "Design interfaces, components and shared prototypes"
+    },
+    "alternatives": [
+      "Figma",
+      "Adobe XD",
+      "Sketch"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/penpot/penpot/blob/develop/LICENSE",
+    "website": "https://penpot.app",
+    "releases": "https://github.com/penpot/penpot/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://penpot.app/ai/mcp-server"
+    },
+    "logo": "https://raw.githubusercontent.com/penpot/penpot/develop/frontend/resources/images/assets/penpot-logo-icon.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/penpot/penpot/develop/docs/img/interface/dashboard-dark.webp"
+    ],
+    "media_source": "https://github.com/penpot/penpot/blob/develop/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/penpot/penpot/blob/develop/README.md"
+    },
+    "stars": {
+      "count": 62786,
+      "source": "https://github.com/penpot/penpot/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "2.19.5",
+      "date": "2026-11-24",
+      "source": "https://github.com/penpot/penpot/releases/tag/2.19.5",
+      "packages": []
+    }
+  },
+  {
+    "id": "appflowy",
+    "name": "AppFlowy",
+    "repo": "https://github.com/AppFlowy-IO/AppFlowy",
+    "author": "AppFlowy",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scrive documenti e organizza note e bacheche",
+      "en": "Write documents and organize notes and boards"
+    },
+    "alternatives": [
+      "Notion",
+      "Coda"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/LICENSE",
+    "website": "https://appflowy.com",
+    "releases": "https://github.com/AppFlowy-IO/AppFlowy/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/frontend/appflowy_flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/128.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/1c12d629-40a0-4f35-9451-97498cf31a25"
+    ],
+    "media_source": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/README.md"
+    },
+    "stars": {
+      "count": 79598,
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "0.15.1",
+      "date": "2026-11-15",
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/releases/tag/0.15.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 150423076,
+          "size_max": 205375887
+        },
+        {
+          "platform": "macos",
+          "size_min": 119286434,
+          "size_max": 231711855
+        },
+        {
+          "platform": "windows",
+          "size_min": 96723728,
+          "size_max": 96723728
+        }
+      ]
+    }
+  },
+  {
+    "id": "immich",
+    "name": "Immich",
+    "repo": "https://github.com/immich-app/immich",
+    "author": "Immich",
+    "level": "avanz",
+    "category": "foto",
+    "description": {
+      "it": "Organizza e salva foto e video sul proprio server",
+      "en": "Organize and back up photos and videos on your own server"
+    },
+    "alternatives": [
+      "Google Photos",
+      "iCloud Photos"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/immich-app/immich/blob/main/LICENSE",
+    "website": "https://immich.app",
+    "releases": "https://github.com/immich-app/immich/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://api.immich.app/"
+    },
+    "logo": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-screenshots.png"
+    ],
+    "media_source": "https://github.com/immich-app/immich/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/immich-app/immich/blob/main/README.md"
+    },
+    "stars": {
+      "count": 120191,
+      "source": "https://github.com/immich-app/immich/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.4.2",
+      "date": "2026-11-18",
+      "source": "https://github.com/immich-app/immich/releases/tag/v3.4.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "rizzo-flow",
+    "name": "Rizzo Flow",
+    "repo": "https://github.com/Rizzo-AI-Academy/rizzo-flow",
+    "author": "Rizzo AI Academy",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Trasforma testo libero in decisioni strutturate tramite un modello locale",
+      "en": "Turn free text into structured decisions using a local model"
+    },
+    "alternatives": [
+      "TypeSafe Jev"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/main/LICENSE",
+    "website": "https://rizzo-ai-academy.github.io/rizzo-flow/",
+    "releases": "https://github.com/Rizzo-AI-Academy/rizzo-flow/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/main/README.md#quick-start"
+    },
+    "logo": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/rizzo_flow_logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp"
+    ],
+    "media_source": "https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/main/README.md"
+    },
+    "stars": {
+      "count": 972,
+      "source": "https://github.com/Rizzo-AI-Academy/rizzo-flow/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "onlyoffice",
+    "name": "ONLYOFFICE Desktop Editors",
+    "repo": "https://github.com/ONLYOFFICE/DesktopEditors",
+    "author": "ONLYOFFICE",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Modifica documenti, fogli e presentazioni in locale",
+      "en": "Edit documents, spreadsheets and presentations locally"
+    },
+    "alternatives": [
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/LICENSE",
+    "website": "https://www.onlyoffice.com",
+    "releases": "https://github.com/ONLYOFFICE/DesktopEditors/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://static-site.onlyoffice.com/public/images/favicons/favicon150.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/ONLYOFFICE/DesktopEditors/master/screenshots/ONLYOFFICE%20Desktop%20Editors.png"
+    ],
+    "media_source": "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/README.md"
+    },
+    "stars": {
+      "count": 5818,
+      "source": "https://github.com/ONLYOFFICE/DesktopEditors/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v10.0.0",
+      "date": "2026-10-13",
+      "source": "https://github.com/ONLYOFFICE/DesktopEditors/releases/tag/v10.0.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 222811889,
+          "size_max": 425810424
+        },
+        {
+          "platform": "macos",
+          "size_min": 340135365,
+          "size_max": 352907862
+        },
+        {
+          "platform": "windows",
+          "size_min": 266184712,
+          "size_max": 299860896
+        }
+      ]
+    }
+  },
+  {
+    "id": "sharex",
+    "name": "ShareX",
+    "repo": "https://github.com/ShareX/ShareX",
+    "author": "ShareX Team",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Cattura lo schermo, annota immagini ed estrae testo su Windows",
+      "en": "Capture your screen, annotate images and extract text on Windows"
+    },
+    "alternatives": [
+      "Snagit",
+      "Greenshot"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/ShareX/ShareX/blob/develop/LICENSE.txt",
+    "website": "https://getsharex.com",
+    "releases": "https://github.com/ShareX/ShareX/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://getsharex.com/docs/command-line-arguments"
+    },
+    "logo": "https://getsharex.com/img/ShareX_Logo.png",
+    "screenshots": [
+      "https://getsharex.com/img/ShareX_Screenshot.png"
+    ],
+    "media_source": "https://github.com/ShareX/ShareX/blob/develop/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ShareX/ShareX/blob/develop/README.md"
+    },
+    "stars": {
+      "count": 41394,
+      "source": "https://github.com/ShareX/ShareX/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v22.4.0",
+      "date": "2026-11-08",
+      "source": "https://github.com/ShareX/ShareX/releases/tag/v22.4.0",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 145391368,
+          "size_max": 145391368
+        }
+      ]
+    }
+  },
+  {
+    "id": "actual",
+    "name": "Actual Budget",
+    "repo": "https://github.com/actualbudget/actual",
+    "author": "Actual Budget",
+    "level": "base",
+    "category": "dati",
+    "description": {
+      "it": "Gestisce budget personali, spese e obiettivi in locale",
+      "en": "Manage personal budgets, spending and goals locally"
+    },
+    "alternatives": [
+      "YNAB",
+      "Quicken"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/actualbudget/actual/blob/master/LICENSE.txt",
+    "website": "https://actualbudget.org",
+    "releases": "https://github.com/actualbudget/actual/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://actualbudget.org/docs/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/actualbudget/actual/master/packages/desktop-client/public/favicon-32x32.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/actualbudget/actual/master/demo.png"
+    ],
+    "media_source": "https://github.com/actualbudget/actual/blob/master/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/actualbudget/actual/blob/master/README.md"
+    },
+    "stars": {
+      "count": 30470,
+      "source": "https://github.com/actualbudget/actual/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v26.11.0",
+      "date": "2026-11-02",
+      "source": "https://github.com/actualbudget/actual/releases/tag/v26.11.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 152393085,
+          "size_max": 153573034
+        },
+        {
+          "platform": "macos",
+          "size_min": 145818730,
+          "size_max": 152732866
+        },
+        {
+          "platform": "windows",
+          "size_min": 114479819,
+          "size_max": 129060169
+        }
+      ]
+    }
+  },
+  {
+    "id": "siyuan",
+    "name": "SiYuan",
+    "repo": "https://github.com/siyuan-note/siyuan",
+    "author": "B3log",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza note, tabelle e collegamenti in locale",
+      "en": "Organize local notes, tables and linked blocks"
+    },
+    "alternatives": [
+      "Notion",
+      "Obsidian"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/siyuan-note/siyuan/blob/master/LICENSE",
+    "website": "https://b3log.org/siyuan",
+    "releases": "https://github.com/siyuan-note/siyuan/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/siyuan-note/siyuan/blob/master/API.md"
+    },
+    "logo": "https://b3log.org/images/brand/siyuan-128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/siyuan-note/siyuan/master/screenshots/feature0.png"
+    ],
+    "media_source": "https://github.com/siyuan-note/siyuan/blob/master/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/siyuan-note/siyuan/blob/master/README.md"
+    },
+    "stars": {
+      "count": 47431,
+      "source": "https://github.com/siyuan-note/siyuan/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.8.12",
+      "date": "2026-11-24",
+      "source": "https://github.com/siyuan-note/siyuan/releases/tag/v3.8.12",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 189055885,
+          "size_max": 284734261
+        },
+        {
+          "platform": "macos",
+          "size_min": 287181431,
+          "size_max": 288887820
+        },
+        {
+          "platform": "windows",
+          "size_min": 207199520,
+          "size_max": 243737040
+        }
+      ]
+    }
+  },
+  {
+    "id": "saber",
+    "name": "Saber",
+    "repo": "https://github.com/saber-notes/saber",
+    "author": "Adil Hanney e collaboratori",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scrive e disegna appunti a mano",
+      "en": "Write and draw handwritten notes"
+    },
+    "alternatives": [
+      "Goodnotes",
+      "Notability",
+      "Microsoft OneNote"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/saber-notes/saber/blob/main/LICENSE.md",
+    "website": "https://saber.adil.hanney.org",
+    "releases": "https://github.com/saber-notes/saber/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/saber-notes/saber/main/assets/icon/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/phoneScreenshots/2_editor.png"
+    ],
+    "media_source": "https://github.com/saber-notes/saber/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/saber-notes/saber/blob/main/README.md"
+    },
+    "stars": {
+      "count": 5084,
+      "source": "https://github.com/saber-notes/saber/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.38.0",
+      "date": "2026-11-21",
+      "source": "https://github.com/saber-notes/saber/releases/tag/v1.38.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 31566344,
+          "size_max": 34413048
+        },
+        {
+          "platform": "windows",
+          "size_min": 41408421,
+          "size_max": 41408421
         }
       ]
     }

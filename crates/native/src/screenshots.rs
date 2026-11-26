@@ -86,6 +86,53 @@ pub fn fetch_all(http: Option<&Http>, paths: &Paths, details: &AppDetails, mut e
     }
 }
 
+/// Uses the existing bounded native HTTPS/cache path for curated media.
+pub fn fetch_catalog(
+    http: Option<&Http>,
+    paths: &Paths,
+    app: &artcraft_launcher_core::curated::App,
+    mut emit: impl FnMut(&str, Result<Vec<u8>, String>),
+) {
+    use sha2::{Digest, Sha256};
+    let media = std::iter::once(("catalog-logo".to_string(), app.logo.as_str()))
+        .chain(app.screenshots.iter().enumerate().map(|(i, url)| (format!("catalog-shot-{i}"), url.as_str())));
+    for (key, url) in media {
+        let saved = paths.cache.join("curated-media").join(format!("{:x}", Sha256::digest(url.as_bytes())));
+        let valid = |bytes: &[u8]| bytes.len() <= MAX_SCREENSHOT_BYTES && artcraft_launcher_core::curated::media_within_budget(bytes);
+        if std::fs::metadata(&saved).is_ok_and(|metadata| metadata.len() <= MAX_SCREENSHOT_BYTES as u64)
+            && let Ok(bytes) = std::fs::read(&saved)
+            && valid(&bytes)
+        {
+            emit(&key, Ok(bytes));
+            continue;
+        }
+        let allowed = [
+            "https://raw.githubusercontent.com/",
+            "https://getartcraft.com/",
+            "https://dl.flathub.org/",
+            "https://paseo.sh/",
+            "https://uptime.kuma.pet/",
+            "https://getsharex.com/",
+            "https://media.docs.plane.so/",
+            "https://github.com/",
+            "https://static-site.onlyoffice.com/",
+            "https://b3log.org/",
+        ];
+        let result = if !allowed.iter().any(|base| url.starts_with(base)) {
+            Err("Unapproved catalog media origin".into())
+        } else {
+            http.ok_or("HTTPS isn't available".to_string())
+                .and_then(|http| http.get_bytes(url, MAX_SCREENSHOT_BYTES))
+                .and_then(|bytes| bytes.ok_or("Catalog image unavailable".into()))
+                .and_then(|bytes| if valid(&bytes) { Ok(bytes) } else { Err("Unsupported image or image exceeds dimensions budget".into()) })
+        };
+        if let Ok(bytes) = &result {
+            let _ = write_atomic(&saved, bytes);
+        }
+        emit(&key, result);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

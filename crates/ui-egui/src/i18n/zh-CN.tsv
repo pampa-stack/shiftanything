@@ -547,3 +547,34 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	All apps	All apps
 
 @plural	Sh*ftAnything · {n} update available|Sh*ftAnything · {n} updates available	Sh*ftAnything · 有 {n} 个可用更新
+	Agent request	Agent request
+	Approve this action in the launcher	Approve this action in the launcher
+	Reject	Reject
+	Approve	Approve
+	Connect agent	Connect agent
+	Search the catalog and request app actions. Approve each action in this launcher.	Search the catalog and request app actions. Approve each action in this launcher.
+	Requires uv. Copy this configuration into your MCP client, then keep the launcher open.	Requires uv. Copy this configuration into your MCP client, then keep the launcher open.
+	Copy configuration	Copy configuration
+	Preview unavailable	Preview unavailable
+	Media source	Media source
+	Manage app	Manage app
+	Featured	Featured
+	Setup unavailable	Setup unavailable
+	Check connection	Check connection
+	Documentation	Documentation
+	Agent contacted this launcher in the last minute	Agent contacted this launcher in the last minute
+	No recent agent call. Ask your client to call get_inventory.	No recent agent call. Ask your client to call get_inventory.
+	Examples	Examples
+	Copy examples	Copy examples
+	Request history	Request history
+	No requests in this session	No requests in this session
+
+	Desktop app	Desktop app
+
+	Last update	Last update
+
+	Download size	Download size
+
+	Source code	Source code
+
+	Self-hosted	Self-hosted

@@ -685,6 +685,19 @@ struct DesktopHost {
 }
 
 impl Host for DesktopHost {
+    fn automation_connection(&self) -> Result<bool, String> {
+        artcraft_launcher_native::automation::connection()
+    }
+    fn automation_configuration(&self) -> Result<String, String> {
+        artcraft_launcher_native::automation::configuration()
+    }
+    fn automation_request(&mut self) -> Option<artcraft_launcher_core::automation::Request> {
+        artcraft_launcher_native::automation::take_request()
+    }
+    fn automation_publish(&mut self, snapshot: &artcraft_launcher_core::automation::Snapshot) {
+        artcraft_launcher_native::automation::publish(snapshot);
+    }
+
     fn title_bar(&self) -> TitleBar {
         if cfg!(target_os = "macos") { TitleBar::MacOs } else { TitleBar::Custom }
     }

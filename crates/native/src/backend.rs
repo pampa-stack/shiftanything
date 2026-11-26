@@ -451,7 +451,7 @@ impl NativeBackend {
     pub fn new(waker: impl Fn() + Send + Sync + 'static) -> Self {
         let paths = Paths::new().unwrap_or_else(|e| {
             log::error!("{e}; keeping files in the temporary folder");
-            Paths::under(&std::env::temp_dir().join("artcraft-launcher"))
+            Paths::under(&std::env::temp_dir().join("shiftanything-launcher"))
         });
         Self::with_paths(artcraft_launcher_core::nightly::InstallChannel::Stable, waker, paths)
     }
@@ -2811,6 +2811,22 @@ impl Backend for NativeBackend {
                 self.start_job(&app, Work::Install(None));
             }
             Command::InstallAll { apps } => self.install_all(&apps),
+            Command::InstallExpected { apps, installed } => {
+                // This command never turns an Update into an Install or vice versa.
+                let valid = !apps.is_empty()
+                    && apps.iter().all(|id| {
+                        CraftApp::by_id(id).is_some_and(|app| self.platform.is_some_and(|p| app.runs_on(p.os)))
+                            && self.installed(id).is_some() == installed
+                    });
+                if valid {
+                    self.install_all(&apps);
+                } else {
+                    for app in apps {
+                        self.shared
+                            .emit(Event::JobFinished { app, result: Err("Approved action rejected: native installation state changed".into()) });
+                    }
+                }
+            }
             Command::Replace { app, path } => {
                 self.start_job(&app, Work::Replace(path));
             }
@@ -2849,9 +2865,7 @@ impl Backend for NativeBackend {
                     Some(inst) => install::launch(def, &inst, &self.paths, &args),
                     None => Err(format!("{} isn't installed", def.name)),
                 };
-                if let Err(e) = result {
-                    self.shared.emit(Event::JobFinished { app, result: Err(e) });
-                }
+                self.shared.emit(Event::JobFinished { app, result: result.map(|()| "Launch request accepted".into()) });
             }
             Command::Reveal { app } => {
                 if let Some(inst) = self.installed(&app) {
@@ -2886,6 +2900,19 @@ impl Backend for NativeBackend {
             }
             Command::UpdateLauncher => self.update_launcher(),
             Command::FetchScreenshots { app } => self.fetch_screenshots(&app),
+            Command::FetchCatalogMedia { app } => {
+                let Some(entry) = artcraft_launcher_core::curated::apps().iter().find(|entry| entry.id == app) else { return };
+                if !self.shared.pictures_busy.lock().unwrap_or_else(PoisonError::into_inner).insert(entry.id.as_str()) {
+                    return;
+                }
+                let (shared, http, paths) = (self.shared.clone(), self.http.clone(), self.paths.clone());
+                std::thread::spawn(move || {
+                    let _busy = PicturesBusy { shared: shared.clone(), app: entry.id.as_str() };
+                    crate::screenshots::fetch_catalog(http.as_ref(), &paths, entry, |key, result| {
+                        shared.emit(Event::Screenshot { app: entry.id.clone(), key: key.to_string(), result });
+                    });
+                });
+            }
             Command::DownloadOrder(order) => {
                 if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
                     install::DOWNLOADS.set_order(order);
@@ -4319,6 +4346,29 @@ mod tests {
         assert!(backend.shared.jobs.lock().unwrap().contains_key(APP));
         drop(held.lock().unwrap().drain(..).collect::<Vec<_>>());
         assert!(backend.shared.jobs.lock().unwrap().is_empty());
+    }
+
+    #[test]
+    fn approved_update_never_installs_an_absent_app() {
+        let root = tempfile::tempdir().unwrap();
+        let mut backend = backend(root.path(), Platform { os: Os::MacOs, arch: Arch::Arm64 }, None);
+        let spawned = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        backend.spawn = Arc::new({
+            let spawned = spawned.clone();
+            move |_| {
+                spawned.fetch_add(1, Ordering::SeqCst);
+            }
+        });
+        backend.send(Command::InstallExpected { apps: vec![APP.into()], installed: true });
+        assert_eq!(spawned.load(Ordering::SeqCst), 0, "an absent app must not start any worker for Update");
+        assert!(!backend.has_active_jobs());
+        assert!(
+            backend
+                .poll()
+                .iter()
+                .any(|event| matches!(event, Event::JobFinished { app, result: Err(message) } if app == APP && message.contains("state changed")))
+        );
+        assert!(!backend.paths.data.exists(), "a rejected update does not create a profile");
     }
 
     /// A backend that knows `release("0.5.0")` and keeps its files under `root`.

@@ -108,6 +108,9 @@ impl CraftApp {
 
     /// Whether this app runs on the given operating system.
     pub fn runs_on(&self, os: crate::Os) -> bool {
+        if self.id == "handy" {
+            return os == crate::Os::MacOs;
+        }
         match os {
             crate::Os::FreeBsd => self.id != "artcraft",
             _ => true,

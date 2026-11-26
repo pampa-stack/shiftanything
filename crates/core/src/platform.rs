@@ -263,6 +263,10 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
+    // Only this platform has a verified Sh*ftAnything recipe for Handy.
+    if stems.contains(&"handy") && platform != (Platform { os: Os::MacOs, arch: Arch::Arm64 }) {
+        return None;
+    }
     let parsed: Vec<(&Asset, AssetName)> = release.assets.iter().filter_map(|a| parse_asset_name(&a.name, stems).map(|n| (a, n))).collect();
     for kind in kinds {
         for token in platform.tokens() {

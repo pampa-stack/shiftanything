@@ -64,3 +64,54 @@ mod tests {
         }
     }
 }
+
+/// Native recipe identity. Asset selection, integrity and signature verification remain native.
+pub const HANDY: crate::CraftApp = crate::CraftApp {
+    id: "handy",
+    name: "Handy",
+    tagline: "Local speech to text",
+    repo: "cjpais/Handy",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [230, 157, 183],
+    ink_light: [120, 40, 70],
+    ink_dark: [240, 180, 205],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "CJ Pais",
+    msi_publisher: None,
+    bundle: Some("com.pais.handy"),
+    site: Some("https://handy.computer"),
+    mac_bundle_name: Some("Handy"),
+    mac_team: Some("UWFLB4GC25"),
+};
+
+const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + 1] {
+    let mut result = [HANDY; crate::SUITE.len() + 1];
+    let mut i = 0;
+    while i < crate::SUITE.len() {
+        result[i] = crate::SUITE[i];
+        i += 1;
+    }
+    result
+}
+pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + 1] = native_apps();
+
+#[cfg(test)]
+mod recipe_tests {
+    #[test]
+    fn handy_recipe_pins_exact_official_asset_and_only_admits_verified_host() {
+        let json = serde_json::json!({"tag_name":"v0.10.2", "assets":[{"name":"Handy_0.10.2_aarch64.dmg", "browser_download_url":"https://github.com/cjpais/Handy/releases/download/v0.10.2/Handy_0.10.2_aarch64.dmg"}]}).to_string();
+        let release = crate::release::parse_github_release(&json, "cjpais/Handy").expect("official package");
+        assert!(release.assets[0].sha256.is_some());
+        let arm = crate::Platform { os: crate::Os::MacOs, arch: crate::Arch::Arm64 };
+        assert!(crate::platform::pick_asset(&release, &["handy"], arm, &[crate::PackageKind::Dmg]).is_some());
+        let intel = crate::Platform { os: crate::Os::MacOs, arch: crate::Arch::X64 };
+        assert!(crate::platform::pick_asset(&release, &["handy"], intel, &[crate::PackageKind::Dmg]).is_none());
+        let other = crate::release::parse_github_release(&json, "untrusted/Handy").expect("valid response with rejected asset");
+        assert!(other.assets.is_empty());
+        assert!(!super::HANDY.runs_on(crate::Os::Windows));
+        assert_eq!(crate::CraftApp::by_id("handy").map(|app| app.repo), Some("cjpais/Handy"));
+    }
+}

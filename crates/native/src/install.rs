@@ -2117,7 +2117,8 @@ pub mod macos {
         move_to_trash_in(path, &trash)
     }
 
-    pub(super) fn move_to_trash_in(path: &Path, trash: &Path) -> Result<(), String> {
+    /// Move into an explicitly selected trash directory (also used by isolated verification).
+    pub fn move_to_trash_in(path: &Path, trash: &Path) -> Result<(), String> {
         let name = path.file_name().ok_or("not an app")?;
         let mut dest = trash.join(name);
         if dest.exists() {

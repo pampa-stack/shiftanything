@@ -416,6 +416,12 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                         .filter(|u| download_url_under(u, &prefix) && *u == format!("{prefix}{tag}/{name}"))?
                         .to_string();
                     let sha256 = a["digest"].as_str().and_then(|d| d.strip_prefix("sha256:")).filter(|h| is_hex64(h)).map(str::to_ascii_lowercase);
+                    // Reviewed package bytes, tied to this exact official repository/tag/name.
+                    let sha256 = if repo == "cjpais/Handy" && tag == "v0.10.2" && name == "Handy_0.10.2_aarch64.dmg" {
+                        Some("b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca".to_string())
+                    } else {
+                        sha256
+                    };
                     Some(Asset { name, size: a["size"].as_u64().unwrap_or(0), url, sha256 })
                 })
                 .collect()

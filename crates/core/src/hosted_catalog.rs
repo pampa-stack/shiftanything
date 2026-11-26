@@ -220,13 +220,15 @@ impl VerifiedCatalog {
                 apps.push(*app);
             }
         }
+        apps.retain(|app| app.id != crate::curated::HANDY.id);
+        apps.push(crate::curated::HANDY);
         Snapshot { apps, details, metadata, icons: kept_icons }
     }
 }
 
 /// Runtime catalog, with the compiled suite as the offline/invalid-response fallback.
 pub fn apps() -> &'static [CraftApp] {
-    ACTIVE.get().map_or(&SUITE, |s| s.apps.as_slice())
+    ACTIVE.get().map_or(&crate::curated::NATIVE_APPS, |s| s.apps.as_slice())
 }
 pub fn details(id: &str) -> Option<&'static AppDetails> {
     ACTIVE.get()?.details.iter().find(|p| p.id == id)
@@ -500,7 +502,7 @@ mod tests {
         let icon = crate::catalog::app_icon_png("photocraft").unwrap().to_vec();
         let snapshot =
             VerifiedCatalog { records: vec![record], rejected_entries: 0 }.into_snapshot(HashMap::from([("examplecraft".into(), icon.clone())]));
-        assert_eq!(snapshot.apps.len(), SUITE.len() + 1);
+        assert_eq!(snapshot.apps.len(), crate::curated::NATIVE_APPS.len() + 1);
         assert_eq!(snapshot.apps[0].id, "examplecraft");
         assert_eq!(snapshot.apps[0].repo, "storytold/examplecraft");
         assert_eq!(snapshot.details[0].headline, "New app");

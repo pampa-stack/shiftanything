@@ -417,11 +417,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                         .to_string();
                     let sha256 = a["digest"].as_str().and_then(|d| d.strip_prefix("sha256:")).filter(|h| is_hex64(h)).map(str::to_ascii_lowercase);
                     // Reviewed package bytes, tied to this exact official repository/tag/name.
-                    let sha256 = if repo == "cjpais/Handy" && tag == "v0.10.2" && name == "Handy_0.10.2_aarch64.dmg" {
-                        Some("b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca".to_string())
-                    } else {
-                        sha256
-                    };
+                    let sha256 = reviewed_asset(repo, &tag).filter(|asset| asset.name == name).and_then(|asset| asset.sha256).or(sha256);
                     Some(Asset { name, size: a["size"].as_u64().unwrap_or(0), url, sha256 })
                 })
                 .collect()
@@ -441,12 +437,28 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
 
 /// A release known only from its tag and `SHA256SUMS.txt` (the quota-free route: the
 /// `releases/latest` redirect names the tag, and the sums list every file).
+fn reviewed_asset(repo: &str, tag: &str) -> Option<Asset> {
+    // Official bytes reviewed independently; this receipt never applies to a different tag,
+    // repository, architecture or asset. Native checksum and signature checks still run.
+    (repo == "cjpais/Handy" && tag == "v0.10.2").then(|| Asset {
+        name: "Handy_0.10.2_aarch64.dmg".into(),
+        size: 14_979_688,
+        url: "https://github.com/cjpais/Handy/releases/download/v0.10.2/Handy_0.10.2_aarch64.dmg".into(),
+        sha256: Some("b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca".into()),
+    })
+}
+
 pub fn release_from_sums(repo: &str, tag: &str, sums: &[(String, String)]) -> Release {
     let prefix = download_prefix(repo);
     let mut assets: Vec<Asset> = sums
         .iter()
         .map(|(hash, name)| Asset { name: name.clone(), size: 0, url: format!("{prefix}{tag}/{name}"), sha256: Some(hash.clone()) })
         .collect();
+    if let Some(asset) = reviewed_asset(repo, tag)
+        && !assets.iter().any(|existing| existing.name == asset.name)
+    {
+        assets.push(asset);
+    }
     assets.push(Asset { name: "SHA256SUMS.txt".into(), size: 0, url: format!("{prefix}{tag}/SHA256SUMS.txt"), sha256: None });
     Release {
         tag: tag.to_string(),
@@ -845,6 +857,20 @@ mod tests {
         let r = release_from_sums(REPO, "v0.5.0", &sums);
         assert_eq!(r.assets[0].url, "https://github.com/storytold/photocraft/releases/download/v0.5.0/photocraft-0.5.0-macos-universal.dmg");
         assert_eq!(r.version, Some(Version::new(0, 5, 0)));
+    }
+
+    #[test]
+    fn reviewed_package_survives_quota_free_discovery_without_a_sums_manifest() {
+        let platform = crate::Platform { os: crate::Os::MacOs, arch: crate::Arch::Arm64 };
+        let release = release_from_sums("cjpais/Handy", "v0.10.2", &[]);
+        let (asset, _) = crate::platform::pick_asset(&release, &["handy"], platform, &[crate::PackageKind::Dmg]).unwrap();
+        assert!(asset.sha256.is_some());
+        for (repo, tag) in [("cjpais/Handy", "v0.10.3"), ("other/Handy", "v0.10.2")] {
+            let release = release_from_sums(repo, tag, &[]);
+            assert!(crate::platform::pick_asset(&release, &["handy"], platform, &[crate::PackageKind::Dmg]).is_none());
+        }
+        let intel = crate::Platform { os: crate::Os::MacOs, arch: crate::Arch::X64 };
+        assert!(crate::platform::pick_asset(&release, &["handy"], intel, &[crate::PackageKind::Dmg]).is_none());
     }
 
     #[test]

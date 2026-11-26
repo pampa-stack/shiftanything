@@ -367,7 +367,7 @@ impl GitHubSource {
             return Err("the latest-release redirect went somewhere that isn't github.com's".into());
         };
         if let Some(e) = self.entry(query, false)
-            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag)
+            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag && r.assets.iter().any(|asset| asset.name != "SHA256SUMS.txt"))
         {
             return Ok(Answer { latest: LatestRelease::Found(r.clone()), source: Source::GitHubPages });
         }

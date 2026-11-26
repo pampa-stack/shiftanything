@@ -2114,6 +2114,10 @@ pub mod macos {
     /// Moves an app to the user's Trash (so it can be put back).
     pub fn move_to_trash(path: &Path) -> Result<(), String> {
         let trash = dirs::home_dir().ok_or("no home folder")?.join(".Trash");
+        move_to_trash_in(path, &trash)
+    }
+
+    pub(super) fn move_to_trash_in(path: &Path, trash: &Path) -> Result<(), String> {
         let name = path.file_name().ok_or("not an app")?;
         let mut dest = trash.join(name);
         if dest.exists() {
@@ -4288,6 +4292,44 @@ mod tests {
                 said = String::from_utf8_lossy(&output.stderr).trim().to_string();
             }
             panic!("hdiutil create failed after 5 tries: {said}");
+        }
+
+        #[test]
+        fn temporary_profile_install_launch_update_remove_cycle() {
+            use std::os::unix::fs::PermissionsExt;
+            let dir = tempfile::tempdir().unwrap();
+            let apps = dir.path().join("Applications");
+            let trash = dir.path().join("Trash");
+            std::fs::create_dir(&apps).unwrap();
+            std::fs::create_dir(&trash).unwrap();
+            let paths = Paths::under(dir.path());
+            let expect = Expect { team: None, version: None };
+            let image = dmg(dir.path(), "0.6.0");
+            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &paths, &expect).unwrap();
+            let executable = placed.join("Contents/MacOS/PhotoCraft");
+            // Own executable fixture: launch proof is a file in the temporary profile.
+            std::fs::write(&executable, "#!/bin/sh\nprintf launched > \"$1\"\n").unwrap();
+            std::fs::set_permissions(&executable, std::fs::Permissions::from_mode(0o755)).unwrap();
+            let marker = dir.path().join("launched");
+            crate::process::launch_binary(&executable, &[marker.display().to_string()]).unwrap();
+            let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+            while !marker.exists() && std::time::Instant::now() < deadline {
+                std::thread::sleep(std::time::Duration::from_millis(20));
+            }
+            assert_eq!(std::fs::read_to_string(&marker).unwrap(), "launched");
+            let mut manifest = crate::manifest::Manifest::default();
+            manifest.apps.insert("photocraft".into(), record("0.6.0", PackageKind::Dmg, placed.clone(), vec![], false));
+            let installed = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
+            let user_data = dir.path().join("user-document");
+            std::fs::write(&user_data, "keep me").unwrap();
+            let update = dmg(dir.path(), "0.7.0");
+            assert_eq!(install_dmg(photocraft(), &update, Some(&installed), Some(&apps), None, &paths, &expect).unwrap(), placed);
+            let updated = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
+            assert!(updated.version > installed.version);
+            super::macos::move_to_trash_in(&placed, &trash).unwrap();
+            assert!(!placed.exists());
+            assert!(trash.join("PhotoCraft.app").exists());
+            assert_eq!(std::fs::read_to_string(user_data).unwrap(), "keep me");
         }
 
         #[test]

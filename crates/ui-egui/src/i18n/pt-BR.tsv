@@ -549,3 +549,21 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Go back	Go back
 	{app} {version} isn't published any more, so it couldn't be put back if going back fails.	{app} {version} isn't published any more, so it couldn't be put back if going back fails.
 	Going back to an older version of {app} isn't available for this kind of install yet.	Going back to an older version of {app} isn't available for this kind of install yet.
+
+# Sh*ftAnything catalog (English fallback).
+	Agent control	Agent control
+	Alternative to	Alternative to
+	Basic	Basic
+	Catalog	Catalog
+	Category	Category
+	GitHub stars	GitHub stars
+	Managed installation not available	Managed installation not available
+	My apps	My apps
+	Publisher	Publisher
+	Reset filters	Reset filters
+	Search	Search
+	Quit Sh*ftAnything	Quit Sh*ftAnything
+	Show Sh*ftAnything	Show Sh*ftAnything
+	All apps	All apps
+
+@plural	Sh*ftAnything · {n} update available|Sh*ftAnything · {n} updates available	Sh*ftAnything · {n} atualização disponível|Sh*ftAnything · {n} atualizações disponíveis

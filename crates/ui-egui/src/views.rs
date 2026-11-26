@@ -173,15 +173,6 @@ impl LauncherUi {
         let t = Tokens::get(ui.ctx());
         let h = HEADER_H;
         let channel_width = self.channel_navigation_width(ui);
-        let logo = vec2(14.0 * crate::icons::ARTCRAFT_LOGO_ASPECT, 14.0);
-        // The Settings gear and the announcements bell are each one h-wide cell.
-        let reserved = h
-            + h
-            + channel_width.unwrap_or(0.0)
-            + theme::PAD
-            + if bar == TitleBar::Custom { widgets::window_buttons_width() } else { 0.0 }
-            + if bar == TitleBar::MacOs { TRAFFIC_LIGHTS_W } else { 0.0 };
-        let compact_brand = channel_width.is_some() && logo.x + 40.0 + reserved > ui.available_width();
         if bar != TitleBar::Native {
             widgets::title_bar_drag(ui);
         }
@@ -190,17 +181,16 @@ impl LauncherUi {
             if bar == TitleBar::MacOs {
                 ui.add_space(TRAFFIC_LIGHTS_W);
             }
-            // The ArtCraft wordmark exactly as supplied, in its own cell.
-            let (cell, _) = ui.allocate_exact_size(vec2(if compact_brand { h } else { logo.x + 40.0 }, h), Sense::hover());
-            if compact_brand {
-                egui::Image::new(crate::icons::artcraft_mark())
-                    .alt_text(tl!("ArtCraft"))
-                    .paint_at(ui, Rect::from_center_size(cell.center(), vec2(28.0, 28.0)));
-            } else {
-                egui::Image::new(crate::icons::artcraft_logo(t.dark))
-                    .alt_text(tl!("ArtCraft"))
-                    .paint_at(ui, Rect::from_center_size(cell.center(), logo));
-            }
+            ui.add(
+                egui::Image::new(egui::include_image!("../../../assets/shiftanything/icon.png"))
+                    .alt_text("Sh*ftAnything")
+                    .fit_to_exact_size(vec2(32.0, 32.0)),
+            );
+            let brand_width =
+                (ui.available_width() - if bar == TitleBar::Custom { widgets::window_buttons_width() } else { 0.0 } - 2.0 * h).clamp(100.0, 240.0);
+            let (cell, response) = ui.allocate_exact_size(vec2(brand_width, h), Sense::hover());
+            ui.put(cell, egui::Label::new(RichText::new("Sh*ftAnything").size(24.0).strong().italics().color(t.ink_strong)));
+            response.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Label, true, "Sh*ftAnything"));
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if bar == TitleBar::Custom {
                     widgets::window_buttons(ui, h);
@@ -1576,7 +1566,10 @@ enum PinDropAxis {
 
 /// The pages the toolbar's toggle offers, in order: the Craft App Suite, then Fonts (desktop only).
 fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
-    let mut pages = vec![(Page::Apps, widgets::Cell { label: tl!("Apps"), tip: tl!("Craft App Suite"), count: None })];
+    let mut pages = vec![
+        (Page::Catalog, widgets::Cell { label: tl!("Catalog"), tip: tl!("Catalog"), count: None }),
+        (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None }),
+    ];
     if cfg!(not(target_arch = "wasm32")) {
         pages.push((Page::Fonts, widgets::Cell { label: tl!("Fonts"), tip: tl!("Fonts for every Craft app"), count: None }));
     }

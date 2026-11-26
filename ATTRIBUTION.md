@@ -100,3 +100,9 @@ licensed like those apps. Refresh them from the source path, never redraw them.
 | Dependency | Author | Source and version | License |
 |---|---|---|---|
 | `rustix` | The rustix project developers | <https://github.com/bytecodealliance/rustix>, 1.1.5 (already locked; now directly used for Nightly held-directory operations) | MIT, selected from upstream's offered license alternatives; permission notice in `NOTICE` |
+
+## Sh*ftAnything fork
+
+The native engine and bundled fonts retain their upstream ArtCraft credits and MIT/Apache-2.0 licences.
+`assets/shiftanything/icon.png` is the approved Promptica Sh*ftAnything mark supplied by the operator, converted from `marchi/shiftanything.webp` in the Regia design reference on 2026-11-26. It replaces the upstream launcher mark in the desktop window and tray.
+`crates/core/curated.json` is the editorial catalog supplied by Promptica on 2026-11-26. Repository, release, media and verification sources remain recorded per entry. Linked third-party projects and marks belong to their respective authors; inclusion is not an installation verification.

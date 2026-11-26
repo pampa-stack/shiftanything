@@ -83,6 +83,7 @@ pub enum Page {
     /// The Craft App Suite.
     #[default]
     Apps,
+    Catalog,
     /// Craft Font Manager (desktop only).
     Fonts,
 }
@@ -210,6 +211,7 @@ pub struct LauncherUi {
     pub(crate) bell_new: std::collections::BTreeSet<String>,
     /// Alerts from the signed notices file, shown as popups until acknowledged.
     pub(crate) alerts: Vec<artcraft_launcher_core::notices::Notice>,
+    pub(crate) curated: crate::curated::Catalog,
     pub(crate) search: String,
     pub(crate) toasts: Vec<Toast>,
     pub(crate) dialog: Option<Dialog>,
@@ -342,6 +344,7 @@ impl LauncherUi {
             bell_open: false,
             bell_new: std::collections::BTreeSet::new(),
             alerts: Vec::new(),
+            curated: crate::curated::Catalog::default(),
             search: String::new(),
             toasts: Vec::new(),
             dialog: None,
@@ -364,7 +367,7 @@ impl LauncherUi {
             was_focused: true,
             auto_update_attempted: std::collections::BTreeSet::new(),
             discord_url: artcraft_launcher_core::catalog::DISCORD_URL,
-            page: Page::Apps,
+            page: Page::Catalog,
             #[cfg(not(target_arch = "wasm32"))]
             fonts: crate::fonts::FontsTab::new(),
             pending: Vec::new(),
@@ -1036,6 +1039,10 @@ impl LauncherUi {
             }
             #[cfg(not(target_arch = "wasm32"))]
             self.fonts.hidden();
+            if self.page == Page::Catalog {
+                self.curated_page(ui);
+                return;
+            }
             ui.add_space(18.0);
             egui::Frame::new().inner_margin(egui::Margin::symmetric(20, 0)).show(ui, |ui| self.apps_page(ui));
         });
@@ -1052,7 +1059,13 @@ impl LauncherUi {
     /// The Craft App Suite as cards or a table, below the toolbar.
     fn apps_page(&mut self, ui: &mut egui::Ui) {
         let tokens = Tokens::get(ui.ctx());
-        let ids = self.visible_ids();
+        let ids: Vec<_> = self
+            .visible_ids()
+            .into_iter()
+            .filter(|id| {
+                self.entries.iter().any(|entry| entry.app.id == *id && (entry.installed.is_some() || entry.job.is_some() || entry.paused.is_some()))
+            })
+            .collect();
         // The table is wider than a narrow window: let it scroll sideways too.
         let scroll = match self.settings.view {
             ViewMode::Grid => egui::ScrollArea::vertical(),

@@ -230,7 +230,7 @@ impl LauncherUi {
         });
     }
 
-    fn catalog_media(&mut self, app: &curated::App) {
+    pub(crate) fn catalog_media(&mut self, app: &curated::App) {
         let key = (app.id.clone(), "catalog-logo".into());
         if let std::collections::hash_map::Entry::Vacant(entry) = self.pictures.entry(key) {
             entry.insert(crate::details::Picture::Loading);

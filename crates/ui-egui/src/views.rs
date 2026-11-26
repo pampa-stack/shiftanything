@@ -1570,8 +1570,7 @@ fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
         (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None, literal_case: false }),
     ];
     if cfg!(not(target_arch = "wasm32")) {
-        pages.push((Page::Fonts, widgets::Cell { label: tl!("Fonts"), tip: tl!("Fonts for every Craft app"), count: None, literal_case: false }));
-        pages.push((Page::Shifter, widgets::Cell { label: "sh*fter", tip: "sh*fter", count: None, literal_case: true }));
+        pages.push((Page::Shifter, widgets::Cell { label: "SH*FTER", tip: "SH*FTER", count: None, literal_case: true }));
     }
     pages
 }

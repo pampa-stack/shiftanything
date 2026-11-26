@@ -7,6 +7,7 @@ use crate::LauncherUi;
 #[derive(Default)]
 pub(crate) struct Comparison {
     query: String,
+    pub(crate) sources: Option<(String, Vec<String>)>,
     profile: Option<String>,
     selected: Vec<String>,
     required: Vec<String>,
@@ -24,19 +25,26 @@ impl LauncherUi {
             return;
         };
         let language = crate::i18n::current().code();
-        egui::Frame::new().inner_margin(20).show(ui, |ui| {
-            ui.heading("sh*fter");
-            ui.label(tl!("Choose what matters. Compare documented features."));
+        egui::Frame::new().inner_margin(18).show(ui, |ui| {
+            ui.columns(2, |columns| {
+                columns[0].heading("SH*FTER");
+                columns[0].label(tl!("Choose what matters. Compare documented features."));
+                self.shifter_search(&mut columns[1]);
+            });
+            ui.add_space(12.0);
+            self.shifter_profiles(ui, data);
             ui.add_space(12.0);
             ui.horizontal_top(|ui| {
-                ui.vertical(|ui| {
-                    ui.set_width(280.0);
-                    egui::ScrollArea::vertical()
-                        .id_salt("shifter-controls")
-                        .max_height(ui.available_height())
-                        .show(ui, |ui| self.shifter_selection(ui, data, language));
+                let tokens = crate::theme::Tokens::get(ui.ctx());
+                egui::Frame::new().fill(tokens.sunken).stroke(egui::Stroke::new(1.0, tokens.line)).inner_margin(12).show(ui, |ui| {
+                    ui.vertical(|ui| {
+                        ui.set_width(320.0);
+                        egui::ScrollArea::vertical().id_salt("shifter-controls").max_height(ui.available_height()).show(ui, |ui| {
+                            self.shifter_selection(ui, data, language);
+                        });
+                    });
                 });
-                ui.separator();
+                ui.add_space(6.0);
                 ui.vertical(|ui| {
                     ui.set_width(ui.available_width());
                     if let Some(profile) = self.comparison.profile.as_ref().and_then(|id| data.profiles.iter().find(|profile| profile.id == *id)) {
@@ -51,35 +59,44 @@ impl LauncherUi {
                 });
             });
         });
+        self.shifter_sources(ui, data, language);
+    }
+
+    fn shifter_search(&mut self, ui: &mut Ui) {
+        ui.label(RichText::new(tl!("Paid software")).size(10.0).family(egui::FontFamily::Monospace));
+        ui.horizontal(|ui| {
+            ui.add(egui::TextEdit::singleline(&mut self.comparison.query).desired_width(260.0)).accessible_name(tl!("Paid software"));
+            if ui.add_enabled(!self.comparison.query.trim().is_empty(), egui::Button::new(tl!("Compare manually"))).clicked() {
+                self.comparison.manual_name = Some(self.comparison.query.trim().to_owned());
+                self.comparison.profile = None;
+                self.comparison.manual_features.clear();
+                self.comparison.manual_required.clear();
+                let name = shifter::normalize(&self.comparison.query);
+                self.comparison.manual_apps = curated::apps()
+                    .iter()
+                    .filter(|app| app.alternatives.iter().any(|alternative| shifter::normalize(alternative) == name))
+                    .map(|app| app.id.clone())
+                    .collect();
+            }
+        });
+    }
+
+    fn shifter_profiles(&mut self, ui: &mut Ui, data: &shifter::Dataset) {
+        ui.horizontal_wrapped(|ui| {
+            for profile in &data.profiles {
+                if (self.comparison.query.is_empty() || profile.matches(&self.comparison.query))
+                    && ui.selectable_label(self.comparison.profile.as_deref() == Some(&profile.id), &profile.name).clicked()
+                {
+                    self.comparison.profile = Some(profile.id.clone());
+                    self.comparison.manual_name = None;
+                    self.comparison.selected = profile.features.iter().map(|feature| feature.id.clone()).collect();
+                    self.comparison.required.clear();
+                }
+            }
+        });
     }
 
     fn shifter_selection(&mut self, ui: &mut Ui, data: &shifter::Dataset, language: &str) {
-        ui.label(tl!("Paid software"));
-        ui.add(egui::TextEdit::singleline(&mut self.comparison.query).desired_width(270.0)).accessible_name(tl!("Paid software"));
-        for profile in &data.profiles {
-            if (self.comparison.query.is_empty() || profile.matches(&self.comparison.query))
-                && ui.selectable_label(self.comparison.profile.as_deref() == Some(&profile.id), &profile.name).clicked()
-            {
-                self.comparison.profile = Some(profile.id.clone());
-                self.comparison.manual_name = None;
-                self.comparison.selected = profile.features.iter().map(|feature| feature.id.clone()).collect();
-                self.comparison.required.clear();
-            }
-        }
-        let manual = ui.add_enabled(!self.comparison.query.trim().is_empty(), egui::Button::new(tl!("Compare manually")));
-        if manual.clicked() {
-            self.comparison.manual_name = Some(self.comparison.query.trim().to_owned());
-            self.comparison.profile = None;
-            self.comparison.manual_features.clear();
-            self.comparison.manual_required.clear();
-            let name = shifter::normalize(&self.comparison.query);
-            self.comparison.manual_apps = curated::apps()
-                .iter()
-                .filter(|app| app.alternatives.iter().any(|alternative| shifter::normalize(alternative) == name))
-                .map(|app| app.id.clone())
-                .collect();
-        }
-        ui.separator();
         if let Some(profile) = self.comparison.profile.as_ref().and_then(|id| data.profiles.iter().find(|profile| profile.id == *id)) {
             ui.strong(tl!("Features to compare"));
             for feature in &profile.features {
@@ -118,66 +135,124 @@ impl LauncherUi {
     }
 
     fn shifter_results(&mut self, ui: &mut Ui, profile: &shifter::Profile, language: &str) {
-        ui.heading(&profile.name);
-        let selected = &self.comparison.selected;
-        let required = &self.comparison.required;
-        let scores = match profile.compare(selected, required) {
+        use egui_extras::{Column, TableBuilder};
+        let selected = self.comparison.selected.clone();
+        let required = self.comparison.required.clone();
+        let scores = match profile.compare(&selected, &required) {
             Ok(scores) => scores,
             Err(error) => {
                 ui.label(error);
                 return;
             }
         };
-        if selected.is_empty() {
-            ui.label(tl!("Select at least one feature. No percentage is calculated."));
-        }
-        ui.label(tl!("Complete requirements first, then documented coverage and name."));
-        egui::ScrollArea::both().max_height(ui.available_height()).auto_shrink([false, false]).show(ui, |ui| {
-            egui::Grid::new("shifter-results").striped(true).min_col_width(80.0).max_col_width(140.0).spacing([14.0, 16.0]).show(ui, |ui| {
-                ui.strong(tl!("App"));
-                ui.strong(tl!("Documented coverage"));
-                ui.strong(tl!("Required features"));
-                for feature in &profile.features {
-                    if selected.contains(&feature.id) {
-                        let label = feature.name.in_language(language);
-                        ui.label(RichText::new(if required.contains(&feature.id) { format!("★ {label}") } else { label.to_owned() }).strong());
-                    }
-                }
-                ui.strong(tl!("App details"));
-                ui.end_row();
-                for score in scores {
-                    let Some(app) = curated::apps().iter().find(|app| app.id == score.app_id) else { continue };
-                    ui.label(RichText::new(&app.name).strong());
-                    ui.label(score.coverage.map_or_else(
-                        || tl!("No verified evidence").to_owned(),
-                        |coverage| format!("{coverage}% · {}/{}", score.supported, selected.len()),
-                    ));
-                    if required.is_empty() {
-                        ui.label("—");
-                    } else if score.missing_required.is_empty() {
-                        ui.label(tl!("All required features confirmed"));
-                    } else {
-                        let missing = score
-                            .missing_required
-                            .iter()
-                            .filter_map(|id| profile.features.iter().find(|feature| feature.id == *id))
-                            .map(|feature| feature.name.in_language(language))
-                            .collect::<Vec<_>>()
-                            .join(", ");
-                        ui.label(format!("⚠ {}: {missing}", tl!("Required feature not confirmed")));
-                    }
-                    for feature in &profile.features {
-                        if selected.contains(&feature.id) {
-                            evidence_cell(ui, profile.evidence(&app.id, &feature.id), language);
-                        }
-                    }
-                    if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
-                        self.curated.detail = Some(app.id.clone());
-                    }
-                    ui.end_row();
-                }
+        let tokens = crate::theme::Tokens::get(ui.ctx());
+        egui::Frame::new().fill(tokens.sunken).stroke(egui::Stroke::new(1.0, tokens.line)).inner_margin(12).show(ui, |ui| {
+            ui.horizontal(|ui| {
+                ui.strong(tl!("Open-source alternatives"));
+                ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
+                    ui.label(&profile.name);
+                });
             });
+            ui.separator();
+            if selected.is_empty() {
+                ui.label(tl!("Select at least one feature. No percentage is calculated."));
+            }
+            let width = ui.available_width();
+            TableBuilder::new(ui)
+                .id_salt("shifter-results")
+                .striped(true)
+                .cell_layout(egui::Layout::left_to_right(egui::Align::Center))
+                .column(Column::exact(width * 0.27))
+                .column(Column::exact(width * 0.23))
+                .column(Column::remainder())
+                .column(Column::exact(200.0))
+                .header(32.0, |mut header| {
+                    for title in [tl!("App"), tl!("Documented coverage"), tl!("Required features"), tl!("Sources / details")] {
+                        header.col(|ui| {
+                            ui.label(RichText::new(title).size(11.0).family(egui::FontFamily::Monospace));
+                        });
+                    }
+                })
+                .body(|mut body| {
+                    for score in scores {
+                        let Some(app) = curated::apps().iter().find(|app| app.id == score.app_id) else { continue };
+                        self.catalog_media(app);
+                        body.row(48.0, |mut row| {
+                            row.col(|ui| {
+                                if let Some(icon) = self.picture_source(&app.id, "catalog-logo").or_else(|| crate::icons::app(&app.id)) {
+                                    ui.add(egui::Image::new(icon).fit_to_exact_size(egui::vec2(24.0, 24.0)).alt_text(format!("{} logo", app.name)));
+                                }
+                                ui.strong(&app.name);
+                            });
+                            row.col(|ui| {
+                                if let Some(coverage) = score.coverage {
+                                    ui.label(RichText::new(format!("{coverage}%")).size(18.0).strong().color(tokens.good));
+                                    ui.label(format!("{}/{}", score.supported, selected.len()));
+                                } else {
+                                    ui.label(tl!("No verified evidence"));
+                                }
+                            });
+                            row.col(|ui| {
+                                if required.is_empty() {
+                                    ui.label("—");
+                                } else if score.missing_required.is_empty() {
+                                    ui.label(tl!("All required features confirmed"));
+                                } else {
+                                    let names = score
+                                        .missing_required
+                                        .iter()
+                                        .filter_map(|id| profile.features.iter().find(|feature| feature.id == *id))
+                                        .map(|feature| feature.name.in_language(language))
+                                        .collect::<Vec<_>>()
+                                        .join(", ");
+                                    ui.label(
+                                        RichText::new(format!("⚠ {}: {}", tl!("Required feature not confirmed"), score.missing_required.len()))
+                                            .color(tokens.warn),
+                                    )
+                                    .on_hover_text(names);
+                                }
+                            });
+                            row.col(|ui| {
+                                if ui.button(tl!("Sources")).accessible_name(format!("{} · {}", tl!("Sources"), app.name)).clicked() {
+                                    self.comparison.sources =
+                                        Some((app.id.clone(), selected.iter().map(|id| format!("{}:{id}", profile.id)).collect()));
+                                }
+                                if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
+                                    self.curated.detail = Some(app.id.clone());
+                                }
+                            });
+                        });
+                    }
+                });
+            ui.separator();
+            ui.label(format!("{} · {}", tl!("Evidence checked"), shifter::data().map_or("—", |data| data.checked_on.as_str())));
         });
+    }
+
+    fn shifter_sources(&mut self, ui: &mut Ui, data: &shifter::Dataset, language: &str) {
+        let Some((app_id, features)) = self.comparison.sources.clone() else { return };
+        let Some(app) = curated::apps().iter().find(|app| app.id == app_id) else { return };
+        let mut open = true;
+        egui::Window::new(format!("{} · {}", tl!("Sources"), app.name))
+            .id(egui::Id::unique("shifter-sources"))
+            .open(&mut open)
+            .default_width(620.0)
+            .resizable(true)
+            .show(ui.ctx(), |ui| {
+                for key in features {
+                    let Some((_, feature)) = data.feature(&key) else { continue };
+                    ui.strong(feature.name.in_language(language));
+                    evidence_cell(ui, data.evidence(&app.id, &key), language);
+                    if let Some(evidence) = data.evidence(&app.id, &key) {
+                        ui.label(evidence.note.in_language(language));
+                    }
+                    ui.separator();
+                }
+                ui.label(format!("{} · {}", tl!("Evidence checked"), data.checked_on));
+            });
+        if !open || ui.input(|input| input.key_pressed(egui::Key::Escape)) {
+            self.comparison.sources = None;
+        }
     }
 
     fn shifter_manual_controls(&mut self, ui: &mut Ui, data: &shifter::Dataset, language: &str) {

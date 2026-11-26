@@ -1673,7 +1673,8 @@ mod tests {
         h.run_steps(5);
         h.get_by_label("Catalog");
         h.get_by_label("My apps");
-        h.get_by_label("Fonts");
+        assert!(h.query_all_by_label("Fonts").next().is_none());
+        h.get_by_label("SH*FTER");
         h.get_by_label("Settings");
         assert!(
             h.get_by_label("Image editing").rect().min.y >= h.get_by_label("PhotoCraft").rect().max.y,
@@ -1690,7 +1691,7 @@ mod tests {
         assert!(h.state().as_ref().unwrap().curated.level.is_empty());
         if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
             h.render().unwrap().save(std::path::Path::new(&dir).join("catalog.png")).unwrap();
-            println!("Accessibility checked: Catalog, My apps, Fonts, Settings, Advanced, Reset filters; deferred products absent");
+            println!("Accessibility checked: Catalog, My apps, sh*fter, Settings, Advanced, Reset filters; deferred products absent");
         }
         h.get_by_label("Show apps as a table").click_accesskit();
         h.run_steps(3);
@@ -1708,10 +1709,13 @@ mod tests {
         for language in ["en", "it"] {
             let mut h = picker_harness(language, 1440.0);
             h.run_steps(5);
-            let fonts = h.get_by_label(if language == "it" { "Font" } else { "Fonts" }).rect();
-            let shifter = h.get_by_label("sh*fter").rect();
-            assert!(fonts.right() <= shifter.left(), "sh*fter follows Fonts");
-            h.get_by_label("sh*fter").click_accesskit();
+            assert!(h.query_all_by_label(if language == "it" { "Font" } else { "Fonts" }).next().is_none());
+            let apps = h.get_by_label(if language == "it" { "Le mie app" } else { "My apps" }).rect();
+            let shifter = h.get_by_label("SH*FTER").rect();
+            assert!(apps.right() <= shifter.left(), "sh*fter follows My apps");
+            h.get_by_label("SH*FTER").focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::Space);
             h.run_steps(4);
             h.get_by_label("Adobe Photoshop").click_accesskit();
             h.run_steps(4);
@@ -1724,9 +1728,24 @@ mod tests {
                     .next()
                     .is_some()
             );
+            let details = h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).rect();
+            let functions = h.get_by_label(feature).rect();
+            assert!(
+                functions.right() < details.left() && details.right() <= 1440.0 && details.bottom() <= 900.0,
+                "functions stay on the left and result actions inside the reference viewport"
+            );
             if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
                 h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-{language}.png"))).unwrap();
             }
+            h.get_by_label(if language == "it" { "Fonti · PhotoCraft" } else { "Sources · PhotoCraft" }).click_accesskit();
+            h.run_steps(3);
+            assert!(h.query_all_by_label(if language == "it" { "Assente" } else { "Absent" }).next().is_some());
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-sources-{language}.png"))).unwrap();
+            }
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().comparison.sources.is_none());
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })
                 .click();
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })

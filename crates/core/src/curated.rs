@@ -153,7 +153,7 @@ mod tests {
         assert!(timeshift.explicitly_unsupported_on(crate::Os::MacOs));
         assert!(timeshift.explicitly_unsupported_on(crate::Os::Windows));
         assert!(!timeshift.explicitly_unsupported_on(crate::Os::Linux));
-        for id in ["handy", "restic", "kopia", "plane"] {
+        for id in ["handy", "backrest", "kopia", "plane"] {
             let app = apps.iter().find(|app| app.id == id).unwrap();
             for os in [crate::Os::MacOs, crate::Os::Windows, crate::Os::Linux] {
                 assert!(!app.explicitly_unsupported_on(os), "missing recipes or evidence are not incompatibility: {id}");

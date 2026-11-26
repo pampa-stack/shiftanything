@@ -205,7 +205,7 @@ mod tests {
         let selected: Vec<_> = arq.features.iter().map(|feature| feature.id.clone()).collect();
         let scores = arq.compare(&selected, &[]).unwrap();
         assert!(scores.iter().any(|score| score.app_id == "kopia" && score.supported == selected.len()));
-        assert!(scores.iter().any(|score| score.app_id == "restic" && score.supported < selected.len()));
+        assert!(scores.iter().any(|score| score.app_id == "backrest" && score.supported < selected.len()));
     }
 
     #[test]

@@ -26,9 +26,11 @@ async def main():
             assert filters["total"] == expected_total
             results = (await session.call_tool("search_apps", {"query": "Handy", "publisher": "CJ Pais", "level": "base"})).structuredContent
             assert any(app["id"] == "handy" for app in results["apps"])
-            for app_id in ["prompticraft", "eyecraft", "oneshotanything", "unknown-app"]:
+            for app_id in ["prompticraft", "eyecraft", "oneshotanything", "restic", "wine", "chatbox", "unknown-app"]:
                 result = (await session.call_tool("get_app", {"app_id": app_id})).structuredContent
                 assert result["error"] == "unknown_app"
+            backrest = (await session.call_tool("get_app", {"app_id": "backrest"})).structuredContent["app"]
+            assert backrest["name"] == "Backrest" and backrest["repo"].endswith("garethgeorge/backrest")
             for query in ["Granola", "Linear", "OCR"]:
                 results = (await session.call_tool("search_apps", {"query": query})).structuredContent
                 assert results["total"] > 0, query

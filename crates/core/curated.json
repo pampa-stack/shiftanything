@@ -1669,7 +1669,8 @@
           "size_max": 102176915
         }
       ]
-    }
+    },
+    "edition": "Alpha"
   },
   {
     "id": "wordcraft",
@@ -2120,12 +2121,13 @@
     "level": "base",
     "category": "sviluppo",
     "description": {
-      "it": "Agente di coding con scelta del modello",
-      "en": "Coding agent with a choice of models"
+      "it": "Interfaccia desktop per il coding con agenti, anche con modelli locali via Ollama.",
+      "en": "Desktop interface for coding with agents, including local models through Ollama."
     },
     "alternatives": [
       "Cursor",
-      "Claude Code"
+      "Claude Code",
+      "Google Antigravity"
     ],
     "license": "MIT",
     "license_url": "https://github.com/anomalyco/opencode#license",
@@ -2143,8 +2145,8 @@
     "media_source": "https://github.com/anomalyco/opencode/blob/dev/README.md",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/anomalyco/opencode/blob/dev/README.md"
+      "date": "2026-11-27",
+      "source": "https://opencode.ai/download"
     },
     "stars": {
       "count": 229371,
@@ -2172,7 +2174,8 @@
           "size_max": 126419768
         }
       ]
-    }
+    },
+    "edition": "Desktop beta"
   },
   {
     "id": "cutter",
@@ -9801,71 +9804,6 @@
     }
   },
   {
-    "id": "wine",
-    "name": "Wine",
-    "repo": "https://gitlab.winehq.org/wine/wine",
-    "author": "Wine Project",
-    "level": "avanz",
-    "category": "sistema",
-    "description": {
-      "it": "Reimplementazione delle API Windows per eseguire programmi compatibili",
-      "en": "Windows API reimplementation for running compatible programs"
-    },
-    "alternatives": [
-      "Windows"
-    ],
-    "license": "LGPL-2.1+",
-    "license_url": "https://flathub.org/apps/org.winehq.Wine",
-    "website": "https://www.winehq.org",
-    "releases": "https://flathub.org/apps/org.winehq.Wine",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://dl.flathub.org/media/org/winehq/Wine/c7ab06894e69de0c0ab4f436c42f846a/icons/128x128/org.winehq.Wine.png",
-    "screenshots": [
-      "https://dl.flathub.org/media/org/winehq/Wine/c7ab06894e69de0c0ab4f436c42f846a/screenshots/image-1_orig.png",
-      "https://dl.flathub.org/media/org/winehq/Wine/c7ab06894e69de0c0ab4f436c42f846a/screenshots/image-2_orig.png",
-      "https://dl.flathub.org/media/org/winehq/Wine/c7ab06894e69de0c0ab4f436c42f846a/screenshots/image-3_orig.png"
-    ],
-    "screenshot_credits": [
-      null,
-      null,
-      null
-    ],
-    "media_source": "https://flathub.org/apps/org.winehq.Wine",
-    "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "org.winehq.Wine",
-        "source": "https://flathub.org/apps/org.winehq.Wine",
-        "download_size": 125696108,
-        "download_size_source": "https://flathub.org/api/v2/summary/org.winehq.Wine",
-        "download_size_checked": "2026-11-26"
-      }
-    ],
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://flathub.org/apps/org.winehq.Wine"
-    },
-    "release": {
-      "version": "11.0",
-      "date": "2026-01-13",
-      "source": "https://flathub.org/apps/org.winehq.Wine",
-      "packages": []
-    },
-    "popularity": {
-      "kind": "flathub_installs",
-      "count": 1469185,
-      "date": "2026-11-26",
-      "source": "https://flathub.org/api/v2/stats/org.winehq.Wine",
-      "page": "https://flathub.org/apps/org.winehq.Wine"
-    }
-  },
-  {
     "id": "gnucash",
     "name": "GnuCash",
     "repo": "https://github.com/Gnucash/gnucash",
@@ -12950,8 +12888,8 @@
     "level": "base",
     "category": "note",
     "description": {
-      "it": "Scrive documenti e organizza note e bacheche",
-      "en": "Write documents and organize notes and boards"
+      "it": "Scrive documenti e organizza note e bacheche in locale, anche senza account.",
+      "en": "Write documents and organize notes and boards locally, including without an account."
     },
     "alternatives": [
       "Notion",
@@ -12973,8 +12911,8 @@
     "media_source": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/README.md",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/README.md"
+      "date": "2026-11-27",
+      "source": "https://github.com/AppFlowy-IO/AppFlowy/blob/0.15.1/frontend/appflowy_flutter/lib/user/presentation/screens/sign_in_screen/desktop_sign_in_screen.dart"
     },
     "stars": {
       "count": 79598,
@@ -13002,7 +12940,8 @@
           "size_max": 96723728
         }
       ]
-    }
+    },
+    "edition": "Desktop"
   },
   {
     "id": "immich",
@@ -16070,8 +16009,8 @@
     "level": "base",
     "category": "agenti",
     "description": {
-      "it": "Esegue modelli AI sul computer. Chat desktop su macOS e Windows; terminale e API anche su Linux.",
-      "en": "Run AI models on your computer. Desktop chat on macOS and Windows; terminal and API also on Linux."
+      "it": "Chat con modelli AI locali su macOS e Windows.",
+      "en": "Chat with local AI models on macOS and Windows."
     },
     "alternatives": [
       "OpenAI API",
@@ -16093,8 +16032,8 @@
     "media_source": "https://ollama.com/blog/new-app",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/ollama/ollama/blob/main/README.md"
+      "date": "2026-11-27",
+      "source": "https://ollama.com/blog/new-app"
     },
     "stars": {
       "count": 188225,
@@ -16107,11 +16046,6 @@
       "source": "https://github.com/ollama/ollama/releases/tag/v0.40.18",
       "packages": [
         {
-          "platform": "linux",
-          "size_min": 1648243083,
-          "size_max": 1704011634
-        },
-        {
           "platform": "macos",
           "size_min": 231986751,
           "size_max": 232758599
@@ -16122,7 +16056,13 @@
           "size_max": 1953587080
         }
       ]
-    }
+    },
+    "platform_support": {
+      "macos": "https://ollama.com/blog/new-app",
+      "windows": "https://ollama.com/blog/new-app"
+    },
+    "edition": "Desktop",
+    "platform_scope_complete": true
   },
   {
     "id": "librechat",
@@ -16355,8 +16295,8 @@
     "level": "base",
     "category": "agenti",
     "description": {
-      "it": "Usa gli agenti di coding configurati sul tuo computer da un'interfaccia grafica. Disponibile in locale e self-hosted.",
-      "en": "Use coding agents configured on your computer from a graphical interface. Available locally and self-hosted."
+      "it": "Dashboard autogestita per agenti di coding. Con OpenCode può usare modelli locali.",
+      "en": "Self-hosted dashboard for coding agents. Supports local models through OpenCode."
     },
     "alternatives": [
       "Claude Code",
@@ -16365,9 +16305,9 @@
     ],
     "license": "AGPL-3.0-or-later",
     "license_url": "https://github.com/siteboon/claudecodeui/blob/main/LICENSE",
-    "website": "https://cloudcli.ai",
+    "website": "https://github.com/siteboon/claudecodeui#deployment-options",
     "releases": "https://cloudcli.ai/download",
-    "delivery": "desktop",
+    "delivery": "self-hosted",
     "agent": {
       "kind": "unknown",
       "source": null
@@ -16380,8 +16320,8 @@
     "media_source": "https://github.com/siteboon/claudecodeui/blob/main/README.md",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://cloudcli.ai/download"
+      "date": "2026-11-27",
+      "source": "https://github.com/siteboon/claudecodeui#deployment-options"
     },
     "stars": {
       "count": 14779,
@@ -16409,7 +16349,8 @@
           "size_max": 109836460
         }
       ]
-    }
+    },
+    "edition": "Self-hosted"
   },
   {
     "id": "vibe-kanban",
@@ -16419,8 +16360,8 @@
     "level": "avanz",
     "category": "agenti",
     "description": {
-      "it": "Organizza task di coding assistito, workspace Git e revisioni del codice.",
-      "en": "Organise AI-assisted coding tasks, Git workspaces, and code reviews."
+      "it": "Dashboard locale per coordinare agenti di coding e rivedere le modifiche.",
+      "en": "Local dashboard for coordinating coding agents and reviewing changes."
     },
     "alternatives": [
       "Conductor",
@@ -16428,7 +16369,7 @@
     ],
     "license": "Apache-2.0",
     "license_url": "https://github.com/BloopAI/vibe-kanban/blob/main/LICENSE",
-    "website": "https://www.vibekanban.com/",
+    "website": "https://github.com/BloopAI/vibe-kanban",
     "releases": "https://vibekanban.com/docs/self-hosting/deploy-docker",
     "delivery": "self-hosted",
     "agent": {
@@ -16443,8 +16384,8 @@
     "media_source": "https://github.com/BloopAI/vibe-kanban/blob/main/README.md",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/BloopAI/vibe-kanban/blob/main/README.md"
+      "date": "2026-11-27",
+      "source": "https://github.com/BloopAI/vibe-kanban/releases/tag/v0.1.46.1794744340"
     },
     "stars": {
       "count": 28832,
@@ -16456,7 +16397,8 @@
       "date": "2026-11-15",
       "source": "https://github.com/BloopAI/vibe-kanban/releases/tag/v0.1.46.1794744340",
       "packages": []
-    }
+    },
+    "edition": "Community"
   },
   {
     "id": "neovide",
@@ -16656,8 +16598,8 @@
     "level": "base",
     "category": "sviluppo",
     "description": {
-      "it": "Editor di codice collaborativo con terminale e Git. Può usare anche modelli locali.",
-      "en": "Collaborative code editor with terminal and Git. It can also use local models."
+      "it": "Editor di codice con terminale, Git e modelli locali opzionali. La build ufficiale ha termini propri.",
+      "en": "Code editor with Git, terminal and optional local models. The official build is governed by separate terms."
     },
     "alternatives": [
       "Cursor",
@@ -16682,8 +16624,8 @@
     "media_source": "https://flathub.org/apps/dev.zed.Zed",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://github.com/zed-industries/zed/blob/main/README.md"
+      "date": "2026-11-27",
+      "source": "https://zed.dev/terms/zed"
     },
     "stars": {
       "count": 95792,
@@ -16711,7 +16653,8 @@
           "size_max": 64806744
         }
       ]
-    }
+    },
+    "edition": "Personal"
   },
   {
     "id": "sioyek",
@@ -16934,7 +16877,8 @@
       "date": "2026-11-23",
       "source": "https://github.com/Leantime/leantime/releases/tag/v3.17.0",
       "packages": []
-    }
+    },
+    "edition": "Open Source"
   },
   {
     "id": "openproject",
@@ -16982,130 +16926,6 @@
       "date": "2026-11-19",
       "source": "https://github.com/opf/openproject/releases/tag/v17.8.3",
       "packages": []
-    }
-  },
-  {
-    "id": "chatbox",
-    "name": "Chatbox Community",
-    "repo": "https://github.com/chatboxai/chatbox",
-    "author": "Chatbox",
-    "level": "base",
-    "category": "agenti",
-    "description": {
-      "it": "Chat AI desktop con supporto a Ollama locale e alle proprie chiavi API.",
-      "en": "Desktop AI chat with local Ollama support and your own API keys."
-    },
-    "alternatives": [
-      "ChatGPT",
-      "Claude",
-      "TypingMind"
-    ],
-    "license": "GPL-3.0",
-    "license_url": "https://github.com/chatboxai/chatbox/blob/main/LICENSE",
-    "website": "https://chatboxai.app?utm_medium=github",
-    "releases": "https://github.com/chatboxai/chatbox/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/icon.png",
-    "screenshots": [
-      "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/snapshot_light.png",
-      "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/snapshot_dark.png"
-    ],
-    "media_source": "https://github.com/chatboxai/chatbox/blob/main/README.md",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://chatboxai.app/en/guide/getting-started/choose-provider"
-    },
-    "stars": {
-      "count": 42548,
-      "source": "https://github.com/chatboxai/chatbox/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "v1.24.4",
-      "date": "2026-11-12",
-      "source": "https://github.com/chatboxai/chatbox/releases/tag/v1.24.4",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 130633152,
-          "size_max": 136971932
-        },
-        {
-          "platform": "macos",
-          "size_min": 157996502,
-          "size_max": 165182243
-        },
-        {
-          "platform": "windows",
-          "size_min": 241083488,
-          "size_max": 241083488
-        }
-      ]
-    }
-  },
-  {
-    "id": "restic",
-    "name": "restic",
-    "repo": "https://github.com/restic/restic",
-    "author": "restic contributors",
-    "level": "avanz",
-    "category": "backup",
-    "description": {
-      "it": "Backup cifrati da terminale su disco, server e cloud",
-      "en": "Encrypted command-line backups to disk, servers and cloud storage"
-    },
-    "alternatives": [
-      "Backblaze Computer Backup",
-      "Arq Backup"
-    ],
-    "license": "BSD-2-Clause",
-    "license_url": "https://github.com/restic/restic/blob/master/LICENSE",
-    "website": "https://restic.net",
-    "releases": "https://github.com/restic/restic/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "cli",
-      "source": "https://restic.readthedocs.io/en/stable/manual_rest.html"
-    },
-    "logo": "https://raw.githubusercontent.com/restic/restic/master/doc/logo/logo.png",
-    "screenshots": [],
-    "media_source": "https://restic.readthedocs.io/en/stable/",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://restic.readthedocs.io/en/stable/"
-    },
-    "stars": {
-      "count": 37485,
-      "source": "https://github.com/restic/restic/stargazers",
-      "date": "2026-11-26"
-    },
-    "release": {
-      "version": "v0.20.0",
-      "date": "2026-11-19",
-      "source": "https://github.com/restic/restic/releases/tag/v0.20.0",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 10365057,
-          "size_max": 12639573
-        },
-        {
-          "platform": "macos",
-          "size_min": 12147949,
-          "size_max": 13119441
-        },
-        {
-          "platform": "windows",
-          "size_min": 13531064,
-          "size_max": 13944434
-        }
-      ]
     }
   },
   {
@@ -19126,6 +18946,2281 @@
       "date": "2025-05-26",
       "source": "https://flathub.org/apps/org.tuxpaint.Tuxpaint",
       "packages": []
+    }
+  },
+  {
+    "id": "hermes-agent",
+    "name": "Hermes Agent",
+    "repo": "https://github.com/NousResearch/hermes-agent",
+    "author": "Nous Research",
+    "category": "agenti",
+    "level": "avanz",
+    "description": {
+      "it": "Assistente con app desktop, memoria e strumenti. Può usare modelli locali con Ollama o llama.cpp. Provider cloud opzionali.",
+      "en": "Assistant with a desktop app, memory and tools. Supports local Ollama or llama.cpp models. Optional cloud providers."
+    },
+    "alternatives": [],
+    "website": "https://hermes-agent.nousresearch.com/docs/",
+    "releases": "https://github.com/NousResearch/hermes-agent/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/NousResearch/hermes-agent/blob/main/LICENSE",
+    "agent": {
+      "kind": "cli",
+      "source": "https://hermes-agent.nousresearch.com/docs/reference/cli-commands"
+    },
+    "logo": "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/apps/desktop/assets/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/NousResearch/hermes-agent/main/apps/desktop/pr-assets/session-source-folders.png"
+    ],
+    "media_source": "https://github.com/NousResearch/hermes-agent/tree/main/apps/desktop",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://hermes-agent.nousresearch.com/docs/user-guide/desktop"
+    },
+    "stars": {
+      "count": 266378,
+      "date": "2026-11-27",
+      "source": "https://github.com/NousResearch/hermes-agent/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://hermes-agent.nousresearch.com/docs/user-guide/desktop",
+      "linux": "https://hermes-agent.nousresearch.com/docs/user-guide/desktop",
+      "windows": "https://hermes-agent.nousresearch.com/docs/user-guide/desktop"
+    },
+    "release": {
+      "version": "0.23.4",
+      "date": "2026-11-24",
+      "source": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "openclaw",
+    "name": "OpenClaw",
+    "repo": "https://github.com/openclaw/openclaw",
+    "author": "OpenClaw contributors",
+    "category": "agenti",
+    "level": "avanz",
+    "description": {
+      "it": "Assistente personale con dashboard del gateway e app desktop. Supporta modelli Ollama in locale.",
+      "en": "Personal assistant with a gateway dashboard and a desktop app. Supports local Ollama models."
+    },
+    "alternatives": [],
+    "website": "https://openclaw.ai/",
+    "releases": "https://github.com/openclaw/openclaw/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/openclaw/openclaw/blob/main/LICENSE",
+    "agent": {
+      "kind": "cli",
+      "source": "https://docs.openclaw.ai/cli"
+    },
+    "logo": "https://raw.githubusercontent.com/openclaw/openclaw/main/ui/public/favicon-32.png",
+    "screenshots": [],
+    "media_source": "https://github.com/openclaw/openclaw/tree/main/ui",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.openclaw.ai/web/control-ui"
+    },
+    "stars": {
+      "count": 395300,
+      "date": "2026-11-27",
+      "source": "https://github.com/openclaw/openclaw/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.10",
+      "linux": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.10",
+      "windows": "https://docs.openclaw.ai/web/control-ui"
+    },
+    "release": {
+      "version": "2026.11.10",
+      "date": "2026-11-25",
+      "source": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.10",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 248813181,
+          "size_max": 381959331
+        },
+        {
+          "platform": "linux",
+          "size_min": 422091012,
+          "size_max": 498661880
+        }
+      ]
+    }
+  },
+  {
+    "id": "voice-studio",
+    "name": "VoiceStudio Community",
+    "repo": "https://github.com/debpalash/VoiceStudio",
+    "author": "VoiceStudio contributors",
+    "category": "voce",
+    "level": "base",
+    "description": {
+      "it": "Studio locale per trascrizione, doppiaggio e produzione vocale. Edizione Community, con Pro e cloud opzionali.",
+      "en": "Local studio for transcription, dubbing and voice production. Community edition, with optional Pro and cloud."
+    },
+    "alternatives": [
+      "ElevenLabs"
+    ],
+    "website": "https://voicestudio.sh",
+    "releases": "https://github.com/debpalash/VoiceStudio/releases",
+    "delivery": "desktop",
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/debpalash/VoiceStudio/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/overview.webp",
+      "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/dubbing.webp",
+      "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/models.webp"
+    ],
+    "media_source": "https://github.com/debpalash/VoiceStudio",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/debpalash/VoiceStudio/releases/tag/v0.5.8"
+    },
+    "stars": {
+      "count": 118886,
+      "date": "2026-11-27",
+      "source": "https://github.com/debpalash/VoiceStudio/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/debpalash/VoiceStudio/releases/tag/v0.5.8",
+      "linux": "https://github.com/debpalash/VoiceStudio/releases/tag/v0.5.8",
+      "windows": "https://github.com/debpalash/VoiceStudio/releases/tag/v0.5.8"
+    },
+    "release": {
+      "version": "0.5.8",
+      "date": "2026-11-12",
+      "source": "https://github.com/debpalash/VoiceStudio/releases/tag/v0.5.8",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 284723682,
+          "size_max": 291279950
+        },
+        {
+          "platform": "linux",
+          "size_min": 229137372,
+          "size_max": 289429504
+        },
+        {
+          "platform": "windows",
+          "size_min": 225781545,
+          "size_max": 232785545
+        }
+      ]
+    }
+  },
+  {
+    "id": "recordly",
+    "name": "Recordly",
+    "repo": "https://github.com/webadderallorg/Recordly",
+    "author": "Recordly contributors",
+    "category": "video",
+    "level": "base",
+    "description": {
+      "it": "Registra schermo, webcam e audio. Ha zoom automatico, cursore animato e montaggio su timeline.",
+      "en": "Record screen, webcam and audio. Includes auto-zoom, cursor animation and timeline editing."
+    },
+    "alternatives": [
+      "Screen Studio",
+      "Loom"
+    ],
+    "website": "https://recordly.dev",
+    "releases": "https://github.com/webadderallorg/Recordly/releases",
+    "delivery": "desktop",
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/webadderallorg/Recordly/blob/main/LICENSE.md",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://github.com/user-attachments/assets/414b8838-6731-45d4-a815-6e3c0aa1fe52",
+    "screenshots": [],
+    "media_source": "https://github.com/webadderallorg/Recordly",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/webadderallorg/Recordly/releases/tag/v1.4.0"
+    },
+    "stars": {
+      "count": 37529,
+      "date": "2026-11-27",
+      "source": "https://github.com/webadderallorg/Recordly/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/webadderallorg/Recordly/releases/tag/v1.4.0",
+      "linux": "https://github.com/webadderallorg/Recordly/releases/tag/v1.4.0",
+      "windows": "https://github.com/webadderallorg/Recordly/releases/tag/v1.4.0"
+    },
+    "release": {
+      "version": "1.4.0",
+      "date": "2026-09-08",
+      "source": "https://github.com/webadderallorg/Recordly/releases/tag/v1.4.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 187987169,
+          "size_max": 199551284
+        },
+        {
+          "platform": "linux",
+          "size_min": 204317716,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 185307721,
+          "size_max": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "openscreen",
+    "name": "OpenScreen",
+    "repo": "https://github.com/getopenscreen/openscreen",
+    "author": "OpenScreen contributors",
+    "category": "video",
+    "level": "base",
+    "description": {
+      "it": "Registra lo schermo e monta demo con zoom automatici, evidenziazione del cursore e modifica della trascrizione.",
+      "en": "Record the screen and edit demos with automatic zooms, cursor styling and transcript-based edits."
+    },
+    "alternatives": [
+      "Screen Studio",
+      "Loom"
+    ],
+    "website": "https://getopenscreen.com/",
+    "releases": "https://github.com/getopenscreen/openscreen/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/getopenscreen/openscreen/blob/main/LICENSE",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://github.com/getopenscreen/openscreen#readme"
+    },
+    "logo": "https://raw.githubusercontent.com/getopenscreen/openscreen/main/public/openscreen.png",
+    "screenshots": [],
+    "media_source": "https://github.com/getopenscreen/openscreen",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/getopenscreen/openscreen/releases/tag/v2.4.0"
+    },
+    "stars": {
+      "count": 8193,
+      "date": "2026-11-27",
+      "source": "https://github.com/getopenscreen/openscreen/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/getopenscreen/openscreen/releases/tag/v2.4.0",
+      "linux": "https://github.com/getopenscreen/openscreen/releases/tag/v2.4.0",
+      "windows": "https://github.com/getopenscreen/openscreen/releases/tag/v2.4.0"
+    },
+    "release": {
+      "version": "2.4.0",
+      "date": "2026-11-23",
+      "source": "https://github.com/getopenscreen/openscreen/releases/tag/v2.4.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 141308945,
+          "size_max": 142698685
+        },
+        {
+          "platform": "linux",
+          "size_min": 206691845,
+          "size_max": 272114534
+        },
+        {
+          "platform": "windows",
+          "size_min": 157802309,
+          "size_max": 179442222
+        }
+      ]
+    }
+  },
+  {
+    "id": "vibe-transcribe",
+    "name": "Vibe",
+    "repo": "https://github.com/thewh1teagle/vibe",
+    "author": "Vibe contributors",
+    "category": "voce",
+    "level": "base",
+    "description": {
+      "it": "Trascrive file audio e video in locale ed esporta testo e sottotitoli.",
+      "en": "Transcribes audio and video locally and exports text and subtitles."
+    },
+    "alternatives": [
+      "Otter.ai",
+      "Descript"
+    ],
+    "website": "https://thewh1teagle.github.io/vibe/",
+    "releases": "https://github.com/thewh1teagle/vibe/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/thewh1teagle/vibe/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/thewh1teagle/vibe/main/design/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/thewh1teagle/vibe/main/design/app-preview-light.png"
+    ],
+    "media_source": "https://github.com/thewh1teagle/vibe",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/thewh1teagle/vibe/releases/tag/v3.3.8"
+    },
+    "stars": {
+      "count": 8246,
+      "date": "2026-11-27",
+      "source": "https://github.com/thewh1teagle/vibe/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/thewh1teagle/vibe/releases/tag/v3.3.8",
+      "linux": "https://github.com/thewh1teagle/vibe/releases/tag/v3.3.8",
+      "windows": "https://github.com/thewh1teagle/vibe/releases/tag/v3.3.8"
+    },
+    "release": {
+      "version": "3.3.8",
+      "date": "2026-11-21",
+      "source": "https://github.com/thewh1teagle/vibe/releases/tag/v3.3.8",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 38640733,
+          "size_max": 45251710
+        },
+        {
+          "platform": "linux",
+          "size_min": 31498289,
+          "size_max": 35774670
+        },
+        {
+          "platform": "windows",
+          "size_min": 44869408,
+          "size_max": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "openwhispr",
+    "name": "OpenWhispr Local",
+    "repo": "https://github.com/OpenWhispr/openwhispr",
+    "author": "OpenWhispr contributors",
+    "category": "voce",
+    "level": "base",
+    "description": {
+      "it": "Dettatura in qualsiasi app tramite scorciatoia. L’elaborazione locale con Whisper si può usare gratis. Servizi cloud opzionali.",
+      "en": "Dictation in any app using a shortcut. Local Whisper processing is free to use. Optional cloud services."
+    },
+    "alternatives": [
+      "Wispr Flow"
+    ],
+    "website": "https://openwhispr.com",
+    "releases": "https://github.com/OpenWhispr/openwhispr/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/OpenWhispr/openwhispr/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/OpenWhispr/openwhispr/main/src/assets/logo.svg",
+    "screenshots": [],
+    "media_source": "https://github.com/OpenWhispr/openwhispr",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/OpenWhispr/openwhispr/releases/tag/v1.12.2"
+    },
+    "stars": {
+      "count": 12277,
+      "date": "2026-11-27",
+      "source": "https://github.com/OpenWhispr/openwhispr/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/OpenWhispr/openwhispr/releases/tag/v1.12.2",
+      "linux": "https://github.com/OpenWhispr/openwhispr/releases/tag/v1.12.2",
+      "windows": "https://github.com/OpenWhispr/openwhispr/releases/tag/v1.12.2"
+    },
+    "release": {
+      "version": "1.12.2",
+      "date": "2026-11-25",
+      "source": "https://github.com/OpenWhispr/openwhispr/releases/tag/v1.12.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 360210302,
+          "size_max": 362952454
+        },
+        {
+          "platform": "linux",
+          "size_min": 443261441,
+          "size_max": 562555582
+        },
+        {
+          "platform": "windows",
+          "size_min": 281395800,
+          "size_max": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "kooha",
+    "name": "Kooha",
+    "repo": "https://github.com/SeaDve/Kooha",
+    "author": "SeaDve",
+    "category": "video",
+    "level": "base",
+    "description": {
+      "it": "Registratore dello schermo per Linux. Acquisisce una finestra o una regione e può includere microfono e audio del sistema.",
+      "en": "Linux screen recorder. Captures a window or region and can include microphone and system audio."
+    },
+    "alternatives": [],
+    "website": "https://github.com/SeaDve/Kooha",
+    "releases": "https://github.com/SeaDve/Kooha/releases",
+    "delivery": "desktop",
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/SeaDve/Kooha/blob/main/COPYING",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/SeaDve/Kooha/main/data/icons/io.github.seadve.Kooha.svg",
+    "screenshots": [],
+    "media_source": "https://github.com/SeaDve/Kooha",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://flathub.org/apps/io.github.seadve.Kooha"
+    },
+    "stars": {
+      "count": 3568,
+      "date": "2026-11-27",
+      "source": "https://github.com/SeaDve/Kooha/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/io.github.seadve.Kooha"
+    },
+    "release": {
+      "version": "2.3.2",
+      "date": "2026-06-05",
+      "source": "https://github.com/SeaDve/Kooha/releases/tag/v2.3.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "easyeffects",
+    "name": "Easy Effects",
+    "repo": "https://github.com/wwmm/easyeffects",
+    "author": "Easy Effects contributors",
+    "category": "video",
+    "level": "avanz",
+    "description": {
+      "it": "Migliora ingresso e uscita audio con equalizzazione, compressore e riduzione rumore su PipeWire.",
+      "en": "Improve input and output audio with PipeWire equalization, compression and noise reduction."
+    },
+    "alternatives": [],
+    "website": "https://wwmm.github.io/easyeffects/",
+    "releases": "https://github.com/wwmm/easyeffects/releases",
+    "delivery": "desktop",
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/wwmm/easyeffects/blob/master/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/wwmm/easyeffects/master/src/contents/icons/com.github.wwmm.easyeffects.svg",
+    "screenshots": [],
+    "media_source": "https://github.com/wwmm/easyeffects",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://flathub.org/apps/com.github.wwmm.easyeffects"
+    },
+    "stars": {
+      "count": 10555,
+      "date": "2026-11-27",
+      "source": "https://github.com/wwmm/easyeffects/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/com.github.wwmm.easyeffects"
+    }
+  },
+  {
+    "id": "umi-ocr",
+    "name": "Umi-OCR",
+    "repo": "https://github.com/hiroi-sora/Umi-OCR",
+    "author": "Hiroi Sora",
+    "category": "ufficio",
+    "level": "base",
+    "description": {
+      "it": "OCR offline da immagini, schermate e PDF. Elabora anche file in blocco.",
+      "en": "Offline OCR from images, screenshots and PDFs. Supports batch processing."
+    },
+    "alternatives": [
+      "ABBYY FineReader",
+      "TextSniper"
+    ],
+    "website": "https://github.com/hiroi-sora/Umi-OCR",
+    "releases": "https://github.com/hiroi-sora/Umi-OCR/releases",
+    "delivery": "desktop",
+    "license": "MIT",
+    "license_url": "https://github.com/hiroi-sora/Umi-OCR/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://tupian.li/images/2022/10/27/icon---256.png",
+    "screenshots": [
+      "https://tupian.li/images/2023/11/19/65599097ab5f4.png",
+      "https://tupian.li/images/2023/11/19/655990a2511e0.png"
+    ],
+    "media_source": "https://github.com/hiroi-sora/Umi-OCR",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/hiroi-sora/Umi-OCR/releases/tag/v2.1.5"
+    },
+    "stars": {
+      "count": 49017,
+      "date": "2026-11-27",
+      "source": "https://github.com/hiroi-sora/Umi-OCR/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://github.com/hiroi-sora/Umi-OCR/releases/tag/v2.1.5",
+      "windows": "https://github.com/hiroi-sora/Umi-OCR/releases/tag/v2.1.5"
+    },
+    "release": {
+      "version": "2.1.5",
+      "date": "2025-03-25",
+      "source": "https://github.com/hiroi-sora/Umi-OCR/releases/tag/v2.1.5",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 277369884,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 103369422,
+          "size_max": 134293725
+        }
+      ]
+    }
+  },
+  {
+    "id": "esearch",
+    "name": "eSearch",
+    "repo": "https://github.com/xushengfeng/eSearch",
+    "author": "xushengfeng",
+    "category": "ufficio",
+    "level": "base",
+    "description": {
+      "it": "Acquisisce schermate, riconosce il testo con OCR e registra lo schermo.",
+      "en": "Captures screenshots, recognizes text with OCR and records the screen."
+    },
+    "alternatives": [
+      "Snagit",
+      "TextSniper"
+    ],
+    "website": "https://esearch-app.netlify.app/",
+    "releases": "https://github.com/xushengfeng/eSearch/releases",
+    "delivery": "desktop",
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/xushengfeng/eSearch/blob/master/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://esearch-app.netlify.app/readme/title_photo.svg",
+    "screenshots": [
+      "https://esearch-app.netlify.app/readme/1.webp",
+      "https://esearch-app.netlify.app/readme/8.webp"
+    ],
+    "media_source": "https://github.com/xushengfeng/eSearch",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/xushengfeng/eSearch/releases/tag/15.8.0"
+    },
+    "stars": {
+      "count": 7503,
+      "date": "2026-11-27",
+      "source": "https://github.com/xushengfeng/eSearch/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/xushengfeng/eSearch/releases/tag/15.8.0",
+      "linux": "https://github.com/xushengfeng/eSearch/releases/tag/15.8.0",
+      "windows": "https://github.com/xushengfeng/eSearch/releases/tag/15.8.0"
+    },
+    "release": {
+      "version": "15.8.0",
+      "date": "2026-11-11",
+      "source": "https://github.com/xushengfeng/eSearch/releases/tag/15.8.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 164534464,
+          "size_max": 182017863
+        },
+        {
+          "platform": "linux",
+          "size_min": 126960690,
+          "size_max": 381275079
+        },
+        {
+          "platform": "windows",
+          "size_min": 157019863,
+          "size_max": 160702786
+        }
+      ]
+    }
+  },
+  {
+    "id": "openrefine",
+    "name": "OpenRefine",
+    "repo": "https://github.com/OpenRefine/OpenRefine",
+    "author": "OpenRefine contributors",
+    "category": "dati",
+    "level": "avanz",
+    "description": {
+      "it": "Pulisce, trasforma e riconcilia dati tabellari da un’interfaccia browser in locale.",
+      "en": "Clean, transform and reconcile tabular data through a local browser interface."
+    },
+    "alternatives": [],
+    "website": "https://openrefine.org/",
+    "releases": "https://github.com/OpenRefine/OpenRefine/releases",
+    "delivery": "desktop",
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/OpenRefine/OpenRefine/blob/master/LICENSE.txt",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/OpenRefine/OpenRefine/master/graphics/icon/open-refine-320px.png",
+    "screenshots": [],
+    "media_source": "https://github.com/OpenRefine/OpenRefine",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://openrefine.org/download"
+    },
+    "stars": {
+      "count": 12122,
+      "date": "2026-11-27",
+      "source": "https://github.com/OpenRefine/OpenRefine/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://openrefine.org/download",
+      "linux": "https://openrefine.org/download",
+      "windows": "https://openrefine.org/download"
+    },
+    "release": {
+      "version": "3.10.1",
+      "date": "2026-03-04",
+      "source": "https://github.com/OpenRefine/OpenRefine/releases/tag/3.10.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "memos",
+    "name": "Memos",
+    "repo": "https://github.com/usememos/memos",
+    "author": "Memos contributors",
+    "category": "note",
+    "level": "base",
+    "description": {
+      "it": "Dashboard self-hosted per annotazioni rapide, ricerca, tag e allegati.",
+      "en": "Self-hosted dashboard for quick notes, search, tags and attachments."
+    },
+    "alternatives": [],
+    "website": "https://usememos.com",
+    "releases": "https://github.com/usememos/memos/releases",
+    "delivery": "self-hosted",
+    "license": "MIT",
+    "license_url": "https://github.com/usememos/memos/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/usememos/.github/refs/heads/main/assets/brand/lockup.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/usememos/.github/refs/heads/main/assets/previews/timeline-light.png"
+    ],
+    "media_source": "https://github.com/usememos/memos",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://usememos.com/docs/install"
+    },
+    "stars": {
+      "count": 64713,
+      "date": "2026-11-27",
+      "source": "https://github.com/usememos/memos/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://usememos.com/docs/install"
+    },
+    "release": {
+      "version": "26.11.2",
+      "date": "2026-11-22",
+      "source": "https://github.com/usememos/memos/releases/tag/26.11.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "ezbookkeeping",
+    "name": "ezBookkeeping",
+    "repo": "https://github.com/mayswind/ezbookkeeping",
+    "author": "mayswind",
+    "category": "contabilita",
+    "level": "base",
+    "description": {
+      "it": "Dashboard personale per entrate, spese, budget e report. Si ospita in autonomia.",
+      "en": "Personal dashboard for income, expenses, budgets and reports. Self-hosted."
+    },
+    "alternatives": [],
+    "website": "https://ezbookkeeping.mayswind.net",
+    "releases": "https://github.com/mayswind/ezbookkeeping/releases",
+    "delivery": "self-hosted",
+    "license": "MIT",
+    "license_url": "https://github.com/mayswind/ezbookkeeping/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/mayswind/ezbookkeeping/main/public/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/wiki/mayswind/ezbookkeeping/img/desktop/en.png"
+    ],
+    "media_source": "https://github.com/mayswind/ezbookkeeping",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/mayswind/ezbookkeeping/releases/tag/v2.2.0"
+    },
+    "stars": {
+      "count": 6146,
+      "date": "2026-11-27",
+      "source": "https://github.com/mayswind/ezbookkeeping/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://github.com/mayswind/ezbookkeeping/releases/tag/v2.2.0"
+    },
+    "release": {
+      "version": "2.2.0",
+      "date": "2026-11-21",
+      "source": "https://github.com/mayswind/ezbookkeeping/releases/tag/v2.2.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "gatus",
+    "name": "Gatus",
+    "repo": "https://github.com/TwiN/gatus",
+    "author": "TwiN",
+    "category": "infra",
+    "level": "avanz",
+    "description": {
+      "it": "Dashboard di monitoraggio con test di disponibilità e stato dei servizi.",
+      "en": "Monitoring dashboard with uptime checks and service status."
+    },
+    "alternatives": [],
+    "website": "https://gatus.io",
+    "releases": "https://github.com/TwiN/gatus/releases",
+    "delivery": "self-hosted",
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/TwiN/gatus/blob/master/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/TwiN/gatus/master/.github/assets/logo-with-dark-text.png",
+    "screenshots": [],
+    "media_source": "https://github.com/TwiN/gatus",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/TwiN/gatus/releases/tag/v5.38.0"
+    },
+    "stars": {
+      "count": 12902,
+      "date": "2026-11-27",
+      "source": "https://github.com/TwiN/gatus/stargazers"
+    },
+    "platform_support": {
+      "linux": "https://github.com/TwiN/gatus/releases/tag/v5.38.0"
+    },
+    "release": {
+      "version": "5.38.0",
+      "date": "2026-10-28",
+      "source": "https://github.com/TwiN/gatus/releases/tag/v5.38.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "everywhere",
+    "name": "Everywhere",
+    "repo": "https://github.com/Sylinko/Everywhere",
+    "author": "Sylinko",
+    "category": "agenti",
+    "level": "avanz",
+    "description": {
+      "it": "Assistente desktop che può leggere il contesto della finestra su richiesta. Supporta modelli Ollama locali.",
+      "en": "Desktop assistant that can read window context on request. Supports local Ollama models."
+    },
+    "alternatives": [],
+    "website": "https://everywhere.sylinko.com",
+    "releases": "https://github.com/Sylinko/Everywhere/releases",
+    "delivery": "desktop",
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/Sylinko/Everywhere/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": null,
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Sylinko/Everywhere/releases/tag/v0.9.0"
+    },
+    "stars": {
+      "count": 6371,
+      "date": "2026-11-27",
+      "source": "https://github.com/Sylinko/Everywhere/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Sylinko/Everywhere/releases/tag/v0.9.0",
+      "linux": "https://github.com/Sylinko/Everywhere/releases/tag/v0.9.0",
+      "windows": "https://github.com/Sylinko/Everywhere/releases/tag/v0.9.0"
+    },
+    "release": {
+      "version": "0.9.0",
+      "date": "2026-11-25",
+      "source": "https://github.com/Sylinko/Everywhere/releases/tag/v0.9.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 94867861,
+          "size_max": 97859892
+        },
+        {
+          "platform": "linux",
+          "size_min": 71013704,
+          "size_max": 88623254
+        },
+        {
+          "platform": "windows",
+          "size_min": 51625640,
+          "size_max": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "live-captions",
+    "name": "Live Captions",
+    "repo": "https://github.com/abb128/LiveCaptions",
+    "author": "abb128 / contributors",
+    "level": "base",
+    "category": "accessibilita",
+    "description": {
+      "it": "Sottotitoli in tempo reale in inglese per microfono e audio desktop Linux. Elabora l’audio sul computer.",
+      "en": "Real-time English captions for Linux microphone and desktop audio. Audio is processed locally."
+    },
+    "alternatives": [
+      "Windows Live Captions"
+    ],
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://github.com/abb128/LiveCaptions/blob/main/LICENSE",
+    "website": "https://github.com/abb128/LiveCaptions",
+    "releases": "https://flathub.org/apps/net.sapples.LiveCaptions",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/net/sapples/LiveCaptions/4133decfc058a8bd11fded4e20d3b99c/icons/128x128/net.sapples.LiveCaptions.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/net/sapples/LiveCaptions/4133decfc058a8bd11fded4e20d3b99c/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/net/sapples/LiveCaptions/4133decfc058a8bd11fded4e20d3b99c/screenshots/image-2_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/net.sapples.LiveCaptions",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://flathub.org/apps/net.sapples.LiveCaptions"
+    },
+    "stars": {
+      "count": 1815,
+      "source": "https://github.com/abb128/LiveCaptions/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/net.sapples.LiveCaptions"
+    },
+    "release": {
+      "version": "0.4.2",
+      "date": "2024-06-08",
+      "source": "https://flathub.org/apps/net.sapples.LiveCaptions",
+      "packages": []
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.sapples.LiveCaptions",
+        "source": "https://flathub.org/apps/net.sapples.LiveCaptions",
+        "download_size": 331916063,
+        "download_size_source": "https://flathub.org/api/v2/summary/net.sapples.LiveCaptions",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
+  },
+  {
+    "id": "text-grab",
+    "name": "Text Grab",
+    "repo": "https://github.com/TheJoeFin/Text-Grab",
+    "author": "Joseph Finney",
+    "level": "base",
+    "category": "accessibilita",
+    "description": {
+      "it": "Copia il testo non selezionabile da finestre, immagini e PDF con OCR locale su Windows.",
+      "en": "Copy otherwise unselectable text from windows, images, and PDFs using offline OCR on Windows."
+    },
+    "alternatives": [
+      "PowerToys Text Extractor",
+      "TextSniper"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/TheJoeFin/Text-Grab/blob/main/LICENSE",
+    "website": "https://textgrab.net/",
+    "releases": "https://github.com/TheJoeFin/Text-Grab/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/TheJoeFin/Text-Grab#command-line-interface"
+    },
+    "logo": "https://textgrab.net/images/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/main/images/All-Modes-Light.png",
+      "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/main/images/TealSelect.png"
+    ],
+    "media_source": "https://github.com/TheJoeFin/Text-Grab",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/TheJoeFin/Text-Grab"
+    },
+    "stars": {
+      "count": 5100,
+      "source": "https://github.com/TheJoeFin/Text-Grab/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "windows": "https://github.com/TheJoeFin/Text-Grab"
+    },
+    "release": {
+      "version": "v4.16.0",
+      "date": "2026-10-27",
+      "source": "https://github.com/TheJoeFin/Text-Grab/releases/tag/v4.16.0",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 103267578,
+          "size_max": 153021838
+        }
+      ]
+    }
+  },
+  {
+    "id": "pensieve",
+    "name": "Pensieve",
+    "repo": "https://github.com/arkohut/pensieve",
+    "author": "arkohut / contributors",
+    "level": "avanz",
+    "category": "dati",
+    "description": {
+      "it": "Memoria visiva con screenshot, OCR e ricerca in una dashboard sul computer. Si installa con il pacchetto Python memos.",
+      "en": "Visual memory with screenshots, OCR, and a local search dashboard. Installed via the memos Python package."
+    },
+    "alternatives": [
+      "Windows Recall",
+      "Rewind"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/arkohut/pensieve/blob/master/LICENSE",
+    "website": "https://github.com/arkohut/pensieve",
+    "releases": "https://pypi.org/project/memos/0.37.0/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/arkohut/pensieve/tree/master/skills/pensieve-search"
+    },
+    "logo": "https://raw.githubusercontent.com/arkohut/pensieve/master/web/public/logos/pensieve_logo_256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/arkohut/pensieve/master/docs/images/single-screenshot-view-with-minicpm-result.png",
+      "https://raw.githubusercontent.com/arkohut/pensieve/master/docs/images/init-page-en.png"
+    ],
+    "media_source": "https://github.com/arkohut/pensieve",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/arkohut/pensieve"
+    },
+    "stars": {
+      "count": 1405,
+      "source": "https://github.com/arkohut/pensieve/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/arkohut/pensieve",
+      "windows": "https://github.com/arkohut/pensieve"
+    },
+    "release": {
+      "version": "v0.37.0",
+      "date": "2026-06-19",
+      "source": "https://pypi.org/project/memos/0.37.0/",
+      "packages": []
+    }
+  },
+  {
+    "id": "deepchat",
+    "name": "DeepChat",
+    "repo": "https://github.com/ThinkInAIXYZ/deepchat",
+    "author": "ThinkInAI / DeepChat contributors",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Client desktop per modelli Ollama e cloud, agenti ACP e server MCP esterni.",
+      "en": "Desktop client for Ollama and cloud models, ACP agents, and external MCP servers."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "TypingMind"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/ThinkInAIXYZ/deepchat/blob/dev/LICENSE",
+    "website": "https://deepchat.thinkinai.xyz/",
+    "releases": "https://github.com/ThinkInAIXYZ/deepchat/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/ThinkInAIXYZ/deepchat/blob/v1.1.4/docs/guides/cli.md"
+    },
+    "logo": "https://raw.githubusercontent.com/ThinkInAIXYZ/deepchat/dev/build/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/ThinkInAIXYZ/deepchat/dev/assets/screenshots/main-light.png",
+      "https://raw.githubusercontent.com/ThinkInAIXYZ/deepchat/dev/assets/screenshots/main-dark.png"
+    ],
+    "media_source": "https://github.com/ThinkInAIXYZ/deepchat",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/ThinkInAIXYZ/deepchat"
+    },
+    "stars": {
+      "count": 6409,
+      "source": "https://github.com/ThinkInAIXYZ/deepchat/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/ThinkInAIXYZ/deepchat",
+      "macos": "https://github.com/ThinkInAIXYZ/deepchat",
+      "windows": "https://github.com/ThinkInAIXYZ/deepchat"
+    },
+    "release": {
+      "version": "v1.1.4",
+      "date": "2026-11-12",
+      "source": "https://github.com/ThinkInAIXYZ/deepchat/releases/tag/v1.1.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 370236372,
+          "size_max": 401749554
+        },
+        {
+          "platform": "macos",
+          "size_min": 421016003,
+          "size_max": 438651781
+        },
+        {
+          "platform": "windows",
+          "size_min": 279023243,
+          "size_max": 327209695
+        }
+      ]
+    }
+  },
+  {
+    "id": "airi",
+    "name": "AIRI",
+    "repo": "https://github.com/moeru-ai/airi",
+    "author": "Moeru AI / AIRI contributors",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Companion vocale desktop con avatar configurabile e supporto a modelli locali. La cattura dello schermo è una funzione sperimentale del pannello Developer.",
+      "en": "Desktop voice companion with a configurable avatar and local model support. Screen capture is experimental in the Developer panel."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/moeru-ai/airi/blob/main/LICENSE",
+    "website": "https://airi.moeru.ai/",
+    "releases": "https://github.com/moeru-ai/airi/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/moeru-ai/airi/main/apps/stage-tamagotchi/build/icon.png",
+    "screenshots": [],
+    "media_source": "https://github.com/moeru-ai/airi-docs/tree/main/content/public/brand",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://airi.moeru.ai/docs/en/docs/manual/tamagotchi/setup-and-use/"
+    },
+    "stars": {
+      "count": 51825,
+      "source": "https://github.com/moeru-ai/airi/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
+      "macos": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
+      "windows": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4"
+    },
+    "release": {
+      "version": "v0.15.4",
+      "date": "2026-11-12",
+      "source": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 462714609,
+          "size_max": 582774608
+        },
+        {
+          "platform": "macos",
+          "size_min": 610837143,
+          "size_max": 620339652
+        },
+        {
+          "platform": "windows",
+          "size_min": 494424736,
+          "size_max": 494424736
+        }
+      ]
+    }
+  },
+  {
+    "id": "subtitle-edit",
+    "name": "Subtitle Edit",
+    "repo": "https://github.com/SubtitleEdit/subtitleedit",
+    "author": "Nikolaj Olsson",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Editor di sottotitoli con trascrizione Whisper e OCR locali.",
+      "en": "Subtitle editor with local Whisper transcription and OCR."
+    },
+    "alternatives": [
+      "Aegisub"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/SubtitleEdit/subtitleedit/blob/main/LICENSE",
+    "website": "https://github.com/SubtitleEdit/subtitleedit",
+    "releases": "https://github.com/SubtitleEdit/subtitleedit/releases/tag/v5.4.0",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/SubtitleEdit/subtitleedit/blob/main/docs/reference/command-line.md"
+    },
+    "logo": "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/src/ui/Assets/SE.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/docs/screenshots/ocr.png",
+      "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/docs/screenshots/settings.png"
+    ],
+    "media_source": "https://github.com/SubtitleEdit/subtitleedit",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/SubtitleEdit/subtitleedit/blob/main/docs/reference/command-line.md"
+    },
+    "stars": {
+      "count": 15137,
+      "source": "https://github.com/SubtitleEdit/subtitleedit/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/SubtitleEdit/subtitleedit/releases/tag/v5.4.0",
+      "macos": "https://github.com/SubtitleEdit/subtitleedit/releases/tag/v5.4.0",
+      "windows": "https://github.com/SubtitleEdit/subtitleedit/releases/tag/v5.4.0"
+    },
+    "release": {
+      "version": "v5.4.0",
+      "date": "2026-11-06",
+      "source": "https://github.com/SubtitleEdit/subtitleedit/releases/tag/v5.4.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 62266849,
+          "size_max": 137989488
+        },
+        {
+          "platform": "macos",
+          "size_min": 138297144,
+          "size_max": 158331154
+        },
+        {
+          "platform": "windows",
+          "size_min": 61690303,
+          "size_max": 116450758
+        }
+      ]
+    }
+  },
+  {
+    "id": "chainner",
+    "name": "chaiNNer",
+    "repo": "https://github.com/chaiNNer-org/chaiNNer",
+    "author": "chaiNNer contributors",
+    "level": "avanz",
+    "category": "foto",
+    "description": {
+      "it": "Elaborazione a nodi per trasformare e ingrandire immagini in batch, con modelli locali opzionali.",
+      "en": "Node-based batch image processing and upscaling with optional local models."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/chaiNNer-org/chaiNNer/blob/main/LICENSE",
+    "website": "https://chaiNNer.app",
+    "releases": "https://github.com/chaiNNer-org/chaiNNer/releases/tag/v0.26.1",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/chaiNNer-org/chaiNNer/main/src/public/icons/png/256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/chaiNNer-org/chaiNNer/main/docs/assets/screenshot.png",
+      "https://raw.githubusercontent.com/chaiNNer-org/chaiNNer/main/docs/assets/simple_screenshot.png"
+    ],
+    "media_source": "https://github.com/chaiNNer-org/chaiNNer",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/chaiNNer-org/chaiNNer#readme"
+    },
+    "stars": {
+      "count": 6197,
+      "source": "https://github.com/chaiNNer-org/chaiNNer/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/chaiNNer-org/chaiNNer/releases/tag/v0.26.1",
+      "macos": "https://github.com/chaiNNer-org/chaiNNer/releases/tag/v0.26.1",
+      "windows": "https://github.com/chaiNNer-org/chaiNNer/releases/tag/v0.26.1"
+    },
+    "release": {
+      "version": "v0.26.1",
+      "date": "2026-10-27",
+      "source": "https://github.com/chaiNNer-org/chaiNNer/releases/tag/v0.26.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 95785981,
+          "size_max": 137972811
+        },
+        {
+          "platform": "macos",
+          "size_min": 178589358,
+          "size_max": 178589358
+        },
+        {
+          "platform": "windows",
+          "size_min": 157438976,
+          "size_max": 161958657
+        }
+      ]
+    }
+  },
+  {
+    "id": "ghost-downloader-3",
+    "name": "Ghost Downloader 3",
+    "repo": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+    "author": "XiaoYouChR and contributors",
+    "level": "base",
+    "category": "rete",
+    "description": {
+      "it": "Gestore download multipiattaforma con coda, trasferimenti paralleli e integrazione opzionale nel browser.",
+      "en": "Cross-platform download manager with queues, parallel transfers, and optional browser integration."
+    },
+    "alternatives": [
+      "Internet Download Manager"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/XiaoYouChR/Ghost-Downloader-3/blob/main/LICENSE",
+    "website": "https://gd.xychr.com/",
+    "releases": "https://github.com/XiaoYouChR/Ghost-Downloader-3/releases/tag/v4.6.1",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/XiaoYouChR/Ghost-Downloader-3/main/app/assets/logo.png",
+    "screenshots": [],
+    "media_source": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://gd.xychr.com/en/docs/"
+    },
+    "stars": {
+      "count": 19082,
+      "source": "https://github.com/XiaoYouChR/Ghost-Downloader-3/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/XiaoYouChR/Ghost-Downloader-3/releases/tag/v4.6.1",
+      "macos": "https://github.com/XiaoYouChR/Ghost-Downloader-3/releases/tag/v4.6.1",
+      "windows": "https://github.com/XiaoYouChR/Ghost-Downloader-3/releases/tag/v4.6.1"
+    },
+    "release": {
+      "version": "v4.6.1",
+      "date": "2026-11-26",
+      "source": "https://github.com/XiaoYouChR/Ghost-Downloader-3/releases/tag/v4.6.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 61098092,
+          "size_max": 86133240
+        },
+        {
+          "platform": "macos",
+          "size_min": 59261074,
+          "size_max": 62814888
+        },
+        {
+          "platform": "windows",
+          "size_min": 34415978,
+          "size_max": 39818552
+        }
+      ]
+    }
+  },
+  {
+    "id": "mister-download-manager",
+    "name": "Mister Download Manager",
+    "repo": "https://github.com/anefzaoui/misterdownloadmanager",
+    "author": "Anis Efzaoui and contributors",
+    "level": "base",
+    "category": "rete",
+    "description": {
+      "it": "Gestore download gratuito con gruppi, ripresa dei trasferimenti ed estensioni per il browser. Pacchetti macOS sperimentali.",
+      "en": "Free download manager with groups, resumable transfers, and browser extensions. Experimental macOS packages."
+    },
+    "alternatives": [
+      "Internet Download Manager"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/anefzaoui/misterdownloadmanager/blob/main/LICENSE",
+    "website": "https://misterdownloadmanager.com",
+    "releases": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/logo.png",
+    "screenshots": [],
+    "media_source": "https://github.com/anefzaoui/misterdownloadmanager",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/anefzaoui/misterdownloadmanager#readme"
+    },
+    "stars": {
+      "count": 18516,
+      "source": "https://github.com/anefzaoui/misterdownloadmanager/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+      "macos": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+      "windows": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2"
+    },
+    "release": {
+      "version": "v0.5.2",
+      "date": "2026-11-09",
+      "source": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 5140640,
+          "size_max": 21355554
+        },
+        {
+          "platform": "macos",
+          "size_min": 2455566,
+          "size_max": 17578422
+        },
+        {
+          "platform": "windows",
+          "size_min": 3548609,
+          "size_max": 17065873
+        }
+      ]
+    }
+  },
+  {
+    "id": "clash-verge-rev",
+    "name": "Clash Verge Rev",
+    "repo": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "author": "Clash Verge Rev contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Interfaccia desktop per gestire profili di proxy e monitorare le connessioni. Richiede un proxy proprio o di un provider.",
+      "en": "Desktop client for managing proxy profiles and monitoring connections. Requires your own proxy or a provider."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/clash-verge-rev/clash-verge-rev/blob/dev/LICENSE",
+    "website": "https://www.clashverge.dev",
+    "releases": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.10",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/dev/src-tauri/icons/128x128@2x.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/dev/docs/preview_light.png",
+      "https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/dev/docs/preview_dark.png"
+    ],
+    "media_source": "https://github.com/clash-verge-rev/clash-verge-rev",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/clash-verge-rev/clash-verge-rev#readme"
+    },
+    "stars": {
+      "count": 160924,
+      "source": "https://github.com/clash-verge-rev/clash-verge-rev/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.10",
+      "macos": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.10",
+      "windows": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.10"
+    },
+    "release": {
+      "version": "v2.5.10",
+      "date": "2026-11-03",
+      "source": "https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.5.10",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 99578034,
+          "size_max": 103733756
+        },
+        {
+          "platform": "macos",
+          "size_min": 80769307,
+          "size_max": 86532364
+        },
+        {
+          "platform": "windows",
+          "size_min": 53759493,
+          "size_max": 60045702
+        }
+      ]
+    }
+  },
+  {
+    "id": "filee",
+    "name": "Filee",
+    "repo": "https://github.com/KnifeLemon/Filee",
+    "author": "Myeonggu Kim and Filee contributors",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Convertitore di immagini e altri file con menu di trascinamento, eseguito sul computer. Pacchetti macOS in anteprima.",
+      "en": "Local drag-and-drop converter for images and other files. macOS packages are in preview."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/KnifeLemon/Filee/blob/main/LICENSE",
+    "website": "https://filee.sh",
+    "releases": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/KnifeLemon/Filee/main/src/Filee.App/Assets/Icons/filee.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-home-en.png",
+      "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-toolbar-en.png"
+    ],
+    "media_source": "https://github.com/KnifeLemon/Filee",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/KnifeLemon/Filee#readme"
+    },
+    "stars": {
+      "count": 31571,
+      "source": "https://github.com/KnifeLemon/Filee/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+      "macos": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+      "windows": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0"
+    },
+    "release": {
+      "version": "v2.5.0",
+      "date": "2026-11-16",
+      "source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 141723633,
+          "size_max": 146489623
+        },
+        {
+          "platform": "macos",
+          "size_min": 142827259,
+          "size_max": 159571916
+        },
+        {
+          "platform": "windows",
+          "size_min": 134995824,
+          "size_max": 179857432
+        }
+      ]
+    }
+  },
+  {
+    "id": "libretranslate",
+    "name": "LibreTranslate",
+    "repo": "https://github.com/LibreTranslate/LibreTranslate",
+    "author": "LibreTranslate contributors",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Traduzione di testo e documenti con server proprio e modelli Argos eseguiti localmente.",
+      "en": "Text and document translation with a self-hosted server and locally run Argos models."
+    },
+    "alternatives": [
+      "Google Translate",
+      "DeepL"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/LibreTranslate/LibreTranslate/blob/main/LICENSE",
+    "website": "https://libretranslate.com",
+    "releases": "https://github.com/LibreTranslate/LibreTranslate/releases/tag/v1.10.0",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.libretranslate.com/"
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": null,
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.libretranslate.com/"
+    },
+    "stars": {
+      "count": 17859,
+      "source": "https://github.com/LibreTranslate/LibreTranslate/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v1.10.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/LibreTranslate/LibreTranslate/releases/tag/v1.10.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "ebook2audiobook",
+    "name": "ebook2audiobook",
+    "repo": "https://github.com/DrewThomasson/ebook2audiobook",
+    "author": "Drew Thomasson and contributors",
+    "level": "avanz",
+    "category": "voce",
+    "description": {
+      "it": "Crea audiolibri da ebook su computer proprio, con interfaccia nel browser e voci scelte localmente.",
+      "en": "Creates audiobooks from ebooks on your computer, with a browser interface and locally selected voices."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/DrewThomasson/ebook2audiobook/blob/main/LICENSE",
+    "website": "https://github.com/DrewThomasson/ebook2audiobook",
+    "releases": "https://github.com/DrewThomasson/ebook2audiobook/releases/tag/v26.11.25",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/DrewThomasson/ebook2audiobook#readme"
+    },
+    "logo": "https://raw.githubusercontent.com/DrewThomasson/ebook2audiobook/main/tools/icons/linux/icon-256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/DrewThomasson/ebook2audiobook/main/assets/gui_1.png",
+      "https://raw.githubusercontent.com/DrewThomasson/ebook2audiobook/main/assets/gui_2.png"
+    ],
+    "media_source": "https://github.com/DrewThomasson/ebook2audiobook",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/DrewThomasson/ebook2audiobook#readme"
+    },
+    "stars": {
+      "count": 20675,
+      "source": "https://github.com/DrewThomasson/ebook2audiobook/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v26.11.25",
+      "date": "2026-11-24",
+      "source": "https://github.com/DrewThomasson/ebook2audiobook/releases/tag/v26.11.25",
+      "packages": []
+    }
+  },
+  {
+    "id": "videolingo",
+    "name": "VideoLingo",
+    "repo": "https://github.com/Huanshere/VideoLingo",
+    "author": "Huanshere and contributors",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Localizza video con allineamento dei sottotitoli, trascrizione locale e traduzione tramite un modello compatibile configurabile.",
+      "en": "Localizes video with subtitle alignment, local transcription, and translation through a configurable compatible model."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/Huanshere/VideoLingo/blob/main/LICENSE",
+    "website": "https://docs.videolingo.io",
+    "releases": "https://github.com/Huanshere/VideoLingo/releases/tag/v3.2.0",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/Huanshere/VideoLingo/blob/main/docs/api.md"
+    },
+    "logo": "https://raw.githubusercontent.com/Huanshere/VideoLingo/main/docs/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Huanshere/VideoLingo/main/docs/public/images/demo.png",
+      "https://raw.githubusercontent.com/Huanshere/VideoLingo/main/docs/pages/docs/en_page.png"
+    ],
+    "media_source": "https://github.com/Huanshere/VideoLingo",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Huanshere/VideoLingo/blob/main/docs/api.md"
+    },
+    "stars": {
+      "count": 19402,
+      "source": "https://github.com/Huanshere/VideoLingo/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v3.2.0",
+      "date": "2026-11-13",
+      "source": "https://github.com/Huanshere/VideoLingo/releases/tag/v3.2.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "karakeep",
+    "name": "Karakeep",
+    "repo": "https://github.com/karakeep-app/karakeep",
+    "author": "Karakeep contributors",
+    "level": "base",
+    "category": "note",
+    "description": {
+      "it": "Salva e cerca link, note e immagini in un archivio personale. Tag e riassunti AI opzionali con Ollama.",
+      "en": "Saves and searches links, notes, and images in a personal library. Optional AI tags and summaries via Ollama."
+    },
+    "alternatives": [
+      "Pocket",
+      "Raindrop.io"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/karakeep-app/karakeep/blob/main/LICENSE",
+    "website": "https://karakeep.com",
+    "releases": "https://github.com/karakeep-app/karakeep/releases/tag/v0.35.0",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/karakeep-app/karakeep/main/apps/web/app/apple-icon.png",
+    "screenshots": [],
+    "media_source": "https://github.com/karakeep-app/karakeep",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.karakeep.com/Installation/docker"
+    },
+    "stars": {
+      "count": 30871,
+      "source": "https://github.com/karakeep-app/karakeep/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v0.35.0",
+      "date": "2026-11-15",
+      "source": "https://github.com/karakeep-app/karakeep/releases/tag/v0.35.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "open-notebook",
+    "name": "Open Notebook",
+    "repo": "https://github.com/lfnovo/open-notebook",
+    "author": "Luis Novo and contributors",
+    "level": "avanz",
+    "category": "note",
+    "description": {
+      "it": "Organizza fonti, note e ricerche con ricerca nelle fonti e provider locali opzionali come Ollama.",
+      "en": "Organizes sources, notes, and research with source search and optional local providers such as Ollama."
+    },
+    "alternatives": [
+      "NotebookLM"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/lfnovo/open-notebook/blob/main/LICENSE",
+    "website": "https://www.open-notebook.ai",
+    "releases": "https://github.com/lfnovo/open-notebook/releases/tag/v1.15.1",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/lfnovo/open-notebook/main/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/lfnovo/open-notebook/main/docs/assets/asset_list.png"
+    ],
+    "media_source": "https://github.com/lfnovo/open-notebook",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/lfnovo/open-notebook#readme"
+    },
+    "stars": {
+      "count": 42250,
+      "source": "https://github.com/lfnovo/open-notebook/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v1.15.1",
+      "date": "2026-11-04",
+      "source": "https://github.com/lfnovo/open-notebook/releases/tag/v1.15.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "deeptutor",
+    "name": "DeepTutor",
+    "repo": "https://github.com/HKUDS/DeepTutor",
+    "author": "HKUDS contributors",
+    "level": "base",
+    "category": "didattica",
+    "description": {
+      "it": "Tutor per studiare documenti e creare percorsi di studio con provider configurabili, anche locali.",
+      "en": "Tutor for studying documents and creating learning paths with configurable providers, including local models."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/HKUDS/DeepTutor/blob/main/LICENSE",
+    "website": "https://github.com/HKUDS/DeepTutor",
+    "releases": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.4",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/HKUDS/DeepTutor/main/assets/figs/logo/color-logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/HKUDS/DeepTutor/main/assets/figs/web-dev/overview.png"
+    ],
+    "media_source": "https://github.com/HKUDS/DeepTutor",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/HKUDS/DeepTutor#readme"
+    },
+    "stars": {
+      "count": 63256,
+      "source": "https://github.com/HKUDS/DeepTutor/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.4",
+      "windows": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.4"
+    },
+    "release": {
+      "version": "v1.7.4",
+      "date": "2026-11-20",
+      "source": "https://github.com/HKUDS/DeepTutor/releases/tag/v1.7.4",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 454686875,
+          "size_max": 505892868
+        },
+        {
+          "platform": "windows",
+          "size_min": 493565151,
+          "size_max": 534576020
+        }
+      ]
+    }
+  },
+  {
+    "id": "openmaic",
+    "name": "OpenMAIC",
+    "repo": "https://github.com/THU-MAIC/OpenMAIC",
+    "author": "THU-MAIC contributors",
+    "level": "avanz",
+    "category": "didattica",
+    "description": {
+      "it": "Crea lezioni interattive e quiz in un’aula nel browser. Supporta modelli locali configurabili con Ollama.",
+      "en": "Builds interactive lessons and quizzes in a browser classroom, with configurable local Ollama models."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/THU-MAIC/OpenMAIC/blob/main/LICENSE",
+    "website": "https://github.com/THU-MAIC/OpenMAIC",
+    "releases": "https://github.com/THU-MAIC/OpenMAIC/releases/tag/v1.5.0",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/THU-MAIC/OpenMAIC/main/app/apple-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/THU-MAIC/OpenMAIC/main/lib/pbl/v3/screenshots/classroom.png",
+      "https://raw.githubusercontent.com/THU-MAIC/OpenMAIC/main/lib/pbl/v3/screenshots/workbench.png"
+    ],
+    "media_source": "https://github.com/THU-MAIC/OpenMAIC",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/THU-MAIC/OpenMAIC#readme"
+    },
+    "stars": {
+      "count": 44601,
+      "source": "https://github.com/THU-MAIC/OpenMAIC/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v1.5.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/THU-MAIC/OpenMAIC/releases/tag/v1.5.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "weknora",
+    "name": "WeKnora",
+    "repo": "https://github.com/Tencent/WeKnora",
+    "author": "Tencent and contributors",
+    "level": "avanz",
+    "category": "dati",
+    "description": {
+      "it": "Riunisce documenti, ricerca semantica e wiki in un’interfaccia web. Server proprio e modelli Ollama supportati.",
+      "en": "Combines documents, semantic search, and wikis in a web interface. Self-hosting and Ollama models are supported."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/Tencent/WeKnora/blob/main/LICENSE",
+    "website": "https://weknora.weixin.qq.com",
+    "releases": "https://github.com/Tencent/WeKnora/releases/tag/v0.9.1",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Tencent/WeKnora/main/cmd/desktop/build/appicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Tencent/WeKnora/main/website-docs/public/screenshots/wiki-browser.png",
+      "https://raw.githubusercontent.com/Tencent/WeKnora/main/website-docs/public/screenshots/agent-chat.png"
+    ],
+    "media_source": "https://github.com/Tencent/WeKnora",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Tencent/WeKnora#run-with-docker-compose"
+    },
+    "stars": {
+      "count": 38291,
+      "source": "https://github.com/Tencent/WeKnora/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v0.9.1",
+      "date": "2026-11-24",
+      "source": "https://github.com/Tencent/WeKnora/releases/tag/v0.9.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "odysseus",
+    "name": "Odysseus",
+    "repo": "https://github.com/odysseus-dev/odysseus",
+    "author": "Odysseus contributors",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Workspace web per chat, documenti, note e ricerca, su server proprio e con modelli locali configurabili.",
+      "en": "Web workspace for chat, documents, notes, and research, with self-hosting and configurable local models."
+    },
+    "alternatives": [],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/odysseus-dev/odysseus/blob/dev/LICENSE",
+    "website": "https://odysseus-dev.github.io/odysseus",
+    "releases": "https://github.com/odysseus-dev/odysseus#quick-start",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/odysseus-dev/odysseus/dev/static/icons/icon-512.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/odysseus-dev/odysseus/dev/assets/branding/odysseus-browser.jpg",
+      "https://raw.githubusercontent.com/odysseus-dev/odysseus/dev/docs/frontend-architecture/evidence/editor/editor-01-desktop-canvas.png"
+    ],
+    "media_source": "https://github.com/odysseus-dev/odysseus",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/odysseus-dev/odysseus/blob/dev/website/setup.md"
+    },
+    "stars": {
+      "count": 95997,
+      "source": "https://github.com/odysseus-dev/odysseus/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {}
+  },
+  {
+    "id": "magpie",
+    "name": "Magpie",
+    "repo": "https://github.com/yetone/magpie",
+    "author": "yetone and contributors",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Pannello desktop per associare modelli a strumenti AI e monitorare l’uso. Supporta endpoint locali e provider scelti dall’utente.",
+      "en": "Desktop dashboard for attaching models to AI tools and monitoring usage. Supports local endpoints and user-selected providers."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/yetone/magpie/blob/main/LICENSE",
+    "website": "https://usemagpie.ai",
+    "releases": "https://github.com/yetone/magpie/releases/tag/v0.1.4915",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://usemagpie.ai/docs/start"
+    },
+    "logo": "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/icon-256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/agents-light.png",
+      "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/panel-dark.png"
+    ],
+    "media_source": "https://github.com/yetone/magpie",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://usemagpie.ai/docs/start"
+    },
+    "stars": {
+      "count": 42014,
+      "source": "https://github.com/yetone/magpie/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/yetone/magpie/releases/tag/v0.1.4915",
+      "macos": "https://github.com/yetone/magpie/releases/tag/v0.1.4915",
+      "windows": "https://github.com/yetone/magpie/releases/tag/v0.1.4915"
+    },
+    "release": {
+      "version": "v0.1.4915",
+      "date": "2026-11-26",
+      "source": "https://github.com/yetone/magpie/releases/tag/v0.1.4915",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 99730880,
+          "size_max": 107741752
+        },
+        {
+          "platform": "macos",
+          "size_min": 44124842,
+          "size_max": 54135721
+        },
+        {
+          "platform": "windows",
+          "size_min": 104281088,
+          "size_max": 113288704
+        }
+      ]
+    }
+  },
+  {
+    "id": "comfyui",
+    "name": "ComfyUI",
+    "repo": "https://github.com/Comfy-Org/ComfyUI",
+    "author": "Comfy Org and contributors",
+    "level": "avanz",
+    "category": "design",
+    "description": {
+      "it": "Editor a nodi per creare immagini, video e audio con modelli locali. I servizi cloud e i nodi partner sono opzionali.",
+      "en": "Node editor for creating images, video, and audio with local models. Cloud services and partner nodes are optional."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE",
+    "website": "https://www.comfy.org/",
+    "releases": "https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.46.0",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://github.com/Comfy-Org/comfy-mcp"
+    },
+    "logo": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI_frontend/main/public/assets/images/comfy-icon-512.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Comfy-Org/docs/main/images/interface/app_mode/app_mode_1.png",
+      "https://raw.githubusercontent.com/Comfy-Org/docs/main/images/interface/app_mode/app_mode_2.png"
+    ],
+    "media_source": "https://github.com/Comfy-Org/ComfyUI",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Comfy-Org/comfy-mcp"
+    },
+    "stars": {
+      "count": 148766,
+      "source": "https://github.com/Comfy-Org/ComfyUI/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v0.46.0",
+      "date": "2026-11-18",
+      "source": "https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.46.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "invoke-community",
+    "name": "Invoke Community",
+    "repo": "https://github.com/invoke-ai/InvokeAI",
+    "author": "Invoke and contributors",
+    "level": "avanz",
+    "category": "foto",
+    "description": {
+      "it": "Edizione Community con canvas, inpainting e workflow a nodi. Il launcher ufficiale avvia l’interfaccia locale.",
+      "en": "Community Edition with a canvas, inpainting, and node workflows. The official launcher starts the local interface."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/invoke-ai/InvokeAI/blob/main/LICENSE",
+    "website": "https://invoke-ai.github.io/InvokeAI/",
+    "releases": "https://github.com/invoke-ai/launcher/releases/tag/v1.8.5",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/invoke-ai/launcher/main/assets/images/invoke-avatar-square.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/invoke-ai/InvokeAI/main/docs/public/coverimage.png"
+    ],
+    "media_source": "https://github.com/invoke-ai/InvokeAI",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/invoke-ai/InvokeAI#readme"
+    },
+    "stars": {
+      "count": 29167,
+      "source": "https://github.com/invoke-ai/InvokeAI/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://github.com/invoke-ai/launcher/releases/tag/v1.8.5",
+      "macos": "https://github.com/invoke-ai/launcher/releases/tag/v1.8.5",
+      "windows": "https://github.com/invoke-ai/launcher/releases/tag/v1.8.5"
+    },
+    "release": {
+      "version": "v1.8.5",
+      "date": "2026-10-10",
+      "source": "https://github.com/invoke-ai/launcher/releases/tag/v1.8.5",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 145780235,
+          "size_max": 145780235
+        },
+        {
+          "platform": "macos",
+          "size_min": 132949779,
+          "size_max": 132949779
+        },
+        {
+          "platform": "windows",
+          "size_min": 113202136,
+          "size_max": 113202136
+        }
+      ]
+    }
+  },
+  {
+    "id": "hyperframes",
+    "name": "HyperFrames Browser Editor",
+    "repo": "https://github.com/heygen-com/hyperframes",
+    "author": "HeyGen and contributors",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Editor video locale nel browser con canvas, livelli e timeline. Renderizza composizioni HTML in MP4.",
+      "en": "Local browser video editor with a canvas, layers, and a timeline. Renders HTML compositions to MP4."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/heygen-com/hyperframes/blob/main/LICENSE",
+    "website": "https://hyperframes.heygen.com",
+    "releases": "https://github.com/heygen-com/hyperframes/releases/tag/v0.9.100",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "cli",
+      "source": "https://hyperframes.heygen.com/studio"
+    },
+    "logo": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/assets/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/heygen-com/hyperframes/main/docs/public/images/studio/editor-overview-v2.jpg"
+    ],
+    "media_source": "https://github.com/heygen-com/hyperframes",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://hyperframes.heygen.com/studio"
+    },
+    "stars": {
+      "count": 90851,
+      "source": "https://github.com/heygen-com/hyperframes/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "v0.9.100",
+      "date": "2026-11-26",
+      "source": "https://github.com/heygen-com/hyperframes/releases/tag/v0.9.100",
+      "packages": []
+    }
+  },
+  {
+    "id": "backrest",
+    "name": "Backrest",
+    "repo": "https://github.com/garethgeorge/backrest",
+    "author": "Gareth George",
+    "category": "backup",
+    "level": "base",
+    "description": {
+      "it": "Pianifica backup cifrati, sfoglia le istantanee e ripristina file da una dashboard locale basata su restic.",
+      "en": "Schedule encrypted backups, browse snapshots and restore files through a local dashboard built on restic."
+    },
+    "alternatives": [
+      "Arq Backup"
+    ],
+    "website": "https://garethgeorge.github.io/backrest/",
+    "releases": "https://github.com/garethgeorge/backrest/releases",
+    "delivery": "self-hosted",
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/garethgeorge/backrest/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://f000.backblazeb2.com/file/gshare/screenshots/backrest-1.11.1-dashboard.png",
+      "https://f000.backblazeb2.com/file/gshare/screenshots/backrest-1.11.1-browse-snapshot.png"
+    ],
+    "media_source": "https://github.com/garethgeorge/backrest",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/garethgeorge/backrest#readme"
+    },
+    "stars": {
+      "count": 7991,
+      "date": "2026-11-27",
+      "source": "https://github.com/garethgeorge/backrest/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/garethgeorge/backrest/releases/tag/v1.14.1",
+      "linux": "https://github.com/garethgeorge/backrest/releases/tag/v1.14.1",
+      "windows": "https://github.com/garethgeorge/backrest/releases/tag/v1.14.1"
+    },
+    "release": {
+      "version": "1.14.1",
+      "date": "2026-07-12",
+      "source": "https://github.com/garethgeorge/backrest/releases/tag/v1.14.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 10906321,
+          "size_max": 12262652
+        },
+        {
+          "platform": "linux",
+          "size_min": 11130174,
+          "size_max": 12224740
+        },
+        {
+          "platform": "windows",
+          "size_min": 11007131,
+          "size_max": 18490009
+        }
+      ]
     }
   }
 ]

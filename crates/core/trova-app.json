@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "intents": [
+    {
+      "id": "dictation",
+      "example": {
+        "it": "Vorrei scrivere in tutte le app dettando",
+        "en": "I want to type in any app by speaking"
+      },
+      "match": [["dettatur"], ["dettand"], ["dettar"], ["dictat"], ["speech to text"], ["scriv", "voce"], ["scriv", "parland"], ["type", "speak"], ["voice", "typing"]],
+      "exclude": ["riunion", "meeting", "audio di sistema", "system audio", "live caption", "sottotitol"],
+      "apps": [{
+        "id": "handy",
+        "reason": {
+          "it": "Trascrive il microfono in locale e incolla il testo nel campo attivo con una scorciatoia.",
+          "en": "Transcribes microphone input locally and pastes it into the active text field with a shortcut."
+        },
+        "source": "https://handy.computer/docs"
+      }]
+    },
+    {
+      "id": "meeting-notes",
+      "example": {
+        "it": "Voglio la trascrizione e il riepilogo di una riunione",
+        "en": "Transcribe and summarize a meeting"
+      },
+      "match": [["riunion", "trascriv"], ["riunion", "trascriz"], ["riunion", "riassum"], ["riunion", "riepilog"], ["meeting", "transcrib"], ["meeting", "summar"], ["meeting", "notes"], ["verbale", "riunion"]],
+      "apps": [{
+        "id": "meetily",
+        "reason": {
+          "it": "Trascrive e riepiloga riunioni in locale nell’edizione Community.",
+          "en": "Transcribes and summarizes meetings locally in the Community edition."
+        },
+        "source": "https://github.com/Zackriya-Solutions/meetily#readme"
+      }]
+    },
+    {
+      "id": "screen-ocr",
+      "example": {
+        "it": "Copia il testo che vedo sullo schermo",
+        "en": "Copy text from a region of my screen"
+      },
+      "match": [["scherm", "testo"], ["screenshot", "testo"], ["scherm", "ocr"], ["screen", "text"], ["screen", "ocr"], ["screenshot", "text"]],
+      "apps": [{
+        "id": "normcap",
+        "reason": {
+          "it": "Selezioni una zona dello schermo e copi il testo riconosciuto negli appunti.",
+          "en": "Select a screen region and copy the recognized text to your clipboard."
+        },
+        "source": "https://dynobo.github.io/normcap/usage/"
+      }]
+    },
+    {
+      "id": "pdf-ocr",
+      "example": {
+        "it": "Rendi ricercabile un PDF scansionato",
+        "en": "Make a scanned PDF searchable"
+      },
+      "match": [["pdf", "scans"], ["pdf", "scanned"], ["pdf", "ricerc"], ["pdf", "searchab"], ["pdf", "ocr"], ["pdf", "testo", "estr"]],
+      "apps": [{
+        "id": "naps2",
+        "reason": {
+          "it": "Aggiunge un livello di testo ricercabile anche ai PDF scansionati che importi.",
+          "en": "Adds a searchable text layer to scanned PDF files you import."
+        },
+        "source": "https://www.naps2.com/doc/ocr"
+      }]
+    },
+    {
+      "id": "encrypted-backup",
+      "example": {
+        "it": "Fai un backup cifrato dei miei file",
+        "en": "Back up and encrypt my files"
+      },
+      "match": [["backup", "cifr"], ["backup", "cript"], ["back up", "encrypt"], ["backup", "encrypt"], ["copi", "sicurezz", "file"], ["ripristin", "file"], ["restor", "file"]],
+      "apps": [{
+        "id": "kopia",
+        "reason": {
+          "it": "Crea istantanee cifrate e permette di ripristinare singoli file con KopiaUI.",
+          "en": "Creates encrypted snapshots and can restore individual files through KopiaUI."
+        },
+        "source": "https://kopia.io/docs/getting-started/"
+      }, {
+        "id": "backrest",
+        "reason": {
+          "it": "Pianifica backup cifrati e ripristina file da una dashboard locale.",
+          "en": "Schedules encrypted backups and restores files from a local dashboard."
+        },
+        "source": "https://github.com/garethgeorge/backrest#key-features"
+      }]
+    },
+    {
+      "id": "system-snapshot",
+      "example": {
+        "it": "Ripristina Linux dopo un aggiornamento",
+        "en": "Restore Linux after a system update"
+      },
+      "match": [["linux", "ripristin", "aggiorn"], ["linux", "restor", "updat"], ["snapshot", "sistem"], ["system snapshot"]],
+      "apps": [{
+        "id": "timeshift",
+        "reason": {
+          "it": "Crea istantanee di sistema Linux che puoi ripristinare dopo un aggiornamento.",
+          "en": "Creates Linux system snapshots you can restore after an update."
+        },
+        "source": "https://github.com/linuxmint/timeshift#readme"
+      }]
+    },
+    {
+      "id": "local-files",
+      "example": {
+        "it": "Passa file dal telefono al computer senza cloud",
+        "en": "Send files from my phone to my computer without the cloud"
+      },
+      "match": [["file", "telefon"], ["file", "phone"], ["file", "senza cloud"], ["file", "without the cloud"], ["file", "rete locale"], ["file", "local network"]],
+      "apps": [{
+        "id": "localsend",
+        "reason": {
+          "it": "Trasferisce i file tra dispositivi sulla stessa rete locale.",
+          "en": "Transfers files between devices on the same local network."
+        },
+        "source": "https://localsend.org/"
+      }]
+    }
+  ]
+}

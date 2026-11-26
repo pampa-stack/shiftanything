@@ -39,6 +39,7 @@ mod notes;
 pub mod settings;
 mod settings_dialog;
 mod sheet;
+mod shifter;
 pub mod theme;
 mod versions;
 mod views;

@@ -9,7 +9,7 @@ pub(crate) struct Catalog {
     author: String,
     category: String,
     sort: String,
-    detail: Option<String>,
+    pub(crate) detail: Option<String>,
 }
 impl LauncherUi {
     pub(crate) fn curated_page(&mut self, ui: &mut egui::Ui) {

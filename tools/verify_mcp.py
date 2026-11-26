@@ -20,7 +20,7 @@ async def main():
         async with ClientSession(reader, writer) as session:
             await session.initialize()
             tools = (await session.list_tools()).tools
-            assert {tool.name for tool in tools} == {"catalog_filters", "search_apps", "get_app"}
+            assert {tool.name for tool in tools} == {"catalog_filters", "search_apps", "get_app", "comparison_profiles", "compare_apps"}
             assert all(tool.annotations.readOnlyHint for tool in tools)
             filters = (await session.call_tool("catalog_filters", {})).structuredContent
             assert filters["total"] == expected_total
@@ -39,7 +39,36 @@ async def main():
             assert meetily["agent"]["kind"] != "mcp"
             tenacity = (await session.call_tool("get_app", {"app_id": "tenacity"})).structuredContent["app"]
             assert tenacity["platform_support"]["windows"] and tenacity["distribution"][0]["download_size"] > 0
-            print(f"PASS stdio MCP: {filters['total']} apps, combined filters, unknown/deferred IDs rejected, exactly 3 read-only tools")
+            profiles = (await session.call_tool("comparison_profiles", {"query": "PHÓTOSHÓP®"})).structuredContent
+            assert [profile["id"] for profile in profiles["profiles"]] == ["photoshop"]
+            all_profiles = (await session.call_tool("comparison_profiles", {})).structuredContent["profiles"]
+            seed = json.loads((root / "crates/core/shifter.json").read_text())
+            assert {p["id"] for p in all_profiles} == {p["id"] for p in seed["profiles"]}
+            async def comparison(**args):
+                return (await session.call_tool("compare_apps", args)).structuredContent
+            result = await comparison(profile_id="photoshop", selected_features=["layers", "reversible", "psd", "genfill"], required_features=["genfill"])
+            photo = next(row for row in result["results"] if row["app_id"] == "photocraft")
+            assert photo["coverage"] == 75 and photo["missing_required"] == ["genfill"]
+            assert all(evidence.get("source") for evidence in photo["evidence"].values())
+            result = await comparison(profile_id="photoshop", selected_features=["layers", "reversible", "psd"])
+            assert next(row for row in result["results"] if row["app_id"] == "photocraft")["coverage"] == 100
+            result = await comparison(profile_id="photoshop")
+            assert all(row["coverage"] is None for row in result["results"])
+            assert (await comparison(profile_id="missing"))["error"] == "unknown_profile"
+            assert (await comparison(profile_id="photoshop", selected_features=["missing"]))["error"] == "invalid_selection"
+            assert (await comparison(profile_id="photoshop", required_features=["layers"]))["error"] == "invalid_selection"
+            manual = await comparison(software_name="Photoshop", app_ids=["photocraft"], selected_features=["custom feature"])
+            assert manual["manual"] and manual["results"][0]["coverage"] is None
+            manual = await comparison(software_name="An unknown product", app_ids=["photocraft"], selected_features=["photoshop:layers", "custom:fixture"])
+            assert manual["results"][0]["coverage"] == 50 and manual["results"][0]["evidence"]["photoshop:layers"]["source"]
+
+            for profile in all_profiles:
+                selected = [feature["id"] for feature in profile["features"]]
+                result = await comparison(profile_id=profile["id"], selected_features=selected, required_features=selected)
+                assert result["results"], profile["id"]
+                assert all(sum(row[k] for k in ["supported", "partial", "unsupported", "unverified"]) == len(selected) for row in result["results"])
+            print(f"PASS sh*fter stdio: {len(all_profiles)} profiles; explicit/manual selection and evidence reuse")
+            print(f"PASS stdio MCP: {filters['total']} apps, combined filters, unknown/deferred IDs rejected, exactly 5 read-only tools")
 
 
     with tempfile.TemporaryDirectory(prefix=".mcp-proof-", dir=root) as folder:

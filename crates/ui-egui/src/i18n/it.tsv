@@ -177,3 +177,34 @@
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} carica i server MCP solo all’avvio: le app Craft compaiono dopo il riavvio. Il riavvio chiude {client}, anche se sta scrivendo una risposta.
 	Couldn't use this server: {e}	Impossibile usare questo server: {e}
 	Custom folders use AppImage on Linux.	Su Linux le cartelle personalizzate usano AppImage.
+
+	Absent	Assente
+	Add a feature	Aggiungi una funzione
+	All required features confirmed	Indispensabili tutte confermate
+	App	App
+	Choose catalog apps	Scegli app del catalogo
+	Choose what matters. Compare documented features.	Scegli cosa serve. Confronta le funzioni documentate.
+	Compare manually	Confronta manualmente
+	Comparison data unavailable	Dati di confronto non disponibili
+	Complete requirements first, then documented coverage and name.	Prima i requisiti completi, poi copertura documentata e nome.
+	Confirmed	Confermata
+	Coverage counts confirmed features only. Partial and unverified remain separate.	La copertura conta solo le funzioni confermate. Parziali e non verificate restano separate.
+	Documented coverage	Copertura documentata
+	Evidence checked	Fonti controllate
+	Features to compare	Funzioni da confrontare
+	Manual comparison: no evidence profile. No percentage is calculated.	Confronto manuale: nessun profilo con prove. Nessuna percentuale calcolata.
+	No verified evidence	Nessuna prova verificata
+	Paid software	Software a pagamento
+	Partial	Parziale
+	Required	Indispensabile
+	Required feature not confirmed	Indispensabile non confermata
+	Required features	Funzioni indispensabili
+	Select a documented profile or start a manual comparison.	Scegli un profilo documentato o avvia un confronto manuale.
+	Select at least one feature. No percentage is calculated.	Scegli almeno una funzione. Nessuna percentuale calcolata.
+	Source	Fonte
+	Unverified	Non verificato
+
+	Manual comparison. Reuse documented features or add your own.	Confronto manuale. Riusa funzioni documentate o aggiungi le tue.
+	No apps selected	Nessuna app selezionata
+	Remove feature	Rimuovi funzione
+	Reuse a documented feature	Riusa una funzione documentata

@@ -96,6 +96,7 @@ pub enum Page {
     Catalog,
     /// Craft Font Manager (desktop only).
     Fonts,
+    Shifter,
 }
 
 pub(crate) struct Toast {
@@ -231,6 +232,7 @@ pub struct LauncherUi {
     pub(crate) automation_links: std::collections::HashMap<String, Vec<String>>,
     pub(crate) automation_results: std::collections::BTreeMap<String, String>,
     pub(crate) curated: crate::curated::Catalog,
+    pub(crate) comparison: crate::shifter::Comparison,
     pub(crate) search: String,
     pub(crate) toasts: Vec<Toast>,
     pub(crate) dialog: Option<Dialog>,
@@ -371,6 +373,7 @@ impl LauncherUi {
             automation_links: std::collections::HashMap::new(),
             automation_results: std::collections::BTreeMap::new(),
             curated: crate::curated::Catalog::default(),
+            comparison: crate::shifter::Comparison::default(),
             search: String::new(),
             toasts: Vec::new(),
             dialog: None,
@@ -1078,6 +1081,10 @@ impl LauncherUi {
             }
             #[cfg(not(target_arch = "wasm32"))]
             self.fonts.hidden();
+            if self.page == Page::Shifter {
+                self.shifter_page(ui);
+                return;
+            }
             if self.page == Page::Catalog {
                 self.curated_page(ui);
                 return;
@@ -1692,6 +1699,61 @@ mod tests {
         assert!(h.query_by_label("PhotoCraft preview").is_none(), "table uses rows, not full preview cards");
         if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
             h.render().unwrap().save(std::path::Path::new(&dir).join("catalog-table-en.png")).unwrap();
+        }
+    }
+
+    #[test]
+    fn shifter_profiles_require_explicit_selection_and_manual_mode_never_invents_coverage() {
+        use egui_kittest::kittest::Queryable;
+        for language in ["en", "it"] {
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            let fonts = h.get_by_label(if language == "it" { "Font" } else { "Fonts" }).rect();
+            let shifter = h.get_by_label("sh*fter").rect();
+            assert!(fonts.right() <= shifter.left(), "sh*fter follows Fonts");
+            h.get_by_label("sh*fter").click_accesskit();
+            h.run_steps(4);
+            h.get_by_label("Adobe Photoshop").click_accesskit();
+            h.run_steps(4);
+            h.get_by_label(if language == "it" { "Copertura documentata" } else { "Documented coverage" });
+            let feature = if language == "it" { "Riempimento generativo integrato" } else { "Built-in Generative Fill" };
+            h.get_by_label(&format!("{} · {feature}", if language == "it" { "Indispensabile" } else { "Required" })).click_accesskit();
+            h.run_steps(3);
+            assert!(
+                h.query_all_by_label_contains(if language == "it" { "Indispensabile non confermata" } else { "Required feature not confirmed" })
+                    .next()
+                    .is_some()
+            );
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-{language}.png"))).unwrap();
+            }
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })
+                .click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })
+                .type_text("A new product");
+            h.run_steps(3);
+            // Typing does not replace the explicitly selected evidence profile.
+            assert!(h.query_all_by_label("Adobe Photoshop").next().is_some());
+            h.get_by_label(if language == "it" { "Confronta manualmente" } else { "Compare manually" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(if language == "it" {
+                "Confronto manuale. Riusa funzioni documentate o aggiungi le tue."
+            } else {
+                "Manual comparison. Reuse documented features or add your own."
+            });
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
+                .click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
+                .type_text("Fixture feature");
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Aggiungi" } else { "Add" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label("PhotoCraft").click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Non verificato" } else { "Unverified" });
+            h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));
         }
     }
 

@@ -1566,11 +1566,12 @@ enum PinDropAxis {
 /// The pages the toolbar's toggle offers, in order: the Craft App Suite, then Fonts (desktop only).
 fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
     let mut pages = vec![
-        (Page::Catalog, widgets::Cell { label: tl!("Catalog"), tip: tl!("Catalog"), count: None }),
-        (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None }),
+        (Page::Catalog, widgets::Cell { label: tl!("Catalog"), tip: tl!("Catalog"), count: None, literal_case: false }),
+        (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None, literal_case: false }),
     ];
     if cfg!(not(target_arch = "wasm32")) {
-        pages.push((Page::Fonts, widgets::Cell { label: tl!("Fonts"), tip: tl!("Fonts for every Craft app"), count: None }));
+        pages.push((Page::Fonts, widgets::Cell { label: tl!("Fonts"), tip: tl!("Fonts for every Craft app"), count: None, literal_case: false }));
+        pages.push((Page::Shifter, widgets::Cell { label: "sh*fter", tip: "sh*fter", count: None, literal_case: true }));
     }
     pages
 }

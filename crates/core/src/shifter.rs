@@ -1,0 +1,233 @@
+//! Evidence-based comparisons. Catalog alternatives discover candidates, never prove features.
+use std::collections::{BTreeMap, BTreeSet};
+use std::sync::OnceLock;
+
+use serde::{Deserialize, Serialize};
+use unicode_normalization::{UnicodeNormalization, char::is_combining_mark};
+
+use crate::curated;
+
+#[derive(Debug, Deserialize)]
+pub struct Dataset {
+    pub schema_version: u32,
+    pub checked_on: String,
+    pub profiles: Vec<Profile>,
+}
+#[derive(Debug, Deserialize)]
+pub struct Profile {
+    pub id: String,
+    pub name: String,
+    pub aliases: Vec<String>,
+    pub features: Vec<Feature>,
+    pub candidates: Vec<Candidate>,
+}
+#[derive(Debug, Deserialize)]
+pub struct Feature {
+    pub id: String,
+    pub name: Text,
+    pub source: String,
+}
+#[derive(Debug, Deserialize)]
+pub struct Text {
+    pub it: String,
+    pub en: String,
+}
+impl Text {
+    pub fn in_language(&self, language: &str) -> &str {
+        if language == "it" { &self.it } else { &self.en }
+    }
+}
+#[derive(Debug, Deserialize)]
+pub struct Candidate {
+    pub app_id: String,
+    pub evidence: BTreeMap<String, Evidence>,
+}
+#[derive(Debug, Deserialize)]
+pub struct Evidence {
+    pub state: State,
+    pub source: String,
+    pub note: Text,
+}
+#[derive(Clone, Copy, Debug, Default, Deserialize, Serialize, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub enum State {
+    Supported,
+    Partial,
+    Unsupported,
+    #[default]
+    Unverified,
+}
+#[derive(Debug, Serialize, PartialEq, Eq)]
+pub struct Score {
+    pub app_id: String,
+    pub supported: usize,
+    pub partial: usize,
+    pub unsupported: usize,
+    pub unverified: usize,
+    pub coverage: Option<usize>,
+    pub missing_required: Vec<String>,
+}
+
+pub fn data() -> Result<&'static Dataset, &'static str> {
+    static DATA: OnceLock<Result<Dataset, String>> = OnceLock::new();
+    DATA.get_or_init(|| serde_json::from_str(include_str!("../shifter.json")).map_err(|error| error.to_string())).as_ref().map_err(String::as_str)
+}
+
+/// Ignore case, accents, spacing and literal trademark signs, not unknown product names.
+pub fn normalize(value: &str) -> String {
+    value.replace(['™', '®', '℠'], "").nfkd().filter(|c| !is_combining_mark(*c) && c.is_alphanumeric()).flat_map(char::to_lowercase).collect()
+}
+impl Profile {
+    pub fn matches(&self, query: &str) -> bool {
+        let query = normalize(query);
+        !query.is_empty() && std::iter::once(&self.name).chain(&self.aliases).any(|name| normalize(name).contains(&query))
+    }
+    pub fn evidence(&self, app_id: &str, feature: &str) -> Option<&Evidence> {
+        self.candidates.iter().find(|candidate| candidate.app_id == app_id)?.evidence.get(feature)
+    }
+    pub fn discovers(&self, app: &curated::App) -> bool {
+        self.candidates.iter().any(|candidate| candidate.app_id == app.id)
+            || app.alternatives.iter().any(|name| {
+                let normalized = normalize(name);
+                std::iter::once(&self.name).chain(&self.aliases).any(|alias| normalize(alias) == normalized)
+            })
+    }
+    pub fn compare(&self, selected: &[String], required: &[String]) -> Result<Vec<Score>, String> {
+        let allowed: BTreeSet<_> = self.features.iter().map(|feature| feature.id.as_str()).collect();
+        let selected_set: BTreeSet<_> = selected.iter().map(String::as_str).collect();
+        let required_set: BTreeSet<_> = required.iter().map(String::as_str).collect();
+        if selected_set.len() != selected.len() || required_set.len() != required.len() {
+            return Err("Feature IDs must be unique".into());
+        }
+        if !selected_set.is_subset(&allowed) || !required_set.is_subset(&selected_set) {
+            return Err("Unknown feature or required feature outside the selection".into());
+        }
+        let mut scores: Vec<_> =
+            curated::apps().iter().filter(|app| self.discovers(app)).map(|app| self.score(&app.id, selected, required)).collect();
+        sort_scores(&mut scores);
+        Ok(scores)
+    }
+    fn score(&self, app_id: &str, selected: &[String], required: &[String]) -> Score {
+        score_evidence(app_id, selected, required, |feature| self.evidence(app_id, feature).map(|evidence| evidence.state))
+    }
+}
+
+fn score_evidence(app_id: &str, selected: &[String], required: &[String], evidence: impl Fn(&str) -> Option<State>) -> Score {
+    let mut score =
+        Score { app_id: app_id.into(), supported: 0, partial: 0, unsupported: 0, unverified: 0, coverage: None, missing_required: vec![] };
+    for feature in selected {
+        match evidence(feature).unwrap_or_default() {
+            State::Supported => score.supported += 1,
+            State::Partial => score.partial += 1,
+            State::Unsupported => score.unsupported += 1,
+            State::Unverified => score.unverified += 1,
+        }
+    }
+    if !selected.is_empty() && score.unverified < selected.len() {
+        // Integer rounding half up; partial and missing evidence remain in the denominator.
+        score.coverage = Some((200 * score.supported + selected.len()) / (2 * selected.len()));
+    }
+    score.missing_required = required.iter().filter(|feature| evidence(feature) != Some(State::Supported)).cloned().collect();
+    score
+}
+fn sort_scores(scores: &mut [Score]) {
+    scores.sort_by_key(|score| {
+        let name = curated::apps().iter().find(|app| app.id == score.app_id).map_or(score.app_id.as_str(), |app| app.name.as_str());
+        (score.missing_required.len(), std::cmp::Reverse(score.coverage), normalize(name), score.app_id.clone())
+    });
+}
+impl Dataset {
+    /// Explicit qualified IDs reuse evidence; free labels never acquire evidence by name.
+    pub fn feature(&self, key: &str) -> Option<(&Profile, &Feature)> {
+        let (profile_id, feature_id) = key.split_once(':')?;
+        let profile = self.profiles.iter().find(|profile| profile.id == profile_id)?;
+        Some((profile, profile.features.iter().find(|feature| feature.id == feature_id)?))
+    }
+    pub fn evidence(&self, app_id: &str, key: &str) -> Option<&Evidence> {
+        let (profile, feature) = self.feature(key)?;
+        profile.evidence(app_id, &feature.id)
+    }
+    pub fn compare_manual(&self, app_ids: &[String], selected: &[String], required: &[String]) -> Result<Vec<Score>, String> {
+        let unique = |ids: &[String]| ids.iter().collect::<BTreeSet<_>>().len() == ids.len();
+        if !unique(app_ids)
+            || !unique(selected)
+            || !unique(required)
+            || !required.iter().all(|feature| selected.contains(feature))
+            || app_ids.iter().any(|id| !curated::apps().iter().any(|app| app.id == *id))
+        {
+            return Err("Unknown app, duplicate IDs, or required feature outside the selection".into());
+        }
+        let mut scores: Vec<_> = app_ids
+            .iter()
+            .map(|app_id| score_evidence(app_id, selected, required, |feature| self.evidence(app_id, feature).map(|evidence| evidence.state)))
+            .collect();
+        sort_scores(&mut scores);
+        Ok(scores)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn evidence_gaps_and_partial_support_never_become_confirmed_support() {
+        let profile: Profile = serde_json::from_value(serde_json::json!({
+            "id":"fixture", "name":"Fixture", "aliases":[],
+            "features":[], "candidates":[{"app_id":"fixture", "evidence": {
+                "yes":{"state":"supported","source":"https://example.org","note":{"it":"sì","en":"yes"}},
+                "some":{"state":"partial","source":"https://example.org","note":{"it":"parte","en":"some"}},
+                "no":{"state":"unsupported","source":"https://example.org","note":{"it":"no","en":"no"}}
+            }}]
+        }))
+        .unwrap();
+        let features: Vec<_> = ["yes", "some", "no", "unknown"].map(String::from).into();
+        let score = profile.score("fixture", &features, &features);
+        assert_eq!(score.coverage, Some(25));
+        assert_eq!(score.missing_required, features[1..]);
+        assert_eq!((score.supported, score.partial, score.unsupported, score.unverified), (1, 1, 1, 1));
+        assert_eq!(profile.score("unknown-app", &features, &[]).coverage, None);
+        assert_eq!(profile.score("fixture", &[], &[]).coverage, None);
+        assert_eq!(profile.score("fixture", &features[..3], &[]).coverage, Some(33));
+        let eight: Vec<_> = ["yes", "a", "b", "c", "d", "e", "f", "g"].map(String::from).into();
+        assert_eq!(profile.score("fixture", &eight, &[]).coverage, Some(13));
+    }
+    #[test]
+    fn manual_comparison_reuses_only_explicit_feature_ids_and_prioritizes_required_gaps() {
+        let data = data().unwrap();
+        let apps = vec!["photocraft".into(), "gimp".into()];
+        let selected = vec!["photoshop:layers".into(), "custom:layers".into()];
+        let scores = data.compare_manual(&apps, &selected, &selected).unwrap();
+        assert!(scores.iter().all(|score| score.coverage == Some(50) && score.missing_required == ["custom:layers"]));
+        assert!(data.compare_manual(&["missing-app".into()], &selected, &[]).is_err());
+        assert!(data.compare_manual(&apps, &["layers".into()], &[]).unwrap().iter().all(|score| score.coverage.is_none()));
+        // Requirements outrank coverage: GIMP's partial adjustments are still uncovered.
+        let selected = vec!["photoshop:reversible".into()];
+        let scores = data.compare_manual(&apps, &selected, &selected).unwrap();
+        assert!(scores[0].missing_required.len() < scores[1].missing_required.len());
+    }
+
+    #[test]
+    fn imported_evidence_is_scoped_to_catalog_apps_and_declared_features() {
+        let data = data().unwrap();
+        assert_eq!(data.schema_version, 1);
+        for profile in &data.profiles {
+            for candidate in &profile.candidates {
+                assert!(curated::apps().iter().any(|app| app.id == candidate.app_id));
+                for (feature, evidence) in &candidate.evidence {
+                    assert!(profile.features.iter().any(|known| known.id == *feature));
+                    assert!(evidence.source.starts_with("https://"));
+                }
+            }
+            let selected: Vec<_> = profile.features.iter().map(|feature| feature.id.clone()).collect();
+            assert!(profile.compare(&selected, &selected).is_ok());
+            assert!(profile.compare(&["unknown".into()], &[]).is_err());
+            assert!(profile.compare(&[], &selected).is_err());
+        }
+    }
+    #[test]
+    fn product_search_accepts_accents_case_and_trademark_signs_without_selecting_free_text() {
+        let profiles = &data().unwrap().profiles;
+        assert!(profiles.iter().any(|profile| profile.matches("PHÓTOSHÓP®")));
+        assert!(!profiles.iter().any(|profile| profile.matches("a product with no profile")));
+    }
+}

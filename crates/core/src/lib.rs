@@ -31,3 +31,5 @@ pub use status::{AppStatus, InstallSource, Installed, Latest};
 pub mod curated;
 
 pub mod automation;
+
+pub mod shifter;

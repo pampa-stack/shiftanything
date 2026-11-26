@@ -29,6 +29,80 @@ server = FastMCP(
 )
 
 
+from shifter import compare as compare_evidence, manual_compare, normalize as comparison_normalize
+
+SHIFTER_PATH = Path(__file__).resolve().with_name("shifter.json")
+if not SHIFTER_PATH.is_file():
+    SHIFTER_PATH = Path(__file__).resolve().parents[1] / "crates" / "core" / "shifter.json"
+
+
+def comparison_data():
+    MARK_CLIENT()
+    return json.loads(SHIFTER_PATH.read_text(encoding="utf-8"))
+
+
+@server.tool(annotations=READ_ONLY, structured_output=True)
+def comparison_profiles(query: Annotated[str, Field(max_length=240)] = "") -> dict[str, Any]:
+    """List sh*fter profiles and feature IDs. A search result is not a selected profile."""
+    data = comparison_data()
+    needle = comparison_normalize(query)
+    return {"checked_on": data["checked_on"], "profiles": [
+        {key: profile[key] for key in ["id", "name", "aliases", "features"]}
+        for profile in data["profiles"]
+        if not needle or any(needle in comparison_normalize(name) for name in [profile["name"], *profile["aliases"]])
+    ]}
+
+
+@server.tool(annotations=READ_ONLY, structured_output=True)
+def compare_apps(
+    profile_id: Annotated[str, Field(max_length=80)] = "",
+    selected_features: Annotated[list[str], Field(max_length=32)] = [],
+    required_features: Annotated[list[str], Field(max_length=32)] = [],
+    software_name: Annotated[str, Field(max_length=240)] = "",
+    app_ids: Annotated[list[str], Field(max_length=30)] = [],
+) -> dict[str, Any]:
+    """Compare documented features using an explicitly selected profile, or a manual name.
+
+    Coverage is rounded half up: supported / ALL selected features. Partial, unsupported,
+    and unverified are separate. No percentage for empty selection or all unverified.
+    Alternatives only discover candidates. This tool never installs or changes evidence.
+    """
+    data = comparison_data()
+    apps = catalog()
+    if any(len(feature) > 240 for feature in [*selected_features, *required_features]):
+        return {"error": "invalid_feature"}
+    if len(set(app_ids)) != len(app_ids) or any(app_id not in {app['id'] for app in apps} for app_id in app_ids):
+        return {"error": "unknown_or_duplicate_app"}
+    if profile_id:
+        profile = next((profile for profile in data["profiles"] if profile['id'] == profile_id), None)
+        if profile is None:
+            return {"error": "unknown_profile"}
+        if app_ids:
+            return {"error": "app_ids_are_for_manual_comparison"}
+        try:
+            results = compare_evidence(profile, apps, selected_features, required_features)
+        except ValueError as error:
+            return {"error": "invalid_selection", "message": str(error)}
+        evidence = {candidate['app_id']: candidate['evidence'] for candidate in profile['candidates']}
+        return {"profile_id": profile_id, "checked_on": data['checked_on'], "manual": False,
+                "selected_features": selected_features, "required_features": required_features,
+                "results": [dict(row, evidence={feature: evidence.get(row['app_id'], {}).get(feature, {"state": "unverified"})
+                                                for feature in selected_features}) for row in results]}
+    if not software_name.strip():
+        return {"error": "select_profile_or_manual_name"}
+    if not app_ids:
+        name = comparison_normalize(software_name)
+        app_ids = [app['id'] for app in apps if any(comparison_normalize(alias) == name for alias in app['alternatives'])]
+    try:
+        results, evidence = manual_compare(data, apps, app_ids, selected_features, required_features)
+    except ValueError as error:
+        return {"error": "invalid_selection", "message": str(error)}
+    return {"manual": True, "software_name": software_name, "checked_on": data['checked_on'],
+            "results": [dict(row, evidence={feature: evidence.get(row['app_id'], {}).get(feature, {"state": "unverified"})
+                                            for feature in selected_features}) for row in results]}
+
+
+
 MARK_CLIENT = lambda: None
 
 

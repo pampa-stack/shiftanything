@@ -115,3 +115,5 @@ The 206-entry catalog update comes from Promptica's approved Regia data at commi
 Promptica social links reuse the existing attributed Simple Icons files in `assets/social/`; no new social artwork or font is introduced.
 
 Catalog import 260 (205 Base / 55 Advanced), Regia `d6dbbd99`, 2026-11-26: original per-record sources retained, including distribution/platform documentation. Static media manifest now contains 18 approved PNGs, adding PDFsam Basic and AnythingLLM. No new installation capability is granted.
+
+sh*fter seed data: operator-supplied Regia `specs/launcher-scale-anything/shifter.json` (2026-11-26), with per-feature official sources and bilingual editorial notes. Comparison evidence does not grant installation capabilities. Unicode normalization uses `unicode-normalization` 0.1.26 ((MIT OR Apache-2.0) AND Unicode-3.0), and `tinyvec` 1.13.3 (Zlib OR Apache-2.0 OR MIT), unmodified crates with their upstream notices.

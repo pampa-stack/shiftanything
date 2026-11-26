@@ -470,7 +470,11 @@ impl LauncherUi {
         let mut theme_choice = self.settings.theme;
         sheet::panel(ui, tl!("Appearance"), |ui| {
             ui.horizontal(|ui| {
-                widgets::cells(ui, &mut theme_choice, &ThemeChoice::ALL.map(|c| (c, Cell { label: c.label(), tip: c.label(), count: None })));
+                widgets::cells(
+                    ui,
+                    &mut theme_choice,
+                    &ThemeChoice::ALL.map(|c| (c, Cell { label: c.label(), tip: c.label(), count: None, literal_case: false })),
+                );
             });
             ui.checkbox(&mut self.settings.hide_community_apps, tl!("Hide community apps"));
         });

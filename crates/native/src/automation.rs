@@ -93,13 +93,17 @@ pub fn configuration_in(root: &std::path::Path) -> Result<String, String> {
     std::fs::create_dir_all(&support).map_err(|error| error.to_string())?;
     let script = support.join("mcp_catalogo.py");
     let catalog = support.join("curated.json");
-    for target in [&script, &catalog] {
+    let comparison_script = support.join("shifter.py");
+    let comparison_data = support.join("shifter.json");
+    for target in [&script, &catalog, &comparison_script, &comparison_data] {
         if std::fs::symlink_metadata(target).is_ok_and(|m| m.file_type().is_symlink()) {
             return Err("MCP support file is a symlink".into());
         }
     }
     crate::paths::write_atomic(&script, include_bytes!("../../../tools/mcp_catalogo.py"))?;
     crate::paths::write_atomic(&catalog, include_bytes!("../../core/curated.json"))?;
+    crate::paths::write_atomic(&comparison_script, include_bytes!("../../../tools/shifter.py"))?;
+    crate::paths::write_atomic(&comparison_data, include_bytes!("../../core/shifter.json"))?;
     serde_json::to_string_pretty(&serde_json::json!({"mcpServers": {"shiftanything": {
         "command": uv, "args": ["run", script.to_string_lossy(),
             "--automation-read-root", root.to_string_lossy(), "--automation-write-root", root.to_string_lossy(),

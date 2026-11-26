@@ -130,7 +130,10 @@ fn harness_language(
                 } else {
                     artcraft_launcher_ui_egui::theme::ThemeChoice::Light
                 };
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), s));
+                let mut launcher = LauncherUi::new(ui.ctx(), Box::new(b), s);
+                // These scenarios exercise management; discovery has separate catalog coverage.
+                launcher.set_page(artcraft_launcher_ui_egui::Page::Apps);
+                *state = Some(launcher);
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);

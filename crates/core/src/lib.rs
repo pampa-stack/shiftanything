@@ -33,3 +33,5 @@ pub mod curated;
 pub mod automation;
 
 pub mod shifter;
+
+pub mod kits;

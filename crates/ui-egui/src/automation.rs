@@ -158,7 +158,7 @@ impl LauncherUi {
         command
     }
 
-    fn automation_snapshot(&self) -> Snapshot {
+    pub(crate) fn automation_snapshot(&self) -> Snapshot {
         Snapshot {
             updated_at: self.backend.now(),
             apps: self

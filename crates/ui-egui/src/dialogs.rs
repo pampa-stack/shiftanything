@@ -40,6 +40,7 @@ impl LauncherUi {
         let response = match &mut dialog {
             Dialog::Notes(id) => modal.show(ctx, |ui| close = self.notes_dialog(ui, id)),
             Dialog::ConfirmUninstall(id) => modal.show(ctx, |ui| close = self.uninstall_dialog(ui, id)),
+            Dialog::InstallKit(apps) => modal.show(ctx, |ui| close = self.kit_install_dialog(ui, apps)),
             Dialog::UnlockVersion { app, tag } => modal.show(ctx, |ui| close = self.unlock_version_dialog(ui, app, tag)),
             Dialog::Install { app, folder } => modal.show(ctx, |ui| close = self.install_dialog(ui, app, folder, host)),
             Dialog::Replace { app, path } => modal.show(ctx, |ui| close = self.replace_dialog(ui, app, path)),

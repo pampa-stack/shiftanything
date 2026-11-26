@@ -97,6 +97,7 @@ pub enum Page {
     /// Craft Font Manager (desktop only).
     Fonts,
     Shifter,
+    Kits,
 }
 
 pub(crate) struct Toast {
@@ -136,6 +137,7 @@ pub(crate) enum UiAction {
 pub(crate) enum Dialog {
     Notes(String),
     ConfirmUninstall(String),
+    InstallKit(Vec<String>),
     UnlockVersion {
         app: String,
         tag: String,
@@ -173,6 +175,7 @@ impl Dialog {
         match self {
             Dialog::Notes(id) => ("notes", id),
             Dialog::ConfirmUninstall(id) => ("uninstall", id),
+            Dialog::InstallKit(_) => ("install-kit", ""),
             Dialog::UnlockVersion { app, .. } => ("unlock-version", app),
             Dialog::Install { app, .. } => ("install", app),
             Dialog::Replace { app, .. } => ("replace", app),
@@ -233,6 +236,7 @@ pub struct LauncherUi {
     pub(crate) automation_results: std::collections::BTreeMap<String, String>,
     pub(crate) curated: crate::curated::Catalog,
     pub(crate) comparison: crate::shifter::Comparison,
+    pub(crate) kits: crate::kits::WorkKits,
     pub(crate) search: String,
     pub(crate) toasts: Vec<Toast>,
     pub(crate) dialog: Option<Dialog>,
@@ -374,6 +378,7 @@ impl LauncherUi {
             automation_results: std::collections::BTreeMap::new(),
             curated: crate::curated::Catalog::default(),
             comparison: crate::shifter::Comparison::default(),
+            kits: crate::kits::WorkKits::default(),
             search: String::new(),
             toasts: Vec::new(),
             dialog: None,
@@ -1081,6 +1086,10 @@ impl LauncherUi {
             }
             #[cfg(not(target_arch = "wasm32"))]
             self.fonts.hidden();
+            if self.page == Page::Kits {
+                self.kits_page(ui);
+                return;
+            }
             if self.page == Page::Shifter {
                 self.shifter_page(ui);
                 return;

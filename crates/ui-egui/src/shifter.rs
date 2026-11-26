@@ -19,6 +19,18 @@ pub(crate) struct Comparison {
     manual_apps: Vec<String>,
 }
 impl LauncherUi {
+    pub(crate) fn open_comparison_profile(&mut self, id: &str) {
+        if let Ok(data) = shifter::data()
+            && let Some(profile) = data.profiles.iter().find(|profile| profile.id == id)
+        {
+            self.comparison.profile = Some(profile.id.clone());
+            self.comparison.manual_name = None;
+            self.comparison.query.clear();
+            self.comparison.selected = profile.features.iter().map(|feature| feature.id.clone()).collect();
+            self.comparison.required.clear();
+            self.page = crate::Page::Shifter;
+        }
+    }
     pub(crate) fn shifter_page(&mut self, ui: &mut Ui) {
         let Ok(data) = shifter::data() else {
             ui.label(tl!("Comparison data unavailable"));

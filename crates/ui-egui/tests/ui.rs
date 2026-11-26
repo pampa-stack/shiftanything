@@ -5256,3 +5256,125 @@ fn settings_without_app_management_is_one_column() {
     edges.dedup();
     assert!(!edges.is_empty() && edges.iter().all(|x| *x == edges[0]), "checkboxes start at {edges:?}");
 }
+
+#[test]
+fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
+    let (mut h, sent, queue) = versions_harness(Machine::default(), None, vec![]);
+    h.state_mut().as_mut().unwrap().settings.language = "en".into();
+    let native_installs = || {
+        sent.borrow()
+            .iter()
+            .filter(|command| {
+                matches!(
+                    command,
+                    Command::Install { .. } | Command::InstallAll { .. } | Command::InstallExpected { .. } | Command::InstallChosen { .. }
+                )
+            })
+            .cloned()
+            .collect::<Vec<_>>()
+    };
+    h.set_size(egui::vec2(1440.0, 900.0));
+    h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::Button, "Work kits").click_accesskit();
+    h.run_steps(5);
+    assert!(h.query_by_label("Select · PhotoCraft").is_none(), "installed apps are never selected for an implicit update");
+    assert!(h.query_by_label("Select · GIMP").is_none(), "curated presence alone grants no recipe");
+    h.get_by_label("Self-hosted");
+    h.get_by_label("Select · VectorCraft").click_accesskit();
+    h.get_by_label("Select · DesignCraft").click_accesskit();
+    h.run_steps(4);
+    sent.borrow_mut().clear();
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    assert!(native_installs().is_empty(), "review must not submit jobs");
+    h.get_by_label("Cancel").click_accesskit();
+    h.run_steps(3);
+    assert!(native_installs().is_empty(), "cancel must leave native state alone");
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    // Detection changed after review opened: the whole batch must be refused.
+    queue.borrow_mut().push(Event::Detected {
+        app: "vectorcraft".into(),
+        installed: Some(Installed {
+            version: version::parse("0.7.0"),
+            source: InstallSource::MacApp,
+            location: "/fixture/VectorCraft.app".into(),
+            package: None,
+            externally_managed: false,
+            origin: None,
+            installation: None,
+        }),
+    });
+    h.run_steps(4);
+    h.get_by_label("App state changed. Review your selection again.");
+    assert!(h.get_by_label("Install selected apps").accesskit_node().is_disabled());
+    assert!(native_installs().is_empty());
+    h.get_by_label("Cancel").click_accesskit();
+    h.run_steps(3);
+    queue.borrow_mut().push(Event::Detected { app: "vectorcraft".into(), installed: None });
+    h.run_steps(3);
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    h.get_by_label("Install selected apps").click_accesskit();
+    h.run_steps(3);
+    assert_eq!(
+        native_installs(),
+        vec![Command::InstallExpected { apps: vec!["designcraft".into(), "vectorcraft".into()], installed: false }],
+        "one guarded native batch, no Update and no unguarded InstallAll"
+    );
+    assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Apps);
+}
+
+#[test]
+fn work_kits_surveys_details_and_comparison_work_in_both_languages() {
+    for (language, kits, architect, ranking, compare) in [
+        ("en", "Work kits", "Architect", "Ranking", "Compare in SH*FTER"),
+        ("it", "Kit di lavoro", "Architetto", "Classifica", "Confronta in SH*FTER"),
+    ] {
+        let (mut h, _, _) = versions_harness(Machine::default(), None, vec![]);
+        h.set_size(egui::vec2(1440.0, 900.0));
+        h.state_mut().as_mut().unwrap().settings.language = language.into();
+        h.run_steps(4);
+        h.get_by_role_and_label(egui::accesskit::Role::Button, kits).focus();
+        h.run_steps(2);
+        h.key_press(egui::Key::Space);
+        h.run_steps(4);
+        h.check_accessibility();
+        let tab = h.get_by_role_and_label(egui::accesskit::Role::Button, kits).rect();
+        assert!(tab.left() >= h.get_by_label("SH*FTER").rect().right());
+        assert!(h.query_by_label(if language == "it" { "Font" } else { "Fonts" }).is_none());
+        for node in h.get_all_by_label_contains(if language == "it" { "Vedi scheda ·" } else { "App details ·" }) {
+            assert!(node.rect().right() <= 1440.0, "kit actions must fit the reference viewport");
+        }
+        snapshot(&mut h, &format!("kits-designer-{language}"));
+        h.get_by_label("App details · GIMP".replace("App details", if language == "it" { "Vedi scheda" } else { "App details" }).as_str())
+            .click_accesskit();
+        h.run_steps(3);
+        assert!(h.query_all_by_label("GIMP").count() >= 1);
+        h.key_press(egui::Key::Escape);
+        h.run_steps(4);
+        h.run_steps(3);
+        h.get_by_label(architect).click_accesskit();
+        h.run_steps(4);
+        snapshot(&mut h, &format!("kits-architect-{language}"));
+        h.get_by_label(ranking).click_accesskit();
+        h.run_steps(4);
+        h.get_by_label("POLI.design · Experience Design Academy");
+        snapshot(&mut h, &format!("kits-ranking-{language}"));
+        h.get_by_label(if language == "it" { "Architettura · AIBD" } else { "Architecture · AIBD" }).click_accesskit();
+        h.run_steps(3);
+        h.get_by_label(if language == "it" { "33,9%" } else { "33.9%" });
+        h.get_by_label("American Institute of Building Design");
+        h.get_by_label(if language == "it" { "Aziende · spesa rilevata" } else { "Companies · recorded spending" }).click_accesskit();
+        h.run_steps(3);
+        h.get_by_label("Moss");
+        h.get_by_label(if language == "it" { "68,4%" } else { "68.4%" });
+        snapshot(&mut h, &format!("kits-ranking-moss-{language}"));
+        h.get_by_label("Designer").click_accesskit();
+        h.run_steps(3);
+        h.get_all_by_label(compare).next().unwrap().click_accesskit();
+        h.run_steps(4);
+        assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Shifter);
+        h.get_by_label(if language == "it" { "Funzioni da confrontare" } else { "Features to compare" });
+    }
+}

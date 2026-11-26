@@ -29,7 +29,7 @@ pub enum Command {
     Install {
         app: String,
     },
-    /// An approved agent install/update must retain its expected native presence state.
+    /// An approved agent action or work-kit batch must retain its expected native presence state.
     InstallExpected {
         apps: Vec<String>,
         installed: bool,

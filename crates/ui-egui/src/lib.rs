@@ -31,6 +31,7 @@ mod fonts;
 pub mod i18n;
 pub mod icons;
 mod install_target;
+mod kits;
 mod local_time;
 pub mod model;
 mod motion;

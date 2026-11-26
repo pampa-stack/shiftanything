@@ -132,7 +132,10 @@ fn harness_language(
                 } else {
                     artcraft_launcher_ui_egui::theme::ThemeChoice::Light
                 };
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), s));
+                let mut launcher = LauncherUi::new(ui.ctx(), Box::new(b), s);
+                // These scenarios exercise management; discovery has separate catalog coverage.
+                launcher.set_page(artcraft_launcher_ui_egui::Page::Apps);
+                *state = Some(launcher);
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -200,7 +203,7 @@ fn german_switches_persists_and_keeps_install_actions() {
     let kept = ["photocraft", "vectorcraft"].map(|app| Event::ReadyToInstall { app: app.into(), ready: true });
     let (mut retry, _) = harness_language(ViewMode::Table, egui::Theme::Light, true, &restored.language, kept.into());
     retry.run_steps(6);
-    let slot = retry.query_all_by_label("Installieren").next().unwrap().rect().width();
+    let slot = retry.get_by_label("Installation wiederholen").rect().width();
     for app in ["PhotoCraft", "VectorCraft"] {
         let menu = retry.get_by_label(&format!("Weitere Aktionen für {app}")).rect();
         let main = main_button_in_line(&retry, menu, app);
@@ -292,7 +295,7 @@ fn main_buttons_fit_the_narrowest_window(language: &str) {
         let (mut h, _) = harness_language(view, egui::Theme::Dark, true, language, kept.into());
         h.set_size(egui::vec2(720.0, 1600.0));
         h.run_steps(8);
-        let slot = h.query_all_by_label(t("Install")).next().unwrap().rect().width();
+        let slot = h.get_by_label(t("Retry install")).rect().width();
         for app in ["PhotoCraft", "VectorCraft", "EffectCraft"] {
             let menu = h.get_by_label(&fmt(t("More actions for {name}"), &[("name", app)])).rect();
             let main = main_button_in_line(&h, menu, &format!("{language} {view:?} {app}"));

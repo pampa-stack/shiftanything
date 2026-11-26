@@ -392,7 +392,7 @@ impl LauncherUi {
                 }
             });
         });
-        if !open {
+        if !open || ctx.input(|input| input.key_pressed(egui::Key::Escape)) {
             self.curated.detail = None;
         }
     }

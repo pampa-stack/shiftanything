@@ -4371,6 +4371,30 @@ mod tests {
         assert!(!backend.paths.data.exists(), "a rejected update does not create a profile");
     }
 
+    #[test]
+    fn a_fresh_install_batch_never_updates_an_app_installed_after_review() {
+        let root = tempfile::tempdir().unwrap();
+        let mut backend = backend(root.path(), Platform { os: Os::MacOs, arch: Arch::Arm64 }, None);
+        backend.shared.installed.lock().unwrap().insert(APP.into(), msi_copy("0.4.0"));
+        let spawned = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        backend.spawn = Arc::new({
+            let spawned = spawned.clone();
+            move |_| {
+                spawned.fetch_add(1, Ordering::SeqCst);
+            }
+        });
+        // One stale member invalidates the entire consent, including the still absent app.
+        let apps = vec!["vectorcraft".to_string(), APP.to_string()];
+        backend.send(Command::InstallExpected { apps: apps.clone(), installed: false });
+        assert_eq!(spawned.load(Ordering::SeqCst), 0);
+        assert!(!backend.has_active_jobs());
+        let events = backend.poll();
+        for id in apps {
+            assert!(events.iter().any(|event| matches!(event, Event::JobFinished { app, result: Err(message) }
+                if *app == id && message.contains("state changed"))));
+        }
+    }
+
     /// A backend that knows `release("0.5.0")` and keeps its files under `root`.
     pub(super) fn backend(root: &std::path::Path, platform: Platform, source: Option<Arc<dyn ReleaseSource>>) -> NativeBackend {
         let shared = shared();

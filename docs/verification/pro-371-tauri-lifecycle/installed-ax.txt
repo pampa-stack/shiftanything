@@ -1,0 +1,126 @@
+App=shiftanything-tauri-proof (pid 81441)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 120 of 1200 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3615 container
+				3616 image Sh*ftAnything
+				3617 text Sh
+				3618 text *
+				3619 text ftAnything
+				3620 button (disabled) COLLEGA AGENTE · MCP
+				3621 button (disabled) Impostazioni
+			3622 toggle button CATALOGO, Value: 1
+			3623 toggle button PREFERITI, Value: 0
+			3624 container (disabled) Prova di sola lettura
+				3625 text (disabled) LE MIE APP
+			3626 toggle button (disabled) SH*FTER, Value: 0
+			3627 toggle button (disabled) TROVA APP, Value: 0
+			3628 toggle button (disabled) KIT DI LAVORO, Value: 0
+			3629 search text field (settable) Cerca app, categoria o alternativa…
+				3630 text Cerca app, categoria o alternativa…
+			3631 toggle button Vista schede, Value: 1
+			3632 toggle button Vista tabella, Value: 0
+			3633 button (disabled) AGGIORNAMENTI
+			3634 container Categorie
+				3635 toggle button Tutte le app 298, Value: 1
+				3636 toggle button Ufficio e PDF 34, Value: 0
+				3637 toggle button Foto e immagini 22, Value: 0
+				3638 toggle button Design e 3D 25, Value: 0
+				3639 toggle button Audio, video e animazione 42, Value: 0
+				3640 toggle button Voce e riunioni 3, Value: 0
+				3641 toggle button Comunicazione 20, Value: 0
+				3642 toggle button Coding e agenti 15, Value: 0
+				3643 toggle button Reverse engineering 3, Value: 0
+				3644 toggle button Assistenti AI 16, Value: 0
+				3645 toggle button Sicurezza difensiva 4, Value: 0
+				3646 toggle button Monitoraggio 3, Value: 0
+				3647 toggle button Sistema e file 29, Value: 0
+				3648 toggle button Rete 4, Value: 0
+				3649 toggle button Dati e analisi 3, Value: 0
+				3650 toggle button Backup e ripristino 8, Value: 0
+				3651 toggle button Contabilità e fatture 7, Value: 0
+				3652 toggle button CRM e gestionali 5, Value: 0
+				3653 toggle button E-commerce 3, Value: 0
+				3654 toggle button Progetti e attività 9, Value: 0
+				3655 toggle button Note e wiki 11, Value: 0
+				3656 toggle button Architettura, CAD e BIM 8, Value: 0
+				3657 toggle button Cartografia e GIS 6, Value: 0
+				3658 toggle button Accessibilità e lettura 5, Value: 0
+				3659 toggle button Didattica e scienza 13, Value: 0
+			3660 container
+				3661 heading Tutte le app298 app
+				3662 toggle button TUTTE, Value: 1
+				3663 toggle button BASE, Value: 0
+				3664 toggle button AVANZATE, Value: 0
+				3665 container
+					3666 text Autore / provider
+					3667 pop up button Autore / provider, Value: Tutti gli autori
+				3668 container
+					3669 text Categorie
+					3670 pop up button Categorie, Value: Tutte le categorie
+				3671 container
+					3672 text Ordina per
+					3673 pop up button Ordina per, Value: In evidenza
+				3674 button AZZERA FILTRI
+				3675 text PhotoCraft
+				3676 text ArtCraft
+				3677 link 81,662 · Stelle GitHub · 2026-11-26
+					3678 text ★ 81.7k
+				3679 link GitHub
+					3680 text GitHub
+				3681 text Fotoritocco a livelli e file PSD
+				3682 toggle button Salva nei preferiti · PhotoCraft, Value: 0
+				3683 button Vedi scheda · PhotoCraft
+				3684 text APP DESKTOP
+				3685 link MCP DISPONIBILE
+					3686 text MCP DISPONIBILE
+				3687 container Piattaforme documentate
+					3688 image macOS
+					3689 image Windows
+					3690 image Linux
+				3691 text Alternativa a ·
+				3692 text Adobe Photoshop
+				3693 text Ultimo aggiornamento
+				3694 text 12 nov 2026
+				3695 text Dimensione download
+				3696 text 274,2 MB · macOS
+				3697 button INSTALLA
+				3698 button VEDI SCHEDA
+				3699 text Handy
+				3700 text CJ Pais
+				3701 link 40,336 · Stelle GitHub · 2026-11-26
+					3702 text ★ 40.3k
+				3703 link GitHub
+					3704 text GitHub
+				3705 text Detta in locale in qualsiasi app
+				3706 toggle button Salva nei preferiti · Handy, Value: 0
+				3707 button Vedi scheda · Handy
+				3708 text APP DESKTOP
+				3709 link CONTROLLO VIA CLI
+					3710 text CONTROLLO VIA CLI
+				3711 container Piattaforme documentate
+					3712 image macOS
+					3713 image Windows
+					3714 image Linux
+				3715 text Alternativa a ·
+				3716 text Wispr Flow
+				3717 text Ultimo aggiornamento
+				3718 text 24 nov 2026
+				3719 text Dimensione download
+				3720 text 15–15,3 MB · macOS
+				3721 button APRI
+				3722 button VEDI SCHEDA
+				3723 text Meetily Community
+				3724 text Zackriya Solutions
+				3725 link 33,084 · Stelle GitHub · 2026-11-26
+					3726 text ★ 33.1k
+				3727 link GitHub
+					3728 text GitHub
+				3729 text Trascrive e riassume riunioni sul dispositivo
+				3730 toggle button Salva nei preferiti · Meetily Community, Value: 0
+				3731 button Vedi scheda · Meetily Community
+
+No UI element is currently focused.

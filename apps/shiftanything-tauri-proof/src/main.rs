@@ -1,42 +1,36 @@
-//! Reversible local-only visual proof. No mutating backend command is exposed.
+//! Local-only desktop proof with explicitly enabled, approved native lifecycle operations.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
-use artcraft_launcher_core::{
-    Platform,
-    protocol::{Backend, Command, Event},
-    status::Installed,
-};
-use artcraft_launcher_native::NativeBackend;
+mod session;
+#[cfg(target_os = "macos")]
+mod verification;
+use artcraft_launcher_core::automation::{Operation, Request};
 use serde::{Deserialize, Serialize};
-use std::{collections::BTreeMap, path::PathBuf, sync::Mutex};
+use session::NativeState;
+use std::{path::PathBuf, sync::Mutex};
 use tauri::{WebviewUrl, WebviewWindowBuilder};
 
-struct NativeState {
-    backend: NativeBackend,
-    detected: BTreeMap<String, Option<Installed>>,
-    diagnostics: PathBuf,
-}
-#[derive(Serialize)]
-struct Snapshot {
-    platform: Option<Platform>,
-    detected: BTreeMap<String, Option<Installed>>,
-}
 #[tauri::command]
 fn catalog_snapshot() -> Result<serde_json::Value, String> {
     eprintln!("Native catalog requested");
     serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../crates/core/curated.json"))).map_err(|e| e.to_string())
 }
 #[tauri::command]
-fn native_snapshot(state: tauri::State<'_, Mutex<NativeState>>) -> Result<Snapshot, String> {
+fn native_snapshot(state: tauri::State<'_, Mutex<NativeState>>) -> Result<session::Snapshot, String> {
     let mut state = state.lock().map_err(|e| e.to_string())?;
-    if state.detected.is_empty() {
-        eprintln!("Native platform/detection requested");
-    }
-    for event in state.backend.poll() {
-        if let Event::Detected { app, installed } = event {
-            state.detected.insert(app, installed);
-        }
-    }
-    Ok(Snapshot { platform: state.backend.platform(), detected: state.detected.clone() })
+    let snapshot = state.snapshot();
+    artcraft_launcher_native::paths::write_atomic(
+        &state.diagnostics.join("native-state.json"),
+        &serde_json::to_vec_pretty(&snapshot).map_err(|e| e.to_string())?,
+    )?;
+    Ok(snapshot)
+}
+#[tauri::command]
+fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::State<'_, Mutex<NativeState>>) -> Result<Request, String> {
+    state.lock().map_err(|e| e.to_string())?.request(operation, apps)
+}
+#[tauri::command]
+fn decide_native_action(request_id: String, approve: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
+    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve)
 }
 #[derive(Deserialize, Serialize)]
 struct Rect {
@@ -98,6 +92,7 @@ fn local_navigation(url: &tauri::Url) -> bool {
 }
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args_os().skip(1).collect();
+    let lifecycle = args.iter().any(|arg| arg == "--lifecycle");
     if args.first().is_none_or(|arg| arg != "--child") {
         let root = PathBuf::from(args.first().ok_or("Supply a new absolute temporary profile directory, followed by it/en")?);
         if !root.is_absolute() {
@@ -117,6 +112,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .arg("--child")
             .arg(&root)
             .arg(language)
+            .args(args.iter().skip(2))
             .env("HOME", &home)
             .env("CFFIXED_USER_HOME", &home)
             .env("XDG_CONFIG_HOME", home.join("config"))
@@ -125,6 +121,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .env("CRAFT_VERSIONS_FILE", home.join("Library/Application Support/ShiftAnything/versions.json"))
             .env_remove("ARTCRAFT_LAUNCHER_GITHUB_TOKEN")
             .env_remove("ARTCRAFT_LAUNCHER_DOWNLOAD_BASE")
+            .env_remove("ARTCRAFT_LAUNCHER_FEED_URL")
             .status()?;
         return if status.success() { Ok(()) } else { Err("Desktop proof failed".into()) };
     }
@@ -133,16 +130,34 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !matches!(language, "it" | "en") {
         return Err("Use it or en".into());
     }
-    let mut backend = NativeBackend::new_isolated_macos_profile(|| {})?;
-    backend.send(Command::Detect);
+    if let Some(position) = args.iter().position(|argument| argument == "--seed-handy-previous") {
+        if !lifecycle {
+            return Err("Previous release preparation requires --lifecycle".into());
+        }
+        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous Handy DMG")?);
+        #[cfg(target_os = "macos")]
+        verification::seed_previous_handy(&root, previous)?;
+        #[cfg(not(target_os = "macos"))]
+        {
+            let _ = previous;
+            return Err("Previous Handy preparation requires macOS".into());
+        }
+    }
+    let state = NativeState::new(root.clone(), lifecycle)?;
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{language}.html");
     let builder = tauri::Builder::default();
     #[cfg(target_os = "macos")]
     let builder = builder.activate_ignoring_other_apps(false);
     builder
-        .manage(Mutex::new(NativeState { backend, detected: BTreeMap::new(), diagnostics: root.clone() }))
-        .invoke_handler(tauri::generate_handler![catalog_snapshot, native_snapshot, record_visual_metrics])
+        .manage(Mutex::new(state))
+        .invoke_handler(tauri::generate_handler![
+            catalog_snapshot,
+            native_snapshot,
+            record_visual_metrics,
+            request_native_action,
+            decide_native_action
+        ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]
             app.set_activation_policy(tauri::ActivationPolicy::Accessory);
@@ -156,7 +171,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .on_navigation(local_navigation)
                 .on_new_window(|_, _| tauri::webview::NewWindowResponse::Deny)
                 .build()?;
-            println!("Local-only window created; native catalog/platform/detection reads enabled; lifecycle commands absent");
+            println!("Local-only window created; native lifecycle enabled: {lifecycle}");
             Ok(())
         })
         .run(tauri::generate_context!())?;

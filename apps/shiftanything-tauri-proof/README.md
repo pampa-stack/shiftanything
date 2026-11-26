@@ -11,7 +11,28 @@ PATH="$HOME/.cargo/bin:$PATH" CARGO_TARGET_DIR=/Users/pampa/Documents/shiftanyth
 
 Il percorso deve essere assoluto e nuovo. Per EN usare un altro percorso nuovo e `en`. La finestra nasce 1440×900 senza attivare altre applicazioni. HOME, Core Foundation, XDG, installazioni e manifest sono indirizzati al profilo temporaneo. Nessuna configurazione client viene scritta. Il primo runtime isolato è solo macOS; nessuna prova Windows/Linux dichiarata.
 
-Tre soli metodi IPC: `catalog_snapshot`, `native_snapshot`, `record_visual_metrics`. I primi due leggono il catalogo Rust e gli eventi reali `Command::Detect`/`Event::Detected` del NativeBackend isolato. Il terzo scrive un report limitato, con ID ammessi, in un file fisso del profilo; non accetta percorsi. Nessun comando install/update/remove/open, shell, filesystem generico o URL opener è esposto. Navigazioni esterne e nuove finestre sono rifiutate. CSP e risorse interamente locali, senza dev server. I link mostrano il proprio URL nel footer senza aprirlo. Il catalogo esportato deve avere esattamente gli stessi ID del catalogo Rust.
+Cinque metodi IPC: `catalog_snapshot`, `native_snapshot`, `record_visual_metrics`, `request_native_action`, `decide_native_action`. Senza `--lifecycle` rimane la prova di sola lettura. Con `--lifecycle`, Rust rileva versioni e release reali; installazione/aggiornamento/apertura/rimozione/annullamento accettano solo ID curati, operazioni chiuse e una conferma. Lo stato nativo viene rivalidato alla conferma; Update non diventa Install. Nessun percorso, comando shell, argomento di lancio o URL viene accettato dal bridge. I report hanno destinazioni fisse nel profilo. Navigazioni esterne e nuove finestre sono rifiutate. CSP e risorse interamente locali, senza dev server. I link mostrano il proprio URL nel footer senza aprirlo. Il catalogo esportato deve avere esattamente gli stessi ID del catalogo Rust.
+
+```sh
+/Users/pampa/Documents/shiftanything/target/debug/shiftanything-tauri-proof /tmp/shift-lifecycle-nuovo it --lifecycle
+```
+
+La scheda mostra le azioni native e l'esito osservato. Handy non viene aperta se esiste il socket single-instance personale. Per preparare **solo** l'aggiornamento con il DMG ufficiale precedente già verificato:
+
+```sh
+/Users/pampa/Documents/shiftanything/target/debug/shiftanything-tauri-proof /tmp/shift-update-nuovo it --lifecycle --seed-handy-previous /tmp/shift-handy-update-proof/Handy_0.10.1_aarch64.dmg
+```
+
+Il seed è disponibile solo da CLI, richiede un profilo inutilizzato e il digest esatto 0.10.1, verifica firma e versione con le primitive native. Non avvia Handy. Gli aggiornamenti successivi richiedono la conferma nella finestra.
+
+MCP riproducibile sul profilo in esecuzione (non approva azioni):
+
+```sh
+/Users/pampa/.local/bin/uv run --offline tools/verify_tauri_mcp.py /tmp/shift-lifecycle-nuovo
+/Users/pampa/.local/bin/uv run --offline tools/verify_tauri_mcp.py /tmp/shift-update-nuovo --operation update
+```
+
+Lo script materializza il server auditato nella sola cartella automation del profilo; nessun file client viene modificato. Con `--operation` resta in attesa di Approva/Rifiuta nella finestra.
 
 ## Prova grafica
 

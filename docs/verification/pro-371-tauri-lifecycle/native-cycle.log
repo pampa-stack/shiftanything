@@ -1,0 +1,9 @@
+DESKTOP_PID=81441
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+APPROVED ui-2 InstallExpected { apps: ["handy"], installed: false }
+NATIVE handy: failed: couldn't use install folder /private/tmp/shift-tauri-lifecycle-20261127-live/home/Applications: the folder is unavailable. Create it or reconnect its drive first
+APPROVED ui-3 InstallExpected { apps: ["handy"], installed: false }
+NATIVE handy: completed: Handy installed: 0.10.2
+APPROVED ui-5 Uninstall { app: "handy" }
+NATIVE handy: completed: Handy was removed

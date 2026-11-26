@@ -1104,7 +1104,10 @@ impl LauncherUi {
             .visible_ids()
             .into_iter()
             .filter(|id| {
-                self.entries.iter().any(|entry| entry.app.id == *id && (entry.installed.is_some() || entry.job.is_some() || entry.paused.is_some()))
+                self.entries.iter().any(|entry| {
+                    entry.app.id == *id
+                        && (!self.caps.manage_apps || entry.installed.is_some() || entry.job.is_some() || entry.paused.is_some() || entry.ready)
+                })
             })
             .collect();
         // The table is wider than a narrow window: let it scroll sideways too.
@@ -1692,6 +1695,14 @@ mod tests {
         }
     }
 
+    fn assert_catalog_control_badges(h: &Harness<'_, Option<LauncherUi>>, language: &str) {
+        use egui_kittest::kittest::Queryable;
+        assert!(h.query_all_by_label(if language == "it" { "Controllo CLI" } else { "CLI control" }).next().is_some());
+        assert!(h.query_all_by_label(if language == "it" { "Controllo non verificato" } else { "Control unverified" }).next().is_some());
+        let platform_rects: Vec<_> = ["macOS", "Windows", "Linux"].iter().map(|label| h.query_all_by_label(label).next().unwrap().rect()).collect();
+        assert!(platform_rects.windows(2).all(|pair| pair[0].right() <= pair[1].left()), "platforms read macOS, Windows, Linux from left to right");
+    }
+
     #[test]
     fn catalog_and_agent_connection_render_in_both_languages() {
         use egui_kittest::kittest::Queryable;
@@ -1731,14 +1742,7 @@ mod tests {
                 h.run_steps(5);
             }
             h.run_steps(3);
-            assert!(h.query_all_by_label(if language == "it" { "Controllo CLI" } else { "CLI control" }).next().is_some());
-            assert!(h.query_all_by_label(if language == "it" { "Controllo non verificato" } else { "Control unverified" }).next().is_some());
-            let platform_rects: Vec<_> =
-                ["macOS", "Windows", "Linux"].iter().map(|label| h.query_all_by_label(label).next().unwrap().rect()).collect();
-            assert!(
-                platform_rects.windows(2).all(|pair| pair[0].right() <= pair[1].left()),
-                "platforms read macOS, Windows, Linux from left to right"
-            );
+            assert_catalog_control_badges(&h, language);
             if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
                 h.render().unwrap().save(std::path::Path::new(&dir).join(format!("catalog-{language}.png"))).unwrap();
             }

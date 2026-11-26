@@ -19,6 +19,34 @@ use artcraft_launcher_ui_egui::{Host, LauncherUi, Settings};
 use egui_kittest::Harness;
 use egui_kittest::kittest::{NodeT, Queryable};
 
+/// Open the manager explicitly: production starts on discovery, whose behavior is
+/// covered by the catalog/agent tests rather than these management scenarios.
+fn manager(ctx: &egui::Context, backend: Box<dyn Backend>, settings: Settings) -> LauncherUi {
+    let mut launcher = LauncherUi::new(ctx, backend, settings);
+    launcher.set_page(artcraft_launcher_ui_egui::Page::Apps);
+    launcher
+}
+
+/// Reach the existing native management drawer through discovery, including for a
+/// fresh install: My apps deliberately does not list absent applications.
+fn discover_management(h: &mut Harness<'_, Option<LauncherUi>>, id: &str) {
+    let app = artcraft_launcher_core::CraftApp::by_id(id).unwrap();
+    h.state_mut().as_mut().unwrap().set_page(artcraft_launcher_ui_egui::Page::Catalog);
+    h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::TextInput, "Search apps").type_text(app.name);
+    h.run_steps(4);
+    h.get_by_label(&format!("App details · {}", app.name)).click_accesskit();
+    h.run_steps(4);
+    h.get_by_label("Manage app").scroll_to_me();
+    h.run_steps(3);
+    h.get_by_label("Manage app").click_accesskit();
+    h.run_steps(6);
+    // Keep the native drawer open over the manager, without discovery's second
+    // Install control in the accessibility tree behind it.
+    h.state_mut().as_mut().unwrap().set_page(artcraft_launcher_ui_egui::Page::Apps);
+    h.run_steps(3);
+}
+
 const NOW: i64 = 1_791_500_000;
 
 /// How the fake backend answers a request for an app's details pictures, whenever it is polled.
@@ -156,18 +184,23 @@ fn test_harness_builder<State>(theme: egui::Theme) -> egui_kittest::HarnessBuild
 
 fn release(id: &str, v: &str, at: i64) -> Release {
     let name = format!("{id}-{v}-macos-universal.dmg");
+    let repo = if id == artcraft_launcher_core::catalog::LAUNCHER_ID {
+        artcraft_launcher_core::catalog::LAUNCHER_REPO.to_owned()
+    } else {
+        format!("storytold/{id}")
+    };
     Release {
         tag: format!("v{v}"),
         version: version::parse(v),
         name: format!("v{v}"),
         published_at: Some(at),
-        html_url: format!("https://github.com/storytold/{id}/releases/tag/v{v}"),
+        html_url: format!("https://github.com/{repo}/releases/tag/v{v}"),
         notes: "## What's Changed\n* Faster things by @a in https://github.com/storytold/x/pull/1".into(),
         prerelease: false,
         assets: vec![Asset {
             name: name.clone(),
             size: 150 << 20,
-            url: format!("https://github.com/storytold/{id}/releases/download/v{v}/{name}"),
+            url: format!("https://github.com/{repo}/releases/download/v{v}/{name}"),
             sha256: None,
         }],
     }
@@ -321,7 +354,7 @@ fn harness_full(
                 } else {
                     artcraft_launcher_ui_egui::theme::ThemeChoice::Light
                 };
-                *state = Some(LauncherUi::new(ui.ctx(), b, s));
+                *state = Some(manager(ui.ctx(), b, s));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut HeaderHost(bar, discord_url));
@@ -373,7 +406,7 @@ fn folder_harness(picked: Rc<RefCell<Option<String>>>) -> (Harness<'static, Opti
     let harness = test_harness_builder(egui::Theme::Dark).with_size(egui::vec2(1180.0, 900.0)).build_ui_state(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -535,7 +568,7 @@ fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Relea
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
                 let settings = Settings { notify: false, preferred_kinds: preferred.clone(), ..Default::default() };
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), settings));
+                *state = Some(manager(ui.ctx(), Box::new(backend), settings));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut DummyHost);
@@ -545,6 +578,9 @@ fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Relea
         None,
     );
     h.run_steps(6);
+    if h.query_by_label("More actions for PhotoCraft").is_none() {
+        discover_management(&mut h, "photocraft");
+    }
     (h, sent, queue)
 }
 
@@ -1127,6 +1163,7 @@ fn a_fresh_install_confirms_the_folder_and_configures_before_installing() {
     h.get_by_label("Done").click();
     h.run_steps(3);
     sent.borrow_mut().clear();
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1170,6 +1207,7 @@ fn use_default_removes_an_app_override_and_settings_can_reset_the_root() {
     h.state_mut().as_mut().unwrap().settings.install_locations.root = Some("/Volumes/Craft Apps".into());
     h.state_mut().as_mut().unwrap().settings.install_locations.per_app.insert("photocraft".into(), "/Volumes/Old Photo".into());
     h.run_steps(2);
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1230,7 +1268,7 @@ fn the_install_folder_fields_default_to_the_hosts_answer() {
     let harness = test_harness_builder(egui::Theme::Dark).with_size(egui::vec2(1180.0, 900.0)).build_ui_state(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -1252,6 +1290,7 @@ fn the_install_folder_fields_default_to_the_hosts_answer() {
     h.get_by_label("Done").click();
     h.run_steps(3);
     // So does the per-app install dialog's folder, and a saved root override replaces it.
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1317,7 +1356,7 @@ fn windows_package_harness(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
                 let settings = Settings { notify: false, preferred_kinds: preferred.clone(), ..Default::default() };
-                *state = Some(LauncherUi::new(ui.ctx(), backend, settings));
+                *state = Some(manager(ui.ctx(), backend, settings));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -1337,6 +1376,7 @@ fn the_install_folder_default_follows_the_package_the_backend_falls_back_to() {
     let (mut h, initial) =
         windows_package_harness(&[("photocraft", &["photocraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
     h.run_steps(8);
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1897,7 +1937,7 @@ fn a_job_finished_while_hidden_shows_one_fresh_toast_on_the_next_frame() {
     );
     // The tray path: `logic` runs without any UI pass, with the input time of the last shown frame.
     let windowless = egui::Context::default();
-    let mut launcher = LauncherUi::new(&windowless, Box::new(backend), Settings { notify: false, language: "en".into(), ..Settings::default() });
+    let mut launcher = manager(&windowless, Box::new(backend), Settings { notify: false, language: "en".into(), ..Settings::default() });
     launcher.logic(&windowless, &mut NoHost);
     *h.state_mut() = Some(launcher);
     // The visible window's clock is far ahead of the logic-only tick's stale input time. The toast
@@ -1959,7 +1999,7 @@ fn keeps_working_with_no_window_then_draws_in_a_new_one() {
         clock: Rc::new(Cell::new(NOW)),
     };
     let windowless = egui::Context::default();
-    let mut ui = LauncherUi::new(&windowless, Box::new(backend), Settings { notify: false, ..Settings::default() });
+    let mut ui = manager(&windowless, Box::new(backend), Settings { notify: false, ..Settings::default() });
     // No window: the backend's news is still taken in.
     ui.logic(&windowless, &mut NoHost);
     assert!(sent.borrow().contains(&Command::CheckForUpdates { force: false }));
@@ -2906,7 +2946,7 @@ fn looks_again_at_installed_apps_every_few_minutes_not_every_frame() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -2982,7 +3022,7 @@ fn the_launcher_updates_itself_and_quits_to_restart() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut host);
@@ -3084,7 +3124,7 @@ fn feed_announcements_and_alerts_show_until_dismissed() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3152,7 +3192,7 @@ fn automatic_updates_queue_installs_for_outdated_apps_and_launcher() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3188,7 +3228,7 @@ fn automatic_updates_skip_a_release_without_a_download_here() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3261,7 +3301,7 @@ fn a_freebsd_system_binary_is_not_offered_an_update_it_would_refuse() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: true, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: true, ..Settings::default() }));
             }
             let mut host = Notices(host_notices.clone());
             if let Some(l) = state.as_mut() {
@@ -3312,7 +3352,7 @@ fn automatic_updates_are_disabled_by_default() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: false, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: false, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3349,7 +3389,7 @@ fn the_footer_names_the_services_behind_what_is_on_screen() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3403,7 +3443,7 @@ fn custom_title_bar_has_window_buttons() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut FramelessHost);
@@ -3471,7 +3511,7 @@ fn the_lifted_caption_buttons_leave_tab_and_the_backdrop_to_the_dialog() {
     assert_eq!(reached, caption, "without a dialog Tab reaches them in the order they're drawn");
     h.get_by_label("Settings").click();
     h.run_steps(3);
-    assert_eq!(tab(&mut h), "Language", "the first Tab goes to the dialog");
+    assert_eq!(tab(&mut h), "https://promptica.it/", "the first Tab goes to the dialog’s first link");
     for _ in 0..40 {
         let focused = tab(&mut h);
         assert!(!caption.contains(&focused.as_str()), "Tab left the dialog for {focused}");
@@ -3587,7 +3627,7 @@ fn a_press_on_the_window_edge_only_resizes() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut FramelessHost);
@@ -4007,7 +4047,7 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -4042,7 +4082,7 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
 /// narrower, beside the page toggle, the sort picker moves to a second row under them.
 fn toolbar_keeps_navigation_refresh_search_and_view_on_one_unclipped_row() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
-    for width in [720.0, 800.0] {
+    for width in [720.0, 800.0, 880.0] {
         h.set_size(egui::vec2(width, 900.0));
         h.run_steps(6);
         let refresh = h.get_by_label("Check for updates").rect();
@@ -4057,7 +4097,7 @@ fn toolbar_keeps_navigation_refresh_search_and_view_on_one_unclipped_row() {
         assert!(sort.left() >= 0.0 && sort.right() <= width, "{width}: sort is outside the window: {sort:?}");
         h.check_accessibility();
     }
-    for width in [880.0, 1180.0] {
+    for width in [1180.0] {
         h.set_size(egui::vec2(width, 900.0));
         h.run_steps(6);
         let refresh = h.get_by_label("Check for updates").rect();
@@ -4114,7 +4154,7 @@ fn saved_filters_are_migrated_on_ui_construction() {
             downloads: Default::default(),
             clock: Rc::new(Cell::new(NOW)),
         };
-        let ui = LauncherUi::new(&egui::Context::default(), Box::new(backend), settings);
+        let ui = manager(&egui::Context::default(), Box::new(backend), settings);
         assert_eq!(ui.settings.filter, expected, "{saved}");
         assert_eq!(ui.settings.last_check, Some(NOW));
     }
@@ -4127,7 +4167,7 @@ fn assert_header_at_width(h: &mut Harness<'_, Option<LauncherUi>>, bar: artcraft
     for label in ["Show apps as cards", "Show apps as a table", "Settings", "Check for updates"] {
         let rect = h.get_by_label(label).rect();
         assert!(rect.left() >= 0.0 && rect.right() <= width, "{bar:?} {width}: {label} {rect:?}");
-        if let Some(text) = h.query_by_label("Craft App Suite") {
+        for text in h.query_all_by_label("Sh*ftAnything") {
             assert!(!rect.intersects(text.rect()), "{bar:?} {width}: Craft App Suite overlaps {label} {rect:?}");
         }
     }
@@ -4139,7 +4179,7 @@ fn assert_header_at_width(h: &mut Harness<'_, Option<LauncherUi>>, bar: artcraft
     }
     if width == 1180.0 {
         assert!(h.query_by_label("Launcher").is_none());
-        h.get_by_label("Craft App Suite");
+        assert!(h.query_all_by_label("Sh*ftAnything").next().is_some());
     }
     if [720.0, 800.0, 1180.0].contains(&width) {
         snapshot(h, &format!("header-{theme:?}-{bar:?}-{width}"));
@@ -4196,7 +4236,7 @@ fn short_window(reduce: Rc<Cell<bool>>) -> Harness<'static, Option<LauncherUi>> 
                     && let Some(b) = backend.take()
                 {
                     let settings = Settings { view: ViewMode::Grid, notify: false, ..Settings::default() };
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), settings));
+                    *state = Some(manager(ui.ctx(), Box::new(b), settings));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut host);
@@ -4430,7 +4470,7 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);

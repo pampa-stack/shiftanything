@@ -76,6 +76,12 @@ fn value(s: &str) -> String {
     s.replace('\\', "\\\\").replace('\n', "\\n").replace('\r', "\\r").replace('\t', "\\t")
 }
 
+/// LocalSend's AppImage supports extracting itself at launch, including on systems without a usable FUSE mount.
+pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
+    (app.id == artcraft_launcher_core::curated::LOCALSEND.id && path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage")))
+        .then_some("--appimage-extract-and-run")
+}
+
 /// The entry for `app` installed as the AppImage `appimage`; `icon` when its icon is installed
 /// under the app's id. `None` when the path can't be put in an `Exec=` line.
 pub fn render(app: &CraftApp, appimage: &Path, icon: bool) -> Option<String> {
@@ -84,7 +90,12 @@ pub fn render(app: &CraftApp, appimage: &Path, icon: bool) -> Option<String> {
     let mut text = String::from("[Desktop Entry]\nType=Application\n");
     text.push_str(&format!("Name={}\n", value(app.name)));
     text.push_str(&format!("Comment={}\n", value(app.tagline)));
-    text.push_str(&format!("Exec={exec} %F\n"));
+    text.push_str(&format!("Exec={exec}"));
+    if let Some(flag) = appimage_runtime_flag(app, appimage) {
+        text.push(' ');
+        text.push_str(flag);
+    }
+    text.push_str(" %F\n");
     if icon {
         text.push_str(&format!("Icon={}\n", app.bundle_id()));
     }
@@ -176,6 +187,16 @@ mod tests {
         // The spec forbids `=` in the executable name or path, even quoted.
         assert_eq!(exec_quote(Path::new("/opt/artcraft=beta/app")), None);
         assert!(render(app("photocraft"), Path::new("/a/line\nbreak.AppImage"), true).is_none());
+    }
+
+    #[test]
+    fn localsend_desktop_entry_runs_without_fuse_and_keeps_the_owned_path_readable() {
+        let path = Path::new("/home/ana/Applications/LocalSend-1.19.0-linux-x86-64.AppImage");
+        let text = render(app("localsend"), path, false).unwrap();
+        assert!(text.contains(&format!("Exec=\"{}\" --appimage-extract-and-run %F\n", path.display())));
+        assert_eq!(exec_program(&text).map(PathBuf::from).as_deref(), Some(path));
+        assert!(appimage_runtime_flag(app("localsend"), Path::new("/usr/bin/localsend")).is_none());
+        assert!(appimage_runtime_flag(app("photocraft"), path).is_none());
     }
 
     #[test]

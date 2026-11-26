@@ -220,8 +220,10 @@ impl VerifiedCatalog {
                 apps.push(*app);
             }
         }
-        apps.retain(|app| app.id != crate::curated::HANDY.id);
-        apps.push(crate::curated::HANDY);
+        for recipe in crate::curated::COMMUNITY_RECIPES {
+            apps.retain(|app| app.id != recipe.id);
+            apps.push(recipe);
+        }
         Snapshot { apps, details, metadata, icons: kept_icons }
     }
 }
@@ -287,6 +289,9 @@ fn valid_record(r: &Record) -> bool {
     }
     // A signature cannot expand the compiled community allowlist or change existing install
     // identities. These checks keep native detection/uninstall and publisher verification pinned.
+    if crate::curated::COMMUNITY_RECIPES.iter().any(|recipe| recipe.id == r.id) {
+        return false;
+    }
     if let Some(pinned) = SUITE.iter().find(|a| a.id == r.id) {
         // The website may still list the repo under its former name until it catches up.
         if (r.repo != pinned.repo && Some(r.repo.as_str()) != pinned.former_repo)
@@ -439,6 +444,11 @@ mod tests {
         r.kind = "community".into();
         r.repo = "unapproved/examplecraft".into();
         assert!(!valid_record(&r));
+        r = future_app();
+        r.id = "localsend".into();
+        r.repo = "storytold/localsend".into();
+        r.icon_url = format!("https://getartcraft.com/launcher-app-icons/{}-{}.png", r.id, r.icon_sha256);
+        assert!(!valid_record(&r));
     }
 
     fn future_app() -> Record {
@@ -509,5 +519,6 @@ mod tests {
         assert_eq!(snapshot.metadata["examplecraft"].startup_wm_class, "ai.storyteller.examplecraft");
         assert_eq!(snapshot.icons["examplecraft"], icon);
         assert!(SUITE.iter().all(|app| snapshot.apps.iter().any(|a| a.id == app.id)));
+        assert!(crate::curated::COMMUNITY_RECIPES.iter().all(|recipe| snapshot.apps.iter().any(|a| a.id == recipe.id && a.repo == recipe.repo)));
     }
 }

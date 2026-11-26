@@ -218,19 +218,84 @@ pub const HANDY: crate::CraftApp = crate::CraftApp {
     mac_team: Some("UWFLB4GC25"),
 };
 
-const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + 1] {
-    let mut result = [HANDY; crate::SUITE.len() + 1];
+pub const LOCALSEND: crate::CraftApp = crate::CraftApp {
+    id: "localsend",
+    name: "LocalSend",
+    tagline: "Share files with nearby devices",
+    repo: "localsend/localsend",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [109, 200, 174],
+    ink_light: [22, 109, 87],
+    ink_dark: [126, 221, 191],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Tien Do Nam",
+    msi_publisher: None,
+    bundle: Some("org.localsend.localsend_app"),
+    site: Some("https://localsend.org/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 2] = [HANDY, LOCALSEND];
+
+const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
+    let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
     let mut i = 0;
     while i < crate::SUITE.len() {
         result[i] = crate::SUITE[i];
         i += 1;
     }
+    let mut recipe = 0;
+    while recipe < COMMUNITY_RECIPES.len() {
+        result[i + recipe] = COMMUNITY_RECIPES[recipe];
+        recipe += 1;
+    }
     result
 }
-pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + 1] = native_apps();
+pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] = native_apps();
 
 #[cfg(test)]
 mod recipe_tests {
+    #[test]
+    fn localsend_recipe_accepts_only_the_official_linux_x64_appimage() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("localsend").expect("compiled LocalSend recipe");
+        assert_eq!(app.repo, "localsend/localsend");
+        assert_eq!(app.bundle_id(), "org.localsend.localsend_app");
+        let names = [
+            "LocalSend-1.19.0-linux-x86-64.AppImage",
+            "LocalSend-1.19.0-linux-arm-64.AppImage",
+            "LocalSend-1.19.0-linux-x86_64.AppImage",
+            "LocalSend-1.19.0-linux-x86-64.deb",
+        ];
+        let sha256 = "e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3";
+        let json = serde_json::json!({"tag_name":"v1.19.0", "assets": names.map(|name| serde_json::json!({
+            "name":name, "browser_download_url":format!("https://github.com/localsend/localsend/releases/download/v1.19.0/{name}"),
+            "size":61_752_512, "digest":format!("sha256:{sha256}")
+        }))})
+        .to_string();
+        let release = release::parse_github_release(&json, app.repo).expect("official release");
+        let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
+        let (asset, kind) = platform::pick_asset(&release, &[app.id], linux_x64, linux_x64.download_kinds()).expect("reviewed AppImage");
+        assert_eq!(kind, PackageKind::AppImage);
+        assert_eq!(asset.name, names[0]);
+        assert_eq!(asset.size, 61_752_512);
+        assert_eq!(asset.sha256.as_deref(), Some(sha256));
+        assert!(names[1..].iter().all(|name| platform::parse_asset_name(name, &[app.id]).is_none()));
+        for os in [Os::Linux, Os::MacOs, Os::Windows, Os::FreeBsd] {
+            for arch in [Arch::Arm64, Arch::X64] {
+                let host = Platform { os, arch };
+                assert_eq!(platform::recipe_platform_verified(&[app.id], host), host == linux_x64);
+            }
+        }
+        let other = release::parse_github_release(&json, "untrusted/localsend").expect("valid response with rejected assets");
+        assert!(other.assets.is_empty());
+    }
+
     #[test]
     fn upstream_handy_targets_stay_supported_without_enabling_unverified_recipes() {
         let assets = ["Handy_0.10.2_aarch64.dmg", "Handy_0.10.2_x64.dmg", "Handy_0.10.2_x64_en-US.msi"];

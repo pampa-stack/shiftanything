@@ -1,0 +1,20 @@
+[package]
+name = "shiftanything-tauri-proof"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[dependencies]
+artcraft-launcher-core.workspace = true
+artcraft-launcher-native.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tauri = { version = "=2.12.5", default-features = false, features = ["wry", "custom-protocol"] }
+
+[build-dependencies]
+tauri-build = { version = "=2.7.4", features = [] }

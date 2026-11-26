@@ -125,3 +125,11 @@ Catalog import 298 (220 Base / 78 Advanced), Regia `e5690dca` after `863f89b5`, 
 SH*FTER data refresh, Regia `684e51eb` (2026-11-26): eight documented profiles, 20 documented alternatives, 50 additional commercial names for discovery only. Arq Backup notes preserve prerequisites and official evidence; suggested software never implies verified coverage or an installation recipe.
 
 Favorite heart outline/filled SVGs in `assets/ui-icons/heart-*.svg`: original geometric artwork drawn for this fork, 2026-11-26; covered by the repository MIT/Apache-2.0 licence. No external icon or font copied.
+
+## Reversible Tauri visual proof (operator-requested, 2026-11-27)
+
+`apps/shiftanything-tauri-proof/frontend/{it,en,index}.html`, `design.css` and `catalog.js` export Promptica's approved Doop design, supplied by the operator in Regia. `media-provenance.json` records design source hashes and each of 19 local image slots (six apps), with official URLs and SHA-256. These are the already approved catalog logos/screenshots, not upstream application source. The three local font copies retain the OFL notices in `assets/fonts/`; brand/platform copies retain the credits above. `proof.css`, `native.js`, the Rust shell and export script are original fork work under this repository's licences.
+
+The separate proof uses unmodified Tauri 2.12.5 (Tauri Programme within The Commons Conservancy; MIT OR Apache-2.0), <https://github.com/tauri-apps/tauri/tree/tauri-v2.12.5>. Its licence texts are included in `apps/shiftanything-tauri-proof/licenses/`. The product egui launcher is unchanged.
+
+Build-time dependencies cssparser 0.37.0, cssparser-macros 0.7.1, dtoa-short 0.3.5 and selectors 0.38.0 are unmodified MPL-2.0 crates used only by the Tauri proof (not the egui product). Source: <https://crates.io/crates/cssparser/0.37.0>, <https://crates.io/crates/cssparser-macros/0.7.1>, <https://crates.io/crates/dtoa-short/0.3.5>, <https://crates.io/crates/selectors/0.38.0>. The crate-provided MPL licence texts are included alongside Tauri's notices; selectors uses the same MPL-2.0 terms. No MPL source is modified or vendored. These build-time packages are absent from the webview's shipped assets.

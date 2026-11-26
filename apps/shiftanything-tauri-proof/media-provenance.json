@@ -1,0 +1,142 @@
+{
+  "design": {
+    "doop_build.py": "85cbf832b3da2ff557910c6ae40375f3da65be59ce6e7b7e1c1725d600bda460",
+    "doop_catalogo.py": "51e1be7a29350f75c609ddc94212e98ba0daea8a60ed16aa106125fedb3eb7ba",
+    "doop_catalogo.js": "1d9dc86890b4bb424daaeaa105c86b5e144a6cba26c4302ba63fcdd666d890e7"
+  },
+  "media": [
+    {
+      "app": "photocraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/photocraft-f1afe9ccdb125a34089babecb6c1533f3fbf41ddffe81e0856f158c5b5fb9389.png",
+      "file": "media/photocraft-logo.png",
+      "sha256": "f1afe9ccdb125a34089babecb6c1533f3fbf41ddffe81e0856f158c5b5fb9389"
+    },
+    {
+      "app": "photocraft",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/storytold/craft-launcher-assets/v1/photocraft/demo.jpg",
+      "file": "media/photocraft-shot-0.jpg",
+      "sha256": "385d8d22facf4f441623dc3eeba80c0ef7fd24a73798b949707f09c88be4cee7"
+    },
+    {
+      "app": "photocraft",
+      "slot": "shot-1",
+      "source": "https://raw.githubusercontent.com/storytold/craft-launcher-assets/v1/photocraft/adjustments.jpg",
+      "file": "media/photocraft-shot-1.jpg",
+      "sha256": "67f2dc8a98b857348777993636e854ea94143c9a5fed63781727286f4fc20073"
+    },
+    {
+      "app": "photocraft",
+      "slot": "shot-2",
+      "source": "https://raw.githubusercontent.com/storytold/craft-launcher-assets/v1/photocraft/layer-styles.jpg",
+      "file": "media/photocraft-shot-2.jpg",
+      "sha256": "6d9bda8f60c9ffd3354152c2cf5b784d276717198df0b74325dbcb81acbe1c85"
+    },
+    {
+      "app": "photocraft",
+      "slot": "shot-3",
+      "source": "https://raw.githubusercontent.com/storytold/craft-launcher-assets/v1/photocraft/masks.jpg",
+      "file": "media/photocraft-shot-3.jpg",
+      "sha256": "e19d0ce91f573c3415db7fa1d446c9db23bf0b73aa684acc3886037240f14d3b"
+    },
+    {
+      "app": "handy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/cjpais/Handy/main/src-tauri/icons/128x128.png",
+      "file": "media/handy-logo.png",
+      "sha256": "d652772271988903862d73b17ec628bbc274e4237a6de0638342d43dda58d34e"
+    },
+    {
+      "app": "handy",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/cjpais/Handy/main/public/release-notes/0.10.0/model-picker.png",
+      "file": "media/handy-shot-0.png",
+      "sha256": "5a71da3890155a2cdd7916c5ee1decad5f2cae7820186a557d6bce98fce75e63"
+    },
+    {
+      "app": "handy",
+      "slot": "shot-1",
+      "source": "https://raw.githubusercontent.com/cjpais/Handy/main/public/release-notes/0.9.0/overlay.png",
+      "file": "media/handy-shot-1.png",
+      "sha256": "d68185b46c17470d542512a0180612d87cee0cd09d006e7e83150e4958aada06"
+    },
+    {
+      "app": "meetily",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/frontend/public/logo-collapsed.png",
+      "file": "media/meetily-logo.png",
+      "sha256": "36ed5c2ae09675f3ad20951ecc66b3bdd3e312df8866c85677f754b6135d970a"
+    },
+    {
+      "app": "meetily",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/home.png",
+      "file": "media/meetily-shot-0.png",
+      "sha256": "efe3439d327ec719642fef8210e3873ad8a9a6e06d3b6675d05d69949a45da88"
+    },
+    {
+      "app": "meetily",
+      "slot": "shot-1",
+      "source": "https://raw.githubusercontent.com/Zackriya-Solutions/meetily/main/docs/summary.png",
+      "file": "media/meetily-shot-1.png",
+      "sha256": "f08a332939687682e9e6dd343669b67559fc47eb2db856e0ae88906cb7e5db82"
+    },
+    {
+      "app": "rizzo-pii",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-pii/main/report/images/mascot_shield.png",
+      "file": "media/rizzo-pii-logo.png",
+      "sha256": "28e017911b0cc94b1cd77baa2f81828e71680685ef1c6b0cc8aa7601a9288884"
+    },
+    {
+      "app": "rizzo-pii",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-pii/main/report/images/app_ocr_pdf_censurato.png",
+      "file": "media/rizzo-pii-shot-0.png",
+      "sha256": "dbadf26c0ed1f079e59c9b28cf27c2dbb3681fecc8040ceb1663518c3c281570"
+    },
+    {
+      "app": "normcap",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/dynobo/normcap/main/docs/assets/favicon-192x192.png",
+      "file": "media/normcap-logo.png",
+      "sha256": "1bf926ce0bbae098c6ff0a319a93c6f68426560c3200cf9031bffe4cf031a9bd"
+    },
+    {
+      "app": "normcap",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/dynobo/normcap/main/docs/assets/screenshot.png",
+      "file": "media/normcap-shot-0.png",
+      "sha256": "7bedce657978a1d8364d04f61795c0cdad40450c206ab8bd81f0e52dc77a25ca"
+    },
+    {
+      "app": "libreoffice",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/icons/128x128/org.libreoffice.LibreOffice.png",
+      "file": "media/libreoffice-logo.png",
+      "sha256": "0a0b6c2c38e3ee54f37fec99c6702090f3d03af7a6f843557391acd3e0d85974"
+    },
+    {
+      "app": "libreoffice",
+      "slot": "shot-0",
+      "source": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-1_1248x873@1.png",
+      "file": "media/libreoffice-shot-0.png",
+      "sha256": "62a4d6516e72fd76c23df07b148869a0c8e04bb8d56d2dae6c3e67dd5cd2885b"
+    },
+    {
+      "app": "libreoffice",
+      "slot": "shot-1",
+      "source": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-2_752x436@1.png",
+      "file": "media/libreoffice-shot-1.png",
+      "sha256": "533ab66d4c0cdb057d45ec50e5ccede7bf83668a1ceb07994f2127353d6c434a"
+    },
+    {
+      "app": "libreoffice",
+      "slot": "shot-2",
+      "source": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-3_752x546@1.png",
+      "file": "media/libreoffice-shot-2.png",
+      "sha256": "5e4d3f7a39a9fff233818f81f91fe0000fc3a16cf1620d8e1b38a3e6c1852fe7"
+    }
+  ]
+}

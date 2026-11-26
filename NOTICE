@@ -410,3 +410,13 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Reversible Sh*ftAnything Tauri proof only:
+Tauri 2.12.5 — Tauri Programme within The Commons Conservancy,
+MIT OR Apache-2.0; https://github.com/tauri-apps/tauri/tree/tauri-v2.12.5.
+Unmodified build-time MPL-2.0 dependencies: cssparser 0.37.0,
+cssparser-macros 0.7.1, dtoa-short 0.3.5, selectors 0.38.0.
+Their exact source archives are available at https://crates.io/crates/<name>/<version>.
+Licence texts: apps/shiftanything-tauri-proof/licenses/.
+Proof design/media provenance: apps/shiftanything-tauri-proof/media-provenance.json.
+Bundled font notices remain in assets/fonts/. Original upstream credits are preserved.

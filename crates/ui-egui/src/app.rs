@@ -1766,6 +1766,7 @@ mod tests {
     fn shifter_profiles_require_explicit_selection_and_manual_mode_never_invents_coverage() {
         use egui_kittest::kittest::Queryable;
         for language in ["en", "it"] {
+            let paid = if language == "it" { "Software a pagamento" } else { "Paid software" };
             let mut h = picker_harness(language, 1440.0);
             h.run_steps(5);
             assert!(h.query_all_by_label(if language == "it" { "Font" } else { "Fonts" }).next().is_none());
@@ -1776,6 +1777,8 @@ mod tests {
             h.run_steps(2);
             h.key_press(egui::Key::Space);
             h.run_steps(4);
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).click();
+            h.run_steps(3);
             h.get_by_label("Adobe Photoshop").click_accesskit();
             h.run_steps(4);
             h.get_by_label(if language == "it" { "Copertura documentata" } else { "Documented coverage" });
@@ -1805,10 +1808,8 @@ mod tests {
             h.key_press(egui::Key::Escape);
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().comparison.sources.is_none());
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })
-                .click();
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Software a pagamento" } else { "Paid software" })
-                .type_text("A new product");
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).type_text("A new product");
             h.run_steps(3);
             // Typing does not replace the explicitly selected evidence profile.
             assert!(h.query_all_by_label("Adobe Photoshop").next().is_some());
@@ -1832,6 +1833,66 @@ mod tests {
             h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));
+        }
+    }
+
+    #[test]
+    fn shifter_dropdown_scrolls_filters_aliases_and_moves_keyboard_focus() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["it", "en"] {
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            h.get_by_label("SH*FTER").click_accesskit();
+            h.run_steps(3);
+            let input = if language == "it" { "Software a pagamento" } else { "Paid software" };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).focus();
+            h.run_steps(2);
+            assert!(h.query_by_label("1Password").is_none(), "no profile pill row");
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            assert!(h.get_by_label("1Password").accesskit_node().is_focused());
+            for _ in 1..artcraft_launcher_core::shifter::data().unwrap().software("").len() {
+                h.key_press(egui::Key::ArrowDown);
+                h.run_steps(2);
+            }
+            h.run_steps(8);
+            let last = h.get_by_label("Zoom");
+            assert!(last.accesskit_node().is_focused());
+            assert!(last.rect().bottom() < 900.0 && last.rect().top() > 100.0, "last suggestion scrolls inside the popup");
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.check_accessibility();
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-dropdown-{language}.png"))).unwrap();
+            }
+            h.key_press(egui::Key::Tab);
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none(), "Tab leaves the suggestions without a focus trap");
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none());
+            assert!(h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).accesskit_node().is_focused());
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).type_text("PHÓTOSHÓP®");
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none());
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            assert!(h.get_by_label("Adobe Photoshop").accesskit_node().is_focused());
+            h.key_press(egui::Key::Enter);
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Copertura documentata" } else { "Documented coverage" });
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).type_text("Unknown product");
+            h.run_steps(3);
+            h.key_press(egui::Key::Enter);
+            h.run_steps(3);
+            h.get_by_label(if language == "it" {
+                "Confronto manuale. Riusa funzioni documentate o aggiungi le tue."
+            } else {
+                "Manual comparison. Reuse documented features or add your own."
+            });
         }
     }
 

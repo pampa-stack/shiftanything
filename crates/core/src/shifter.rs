@@ -12,6 +12,8 @@ pub struct Dataset {
     pub schema_version: u32,
     pub checked_on: String,
     pub profiles: Vec<Profile>,
+    #[serde(default)]
+    pub suggested_software: Vec<String>,
 }
 #[derive(Debug, Deserialize)]
 pub struct Profile {
@@ -136,7 +138,29 @@ fn sort_scores(scores: &mut [Score]) {
         (score.missing_required.len(), std::cmp::Reverse(score.coverage), normalize(name), score.app_id.clone())
     });
 }
+pub struct Software<'a> {
+    pub name: &'a str,
+    pub profile: Option<&'a Profile>,
+}
 impl Dataset {
+    /// Suggestions only discover software. Only explicit profile selection supplies evidence.
+    pub fn software(&self, query: &str) -> Vec<Software<'_>> {
+        let query = normalize(query);
+        let mut names = BTreeMap::new();
+        for name in &self.suggested_software {
+            names.insert(normalize(name), Software { name, profile: None });
+        }
+        for profile in &self.profiles {
+            names.insert(normalize(&profile.name), Software { name: &profile.name, profile: Some(profile) });
+        }
+        names
+            .into_values()
+            .filter(|software| {
+                query.is_empty() || normalize(software.name).contains(&query) || software.profile.is_some_and(|profile| profile.matches(&query))
+            })
+            .collect()
+    }
+
     /// Explicit qualified IDs reuse evidence; free labels never acquire evidence by name.
     pub fn feature(&self, key: &str) -> Option<(&Profile, &Feature)> {
         let (profile_id, feature_id) = key.split_once(':')?;
@@ -169,6 +193,21 @@ impl Dataset {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn software_suggestions_filter_aliases_without_creating_evidence() {
+        let data = data().unwrap();
+        let choices = data.software("");
+        assert!(choices.windows(2).all(|pair| normalize(pair[0].name) < normalize(pair[1].name)));
+        assert!(data.software("PHÓTOSHÓP®").iter().any(|software| software.profile.is_some_and(|profile| profile.id == "photoshop")));
+        assert!(data.software("1Password").iter().all(|software| software.profile.is_none()));
+        assert!(data.software("no documented product by this name").is_empty());
+        let arq = data.profiles.iter().find(|profile| profile.id == "arq").unwrap();
+        let selected: Vec<_> = arq.features.iter().map(|feature| feature.id.clone()).collect();
+        let scores = arq.compare(&selected, &[]).unwrap();
+        assert!(scores.iter().any(|score| score.app_id == "kopia" && score.supported == selected.len()));
+        assert!(scores.iter().any(|score| score.app_id == "restic" && score.supported < selected.len()));
+    }
+
     #[test]
     fn evidence_gaps_and_partial_support_never_become_confirmed_support() {
         let profile: Profile = serde_json::from_value(serde_json::json!({

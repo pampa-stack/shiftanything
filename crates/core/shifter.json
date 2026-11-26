@@ -1,6 +1,58 @@
 {
   "schema_version": 1,
   "checked_on": "2026-11-26",
+  "suggested_software": [
+    "1Password",
+    "Adobe After Effects",
+    "Adobe Audition",
+    "Adobe InDesign",
+    "Adobe Media Encoder",
+    "Affinity Publisher",
+    "ArcGIS Pro",
+    "Asana",
+    "AutoCAD",
+    "Autodesk Inventor",
+    "Avid Pro Tools",
+    "Backblaze Computer Backup",
+    "Capture One",
+    "Cinema 4D",
+    "ClickUp",
+    "Confluence",
+    "Cursor",
+    "DEVONthink",
+    "Evernote",
+    "Figma",
+    "Fireflies.ai",
+    "FL Studio",
+    "FreshBooks",
+    "Goodnotes",
+    "HubSpot CRM",
+    "Jira",
+    "Microsoft 365",
+    "Microsoft Excel",
+    "Microsoft OneNote",
+    "Microsoft Outlook",
+    "Microsoft PowerPoint",
+    "Microsoft Project",
+    "Microsoft Teams",
+    "Microsoft Visio",
+    "Microsoft Word",
+    "Notion",
+    "Obsidian",
+    "Otter.ai",
+    "QuickBooks",
+    "Revit",
+    "Salesforce",
+    "Shopify",
+    "Sketch",
+    "SketchUp",
+    "Slack",
+    "SolidWorks",
+    "Todoist",
+    "Trello",
+    "Wispr Flow",
+    "Zoom"
+  ],
   "profiles": [
     {
       "id": "photoshop",
@@ -981,6 +1033,290 @@
               "note": {
                 "it": "Aggiunge testo ricercabile ai PDF importati.",
                 "en": "Adds searchable text to imported PDFs."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "arq",
+      "name": "Arq Backup",
+      "aliases": [
+        "Arq",
+        "Arq 7",
+        "Arq Premium"
+      ],
+      "features": [
+        {
+          "id": "backup_local",
+          "name": {
+            "it": "Backup su disco locale",
+            "en": "Back up to a local drive"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_encrypt",
+          "name": {
+            "it": "Cifrare il backup prima dell’invio",
+            "en": "Encrypt backups before upload"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/createBackupPlan.html"
+        },
+        {
+          "id": "backup_restore_file",
+          "name": {
+            "it": "Ripristinare un singolo file",
+            "en": "Restore a single file"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/restore.html"
+        },
+        {
+          "id": "backup_schedule_ui",
+          "name": {
+            "it": "Programmare i backup dall’interfaccia",
+            "en": "Schedule backups in the app"
+          },
+          "source": "https://www.arqbackup.com/wasabi-backup.html"
+        },
+        {
+          "id": "backup_retention",
+          "name": {
+            "it": "Impostare la conservazione delle versioni",
+            "en": "Set version retention rules"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/createBackupPlan.html"
+        },
+        {
+          "id": "backup_s3",
+          "name": {
+            "it": "Salvare su storage compatibile con S3",
+            "en": "Back up to S3-compatible storage"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_sftp",
+          "name": {
+            "it": "Salvare su un server SFTP",
+            "en": "Back up to an SFTP server"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_s3_lock",
+          "name": {
+            "it": "Proteggere gli oggetti S3 dalla rimozione",
+            "en": "Protect S3 objects from deletion"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/objectLock.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kopia",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta repository sul filesystem locale.",
+                "en": "Supports repositories on a local filesystem."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "I contenuti del repository sono cifrati.",
+                "en": "Repository contents are encrypted."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "KopiaUI ripristina singoli file da uno snapshot.",
+                "en": "KopiaUI can restore individual files from a snapshot."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "La pianificazione degli snapshot si imposta dalle policy di KopiaUI.",
+                "en": "Snapshot schedules are configured in KopiaUI policies."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "Le policy determinano quante versioni conservare.",
+                "en": "Policies determine how many versions to retain."
+              }
+            },
+            "backup_s3": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta S3 e endpoint compatibili.",
+                "en": "Supports S3 and compatible endpoints."
+              }
+            },
+            "backup_sftp": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta repository su un server SFTP.",
+                "en": "Supports repositories on an SFTP server."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/advanced/ransomware-protection/",
+              "note": {
+                "it": "Richiede un bucket con Object Lock abilitato e configurazione da terminale.",
+                "en": "Requires a bucket with Object Lock enabled and CLI configuration."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "restic",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "note": {
+                "it": "Supporta repository su disco locale.",
+                "en": "Supports local repositories."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "note": {
+                "it": "Il repository è cifrato e protetto da password.",
+                "en": "The repository is encrypted and password-protected."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/050_restore.html",
+              "note": {
+                "it": "Il comando restore accetta un percorso da ripristinare.",
+                "en": "The restore command accepts a path to restore."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "unsupported",
+              "source": "https://restic.readthedocs.io/en/stable/040_backup.html#scheduling-backups",
+              "note": {
+                "it": "La pianificazione usa strumenti esterni come cron o le attività pianificate di Windows.",
+                "en": "Scheduling uses external tools such as cron or Windows Task Scheduler."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/060_forget.html",
+              "note": {
+                "it": "Il comando forget applica le regole di conservazione.",
+                "en": "The forget command applies retention policies."
+              }
+            },
+            "backup_s3": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "note": {
+                "it": "Supporta repository S3 e provider compatibili come MinIO.",
+                "en": "Supports S3 repositories and compatible providers such as MinIO."
+              }
+            },
+            "backup_sftp": {
+              "state": "supported",
+              "source": "https://restic.readthedocs.io/en/stable/030_preparing_a_new_repo.html",
+              "note": {
+                "it": "Supporta repository su SFTP con accesso SSH configurato.",
+                "en": "Supports SFTP repositories with SSH access configured."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "unverified",
+              "source": "https://github.com/restic/restic/issues/4992",
+              "note": {
+                "it": "La discussione ufficiale descrive limiti con Object Lock. Il flusso completo resta da verificare.",
+                "en": "The official discussion describes Object Lock limitations. The complete workflow remains unverified."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vorta",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/local/",
+              "note": {
+                "it": "Supporta repository Borg in una cartella locale.",
+                "en": "Supports Borg repositories in a local directory."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/local/",
+              "note": {
+                "it": "La configurazione del repository include la cifratura Borg.",
+                "en": "Repository setup includes Borg encryption."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/#restore",
+              "note": {
+                "it": "Si possono selezionare file specifici dall’archivio.",
+                "en": "Specific files can be selected from the archive."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/#scheduling-automatic-backups",
+              "note": {
+                "it": "L’interfaccia di Vorta pianifica backup automatici.",
+                "en": "The Vorta interface schedules automatic backups."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/prune/",
+              "note": {
+                "it": "I criteri di pruning gestiscono la conservazione degli archivi.",
+                "en": "Pruning rules manage archive retention."
+              }
+            },
+            "backup_s3": {
+              "state": "unverified",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La guida documenta repository remoti Borg via SSH. Un backend S3 diretto resta da verificare.",
+                "en": "The guide documents remote Borg repositories over SSH. A direct S3 backend remains unverified."
+              }
+            },
+            "backup_sftp": {
+              "state": "unsupported",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La modalità remota documentata richiede Borg via SSH. Un server con solo SFTP non basta.",
+                "en": "The documented remote mode requires Borg over SSH. An SFTP-only server is insufficient."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "unverified",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La documentazione remota non indica una configurazione per S3 Object Lock.",
+                "en": "The remote repository documentation does not show an S3 Object Lock setup."
               }
             }
           }

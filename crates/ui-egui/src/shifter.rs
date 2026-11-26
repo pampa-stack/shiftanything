@@ -7,6 +7,10 @@ use crate::LauncherUi;
 #[derive(Default)]
 pub(crate) struct Comparison {
     query: String,
+    search_open: bool,
+    search_filter: bool,
+    search_keyboard: bool,
+    search_index: Option<usize>,
     pub(crate) sources: Option<(String, Vec<String>)>,
     profile: Option<String>,
     selected: Vec<String>,
@@ -41,10 +45,8 @@ impl LauncherUi {
             ui.columns(2, |columns| {
                 columns[0].heading("SH*FTER");
                 columns[0].label(tl!("Choose what matters. Compare documented features."));
-                self.shifter_search(&mut columns[1]);
+                self.shifter_search(&mut columns[1], data);
             });
-            ui.add_space(12.0);
-            self.shifter_profiles(ui, data);
             ui.add_space(12.0);
             ui.horizontal_top(|ui| {
                 let tokens = crate::theme::Tokens::get(ui.ctx());
@@ -74,38 +76,142 @@ impl LauncherUi {
         self.shifter_sources(ui, data, language);
     }
 
-    fn shifter_search(&mut self, ui: &mut Ui) {
-        ui.label(RichText::new(tl!("Paid software")).size(10.0).family(egui::FontFamily::Monospace));
-        ui.horizontal(|ui| {
-            ui.add(egui::TextEdit::singleline(&mut self.comparison.query).desired_width(260.0)).accessible_name(tl!("Paid software"));
-            if ui.add_enabled(!self.comparison.query.trim().is_empty(), egui::Button::new(tl!("Compare manually"))).clicked() {
-                self.comparison.manual_name = Some(self.comparison.query.trim().to_owned());
-                self.comparison.profile = None;
-                self.comparison.manual_features.clear();
-                self.comparison.manual_required.clear();
-                let name = shifter::normalize(&self.comparison.query);
-                self.comparison.manual_apps = curated::apps()
-                    .iter()
-                    .filter(|app| app.alternatives.iter().any(|alternative| shifter::normalize(alternative) == name))
-                    .map(|app| app.id.clone())
-                    .collect();
-            }
-        });
+    fn start_manual_comparison(&mut self, name: String) {
+        self.comparison.manual_name = Some(name.clone());
+        self.comparison.profile = None;
+        self.comparison.manual_features.clear();
+        self.comparison.manual_required.clear();
+        let normalized = shifter::normalize(&name);
+        self.comparison.manual_apps = curated::apps()
+            .iter()
+            .filter(|app| app.alternatives.iter().any(|alternative| shifter::normalize(alternative) == normalized))
+            .map(|app| app.id.clone())
+            .collect();
     }
 
-    fn shifter_profiles(&mut self, ui: &mut Ui, data: &shifter::Dataset) {
-        ui.horizontal_wrapped(|ui| {
-            for profile in &data.profiles {
-                if (self.comparison.query.is_empty() || profile.matches(&self.comparison.query))
-                    && ui.selectable_label(self.comparison.profile.as_deref() == Some(&profile.id), &profile.name).clicked()
-                {
-                    self.comparison.profile = Some(profile.id.clone());
-                    self.comparison.manual_name = None;
-                    self.comparison.selected = profile.features.iter().map(|feature| feature.id.clone()).collect();
-                    self.comparison.required.clear();
+    fn shifter_search(&mut self, ui: &mut Ui, data: &shifter::Dataset) {
+        use egui::Key;
+        ui.label(RichText::new(tl!("Paid software")).size(10.0).family(egui::FontFamily::Monospace));
+        let search_id = ui.scope_id().with("shifter-search");
+        let active = self.comparison.search_open || ui.memory(|memory| memory.has_focus(search_id));
+        let down = active && ui.input_mut(|input| input.consume_key(egui::Modifiers::NONE, Key::ArrowDown));
+        let up = active && ui.input_mut(|input| input.consume_key(egui::Modifiers::NONE, Key::ArrowUp));
+        let enter = active && ui.input_mut(|input| input.consume_key(egui::Modifiers::NONE, Key::Enter));
+        let escape = self.comparison.search_open && ui.input_mut(|input| input.consume_key(egui::Modifiers::NONE, Key::Escape));
+        let mut manual = false;
+        let mut toggle = false;
+        let search = ui
+            .horizontal(|ui| {
+                let search = ui
+                    .add(egui::TextEdit::singleline(&mut self.comparison.query).id(search_id).desired_width(300.0))
+                    .accessible_name(tl!("Paid software"));
+                let arrow = ui.add(egui::Button::new("").min_size(egui::vec2(24.0, 24.0))).accessible_name(tl!("Paid software"));
+                let center = arrow.rect.center();
+                ui.painter().add(egui::Shape::convex_polygon(
+                    vec![center + egui::vec2(-4.0, -2.0), center + egui::vec2(4.0, -2.0), center + egui::vec2(0.0, 3.0)],
+                    ui.visuals().text_color(),
+                    egui::Stroke::NONE,
+                ));
+                toggle = arrow.clicked();
+                manual = ui.add_enabled(!self.comparison.query.trim().is_empty(), egui::Button::new(tl!("Compare manually"))).clicked();
+                search
+            })
+            .inner;
+        if toggle {
+            self.comparison.search_open = !self.comparison.search_open;
+            self.comparison.search_filter = false;
+            self.comparison.search_keyboard = false;
+            self.comparison.search_index = None;
+            search.request_focus();
+        }
+        if search.clicked() || search.changed() {
+            self.comparison.search_filter = search.changed();
+            self.comparison.search_keyboard = false;
+            self.comparison.search_open = true;
+            self.comparison.search_index = None;
+        }
+        let choices = data.software(if self.comparison.search_filter { &self.comparison.query } else { "" });
+        if ui.input(|input| input.key_pressed(Key::Tab)) {
+            self.comparison.search_open = false;
+            self.comparison.search_keyboard = false;
+        }
+        if ui.input(|input| input.pointer.any_pressed()) {
+            self.comparison.search_keyboard = false;
+        }
+        let mut focus_choice = false;
+        if (down || up) && !choices.is_empty() {
+            self.comparison.search_open = true;
+            self.comparison.search_index = Some(match self.comparison.search_index {
+                None => {
+                    if down {
+                        0
+                    } else {
+                        choices.len() - 1
+                    }
                 }
+                Some(index) => {
+                    if down {
+                        (index + 1).min(choices.len() - 1)
+                    } else {
+                        index.saturating_sub(1)
+                    }
+                }
+            });
+            focus_choice = true;
+            self.comparison.search_keyboard = true;
+        }
+        let mut chosen = if enter { choices.get(self.comparison.search_index.unwrap_or(0)) } else { None };
+        if escape {
+            self.comparison.search_open = false;
+            search.request_focus();
+        }
+        if enter && chosen.is_none() && !self.comparison.query.trim().is_empty() {
+            manual = true;
+        }
+        let mut open = self.comparison.search_open && !escape && !manual;
+        egui::Popup::from_response(&search)
+            .open_bool(&mut open)
+            .close_behavior(egui::PopupCloseBehavior::CloseOnClickOutside)
+            .width(search.rect.width())
+            .accessible_name(tl!("Paid software"))
+            .show(|ui| {
+                ui.set_width(search.rect.width());
+                ui.spacing_mut().item_spacing.y = 0.0;
+                egui::ScrollArea::vertical().id_salt("software-suggestions").max_height(280.0).show(ui, |ui| {
+                    for (index, software) in choices.iter().enumerate() {
+                        let row = ui.add_sized(
+                            egui::vec2(ui.available_width(), 32.0),
+                            egui::Button::selectable(self.comparison.search_index == Some(index), software.name),
+                        );
+                        if self.comparison.search_keyboard && self.comparison.search_index == Some(index) {
+                            row.request_focus();
+                            if focus_choice {
+                                row.scroll_to_me(Some(egui::Align::Center));
+                            }
+                        }
+                        if row.clicked() {
+                            chosen = Some(software);
+                        }
+                    }
+                });
+            });
+        self.comparison.search_open = open;
+        ui.ctx().accesskit_node_builder(search.id, |node| node.set_expanded(open));
+        if let Some(software) = chosen {
+            if let Some(profile) = software.profile {
+                self.open_comparison_profile(&profile.id);
+            } else {
+                self.start_manual_comparison(software.name.to_string());
             }
-        });
+            self.comparison.search_filter = false;
+            self.comparison.query = software.name.to_string();
+            self.comparison.search_open = false;
+            search.request_focus();
+        } else if manual {
+            self.start_manual_comparison(self.comparison.query.trim().to_owned());
+            self.comparison.search_open = false;
+            search.request_focus();
+        }
     }
 
     fn shifter_selection(&mut self, ui: &mut Ui, data: &shifter::Dataset, language: &str) {

@@ -1676,6 +1676,56 @@ mod tests {
     }
 
     #[test]
+    fn expanded_catalog_categories_remain_reachable_by_keyboard() {
+        use egui_kittest::kittest::Queryable;
+        let mut h = picker_harness("en", 1440.0);
+        h.run_steps(4);
+        h.get_by_label_contains("Education and science").scroll_to_me();
+        h.run_steps(4);
+        let category = h.get_by_label_contains("Education and science");
+        assert!(category.rect().top() >= 110.0 && category.rect().bottom() < 860.0);
+        category.focus();
+        h.run_steps(2);
+        h.key_press(egui::Key::Space);
+        h.run_steps(4);
+        h.get_by_label("Stellarium");
+        assert!(h.query_by_label("PhotoCraft").is_none());
+        h.check_accessibility();
+    }
+
+    #[test]
+    fn curated_install_distinguishes_explicit_incompatibility_from_missing_recipes() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["en", "it"] {
+            for (query, expected) in [
+                ("Timeshift", if language == "it" { "Non supportato su questo dispositivo" } else { "Not supported on this device" }),
+                ("Handy", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
+                ("restic", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
+                ("Plane Community", "Self-hosted"),
+            ] {
+                let mut h = picker_harness(language, 1440.0);
+                h.run_steps(3);
+                h.state_mut().as_mut().unwrap().platform =
+                    Some(Platform { os: artcraft_launcher_core::Os::MacOs, arch: artcraft_launcher_core::Arch::X64 });
+                let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+                h.get_by_label(search).focus();
+                h.run_steps(2);
+                h.get_by_label(search).type_text(query);
+                h.run_steps(3);
+                assert!(
+                    h.query_all_by_label_contains(expected).any(|node| node.accesskit_node().is_disabled()),
+                    "unavailable action must be disabled: {query} {language}"
+                );
+                assert!(h.query_by_label("Manage app").is_none());
+                h.check_accessibility();
+                if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                    h.render().unwrap().save(std::path::Path::new(&dir).join(format!("install-state-{query}-{language}.png"))).unwrap();
+                }
+            }
+        }
+    }
+
+    #[test]
     fn curated_catalog_navigation_and_filters_are_accessible() {
         use egui_kittest::kittest::Queryable;
         let mut h = cjk_picker_harness();

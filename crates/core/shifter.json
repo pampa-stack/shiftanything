@@ -619,6 +619,46 @@
             "en": "Make local adjustments using masks"
           },
           "source": "https://helpx.adobe.com/lightroom-classic/help/masking.html"
+        },
+        {
+          "id": "color_labels",
+          "name": {
+            "it": "Organizzare foto con etichette colore",
+            "en": "Organize photos with color labels"
+          },
+          "source": "https://helpx.adobe.com/uk/lightroom-classic/desktop/kb/lightroom-feature-comparison.html"
+        },
+        {
+          "id": "lens_profiles",
+          "name": {
+            "it": "Correggere distorsione e vignettatura con profili obiettivo",
+            "en": "Correct distortion and vignetting with lens profiles"
+          },
+          "source": "https://helpx.adobe.com/uk/lightroom-classic/desktop/kb/lightroom-feature-comparison.html"
+        },
+        {
+          "id": "tethered_capture",
+          "name": {
+            "it": "Importare direttamente durante lo scatto collegato",
+            "en": "Import directly during tethered shooting"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/desktop/import-photos/import-photos-tethered-camera.html"
+        },
+        {
+          "id": "icc_soft_proof",
+          "name": {
+            "it": "Simulare la stampa con un profilo ICC",
+            "en": "Soft-proof print output using an ICC profile"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/desktop/technical-support/technical-issues/miscellaneous-issues/color-faq.html"
+        },
+        {
+          "id": "face_groups",
+          "name": {
+            "it": "Raggruppare le foto riconoscendo i volti",
+            "en": "Group photos using face recognition"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/help/face-recognition.html"
         }
       ],
       "candidates": [
@@ -647,6 +687,38 @@
               "note": {
                 "it": "Maschere disegnate e parametriche per i moduli di sviluppo.",
                 "en": "Drawn and parametric masks for development modules."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Etichette colore nella tavola luminosa.",
+                "en": "Color labels in lighttable."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Profili Lensfun. Copertura legata alla combinazione corpo e obiettivo.",
+                "en": "Lensfun profiles. Coverage depends on the camera and lens."
+              }
+            },
+            "tethered_capture": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/development/en/tethering/overview/",
+              "note": {
+                "it": "Ingresso tethering per fotocamere compatibili.",
+                "en": "Tethering view for compatible cameras."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.2/en/module-reference/utility-modules/darkroom/soft-proof/",
+              "note": {
+                "it": "Anteprima di prova con profilo di uscita.",
+                "en": "Soft-proof preview with an output profile."
               }
             }
           }
@@ -677,6 +749,30 @@
                 "it": "Regolazioni locali con aree e maschere.",
                 "en": "Local adjustments with areas and masks."
               }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/features/",
+              "note": {
+                "it": "Etichette colore e filtri nella raccolta.",
+                "en": "Color labels and filters in the file browser."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/lens--geometry/",
+              "note": {
+                "it": "Profili Lensfun o LCP per distorsione e vignettatura.",
+                "en": "Lensfun or LCP profiles for distortion and vignetting."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/editor/",
+              "note": {
+                "it": "Anteprima con profilo ICC della combinazione carta e stampante.",
+                "en": "Preview with the paper and printer ICC profile."
+              }
             }
           }
         },
@@ -705,6 +801,46 @@
               "note": {
                 "it": "Maschere locali, anche senza il modello opzionale di segmentazione.",
                 "en": "Local masks work without the optional segmentation model."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/parity-checklist.md",
+              "note": {
+                "it": "Etichette assegnabili da griglia, menu e scorciatoie.",
+                "en": "Labels can be set from the grid, menu and shortcuts."
+              }
+            },
+            "lens_profiles": {
+              "state": "partial",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/target-app-parity.md",
+              "note": {
+                "it": "Correzioni disponibili. La mappa di parità segnala la banca dati incompleta.",
+                "en": "Corrections are available. The parity assessment identifies the missing lens database."
+              }
+            },
+            "tethered_capture": {
+              "state": "unsupported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Lo scatto collegato è ancora nella roadmap.",
+                "en": "Tethered shooting remains on the roadmap."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/parity-checklist.md",
+              "note": {
+                "it": "Anteprima con profili ICC per carta e stampante.",
+                "en": "Preview using paper and printer ICC profiles."
+              }
+            },
+            "face_groups": {
+              "state": "partial",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/faces.md",
+              "note": {
+                "it": "Vista Persone e volti XMP. Il riconoscimento automatico richiede un modello esterno opzionale.",
+                "en": "People view and XMP face names are available. Automatic recognition requires an optional external model."
               }
             }
           }

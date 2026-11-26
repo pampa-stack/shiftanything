@@ -110,6 +110,54 @@ const MEDIA: &[Media] = &[
         "https://anythingllm.com/images/home/documentchat-poster.webp",
         include_bytes!("../../../assets/catalog-media/anythingllm-shot-0.png"),
     ),
+    (
+        "vorta",
+        "catalog-logo",
+        "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/icons/icon.svg",
+        include_bytes!("../../../assets/catalog-media/vorta-logo.png"),
+    ),
+    (
+        "back-in-time",
+        "catalog-logo",
+        "https://raw.githubusercontent.com/bit-team/backintime/dev/qt/icons/scalable/apps/backintime.svg",
+        include_bytes!("../../../assets/catalog-media/back-in-time-logo.png"),
+    ),
+    (
+        "invoiceshelf",
+        "catalog-shot-0",
+        "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/dashboard.webp",
+        include_bytes!("../../../assets/catalog-media/invoiceshelf-shot-0.png"),
+    ),
+    (
+        "invoiceshelf",
+        "catalog-shot-1",
+        "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/invoices.webp",
+        include_bytes!("../../../assets/catalog-media/invoiceshelf-shot-1.png"),
+    ),
+    (
+        "krayin",
+        "catalog-logo",
+        "https://raw.githubusercontent.com/krayin/laravel-crm/2.2/packages/Webkul/Admin/src/Resources/assets/images/logo.svg",
+        include_bytes!("../../../assets/catalog-media/krayin-logo.png"),
+    ),
+    (
+        "prestashop",
+        "catalog-logo",
+        "https://www.prestashop-project.org/images/favicon.svg",
+        include_bytes!("../../../assets/catalog-media/prestashop-logo.png"),
+    ),
+    (
+        "woocommerce",
+        "catalog-logo",
+        "https://ps.w.org/woocommerce/assets/icon.svg?rev=3640790",
+        include_bytes!("../../../assets/catalog-media/woocommerce-logo.png"),
+    ),
+    (
+        "wiki-js",
+        "catalog-shot-1",
+        "https://raw.githubusercontent.com/requarks/wiki-docs-v3/main/en/guide/images/basics-ui-page-sidebar.webp",
+        include_bytes!("../../../assets/catalog-media/wiki-js-shot-1.png"),
+    ),
 ];
 pub(super) fn fallback(app: &str, key: &str, source: &str) -> Option<Vec<u8>> {
     MEDIA.iter().find(|(id, slot, url, _)| *id == app && *slot == key && *url == source).map(|(_, _, _, bytes)| bytes.to_vec())

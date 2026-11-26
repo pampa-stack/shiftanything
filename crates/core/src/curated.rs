@@ -24,6 +24,9 @@ pub struct App {
     pub popularity: Option<Popularity>,
     #[serde(default)]
     pub platform_support: std::collections::BTreeMap<String, String>,
+    /// Only a complete, documented platform scope can establish incompatibility.
+    #[serde(default)]
+    pub platform_scope_complete: bool,
     #[serde(default)]
     pub distribution: Vec<Distribution>,
 }
@@ -46,6 +49,15 @@ pub struct DownloadSize<'a> {
     pub source: &'a str,
 }
 impl App {
+    pub fn explicitly_unsupported_on(&self, os: crate::Os) -> bool {
+        let key = match os {
+            crate::Os::MacOs => "macos",
+            crate::Os::Windows => "windows",
+            crate::Os::Linux => "linux",
+            crate::Os::FreeBsd => "freebsd",
+        };
+        self.platform_scope_complete && self.platform_source(key).is_none()
+    }
     pub fn platform_source(&self, platform: &str) -> Option<&str> {
         self.release
             .as_ref()
@@ -135,6 +147,21 @@ pub fn apps() -> &'static [App] {
 #[cfg(test)]
 mod tests {
     #[test]
+    fn only_explicit_complete_platform_evidence_can_disable_install_as_incompatible() {
+        let apps = super::apps();
+        let timeshift = apps.iter().find(|app| app.id == "timeshift").unwrap();
+        assert!(timeshift.explicitly_unsupported_on(crate::Os::MacOs));
+        assert!(timeshift.explicitly_unsupported_on(crate::Os::Windows));
+        assert!(!timeshift.explicitly_unsupported_on(crate::Os::Linux));
+        for id in ["handy", "restic", "kopia", "plane"] {
+            let app = apps.iter().find(|app| app.id == id).unwrap();
+            for os in [crate::Os::MacOs, crate::Os::Windows, crate::Os::Linux] {
+                assert!(!app.explicitly_unsupported_on(os), "missing recipes or evidence are not incompatibility: {id}");
+            }
+        }
+    }
+
+    #[test]
     fn distribution_metadata_supplies_platforms_and_sizes_without_granting_a_recipe() {
         let app = super::apps()
             .iter()
@@ -205,6 +232,24 @@ pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + 1] = native_apps()
 #[cfg(test)]
 mod recipe_tests {
     #[test]
+    fn upstream_handy_targets_stay_supported_without_enabling_unverified_recipes() {
+        let assets = ["Handy_0.10.2_aarch64.dmg", "Handy_0.10.2_x64.dmg", "Handy_0.10.2_x64_en-US.msi"];
+        let json = serde_json::json!({"tag_name":"v0.10.2", "assets":assets.map(|name| serde_json::json!({
+            "name":name, "browser_download_url":format!("https://github.com/cjpais/Handy/releases/download/v0.10.2/{name}")
+        }))})
+        .to_string();
+        let release = crate::release::parse_github_release(&json, "cjpais/Handy").unwrap();
+        for os in [crate::Os::MacOs, crate::Os::Windows, crate::Os::Linux] {
+            assert!(super::HANDY.runs_on(os));
+            for arch in [crate::Arch::X64, crate::Arch::Arm64] {
+                let platform = crate::Platform { os, arch };
+                let chosen = crate::platform::pick_asset(&release, &["handy"], platform, platform.download_kinds());
+                assert_eq!(chosen.is_some(), os == crate::Os::MacOs && arch == crate::Arch::Arm64);
+            }
+        }
+    }
+
+    #[test]
     fn handy_recipe_pins_exact_official_asset_and_only_admits_verified_host() {
         let json = serde_json::json!({"tag_name":"v0.10.2", "assets":[{"name":"Handy_0.10.2_aarch64.dmg", "browser_download_url":"https://github.com/cjpais/Handy/releases/download/v0.10.2/Handy_0.10.2_aarch64.dmg"}]}).to_string();
         let release = crate::release::parse_github_release(&json, "cjpais/Handy").expect("official package");
@@ -215,7 +260,8 @@ mod recipe_tests {
         assert!(crate::platform::pick_asset(&release, &["handy"], intel, &[crate::PackageKind::Dmg]).is_none());
         let other = crate::release::parse_github_release(&json, "untrusted/Handy").expect("valid response with rejected asset");
         assert!(other.assets.is_empty());
-        assert!(!super::HANDY.runs_on(crate::Os::Windows));
+        assert!(super::HANDY.runs_on(crate::Os::Windows));
+        assert!(super::HANDY.runs_on(crate::Os::Linux));
         assert_eq!(crate::CraftApp::by_id("handy").map(|app| app.repo), Some("cjpais/Handy"));
     }
 }

@@ -401,7 +401,7 @@
     "repo": "https://github.com/laurent22/joplin",
     "author": "Laurent Cozic e collaboratori",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Raccoglie note, taccuini e pagine salvate dal web",
       "en": "Collect notes, notebooks and pages clipped from the web"
@@ -1805,7 +1805,7 @@
     "repo": "https://github.com/storytold/cadcraft",
     "author": "ArtCraft",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Disegno tecnico e CAD 2D",
       "en": "Computer-aided design and drafting"
@@ -2764,7 +2764,7 @@
     "repo": "https://github.com/FreeCAD/FreeCAD",
     "author": "The FreeCAD Team",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Modellazione CAD parametrica",
       "en": "Parametric CAD modeling"
@@ -5893,7 +5893,7 @@
     "repo": "https://github.com/LibreCAD/LibreCAD",
     "author": "LibreCAD Developers",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Disegno tecnico CAD 2D",
       "en": "2D Computer Aided Design (CAD)"
@@ -5965,7 +5965,7 @@
     "repo": "https://github.com/openscad/openscad",
     "author": "The OpenSCAD Developers",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Modellazione 3D parametrica da codice",
       "en": "The Programmers Solid 3D CAD Modeller"
@@ -6036,7 +6036,7 @@
     "repo": "https://github.com/prusa3d/PrusaSlicer",
     "author": "Prusa Research a.s",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Preparazione di modelli per la stampa 3D",
       "en": "The Slicer for Every Maker"
@@ -6109,7 +6109,7 @@
     "repo": "https://github.com/Ultimaker/Cura",
     "author": "UltiMaker",
     "level": "base",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "Preparazione di file per la stampa 3D",
       "en": "Slicer to prepare your 3D printing projects"
@@ -7966,7 +7966,7 @@
     "repo": "https://gitlab.gnome.org/World/pika-backup",
     "author": "Small Mammal Collective",
     "level": "base",
-    "category": "sistema",
+    "category": "backup",
     "description": {
       "it": "Backup locali e remoti dei file",
       "en": "Keep your data safe"
@@ -8026,7 +8026,7 @@
     "repo": "https://gitlab.gnome.org/World/deja-dup",
     "author": "Michael Terry",
     "level": "base",
-    "category": "sistema",
+    "category": "backup",
     "description": {
       "it": "Backup pianificati e ripristino dei file",
       "en": "Protect yourself from data loss"
@@ -8086,7 +8086,7 @@
     "repo": "https://invent.kde.org/utilities/kbackup",
     "author": "KDE",
     "level": "base",
-    "category": "sistema",
+    "category": "backup",
     "description": {
       "it": "Backup selettivo di file e cartelle",
       "en": "Create backups as .tar files to a local folder or remote URL"
@@ -8260,7 +8260,7 @@
     "repo": "https://gitlab.gnome.org/GNOME/gnome-maps",
     "author": "The GNOME Project",
     "level": "base",
-    "category": "ufficio",
+    "category": "gis",
     "description": {
       "it": "Mappe, luoghi e percorsi",
       "en": "Find places around the world"
@@ -8675,7 +8675,7 @@
     "repo": "https://hg.savannah.gnu.org/hgweb/octave",
     "author": "John W. Eaton and others",
     "level": "avanz",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Calcolo numerico e analisi dei dati",
       "en": "Scientific Programming Language"
@@ -9145,7 +9145,7 @@
     "repo": "https://github.com/solvespace/solvespace",
     "author": "The SolveSpace Community, originally by Jonathan Westhues and other authors",
     "level": "avanz",
-    "category": "design",
+    "category": "architettura",
     "description": {
       "it": "CAD parametrico, schizzi vincolati e assemblaggi",
       "en": "A free (GPLv3) parametric 3d CAD tool"
@@ -9871,7 +9871,7 @@
     "repo": "https://github.com/Gnucash/gnucash",
     "author": "The GnuCash Project",
     "level": "base",
-    "category": "ufficio",
+    "category": "contabilita",
     "description": {
       "it": "Contabilità a partita doppia per famiglie e piccole aziende",
       "en": "Manage your finances, accounts, and investments"
@@ -9944,7 +9944,7 @@
     "repo": "https://launchpad.net/homebank",
     "author": "Maxime Doyen",
     "level": "base",
-    "category": "ufficio",
+    "category": "contabilita",
     "description": {
       "it": "Gestione di bilanci personali, movimenti e report",
       "en": "Personal accounting for everyone"
@@ -10009,7 +10009,7 @@
     "repo": "https://github.com/qgis/QGIS",
     "author": "QGIS Development Team",
     "level": "avanz",
-    "category": "dati",
+    "category": "gis",
     "description": {
       "it": "Analisi, editing e cartografia GIS",
       "en": "A Geographic Information System"
@@ -10082,7 +10082,7 @@
     "repo": "https://github.com/Stellarium/stellarium",
     "author": "Stellarium team",
     "level": "base",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Planetario 3D e simulazione del cielo",
       "en": "Desktop Planetarium"
@@ -10161,7 +10161,7 @@
     "repo": "https://github.com/wxMaxima-developers/wxmaxima",
     "author": "wxMaxima Team",
     "level": "avanz",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Calcolo simbolico e documenti computazionali",
       "en": "A graphical user interface for Maxima, a powerful computer algebra system"
@@ -10220,7 +10220,7 @@
     "repo": "https://gitlab.com/scilab/scilab",
     "author": "Scilab developers",
     "level": "avanz",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Calcolo numerico, grafici e simulazione",
       "en": "Scientific software package for numerical computations"
@@ -11518,7 +11518,7 @@
     "repo": "https://github.com/zim-desktop-wiki/zim-desktop-wiki",
     "author": "Jaap Karssenberg",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Wiki personale locale con collegamenti tra le pagine",
       "en": "Write notes in a desktop wiki"
@@ -12360,7 +12360,7 @@
     "repo": "https://invent.kde.org/education/kstars",
     "author": "KDE",
     "level": "base",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Planetario con strumenti per pianificare osservazioni",
       "en": "Desktop Planetarium"
@@ -12431,7 +12431,7 @@
     "repo": "https://github.com/jasp-stats/jasp-desktop",
     "author": "University of Amsterdam",
     "level": "avanz",
-    "category": "dati",
+    "category": "didattica",
     "description": {
       "it": "Analisi statistica classica e bayesiana",
       "en": "Classical and Bayesian Statistics"
@@ -12761,7 +12761,7 @@
     "repo": "https://github.com/usekaneo/kaneo",
     "author": "Kaneo",
     "level": "avanz",
-    "category": "ufficio",
+    "category": "progetti",
     "description": {
       "it": "Organizza progetti e attività su una bacheca che puoi ospitare",
       "en": "Organize projects and tasks on a board you can self-host"
@@ -12808,7 +12808,7 @@
     "repo": "https://github.com/makeplane/plane",
     "author": "Plane",
     "level": "avanz",
-    "category": "ufficio",
+    "category": "progetti",
     "description": {
       "it": "Organizza attività, cicli e documentazione dei progetti",
       "en": "Organize project work, cycles and documentation"
@@ -12948,7 +12948,7 @@
     "repo": "https://github.com/AppFlowy-IO/AppFlowy",
     "author": "AppFlowy",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Scrive documenti e organizza note e bacheche",
       "en": "Write documents and organize notes and boards"
@@ -13210,7 +13210,7 @@
     "repo": "https://github.com/actualbudget/actual",
     "author": "Actual Budget",
     "level": "base",
-    "category": "dati",
+    "category": "contabilita",
     "description": {
       "it": "Gestisce budget personali, spese e obiettivi in locale",
       "en": "Manage personal budgets, spending and goals locally"
@@ -13272,7 +13272,7 @@
     "repo": "https://github.com/siyuan-note/siyuan",
     "author": "B3log",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Organizza note, tabelle e collegamenti in locale",
       "en": "Organize local notes, tables and linked blocks"
@@ -13611,7 +13611,7 @@
     "repo": "https://github.com/logseq/logseq",
     "author": "Logseq",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Organizza appunti, attività e collegamenti in uno spazio di lavoro locale",
       "en": "Organize notes, tasks, and links in a local workspace"
@@ -13691,7 +13691,7 @@
     "repo": "https://github.com/TriliumNext/Trilium",
     "author": "Trilium Notes Team",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Costruisce un archivio personale di note gerarchiche e incrociate",
       "en": "Build a personal archive of hierarchical, linked notes"
@@ -13769,7 +13769,7 @@
     "repo": "https://github.com/super-productivity/super-productivity",
     "author": "Johannes Millan",
     "level": "base",
-    "category": "ufficio",
+    "category": "progetti",
     "description": {
       "it": "Pianifica attività, misura il tempo e gestisce le sessioni di concentrazione",
       "en": "Plan tasks, track time, and manage focus sessions"
@@ -13930,7 +13930,7 @@
     "repo": "https://github.com/giuspen/cherrytree",
     "author": "Giuseppe Penone",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Organizza note, immagini, liste e frammenti di codice in un albero",
       "en": "Organize notes, images, lists, and code snippets in a tree"
@@ -14003,7 +14003,7 @@
     "repo": "https://github.com/pbek/QOwnNotes",
     "author": "Patrizio Bekerle",
     "level": "base",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Scrive note Markdown locali e gestisce attività con sincronizzazione opzionale",
       "en": "Write local Markdown notes and manage tasks with optional synchronization"
@@ -14273,7 +14273,7 @@
     "repo": "https://github.com/OpenBoard-org/OpenBoard",
     "author": "OpenBoard Project",
     "level": "base",
-    "category": "ufficio",
+    "category": "didattica",
     "description": {
       "it": "Usa una lavagna interattiva per lezioni, appunti e annotazioni",
       "en": "Use an interactive whiteboard for lessons, notes, and annotations"
@@ -14353,7 +14353,7 @@
     "repo": "https://github.com/ankitects/anki",
     "author": "Ankitects",
     "level": "base",
-    "category": "ufficio",
+    "category": "didattica",
     "description": {
       "it": "Crea schede di studio e le ripropone con la ripetizione dilazionata",
       "en": "Create flashcards and review them with spaced repetition"
@@ -16847,7 +16847,7 @@
     "repo": "https://github.com/docmost/docmost",
     "author": "Docmost",
     "level": "avanz",
-    "category": "ufficio",
+    "category": "note",
     "description": {
       "it": "Wiki collaborativa self-hosted con pagine, spazi e ricerca.",
       "en": "Self-hosted collaborative wiki with pages, spaces, and search."
@@ -16894,7 +16894,7 @@
     "repo": "https://github.com/Leantime/leantime",
     "author": "Leantime",
     "level": "avanz",
-    "category": "ufficio",
+    "category": "progetti",
     "description": {
       "it": "Gestione progetti self-hosted con bacheche, obiettivi, calendario e tempi.",
       "en": "Self-hosted project management with boards, goals, calendars, and time tracking."
@@ -16942,7 +16942,7 @@
     "repo": "https://github.com/opf/openproject",
     "author": "OpenProject",
     "level": "avanz",
-    "category": "ufficio",
+    "category": "progetti",
     "description": {
       "it": "Gestione progetti self-hosted con attività, roadmap, bacheche e diagrammi di Gantt.",
       "en": "Self-hosted project management with tasks, roadmaps, boards, and Gantt charts."
@@ -17046,6 +17046,2086 @@
           "size_max": 241083488
         }
       ]
+    }
+  },
+  {
+    "id": "restic",
+    "name": "restic",
+    "repo": "https://github.com/restic/restic",
+    "author": "restic contributors",
+    "level": "avanz",
+    "category": "backup",
+    "description": {
+      "it": "Backup cifrati da terminale su disco, server e cloud",
+      "en": "Encrypted command-line backups to disk, servers and cloud storage"
+    },
+    "alternatives": [
+      "Backblaze Computer Backup",
+      "Arq Backup"
+    ],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/restic/restic/blob/master/LICENSE",
+    "website": "https://restic.net",
+    "releases": "https://github.com/restic/restic/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://restic.readthedocs.io/en/stable/manual_rest.html"
+    },
+    "logo": "https://raw.githubusercontent.com/restic/restic/master/doc/logo/logo.png",
+    "screenshots": [],
+    "media_source": "https://restic.readthedocs.io/en/stable/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://restic.readthedocs.io/en/stable/"
+    },
+    "stars": {
+      "count": 37485,
+      "source": "https://github.com/restic/restic/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.20.0",
+      "date": "2026-11-19",
+      "source": "https://github.com/restic/restic/releases/tag/v0.20.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 10365057,
+          "size_max": 12639573
+        },
+        {
+          "platform": "macos",
+          "size_min": 12147949,
+          "size_max": 13119441
+        },
+        {
+          "platform": "windows",
+          "size_min": 13531064,
+          "size_max": 13944434
+        }
+      ]
+    }
+  },
+  {
+    "id": "kopia",
+    "name": "Kopia",
+    "repo": "https://github.com/kopia/kopia",
+    "author": "Kopia contributors",
+    "level": "base",
+    "category": "backup",
+    "description": {
+      "it": "Istantanee cifrate con interfaccia grafica e ripristino di file",
+      "en": "Encrypted snapshots with a desktop interface and file restore"
+    },
+    "alternatives": [
+      "Arq Backup",
+      "Backblaze Computer Backup"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/kopia/kopia/blob/master/LICENSE",
+    "website": "https://kopia.io",
+    "releases": "https://github.com/kopia/kopia/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://kopia.io/docs/reference/command-line/"
+    },
+    "logo": "https://raw.githubusercontent.com/kopia/kopia/master/icons/kopia.png",
+    "screenshots": [
+      "https://i.ytimg.com/vi/sHJjSpasWIo/hqdefault.jpg"
+    ],
+    "media_source": "https://kopia.io/docs/getting-started/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://kopia.io/docs/getting-started/"
+    },
+    "stars": {
+      "count": 14832,
+      "source": "https://github.com/kopia/kopia/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.23.1",
+      "date": "2026-06-16",
+      "source": "https://github.com/kopia/kopia/releases/tag/v0.23.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 126188202,
+          "size_max": 138693461
+        },
+        {
+          "platform": "macos",
+          "size_min": 149169871,
+          "size_max": 156174455
+        },
+        {
+          "platform": "windows",
+          "size_min": 113267920,
+          "size_max": 113267920
+        }
+      ]
+    }
+  },
+  {
+    "id": "vorta",
+    "name": "Vorta",
+    "repo": "https://github.com/borgbase/vorta",
+    "author": "BorgBase",
+    "level": "base",
+    "category": "backup",
+    "description": {
+      "it": "Backup Borg cifrati e ripristino con una app desktop",
+      "en": "Encrypted Borg backups and restore with a desktop app"
+    },
+    "alternatives": [
+      "Arq Backup"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/borgbase/vorta/blob/master/LICENSE.txt",
+    "website": "https://vorta.borgbase.com",
+    "releases": "https://github.com/borgbase/vorta/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/icons/icon.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/metadata/Screenshot-1-Repository.png",
+      "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/metadata/Screenshot-4-Archives.png"
+    ],
+    "media_source": "https://vorta.borgbase.com/usage/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://vorta.borgbase.com/usage/"
+    },
+    "stars": {
+      "count": 2536,
+      "source": "https://github.com/borgbase/vorta/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.12.2",
+      "date": "2026-11-15",
+      "source": "https://github.com/borgbase/vorta/releases/tag/v0.12.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 45694460,
+          "size_max": 48359291
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://vorta.borgbase.com/install/linux/"
+    }
+  },
+  {
+    "id": "timeshift",
+    "name": "Timeshift",
+    "repo": "https://github.com/linuxmint/timeshift",
+    "author": "Linux Mint",
+    "level": "base",
+    "category": "backup",
+    "description": {
+      "it": "Crea snapshot del sistema Linux e ripristina le impostazioni",
+      "en": "Take Linux system snapshots and roll back system settings"
+    },
+    "alternatives": [
+      "Windows System Restore"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/linuxmint/timeshift/blob/master/LICENSES/GPL-2.0-or-later.txt",
+    "website": "https://xapp-project.org",
+    "releases": "https://github.com/linuxmint/timeshift/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/linuxmint/timeshift/master/src/share/icons/hicolor/128x128/apps/timeshift.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/linuxmint/timeshift/master/images/restore_summary.png",
+      "https://raw.githubusercontent.com/linuxmint/timeshift/master/images/settings_schedule.png"
+    ],
+    "media_source": "https://github.com/linuxmint/timeshift#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/linuxmint/timeshift#readme"
+    },
+    "stars": {
+      "count": 4355,
+      "source": "https://github.com/linuxmint/timeshift/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "26.11.2",
+      "date": "2026-11-24",
+      "source": "https://github.com/linuxmint/timeshift/releases/tag/master.mint27",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/linuxmint/timeshift#readme"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "back-in-time",
+    "name": "Back In Time",
+    "repo": "https://github.com/bit-team/backintime",
+    "author": "Back In Time Team",
+    "level": "base",
+    "category": "backup",
+    "description": {
+      "it": "Copie incrementali di documenti e cartelle su disco o via SSH",
+      "en": "Incremental file and folder backups to a local drive or via SSH"
+    },
+    "alternatives": [
+      "Time Machine"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/bit-team/backintime/blob/dev/LICENSES.md",
+    "website": "https://backintime.readthedocs.io",
+    "releases": "https://github.com/bit-team/backintime/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/bit-team/backintime/blob/dev/doc/manpages/backintime.1.adoc"
+    },
+    "logo": "https://raw.githubusercontent.com/bit-team/backintime/dev/qt/icons/scalable/apps/backintime.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/bit-team/backintime/dev/doc/manual/src/_images/dark/main_window.png"
+    ],
+    "media_source": "https://backintime.readthedocs.io/en/latest/main_window.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://backintime.readthedocs.io/en/latest/main_window.html"
+    },
+    "stars": {
+      "count": 2682,
+      "source": "https://github.com/bit-team/backintime/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.6.2",
+      "date": "2026-10-14",
+      "source": "https://github.com/bit-team/backintime/releases/tag/v1.6.2",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/bit-team/backintime#installation"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "invoiceshelf",
+    "name": "InvoiceShelf 2",
+    "repo": "https://github.com/InvoiceShelf/InvoiceShelf",
+    "author": "InvoiceShelf contributors",
+    "level": "avanz",
+    "category": "contabilita",
+    "description": {
+      "it": "Preventivi, fatture ricorrenti, pagamenti e spese per più aziende.",
+      "en": "Estimates, recurring invoices, payments and expenses for multiple businesses."
+    },
+    "alternatives": [
+      "FreshBooks",
+      "Zoho Invoice"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/InvoiceShelf/InvoiceShelf/blob/2.4.8/LICENSE",
+    "website": "https://invoiceshelf.com/",
+    "releases": "https://invoiceshelf.com/download",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/InvoiceShelf/api-docs/blob/main/openapi.json"
+    },
+    "logo": "https://invoiceshelf.com/favicons/apple-touch-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/dashboard.webp",
+      "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/invoices.webp"
+    ],
+    "media_source": "https://github.com/InvoiceShelf/docs/tree/master/docs/public/images/v2",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.invoiceshelf.com/installation.html"
+    },
+    "stars": {
+      "count": 2086,
+      "source": "https://github.com/InvoiceShelf/InvoiceShelf/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "2.4.8",
+      "date": "2026-11-22",
+      "source": "https://github.com/InvoiceShelf/InvoiceShelf/releases/tag/2.4.8",
+      "packages": []
+    }
+  },
+  {
+    "id": "invoiceplane",
+    "name": "InvoicePlane",
+    "repo": "https://github.com/InvoicePlane/InvoicePlane",
+    "author": "InvoicePlane contributors",
+    "level": "avanz",
+    "category": "contabilita",
+    "description": {
+      "it": "Crea preventivi e fatture PDF, gestisci clienti e registra i pagamenti.",
+      "en": "Create estimates and PDF invoices, manage clients and record payments."
+    },
+    "alternatives": [
+      "FreshBooks",
+      "Zoho Invoice"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/InvoicePlane/InvoicePlane/blob/develop/LICENSE.txt",
+    "website": "https://www.invoiceplane.com/",
+    "releases": "https://www.invoiceplane.com/downloads",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://www.invoiceplane.com/assets/img/logo_64x64.png",
+    "screenshots": [
+      "https://www.invoiceplane.com/assets/img/preview.jpg"
+    ],
+    "media_source": "https://www.invoiceplane.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/InvoicePlane/InvoicePlane"
+    },
+    "stars": {
+      "count": 3292,
+      "source": "https://github.com/InvoicePlane/InvoicePlane/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.7.2",
+      "date": "2026-08-28",
+      "source": "https://github.com/InvoicePlane/InvoicePlane/releases/tag/v1.7.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "firefly-iii",
+    "name": "Firefly III",
+    "repo": "https://github.com/firefly-iii/firefly-iii",
+    "author": "James Cole and contributors",
+    "level": "avanz",
+    "category": "contabilita",
+    "description": {
+      "it": "Conti personali, budget, categorie e rendiconti con regole automatiche.",
+      "en": "Personal accounts, budgets, categories and reports with automatic rules."
+    },
+    "alternatives": [
+      "YNAB",
+      "Quicken"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/firefly-iii/firefly-iii/blob/main/LICENSE",
+    "website": "https://github.com/firefly-iii/firefly-iii",
+    "releases": "https://github.com/firefly-iii/firefly-iii/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/firefly-iii/api-docs/blob/main/dist/firefly-iii-v6.7.8-v1.yaml"
+    },
+    "logo": "https://raw.githubusercontent.com/firefly-iii/firefly-iii/main/public/apple-touch-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/firefly-iii/firefly-iii/develop/.github/assets/img/imac-complete.png",
+      "https://raw.githubusercontent.com/firefly-iii/firefly-iii/develop/.github/assets/img/ipad-complete.png"
+    ],
+    "media_source": "https://github.com/firefly-iii/firefly-iii",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/firefly-iii/docs/blob/main/docs/docs/how-to/firefly-iii/installation/docker.md"
+    },
+    "stars": {
+      "count": 25347,
+      "source": "https://github.com/firefly-iii/firefly-iii/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v6.7.9",
+      "date": "2026-10-11",
+      "source": "https://github.com/firefly-iii/firefly-iii/releases/tag/v6.7.9",
+      "packages": []
+    }
+  },
+  {
+    "id": "money-manager-ex",
+    "name": "Money Manager Ex",
+    "repo": "https://github.com/moneymanagerex/moneymanagerex",
+    "author": "MMEX contributors",
+    "level": "base",
+    "category": "contabilita",
+    "description": {
+      "it": "Registra spese, conti e budget in locale. Importa movimenti e genera rendiconti.",
+      "en": "Track expenses, accounts and budgets locally. Import transactions and generate reports."
+    },
+    "alternatives": [
+      "Quicken",
+      "Moneydance"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/moneymanagerex/moneymanagerex/blob/master/LICENSE",
+    "website": "https://moneymanagerex.org/",
+    "releases": "https://moneymanagerex.org/docs/downloads/latest/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/moneymanagerex/moneymanagerex/master/resources/mmexlogo.png",
+    "screenshots": [
+      "https://user-images.githubusercontent.com/17465872/233931375-051e7c9f-d4c4-4baa-9586-7ad10ef48aba.png",
+      "https://user-images.githubusercontent.com/17465872/233931411-d7a92fed-272f-446d-b86a-89f99b66683a.png"
+    ],
+    "media_source": "https://github.com/moneymanagerex/moneymanagerex",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://moneymanagerex.org/moneymanagerex/en_US/index.html"
+    },
+    "stars": {
+      "count": 2300,
+      "source": "https://github.com/moneymanagerex/moneymanagerex/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.9.4",
+      "date": "2026-08-31",
+      "source": "https://github.com/moneymanagerex/moneymanagerex/releases/tag/v1.9.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 29055256,
+          "size_max": 29371624
+        },
+        {
+          "platform": "macos",
+          "size_min": 31872260,
+          "size_max": 31872260
+        },
+        {
+          "platform": "windows",
+          "size_min": 24405588,
+          "size_max": 29354422
+        }
+      ]
+    }
+  },
+  {
+    "id": "erpnext",
+    "name": "ERPNext",
+    "repo": "https://github.com/frappe/erpnext",
+    "author": "Frappe",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Gestionale con contabilità, vendite, acquisti, magazzino e produzione.",
+      "en": "ERP for accounting, sales, purchasing, inventory and manufacturing."
+    },
+    "alternatives": [
+      "NetSuite",
+      "Microsoft Dynamics 365 Business Central"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/frappe/erpnext/blob/develop/license.txt",
+    "website": "https://frappe.io/erpnext",
+    "releases": "https://github.com/frappe/erpnext/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.frappe.io/framework/user/en/guides/integration/rest_api"
+    },
+    "logo": "https://frappe.io/files/ERPNexte2a3b6.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/frappe/erpnext/develop/erpnext/public/images/v16/hero_image.png",
+      "https://erpnext.com/files/v16_stock_summary.png"
+    ],
+    "media_source": "https://github.com/frappe/erpnext",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/frappe/erpnext"
+    },
+    "stars": {
+      "count": 41661,
+      "source": "https://github.com/frappe/erpnext/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v16.61.0",
+      "date": "2026-11-25",
+      "source": "https://github.com/frappe/erpnext/releases/tag/v16.61.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "dolibarr",
+    "name": "Dolibarr",
+    "repo": "https://github.com/Dolibarr/dolibarr",
+    "author": "Dolibarr Association and contributors",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Gestisci clienti, preventivi, ordini, fatture e magazzino in un unico gestionale modulare.",
+      "en": "Manage customers, quotes, orders, invoices and inventory in one modular ERP."
+    },
+    "alternatives": [
+      "Zoho One",
+      "Microsoft Dynamics 365 Business Central"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Dolibarr/dolibarr/blob/develop/COPYING",
+    "website": "https://www.dolibarr.org/",
+    "releases": "https://www.dolibarr.org/download.php",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://wiki.dolibarr.org/index.php/Module_Web_Services_REST"
+    },
+    "logo": "https://raw.githubusercontent.com/Dolibarr/dolibarr/develop/htdocs/install/doctemplates/websites/website_template-corporate/medias/image/websitekey/dolibarr_256x256.png",
+    "screenshots": [
+      "https://www.dolibarr.org/medias/dolibarr_screenshot1_1920x1080.jpg"
+    ],
+    "media_source": "https://github.com/Dolibarr/dolibarr",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.dolibarr.org/download.php"
+    },
+    "stars": {
+      "count": 7904,
+      "source": "https://github.com/Dolibarr/dolibarr/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "24.0.4",
+      "date": "2026-11-25",
+      "source": "https://github.com/Dolibarr/dolibarr/releases/tag/24.0.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "espocrm",
+    "name": "EspoCRM",
+    "repo": "https://github.com/espocrm/espocrm",
+    "author": "EspoCRM",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "CRM per contatti, aziende, lead e opportunità con calendario e attività.",
+      "en": "CRM for contacts, accounts, leads and opportunities with a calendar and activities."
+    },
+    "alternatives": [
+      "Salesforce",
+      "HubSpot CRM",
+      "Pipedrive"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/espocrm/espocrm/blob/master/LICENSE.txt",
+    "website": "https://www.espocrm.com/",
+    "releases": "https://www.espocrm.com/download/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.espocrm.com/development/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/espocrm/espocrm/master/client/img/favicon-196.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/d0806394-3691-43a1-83a5-16ad2e7314e2"
+    ],
+    "media_source": "https://github.com/espocrm/espocrm",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.espocrm.com/download/"
+    },
+    "stars": {
+      "count": 3674,
+      "source": "https://github.com/espocrm/espocrm/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "10.1.4",
+      "date": "2026-11-19",
+      "source": "https://github.com/espocrm/espocrm/releases/tag/10.1.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "frappe-crm",
+    "name": "Frappe CRM",
+    "repo": "https://github.com/frappe/crm",
+    "author": "Frappe",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Pipeline per lead e trattative, con contatti, attività e modelli email.",
+      "en": "Lead and deal pipeline with contacts, activities and email templates."
+    },
+    "alternatives": [
+      "Pipedrive",
+      "HubSpot CRM"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/frappe/crm/blob/develop/LICENSE",
+    "website": "https://frappe.io/crm",
+    "releases": "https://github.com/frappe/crm/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.frappe.io/framework/user/en/guides/integration/rest_api"
+    },
+    "logo": "https://raw.githubusercontent.com/frappe/crm/develop/frontend/public/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/frappe/crm/develop/.github/screenshots/LeadList.png",
+      "https://raw.githubusercontent.com/frappe/crm/develop/.github/screenshots/LeadPage.png"
+    ],
+    "media_source": "https://github.com/frappe/crm",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.frappe.io/crm/introduction/installation"
+    },
+    "stars": {
+      "count": 4041,
+      "source": "https://github.com/frappe/crm/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v15.1.0",
+      "date": "2026-11-26",
+      "source": "https://github.com/frappe/crm/releases/tag/v15.1.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "krayin",
+    "name": "Krayin CRM",
+    "repo": "https://github.com/krayin/laravel-crm",
+    "author": "Webkul",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "CRM per lead, contatti, preventivi e pipeline di vendita.",
+      "en": "CRM for leads, contacts, quotes and sales pipelines."
+    },
+    "alternatives": [
+      "HubSpot CRM",
+      "Pipedrive"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/krayin/laravel-crm/blob/2.2/LICENSE",
+    "website": "https://krayincrm.com/",
+    "releases": "https://github.com/krayin/laravel-crm/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/krayin/laravel-crm/2.2/packages/Webkul/Admin/src/Resources/assets/images/logo.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/krayin/temp-media/master/dashboard.png"
+    ],
+    "media_source": "https://github.com/krayin/laravel-crm",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/krayin/laravel-crm"
+    },
+    "stars": {
+      "count": 24216,
+      "source": "https://github.com/krayin/laravel-crm/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.2.8",
+      "date": "2026-11-06",
+      "source": "https://github.com/krayin/laravel-crm/releases/tag/v2.2.8",
+      "packages": []
+    }
+  },
+  {
+    "id": "prestashop",
+    "name": "PrestaShop Core",
+    "repo": "https://github.com/PrestaShop/PrestaShop",
+    "author": "PrestaShop Project",
+    "level": "avanz",
+    "category": "ecommerce",
+    "description": {
+      "it": "Negozio online self-hosted con catalogo, ordini, spedizione e gestione clienti.",
+      "en": "Self-hosted online shop with a product catalog, orders, shipping and customer management."
+    },
+    "alternatives": [
+      "Shopify",
+      "BigCommerce"
+    ],
+    "license": "OSL-3.0",
+    "license_url": "https://github.com/PrestaShop/PrestaShop/blob/develop/LICENSE.md",
+    "website": "https://www.prestashop-project.org/",
+    "releases": "https://github.com/PrestaShop/PrestaShop/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://devdocs.prestashop-project.org/9/webservice/reference/"
+    },
+    "logo": "https://www.prestashop-project.org/images/favicon.svg",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/e6342778-e528-4ae7-acf2-f0d097a1e932"
+    ],
+    "media_source": "https://github.com/PrestaShop/PrestaShop",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.prestashop-project.org/download/"
+    },
+    "stars": {
+      "count": 9268,
+      "source": "https://github.com/PrestaShop/PrestaShop/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "9.2.1",
+      "date": "2026-11-09",
+      "source": "https://github.com/PrestaShop/PrestaShop/releases/tag/9.2.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "woocommerce",
+    "name": "WooCommerce",
+    "repo": "https://github.com/woocommerce/woocommerce",
+    "author": "Automattic and contributors",
+    "level": "avanz",
+    "category": "ecommerce",
+    "description": {
+      "it": "Plugin WordPress per vendere prodotti fisici e digitali con catalogo, carrello e ordini.",
+      "en": "WordPress plugin for selling physical and digital products with a catalog, cart and orders."
+    },
+    "alternatives": [
+      "Shopify",
+      "BigCommerce"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/woocommerce/woocommerce/blob/trunk/license.txt",
+    "website": "https://woocommerce.com/",
+    "releases": "https://wordpress.org/plugins/woocommerce/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://developer.woocommerce.com/docs/apis/rest-api/"
+    },
+    "logo": "https://ps.w.org/woocommerce/assets/icon.svg?rev=3640790",
+    "screenshots": [
+      "https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/plugins/woocommerce/.wordpress-org/screenshot-1.png",
+      "https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/plugins/woocommerce/.wordpress-org/screenshot-3.png"
+    ],
+    "media_source": "https://wordpress.org/plugins/woocommerce/#screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://wordpress.org/plugins/woocommerce/"
+    },
+    "stars": {
+      "count": 10610,
+      "source": "https://github.com/woocommerce/woocommerce/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "11.3.1",
+      "date": "2026-11-19",
+      "source": "https://github.com/woocommerce/woocommerce/releases/tag/11.3.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "bagisto",
+    "name": "Bagisto",
+    "repo": "https://github.com/bagisto/bagisto",
+    "author": "Webkul",
+    "level": "avanz",
+    "category": "ecommerce",
+    "description": {
+      "it": "Negozio online Laravel con prodotti, carrello, ordini e gestione del magazzino.",
+      "en": "Laravel online store with products, cart, orders and inventory management."
+    },
+    "alternatives": [
+      "Shopify",
+      "BigCommerce"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/bagisto/bagisto/blob/2.5/LICENSE",
+    "website": "https://bagisto.com/",
+    "releases": "https://github.com/bagisto/bagisto/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://bagisto.com/wp-content/themes/bagisto/images/logo.png",
+    "screenshots": [
+      "https://docs.bagisto.com/images/getting-started/dashboard.png",
+      "https://docs.bagisto.com/images/getting-started/dashboard-stock-threshold.png"
+    ],
+    "media_source": "https://docs.bagisto.com/getting-started/dashboard",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.bagisto.com/getting-started/introduction"
+    },
+    "stars": {
+      "count": 28422,
+      "source": "https://github.com/bagisto/bagisto/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.5.2",
+      "date": "2026-11-18",
+      "source": "https://github.com/bagisto/bagisto/releases/tag/v2.5.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "ganttproject",
+    "name": "GanttProject",
+    "repo": "https://github.com/bardsoftware/ganttproject",
+    "author": "BarD Software and contributors",
+    "level": "base",
+    "category": "progetti",
+    "description": {
+      "it": "Pianifica progetti in locale con attività, dipendenze, risorse e diagrammi di Gantt.",
+      "en": "Plan projects locally with tasks, dependencies, resources and Gantt charts."
+    },
+    "alternatives": [
+      "Microsoft Project",
+      "Smartsheet"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/bardsoftware/ganttproject/blob/master/LICENSE",
+    "website": "https://www.ganttproject.biz/",
+    "releases": "https://www.ganttproject.biz/download",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/bardsoftware/ganttproject/master/ganttproject/src/main/resources/resources/icons/ganttproject-logo-512.png",
+    "screenshots": [
+      "https://i.ytimg.com/vi/FrpMfVZwLM8/maxres2.jpg"
+    ],
+    "media_source": "https://youtu.be/FrpMfVZwLM8",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.ganttproject.biz/free-gantt-chart-software"
+    },
+    "stars": {
+      "count": 1130,
+      "source": "https://github.com/bardsoftware/ganttproject/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "3.3.3330",
+      "date": "2026-11-19",
+      "source": "https://github.com/bardsoftware/ganttproject/releases/tag/ganttproject-3.3.3330",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 98459460,
+          "size_max": 184543736
+        },
+        {
+          "platform": "macos",
+          "size_min": 145964544,
+          "size_max": 149566976
+        },
+        {
+          "platform": "windows",
+          "size_min": 143188577,
+          "size_max": 144514119
+        }
+      ]
+    }
+  },
+  {
+    "id": "kanboard",
+    "name": "Kanboard",
+    "repo": "https://github.com/kanboard/kanboard",
+    "author": "Frédéric Guillot and contributors",
+    "level": "avanz",
+    "category": "progetti",
+    "description": {
+      "it": "Bacheche Kanban con limiti di lavoro in corso, filtri e azioni automatiche.",
+      "en": "Kanban boards with work-in-progress limits, filters and automatic actions."
+    },
+    "alternatives": [
+      "Trello",
+      "Asana"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/kanboard/kanboard/blob/main/LICENSE",
+    "website": "https://kanboard.org/",
+    "releases": "https://github.com/kanboard/kanboard/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.kanboard.org/en/latest/api/"
+    },
+    "logo": "https://kanboard.org/assets/img/touch-icon-ipad-retina.png",
+    "screenshots": [
+      "https://kanboard.org/assets/img/board.png",
+      "https://kanboard.org/assets/img/search.png"
+    ],
+    "media_source": "https://kanboard.org/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.kanboard.org/en/latest/admin_guide/installation.html"
+    },
+    "stars": {
+      "count": 9979,
+      "source": "https://github.com/kanboard/kanboard/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.2.58",
+      "date": "2026-11-21",
+      "source": "https://github.com/kanboard/kanboard/releases/tag/v1.2.58",
+      "packages": []
+    }
+  },
+  {
+    "id": "wekan",
+    "name": "WeKan",
+    "repo": "https://github.com/wekan/wekan",
+    "author": "WeKan contributors",
+    "level": "avanz",
+    "category": "progetti",
+    "description": {
+      "it": "Bacheche Kanban condivise con liste, attività, etichette e corsie.",
+      "en": "Shared Kanban boards with lists, cards, labels and swimlanes."
+    },
+    "alternatives": [
+      "Trello",
+      "Asana"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/wekan/wekan/blob/main/LICENSE",
+    "website": "https://wekan.fi/",
+    "releases": "https://github.com/wekan/wekan/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/wekan/wekan/blob/main/docs/API/REST-API.md"
+    },
+    "logo": "https://wekan.fi/wekan-favicon.png",
+    "screenshots": [
+      "https://wekan.fi/wekan-board-views.png",
+      "https://raw.githubusercontent.com/wekan/wekan/main/docs/Features/All-Boards/screenshot-boards.png"
+    ],
+    "media_source": "https://github.com/wekan/wekan",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://wekan.fi/install/"
+    },
+    "stars": {
+      "count": 21178,
+      "source": "https://github.com/wekan/wekan/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v13.34",
+      "date": "2026-11-26",
+      "source": "https://github.com/wekan/wekan/releases/tag/v13.34",
+      "packages": []
+    }
+  },
+  {
+    "id": "vikunja",
+    "name": "Vikunja Open Source",
+    "repo": "https://github.com/go-vikunja/vikunja",
+    "author": "Vikunja contributors",
+    "level": "avanz",
+    "category": "progetti",
+    "description": {
+      "it": "Attività personali e di gruppo in liste, Kanban, calendario e Gantt.",
+      "en": "Personal and team tasks in lists, Kanban boards, calendars and Gantt views."
+    },
+    "alternatives": [
+      "Todoist",
+      "TickTick",
+      "Trello"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/go-vikunja/vikunja/blob/main/LICENSE",
+    "website": "https://vikunja.io/",
+    "releases": "https://github.com/go-vikunja/vikunja/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://vikunja.io/docs/api-documentation/"
+    },
+    "logo": "https://raw.githubusercontent.com/go-vikunja/vikunja/main/frontend/originalMedia/icons/android-chrome-192x192.png",
+    "screenshots": [
+      "https://vikunja.io/_astro/01-task-overview.C06F5JRi_1iEUW6.png",
+      "https://vikunja.io/_astro/kanban.BwrTk08U_Z1KYtNF.png"
+    ],
+    "media_source": "https://vikunja.io/features/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://vikunja.io/docs/installing/"
+    },
+    "stars": {
+      "count": 6186,
+      "source": "https://github.com/go-vikunja/vikunja/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.8.0",
+      "date": "2026-11-05",
+      "source": "https://github.com/go-vikunja/vikunja/releases/tag/v2.8.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "wiki-js",
+    "name": "Wiki.js",
+    "repo": "https://github.com/requarks/wiki",
+    "author": "Requarks",
+    "level": "avanz",
+    "category": "note",
+    "description": {
+      "it": "Wiki collaborativa con editor Markdown e visuale, ricerca, permessi e cronologia delle pagine.",
+      "en": "Collaborative wiki with Markdown and visual editors, search, permissions and page history."
+    },
+    "alternatives": [
+      "Confluence",
+      "Notion"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/requarks/wiki/blob/scarlett/LICENSE",
+    "website": "https://js.wiki/",
+    "releases": "https://github.com/requarks/wiki/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.js.wiki/dev/api"
+    },
+    "logo": "https://js.wiki/apple-touch-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/requarks/wiki-docs-v3/main/en/guide/images/markdown-editor-ui.png",
+      "https://raw.githubusercontent.com/requarks/wiki-docs-v3/main/en/guide/images/basics-ui-page-sidebar.webp"
+    ],
+    "media_source": "https://docs.js.wiki/guide/editors/markdown",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/requarks/wiki-docs-v3/blob/main/en/setup/installation.md"
+    },
+    "stars": {
+      "count": 29397,
+      "source": "https://github.com/requarks/wiki/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "3.6.1",
+      "date": "2026-11-23",
+      "source": "https://github.com/requarks/wiki/releases/tag/3.6.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "silverbullet",
+    "name": "SilverBullet Server",
+    "repo": "https://github.com/silverbulletmd/silverbullet",
+    "author": "Zef Hemel and contributors",
+    "level": "avanz",
+    "category": "note",
+    "description": {
+      "it": "Note Markdown collegate, ricerca, query Lua e spazi condivisi via browser.",
+      "en": "Linked Markdown notes, search, Lua queries and shared spaces in the browser."
+    },
+    "alternatives": [
+      "Obsidian",
+      "Notion"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/silverbulletmd/silverbullet/blob/main/LICENSE.md",
+    "website": "https://silverbullet.md/server",
+    "releases": "https://github.com/silverbulletmd/silverbullet/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/silverbulletmd/silverbullet/main/client/images/logo-dock-96x96.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/silverbulletmd/silverbullet/main/docs/Screenshots/find-page-picker.png",
+      "https://raw.githubusercontent.com/silverbulletmd/silverbullet/main/docs/Screenshots/graph-view-local.png"
+    ],
+    "media_source": "https://github.com/silverbulletmd/silverbullet/tree/main/docs/Screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://silverbullet.md/server"
+    },
+    "stars": {
+      "count": 6649,
+      "source": "https://github.com/silverbulletmd/silverbullet/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "3.0.1",
+      "date": "2026-11-26",
+      "source": "https://github.com/silverbulletmd/silverbullet/releases/tag/3.0.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "sweethome3d",
+    "name": "Sweet Home 3D",
+    "repo": "https://sourceforge.net/p/sweethome3d/code/HEAD/tree/",
+    "author": "eTeks / Space Mushrooms",
+    "category": "architettura",
+    "level": "base",
+    "description": {
+      "it": "Disegna planimetrie, aggiungi arredi e visualizza le stanze in 3D con l'edizione gratuita.",
+      "en": "Draw floor plans, place furniture and preview rooms in 3D with the free edition."
+    },
+    "alternatives": [
+      "Floorplanner",
+      "SketchUp"
+    ],
+    "website": "https://www.sweethome3d.com/",
+    "releases": "https://sourceforge.net/projects/sweethome3d/files/SweetHome3D/SweetHome3D-7.5/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://www.sweethome3d.com/license/",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/sweethome3d/Sweethome3d/40c05b76cc557c371a1b27f0098b8d19/icons/128x128/com.sweethome3d.Sweethome3d.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/sweethome3d/Sweethome3d/40c05b76cc557c371a1b27f0098b8d19/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/sweethome3d/Sweethome3d/40c05b76cc557c371a1b27f0098b8d19/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/sweethome3d/Sweethome3d/40c05b76cc557c371a1b27f0098b8d19/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.sweethome3d.Sweethome3d",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.sweethome3d.com/download/"
+    },
+    "platform_support": {
+      "linux": "https://sourceforge.net/projects/sweethome3d/files/SweetHome3D/SweetHome3D-7.5/",
+      "macos": "https://sourceforge.net/projects/sweethome3d/files/SweetHome3D/SweetHome3D-7.5/",
+      "windows": "https://sourceforge.net/projects/sweethome3d/files/SweetHome3D/SweetHome3D-7.5/"
+    },
+    "edition": "Free",
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 211881,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/com.sweethome3d.Sweethome3d",
+      "page": "https://flathub.org/apps/com.sweethome3d.Sweethome3d"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.sweethome3d.Sweethome3d",
+        "source": "https://flathub.org/apps/com.sweethome3d.Sweethome3d",
+        "download_size": 73426321,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.sweethome3d.Sweethome3d",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "7.5",
+      "date": "2024-08-21",
+      "source": "https://flathub.org/apps/com.sweethome3d.Sweethome3d",
+      "packages": []
+    }
+  },
+  {
+    "id": "cloudcompare",
+    "name": "CloudCompare",
+    "repo": "https://github.com/CloudCompare/CloudCompare",
+    "author": "CloudCompare contributors",
+    "category": "gis",
+    "level": "avanz",
+    "description": {
+      "it": "Registra, confronta e analizza in locale nuvole di punti e mesh tridimensionali.",
+      "en": "Register, compare and analyse point clouds and 3D meshes locally."
+    },
+    "alternatives": [
+      "Autodesk ReCap",
+      "Leica Cyclone"
+    ],
+    "website": "https://www.cloudcompare.org/",
+    "releases": "https://www.cloudcompare.org/release/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/CloudCompare/CloudCompare/blob/master/license.txt",
+    "agent": {
+      "kind": "cli",
+      "source": "https://www.cloudcompare.org/doc/wiki/index.php/Command_line_mode"
+    },
+    "logo": "https://dl.flathub.org/media/org/cloudcompare/CloudCompare/e5d3d41499f38c45bd715e4e1e264bc5/icons/128x128/org.cloudcompare.CloudCompare.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/cloudcompare/CloudCompare/e5d3d41499f38c45bd715e4e1e264bc5/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/cloudcompare/CloudCompare/e5d3d41499f38c45bd715e4e1e264bc5/screenshots/image-2_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.cloudcompare.CloudCompare",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.cloudcompare.org/release/"
+    },
+    "platform_support": {
+      "linux": "https://www.cloudcompare.org/release/",
+      "macos": "https://www.cloudcompare.org/release/",
+      "windows": "https://www.cloudcompare.org/release/"
+    },
+    "stars": {
+      "count": 4893,
+      "source": "https://github.com/CloudCompare/CloudCompare/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.13.2",
+      "date": "2024-07-11",
+      "source": "https://github.com/CloudCompare/CloudCompare/releases/tag/v2.13.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "grass-gis",
+    "name": "GRASS GIS",
+    "repo": "https://github.com/OSGeo/grass",
+    "author": "OSGeo / GRASS Development Team",
+    "category": "gis",
+    "level": "avanz",
+    "description": {
+      "it": "Analisi geospaziale raster e vettoriale, gestione del terreno e modelli temporali.",
+      "en": "Raster and vector geospatial analysis, terrain tools and temporal modelling."
+    },
+    "alternatives": [
+      "ArcGIS Pro",
+      "TerrSet"
+    ],
+    "website": "https://grass.osgeo.org/",
+    "releases": "https://grass.osgeo.org/download/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/OSGeo/grass/blob/main/COPYING",
+    "agent": {
+      "kind": "cli",
+      "source": "https://grass.osgeo.org/grass-stable/manuals/grass.html"
+    },
+    "logo": "https://raw.githubusercontent.com/OSGeo/grass/main/gui/icons/grass-128x128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/OSGeo/grass/main/gui/wxpython/docs/wxGUI_map_display.jpg",
+      "https://raw.githubusercontent.com/OSGeo/grass/main/gui/wxpython/docs/wxGUI_layer_manager.png"
+    ],
+    "media_source": "https://grass.osgeo.org/grass-stable/manuals/wxGUI.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://grass.osgeo.org/download/"
+    },
+    "platform_support": {
+      "linux": "https://grass.osgeo.org/download/",
+      "macos": "https://grass.osgeo.org/download/",
+      "windows": "https://grass.osgeo.org/download/"
+    },
+    "stars": {
+      "count": 1196,
+      "source": "https://github.com/OSGeo/grass/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "8.5.0",
+      "date": "2026-05-08",
+      "source": "https://github.com/OSGeo/grass/releases/tag/8.5.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "openorienteering-mapper",
+    "name": "OpenOrienteering Mapper",
+    "repo": "https://github.com/OpenOrienteering/mapper",
+    "author": "OpenOrienteering",
+    "category": "gis",
+    "level": "avanz",
+    "description": {
+      "it": "Disegna mappe di orientamento con simboli cartografici e immagini georeferenziate.",
+      "en": "Draw orienteering maps with cartographic symbols and georeferenced imagery."
+    },
+    "alternatives": [
+      "OCAD"
+    ],
+    "website": "https://www.openorienteering.org/apps/mapper/",
+    "releases": "https://www.openorienteering.org/apps/mapper/",
+    "delivery": "desktop",
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/OpenOrienteering/mapper/blob/master/COPYING",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/OpenOrienteering/mapper/master/images/mapper-icon/Mapper-128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/OpenOrienteering/mapper/master/doc/manual/pages/images/main_window.png",
+      "https://raw.githubusercontent.com/OpenOrienteering/mapper/master/doc/manual/pages/images/course_design.png"
+    ],
+    "media_source": "https://www.openorienteering.org/mapper-manual/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.openorienteering.org/apps/mapper/"
+    },
+    "platform_support": {
+      "linux": "https://www.openorienteering.org/apps/mapper/",
+      "macos": "https://www.openorienteering.org/apps/mapper/",
+      "windows": "https://www.openorienteering.org/apps/mapper/"
+    },
+    "stars": {
+      "count": 506,
+      "source": "https://github.com/OpenOrienteering/mapper/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.9.6",
+      "date": "2025-11-14",
+      "source": "https://github.com/OpenOrienteering/mapper/releases/tag/v0.9.6",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 40251716,
+          "size_max": 40251716
+        },
+        {
+          "platform": "windows",
+          "size_min": 34377849,
+          "size_max": 45701340
+        }
+      ]
+    }
+  },
+  {
+    "id": "webodm",
+    "name": "WebODM",
+    "repo": "https://github.com/WebODM/WebODM",
+    "author": "WebODM / Piero Toffanin",
+    "category": "gis",
+    "level": "avanz",
+    "description": {
+      "it": "Elabora foto sovrapposte in ortofoto, nuvole di punti e modelli 3D su infrastruttura propria.",
+      "en": "Turn overlapping photographs into orthomosaics, point clouds and 3D models on your own infrastructure."
+    },
+    "alternatives": [
+      "Pix4Dmapper",
+      "Agisoft Metashape"
+    ],
+    "website": "https://webodm.org/",
+    "releases": "https://docs.webodm.org/installation/",
+    "delivery": "self-hosted",
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/WebODM/WebODM/blob/master/LICENSE.md",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.webodm.org/api/reference/"
+    },
+    "logo": "https://raw.githubusercontent.com/WebODM/WebODM/master/app/static/app/img/logo512.png",
+    "screenshots": [
+      "https://webodm.org/images/map.jpg",
+      "https://webodm.org/images/3d.jpg"
+    ],
+    "media_source": "https://webodm.org/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.webodm.org/installation/"
+    },
+    "platform_support": {
+      "linux": "https://docs.webodm.org/installation/",
+      "macos": "https://docs.webodm.org/installation/",
+      "windows": "https://docs.webodm.org/installation/"
+    },
+    "stars": {
+      "count": 4296,
+      "source": "https://github.com/WebODM/WebODM/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v4.0.1",
+      "date": "2026-11-15",
+      "source": "https://github.com/WebODM/WebODM/releases/tag/v4.0.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "nvda",
+    "name": "NVDA",
+    "repo": "https://github.com/nvaccess/nvda",
+    "author": "NV Access",
+    "category": "accessibilita",
+    "level": "base",
+    "description": {
+      "it": "Lettore di schermo gratuito per Windows, con sintesi vocale e dispositivi braille compatibili.",
+      "en": "Free screen reader for Windows with speech and supported braille displays."
+    },
+    "alternatives": [
+      "JAWS",
+      "Narrator"
+    ],
+    "website": "https://www.nvaccess.org/about-nvda/",
+    "releases": "https://www.nvaccess.org/download/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/nvaccess/nvda/blob/master/copying.txt",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://www.nvaccess.org/wp-content/uploads/2017/08/nvda_200x200.png",
+    "screenshots": [
+      "https://www.nvaccess.org/wp-content/uploads/2023/03/viewers-1024x576.jpg"
+    ],
+    "media_source": "https://www.nvaccess.org/csun/viewers/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.nvaccess.org/download/"
+    },
+    "platform_support": {
+      "windows": "https://www.nvaccess.org/download/"
+    },
+    "stars": {
+      "count": 2697,
+      "source": "https://github.com/nvaccess/nvda/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "release-2026.3.1",
+      "date": "2026-11-09",
+      "source": "https://github.com/nvaccess/nvda/releases/tag/release-2026.3.1",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 69896584,
+          "size_max": 69896584
+        }
+      ]
+    }
+  },
+  {
+    "id": "keycastr",
+    "name": "KeyCastr",
+    "repo": "https://github.com/keycastr/keycastr",
+    "author": "KeyCastr contributors",
+    "category": "accessibilita",
+    "level": "base",
+    "description": {
+      "it": "Mostra in sovrimpressione i tasti premuti durante lezioni, dimostrazioni e registrazioni.",
+      "en": "Display pressed keys on screen during lessons, demos and recordings."
+    },
+    "alternatives": [
+      "Keystroke Pro"
+    ],
+    "website": "https://github.com/keycastr/keycastr",
+    "releases": "https://github.com/keycastr/keycastr/releases",
+    "delivery": "desktop",
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/keycastr/keycastr/blob/main/LICENSE.md",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/keycastr/keycastr/main/keycastr/KeyCastr-512.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/keycastr/keycastr/main/assets/KeyCastr_header.png"
+    ],
+    "media_source": "https://github.com/keycastr/keycastr/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/keycastr/keycastr/releases"
+    },
+    "platform_support": {
+      "macos": "https://github.com/keycastr/keycastr/releases"
+    },
+    "stars": {
+      "count": 15216,
+      "source": "https://github.com/keycastr/keycastr/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.11.1",
+      "date": "2026-09-07",
+      "source": "https://github.com/keycastr/keycastr/releases/tag/v0.11.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 2714588,
+          "size_max": 2714588
+        }
+      ]
+    }
+  },
+  {
+    "id": "input-remapper",
+    "name": "Input Remapper",
+    "repo": "https://github.com/sezanzeb/input-remapper",
+    "author": "Lennart Z. / contributors",
+    "category": "accessibilita",
+    "level": "avanz",
+    "description": {
+      "it": "Riassegna tasti, pulsanti del mouse e comandi dei controller per adattare i dispositivi al tuo uso.",
+      "en": "Remap keys, mouse buttons and gamepad controls to adapt input devices to your needs."
+    },
+    "alternatives": [
+      "reWASD"
+    ],
+    "website": "https://github.com/sezanzeb/input-remapper",
+    "releases": "https://github.com/sezanzeb/input-remapper/releases",
+    "delivery": "desktop",
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://github.com/sezanzeb/input-remapper/blob/main/LICENSE",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/sezanzeb/input-remapper/blob/main/readme/usage.md#cli"
+    },
+    "logo": "https://raw.githubusercontent.com/sezanzeb/input-remapper/main/data/input-remapper-large.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/sezanzeb/input-remapper/main/readme/screenshot.png",
+      "https://raw.githubusercontent.com/sezanzeb/input-remapper/main/readme/screenshot_2.png"
+    ],
+    "media_source": "https://github.com/sezanzeb/input-remapper/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/sezanzeb/input-remapper/releases"
+    },
+    "platform_support": {
+      "linux": "https://github.com/sezanzeb/input-remapper/releases"
+    },
+    "stars": {
+      "count": 6072,
+      "source": "https://github.com/sezanzeb/input-remapper/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "2.2.1",
+      "date": "2026-06-12",
+      "source": "https://github.com/sezanzeb/input-remapper/releases/tag/2.2.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 222972,
+          "size_max": 222972
+        }
+      ]
+    }
+  },
+  {
+    "id": "speech-note",
+    "name": "Speech Note",
+    "repo": "https://github.com/mkiol/dsnote",
+    "author": "Michal Kosciesza",
+    "category": "accessibilita",
+    "level": "base",
+    "description": {
+      "it": "Trascrive audio e legge il testo ad alta voce in locale dopo il download dei modelli.",
+      "en": "Transcribe audio and read text aloud locally after downloading the models."
+    },
+    "alternatives": [
+      "NaturalReader",
+      "Dragon NaturallySpeaking"
+    ],
+    "website": "https://github.com/mkiol/dsnote",
+    "releases": "https://flathub.org/apps/net.mkiol.SpeechNote",
+    "delivery": "desktop",
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/mkiol/dsnote/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/net/mkiol/SpeechNote/b81fddb4c9ca32a40fc9033344f73251/icons/128x128/net.mkiol.SpeechNote.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/net/mkiol/SpeechNote/b81fddb4c9ca32a40fc9033344f73251/screenshots/image-1_1248x851@1.png",
+      "https://dl.flathub.org/media/net/mkiol/SpeechNote/b81fddb4c9ca32a40fc9033344f73251/screenshots/image-2_1248x851@1.png",
+      "https://dl.flathub.org/media/net/mkiol/SpeechNote/b81fddb4c9ca32a40fc9033344f73251/screenshots/image-3_1248x851@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/net.mkiol.SpeechNote",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://flathub.org/apps/net.mkiol.SpeechNote"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/net.mkiol.SpeechNote"
+    },
+    "stars": {
+      "count": 1722,
+      "source": "https://github.com/mkiol/dsnote/stargazers",
+      "date": "2026-11-26"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.mkiol.SpeechNote",
+        "source": "https://flathub.org/apps/net.mkiol.SpeechNote",
+        "download_size": 1204232892,
+        "download_size_source": "https://flathub.org/api/v2/summary/net.mkiol.SpeechNote",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "4.8.4",
+      "date": "2026-04-14",
+      "source": "https://flathub.org/apps/net.mkiol.SpeechNote",
+      "packages": []
+    }
+  },
+  {
+    "id": "readest",
+    "name": "Readest",
+    "repo": "https://github.com/readest/readest",
+    "author": "Bilingify / Readest",
+    "category": "accessibilita",
+    "level": "base",
+    "description": {
+      "it": "Leggi EPUB e PDF locali con caratteri regolabili, annotazioni e modalità a contrasto.",
+      "en": "Read local EPUBs and PDFs with adjustable typography, annotations and contrast modes."
+    },
+    "alternatives": [
+      "Kindle",
+      "Apple Books"
+    ],
+    "website": "https://readest.com/",
+    "releases": "https://github.com/readest/readest/releases",
+    "delivery": "desktop",
+    "license": "AGPL-3.0-or-later",
+    "license_url": "https://github.com/readest/readest/blob/main/LICENSE",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/icons/128x128/com.bilingify.readest.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-1_1248x795@1.png",
+      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-2_1248x795@1.png",
+      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-3_1248x795@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.bilingify.readest",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://readest.com/pricing"
+    },
+    "platform_support": {
+      "linux": "https://github.com/readest/readest/releases",
+      "macos": "https://github.com/readest/readest/releases",
+      "windows": "https://github.com/readest/readest/releases"
+    },
+    "edition": "Desktop Free",
+    "stars": {
+      "count": 26705,
+      "source": "https://github.com/readest/readest/stargazers",
+      "date": "2026-11-26"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.bilingify.readest",
+        "source": "https://flathub.org/apps/com.bilingify.readest",
+        "download_size": 185797880,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.bilingify.readest",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "v0.12.26",
+      "date": "2026-11-26",
+      "source": "https://github.com/readest/readest/releases/tag/v0.12.26",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 142036713,
+          "size_max": 212385975
+        },
+        {
+          "platform": "macos",
+          "size_min": 72439899,
+          "size_max": 72439899
+        },
+        {
+          "platform": "windows",
+          "size_min": 61923325,
+          "size_max": 98821632
+        }
+      ]
+    }
+  },
+  {
+    "id": "celestia",
+    "name": "Celestia",
+    "repo": "https://github.com/CelestiaProject/Celestia",
+    "author": "Celestia Development Team",
+    "category": "didattica",
+    "level": "base",
+    "description": {
+      "it": "Esplora il Sistema solare e lo spazio in 3D con una simulazione astronomica interattiva.",
+      "en": "Explore the Solar System and space in 3D with an interactive astronomy simulator."
+    },
+    "alternatives": [
+      "SpaceEngine"
+    ],
+    "website": "https://celestiaproject.space/",
+    "releases": "https://github.com/CelestiaProject/Celestia/releases",
+    "delivery": "desktop",
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/CelestiaProject/Celestia/blob/master/COPYING",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/CelestiaProject/Celestia/master/celestia-logo.png",
+    "screenshots": [
+      "https://celestiaproject.space/images/pic01.jpg",
+      "https://celestiaproject.space/images/pic02.jpg"
+    ],
+    "media_source": "https://celestiaproject.space/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/CelestiaProject/Celestia/releases"
+    },
+    "platform_support": {
+      "linux": "https://github.com/CelestiaProject/Celestia/blob/master/INSTALL.md",
+      "windows": "https://github.com/CelestiaProject/Celestia/releases",
+      "macos": "https://github.com/CelestiaProject/Celestia/releases"
+    },
+    "stars": {
+      "count": 2416,
+      "source": "https://github.com/CelestiaProject/Celestia/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "1.6.4",
+      "date": "2023-11-04",
+      "source": "https://github.com/CelestiaProject/Celestia/releases/tag/1.6.4",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 43447609,
+          "size_max": 43447609
+        },
+        {
+          "platform": "windows",
+          "size_min": 38026435,
+          "size_max": 38026435
+        }
+      ]
+    }
+  },
+  {
+    "id": "gcompris",
+    "name": "GCompris",
+    "repo": "https://invent.kde.org/education/gcompris",
+    "author": "KDE / GCompris contributors",
+    "category": "didattica",
+    "level": "base",
+    "description": {
+      "it": "Giochi didattici per bambini da 2 a 10 anni, da lettere e numeri a logica e scienze.",
+      "en": "Educational activities for children aged 2 to 10, from letters and numbers to logic and science."
+    },
+    "alternatives": [
+      "ABCmouse",
+      "JumpStart"
+    ],
+    "website": "https://gcompris.net/",
+    "releases": "https://gcompris.net/~download/downloads-en.html",
+    "delivery": "desktop",
+    "license": "AGPL-3.0",
+    "license_url": "https://flathub.org/apps/org.kde.gcompris",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/kde/gcompris/6b4a73b3e227329bd88ac50017e42bbb/icons/128x128/org.kde.gcompris.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/kde/gcompris/6b4a73b3e227329bd88ac50017e42bbb/screenshots/image-1_1248x702@1.png",
+      "https://dl.flathub.org/media/org/kde/gcompris/6b4a73b3e227329bd88ac50017e42bbb/screenshots/image-2_1248x821@1.png",
+      "https://dl.flathub.org/media/org/kde/gcompris/6b4a73b3e227329bd88ac50017e42bbb/screenshots/image-3_1248x811@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.kde.gcompris",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://gcompris.net/~download/downloads-en.html"
+    },
+    "platform_support": {
+      "linux": "https://gcompris.net/~download/downloads-en.html",
+      "windows": "https://gcompris.net/~download/downloads-en.html"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 229515,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.gcompris",
+      "page": "https://flathub.org/apps/org.kde.gcompris"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.kde.gcompris",
+        "source": "https://flathub.org/apps/org.kde.gcompris",
+        "download_size": 60678722,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.kde.gcompris",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "26.2",
+      "date": "2026-09-23",
+      "source": "https://flathub.org/apps/org.kde.gcompris",
+      "packages": []
+    }
+  },
+  {
+    "id": "labplot",
+    "name": "LabPlot",
+    "repo": "https://invent.kde.org/education/labplot",
+    "author": "KDE / LabPlot Team",
+    "category": "didattica",
+    "level": "avanz",
+    "description": {
+      "it": "Importa dati sperimentali, esegui regressioni e crea grafici scientifici da esportare.",
+      "en": "Import experimental data, fit curves and export scientific charts."
+    },
+    "alternatives": [
+      "OriginPro",
+      "GraphPad Prism"
+    ],
+    "website": "https://labplot.org/",
+    "releases": "https://labplot.org/pages/download/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://flathub.org/apps/org.kde.labplot",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/kde/labplot/71e59ccaf1b959337ef39cf52c8b5dea/icons/128x128/org.kde.labplot.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/kde/labplot/71e59ccaf1b959337ef39cf52c8b5dea/screenshots/image-1_1248x787@1.png",
+      "https://dl.flathub.org/media/org/kde/labplot/71e59ccaf1b959337ef39cf52c8b5dea/screenshots/image-2_1248x787@1.png",
+      "https://dl.flathub.org/media/org/kde/labplot/71e59ccaf1b959337ef39cf52c8b5dea/screenshots/image-3_1248x787@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.kde.labplot",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://labplot.org/pages/download/"
+    },
+    "platform_support": {
+      "linux": "https://labplot.org/pages/download/",
+      "macos": "https://labplot.org/pages/download/",
+      "windows": "https://labplot.org/pages/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 41669,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.labplot",
+      "page": "https://flathub.org/apps/org.kde.labplot"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.kde.labplot",
+        "source": "https://flathub.org/apps/org.kde.labplot",
+        "download_size": 176731432,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.kde.labplot",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "2.12.1",
+      "date": "2025-08-18",
+      "source": "https://download.kde.org/stable/labplot/",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 398416376,
+          "size_max": 398416376
+        },
+        {
+          "platform": "macos",
+          "size_min": 145649152,
+          "size_max": 211231456
+        },
+        {
+          "platform": "windows",
+          "size_min": 96690670,
+          "size_max": 96690670
+        }
+      ]
+    }
+  },
+  {
+    "id": "jamovi",
+    "name": "jamovi",
+    "repo": "https://github.com/jamovi/jamovi",
+    "author": "The jamovi project",
+    "category": "didattica",
+    "level": "base",
+    "description": {
+      "it": "Esegui analisi statistiche con un foglio dati e risultati che si aggiornano al cambiare delle opzioni.",
+      "en": "Run statistical analyses using a spreadsheet with results that refresh when settings change."
+    },
+    "alternatives": [
+      "SPSS",
+      "Minitab"
+    ],
+    "website": "https://www.jamovi.org/",
+    "releases": "https://docs.jamovi.org/usermanual/um_1_installation.html",
+    "delivery": "desktop",
+    "license": "AGPL-3.0 AND GPL-2.0-or-later",
+    "license_url": "https://github.com/jamovi/jamovi/blob/main/LICENSE.md",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/jamovi/jamovi/3c902129454a226ff637de4f2d9554ab/icons/128x128/org.jamovi.jamovi.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/jamovi/jamovi/3c902129454a226ff637de4f2d9554ab/screenshots/image-1_1248x706@1.png",
+      "https://dl.flathub.org/media/org/jamovi/jamovi/3c902129454a226ff637de4f2d9554ab/screenshots/image-2_1248x706@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.jamovi.jamovi",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.jamovi.org/"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/org.jamovi.jamovi",
+      "macos": "https://docs.jamovi.org/usermanual/um_1_installation.html#macos",
+      "windows": "https://docs.jamovi.org/usermanual/um_1_installation.html#windows"
+    },
+    "edition": "Desktop",
+    "stars": {
+      "count": 808,
+      "source": "https://github.com/jamovi/jamovi/stargazers",
+      "date": "2026-11-26"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.jamovi.jamovi",
+        "source": "https://flathub.org/apps/org.jamovi.jamovi",
+        "download_size": 457073050,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.jamovi.jamovi",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "2.7.41 Solid",
+      "date": "2026-10-21",
+      "source": "https://www.jamovi.org/releases.html",
+      "packages": []
+    }
+  },
+  {
+    "id": "tux-paint",
+    "name": "Tux Paint",
+    "repo": "https://sourceforge.net/p/tuxpaint/tuxpaint/ci/master/tree/",
+    "author": "Tux Paint contributors",
+    "category": "didattica",
+    "level": "base",
+    "description": {
+      "it": "Disegno per bambini con timbri, pennelli ed effetti sonori. Funziona in locale.",
+      "en": "Drawing for children with stamps, brushes and sounds. Runs locally."
+    },
+    "alternatives": [
+      "Kid Pix"
+    ],
+    "website": "https://tuxpaint.org/",
+    "releases": "https://tuxpaint.org/download/",
+    "delivery": "desktop",
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://tuxpaint.org/docs/en/html/README.html",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/tuxpaint/Tuxpaint/a47b8e7203892f5e1adb3ec2933797b6/icons/128x128/org.tuxpaint.Tuxpaint.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/tuxpaint/Tuxpaint/a47b8e7203892f5e1adb3ec2933797b6/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/tuxpaint/Tuxpaint/a47b8e7203892f5e1adb3ec2933797b6/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/org/tuxpaint/Tuxpaint/a47b8e7203892f5e1adb3ec2933797b6/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.tuxpaint.Tuxpaint",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://tuxpaint.org/download/"
+    },
+    "platform_support": {
+      "linux": "https://tuxpaint.org/download/",
+      "macos": "https://tuxpaint.org/download/",
+      "windows": "https://tuxpaint.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 163527,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.tuxpaint.Tuxpaint",
+      "page": "https://flathub.org/apps/org.tuxpaint.Tuxpaint"
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.tuxpaint.Tuxpaint",
+        "source": "https://flathub.org/apps/org.tuxpaint.Tuxpaint",
+        "download_size": 133917463,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.tuxpaint.Tuxpaint",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "release": {
+      "version": "0.9.35",
+      "date": "2025-05-26",
+      "source": "https://flathub.org/apps/org.tuxpaint.Tuxpaint",
+      "packages": []
     }
   }
 ]

@@ -19,15 +19,17 @@ impl LauncherUi {
                 ui.spacing_mut().button_padding.y = 4.0;
                 ui.spacing_mut().item_spacing.y = 3.0;
                 ui.set_width(194.0);
-                if ui.selectable_label(self.curated.category.is_empty(), tl!("All apps")).clicked() {
-                    self.curated.category.clear();
-                }
-                for (id, label) in CATEGORIES {
-                    let count = curated::apps().iter().filter(|app| app.category == *id).count();
-                    if ui.selectable_label(self.curated.category == *id, format!("{} ({count})", crate::i18n::t(label))).clicked() {
-                        self.curated.category = id.to_string();
+                egui::ScrollArea::vertical().id_salt("catalog-categories").max_height(ui.available_height()).show(ui, |ui| {
+                    if ui.selectable_label(self.curated.category.is_empty(), tl!("All apps")).clicked() {
+                        self.curated.category.clear();
                     }
-                }
+                    for (id, label) in CATEGORIES {
+                        let count = curated::apps().iter().filter(|app| app.category == *id).count();
+                        if ui.selectable_label(self.curated.category == *id, format!("{} ({count})", crate::i18n::t(label))).clicked() {
+                            self.curated.category = id.to_string();
+                        }
+                    }
+                });
             });
             ui.separator();
             ui.vertical(|ui| {
@@ -173,19 +175,7 @@ impl LauncherUi {
                             }
                             ui.horizontal(|ui| {
                                 ui.hyperlink_to(if app.repo.starts_with("https://github.com/") { "GitHub" } else { tl!("Source code") }, &app.repo);
-                                if let Some(entry) = self
-                                    .entries
-                                    .iter()
-                                    .find(|entry| {
-                                        entry.app.id == app.id && app.repo.trim_end_matches('/') == format!("https://github.com/{}", entry.app.repo)
-                                    })
-                                    .cloned()
-                                {
-                                    let status = entry.status(self.platform, self.caps.manage_apps);
-                                    self.catalog_action(ui, &entry, &status, 112.0);
-                                } else {
-                                    ui.label("—").on_hover_text(tl!("Managed installation not available"));
-                                }
+                                self.curated_action(ui, app, 112.0);
                                 if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
                                     self.curated.detail = Some(app.id.clone());
                                 }
@@ -347,21 +337,45 @@ impl LauncherUi {
         });
         ui.horizontal(|ui| {
             let action_width = (width - ui.spacing().item_spacing.x) / 2.0;
-            if let Some(entry) = self
-                .entries
-                .iter()
-                .find(|e| e.app.id == app.id && app.repo.trim_end_matches('/') == format!("https://github.com/{}", e.app.repo))
-                .cloned()
-            {
-                let status = entry.status(self.platform, self.caps.manage_apps);
-                self.catalog_action(ui, &entry, &status, action_width);
-            } else {
-                ui.add_sized([action_width, crate::theme::CONTROL_H], egui::Label::new(tl!("Managed installation not available")).wrap());
-            }
+            self.curated_action(ui, app, action_width);
             if ui.add_sized([action_width, crate::theme::CONTROL_H], egui::Button::new(tl!("App details"))).clicked() {
                 self.curated.detail = Some(app.id.clone());
             }
         });
+    }
+
+    fn curated_action(&mut self, ui: &mut egui::Ui, app: &curated::App, width: f32) {
+        let entry = self
+            .entries
+            .iter()
+            .find(|entry| entry.app.id == app.id && app.repo.trim_end_matches('/') == format!("https://github.com/{}", entry.app.repo))
+            .cloned();
+        let unsupported = self.platform.is_some_and(|platform| app.explicitly_unsupported_on(platform.os));
+        let missing_recipe = entry.as_ref().is_none_or(|entry| {
+            entry.installed.is_none()
+                && self.platform.is_some_and(|platform| {
+                    let stems: Vec<_> = entry.app.stems().collect();
+                    !artcraft_launcher_core::platform::recipe_platform_verified(&stems, platform)
+                })
+        });
+        if unsupported || missing_recipe {
+            let reason = if unsupported {
+                tl!("Not supported on this device")
+            } else if app.delivery == "self-hosted" {
+                tl!("Self-hosted")
+            } else {
+                tl!("Recipe to integrate")
+            };
+            let label = if unsupported { format!("🔒 {} · {reason}", tl!("Install")) } else { reason.to_string() };
+            ui.add_enabled_ui(false, |ui| {
+                ui.add_sized([width, crate::theme::CONTROL_H], egui::Button::new(&label).wrap())
+                    .accessible_name(format!("{label} · {}", app.name))
+                    .on_disabled_hover_text(reason);
+            });
+        } else if let Some(entry) = entry {
+            let status = entry.status(self.platform, self.caps.manage_apps);
+            self.catalog_action(ui, &entry, &status, width);
+        }
     }
 
     pub(crate) fn curated_details(&mut self, ctx: &egui::Context) {
@@ -413,4 +427,14 @@ const CATEGORIES: &[(&str, &str)] = &[
     ("sistema", "System and files"),
     ("rete", "Networking"),
     ("dati", "Data and analytics"),
+    ("backup", "Backup and recovery"),
+    ("contabilita", "Accounting and invoicing"),
+    ("crm", "CRM and ERP"),
+    ("ecommerce", "E-commerce"),
+    ("progetti", "Projects and tasks"),
+    ("note", "Notes and wikis"),
+    ("architettura", "Architecture, CAD and BIM"),
+    ("gis", "Mapping and GIS"),
+    ("accessibilita", "Accessibility and reading"),
+    ("didattica", "Education and science"),
 ];

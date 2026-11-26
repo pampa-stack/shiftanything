@@ -1,0 +1,175 @@
+[
+  {
+    "arch": "Arm64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [
+      "timeshift",
+      "back-in-time"
+    ],
+    "native_recipe_candidates": [
+      "photocraft",
+      "handy",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft"
+    ],
+    "os": "MacOs",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  },
+  {
+    "arch": "X64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [
+      "timeshift",
+      "back-in-time"
+    ],
+    "native_recipe_candidates": [
+      "photocraft",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft"
+    ],
+    "os": "MacOs",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  },
+  {
+    "arch": "Arm64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [
+      "timeshift",
+      "back-in-time"
+    ],
+    "native_recipe_candidates": [
+      "photocraft",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft",
+      "mailcraft"
+    ],
+    "os": "Windows",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  },
+  {
+    "arch": "X64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [
+      "timeshift",
+      "back-in-time"
+    ],
+    "native_recipe_candidates": [
+      "photocraft",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft",
+      "mailcraft"
+    ],
+    "os": "Windows",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  },
+  {
+    "arch": "Arm64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [],
+    "native_recipe_candidates": [
+      "photocraft",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft",
+      "mailcraft"
+    ],
+    "os": "Linux",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  },
+  {
+    "arch": "X64",
+    "catalog_entries": 298,
+    "explicitly_incompatible": [],
+    "native_recipe_candidates": [
+      "photocraft",
+      "craft-anything",
+      "soundcraft",
+      "solidcraft",
+      "vectorcraft",
+      "filmcraft",
+      "lightcraft",
+      "pdfcraft",
+      "effectcraft",
+      "anicraft",
+      "designcraft",
+      "figcraft",
+      "wordcraft",
+      "deckcraft",
+      "cadcraft",
+      "gridcraft",
+      "texturecraft",
+      "mailcraft"
+    ],
+    "os": "Linux",
+    "status": "Candidates require a compatible real release, native detection and runtime verification; this inventory never grants installation capability."
+  }
+]

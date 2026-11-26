@@ -124,5 +124,61 @@
     "file": "anythingllm-shot-0.png",
     "source": "https://anythingllm.com/images/home/documentchat-poster.webp",
     "sha256": "e6a2c64669d7254e4f85865dcf4c427e0e7b45a5774e4895d5437b9f4b3331bc"
+  },
+  {
+    "app": "vorta",
+    "key": "logo",
+    "file": "vorta-logo.png",
+    "source": "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/icons/icon.svg",
+    "sha256": "685f5fb5c66751916bda651dbf9112022c810da3a9fa1fcccbc521f0d9deaa32"
+  },
+  {
+    "app": "back-in-time",
+    "key": "logo",
+    "file": "back-in-time-logo.png",
+    "source": "https://raw.githubusercontent.com/bit-team/backintime/dev/qt/icons/scalable/apps/backintime.svg",
+    "sha256": "34f6bba5cbbd153deb28c4377dbbcc508ae537f3ef0770ccec0244393fa3a293"
+  },
+  {
+    "app": "invoiceshelf",
+    "key": "shot-0",
+    "file": "invoiceshelf-shot-0.png",
+    "source": "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/dashboard.webp",
+    "sha256": "16c6f10a85823a4c395a61b8dd86ad658c1f442d5880b891ce757973705d5540"
+  },
+  {
+    "app": "invoiceshelf",
+    "key": "shot-1",
+    "file": "invoiceshelf-shot-1.png",
+    "source": "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/invoices.webp",
+    "sha256": "1fc2c3a903872e045d3e4e042dd751bf955e4a81f8d44a7ff82d50ebfa48aaf9"
+  },
+  {
+    "app": "krayin",
+    "key": "logo",
+    "file": "krayin-logo.png",
+    "source": "https://raw.githubusercontent.com/krayin/laravel-crm/2.2/packages/Webkul/Admin/src/Resources/assets/images/logo.svg",
+    "sha256": "a343c8ffe5aafe43cd162dcffb396054dc38bebb999435d2f3e808a1e8adc866"
+  },
+  {
+    "app": "prestashop",
+    "key": "logo",
+    "file": "prestashop-logo.png",
+    "source": "https://www.prestashop-project.org/images/favicon.svg",
+    "sha256": "0c95368a7c58969b7d2812515b06e72ea07dc2bd8fb71de97ea4214de4c6e72a"
+  },
+  {
+    "app": "woocommerce",
+    "key": "logo",
+    "file": "woocommerce-logo.png",
+    "source": "https://ps.w.org/woocommerce/assets/icon.svg?rev=3640790",
+    "sha256": "8aa312bd250a06ebb75f93378437d48f69f971821d39493feb13346def43b082"
+  },
+  {
+    "app": "wiki-js",
+    "key": "shot-1",
+    "file": "wiki-js-shot-1.png",
+    "source": "https://raw.githubusercontent.com/requarks/wiki-docs-v3/main/en/guide/images/basics-ui-page-sidebar.webp",
+    "sha256": "f27f5216a8b9653f1f6a2c0497f2aa04ae7e6835cdaea214e1f39befea320ccb"
   }
 ]

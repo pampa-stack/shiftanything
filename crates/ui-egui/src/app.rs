@@ -1736,6 +1736,12 @@ mod tests {
             h.get_by_label(if language == "it" { "Mostra le app in elenco" } else { "Show apps as a table" }).click_accesskit();
             h.run_steps(3);
             h.get_by_label(if language == "it" { "Popolarità" } else { "Popularity" });
+            for row in h.query_all_by_label_contains(if language == "it" { "Vedi scheda ·" } else { "App details ·" }) {
+                let rect = row.rect();
+                if rect.center().y > 240.0 && rect.center().y < 850.0 {
+                    assert!(rect.left() >= 214.0 && rect.right() <= 1432.0, "table action must fit the reference viewport: {language} {rect:?}");
+                }
+            }
             if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
                 h.render().unwrap().save(std::path::Path::new(&dir).join(format!("table-{language}.png"))).unwrap();
             }
@@ -1776,6 +1782,7 @@ mod tests {
                     }
                 }
             }
+            h.state_mut().as_mut().unwrap().caps.manage_apps = true;
             h.state_mut().as_mut().unwrap().dialog = Some(Dialog::Settings);
             h.run_steps(4);
             for url in [

@@ -128,7 +128,7 @@ impl LauncherUi {
         egui::ScrollArea::vertical().show(ui, |ui| {
             if self.settings.view == crate::settings::ViewMode::Table {
                 egui::ScrollArea::horizontal().show(ui, |ui| {
-                    egui::Grid::new("curated-table").striped(true).min_col_width(95.0).max_col_width(180.0).show(ui, |ui| {
+                    egui::Grid::new("curated-table").striped(true).min_col_width(85.0).max_col_width(160.0).show(ui, |ui| {
                         for title in [tl!("Name"), tl!("Publisher"), tl!("Agent control"), tl!("License"), tl!("Popularity"), tl!("App details")] {
                             ui.strong(title);
                         }
@@ -182,7 +182,7 @@ impl LauncherUi {
                                     .cloned()
                                 {
                                     let status = entry.status(self.platform, self.caps.manage_apps);
-                                    self.actions_in(ui, &entry, &status, 130.0, crate::views::Place::Row);
+                                    self.catalog_action(ui, &entry, &status);
                                 } else {
                                     ui.label("—").on_hover_text(tl!("Managed installation not available"));
                                 }

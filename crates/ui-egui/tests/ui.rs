@@ -2710,8 +2710,8 @@ fn community_visibility_preference_round_trips_and_defaults_off_for_old_settings
 }
 
 #[test]
-/// The Settings dialog announces its heading once and shows the community section's Discord
-/// entry alongside the footer's.
+/// Settings announces its heading once and retains the working upstream community link;
+/// Promptica owns the footer links.
 fn settings_link_to_discord() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
     h.run_steps(6);
@@ -2725,8 +2725,18 @@ fn settings_link_to_discord() {
     );
     snapshot(&mut h, "settings-dark");
     h.get_by_label("Questions, ideas and news from the ArtCraft team");
-    // The footer icon and the button in Settings.
-    assert!(h.query_all_by_label_contains("Discord").count() >= 2);
+    h.get_by_label("Join the Discord").click_accesskit();
+    let mut opened = false;
+    for _ in 0..3 {
+        h.step();
+        opened |= h
+            .output()
+            .platform_output
+            .commands
+            .iter()
+            .any(|command| matches!(command, egui::OutputCommand::OpenUrl(open) if open.url == artcraft_launcher_core::catalog::DISCORD_URL));
+    }
+    assert!(opened, "the upstream community link must still open Discord");
 }
 
 #[test]
@@ -5086,7 +5096,15 @@ fn wide_settings_columns_are_about_the_same_height() {
     h.run_steps(8);
     h.get_by_label("Settings").click();
     h.run_steps(8);
-    let top = h.get_by_label("Language").accesskit_node().bounding_box().unwrap().y0 - 40.0;
+    // Promptica precedes Language now; measure from the first content on either column.
+    let top = h
+        .get_by_label("Language")
+        .accesskit_node()
+        .bounding_box()
+        .unwrap()
+        .y0
+        .min(h.get_by_label("https://promptica.it/").accesskit_node().bounding_box().unwrap().y0)
+        - 40.0;
     let split = h.get_by_label("Install folder").accesskit_node().bounding_box().unwrap().x0 - 20.0;
     let (mut left, mut right) = (top, top);
     for node in h.root().children_recursive() {
@@ -5097,7 +5115,7 @@ fn wide_settings_columns_are_about_the_same_height() {
             in_dialog |= parent.role() == egui::accesskit::Role::Dialog;
             ancestor = parent.parent();
         }
-        let footer = matches!(node.label().as_deref(), Some("Quit ArtCraft Launcher" | "Done"));
+        let footer = matches!(node.label().as_deref(), Some("Quit Sh*ftAnything" | "Done"));
         let Some(rect) = node.bounding_box().filter(|rect| in_dialog && !footer && rect.y0 >= top) else { continue };
         let column = if rect.x0 < split { &mut left } else { &mut right };
         *column = column.max(rect.y1);

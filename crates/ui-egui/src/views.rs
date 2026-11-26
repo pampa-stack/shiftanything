@@ -1048,6 +1048,16 @@ impl LauncherUi {
     /// Non-hidden apps get a pin toggle; when `place.allows_reorder()` is set, a pinned app's actions
     /// start with the reorder grip (grid/table only — the details drawer has no siblings to drop onto).
     /// The table widens its column by [`Self::grip_w`] for that leading grip.
+    /// Compact catalog action; management remains available from the app details.
+    pub(crate) fn catalog_action(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus) {
+        let width = 112.0;
+        if entry.job.is_some() {
+            self.job_actions(ui, entry, entry.app.id, width, width);
+        } else if !self.paused_actions(ui, entry, status, width, false, false) {
+            self.primary_button(ui, entry, entry.app.id, status, width, Place::Row);
+        }
+    }
+
     pub(crate) fn actions_in(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus, mut width: f32, place: Place) {
         let id = entry.app.id.to_string();
         let gap = ui.spacing().item_spacing.x;

@@ -60,7 +60,7 @@ impl LauncherUi {
             |_| {},
         );
 
-        let quit_width = widgets::button_width(ui, tl!("Quit ArtCraft Launcher"), 0.0);
+        let quit_width = widgets::button_width(ui, tl!("Quit Sh*ftAnything"), 0.0);
         let done_width = widgets::button_width(ui, tl!("Done"), 90.0);
         let stack_actions = self.caps.manage_apps && quit_width + done_width + ui.spacing().item_spacing.x + 48.0 > size.x;
         let footer_h = if stack_actions { 2.0 * theme::CONTROL_H + ui.spacing().item_spacing.y } else { theme::CONTROL_H } + 32.0;
@@ -82,7 +82,7 @@ impl LauncherUi {
         egui::Frame::new().inner_margin(egui::Margin::symmetric(theme::PAD as i8, 16)).show(ui, |ui| {
             ui.set_width(ui.available_width());
             let quit = |ui: &mut Ui, host: &mut dyn Host| {
-                if self.caps.manage_apps && widgets::button(ui, tl!("Quit ArtCraft Launcher"), Kind::Secondary, 0.0).clicked() {
+                if self.caps.manage_apps && widgets::button(ui, tl!("Quit Sh*ftAnything"), Kind::Secondary, 0.0).clicked() {
                     host.quit();
                 }
             };
@@ -120,15 +120,13 @@ impl LauncherUi {
                     return;
                 };
                 let (this, _) = &mut *state;
-                // Fonts makes the right column long, so the left also takes Community and the
-                // nightly opt-in, which keeps the two columns about the same height.
+                // General preferences and Promptica links at left; native management and
+                // agent configuration at right keep both columns useful while scrolling.
                 this.settings_promptica(ui);
                 this.settings_language(ui);
                 this.settings_updates(ui);
                 this.settings_appearance(ui);
                 this.settings_nightly(ui);
-                this.settings_community(ui);
-                this.settings_agents(ui);
             },
             |ui| {
                 let Ok(mut state) = state.try_borrow_mut() else {
@@ -139,6 +137,8 @@ impl LauncherUi {
                 #[cfg(not(target_arch = "wasm32"))]
                 this.settings_fonts(ui);
                 this.settings_background(ui, &mut **host);
+                this.settings_community(ui);
+                this.settings_agents(ui);
             },
         );
     }
@@ -427,11 +427,11 @@ impl LauncherUi {
                     "When on, opening the launcher from the menu bar brings its window to the desktop you're on. When off, macOS switches you to the desktop the window was on."
                 ));
                 ui.add_enabled_ui(host.has_tray() && self.settings.close_to_tray, |ui| {
-                    ui.checkbox(&mut self.settings.hide_from_dock_when_hidden, tl!("Hide ArtCraft Launcher from the Dock while in the background"));
+                    ui.checkbox(&mut self.settings.hide_from_dock_when_hidden, tl!("Hide Sh*ftAnything from the Dock while in the background"));
                 });
             }
             if let Some(mut on) = host.login_item()
-                && ui.checkbox(&mut on, tl!("Start ArtCraft Launcher when I log in")).changed()
+                && ui.checkbox(&mut on, tl!("Start Sh*ftAnything when I log in")).changed()
                 && let Err(e) = host.set_login_item(on)
             {
                 self.toast_from_ui(fmt(tl!("Couldn't change the login item: {e}"), &[("e", &e)]), true);

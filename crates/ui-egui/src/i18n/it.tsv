@@ -94,3 +94,86 @@
 	Control unverified	Controllo non verificato
 
 	License	Licenza
+	AI agents	Agenti AI
+	Add	Aggiungi
+	Added	Aggiunto
+	Adds the Craft apps to that client. Restart the client afterwards.	Aggiunge le app Craft al client. Poi riavvia il client.
+	Allow font downloads	Consenti download dei font
+	Appearance	Aspetto
+	Apps agents can reach: {count}	App accessibili agli agenti: {count}
+	Ask for permission once when updating all apps	Chiedi il permesso una sola volta per aggiornare tutte le app
+	Auto	Automatico
+	Automatically	Automaticamente
+	Only when I ask	Solo su richiesta
+	Automatically download and install updates	Scarica e installa automaticamente gli aggiornamenti
+	Betas and release candidates can replace your stable installation.	Le versioni beta e candidate possono sostituire la versione stabile installata.
+	Community	Community
+	Configuration copied.	Configurazione copiata.
+	Copy JSON	Copia JSON
+	Copy for Codex (TOML)	Copia per Codex (TOML)
+	Copy for VS Code	Copia per VS Code
+	Copy the configuration and paste it into the client's MCP settings.	Copia la configurazione e incollala nelle impostazioni MCP del client.
+	Couldn't change the font download setting: {e}	Impossibile cambiare il download dei font: {e}
+	Couldn't change the login item: {e}	Impossibile cambiare l’avvio automatico: {e}
+	Default install folder	Cartella di installazione predefinita
+	Developer builds aren't available on this platform yet.	Le build di sviluppo non sono ancora disponibili su questo sistema.
+	Discover nightly builds (Developer Builds page)	Mostra le build nightly (pagina Build di sviluppo)
+	Done	Chiudi
+	Downloads running together share your connection, so each one is slower.	I download simultanei condividono la connessione: ciascuno sarà più lento.
+	Hide Sh*ftAnything from the Dock while in the background	Nascondi Sh*ftAnything dal Dock quando è in background
+	Hide community apps	Nascondi le app della community
+	Include pre-releases (betas and release candidates)	Includi versioni preliminari (beta e candidate)
+	Install new apps as	Formato delle nuove installazioni
+	Installing on Linux	Installazione su Linux
+	Installing on Windows	Installazione su Windows
+	Join the Discord	Apri Discord
+	Keep running in the tray when the window is closed	Resta attivo nella barra di sistema quando chiudi la finestra
+	Language	Lingua
+	Launcher version	Versione del launcher
+	Let AI agents use Craft apps	Consenti agli agenti AI di usare le app Craft
+	New installs use this folder. Updates stay in their current location.	Le nuove app usano questa cartella. Gli aggiornamenti mantengono la posizione attuale.
+	Nightly builds	Build nightly
+	No limit	Nessun limite
+	Not installed	Non installato
+	Notify me when an installed app has an update	Avvisami quando un’app installata ha un aggiornamento
+	On Linux, custom folders use AppImage format.	Su Linux le cartelle personalizzate usano il formato AppImage.
+	Other clients	Altri client
+	Questions, ideas and news from the ArtCraft team	Domande, idee e novità dal team ArtCraft
+	Quick install	Installazione rapida
+	Quit Sh*ftAnything	Esci da Sh*ftAnything
+	Remove	Rimuovi
+	Restart {client}	Riavvia {client}
+	Restarting {client}…	Riavvio di {client}…
+	Running in the background	Esecuzione in background
+	Separate installs, settings and data. Turning this off keeps installed copies and their data.	Installazioni, impostazioni e dati separati. Disattivando restano le copie installate e i loro dati.
+	Show the window on the current desktop	Mostra la finestra sulla scrivania attuale
+	Simultaneous downloads	Download simultanei
+	Sources	Fonti
+	Start Sh*ftAnything when I log in	Avvia Sh*ftAnything all’accesso
+	System package (recommended)	Pacchetto di sistema (consigliato)
+	The Craft gateway (craft-ai-mcp) is not installed beside the launcher.	Il gateway Craft (craft-ai-mcp) non è installato accanto al launcher.
+	The system manages install locations here.	Le posizioni di installazione sono gestite dal sistema.
+	Updates always use the format an app was installed with.	Gli aggiornamenti usano sempre il formato dell’app installata.
+	Updates	Aggiornamenti
+	Match system	Segui il sistema
+	Dark	Scuro
+	Light	Chiaro
+	Checking…	Verifica…
+	Name	Nome
+	Install folder	Cartella di installazione
+	System default	Predefinita dal sistema
+	Apps are placed inside this folder.	Le app vengono installate dentro questa cartella.
+	Browse…	Sfoglia…
+	Use default	Usa predefinita
+	Fonts download from their sources only when you install one. Font previews have their own setting below. Every Craft app shares this setting.	I font vengono scaricati dalle rispettive fonti solo quando li installi. Le anteprime hanno un’impostazione separata qui sotto. Questa preferenza è condivisa dalle app Craft.
+	Show font previews	Mostra anteprime dei font
+	Font preview server	Server delle anteprime font
+	Set by {name} in the environment.	Definito da {name} nell’ambiente.
+	Fonts you haven't installed show their previews from this server, and installs try it first. Empty uses the default server.	Le anteprime dei font non installati provengono da questo server, usato anche come prima fonte per l’installazione. Vuoto usa il server predefinito.
+	Couldn't change the font previews setting: {e}	Impossibile cambiare le anteprime dei font: {e}
+	When on, opening the launcher from the menu bar brings its window to the desktop you're on. When off, macOS switches you to the desktop the window was on.	Se attivo, aprire il launcher dalla barra dei menu porta la finestra sulla scrivania attuale. Altrimenti macOS passa alla scrivania su cui si trova la finestra.
+	GitHub	GitHub
+	While this is on, AI apps that use MCP, such as Claude, Cursor or LM Studio, can work with every installed Craft app through one entry. While it is off, no agent can reach them, and the entries added here are removed.	Quando è attivo, i client MCP come Claude, Cursor o LM Studio possono usare le app Craft installate tramite un unico collegamento. Disattivandolo, gli agenti non possono accedervi e i collegamenti aggiunti qui vengono rimossi.
+	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} carica i server MCP solo all’avvio: le app Craft compaiono dopo il riavvio. Il riavvio chiude {client}, anche se sta scrivendo una risposta.
+	Couldn't use this server: {e}	Impossibile usare questo server: {e}
+	Custom folders use AppImage on Linux.	Su Linux le cartelle personalizzate usano AppImage.

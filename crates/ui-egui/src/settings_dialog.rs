@@ -551,12 +551,16 @@ impl LauncherUi {
             ui.label(c.name.as_str());
             if c.added {
                 ui.label(RichText::new(tl!("Added")).size(12.0).color(t.muted));
-                if ui.button(tl!("Remove")).clicked() {
+                let remove = ui.button(tl!("Remove"));
+                remove.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Button, true, format!("{} · {}", tl!("Remove"), c.name)));
+                if remove.clicked() {
                     self.act_command(Command::McpSetClient { client: c.client, added: false });
                     self.mcp_restart_offer = None;
                 }
             } else if c.installed && can_add {
-                if ui.button(tl!("Add")).clicked() {
+                let add = ui.button(tl!("Add"));
+                add.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Button, true, format!("{} · {}", tl!("Add"), c.name)));
+                if add.clicked() {
                     self.act_command(Command::McpSetClient { client: c.client, added: true });
                     if c.restartable {
                         self.mcp_restart_offer = Some(c.client);

@@ -1063,8 +1063,8 @@ pub fn launch(app: &CraftApp, installed: &Installed, paths: &Paths, args: &[Stri
             cmd.args(args);
             process::spawn_detached(cmd)
         }
-        // `open` starts the app through Launch Services, which gives it the user's real home, so
-        // it finds the file at its default path; not every macOS `open` takes an environment.
+        // Normal Launch Services uses the user's home. An explicitly isolated CF profile is
+        // forwarded by open_app and fails closed if this host cannot accept --env.
         InstallSource::MacApp => process::open_app(path, args),
         // A tarball the launcher unpacked into its own folder: run it here, against its own
         // home, rather than on the host through `flatpak-spawn` (which is what `launch_binary`

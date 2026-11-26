@@ -127,7 +127,7 @@ pub fn write_atomic(path: &std::path::Path, bytes: &[u8]) -> Result<(), String> 
 /// appended as named. Anything unresolvable (a relative path, a dangling alias, an unreadable
 /// folder) is returned unchanged, so the Nightly checks see and refuse it rather than this
 /// guessing.
-fn resolve_existing(path: &std::path::Path) -> PathBuf {
+pub(crate) fn resolve_existing(path: &std::path::Path) -> PathBuf {
     if !path.is_absolute() || path.components().any(|part| matches!(part, std::path::Component::CurDir | std::path::Component::ParentDir)) {
         return path.to_path_buf();
     }

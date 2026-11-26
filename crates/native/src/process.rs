@@ -423,8 +423,32 @@ pub fn open(target: &std::ffi::OsStr) -> Result<(), String> {
 /// macOS: opens an `.app` bundle with `open`, handing `args` to the app (`open … --args`).
 pub fn open_app(bundle: &Path, args: &[String]) -> Result<(), String> {
     let mut cmd = opener(bundle.as_os_str())?;
+    // Launch Services otherwise discards a redirected HOME. Preserve an explicitly isolated
+    // Core Foundation profile, including Rust/XDG paths, and never reuse a personal instance.
+    #[cfg(target_os = "macos")]
+    let isolated = if let Some(home) = std::env::var_os("CFFIXED_USER_HOME") {
+        let home_path = Path::new(&home);
+        if std::env::var_os("HOME").as_ref() != Some(&home) || !home_path.is_absolute() || !home_path.is_dir() {
+            return Err("Isolated launch requires matching absolute HOME and CFFIXED_USER_HOME directories".into());
+        }
+        cmd.args(["-n", "-g"]);
+        for key in ["HOME", "CFFIXED_USER_HOME", "XDG_CONFIG_HOME", "XDG_DATA_HOME", "XDG_CACHE_HOME", "CRAFT_VERSIONS_FILE"] {
+            if let Some(value) = std::env::var_os(key) {
+                let mut assignment = std::ffi::OsString::from(format!("{key}="));
+                assignment.push(value);
+                cmd.arg("--env").arg(assignment);
+            }
+        }
+        true
+    } else {
+        false
+    };
     if !args.is_empty() {
         cmd.arg("--args").args(args);
+    }
+    #[cfg(target_os = "macos")]
+    if isolated {
+        return run_command(cmd, "Open app in isolated profile", Duration::from_secs(15)).map(|_| ());
     }
     spawn_detached(cmd)
 }

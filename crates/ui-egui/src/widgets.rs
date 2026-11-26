@@ -945,6 +945,25 @@ pub fn social_icons(ui: &mut Ui, size: f32) {
     icon_links(ui, size, &links);
 }
 
+/// Promptica accounts, using the existing accessible link controls and bundled icons.
+pub fn promptica_social_icons(ui: &mut Ui, size: f32) {
+    let links = [
+        IconLink {
+            name: "LinkedIn",
+            label: "Promptica LinkedIn".into(),
+            tip: "Promptica · LinkedIn".into(),
+            url: "https://www.linkedin.com/company/promptica/",
+        },
+        IconLink {
+            name: "Instagram",
+            label: "Promptica Instagram".into(),
+            tip: "Promptica · Instagram".into(),
+            url: "https://www.instagram.com/promptica_ai",
+        },
+    ];
+    icon_links(ui, size, &links);
+}
+
 /// One logo that opens a page: `name` picks the picture, `label` is what a screen reader says,
 /// `tip` is the hover text.
 pub struct IconLink<'a> {

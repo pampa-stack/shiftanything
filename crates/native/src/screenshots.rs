@@ -2,6 +2,9 @@
 //! fetches them once and keeps them in the cache folder, so the next time (and any time offline)
 //! they come from disk.
 
+#[path = "catalog_media.rs"]
+mod catalog_media;
+
 use std::path::Path;
 
 use artcraft_launcher_core::details::{AppDetails, MAX_SCREENSHOT_BYTES, looks_like_jpeg, screenshot_within_budget};
@@ -103,6 +106,11 @@ pub fn fetch_catalog(
             && let Ok(bytes) = std::fs::read(&saved)
             && valid(&bytes)
         {
+            emit(&key, Ok(bytes));
+            continue;
+        }
+        if let Some(bytes) = catalog_media::fallback(&app.id, &key, url).filter(|bytes| valid(bytes)) {
+            let _ = write_atomic(&saved, &bytes);
             emit(&key, Ok(bytes));
             continue;
         }

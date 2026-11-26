@@ -54,9 +54,9 @@ impl LauncherUi {
         ui.set_max_height(size.y);
         let hero_h = sheet::hero(
             ui,
-            Some(crate::icons::artcraft_mark()),
+            Some(egui::include_image!("../../../assets/shiftanything/icon.png")),
             tl!("Settings"),
-            &format!("ArtCraft Launcher {}", env!("CARGO_PKG_VERSION")),
+            &format!("Sh*ftAnything {}", env!("CARGO_PKG_VERSION")),
             |_| {},
         );
 
@@ -122,6 +122,7 @@ impl LauncherUi {
                 let (this, _) = &mut *state;
                 // Fonts makes the right column long, so the left also takes Community and the
                 // nightly opt-in, which keeps the two columns about the same height.
+                this.settings_promptica(ui);
                 this.settings_language(ui);
                 this.settings_updates(ui);
                 this.settings_appearance(ui);
@@ -140,6 +141,22 @@ impl LauncherUi {
                 this.settings_background(ui, &mut **host);
             },
         );
+    }
+
+    fn settings_promptica(&mut self, ui: &mut Ui) {
+        sheet::panel(ui, "Promptica", |ui| {
+            for (label, url) in [
+                (tl!("Website"), "https://promptica.it/"),
+                ("LinkedIn", "https://www.linkedin.com/company/promptica/"),
+                ("Instagram", "https://www.instagram.com/promptica_ai"),
+                (tl!("Contact"), "https://promptica.it/contatti"),
+            ] {
+                ui.horizontal_wrapped(|ui| {
+                    ui.label(label);
+                    ui.hyperlink_to(url, url);
+                });
+            }
+        });
     }
 
     /// The language picker. It changes the preference immediately but keeps this pass on a language

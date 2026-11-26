@@ -1699,6 +1699,23 @@ mod tests {
             let mut h = picker_harness(language, 1440.0);
             h.run_steps(5);
             h.get_by_label(catalog);
+            for (label, url) in [
+                ("Promptica LinkedIn", "https://www.linkedin.com/company/promptica/"),
+                ("Promptica Instagram", "https://www.instagram.com/promptica_ai"),
+            ] {
+                h.get_by_label(label).click_accesskit();
+                let mut opened = false;
+                for _ in 0..3 {
+                    h.step();
+                    opened |= h
+                        .output()
+                        .platform_output
+                        .commands
+                        .iter()
+                        .any(|command| matches!(command, egui::OutputCommand::OpenUrl(open) if open.url == url));
+                }
+                assert!(opened, "social link must request the official URL");
+            }
             h.state_mut().as_mut().unwrap().platform =
                 Some(Platform { os: artcraft_launcher_core::Os::MacOs, arch: artcraft_launcher_core::Arch::Arm64 });
             if let Some(media) = std::env::var_os("SHIFTANYTHING_MEDIA_PROOF") {
@@ -1715,6 +1732,12 @@ mod tests {
             }
             if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
                 h.render().unwrap().save(std::path::Path::new(&dir).join(format!("catalog-{language}.png"))).unwrap();
+            }
+            h.get_by_label(if language == "it" { "Mostra le app in elenco" } else { "Show apps as a table" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Popolarità" } else { "Popularity" });
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("table-{language}.png"))).unwrap();
             }
             h.get_by_label(connect).click_accesskit();
             h.run_steps(3);
@@ -1752,6 +1775,19 @@ mod tests {
                         h.render().unwrap().save(std::path::Path::new(&dir).join(format!("connect-{label}-{language}.png"))).unwrap();
                     }
                 }
+            }
+            h.state_mut().as_mut().unwrap().dialog = Some(Dialog::Settings);
+            h.run_steps(4);
+            for url in [
+                "https://promptica.it/",
+                "https://www.linkedin.com/company/promptica/",
+                "https://www.instagram.com/promptica_ai",
+                "https://promptica.it/contatti",
+            ] {
+                h.get_by_label(url);
+            }
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("settings-{language}.png"))).unwrap();
             }
         }
     }

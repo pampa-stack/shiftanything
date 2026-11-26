@@ -127,29 +127,72 @@ impl LauncherUi {
         ui.label(format!("{} · {}", tl!("Catalog"), apps.len()));
         egui::ScrollArea::vertical().show(ui, |ui| {
             if self.settings.view == crate::settings::ViewMode::Table {
-                egui::Grid::new("curated-table").striped(true).min_col_width(100.0).max_col_width(180.0).show(ui, |ui| {
-                    for title in [tl!("Name"), tl!("Publisher"), tl!("Category"), tl!("Latest release"), tl!("App details")] {
-                        ui.strong(title);
-                    }
-                    ui.end_row();
-                    for app in &apps {
-                        if ui.button(&app.name).clicked() {
-                            self.curated.detail = Some(app.id.clone());
-                        }
-                        ui.label(&app.author);
-                        ui.label(
-                            CATEGORIES.iter().find(|(id, _)| *id == app.category).map_or(app.category.as_str(), |(_, label)| crate::i18n::t(label)),
-                        );
-                        if let Some(release) = &app.release {
-                            ui.hyperlink_to(format!("{} · {}", release.version, release.date), &release.source);
-                        } else {
-                            ui.label("—");
-                        }
-                        if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
-                            self.curated.detail = Some(app.id.clone());
+                egui::ScrollArea::horizontal().show(ui, |ui| {
+                    egui::Grid::new("curated-table").striped(true).min_col_width(95.0).max_col_width(180.0).show(ui, |ui| {
+                        for title in [tl!("Name"), tl!("Publisher"), tl!("Agent control"), tl!("License"), tl!("Popularity"), tl!("App details")] {
+                            ui.strong(title);
                         }
                         ui.end_row();
-                    }
+                        for app in &apps {
+                            if ui.is_rect_visible(egui::Rect::from_min_size(ui.cursor().min, egui::vec2(ui.available_width(), 48.0))) {
+                                self.catalog_media(app);
+                            }
+                            ui.horizontal(|ui| {
+                                if let Some(icon) = self.picture_source(&app.id, "catalog-logo").or_else(|| crate::icons::app(&app.id)) {
+                                    ui.add(egui::Image::new(icon).fit_to_exact_size(egui::vec2(28.0, 28.0)).alt_text(format!("{} logo", app.name)));
+                                }
+                                if ui.button(&app.name).clicked() {
+                                    self.curated.detail = Some(app.id.clone());
+                                }
+                            });
+                            ui.label(&app.author);
+                            let control = match app.agent.kind.as_str() {
+                                "mcp" => tl!("MCP available"),
+                                "cli" => tl!("CLI control"),
+                                "api" => tl!("API control"),
+                                _ => tl!("Control unverified"),
+                            };
+                            if let Some(source) = &app.agent.source {
+                                ui.hyperlink_to(control, source);
+                            } else {
+                                ui.label(control);
+                            }
+                            ui.hyperlink_to(&app.license, &app.license_url);
+                            if let Some(stars) = &app.stars {
+                                let count = if stars.count >= 1000 {
+                                    format!("★ {:.1}k", stars.count as f64 / 1000.0)
+                                } else {
+                                    format!("★ {}", stars.count)
+                                };
+                                ui.hyperlink_to(egui::RichText::new(count).color(egui::Color32::from_rgb(187, 143, 45)), &stars.source)
+                                    .on_hover_text(&stars.date);
+                            } else if let Some(popularity) = &app.popularity {
+                                ui.hyperlink_to(popularity.label(), &popularity.page).on_hover_text(&popularity.date);
+                            } else {
+                                ui.label("—");
+                            }
+                            ui.horizontal(|ui| {
+                                ui.hyperlink_to(if app.repo.starts_with("https://github.com/") { "GitHub" } else { tl!("Source code") }, &app.repo);
+                                if let Some(entry) = self
+                                    .entries
+                                    .iter()
+                                    .find(|entry| {
+                                        entry.app.id == app.id && app.repo.trim_end_matches('/') == format!("https://github.com/{}", entry.app.repo)
+                                    })
+                                    .cloned()
+                                {
+                                    let status = entry.status(self.platform, self.caps.manage_apps);
+                                    self.actions_in(ui, &entry, &status, 130.0, crate::views::Place::Row);
+                                } else {
+                                    ui.label("—").on_hover_text(tl!("Managed installation not available"));
+                                }
+                                if ui.button(tl!("App details")).accessible_name(format!("{} · {}", tl!("App details"), app.name)).clicked() {
+                                    self.curated.detail = Some(app.id.clone());
+                                }
+                            });
+                            ui.end_row();
+                        }
+                    });
                 });
                 if apps.is_empty() {
                     ui.label(tl!("No apps match"));
@@ -333,7 +376,12 @@ impl LauncherUi {
                     }
                 }
                 ui.hyperlink_to(tl!("Media source"), app.media_source.as_str().unwrap_or(&app.repo));
-                if self.entries.iter().any(|entry| entry.app.id == id) && ui.button(tl!("Manage app")).clicked() {
+                if self
+                    .entries
+                    .iter()
+                    .any(|entry| entry.app.id == id && app.repo.trim_end_matches('/') == format!("https://github.com/{}", entry.app.repo))
+                    && ui.button(tl!("Manage app")).clicked()
+                {
                     self.detail = Some(id.clone());
                     self.curated.detail = None;
                 }

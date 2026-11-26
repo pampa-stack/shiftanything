@@ -1,0 +1,107 @@
+[
+  {
+    "app": "t3code",
+    "key": "shot-0",
+    "file": "t3code-shot-0.png",
+    "source": "https://raw.githubusercontent.com/pingdotgg/t3code/main/.github/readme/hero.webp",
+    "sha256": "483fad9a359d2f207646535598fff34f99cae20fb0ebc431a01d1f334c3050ba"
+  },
+  {
+    "app": "solidcraft",
+    "key": "shot-0",
+    "file": "solidcraft-shot-0.png",
+    "source": "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/docs/screenshots/demo.gif",
+    "sha256": "dfa55db8b9df82eaa92c35384ecd72a2538df2484227cdebac2570681950a8d1"
+  },
+  {
+    "app": "wazuh",
+    "key": "logo",
+    "file": "wazuh-logo.png",
+    "source": "https://raw.githubusercontent.com/wazuh/wazuh-dashboard-plugins/main/plugins/main/public/assets/images/themes/light/icon.svg",
+    "sha256": "3acedaab75976cd12f5b0afff5edd5f4b5dfaf2e9f14f4e3afffa72372a66e45"
+  },
+  {
+    "app": "uptime",
+    "key": "logo",
+    "file": "uptime-logo.png",
+    "source": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg",
+    "sha256": "6b860ac029e824df9410e2c99c75f2dd13e609aa4d13694a6e02cca15b8d9daf"
+  },
+  {
+    "app": "paseo",
+    "key": "logo",
+    "file": "paseo-logo.png",
+    "source": "https://raw.githubusercontent.com/getpaseo/paseo/main/packages/website/public/logo.svg",
+    "sha256": "47367434b8d0946d86a80eb460413e81b4c244f20fa90366f2fcc8ba951a3834"
+  },
+  {
+    "app": "opencode",
+    "key": "logo",
+    "file": "opencode-logo.png",
+    "source": "https://raw.githubusercontent.com/anomalyco/opencode/dev/.github/assets/logo-ornate-dark.svg",
+    "sha256": "f1fdcc29c285a9e2a6f2868afc4a97d474e98d0b4dab6970f66a6626e34529d3"
+  },
+  {
+    "app": "cutter",
+    "key": "logo",
+    "file": "cutter-logo.png",
+    "source": "https://raw.githubusercontent.com/rizinorg/cutter/dev/src/img/cutter.svg",
+    "sha256": "5dcb000cef04047e1e36f632b043206d17dee5e643abd0973b462669add1b23d"
+  },
+  {
+    "app": "openutau",
+    "key": "logo",
+    "file": "openutau-logo.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Logo/openutau.svg",
+    "sha256": "69b93ca157675a4e867a899611b91cf6316ec368ff621c25c5baa56948d62370"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-0",
+    "file": "openutau-shot-0.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor.gif",
+    "sha256": "c4ba1f52a3a582a6e19299116fafd691dbcc298ef0e20be21e9092708696aa5a"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-1",
+    "file": "openutau-shot-1.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor2.gif",
+    "sha256": "2accd45b233a2969f9d8e57827776c091a5f4939a53811526de8e80e7dea882c"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-2",
+    "file": "openutau-shot-2.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/vibrato.gif",
+    "sha256": "705f8f101fd36933e23b0493cf3fe95edb384c9032ea518ea749e84c4dbc0eb5"
+  },
+  {
+    "app": "plane",
+    "key": "shot-0",
+    "file": "plane-shot-0.png",
+    "source": "https://media.docs.plane.so/GitHub-readme/github-work-items.webp",
+    "sha256": "33ef5c456990e04a3ae5bf26e9b164d2e68898b53af0c5b75fec51831638d40e"
+  },
+  {
+    "app": "penpot",
+    "key": "logo",
+    "file": "penpot-logo.png",
+    "source": "https://raw.githubusercontent.com/penpot/penpot/develop/frontend/resources/images/assets/penpot-logo-icon.svg",
+    "sha256": "a1ce66bb590dac9d40cc9035885b309a8918702e292850ecdc5c416d31179de2"
+  },
+  {
+    "app": "penpot",
+    "key": "shot-0",
+    "file": "penpot-shot-0.png",
+    "source": "https://raw.githubusercontent.com/penpot/penpot/develop/docs/img/interface/dashboard-dark.webp",
+    "sha256": "70d19c4764a975e6b98761dd1f7baccef4fd69d3b9130b51d1ccddc0a50ba655"
+  },
+  {
+    "app": "rizzo-flow",
+    "key": "shot-0",
+    "file": "rizzo-flow-shot-0.png",
+    "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp",
+    "sha256": "d231363ca7e5bf7ad6831c5a3efb5c7b1fe225fea46d10c4d20851826f474795"
+  }
+]

@@ -469,7 +469,8 @@ impl LauncherUi {
                     .fit_to_exact_size(vec2(icon, icon))
                     .alt_text("Promptica"),
             );
-            ui.hyperlink_to("Powered by Promptica", "https://promptica.it");
+            ui.hyperlink_to("Powered by Promptica", "https://promptica.it/");
+            widgets::promptica_social_icons(ui, icon);
             ui.add_space(8.0);
             ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                 // While GitHub is rate limited, saying so matters more than when we last checked.

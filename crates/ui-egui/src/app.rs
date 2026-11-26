@@ -1730,6 +1730,15 @@ mod tests {
                 }
                 h.run_steps(5);
             }
+            h.run_steps(3);
+            assert!(h.query_all_by_label(if language == "it" { "Controllo CLI" } else { "CLI control" }).next().is_some());
+            assert!(h.query_all_by_label(if language == "it" { "Controllo non verificato" } else { "Control unverified" }).next().is_some());
+            let platform_rects: Vec<_> =
+                ["macOS", "Windows", "Linux"].iter().map(|label| h.query_all_by_label(label).next().unwrap().rect()).collect();
+            assert!(
+                platform_rects.windows(2).all(|pair| pair[0].right() <= pair[1].left()),
+                "platforms read macOS, Windows, Linux from left to right"
+            );
             if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
                 h.render().unwrap().save(std::path::Path::new(&dir).join(format!("catalog-{language}.png"))).unwrap();
             }

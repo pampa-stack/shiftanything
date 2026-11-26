@@ -182,7 +182,7 @@ impl LauncherUi {
                                     .cloned()
                                 {
                                     let status = entry.status(self.platform, self.caps.manage_apps);
-                                    self.catalog_action(ui, &entry, &status);
+                                    self.catalog_action(ui, &entry, &status, 112.0);
                                 } else {
                                     ui.label("—").on_hover_text(tl!("Managed installation not available"));
                                 }
@@ -287,21 +287,27 @@ impl LauncherUi {
         ui.horizontal(|ui| {
             ui.label(if app.delivery == "self-hosted" { tl!("Self-hosted") } else { tl!("Desktop app") });
             ui.hyperlink_to(&app.license, &app.license_url);
-            if app.agent.kind == "mcp"
-                && let Some(source) = &app.agent.source
-            {
-                ui.hyperlink_to("MCP", source);
+            let control = match app.agent.kind.as_str() {
+                "mcp" => "MCP",
+                "cli" => tl!("CLI control"),
+                "api" => tl!("API control"),
+                _ => tl!("Control unverified"),
+            };
+            if let Some(source) = &app.agent.source {
+                ui.hyperlink_to(control, source);
+            } else {
+                ui.label(control);
             }
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-                if let Some(release) = &app.release {
-                    for (platform, label, image) in [
-                        ("macos", "macOS", egui::include_image!("../../../assets/shiftanything/macos.svg")),
-                        ("windows", "Windows", egui::include_image!("../../../assets/shiftanything/windows.png")),
-                        ("linux", "Linux", egui::include_image!("../../../assets/shiftanything/linux.png")),
-                    ] {
-                        if release.packages.iter().any(|package| package.platform == platform) {
-                            ui.add(egui::Image::new(image).fit_to_exact_size(egui::vec2(15.0, 15.0)).alt_text(label)).on_hover_text(label);
-                        }
+                for (platform, label, image) in [
+                    // This layout places the first item at the right edge.
+                    ("linux", "Linux", egui::include_image!("../../../assets/shiftanything/linux.png")),
+                    ("windows", "Windows", egui::include_image!("../../../assets/shiftanything/windows.png")),
+                    ("macos", "macOS", egui::include_image!("../../../assets/shiftanything/macos.svg")),
+                ] {
+                    if let Some(source) = app.platform_source(platform) {
+                        ui.add(egui::Image::new(image).fit_to_exact_size(egui::vec2(15.0, 15.0)).alt_text(label))
+                            .on_hover_text(format!("{label}\n{source}"));
                     }
                 }
             });
@@ -314,34 +320,33 @@ impl LauncherUi {
             columns[1].label(egui::RichText::new(tl!("Download size")).color(t.muted).size(10.0));
             if let Some(release) = &app.release {
                 columns[0].hyperlink_to(format!("{} · {}", release.date, release.version), &release.source);
-                let os = self.platform.map(|p| match p.os {
-                    artcraft_launcher_core::Os::MacOs => "macos",
-                    artcraft_launcher_core::Os::Windows => "windows",
-                    artcraft_launcher_core::Os::Linux => "linux",
-                    artcraft_launcher_core::Os::FreeBsd => "freebsd",
-                });
-                let package = release
-                    .packages
-                    .iter()
-                    .find(|package| Some(package.platform.as_str()) == os)
-                    .or_else(|| if os.is_none() { release.packages.first() } else { None });
-                let size = package.and_then(|package| {
-                    package.size_min.map(|size| {
-                        format!(
-                            "{:.1} MB{} · {}",
-                            size as f64 / 1_000_000.0,
-                            if package.size_max != package.size_min { " +" } else { "" },
-                            package.platform
-                        )
-                    })
-                });
-                columns[1].label(size.unwrap_or_else(|| "—".into()));
             } else {
                 columns[0].label("—");
+            }
+            let os = self.platform.map(|p| match p.os {
+                artcraft_launcher_core::Os::MacOs => "macos",
+                artcraft_launcher_core::Os::Windows => "windows",
+                artcraft_launcher_core::Os::Linux => "linux",
+                artcraft_launcher_core::Os::FreeBsd => "freebsd",
+            });
+            if let Some(size) = app.download_size(os) {
+                let platform = match size.platform {
+                    "macos" => "macOS",
+                    "windows" => "Windows",
+                    "linux" => "Linux",
+                    "freebsd" => "FreeBSD",
+                    other => other,
+                };
+                let range =
+                    size.maximum.filter(|max| *max != size.minimum).map(|max| format!("–{:.1}", max as f64 / 1_000_000.0)).unwrap_or_default();
+                let channel = size.manager.map(|manager| format!(" / {manager}")).unwrap_or_default();
+                columns[1].hyperlink_to(format!("{:.1}{range} MB · {platform}{channel}", size.minimum as f64 / 1_000_000.0), size.source);
+            } else {
                 columns[1].label("—");
             }
         });
-        ui.horizontal_wrapped(|ui| {
+        ui.horizontal(|ui| {
+            let action_width = (width - ui.spacing().item_spacing.x) / 2.0;
             if let Some(entry) = self
                 .entries
                 .iter()
@@ -349,11 +354,11 @@ impl LauncherUi {
                 .cloned()
             {
                 let status = entry.status(self.platform, self.caps.manage_apps);
-                self.actions_in(ui, &entry, &status, width * 0.55, crate::views::Place::Row);
+                self.catalog_action(ui, &entry, &status, action_width);
             } else {
-                ui.label(tl!("Managed installation not available"));
+                ui.add_sized([action_width, crate::theme::CONTROL_H], egui::Label::new(tl!("Managed installation not available")).wrap());
             }
-            if ui.button(tl!("App details")).clicked() {
+            if ui.add_sized([action_width, crate::theme::CONTROL_H], egui::Button::new(tl!("App details"))).clicked() {
                 self.curated.detail = Some(app.id.clone());
             }
         });

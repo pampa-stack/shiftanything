@@ -22,6 +22,61 @@ pub struct App {
     pub release: Option<Release>,
     pub stars: Option<Stars>,
     pub popularity: Option<Popularity>,
+    #[serde(default)]
+    pub platform_support: std::collections::BTreeMap<String, String>,
+    #[serde(default)]
+    pub distribution: Vec<Distribution>,
+}
+/// Documented channels only; these never grant a native installation capability.
+#[derive(Debug, Deserialize)]
+pub struct Distribution {
+    pub platform: String,
+    pub manager: String,
+    pub id: String,
+    pub source: String,
+    pub download_size: Option<u64>,
+    pub download_size_source: Option<String>,
+    pub download_size_checked: Option<String>,
+}
+pub struct DownloadSize<'a> {
+    pub platform: &'a str,
+    pub minimum: u64,
+    pub maximum: Option<u64>,
+    pub manager: Option<&'a str>,
+    pub source: &'a str,
+}
+impl App {
+    pub fn platform_source(&self, platform: &str) -> Option<&str> {
+        self.release
+            .as_ref()
+            .filter(|release| release.packages.iter().any(|package| package.platform == platform))
+            .map(|release| release.source.as_str())
+            .or_else(|| self.distribution.iter().find(|channel| channel.platform == platform).map(|channel| channel.source.as_str()))
+            .or_else(|| self.platform_support.get(platform).map(String::as_str))
+    }
+    /// Unknown platform uses the first documented size and explicitly retains its OS/channel.
+    pub fn download_size(&self, platform: Option<&str>) -> Option<DownloadSize<'_>> {
+        if let Some(release) = &self.release
+            && let Some(package) =
+                release.packages.iter().find(|package| platform.is_none_or(|os| os == package.platform) && package.size_min.is_some())
+        {
+            return Some(DownloadSize {
+                platform: &package.platform,
+                minimum: package.size_min?,
+                maximum: package.size_max,
+                manager: None,
+                source: &release.source,
+            });
+        }
+        let channel = self.distribution.iter().find(|channel| platform.is_none_or(|os| os == channel.platform) && channel.download_size.is_some())?;
+        Some(DownloadSize {
+            platform: &channel.platform,
+            minimum: channel.download_size?,
+            maximum: channel.download_size,
+            manager: Some(&channel.manager),
+            source: channel.download_size_source.as_deref().unwrap_or(&channel.source),
+        })
+    }
 }
 #[derive(Debug, Deserialize)]
 pub struct Description {
@@ -79,6 +134,29 @@ pub fn apps() -> &'static [App] {
 }
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn distribution_metadata_supplies_platforms_and_sizes_without_granting_a_recipe() {
+        let app = super::apps()
+            .iter()
+            .find(|app| {
+                app.release.as_ref().is_none_or(|release| release.packages.is_empty())
+                    && app.distribution.iter().any(|channel| channel.download_size.is_some())
+                    && crate::CraftApp::by_id(&app.id).is_none()
+            })
+            .unwrap();
+        let channel = app.distribution.iter().find(|channel| channel.download_size.is_some()).unwrap();
+        assert_eq!(app.platform_source(&channel.platform), Some(channel.source.as_str()));
+        let size = app.download_size(Some(&channel.platform)).unwrap();
+        assert_eq!(Some(size.minimum), channel.download_size);
+        assert_eq!(size.manager, Some(channel.manager.as_str()));
+        assert!(app.download_size(None).is_some());
+        assert!(app.download_size(Some("unsupported-os")).is_none());
+        assert!(app.platform_source("unsupported-os").is_none());
+        let request =
+            crate::automation::Request { id: "metadata-only".into(), operation: crate::automation::Operation::Install, apps: vec![app.id.clone()] };
+        assert!(request.validate().is_err());
+    }
+
     #[test]
     fn curated_catalog_is_valid_and_excludes_deferred_products() {
         let apps = serde_json::from_str::<Vec<super::App>>(include_str!("../curated.json")).expect("valid editorial data");

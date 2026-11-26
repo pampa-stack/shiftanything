@@ -103,5 +103,26 @@
     "file": "rizzo-flow-shot-0.png",
     "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp",
     "sha256": "d231363ca7e5bf7ad6831c5a3efb5c7b1fe225fea46d10c4d20851826f474795"
+  },
+  {
+    "app": "pdfsam-basic",
+    "key": "shot-0",
+    "file": "pdfsam-basic-shot-0.png",
+    "source": "https://pdfsam.org/imgs/features/basic-merge-pdf.webp",
+    "sha256": "f54fe34c106e2f757d20dbc766a15fe8669f8cb714b5db3d8fa8a7e03fa310bf"
+  },
+  {
+    "app": "pdfsam-basic",
+    "key": "shot-1",
+    "file": "pdfsam-basic-shot-1.png",
+    "source": "https://pdfsam.org/imgs/features/basic-split-pdf.webp",
+    "sha256": "98385be697e1e03f57f9f26af30fc1db98526032c17a6c290c9f6a384499931a"
+  },
+  {
+    "app": "anythingllm",
+    "key": "shot-0",
+    "file": "anythingllm-shot-0.png",
+    "source": "https://anythingllm.com/images/home/documentchat-poster.webp",
+    "sha256": "e6a2c64669d7254e4f85865dcf4c427e0e7b45a5774e4895d5437b9f4b3331bc"
   }
 ]

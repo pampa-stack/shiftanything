@@ -1049,8 +1049,7 @@ impl LauncherUi {
     /// start with the reorder grip (grid/table only — the details drawer has no siblings to drop onto).
     /// The table widens its column by [`Self::grip_w`] for that leading grip.
     /// Compact catalog action; management remains available from the app details.
-    pub(crate) fn catalog_action(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus) {
-        let width = 112.0;
+    pub(crate) fn catalog_action(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus, width: f32) {
         if entry.job.is_some() {
             self.job_actions(ui, entry, entry.app.id, width, width);
         } else if !self.paused_actions(ui, entry, status, width, false, false) {

@@ -92,6 +92,24 @@ const MEDIA: &[Media] = &[
         "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp",
         include_bytes!("../../../assets/catalog-media/rizzo-flow-shot-0.png"),
     ),
+    (
+        "pdfsam-basic",
+        "catalog-shot-0",
+        "https://pdfsam.org/imgs/features/basic-merge-pdf.webp",
+        include_bytes!("../../../assets/catalog-media/pdfsam-basic-shot-0.png"),
+    ),
+    (
+        "pdfsam-basic",
+        "catalog-shot-1",
+        "https://pdfsam.org/imgs/features/basic-split-pdf.webp",
+        include_bytes!("../../../assets/catalog-media/pdfsam-basic-shot-1.png"),
+    ),
+    (
+        "anythingllm",
+        "catalog-shot-0",
+        "https://anythingllm.com/images/home/documentchat-poster.webp",
+        include_bytes!("../../../assets/catalog-media/anythingllm-shot-0.png"),
+    ),
 ];
 pub(super) fn fallback(app: &str, key: &str, source: &str) -> Option<Vec<u8>> {
     MEDIA.iter().find(|(id, slot, url, _)| *id == app && *slot == key && *url == source).map(|(_, _, _, bytes)| bytes.to_vec())

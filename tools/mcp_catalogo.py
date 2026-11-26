@@ -88,7 +88,7 @@ def search_apps(
     elif sort == "latest":
         found.sort(key=lambda a: a.get("release", {}).get("date") or "", reverse=True)
 
-    keys = ("id", "name", "author", "category", "level", "license", "repo", "agent", "stars", "popularity", "delivery")
+    keys = ("id", "name", "author", "category", "level", "license", "repo", "agent", "stars", "popularity", "delivery", "platform_support", "distribution")
     page = [{**{key: app[key] for key in keys if key in app}, "description": app["description"][language]}
             for app in found[offset:offset + limit]]
     next_offset = offset + limit if offset + limit < len(found) else None

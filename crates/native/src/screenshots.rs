@@ -125,6 +125,16 @@ pub fn fetch_catalog(
             "https://github.com/",
             "https://static-site.onlyoffice.com/",
             "https://b3log.org/",
+            "https://activitywatch.net/",
+            "https://anythingllm.com/",
+            "https://docmost.com/",
+            "https://files.ollama.com/",
+            "https://files.sumatrapdfreader.org/",
+            "https://iina.io/",
+            "https://nickemanarin.github.io/",
+            "https://pdfsam.org/",
+            "https://www.librechat.ai/",
+            "https://www.naps2.com/",
         ];
         let result = if !allowed.iter().any(|base| url.starts_with(base)) {
             Err("Unapproved catalog media origin".into())

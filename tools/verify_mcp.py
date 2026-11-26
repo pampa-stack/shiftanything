@@ -14,6 +14,7 @@ from mcp.client.stdio import stdio_client
 
 async def main():
     root = Path(__file__).resolve().parents[1]
+    expected_total = len(json.loads((root / "crates/core/curated.json").read_text()))
     params = StdioServerParameters(command=sys.executable, args=[str(root / "tools/mcp_catalogo.py"), "--automation-read-root", str(root), "--automation-write-root", str(root)])
     async with stdio_client(params) as (reader, writer):
         async with ClientSession(reader, writer) as session:
@@ -22,7 +23,7 @@ async def main():
             assert {tool.name for tool in tools} == {"catalog_filters", "search_apps", "get_app"}
             assert all(tool.annotations.readOnlyHint for tool in tools)
             filters = (await session.call_tool("catalog_filters", {})).structuredContent
-            assert filters["total"] == 206
+            assert filters["total"] == expected_total
             results = (await session.call_tool("search_apps", {"query": "Handy", "publisher": "CJ Pais", "level": "base"})).structuredContent
             assert any(app["id"] == "handy" for app in results["apps"])
             for app_id in ["prompticraft", "eyecraft", "oneshotanything", "unknown-app"]:
@@ -36,6 +37,8 @@ async def main():
             assert office["popularity"]["kind"] == "flathub_installs" and office["popularity"]["page"].startswith("https://flathub.org/apps/")
             meetily = (await session.call_tool("get_app", {"app_id": "meetily"})).structuredContent["app"]
             assert meetily["agent"]["kind"] != "mcp"
+            tenacity = (await session.call_tool("get_app", {"app_id": "tenacity"})).structuredContent["app"]
+            assert tenacity["platform_support"]["windows"] and tenacity["distribution"][0]["download_size"] > 0
             print(f"PASS stdio MCP: {filters['total']} apps, combined filters, unknown/deferred IDs rejected, exactly 3 read-only tools")
 
 
@@ -108,12 +111,12 @@ async def main():
             async with ClientSession(reader, writer) as session:
                 await session.initialize()
                 result = (await session.call_tool("catalog_filters", {})).structuredContent
-                assert result["total"] == 206
+                assert result["total"] == expected_total
                 inventory = (await session.call_tool("get_inventory", {})).structuredContent
                 assert inventory["error"] == "launcher_unavailable"
                 bridge = Path(config["args"][-1])
                 assert abs(time.time() - json.loads((bridge / "client.json").read_text())["last_seen"]) < 60
-                print("PASS actual native-packaged server/config: scoped startup, 206 apps, real tool heartbeat and honest missing launcher")
+                print(f"PASS actual native-packaged server/config: scoped startup, {expected_total} apps, real tool heartbeat and honest missing launcher")
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -13385,5 +13385,3667 @@
         }
       ]
     }
+  },
+  {
+    "id": "naps2",
+    "name": "NAPS2",
+    "repo": "https://github.com/cyanfish/naps2",
+    "author": "Ben Olden-Cooligan",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scansiona documenti, riordina le pagine ed esegue l’OCR per creare PDF ricercabili",
+      "en": "Scan documents, rearrange pages, and use OCR to create searchable PDFs"
+    },
+    "alternatives": [
+      "Adobe Acrobat Pro",
+      "VueScan"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/cyanfish/naps2/blob/master/LICENSE",
+    "website": "https://www.naps2.com",
+    "releases": "https://github.com/cyanfish/naps2/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://www.naps2.com/doc/command-line"
+    },
+    "logo": "https://www.naps2.com/images/scanner-large.png",
+    "screenshots": [
+      "https://www.naps2.com/images/naps2-desktop-win-750w.png",
+      "https://www.naps2.com/images/naps2-ocr-win.png"
+    ],
+    "media_source": "https://www.naps2.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/cyanfish/naps2"
+    },
+    "release": {
+      "version": "v8.6.1",
+      "date": "2026-11-19",
+      "source": "https://github.com/cyanfish/naps2/releases/tag/v8.6.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 17026782,
+          "size_max": 24502573
+        },
+        {
+          "platform": "macos",
+          "size_min": 27550717,
+          "size_max": 48585197
+        },
+        {
+          "platform": "windows",
+          "size_min": 44292176,
+          "size_max": 67353616
+        }
+      ]
+    },
+    "stars": {
+      "count": 4829,
+      "source": "https://github.com/cyanfish/naps2/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "losslesscut",
+    "name": "LosslessCut",
+    "repo": "https://github.com/mifi/lossless-cut",
+    "author": "Mikael Finstad",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Taglia e unisce clip audio e video senza ricodificarle",
+      "en": "Trim and join audio and video clips without re-encoding"
+    },
+    "alternatives": [
+      "QuickTime Player",
+      "Adobe Media Encoder"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/mifi/lossless-cut/blob/master/LICENSE",
+    "website": "https://losslesscut.app/",
+    "releases": "https://github.com/mifi/lossless-cut/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/mifi/lossless-cut/blob/v3.70.2/docs/cli.md"
+    },
+    "logo": "https://dl.flathub.org/media/no/mifi/losslesscut/24400b33bf25ed472706fb8c50663d5e/icons/128x128/no.mifi.losslesscut.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/no/mifi/losslesscut/24400b33bf25ed472706fb8c50663d5e/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/no.mifi.losslesscut",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/mifi/lossless-cut"
+    },
+    "release": {
+      "version": "v3.70.2",
+      "date": "2026-10-28",
+      "source": "https://github.com/mifi/lossless-cut/releases/tag/v3.70.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 221357823,
+          "size_max": 221357823
+        },
+        {
+          "platform": "macos",
+          "size_min": 165792537,
+          "size_max": 177945549
+        },
+        {
+          "platform": "windows",
+          "size_min": 129589969,
+          "size_max": 151717535
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "A screenshot of the main window of LosslessCut"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "no.mifi.losslesscut",
+        "source": "https://flathub.org/apps/no.mifi.losslesscut",
+        "download_size": 161283501,
+        "download_size_source": "https://flathub.org/api/v2/summary/no.mifi.losslesscut",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 46456,
+      "source": "https://github.com/mifi/lossless-cut/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "zotero",
+    "name": "Zotero",
+    "repo": "https://github.com/zotero/zotero",
+    "author": "Corporation for Digital Scholarship",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza fonti e PDF e genera citazioni e bibliografie",
+      "en": "Organize sources and PDFs and generate citations and bibliographies"
+    },
+    "alternatives": [
+      "EndNote",
+      "Mendeley"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/zotero/zotero/blob/main/COPYING",
+    "website": "https://www.zotero.org",
+    "releases": "https://www.zotero.org/download/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.zotero.org/support/dev/web_api/v3/local_api"
+    },
+    "logo": "https://dl.flathub.org/media/org/zotero/Zotero/4464da57ad34c8c6d440cf3177c5e801/icons/128x128/org.zotero.Zotero.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/zotero/Zotero/4464da57ad34c8c6d440cf3177c5e801/screenshots/image-1_1248x795@1.png",
+      "https://dl.flathub.org/media/org/zotero/Zotero/4464da57ad34c8c6d440cf3177c5e801/screenshots/image-2_1248x795@1.png",
+      "https://dl.flathub.org/media/org/zotero/Zotero/4464da57ad34c8c6d440cf3177c5e801/screenshots/image-3_1248x795@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.zotero.Zotero",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/zotero/zotero"
+    },
+    "release": {
+      "version": "10.0.8",
+      "date": "2026-11-06",
+      "source": "https://www.zotero.org/support/changelog",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 118330068,
+          "size_max": 118330068
+        },
+        {
+          "platform": "windows",
+          "size_min": 109546480,
+          "size_max": 109546480
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Zotero main window",
+      "Zotero built-in PDF reader",
+      "Zotero main window, dark mode"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.zotero.Zotero",
+        "source": "https://flathub.org/apps/org.zotero.Zotero",
+        "download_size": 146567690,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.zotero.Zotero",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "platform_support": {
+      "macos": "https://www.zotero.org/download/",
+      "windows": "https://www.zotero.org/download/",
+      "linux": "https://www.zotero.org/download/"
+    },
+    "stars": {
+      "count": 16053,
+      "source": "https://github.com/zotero/zotero/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "logseq",
+    "name": "Logseq",
+    "repo": "https://github.com/logseq/logseq",
+    "author": "Logseq",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza appunti, attività e collegamenti in uno spazio di lavoro locale",
+      "en": "Organize notes, tasks, and links in a local workspace"
+    },
+    "alternatives": [
+      "Obsidian",
+      "Roam Research"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/logseq/logseq/blob/master/LICENSE.md",
+    "website": "https://logseq.com/",
+    "releases": "https://github.com/logseq/logseq/releases/tag/0.10.15",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/logseq/Logseq/e9fd7754757f106ceb422f684122ed63/icons/128x128/com.logseq.Logseq.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/logseq/Logseq/e9fd7754757f106ceb422f684122ed63/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/logseq/Logseq/e9fd7754757f106ceb422f684122ed63/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/logseq/Logseq/e9fd7754757f106ceb422f684122ed63/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.logseq.Logseq",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/logseq/logseq"
+    },
+    "release": {
+      "version": "0.10.15",
+      "date": "2025-12-01",
+      "source": "https://github.com/logseq/logseq/releases/tag/0.10.15",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 196099618,
+          "size_max": 202116983
+        },
+        {
+          "platform": "macos",
+          "size_min": 196122121,
+          "size_max": 201352443
+        },
+        {
+          "platform": "windows",
+          "size_min": 231276488,
+          "size_max": 238923907
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Logseq default page",
+      "Search in Logseq",
+      "General settings in Logseq"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.logseq.Logseq",
+        "source": "https://flathub.org/apps/com.logseq.Logseq",
+        "download_size": 183921865,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.logseq.Logseq",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 45717,
+      "source": "https://github.com/logseq/logseq/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "trilium",
+    "name": "Trilium Notes",
+    "repo": "https://github.com/TriliumNext/Trilium",
+    "author": "Trilium Notes Team",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Costruisce un archivio personale di note gerarchiche e incrociate",
+      "en": "Build a personal archive of hierarchical, linked notes"
+    },
+    "alternatives": [
+      "Evernote",
+      "OneNote"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/TriliumNext/Trilium/blob/main/LICENSE",
+    "website": "https://triliumnotes.org",
+    "releases": "https://github.com/TriliumNext/Trilium/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.triliumnotes.org/user-guide/llm/mcp"
+    },
+    "logo": "https://dl.flathub.org/media/org/triliumnotes/Trilium/19dc1bbe0844c8b6b38a60e1221b80ad/icons/128x128/org.triliumnotes.Trilium.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/triliumnotes/Trilium/19dc1bbe0844c8b6b38a60e1221b80ad/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/triliumnotes/Trilium/19dc1bbe0844c8b6b38a60e1221b80ad/screenshots/image-2_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.triliumnotes.Trilium",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/TriliumNext/Trilium"
+    },
+    "release": {
+      "version": "v0.107.0",
+      "date": "2026-11-08",
+      "source": "https://github.com/TriliumNext/Trilium/releases/tag/v0.107.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 86470412,
+          "size_max": 203522575
+        },
+        {
+          "platform": "macos",
+          "size_min": 194752847,
+          "size_max": 204710033
+        },
+        {
+          "platform": "windows",
+          "size_min": 218921632,
+          "size_max": 225672170
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Rich-text editing with the note tree and table of contents",
+      "Dark theme"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.triliumnotes.Trilium",
+        "source": "https://flathub.org/apps/org.triliumnotes.Trilium",
+        "download_size": 206263288,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.triliumnotes.Trilium",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 39098,
+      "source": "https://github.com/TriliumNext/Trilium/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "super-productivity",
+    "name": "Super Productivity",
+    "repo": "https://github.com/super-productivity/super-productivity",
+    "author": "Johannes Millan",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Pianifica attività, misura il tempo e gestisce le sessioni di concentrazione",
+      "en": "Plan tasks, track time, and manage focus sessions"
+    },
+    "alternatives": [
+      "Todoist",
+      "TickTick",
+      "Toggl Track"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/super-productivity/super-productivity/blob/master/LICENSE",
+    "website": "https://super-productivity.com/",
+    "releases": "https://github.com/super-productivity/super-productivity/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/super_productivity/SuperProductivity/1f15cc6d8cb528b20bc59b66adaf0a54/icons/128x128/com.super_productivity.SuperProductivity.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/super_productivity/SuperProductivity/1f15cc6d8cb528b20bc59b66adaf0a54/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/super_productivity/SuperProductivity/1f15cc6d8cb528b20bc59b66adaf0a54/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/super_productivity/SuperProductivity/1f15cc6d8cb528b20bc59b66adaf0a54/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.super_productivity.SuperProductivity",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/super-productivity/super-productivity"
+    },
+    "release": {
+      "version": "v20.1.0",
+      "date": "2026-11-21",
+      "source": "https://github.com/super-productivity/super-productivity/releases/tag/v20.1.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 101203312,
+          "size_max": 142976893
+        },
+        {
+          "platform": "macos",
+          "size_min": 148973846,
+          "size_max": 250660105
+        },
+        {
+          "platform": "windows",
+          "size_min": 261632336,
+          "size_max": 261870992
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Today view with scheduled tasks and current work",
+      "Weekly planner for arranging tasks across upcoming days",
+      "Eisenhower matrix for prioritizing urgent and important work"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.super_productivity.SuperProductivity",
+        "source": "https://flathub.org/apps/com.super_productivity.SuperProductivity",
+        "download_size": 151446210,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.super_productivity.SuperProductivity",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 24112,
+      "source": "https://github.com/super-productivity/super-productivity/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "zettlr",
+    "name": "Zettlr",
+    "repo": "https://github.com/Zettlr/Zettlr",
+    "author": "Hendrik Erz e collaboratori",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scrive e pubblica documenti Markdown con note, citazioni e bibliografie",
+      "en": "Write and publish Markdown documents with notes, citations, and bibliographies"
+    },
+    "alternatives": [
+      "Typora",
+      "Ulysses"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Zettlr/Zettlr/blob/develop/LICENSE",
+    "website": "https://www.zettlr.com",
+    "releases": "https://github.com/Zettlr/Zettlr/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/zettlr/Zettlr/ac3f5c27f430d2c25b3bf7215aed073b/icons/128x128/com.zettlr.Zettlr.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/zettlr/Zettlr/ac3f5c27f430d2c25b3bf7215aed073b/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/zettlr/Zettlr/ac3f5c27f430d2c25b3bf7215aed073b/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/zettlr/Zettlr/ac3f5c27f430d2c25b3bf7215aed073b/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.zettlr.Zettlr",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Zettlr/Zettlr"
+    },
+    "release": {
+      "version": "v4.11.0",
+      "date": "2026-11-26",
+      "source": "https://github.com/Zettlr/Zettlr/releases/tag/v4.11.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 123130648,
+          "size_max": 175028062
+        },
+        {
+          "platform": "macos",
+          "size_min": 193581496,
+          "size_max": 202782993
+        },
+        {
+          "platform": "windows",
+          "size_min": 166195344,
+          "size_max": 166195344
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Zettlr's frontpage in dark mode",
+      "Theme's supported by Zettlr",
+      "The search functionality presenet in zettlr"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.zettlr.Zettlr",
+        "source": "https://flathub.org/apps/com.zettlr.Zettlr",
+        "download_size": 189852652,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.zettlr.Zettlr",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 13965,
+      "source": "https://github.com/Zettlr/Zettlr/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "cherrytree",
+    "name": "CherryTree",
+    "repo": "https://github.com/giuspen/cherrytree",
+    "author": "Giuseppe Penone",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza note, immagini, liste e frammenti di codice in un albero",
+      "en": "Organize notes, images, lists, and code snippets in a tree"
+    },
+    "alternatives": [
+      "Microsoft OneNote",
+      "Evernote"
+    ],
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://github.com/giuspen/cherrytree/blob/master/license.txt",
+    "website": "https://www.giuspen.net/cherrytree/",
+    "releases": "https://github.com/giuspen/cherrytree/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/net/giuspen/cherrytree/d827d0baa46298c832e54ddd4e892577/icons/128x128/net.giuspen.cherrytree.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/net/giuspen/cherrytree/d827d0baa46298c832e54ddd4e892577/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/net/giuspen/cherrytree/d827d0baa46298c832e54ddd4e892577/screenshots/image-2_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/net.giuspen.cherrytree",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/giuspen/cherrytree"
+    },
+    "release": {
+      "version": "v1.7.3",
+      "date": "2026-11-07",
+      "source": "https://github.com/giuspen/cherrytree/releases/tag/v1.7.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 3291956,
+          "size_max": 105183736
+        },
+        {
+          "platform": "windows",
+          "size_min": 59628339,
+          "size_max": 97221176
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Main window, text",
+      "Main window, code"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.giuspen.cherrytree",
+        "source": "https://flathub.org/apps/net.giuspen.cherrytree",
+        "download_size": 83307570,
+        "download_size_source": "https://flathub.org/api/v2/summary/net.giuspen.cherrytree",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 4009,
+      "source": "https://github.com/giuspen/cherrytree/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "qownnotes",
+    "name": "QOwnNotes",
+    "repo": "https://github.com/pbek/QOwnNotes",
+    "author": "Patrizio Bekerle",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scrive note Markdown locali e gestisce attività con sincronizzazione opzionale",
+      "en": "Write local Markdown notes and manage tasks with optional synchronization"
+    },
+    "alternatives": [
+      "Apple Notes",
+      "Obsidian"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/pbek/QOwnNotes/blob/main/LICENSE",
+    "website": "https://www.qownnotes.org/",
+    "releases": "https://github.com/pbek/QOwnNotes/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://www.qownnotes.org/getting-started/cli-parameters.html"
+    },
+    "logo": "https://dl.flathub.org/media/org/qownnotes/QOwnNotes/cae1c2aef8640b8703d79e1991606066/icons/128x128/org.qownnotes.QOwnNotes.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/qownnotes/QOwnNotes/cae1c2aef8640b8703d79e1991606066/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.qownnotes.QOwnNotes",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/pbek/QOwnNotes"
+    },
+    "release": {
+      "version": "v26.11.16",
+      "date": "2026-11-26",
+      "source": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.16",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 64621048,
+          "size_max": 64621048
+        },
+        {
+          "platform": "macos",
+          "size_min": 23181507,
+          "size_max": 56019209
+        },
+        {
+          "platform": "windows",
+          "size_min": 39235584,
+          "size_max": 39235584
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "QOwnNotes main screen"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.qownnotes.QOwnNotes",
+        "source": "https://flathub.org/apps/org.qownnotes.QOwnNotes",
+        "download_size": 30320116,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.qownnotes.QOwnNotes",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 5977,
+      "source": "https://github.com/pbek/QOwnNotes/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "pdf4qt",
+    "name": "PDF4QT",
+    "repo": "https://github.com/JakubMelka/PDF4QT",
+    "author": "Jakub Melka",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Legge, annota e modifica PDF con strumenti per le pagine e le firme",
+      "en": "Read, annotate, and edit PDFs with page and signature tools"
+    },
+    "alternatives": [
+      "Adobe Acrobat Pro",
+      "Foxit PDF Editor"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/JakubMelka/PDF4QT/blob/master/LICENSE",
+    "website": "https://jakubmelka.github.io/",
+    "releases": "https://github.com/JakubMelka/PDF4QT/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/icons/128x128/io.github.JakubMelka.Pdf4qt.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/screenshots/image-1_1248x702@1.png",
+      "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/screenshots/image-2_1248x702@1.png",
+      "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/screenshots/image-3_1248x702@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.github.JakubMelka.Pdf4qt",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/JakubMelka/PDF4QT"
+    },
+    "release": {
+      "version": "v1.7.1.0",
+      "date": "2026-11-17",
+      "source": "https://github.com/JakubMelka/PDF4QT/releases/tag/v1.7.1.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 33608552,
+          "size_max": 92735992
+        },
+        {
+          "platform": "windows",
+          "size_min": 51807218,
+          "size_max": 54620856
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Edit content of PDF documents",
+      "Browse PDF files easily and efficiently",
+      "Utilize the 'magnifying glass' feature to zoom in on specific sections of the page"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.github.JakubMelka.Pdf4qt",
+        "source": "https://flathub.org/apps/io.github.JakubMelka.Pdf4qt",
+        "download_size": 45310127,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.github.JakubMelka.Pdf4qt",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 1537,
+      "source": "https://github.com/JakubMelka/PDF4QT/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "sumatrapdf",
+    "name": "SumatraPDF",
+    "repo": "https://github.com/sumatrapdfreader/sumatrapdf",
+    "author": "Krzysztof Kowalczyk",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Apre PDF, EPUB, fumetti e altri documenti con un lettore leggero per Windows",
+      "en": "Open PDFs, EPUBs, comics, and other documents in a lightweight Windows reader"
+    },
+    "alternatives": [
+      "Adobe Acrobat Reader",
+      "Foxit PDF Reader"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/sumatrapdfreader/sumatrapdf/blob/master/COPYING",
+    "website": "https://www.sumatrapdfreader.org",
+    "releases": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sumatrapdfreader/sumatrapdf/master/src/gfx/appx/SumatraPDF_StoreLogo_150x150.png",
+    "screenshots": [
+      "https://files.sumatrapdfreader.org/assets/sumatrapdf/home-page-193b.png",
+      "https://files.sumatrapdfreader.org/assets/sumatrapdf/pdf-tabs-bookmarks-thumb-93e3.png"
+    ],
+    "media_source": "https://www.sumatrapdfreader.org/free-pdf-reader",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/sumatrapdfreader/sumatrapdf"
+    },
+    "release": {
+      "version": "3.6.1",
+      "date": "2026-04-06",
+      "source": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 9321707,
+          "size_max": 11075960
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://www.sumatrapdfreader.org/download-free-pdf-viewer"
+    },
+    "stars": {
+      "count": 18072,
+      "source": "https://github.com/sumatrapdfreader/sumatrapdf/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "pdfsam-basic",
+    "name": "PDFsam Basic",
+    "repo": "https://github.com/torakiki/pdfsam",
+    "author": "Andrea Vacondio",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Unisce, divide, ruota ed estrae pagine PDF in locale",
+      "en": "Merge, split, rotate, and extract PDF pages locally"
+    },
+    "alternatives": [
+      "Adobe Acrobat Pro",
+      "PDF Expert"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/torakiki/pdfsam/blob/master/LICENSE",
+    "website": "https://pdfsam.org/pdfsam-basic/",
+    "releases": "https://github.com/torakiki/pdfsam/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/torakiki/pdfsam/v6.0.11/pdfsam-basic/src/main/resources/images/basic/256x256.png",
+    "screenshots": [
+      "https://pdfsam.org/imgs/features/basic-merge-pdf.webp",
+      "https://pdfsam.org/imgs/features/basic-split-pdf.webp"
+    ],
+    "media_source": "https://pdfsam.org/pdfsam-basic/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/torakiki/pdfsam"
+    },
+    "release": {
+      "version": "v6.0.11",
+      "date": "2026-11-19",
+      "source": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.11",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 99721560,
+          "size_max": 99754854
+        },
+        {
+          "platform": "macos",
+          "size_min": 94771939,
+          "size_max": 98431328
+        },
+        {
+          "platform": "windows",
+          "size_min": 95384102,
+          "size_max": 96948224
+        }
+      ]
+    },
+    "stars": {
+      "count": 4688,
+      "source": "https://github.com/torakiki/pdfsam/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "openboard",
+    "name": "OpenBoard",
+    "repo": "https://github.com/OpenBoard-org/OpenBoard",
+    "author": "OpenBoard Project",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Usa una lavagna interattiva per lezioni, appunti e annotazioni",
+      "en": "Use an interactive whiteboard for lessons, notes, and annotations"
+    },
+    "alternatives": [
+      "SMART Notebook",
+      "Microsoft Whiteboard"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/OpenBoard-org/OpenBoard/blob/master/LICENSE",
+    "website": "https://openboard.ch/",
+    "releases": "https://github.com/OpenBoard-org/OpenBoard/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/ch/openboard/OpenBoard/280d907b60dc9bbbb941a8014d90874f/icons/128x128/ch.openboard.OpenBoard.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/ch/openboard/OpenBoard/280d907b60dc9bbbb941a8014d90874f/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/ch/openboard/OpenBoard/280d907b60dc9bbbb941a8014d90874f/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/ch/openboard/OpenBoard/280d907b60dc9bbbb941a8014d90874f/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/ch.openboard.OpenBoard",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/OpenBoard-org/OpenBoard"
+    },
+    "release": {
+      "version": "v1.7.7",
+      "date": "2026-03-30",
+      "source": "https://github.com/OpenBoard-org/OpenBoard/releases/tag/v1.7.7",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 179832124,
+          "size_max": 179832124
+        },
+        {
+          "platform": "macos",
+          "size_min": 463927736,
+          "size_max": 463927736
+        },
+        {
+          "platform": "windows",
+          "size_min": 206493686,
+          "size_max": 206493686
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Board mode",
+      "Web browser",
+      "File browser"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "ch.openboard.OpenBoard",
+        "source": "https://flathub.org/apps/ch.openboard.OpenBoard",
+        "download_size": 297924424,
+        "download_size_source": "https://flathub.org/api/v2/summary/ch.openboard.OpenBoard",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 3112,
+      "source": "https://github.com/OpenBoard-org/OpenBoard/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "anki",
+    "name": "Anki",
+    "repo": "https://github.com/ankitects/anki",
+    "author": "Ankitects",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Crea schede di studio e le ripropone con la ripetizione dilazionata",
+      "en": "Create flashcards and review them with spaced repetition"
+    },
+    "alternatives": [
+      "Quizlet",
+      "Brainscape"
+    ],
+    "license": "AGPL-3.0-or-later",
+    "license_url": "https://github.com/ankitects/anki/blob/main/LICENSE",
+    "website": "https://apps.ankiweb.net",
+    "releases": "https://github.com/ankitects/anki/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/net/ankiweb/Anki/844887dbd05a52ecf890ddd79317b1ff/icons/128x128/net.ankiweb.Anki.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/net/ankiweb/Anki/844887dbd05a52ecf890ddd79317b1ff/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/net.ankiweb.Anki",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ankitects/anki"
+    },
+    "release": {
+      "version": "26.09.4",
+      "date": "2026-11-04",
+      "source": "https://github.com/ankitects/anki/releases/tag/26.09.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 185559361,
+          "size_max": 194727701
+        },
+        {
+          "platform": "macos",
+          "size_min": 228182839,
+          "size_max": 247636698
+        },
+        {
+          "platform": "windows",
+          "size_min": 168210432,
+          "size_max": 201621504
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Flashcard and answer"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.ankiweb.Anki",
+        "source": "https://flathub.org/apps/net.ankiweb.Anki",
+        "download_size": 162046903,
+        "download_size_source": "https://flathub.org/api/v2/summary/net.ankiweb.Anki",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 33049,
+      "source": "https://github.com/ankitects/anki/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "sigil",
+    "name": "Sigil",
+    "repo": "https://github.com/Sigil-Ebook/Sigil",
+    "author": "Sigil Project",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Crea e modifica ebook EPUB con editor grafico e sorgente",
+      "en": "Create and edit EPUB ebooks with graphical and source editors"
+    },
+    "alternatives": [
+      "Adobe InDesign",
+      "Vellum"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Sigil-Ebook/Sigil/blob/master/COPYING.txt",
+    "website": "https://sigil-ebook.com",
+    "releases": "https://github.com/Sigil-Ebook/Sigil/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/sigil_ebook/Sigil/79d16ad12137e8bb3f7cd3afed482ba5/icons/128x128/com.sigil_ebook.Sigil.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/sigil_ebook/Sigil/79d16ad12137e8bb3f7cd3afed482ba5/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/sigil_ebook/Sigil/79d16ad12137e8bb3f7cd3afed482ba5/screenshots/image-2_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.sigil_ebook.Sigil",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Sigil-Ebook/Sigil"
+    },
+    "release": {
+      "version": "2.8.6",
+      "date": "2026-11-09",
+      "source": "https://github.com/Sigil-Ebook/Sigil/releases/tag/2.8.6",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 203426296,
+          "size_max": 203426296
+        },
+        {
+          "platform": "macos",
+          "size_min": 132137600,
+          "size_max": 149957636
+        },
+        {
+          "platform": "windows",
+          "size_min": 150104398,
+          "size_max": 150104398
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "The main window",
+      "Sigil"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.sigil_ebook.Sigil",
+        "source": "https://flathub.org/apps/com.sigil_ebook.Sigil",
+        "download_size": 283720325,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.sigil_ebook.Sigil",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 7078,
+      "source": "https://github.com/Sigil-Ebook/Sigil/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "rapidraw",
+    "name": "RapidRAW",
+    "repo": "https://github.com/CyberTimon/RapidRAW",
+    "author": "Timon",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Sviluppa fotografie RAW con regolazioni non distruttive",
+      "en": "Develop RAW photographs with non-destructive adjustments"
+    },
+    "alternatives": [
+      "Adobe Lightroom",
+      "Capture One"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/CyberTimon/RapidRAW/blob/main/LICENSE",
+    "website": "https://getrapidraw.com",
+    "releases": "https://github.com/CyberTimon/RapidRAW/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/github/CyberTimon.RapidRAW/ad38379eaa4f288e0dfa6f16483188df/icons/128x128/io.github.CyberTimon.RapidRAW.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/github/CyberTimon.RapidRAW/ad38379eaa4f288e0dfa6f16483188df/screenshots/image-1_1248x701@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.github.CyberTimon.RapidRAW",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/CyberTimon/RapidRAW"
+    },
+    "release": {
+      "version": "v1.7.1",
+      "date": "2026-11-22",
+      "source": "https://github.com/CyberTimon/RapidRAW/releases/tag/v1.7.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 37463037,
+          "size_max": 117078520
+        },
+        {
+          "platform": "macos",
+          "size_min": 36918875,
+          "size_max": 41581003
+        },
+        {
+          "platform": "windows",
+          "size_min": 33395777,
+          "size_max": 36936784
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Editor interface"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.github.CyberTimon.RapidRAW",
+        "source": "https://flathub.org/apps/io.github.CyberTimon.RapidRAW",
+        "download_size": 43599980,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.github.CyberTimon.RapidRAW",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 11276,
+      "source": "https://github.com/CyberTimon/RapidRAW/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "upscayl",
+    "name": "Upscayl",
+    "repo": "https://github.com/upscayl/upscayl",
+    "author": "Upscayl Team",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Aumenta la risoluzione delle immagini con modelli AI eseguiti in locale",
+      "en": "Upscale images with AI models running locally"
+    },
+    "alternatives": [
+      "Topaz Gigapixel",
+      "Adobe Photoshop"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/upscayl/upscayl/blob/main/LICENSE",
+    "website": "https://upscayl.org",
+    "releases": "https://github.com/upscayl/upscayl/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/upscayl/Upscayl/d407ddb4cb2ce379a1a84198fbe10b16/icons/128x128/org.upscayl.Upscayl.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/upscayl/Upscayl/d407ddb4cb2ce379a1a84198fbe10b16/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/upscayl/Upscayl/d407ddb4cb2ce379a1a84198fbe10b16/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/org/upscayl/Upscayl/d407ddb4cb2ce379a1a84198fbe10b16/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.upscayl.Upscayl",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/upscayl/upscayl"
+    },
+    "release": {
+      "version": "v2.15.0",
+      "date": "2024-12-25",
+      "source": "https://github.com/upscayl/upscayl/releases/tag/v2.15.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 249131664,
+          "size_max": 312749864
+        },
+        {
+          "platform": "macos",
+          "size_min": 376811048,
+          "size_max": 385264901
+        },
+        {
+          "platform": "windows",
+          "size_min": 260912662,
+          "size_max": 304247780
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Banner",
+      "Science Fiction to Reality",
+      "5+ Upscaling Modes"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.upscayl.Upscayl",
+        "source": "https://flathub.org/apps/org.upscayl.Upscayl",
+        "download_size": 322655007,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.upscayl.Upscayl",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 53283,
+      "source": "https://github.com/upscayl/upscayl/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "nomacs",
+    "name": "nomacs",
+    "repo": "https://github.com/nomacs/nomacs",
+    "author": "nomacs contributors",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Sfoglia, confronta e ritocca immagini in più formati",
+      "en": "Browse, compare, and adjust images in multiple formats"
+    },
+    "alternatives": [
+      "ACDSee Photo Studio",
+      "IrfanView"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/nomacs/nomacs/blob/master/LICENSE",
+    "website": "https://nomacs.org/",
+    "releases": "https://github.com/nomacs/nomacs/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/nomacs/ImageLounge/99c08fcc894d9b6803ef875de727c781/icons/128x128/org.nomacs.ImageLounge.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/nomacs/ImageLounge/99c08fcc894d9b6803ef875de727c781/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/nomacs/ImageLounge/99c08fcc894d9b6803ef875de727c781/screenshots/image-2_1248x694@1.png",
+      "https://dl.flathub.org/media/org/nomacs/ImageLounge/99c08fcc894d9b6803ef875de727c781/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.nomacs.ImageLounge",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/nomacs/nomacs"
+    },
+    "release": {
+      "version": "3.22.5",
+      "date": "2026-11-05",
+      "source": "https://github.com/nomacs/nomacs/releases/tag/3.22.5",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 64735736,
+          "size_max": 64735736
+        },
+        {
+          "platform": "macos",
+          "size_min": 45760395,
+          "size_max": 50316222
+        },
+        {
+          "platform": "windows",
+          "size_min": 48074752,
+          "size_max": 48788590
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Image thumbnails in nomacs viewer",
+      "JPEG XL (JXL) image with metadata in nomacs viewer",
+      "Saving AVIF image in nomacs viewer"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.nomacs.ImageLounge",
+        "source": "https://flathub.org/apps/org.nomacs.ImageLounge",
+        "download_size": 38167630,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.nomacs.ImageLounge",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 3357,
+      "source": "https://github.com/nomacs/nomacs/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "qview",
+    "name": "qView",
+    "repo": "https://github.com/jurplel/qView",
+    "author": "Jared Breland e collaboratori",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Sfoglia le immagini con un visualizzatore desktop essenziale",
+      "en": "Browse images with a minimal desktop viewer"
+    },
+    "alternatives": [
+      "XnView MP",
+      "Anteprima macOS"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/jurplel/qView/blob/main/LICENSE",
+    "website": "https://interversehq.com/qview/",
+    "releases": "https://github.com/jurplel/qView/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/interversehq/qView/ad1964d1ce3d2b2010f5e7e23b1023dd/icons/128x128/com.interversehq.qView.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/interversehq/qView/ad1964d1ce3d2b2010f5e7e23b1023dd/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/interversehq/qView/ad1964d1ce3d2b2010f5e7e23b1023dd/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/interversehq/qView/ad1964d1ce3d2b2010f5e7e23b1023dd/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.interversehq.qView",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/jurplel/qView"
+    },
+    "release": {
+      "version": "7.1",
+      "date": "2025-07-26",
+      "source": "https://github.com/jurplel/qView/releases/tag/7.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 46380224,
+          "size_max": 46380224
+        },
+        {
+          "platform": "macos",
+          "size_min": 22031514,
+          "size_max": 43114041
+        },
+        {
+          "platform": "windows",
+          "size_min": 13788772,
+          "size_max": 37959993
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "qView",
+      "qView",
+      "qView"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.interversehq.qView",
+        "source": "https://flathub.org/apps/com.interversehq.qView",
+        "download_size": 3264692,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.interversehq.qView",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 3765,
+      "source": "https://github.com/jurplel/qView/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "iina",
+    "name": "IINA",
+    "repo": "https://github.com/iina/iina",
+    "author": "IINA contributors",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Riproduce video e audio su macOS con sottotitoli e controlli nativi",
+      "en": "Play videos and audio on macOS with subtitles and native controls"
+    },
+    "alternatives": [
+      "QuickTime Player",
+      "Infuse"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/iina/iina/blob/develop/LICENSE",
+    "website": "https://iina.io",
+    "releases": "https://github.com/iina/iina/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/iina/iina/blob/v1.5.1/iina-cli/main.swift"
+    },
+    "logo": "https://iina.io/img/icon.png",
+    "screenshots": [
+      "https://iina.io/img/screenshot.png",
+      "https://iina.io/img/ui2.png"
+    ],
+    "media_source": "https://iina.io/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/iina/iina"
+    },
+    "release": {
+      "version": "v1.5.1",
+      "date": "2026-11-06",
+      "source": "https://github.com/iina/iina/releases/tag/v1.5.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 113092405,
+          "size_max": 113092405
+        }
+      ]
+    },
+    "stars": {
+      "count": 47316,
+      "source": "https://github.com/iina/iina/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "screentogif",
+    "name": "ScreenToGif",
+    "repo": "https://github.com/NickeManarin/ScreenToGif",
+    "author": "Nicke Manarin",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Registra schermo, webcam o lavagna e modifica i fotogrammi prima di esportare GIF",
+      "en": "Record your screen, webcam, or whiteboard and edit frames before exporting GIFs"
+    },
+    "alternatives": [
+      "Camtasia",
+      "Snagit"
+    ],
+    "license": "MS-PL",
+    "license_url": "https://github.com/NickeManarin/ScreenToGif/blob/master/LICENSE.txt",
+    "website": "https://github.com/NickeManarin/ScreenToGif",
+    "releases": "https://github.com/NickeManarin/ScreenToGif/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://nickemanarin.github.io/ScreenToGif-Website/logos/ms-icon-144x144.png",
+    "screenshots": [
+      "https://nickemanarin.github.io/ScreenToGif-Website/wiki/Editor-FrameList.png",
+      "https://raw.githubusercontent.com/NickeManarin/ScreenToGif-Website/master/public/media/New-Recorder.png"
+    ],
+    "media_source": "https://github.com/NickeManarin/ScreenToGif/wiki/Help",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/NickeManarin/ScreenToGif"
+    },
+    "release": {
+      "version": "2.43.2",
+      "date": "2026-07-28",
+      "source": "https://github.com/NickeManarin/ScreenToGif/releases/tag/2.43.2",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 7372800,
+          "size_max": 75137024
+        }
+      ]
+    },
+    "stars": {
+      "count": 28000,
+      "source": "https://github.com/NickeManarin/ScreenToGif/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "natron",
+    "name": "Natron",
+    "repo": "https://github.com/NatronGitHub/Natron",
+    "author": "Natron Project",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Compone effetti video con nodi, maschere e tracciamento",
+      "en": "Composite video effects with nodes, masks, and tracking"
+    },
+    "alternatives": [
+      "Adobe After Effects",
+      "Foundry Nuke"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/NatronGitHub/Natron/blob/RB-2.6/LICENSE.txt",
+    "website": "https://NatronGitHub.github.io",
+    "releases": "https://github.com/NatronGitHub/Natron/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://natron.readthedocs.io/en/rb-2.5/devel/natronexecution.html"
+    },
+    "logo": "https://dl.flathub.org/media/fr/natron/Natron/c26fe849580f8fe521a66b7adf83f9ad/icons/128x128/fr.natron.Natron.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/fr/natron/Natron/c26fe849580f8fe521a66b7adf83f9ad/screenshots/image-1_1248x702@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/fr.natron.Natron",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/NatronGitHub/Natron"
+    },
+    "release": {
+      "version": "v2.5.0",
+      "date": "2022-11-26",
+      "source": "https://github.com/NatronGitHub/Natron/releases/tag/v2.5.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 147079928,
+          "size_max": 170002080
+        },
+        {
+          "platform": "macos",
+          "size_min": 173757643,
+          "size_max": 275160216
+        },
+        {
+          "platform": "windows",
+          "size_min": 196352227,
+          "size_max": 196352227
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Natron interface"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "fr.natron.Natron",
+        "source": "https://flathub.org/apps/fr.natron.Natron",
+        "download_size": 215303702,
+        "download_size_source": "https://flathub.org/api/v2/summary/fr.natron.Natron",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 5776,
+      "source": "https://github.com/NatronGitHub/Natron/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "hydrogen",
+    "name": "Hydrogen",
+    "repo": "https://github.com/hydrogen-music/hydrogen",
+    "author": "Hydrogen contributors",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Crea parti di batteria e arrangia pattern ritmici",
+      "en": "Create drum parts and arrange rhythm patterns"
+    },
+    "alternatives": [
+      "FL Studio",
+      "EZdrummer"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/hydrogen-music/hydrogen/blob/main/COPYING",
+    "website": "https://github.com/hydrogen-music/hydrogen",
+    "releases": "https://github.com/hydrogen-music/hydrogen/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/hydrogenmusic/Hydrogen/1a5e70986306c7a8182e96a388b7130b/icons/128x128/org.hydrogenmusic.Hydrogen.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/hydrogenmusic/Hydrogen/1a5e70986306c7a8182e96a388b7130b/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/hydrogenmusic/Hydrogen/1a5e70986306c7a8182e96a388b7130b/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/org/hydrogenmusic/Hydrogen/1a5e70986306c7a8182e96a388b7130b/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.hydrogenmusic.Hydrogen",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/hydrogen-music/hydrogen"
+    },
+    "release": {
+      "version": "1.2.7",
+      "date": "2026-10-02",
+      "source": "https://github.com/hydrogen-music/hydrogen/releases/tag/1.2.7",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 85973496,
+          "size_max": 85973496
+        },
+        {
+          "platform": "macos",
+          "size_min": 82055009,
+          "size_max": 82055009
+        },
+        {
+          "platform": "windows",
+          "size_min": 47198165,
+          "size_max": 47198165
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Hydrogen",
+      "Hydrogen",
+      "Hydrogen"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.hydrogenmusic.Hydrogen",
+        "source": "https://flathub.org/apps/org.hydrogenmusic.Hydrogen",
+        "download_size": 19580699,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.hydrogenmusic.Hydrogen",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 1362,
+      "source": "https://github.com/hydrogen-music/hydrogen/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "furnace",
+    "name": "Furnace",
+    "repo": "https://github.com/tildearrow/furnace",
+    "author": "tildearrow",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Compone musica chiptune con un tracker e chip sonori emulati",
+      "en": "Compose chiptune music with a tracker and emulated sound chips"
+    },
+    "alternatives": [
+      "DefleMask",
+      "Renoise"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/tildearrow/furnace/blob/master/LICENSE",
+    "website": "https://tildearrow.org/furnace/",
+    "releases": "https://github.com/tildearrow/furnace/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/tildearrow/furnace/6c5eb7b1ca0f37b31a898f570cf1ae34/icons/128x128/org.tildearrow.furnace.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/tildearrow/furnace/6c5eb7b1ca0f37b31a898f570cf1ae34/screenshots/image-1_1248x780@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.tildearrow.furnace",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/tildearrow/furnace"
+    },
+    "release": {
+      "version": "v0.6.8.3",
+      "date": "2025-06-12",
+      "source": "https://github.com/tildearrow/furnace/releases/tag/v0.6.8.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 21247168,
+          "size_max": 37757446
+        },
+        {
+          "platform": "macos",
+          "size_min": 37097874,
+          "size_max": 37875105
+        },
+        {
+          "platform": "windows",
+          "size_min": 35515017,
+          "size_max": 36944092
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Furnace during playback"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.tildearrow.furnace",
+        "source": "https://flathub.org/apps/org.tildearrow.furnace",
+        "download_size": 32812278,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.tildearrow.furnace",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 3936,
+      "source": "https://github.com/tildearrow/furnace/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "tenacity",
+    "name": "Tenacity",
+    "repo": "https://codeberg.org/tenacityteam/tenacity",
+    "author": "Tenacity Audio",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Registra e modifica audio con più tracce ed effetti",
+      "en": "Record and edit multitrack audio with effects"
+    },
+    "alternatives": [
+      "Adobe Audition",
+      "Sound Forge"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://tenacityaudio.org/docs/",
+    "website": "https://tenacityaudio.org/",
+    "releases": "https://codeberg.org/tenacityteam/tenacity/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/tenacityaudio/Tenacity/19996380d8c2810beb9e2eceacf05827/icons/128x128/org.tenacityaudio.Tenacity.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/tenacityaudio/Tenacity/19996380d8c2810beb9e2eceacf05827/screenshots/image-1_1248x702@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.tenacityaudio.Tenacity",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://tenacityaudio.org/"
+    },
+    "release": {
+      "version": "1.3.5",
+      "date": "2026-07-05",
+      "source": "https://flathub.org/apps/org.tenacityaudio.Tenacity",
+      "packages": []
+    },
+    "screenshot_credits": [
+      "Tenacity"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.tenacityaudio.Tenacity",
+        "source": "https://flathub.org/apps/org.tenacityaudio.Tenacity",
+        "download_size": 17761169,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.tenacityaudio.Tenacity",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 143072,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.tenacityaudio.Tenacity",
+      "page": "https://flathub.org/apps/org.tenacityaudio.Tenacity"
+    },
+    "platform_support": {
+      "windows": "https://tenacityaudio.org/docs/#the-tenacity-manual"
+    }
+  },
+  {
+    "id": "glaxnimate",
+    "name": "Glaxnimate",
+    "repo": "https://invent.kde.org/graphics/glaxnimate",
+    "author": "KDE",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Crea animazioni vettoriali ed esporta file Lottie",
+      "en": "Create vector animations and export Lottie files"
+    },
+    "alternatives": [
+      "Adobe After Effects",
+      "LottieFiles Creator"
+    ],
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://glaxnimate.org/contributing/introduction/",
+    "website": "https://glaxnimate.org/",
+    "releases": "https://glaxnimate.org/download/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://glaxnimate.org/contributing/scripting/"
+    },
+    "logo": "https://dl.flathub.org/media/org/kde/glaxnimate/5ef27e7b3258a9b6f8ad9ddfe16a868e/icons/128x128/org.kde.glaxnimate.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/kde/glaxnimate/5ef27e7b3258a9b6f8ad9ddfe16a868e/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.kde.glaxnimate",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://glaxnimate.org/"
+    },
+    "release": {
+      "version": "0.6.0",
+      "date": "2026-03-01",
+      "source": "https://glaxnimate.org/news/releases/0.6.0/",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 261904888,
+          "size_max": 261904888
+        },
+        {
+          "platform": "macos",
+          "size_min": 133256466,
+          "size_max": 143311813
+        },
+        {
+          "platform": "windows",
+          "size_min": 109638768,
+          "size_max": 109638768
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Glaxnimate main window"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.kde.glaxnimate",
+        "source": "https://flathub.org/apps/org.kde.glaxnimate",
+        "download_size": 4316786,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.kde.glaxnimate",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "platform_support": {
+      "macos": "https://glaxnimate.org/download/",
+      "windows": "https://glaxnimate.org/download/"
+    },
+    "popularity": {
+      "kind": "flathub_installs",
+      "count": 34415,
+      "date": "2026-11-26",
+      "source": "https://flathub.org/api/v2/stats/org.kde.glaxnimate",
+      "page": "https://flathub.org/apps/org.kde.glaxnimate"
+    }
+  },
+  {
+    "id": "leocad",
+    "name": "LeoCAD",
+    "repo": "https://github.com/leozide/leocad",
+    "author": "Leonardo Zide e collaboratori",
+    "level": "base",
+    "category": "design",
+    "description": {
+      "it": "Progetta modelli 3D con mattoncini virtuali",
+      "en": "Design 3D models using virtual bricks"
+    },
+    "alternatives": [
+      "BrickLink Studio"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/leozide/leocad/blob/master/docs/COPYING.txt",
+    "website": "https://www.leocad.org",
+    "releases": "https://github.com/leozide/leocad/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/leocad/LeoCAD/3705b8fd80cd060de9e5ad3edf358779/icons/128x128/org.leocad.LeoCAD.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/leocad/LeoCAD/3705b8fd80cd060de9e5ad3edf358779/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.leocad.LeoCAD",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/leozide/leocad"
+    },
+    "release": {
+      "version": "v26.09",
+      "date": "2026-09-20",
+      "source": "https://github.com/leozide/leocad/releases/tag/v26.09",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 208652792,
+          "size_max": 208652792
+        },
+        {
+          "platform": "macos",
+          "size_min": 195171960,
+          "size_max": 195171960
+        },
+        {
+          "platform": "windows",
+          "size_min": 182216265,
+          "size_max": 182216265
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "LeoCAD"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.leocad.LeoCAD",
+        "source": "https://flathub.org/apps/org.leocad.LeoCAD",
+        "download_size": 159474450,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.leocad.LeoCAD",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 2943,
+      "source": "https://github.com/leozide/leocad/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "librepcb",
+    "name": "LibrePCB",
+    "repo": "https://github.com/LibrePCB/LibrePCB",
+    "author": "LibrePCB contributors",
+    "level": "avanz",
+    "category": "design",
+    "description": {
+      "it": "Disegna schemi elettrici e circuiti stampati con un editor desktop",
+      "en": "Design schematics and printed circuit boards in a desktop editor"
+    },
+    "alternatives": [
+      "Altium Designer",
+      "Autodesk Fusion Electronics"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/LibrePCB/LibrePCB/blob/master/LICENSE.txt",
+    "website": "https://librepcb.org",
+    "releases": "https://librepcb.org/download/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://librepcb.org/docs/cli/"
+    },
+    "logo": "https://dl.flathub.org/media/org/librepcb/LibrePCB/af8c7f0c78768d77739b59d6bc893a2f/icons/128x128/org.librepcb.LibrePCB.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/librepcb/LibrePCB/af8c7f0c78768d77739b59d6bc893a2f/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/librepcb/LibrePCB/af8c7f0c78768d77739b59d6bc893a2f/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/org/librepcb/LibrePCB/af8c7f0c78768d77739b59d6bc893a2f/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.librepcb.LibrePCB",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/LibrePCB/LibrePCB"
+    },
+    "release": {
+      "version": "2.1.1",
+      "date": "2026-06-12",
+      "source": "https://github.com/LibrePCB/LibrePCB/releases/tag/2.1.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 87816696,
+          "size_max": 87816696
+        },
+        {
+          "platform": "macos",
+          "size_min": 53368611,
+          "size_max": 56245381
+        },
+        {
+          "platform": "windows",
+          "size_min": 55907744,
+          "size_max": 85142354
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Schematic- and Board Editor",
+      "Library Browser",
+      "Library Management"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.librepcb.LibrePCB",
+        "source": "https://flathub.org/apps/org.librepcb.LibrePCB",
+        "download_size": 64968151,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.librepcb.LibrePCB",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "platform_support": {
+      "macos": "https://librepcb.org/download/",
+      "windows": "https://librepcb.org/download/"
+    },
+    "stars": {
+      "count": 3067,
+      "source": "https://github.com/LibrePCB/LibrePCB/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "peazip",
+    "name": "PeaZip",
+    "repo": "https://github.com/peazip/PeaZip",
+    "author": "Giorgio Tani",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Apre, crea e protegge archivi compressi in più formati",
+      "en": "Open, create, and protect compressed archives in multiple formats"
+    },
+    "alternatives": [
+      "WinRAR",
+      "WinZip"
+    ],
+    "license": "LGPL-3.0",
+    "license_url": "https://github.com/peazip/PeaZip/blob/sources/LICENSE",
+    "website": "https://peazip.github.io",
+    "releases": "https://github.com/peazip/PeaZip/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/github/peazip.PeaZip/192dca837fbb6728cd0ddb879c74b295/icons/128x128/io.github.peazip.PeaZip.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/github/peazip.PeaZip/192dca837fbb6728cd0ddb879c74b295/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/io/github/peazip.PeaZip/192dca837fbb6728cd0ddb879c74b295/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/io/github/peazip.PeaZip/192dca837fbb6728cd0ddb879c74b295/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.github.peazip.PeaZip",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/peazip/PeaZip"
+    },
+    "release": {
+      "version": "11.4.0",
+      "date": "2026-10-17",
+      "source": "https://github.com/peazip/PeaZip/releases/tag/11.4.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 12813186,
+          "size_max": 18051240
+        },
+        {
+          "platform": "macos",
+          "size_min": 23776860,
+          "size_max": 27031635
+        },
+        {
+          "platform": "windows",
+          "size_min": 8704046,
+          "size_max": 20692252
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "PeaZip file / archive manager",
+      "Create archive",
+      "Extract archive"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.github.peazip.PeaZip",
+        "source": "https://flathub.org/apps/io.github.peazip.PeaZip",
+        "download_size": 14351916,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.github.peazip.PeaZip",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 8202,
+      "source": "https://github.com/peazip/PeaZip/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "copyq",
+    "name": "CopyQ",
+    "repo": "https://github.com/hluk/CopyQ",
+    "author": "Lukáš Holek",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Raccoglie lo storico degli appunti e riusa testi e immagini copiati",
+      "en": "Keep clipboard history and reuse copied text and images"
+    },
+    "alternatives": [
+      "Paste",
+      "CopyClip",
+      "Raycast"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/hluk/CopyQ/blob/master/LICENSE",
+    "website": "https://hluk.github.io/CopyQ/",
+    "releases": "https://github.com/hluk/CopyQ/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://copyq.readthedocs.io/en/latest/command-line.html"
+    },
+    "logo": "https://dl.flathub.org/media/com/github/hluk.copyq.desktop/5379de9c9ea85c29c81e621ab5b6c7b5/icons/128x128/com.github.hluk.copyq.desktop.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/github/hluk.copyq.desktop/5379de9c9ea85c29c81e621ab5b6c7b5/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.github.hluk.copyq",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/hluk/CopyQ"
+    },
+    "release": {
+      "version": "v17.0.0",
+      "date": "2026-10-06",
+      "source": "https://github.com/hluk/CopyQ/releases/tag/v17.0.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 46053880,
+          "size_max": 46053880
+        },
+        {
+          "platform": "macos",
+          "size_min": 36470248,
+          "size_max": 36751161
+        },
+        {
+          "platform": "windows",
+          "size_min": 19207133,
+          "size_max": 19207133
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "The main application window with tab tree and items"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.github.hluk.copyq",
+        "source": "https://flathub.org/apps/com.github.hluk.copyq",
+        "download_size": 5269760,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.github.hluk.copyq",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 12707,
+      "source": "https://github.com/hluk/CopyQ/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "kando",
+    "name": "Kando",
+    "repo": "https://github.com/kando-menu/kando",
+    "author": "Simon Schneegans e collaboratori",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Apre programmi ed esegue scorciatoie da un menu radiale personalizzabile",
+      "en": "Open apps and run shortcuts from a customizable radial menu"
+    },
+    "alternatives": [
+      "Raycast",
+      "Stream Deck"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/kando-menu/kando/blob/main/LICENSE.md",
+    "website": "https://kando.menu",
+    "releases": "https://github.com/kando-menu/kando/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/menu/kando/Kando/84d7407e20fe9a533b8d90746ab74501/icons/128x128/menu.kando.Kando.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/menu/kando/Kando/84d7407e20fe9a533b8d90746ab74501/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/menu/kando/Kando/84d7407e20fe9a533b8d90746ab74501/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/menu/kando/Kando/84d7407e20fe9a533b8d90746ab74501/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/menu.kando.Kando",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/kando-menu/kando"
+    },
+    "release": {
+      "version": "v3.0.1",
+      "date": "2026-10-25",
+      "source": "https://github.com/kando-menu/kando/releases/tag/v3.0.1",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 126732228,
+          "size_max": 160331433
+        },
+        {
+          "platform": "macos",
+          "size_min": 154160692,
+          "size_max": 160813071
+        },
+        {
+          "platform": "windows",
+          "size_min": 177635128,
+          "size_max": 188045333
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Kando's example menu",
+      "An example submenu to control your media player",
+      "Kando using a Minecraft-style theme"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "menu.kando.Kando",
+        "source": "https://flathub.org/apps/menu.kando.Kando",
+        "download_size": 160507936,
+        "download_size_source": "https://flathub.org/api/v2/summary/menu.kando.Kando",
+        "download_size_checked": "2026-11-26"
+      }
+    ],
+    "stars": {
+      "count": 6698,
+      "source": "https://github.com/kando-menu/kando/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "activitywatch",
+    "name": "ActivityWatch",
+    "repo": "https://github.com/ActivityWatch/activitywatch",
+    "author": "ActivityWatch contributors",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Misura in locale il tempo trascorso nelle app e sui siti",
+      "en": "Track time spent in apps and on websites locally"
+    },
+    "alternatives": [
+      "RescueTime",
+      "Timing"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/ActivityWatch/activitywatch/blob/master/LICENSE.txt",
+    "website": "https://activitywatch.net/",
+    "releases": "https://github.com/ActivityWatch/activitywatch/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.activitywatch.net/en/latest/api.html"
+    },
+    "logo": "https://activitywatch.net/img/logo.png",
+    "screenshots": [
+      "https://activitywatch.net/img/screenshots/v0.14.0/activity-day-full.png",
+      "https://activitywatch.net/img/screenshots/v0.14.0/timeline.png"
+    ],
+    "media_source": "https://activitywatch.net/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ActivityWatch/activitywatch"
+    },
+    "release": {
+      "version": "v0.14.3",
+      "date": "2026-11-15",
+      "source": "https://github.com/ActivityWatch/activitywatch/releases/tag/v0.14.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 33160098,
+          "size_max": 236472104
+        },
+        {
+          "platform": "macos",
+          "size_min": 53640218,
+          "size_max": 160545244
+        },
+        {
+          "platform": "windows",
+          "size_min": 44261204,
+          "size_max": 110233722
+        }
+      ]
+    },
+    "stars": {
+      "count": 19848,
+      "source": "https://github.com/ActivityWatch/activitywatch/stargazers",
+      "date": "2026-11-26"
+    }
+  },
+  {
+    "id": "jan",
+    "name": "Jan",
+    "repo": "https://github.com/janhq/jan",
+    "author": "Menlo Research",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat con modelli AI locali, anche offline dopo il download del modello.",
+      "en": "Chat with local AI models, even offline after downloading a model."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "LM Studio",
+      "Claude"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/janhq/jan/blob/main/LICENSE",
+    "website": "https://jan.ai/",
+    "releases": "https://github.com/janhq/jan/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.jan.ai/desktop/api-server"
+    },
+    "logo": "https://dl.flathub.org/media/ai/jan/Jan/8fa7cf9d2f60b7e70970d75ea43d2348/icons/128x128/ai.jan.Jan.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/ai/jan/Jan/8fa7cf9d2f60b7e70970d75ea43d2348/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/ai/jan/Jan/8fa7cf9d2f60b7e70970d75ea43d2348/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/ai/jan/Jan/8fa7cf9d2f60b7e70970d75ea43d2348/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/ai.jan.Jan",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.jan.ai/desktop/quickstart"
+    },
+    "stars": {
+      "count": 46206,
+      "source": "https://github.com/janhq/jan/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.8.8",
+      "date": "2026-10-28",
+      "source": "https://github.com/janhq/jan/releases/tag/v0.8.8",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 712755704,
+          "size_max": 1062747932
+        },
+        {
+          "platform": "macos",
+          "size_min": 115640203,
+          "size_max": 115908917
+        },
+        {
+          "platform": "windows",
+          "size_min": 335580368,
+          "size_max": 571697752
+        }
+      ]
+    }
+  },
+  {
+    "id": "cherry-studio",
+    "name": "Cherry Studio",
+    "repo": "https://github.com/CherryHQ/cherry-studio",
+    "author": "Cherry Studio",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat e librerie di conoscenza con Ollama in locale. L'edizione Community può collegarsi a server MCP.",
+      "en": "Chat and knowledge bases with local Ollama models. The Community edition can connect to MCP servers."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "TypingMind",
+      "Claude"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/CherryHQ/cherry-studio/blob/main/LICENSE",
+    "website": "https://cherryai.com",
+    "releases": "https://github.com/CherryHQ/cherry-studio/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/icons/128x128/com.cherry_ai.CherryStudio.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/screenshots/image-1_1248x789@1.png",
+      "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/screenshots/image-2_1248x792@1.png",
+      "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/screenshots/image-3_1248x789@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.cherry_ai.CherryStudio",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/CherryHQ/cherry-studio/blob/main/README.md"
+    },
+    "stars": {
+      "count": 53906,
+      "source": "https://github.com/CherryHQ/cherry-studio/stargazers",
+      "date": "2026-11-26"
+    },
+    "edition": "Community",
+    "release": {
+      "version": "v2.2.3",
+      "date": "2026-11-19",
+      "source": "https://github.com/CherryHQ/cherry-studio/releases/tag/v2.2.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 213123494,
+          "size_max": 309281977
+        },
+        {
+          "platform": "macos",
+          "size_min": 288916721,
+          "size_max": 315623427
+        },
+        {
+          "platform": "windows",
+          "size_min": 278634416,
+          "size_max": 300195208
+        }
+      ]
+    }
+  },
+  {
+    "id": "alpaca",
+    "name": "Alpaca",
+    "repo": "https://github.com/Jeffser/Alpaca",
+    "author": "Jeffser",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat grafica per modelli Ollama locali o raggiungibili via rete.",
+      "en": "A graphical client for local or remote Ollama models."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "LM Studio"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Jeffser/Alpaca/blob/main/COPYING",
+    "website": "https://jeffser.com/alpaca",
+    "releases": "https://github.com/Jeffser/Alpaca/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/icons/128x128/com.jeffser.Alpaca.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.jeffser.Alpaca",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Jeffser/Alpaca/blob/main/README.md"
+    },
+    "stars": {
+      "count": 1671,
+      "source": "https://github.com/Jeffser/Alpaca/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "9.2.5",
+      "date": "2026-08-03",
+      "source": "https://github.com/Jeffser/Alpaca/releases/tag/9.2.5",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 729954616,
+          "size_max": 729954616
+        }
+      ]
+    }
+  },
+  {
+    "id": "anythingllm",
+    "name": "AnythingLLM",
+    "repo": "https://github.com/Mintplex-Labs/anything-llm",
+    "author": "Mintplex Labs",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat desktop con documenti e modelli locali, organizzata in spazi di lavoro.",
+      "en": "Desktop chat with local models and documents organised in workspaces."
+    },
+    "alternatives": [
+      "NotebookLM",
+      "ChatGPT",
+      "ChatPDF"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/LICENSE",
+    "website": "https://anythingllm.com",
+    "releases": "https://github.com/Mintplex-Labs/anything-llm/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.anythingllm.com/features/api"
+    },
+    "logo": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/frontend/src/media/logo/anything-llm-icon.png",
+    "screenshots": [
+      "https://anythingllm.com/images/home/documentchat-poster.webp",
+      "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/images/screenshots/upload.png"
+    ],
+    "media_source": "https://anythingllm.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.anythingllm.com/installation-desktop/overview"
+    },
+    "stars": {
+      "count": 68671,
+      "source": "https://github.com/Mintplex-Labs/anything-llm/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.20.0",
+      "date": "2026-11-17",
+      "source": "https://github.com/Mintplex-Labs/anything-llm/releases/tag/v1.20.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 676318037,
+          "size_max": 951055817
+        },
+        {
+          "platform": "macos",
+          "size_min": 551384444,
+          "size_max": 604481437
+        },
+        {
+          "platform": "windows",
+          "size_min": 396626360,
+          "size_max": 484456520
+        }
+      ]
+    }
+  },
+  {
+    "id": "osaurus",
+    "name": "Osaurus",
+    "repo": "https://github.com/osaurus-ai/osaurus",
+    "author": "Osaurus AI",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Assistente AI per Mac con Apple Silicon. Elabora in locale dopo il download dei modelli.",
+      "en": "An AI assistant for Apple Silicon Macs. Runs locally after models are downloaded."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "LM Studio"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/osaurus-ai/osaurus/blob/main/LICENSE",
+    "website": "https://osaurus.ai",
+    "releases": "https://github.com/osaurus-ai/osaurus/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.osaurus.ai/"
+    },
+    "logo": "https://raw.githubusercontent.com/osaurus-ai/osaurus/main/App/osaurus/Assets.xcassets/AppIcon.appiconset/icon_128.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/d7905005-71fe-41ba-b69f-e8968af29b5c"
+    ],
+    "media_source": "https://github.com/osaurus-ai/osaurus/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.osaurus.ai/"
+    },
+    "stars": {
+      "count": 8212,
+      "source": "https://github.com/osaurus-ai/osaurus/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "1.0.13",
+      "date": "2026-11-25",
+      "source": "https://github.com/osaurus-ai/osaurus/releases/tag/1.0.13",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 126326179,
+          "size_max": 126326179
+        }
+      ]
+    }
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "repo": "https://github.com/ollama/ollama",
+    "author": "Ollama",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Esegue modelli AI sul computer. Chat desktop su macOS e Windows; terminale e API anche su Linux.",
+      "en": "Run AI models on your computer. Desktop chat on macOS and Windows; terminal and API also on Linux."
+    },
+    "alternatives": [
+      "OpenAI API",
+      "LM Studio"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/ollama/ollama/blob/main/LICENSE",
+    "website": "https://ollama.com",
+    "releases": "https://ollama.com/download",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.ollama.com/api/introduction"
+    },
+    "logo": "https://raw.githubusercontent.com/ollama/ollama/main/docs/images/favicon.png",
+    "screenshots": [
+      "https://files.ollama.com/ollama-app-screenshot.png"
+    ],
+    "media_source": "https://ollama.com/blog/new-app",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ollama/ollama/blob/main/README.md"
+    },
+    "stars": {
+      "count": 188225,
+      "source": "https://github.com/ollama/ollama/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.40.18",
+      "date": "2026-11-24",
+      "source": "https://github.com/ollama/ollama/releases/tag/v0.40.18",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 1648243083,
+          "size_max": 1704011634
+        },
+        {
+          "platform": "macos",
+          "size_min": 231986751,
+          "size_max": 232758599
+        },
+        {
+          "platform": "windows",
+          "size_min": 404629582,
+          "size_max": 1953587080
+        }
+      ]
+    }
+  },
+  {
+    "id": "librechat",
+    "name": "LibreChat",
+    "repo": "https://github.com/LibreChat-AI/LibreChat",
+    "author": "LibreChat",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Chat AI self-hosted con più modelli, ricerca nelle conversazioni e integrazione Ollama.",
+      "en": "Self-hosted AI chat with multiple models, conversation search, and Ollama integration."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "Claude",
+      "TypingMind"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/LibreChat-AI/LibreChat/blob/main/LICENSE",
+    "website": "https://librechat.ai/",
+    "releases": "https://www.librechat.ai/docs/quick_start",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.librechat.ai/docs/features/agents_api"
+    },
+    "logo": "https://www.librechat.ai/android-chrome-512x512.png",
+    "screenshots": [
+      "https://www.librechat.ai/_next/static/media/demo_dark.102d59a6.png",
+      "https://www.librechat.ai/_next/static/media/demo_light.f6e232d4.png"
+    ],
+    "media_source": "https://www.librechat.ai/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/LibreChat-AI/LibreChat/blob/main/README.md"
+    },
+    "stars": {
+      "count": 47560,
+      "source": "https://github.com/LibreChat-AI/LibreChat/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.8.9",
+      "date": "2026-11-17",
+      "source": "https://github.com/LibreChat-AI/LibreChat/releases/tag/v0.8.9",
+      "packages": []
+    }
+  },
+  {
+    "id": "docsgpt",
+    "name": "DocsGPT",
+    "repo": "https://github.com/arc53/DocsGPT",
+    "author": "Arc53",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Cerca risposte nei tuoi documenti con un assistente self-hosted che supporta modelli locali.",
+      "en": "Find answers in your documents with a self-hosted assistant that supports local models."
+    },
+    "alternatives": [
+      "NotebookLM",
+      "ChatPDF"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/arc53/DocsGPT/blob/main/LICENSE",
+    "website": "https://app.docsgpt.cloud/",
+    "releases": "https://github.com/arc53/DocsGPT/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.docsgpt.cloud/API/agent-keys"
+    },
+    "logo": "https://raw.githubusercontent.com/arc53/DocsGPT/main/frontend/public/favicon-96x96.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/arc53/DocsGPT/main/docs/public/create-agent-poster.png",
+      "https://raw.githubusercontent.com/arc53/DocsGPT/main/docs/public/workflow-builder-poster.png",
+      "https://raw.githubusercontent.com/arc53/DocsGPT/main/docs/public/connect-your-data-poster.png"
+    ],
+    "media_source": "https://github.com/arc53/DocsGPT/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://docs.docsgpt.cloud/Deploying"
+    },
+    "stars": {
+      "count": 18383,
+      "source": "https://github.com/arc53/DocsGPT/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "1.2.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/arc53/DocsGPT/releases/tag/1.2.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "aionui",
+    "name": "AionUi",
+    "repo": "https://github.com/iOfficeAI/AionUi",
+    "author": "iOfficeAI",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Interfaccia desktop per usare agenti di coding già configurati. Supporta modelli locali via Ollama o LM Studio.",
+      "en": "Desktop interface for configured coding agents. Supports local models through Ollama or LM Studio."
+    },
+    "alternatives": [
+      "Claude Code",
+      "Cursor",
+      "Conductor"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/iOfficeAI/AionUi/blob/main/LICENSE",
+    "website": "https://www.aionui.com/",
+    "releases": "https://www.aionui.com/download/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/iOfficeAI/AionUi/main/resources/aionui_logo_no_border.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/iOfficeAI/AionUi/main/resources/screenshot_1.png",
+      "https://raw.githubusercontent.com/iOfficeAI/AionUi/main/resources/screenshot_2.png"
+    ],
+    "media_source": "https://github.com/iOfficeAI/AionUi/blob/main/readme.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://www.aionui.com/download/"
+    },
+    "stars": {
+      "count": 34524,
+      "source": "https://github.com/iOfficeAI/AionUi/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.2.2",
+      "date": "2026-09-09",
+      "source": "https://github.com/iOfficeAI/AionUi/releases/tag/v2.2.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 220300844,
+          "size_max": 231776572
+        },
+        {
+          "platform": "macos",
+          "size_min": 288226940,
+          "size_max": 290125639
+        },
+        {
+          "platform": "windows",
+          "size_min": 180279596,
+          "size_max": 279678104
+        }
+      ]
+    }
+  },
+  {
+    "id": "nimbalyst",
+    "name": "Nimbalyst",
+    "repo": "https://github.com/nimbalyst/nimbalyst",
+    "author": "Nimbalyst",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Workspace locale gratuito per coding e revisioni. Supporta modelli locali tramite OpenCode in alpha.",
+      "en": "Free local workspace for coding and reviews. Supports local models through OpenCode in alpha."
+    },
+    "alternatives": [
+      "Conductor",
+      "Cursor"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/nimbalyst/nimbalyst/blob/main/LICENSE",
+    "website": "https://nimbalyst.com/",
+    "releases": "https://github.com/nimbalyst/nimbalyst/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/nimbalyst/nimbalyst/main/assets/nimbalyst-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/nimbalyst/nimbalyst/main/.github/assets/nimbalyst-hero-files-dev-dark.png",
+      "https://raw.githubusercontent.com/nimbalyst/nimbalyst/main/.github/assets/extension-marketplace-dark.png"
+    ],
+    "media_source": "https://github.com/nimbalyst/nimbalyst/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://nimbalyst.com/open-source/"
+    },
+    "stars": {
+      "count": 2116,
+      "source": "https://github.com/nimbalyst/nimbalyst/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.83.0",
+      "date": "2026-11-10",
+      "source": "https://github.com/nimbalyst/nimbalyst/releases/tag/v0.83.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 629753812,
+          "size_max": 840164942
+        },
+        {
+          "platform": "macos",
+          "size_min": 555337061,
+          "size_max": 800851019
+        },
+        {
+          "platform": "windows",
+          "size_min": 452657840,
+          "size_max": 457608240
+        }
+      ]
+    }
+  },
+  {
+    "id": "cloudcli",
+    "name": "CloudCLI UI",
+    "repo": "https://github.com/siteboon/claudecodeui",
+    "author": "Siteboon",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Usa gli agenti di coding configurati sul tuo computer da un'interfaccia grafica. Disponibile in locale e self-hosted.",
+      "en": "Use coding agents configured on your computer from a graphical interface. Available locally and self-hosted."
+    },
+    "alternatives": [
+      "Claude Code",
+      "Conductor",
+      "Cursor"
+    ],
+    "license": "AGPL-3.0-or-later",
+    "license_url": "https://github.com/siteboon/claudecodeui/blob/main/LICENSE",
+    "website": "https://cloudcli.ai",
+    "releases": "https://cloudcli.ai/download",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/siteboon/claudecodeui/main/public/logo-256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/siteboon/claudecodeui/main/public/screenshots/desktop-main.png",
+      "https://raw.githubusercontent.com/siteboon/claudecodeui/main/public/screenshots/cli-selection.png"
+    ],
+    "media_source": "https://github.com/siteboon/claudecodeui/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://cloudcli.ai/download"
+    },
+    "stars": {
+      "count": 14779,
+      "source": "https://github.com/siteboon/claudecodeui/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.37.9",
+      "date": "2026-11-16",
+      "source": "https://github.com/siteboon/claudecodeui/releases/tag/v1.37.9",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 98915108,
+          "size_max": 98915108
+        },
+        {
+          "platform": "macos",
+          "size_min": 119304369,
+          "size_max": 119304369
+        },
+        {
+          "platform": "windows",
+          "size_min": 109836460,
+          "size_max": 109836460
+        }
+      ]
+    }
+  },
+  {
+    "id": "vibe-kanban",
+    "name": "Vibe Kanban",
+    "repo": "https://github.com/BloopAI/vibe-kanban",
+    "author": "BloopAI",
+    "level": "avanz",
+    "category": "agenti",
+    "description": {
+      "it": "Organizza task di coding assistito, workspace Git e revisioni del codice.",
+      "en": "Organise AI-assisted coding tasks, Git workspaces, and code reviews."
+    },
+    "alternatives": [
+      "Conductor",
+      "Linear"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/BloopAI/vibe-kanban/blob/main/LICENSE",
+    "website": "https://www.vibekanban.com/",
+    "releases": "https://vibekanban.com/docs/self-hosting/deploy-docker",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://vibekanban.com/docs/integrations/vibe-kanban-mcp-server"
+    },
+    "logo": "https://raw.githubusercontent.com/BloopAI/vibe-kanban/main/crates/tauri-app/icons/Square150x150Logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/BloopAI/vibe-kanban/main/packages/public/vibe-kanban-screenshot-overview.png",
+      "https://raw.githubusercontent.com/BloopAI/vibe-kanban/main/packages/public/vibe-kanban-screenshot-workspace.png"
+    ],
+    "media_source": "https://github.com/BloopAI/vibe-kanban/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/BloopAI/vibe-kanban/blob/main/README.md"
+    },
+    "stars": {
+      "count": 28832,
+      "source": "https://github.com/BloopAI/vibe-kanban/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.1.46.1794744340",
+      "date": "2026-11-15",
+      "source": "https://github.com/BloopAI/vibe-kanban/releases/tag/v0.1.46.1794744340",
+      "packages": []
+    }
+  },
+  {
+    "id": "neovide",
+    "name": "Neovide",
+    "repo": "https://github.com/neovide/neovide",
+    "author": "Neovide",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Interfaccia desktop per Neovim, con supporto a font, animazioni e appunti di sistema.",
+      "en": "Desktop front end for Neovim with font, animation, and system clipboard support."
+    },
+    "alternatives": [
+      "Sublime Text",
+      "MacVim"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/neovide/neovide/blob/main/LICENSE",
+    "website": "https://neovide.dev",
+    "releases": "https://github.com/neovide/neovide/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/dev/neovide/neovide/54380b0a7fd00193bddf451bddf5f149/icons/128x128/dev.neovide.neovide.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/dev/neovide/neovide/54380b0a7fd00193bddf451bddf5f149/screenshots/image-1_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/dev.neovide.neovide",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/neovide/neovide/blob/main/README.md"
+    },
+    "stars": {
+      "count": 15308,
+      "source": "https://github.com/neovide/neovide/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "0.17.4",
+      "date": "2026-11-24",
+      "source": "https://github.com/neovide/neovide/releases/tag/0.17.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 13486874,
+          "size_max": 13511160
+        },
+        {
+          "platform": "macos",
+          "size_min": 12338261,
+          "size_max": 12805999
+        },
+        {
+          "platform": "windows",
+          "size_min": 12728719,
+          "size_max": 13053952
+        }
+      ]
+    }
+  },
+  {
+    "id": "bruno",
+    "name": "Bruno",
+    "repo": "https://github.com/usebruno/bruno",
+    "author": "Bruno",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Progetta e prova API. Le richieste restano in file locali che puoi versionare con Git.",
+      "en": "Design and test APIs. Requests are stored as local files you can version with Git."
+    },
+    "alternatives": [
+      "Postman",
+      "Insomnia"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/usebruno/bruno/blob/main/license.md",
+    "website": "https://www.usebruno.com/",
+    "releases": "https://github.com/usebruno/bruno/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://docs.usebruno.com/bru-cli/overview"
+    },
+    "logo": "https://dl.flathub.org/media/com/usebruno/Bruno/44e5fedc1465875d8afb8eee8ea7fe1e/icons/128x128/com.usebruno.Bruno.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/usebruno/Bruno/44e5fedc1465875d8afb8eee8ea7fe1e/screenshots/image-1_1248x793@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.usebruno.Bruno",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/usebruno/bruno/blob/main/readme.md"
+    },
+    "stars": {
+      "count": 48588,
+      "source": "https://github.com/usebruno/bruno/stargazers",
+      "date": "2026-11-26"
+    },
+    "edition": "Open Source",
+    "release": {
+      "version": "v4.4.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/usebruno/bruno/releases/tag/v4.4.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 112181869,
+          "size_max": 174973185
+        },
+        {
+          "platform": "macos",
+          "size_min": 175153705,
+          "size_max": 189402256
+        },
+        {
+          "platform": "windows",
+          "size_min": 145312152,
+          "size_max": 214743274
+        }
+      ]
+    }
+  },
+  {
+    "id": "dbeaver-ce",
+    "name": "DBeaver Community",
+    "repo": "https://github.com/dbeaver/dbeaver",
+    "author": "DBeaver",
+    "level": "avanz",
+    "category": "dati",
+    "description": {
+      "it": "Esplora database, modifica dati e scrivi SQL da un ambiente grafico.",
+      "en": "Explore databases, edit data, and write SQL in a graphical environment."
+    },
+    "alternatives": [
+      "DataGrip",
+      "Navicat",
+      "TablePlus"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/dbeaver/dbeaver/blob/devel/LICENSE.md",
+    "website": "https://dbeaver.io",
+    "releases": "https://dbeaver.io/download/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/dbeaver/DBeaverCommunity/49b473071bb5503dd8a28474cf5ad4ea/icons/128x128/io.dbeaver.DBeaverCommunity.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/dbeaver/DBeaverCommunity/49b473071bb5503dd8a28474cf5ad4ea/screenshots/image-1_1248x674@1.png",
+      "https://dl.flathub.org/media/io/dbeaver/DBeaverCommunity/49b473071bb5503dd8a28474cf5ad4ea/screenshots/image-2_1248x669@1.png",
+      "https://dl.flathub.org/media/io/dbeaver/DBeaverCommunity/49b473071bb5503dd8a28474cf5ad4ea/screenshots/image-3_1248x668@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.dbeaver.DBeaverCommunity",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/dbeaver/dbeaver/blob/devel/README.md"
+    },
+    "stars": {
+      "count": 52544,
+      "source": "https://github.com/dbeaver/dbeaver/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "26.2.5.2",
+      "date": "2026-11-24",
+      "source": "https://github.com/dbeaver/dbeaver/releases/tag/26.2.5.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 127940479,
+          "size_max": 129103383
+        },
+        {
+          "platform": "macos",
+          "size_min": 124461569,
+          "size_max": 125870007
+        },
+        {
+          "platform": "windows",
+          "size_min": 112579384,
+          "size_max": 126292719
+        }
+      ]
+    }
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "repo": "https://github.com/zed-industries/zed",
+    "author": "Zed Industries",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Editor di codice collaborativo con terminale e Git. Può usare anche modelli locali.",
+      "en": "Collaborative code editor with terminal and Git. It can also use local models."
+    },
+    "alternatives": [
+      "Cursor",
+      "Sublime Text",
+      "Visual Studio Code"
+    ],
+    "license": "GPL-3.0-or-later AND Apache-2.0",
+    "license_url": "https://github.com/zed-industries/zed#licensing",
+    "website": "https://zed.dev",
+    "releases": "https://zed.dev/download",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://zed.dev/docs/cli"
+    },
+    "logo": "https://dl.flathub.org/media/dev/zed/Zed/7fe6522871bf71186fc1c0aa68de1761/icons/128x128/dev.zed.Zed.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/dev/zed/Zed/7fe6522871bf71186fc1c0aa68de1761/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/dev/zed/Zed/7fe6522871bf71186fc1c0aa68de1761/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/dev/zed/Zed/7fe6522871bf71186fc1c0aa68de1761/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/dev.zed.Zed",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/zed-industries/zed/blob/main/README.md"
+    },
+    "stars": {
+      "count": 95792,
+      "source": "https://github.com/zed-industries/zed/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.30.2",
+      "date": "2026-11-25",
+      "source": "https://github.com/zed-industries/zed/releases/tag/v1.30.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 85522928,
+          "size_max": 90603500
+        },
+        {
+          "platform": "macos",
+          "size_min": 88057394,
+          "size_max": 97254200
+        },
+        {
+          "platform": "windows",
+          "size_min": 57688384,
+          "size_max": 64806744
+        }
+      ]
+    }
+  },
+  {
+    "id": "sioyek",
+    "name": "Sioyek",
+    "repo": "https://github.com/ahrm/sioyek",
+    "author": "ahrm",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Lettore PDF per libri e articoli tecnici, con ricerca, riferimenti ed evidenziazioni.",
+      "en": "PDF reader for technical books and papers, with search, references, and highlights."
+    },
+    "alternatives": [
+      "Adobe Acrobat Reader",
+      "PDF Expert"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/ahrm/sioyek/blob/development/LICENSE",
+    "website": "https://sioyek.info/",
+    "releases": "https://github.com/ahrm/sioyek/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/com/github/ahrm.sioyek/fbc1811c93dedabbf5bb61c6df937943/icons/128x128/com.github.ahrm.sioyek.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/com/github/ahrm.sioyek/fbc1811c93dedabbf5bb61c6df937943/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/com/github/ahrm.sioyek/fbc1811c93dedabbf5bb61c6df937943/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/com/github/ahrm.sioyek/fbc1811c93dedabbf5bb61c6df937943/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/com.github.ahrm.sioyek",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/ahrm/sioyek/blob/development/README.md"
+    },
+    "stars": {
+      "count": 10042,
+      "source": "https://github.com/ahrm/sioyek/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v2.0.0",
+      "date": "2022-12-16",
+      "source": "https://github.com/ahrm/sioyek/releases/tag/v2.0.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 57433790,
+          "size_max": 57583838
+        },
+        {
+          "platform": "macos",
+          "size_min": 42202030,
+          "size_max": 42202030
+        },
+        {
+          "platform": "windows",
+          "size_min": 77225291,
+          "size_max": 77225761
+        }
+      ]
+    }
+  },
+  {
+    "id": "gpt4all",
+    "name": "GPT4All",
+    "repo": "https://github.com/nomic-ai/gpt4all",
+    "author": "Nomic",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat desktop che carica modelli e documenti in locale. Funziona offline dopo il download.",
+      "en": "Desktop chat that loads models and documents locally. Works offline after downloading models."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "NotebookLM",
+      "LM Studio"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/nomic-ai/gpt4all/blob/main/LICENSE.txt",
+    "website": "https://nomic.ai/gpt4all",
+    "releases": "https://github.com/nomic-ai/gpt4all/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/gpt4all/gpt4all/1ee7ca0d1b164d3843c20316bf440a88/icons/128x128/io.gpt4all.gpt4all.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/gpt4all/gpt4all/1ee7ca0d1b164d3843c20316bf440a88/screenshots/image-1_1248x807@1.png",
+      "https://dl.flathub.org/media/io/gpt4all/gpt4all/1ee7ca0d1b164d3843c20316bf440a88/screenshots/image-2_1248x807@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.gpt4all.gpt4all",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/nomic-ai/gpt4all/blob/main/README.md"
+    },
+    "stars": {
+      "count": 77347,
+      "source": "https://github.com/nomic-ai/gpt4all/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.10.0",
+      "date": "2025-02-25",
+      "source": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 732745048,
+          "size_max": 732745048
+        },
+        {
+          "platform": "macos",
+          "size_min": 319600812,
+          "size_max": 319600812
+        },
+        {
+          "platform": "windows",
+          "size_min": 318116056,
+          "size_max": 744456856
+        }
+      ]
+    }
+  },
+  {
+    "id": "docmost",
+    "name": "Docmost Community",
+    "repo": "https://github.com/docmost/docmost",
+    "author": "Docmost",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Wiki collaborativa self-hosted con pagine, spazi e ricerca.",
+      "en": "Self-hosted collaborative wiki with pages, spaces, and search."
+    },
+    "alternatives": [
+      "Notion",
+      "Confluence"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/docmost/docmost/blob/main/LICENSE",
+    "website": "https://docmost.com",
+    "releases": "https://github.com/docmost/docmost/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/docmost/docmost/main/apps/client/public/icons/app-icon-192x192.png",
+    "screenshots": [
+      "https://docmost.com/screenshots/home.png",
+      "https://docmost.com/screenshots/editor.png"
+    ],
+    "media_source": "https://github.com/docmost/docmost/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/docmost/docmost/blob/main/README.md"
+    },
+    "stars": {
+      "count": 22436,
+      "source": "https://github.com/docmost/docmost/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v0.98.0",
+      "date": "2026-11-20",
+      "source": "https://github.com/docmost/docmost/releases/tag/v0.98.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "leantime",
+    "name": "Leantime",
+    "repo": "https://github.com/Leantime/leantime",
+    "author": "Leantime",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Gestione progetti self-hosted con bacheche, obiettivi, calendario e tempi.",
+      "en": "Self-hosted project management with boards, goals, calendars, and time tracking."
+    },
+    "alternatives": [
+      "Linear",
+      "Asana",
+      "ClickUp"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/Leantime/leantime/blob/master/LICENSE",
+    "website": "https://leantime.io",
+    "releases": "https://github.com/Leantime/leantime/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Leantime/leantime/master/public/assets/images/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Leantime/leantime/master/public/assets/images/Screenshots/mywork-v3.5.png",
+      "https://raw.githubusercontent.com/Leantime/leantime/master/public/assets/images/Screenshots/kanban.png"
+    ],
+    "media_source": "https://github.com/Leantime/leantime/blob/master/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/Leantime/leantime/blob/master/README.md"
+    },
+    "stars": {
+      "count": 12151,
+      "source": "https://github.com/Leantime/leantime/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v3.17.0",
+      "date": "2026-11-23",
+      "source": "https://github.com/Leantime/leantime/releases/tag/v3.17.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "openproject",
+    "name": "OpenProject Community",
+    "repo": "https://github.com/opf/openproject",
+    "author": "OpenProject",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Gestione progetti self-hosted con attività, roadmap, bacheche e diagrammi di Gantt.",
+      "en": "Self-hosted project management with tasks, roadmaps, boards, and Gantt charts."
+    },
+    "alternatives": [
+      "Linear",
+      "Jira",
+      "Microsoft Project"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/opf/openproject/blob/dev/LICENSE",
+    "website": "https://www.openproject.org",
+    "releases": "https://github.com/opf/openproject/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.openproject.org/docs/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/opf/openproject/dev/app/assets/images/pwa/icon-192.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/opf/openproject/dev/screenshots/opencode_openproject_3_project_home.png",
+      "https://raw.githubusercontent.com/opf/openproject/dev/screenshots/opencode_openproject_4_gantt_chart.png"
+    ],
+    "media_source": "https://github.com/opf/openproject/blob/dev/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://github.com/opf/openproject/blob/dev/README.md"
+    },
+    "stars": {
+      "count": 17768,
+      "source": "https://github.com/opf/openproject/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v17.8.3",
+      "date": "2026-11-19",
+      "source": "https://github.com/opf/openproject/releases/tag/v17.8.3",
+      "packages": []
+    }
+  },
+  {
+    "id": "chatbox",
+    "name": "Chatbox Community",
+    "repo": "https://github.com/chatboxai/chatbox",
+    "author": "Chatbox",
+    "level": "base",
+    "category": "agenti",
+    "description": {
+      "it": "Chat AI desktop con supporto a Ollama locale e alle proprie chiavi API.",
+      "en": "Desktop AI chat with local Ollama support and your own API keys."
+    },
+    "alternatives": [
+      "ChatGPT",
+      "Claude",
+      "TypingMind"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/chatboxai/chatbox/blob/main/LICENSE",
+    "website": "https://chatboxai.app?utm_medium=github",
+    "releases": "https://github.com/chatboxai/chatbox/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/snapshot_light.png",
+      "https://raw.githubusercontent.com/chatboxai/chatbox/main/doc/statics/snapshot_dark.png"
+    ],
+    "media_source": "https://github.com/chatboxai/chatbox/blob/main/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-26",
+      "source": "https://chatboxai.app/en/guide/getting-started/choose-provider"
+    },
+    "stars": {
+      "count": 42548,
+      "source": "https://github.com/chatboxai/chatbox/stargazers",
+      "date": "2026-11-26"
+    },
+    "release": {
+      "version": "v1.24.4",
+      "date": "2026-11-12",
+      "source": "https://github.com/chatboxai/chatbox/releases/tag/v1.24.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 130633152,
+          "size_max": 136971932
+        },
+        {
+          "platform": "macos",
+          "size_min": 157996502,
+          "size_max": 165182243
+        },
+        {
+          "platform": "windows",
+          "size_min": 241083488,
+          "size_max": 241083488
+        }
+      ]
+    }
   }
 ]

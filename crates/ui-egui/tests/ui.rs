@@ -4013,12 +4013,12 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
         let checked = h.get_by_label_contains("Checked ").rect();
         // Cut short in a narrow window, but enough of it left to read.
         assert!(notice.width() >= 120.0 && notice.right() <= width, "{width}: notice {notice:?}");
-        // Everything on the footer's right: the website, GitHub and Discord icons and the social icons.
+        // Promptica's website and both official social links occupy the footer's right.
         let mut right = Vec::new();
-        for label in ["Website", "GitHub", "Discord", "X", "YouTube", "TikTok", "Instagram", "LinkedIn"] {
+        for label in ["Powered by Promptica", "Promptica LinkedIn", "Promptica Instagram"] {
             right.extend(h.query_all_by_label(label).map(|n| n.rect()).filter(|r| (r.center().y - notice.center().y).abs() < 12.0));
         }
-        assert_eq!(right.len(), 8, "{width}: {right:?}");
+        assert_eq!(right.len(), 3, "{width}: {right:?}");
         assert!(h.query_by_label_contains("Installing for").is_none(), "{width}: the footer no longer names the platform");
         for r in right {
             assert!(!r.intersects(notice), "{width}: notice {notice:?} overlaps {r:?}");

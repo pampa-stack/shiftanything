@@ -203,6 +203,14 @@ mod tests {
             assert!(!["prompticraft", "eyecraft", "oneshotanything"].contains(&app.id.as_str()));
         }
     }
+
+    #[test]
+    fn native_recipes_have_unique_app_ids() {
+        let mut ids = std::collections::HashSet::new();
+        for app in &super::NATIVE_APPS {
+            assert!(ids.insert(app.id), "duplicate native recipe for {}", app.id);
+        }
+    }
 }
 
 /// Native recipe identity. Asset selection, integrity and signature verification remain native.

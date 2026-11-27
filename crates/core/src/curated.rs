@@ -2400,7 +2400,28 @@ pub const OPENWHISPR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("T832773L2J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 104] = [
+pub const DEEPCHAT: crate::CraftApp = crate::CraftApp {
+    id: "deepchat",
+    name: "DeepChat",
+    tagline: "Chat with local and cloud models from your desktop",
+    repo: "ThinkInAIXYZ/deepchat",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [104, 102, 218],
+    ink_light: [58, 55, 128],
+    ink_dark: [198, 193, 254],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "ThinkInAI / DeepChat contributors",
+    msi_publisher: None,
+    bundle: Some("com.wefonk.deepchat"),
+    site: Some("https://deepchat.thinkinai.xyz/"),
+    mac_bundle_name: None,
+    mac_team: Some("Y7P5QLKLYG"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 105] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2505,6 +2526,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 104] = [
     KDENLIVE,
     SUBTITLE_EDIT,
     OPENWHISPR,
+    DEEPCHAT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

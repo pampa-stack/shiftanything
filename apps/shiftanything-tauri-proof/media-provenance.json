@@ -244,13 +244,6 @@
       "sha256": "2659ad1eb524f5f6667614dc522c31fe5c5fbe11c7952e74362c48c183be8e71"
     },
     {
-      "app": "yaak",
-      "slot": "logo",
-      "source": "https://raw.githubusercontent.com/mountain-loop/yaak/6196bf2a21ecac4f8ba3e3c8d4a2d1e7496ab452/crates-tauri/yaak-app-client/icons/release/128x128%402x.png",
-      "file": "media/yaak-logo.png",
-      "sha256": "fecdd158de13f72375156a2995052e65d76b7d50db1e91874cedbeefae869e37"
-    },
-    {
       "app": "doop",
       "slot": "logo",
       "source": "https://raw.githubusercontent.com/doop-design/doop/main/public/favicon.png",
@@ -2272,14 +2265,6 @@
       "file": "media/speech-note-logo.png",
       "sha256": "4a8f5eab231fca79c11cae4ddd017c25a479277743f3e99d31b5013c5ecd0f64",
       "source_sha256": "bea35a9c1beb07454e03b22a8a9d78a05acad45d36bf42971b54ed389b550611"
-    },
-    {
-      "app": "readest",
-      "slot": "logo",
-      "source": "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/icons/128x128/com.bilingify.readest.png",
-      "file": "media/readest-logo.png",
-      "sha256": "e1ffa909122fae21a075ef6c59247c23f5c915e1ef488b8530e23659e402abbd",
-      "source_sha256": "f8dfa465354dcd643df4277263c7f282348c68e96c0e67e62d8306a943e61725"
     },
     {
       "app": "celestia",

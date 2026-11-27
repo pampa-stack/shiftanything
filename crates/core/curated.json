@@ -18530,87 +18530,6 @@
     }
   },
   {
-    "id": "readest",
-    "name": "Readest",
-    "repo": "https://github.com/readest/readest",
-    "author": "Bilingify / Readest",
-    "category": "accessibilita",
-    "level": "base",
-    "description": {
-      "it": "Leggi EPUB e PDF locali con caratteri regolabili, annotazioni e modalità a contrasto.",
-      "en": "Read local EPUBs and PDFs with adjustable typography, annotations and contrast modes."
-    },
-    "alternatives": [
-      "Kindle",
-      "Apple Books"
-    ],
-    "website": "https://readest.com/",
-    "releases": "https://github.com/readest/readest/releases",
-    "delivery": "desktop",
-    "license": "AGPL-3.0-or-later",
-    "license_url": "https://github.com/readest/readest/blob/main/LICENSE",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/icons/128x128/com.bilingify.readest.png",
-    "screenshots": [
-      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-1_1248x795@1.png",
-      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-2_1248x795@1.png",
-      "https://dl.flathub.org/media/com/bilingify/readest/53ff5eaf7e4bd8dd7c63b8ae360d092a/screenshots/image-3_1248x795@1.png"
-    ],
-    "media_source": "https://flathub.org/apps/com.bilingify.readest",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-26",
-      "source": "https://readest.com/pricing"
-    },
-    "platform_support": {
-      "linux": "https://github.com/readest/readest/releases",
-      "macos": "https://github.com/readest/readest/releases",
-      "windows": "https://github.com/readest/readest/releases"
-    },
-    "edition": "Desktop Free",
-    "stars": {
-      "count": 26705,
-      "source": "https://github.com/readest/readest/stargazers",
-      "date": "2026-11-26"
-    },
-    "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "com.bilingify.readest",
-        "source": "https://flathub.org/apps/com.bilingify.readest",
-        "download_size": 185797880,
-        "download_size_source": "https://flathub.org/api/v2/summary/com.bilingify.readest",
-        "download_size_checked": "2026-11-26"
-      }
-    ],
-    "release": {
-      "version": "v0.12.26",
-      "date": "2026-11-26",
-      "source": "https://github.com/readest/readest/releases/tag/v0.12.26",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 142036713,
-          "size_max": 212385975
-        },
-        {
-          "platform": "macos",
-          "size_min": 72439899,
-          "size_max": 72439899
-        },
-        {
-          "platform": "windows",
-          "size_min": 61923325,
-          "size_max": 98821632
-        }
-      ]
-    }
-  },
-  {
     "id": "celestia",
     "name": "Celestia",
     "repo": "https://github.com/CelestiaProject/Celestia",
@@ -24501,8 +24420,8 @@
     "category": "architettura",
     "level": "base",
     "description": {
-      "it": "Prepara modelli per la stampa 3D FDM, calibra il filamento e visualizza i percorsi di stampa.",
-      "en": "Prepare models for FDM 3D printing, calibrate filament and preview toolpaths."
+      "it": "Prepara modelli per la stampa 3D FDM, calibra il filamento e visualizza i percorsi di stampa. Su Linux richiede WebKitGTK 4.1.",
+      "en": "Prepare models for FDM 3D printing, calibrate filament and preview toolpaths. On Linux it requires WebKitGTK 4.1."
     },
     "alternatives": [
       "Simplify3D",

@@ -370,8 +370,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::neovide_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
-    use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
-    if let Some(app) = [PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].into_iter().find(|app| stems.contains(&app.id)) {
+    use crate::curated::{LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
+    if let Some(app) = [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE].into_iter().find(|app| stems.contains(&app.id)) {
         if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
             return None;
         }
@@ -382,7 +382,10 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         let exact_name = match app.id {
             "pencil2d" => Some(format!("pencil2d-linux-amd64-v{version}.AppImage")),
             "openshot-video-editor" => Some(format!("OpenShot-v{version}-x86_64.AppImage")),
+            "orca-slicer" => Some(format!("OrcaSlicer_Linux_AppImage_Ubuntu2404_V{version}.AppImage")),
             "losslesscut" => Some("LosslessCut-linux-x86_64.AppImage".into()),
+            "zettlr" => Some(format!("Zettlr-{version}-x86_64.AppImage")),
+            "onlyoffice" => Some("DesktopEditors-x86_64.AppImage".into()),
             _ => None,
         };
         let versioned_musescore = format!("MuseScore-Studio-{version}.");
@@ -552,8 +555,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
-    use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
-    if [PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].iter().any(|app| stems.contains(&app.id)) {
+    use crate::curated::{LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
+    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
     if stems.contains(&LOCALSEND.id) {
@@ -568,14 +571,17 @@ mod tests {
 
     #[test]
     fn reviewed_linux_appimages_require_verified_stable_asset_metadata() {
-        use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
+        use crate::curated::{LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         for (app, version, filename) in [
             (PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"),
             (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage"),
             (MUSESCORE, "4.7.7", "MuseScore-Studio-4.7.7.261109195-x86_64.AppImage"),
+            (ORCA_SLICER, "2.5.2", "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage"),
             (LOSSLESSCUT, "3.70.2", "LosslessCut-linux-x86_64.AppImage"),
+            (ZETTLR, "4.11.0", "Zettlr-4.11.0-x86_64.AppImage"),
+            (ONLYOFFICE, "10.0.0", "DesktopEditors-x86_64.AppImage"),
         ] {
             let tag = format!("v{version}");
             let mut release = Release {
@@ -601,6 +607,34 @@ mod tests {
             release.assets[0].url = expected_url;
             release.assets[0].sha256 = None;
             assert!(!select(&release, linux));
+        }
+    }
+
+    #[test]
+    fn tested_linux_appimages_are_available_without_github_api_quota() {
+        let platform = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (repo, tag, filename, size) in [
+            ("pencil2d/pencil", "v0.7.1", "pencil2d-linux-amd64-v0.7.1.AppImage", 60_471_800),
+            ("pencil2d/pencil", "v0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage", 60_471_800),
+            ("OpenShot/openshot-qt", "v4.1.0", "OpenShot-v4.1.0-x86_64.AppImage", 258_708_672),
+            ("OpenShot/openshot-qt", "v4.1.1", "OpenShot-v4.1.1-x86_64.AppImage", 258_921_664),
+            ("musescore/MuseScore", "v4.7.6", "MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952),
+            ("musescore/MuseScore", "v4.7.7", "MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928),
+            ("mifi/lossless-cut", "v3.70.1", "LosslessCut-linux-x86_64.AppImage", 221_418_564),
+            ("mifi/lossless-cut", "v3.70.2", "LosslessCut-linux-x86_64.AppImage", 221_357_823),
+            ("OrcaSlicer/OrcaSlicer", "v2.5.1", "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage", 201_116_152),
+            ("OrcaSlicer/OrcaSlicer", "v2.5.2", "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage", 201_034_232),
+            ("Zettlr/Zettlr", "v4.10.0", "Zettlr-4.10.0-x86_64.AppImage", 172_628_308),
+            ("Zettlr/Zettlr", "v4.11.0", "Zettlr-4.11.0-x86_64.AppImage", 172_657_896),
+            ("ONLYOFFICE/DesktopEditors", "v9.4.0", "DesktopEditors-x86_64.AppImage", 625_961_464),
+            ("ONLYOFFICE/DesktopEditors", "v10.0.0", "DesktopEditors-x86_64.AppImage", 425_810_424),
+        ] {
+            let app = crate::hosted_catalog::apps().iter().find(|app| app.repo == repo).unwrap_or_else(|| panic!("missing {repo}"));
+            let release = crate::release::release_from_sums(repo, tag, &[]);
+            let (asset, _) = pick_asset(&release, &[app.id], platform, &[PackageKind::AppImage]).expect("a reviewed fallback asset");
+            assert_eq!(asset.name, filename);
+            assert_eq!(asset.size, size);
+            assert!(asset.sha256.as_ref().is_some_and(|sha| sha.len() == 64));
         }
     }
 

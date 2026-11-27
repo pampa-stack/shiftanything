@@ -842,6 +842,27 @@ pub const MUSESCORE: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
+pub const ORCA_SLICER: crate::CraftApp = crate::CraftApp {
+    id: "orca-slicer",
+    name: "OrcaSlicer",
+    tagline: "Prepare sliced models for 3D printing",
+    repo: "OrcaSlicer/OrcaSlicer",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [120, 194, 189],
+    ink_light: [34, 105, 103],
+    ink_dark: [146, 206, 201],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OrcaSlicer contributors",
+    msi_publisher: None,
+    bundle: Some("com.orcaslicer.OrcaSlicer"),
+    site: Some("https://www.orcaslicer.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
     id: "losslesscut",
     name: "LosslessCut",
@@ -863,7 +884,49 @@ pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 31] = [
+pub const ZETTLR: crate::CraftApp = crate::CraftApp {
+    id: "zettlr",
+    name: "Zettlr",
+    tagline: "Write and publish from local Markdown files",
+    repo: "Zettlr/Zettlr",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [95, 177, 156],
+    ink_light: [36, 104, 88],
+    ink_dark: [143, 212, 194],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Hendrik Erz and contributors",
+    msi_publisher: None,
+    bundle: Some("Zettlr"),
+    site: Some("https://www.zettlr.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub const ONLYOFFICE: crate::CraftApp = crate::CraftApp {
+    id: "onlyoffice",
+    name: "ONLYOFFICE Desktop Editors",
+    tagline: "Work on documents, spreadsheets and presentations",
+    repo: "ONLYOFFICE/DesktopEditors",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [116, 173, 231],
+    ink_light: [45, 90, 151],
+    ink_dark: [150, 196, 244],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ascensio System SIA",
+    msi_publisher: None,
+    bundle: Some("onlyoffice-desktopeditors"),
+    site: Some("https://www.onlyoffice.com/desktop.aspx"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 34] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -894,7 +957,10 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 31] = [
     PENCIL2D,
     OPENSHOT,
     MUSESCORE,
+    ORCA_SLICER,
     LOSSLESSCUT,
+    ZETTLR,
+    ONLYOFFICE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -919,7 +985,10 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
-    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)) {
+    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE]
+        .iter()
+        .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
+    {
         return true;
     }
     matches!(
@@ -1009,7 +1078,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 19);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 22);
     }
 
     #[test]

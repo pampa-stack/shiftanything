@@ -724,6 +724,52 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         (crate::curated::GODOT_RELEASES_REPO, "4.7.2-stable") => {
             &[("Godot_v4.7.2-stable_macos.universal.zip", 170_622_178, "c58a24e31d720be9d62f60cb5627c4e695fb72f21b0cfe1bc9ccaa9a3b3ba63e")]
         }
+        ("pencil2d/pencil", "v0.7.1") => {
+            &[("pencil2d-linux-amd64-v0.7.1.AppImage", 60_471_800, "02416a6777f3b5aca826285b85d66476c1352d0d8252b55714cc7bc55ba463f6")]
+        }
+        ("pencil2d/pencil", "v0.7.2") => {
+            &[("pencil2d-linux-amd64-v0.7.2.AppImage", 60_471_800, "4034b036258b6a13d4540911ebce085f31ee18a9dacf438845ac71998d42ff91")]
+        }
+        ("OpenShot/openshot-qt", "v4.1.0") => {
+            &[("OpenShot-v4.1.0-x86_64.AppImage", 258_708_672, "43af897622628b6ee092d5cfc5b555d50d6253dd32c5562060c9759b041d7e4c")]
+        }
+        ("OpenShot/openshot-qt", "v4.1.1") => {
+            &[("OpenShot-v4.1.1-x86_64.AppImage", 258_921_664, "662d0c3cec67ddc90df6a8b0c723c0aac0d3bddf0c3c467eff562e818bb8c72f")]
+        }
+        ("musescore/MuseScore", "v4.7.6") => {
+            &[("MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952, "5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6")]
+        }
+        ("musescore/MuseScore", "v4.7.7") => {
+            &[("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d")]
+        }
+        ("mifi/lossless-cut", "v3.70.1") => {
+            &[("LosslessCut-linux-x86_64.AppImage", 221_418_564, "04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842")]
+        }
+        ("mifi/lossless-cut", "v3.70.2") => {
+            &[("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a")]
+        }
+        ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[(
+            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage",
+            201_116_152,
+            "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb",
+        )],
+        ("OrcaSlicer/OrcaSlicer", "v2.5.2") => &[(
+            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage",
+            201_034_232,
+            "22fa88884dec3fdbd29e90cba9912fcff6fb57a60b1bdc1a6c189c61a6b0a870",
+        )],
+        ("Zettlr/Zettlr", "v4.10.0") => {
+            &[("Zettlr-4.10.0-x86_64.AppImage", 172_628_308, "bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc")]
+        }
+        ("Zettlr/Zettlr", "v4.11.0") => {
+            &[("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7")]
+        }
+        ("ONLYOFFICE/DesktopEditors", "v9.4.0") => {
+            &[("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c")]
+        }
+        ("ONLYOFFICE/DesktopEditors", "v10.0.0") => {
+            &[("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

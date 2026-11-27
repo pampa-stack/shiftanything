@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Zettlr
+Comment=Write and publish from local Markdown files
+Exec="/fixture/home/Applications/Zettlr-4.11.0-x86_64.AppImage" --appimage-extract-and-run %F
+Icon=Zettlr
+Terminal=false
+Categories=Office;WordProcessor;
+StartupWMClass=zettlr
+X-ArtCraft-Launcher=true

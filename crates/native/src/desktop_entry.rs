@@ -25,7 +25,10 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
         "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
         "musescore" => ("AudioVideo;Audio;Music;Qt;", Some("MuseScore4")),
+        "orca-slicer" => ("Graphics;3DGraphics;", Some("OrcaSlicer")),
         "losslesscut" => ("AudioVideo;Video;AudioVideoEditing;", Some("losslesscut")),
+        "zettlr" => ("Office;WordProcessor;", Some("zettlr")),
+        "onlyoffice" => ("Office;WordProcessor;Spreadsheet;Presentation;", Some("ONLYOFFICE")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -82,9 +85,11 @@ fn value(s: &str) -> String {
 
 /// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
-    use artcraft_launcher_core::curated::{LOCALSEND, LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
+    use artcraft_launcher_core::curated::{LOCALSEND, LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
     (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
-        && [LOCALSEND, LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
+        && [LOCALSEND, LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR]
+            .iter()
+            .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
     .then_some("--appimage-extract-and-run")
 }
 

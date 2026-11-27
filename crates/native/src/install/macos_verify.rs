@@ -102,10 +102,15 @@ fn identity_requirement(app: &CraftApp, team: &str) -> Result<String, String> {
         return Err("no valid macOS signing team is configured, so the app wasn't installed".into());
     }
     let mut identifiers = Vec::new();
+    let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+    // Prusa's signed macOS identifier ends in a slash, unlike its Flatpak identifier.
+    let prusa_bundle = artcraft_launcher_core::curated::PRUSA_SLICER_MAC_BUNDLE;
     // Catalog data only, never an identifier supplied by the downloaded app. Keep approved
     // former IDs so detecting/updating an older bundle still agrees with the catalog.
     for id in app.bundle_ids() {
-        if id.is_empty() || !id.bytes().all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'-' | b'_')) {
+        let is_prusa_bundle =
+            (app.id, app.repo, app.mac_team, id.as_str()) == (prusa.id, prusa.repo, Some(team), prusa_bundle) && Some(team) == prusa.mac_team;
+        if !is_prusa_bundle && (id.is_empty() || !id.bytes().all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'-' | b'_'))) {
             return Err("no valid macOS bundle identity is configured, so the app wasn't installed".into());
         }
         identifiers.push(format!("identifier \"{id}\""));
@@ -137,6 +142,18 @@ pub(super) fn assessment_accepted(output: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn only_reviewed_prusa_signer_can_use_the_slash_in_its_bundle_identifier() {
+        use artcraft_launcher_core::curated::PRUSA_SLICER;
+
+        let team = PRUSA_SLICER.mac_team.unwrap();
+        let requirement = identity_requirement(&PRUSA_SLICER, team).unwrap();
+        assert!(requirement.contains("identifier \"com.prusa3d.slic3r/\""));
+        assert!(identity_requirement(&PRUSA_SLICER, "OTHERTEAM").is_err());
+        assert!(identity_requirement(&CraftApp { repo: "other/PrusaSlicer", ..PRUSA_SLICER }, team).is_err());
+        assert!(identity_requirement(&CraftApp { former_bundles: &["other.id/"], ..PRUSA_SLICER }, team).is_err());
+    }
 
     fn solidcraft() -> &'static CraftApp {
         CraftApp::by_id("solidcraft").unwrap()

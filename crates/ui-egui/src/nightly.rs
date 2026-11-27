@@ -54,7 +54,7 @@ fn nightly_card_version(entry: &AppEntry, enabled: bool) -> Option<String> {
         return Some(artcraft_launcher_core::version::parse(&release.tag).map_or_else(|| release.tag.clone(), |version| version.to_string()));
     }
     // OFF is management-only: a cached newer release must not label the installed copy.
-    entry.installed.as_ref()?.version.as_ref().map(ToString::to_string)
+    entry.installed.as_ref()?.version.as_ref().map(artcraft_launcher_core::version::label)
 }
 
 // Reuse the UI's relative-time vocabulary; build identity still uses the UTC tag day.

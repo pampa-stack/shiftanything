@@ -694,10 +694,12 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         return platform == linux_x64;
     }
     if [
+        crate::curated::DBEAVER_CE.id,
         crate::curated::GHOST_DOWNLOADER.id,
         crate::curated::LOSSLESSCUT.id,
         crate::curated::MUSESCORE.id,
         crate::curated::ORCA_SLICER.id,
+        crate::curated::PRUSA_SLICER.id,
         crate::curated::ZETTLR.id,
     ]
     .iter()

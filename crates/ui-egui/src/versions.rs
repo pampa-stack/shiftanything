@@ -203,7 +203,9 @@ impl LauncherUi {
         let entry = self.entry(id)?;
         let installed = entry.installed.as_ref()?.version.as_ref()?;
         let tag = self.chosen_tag(entry)?;
-        version::parse(&tag).is_some_and(|chosen| version::is_newer(installed, &chosen)).then_some(tag)
+        artcraft_launcher_core::release::release_tag_version(entry.app.release_repository(), &tag)
+            .is_some_and(|chosen| version::is_newer(installed, &chosen))
+            .then_some(tag)
     }
 
     /// Whether version `tag` of `entry` can be installed now: `None` until the release on screen

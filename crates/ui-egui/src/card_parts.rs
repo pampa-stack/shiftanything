@@ -15,7 +15,7 @@ use crate::model::AppEntry;
 /// newer release), the note left plain so it informs without asking for anything. Empty when
 /// nothing is known yet.
 pub(crate) fn strip_version(e: &AppEntry, status: &AppStatus, behind: Option<&str>) -> Vec<(String, bool)> {
-    let installed = e.installed.as_ref().and_then(|i| i.version.as_ref().map(ToString::to_string));
+    let installed = e.installed.as_ref().and_then(|i| i.version.as_ref().map(artcraft_launcher_core::version::label));
     let latest = e.latest_label();
     match (status, installed.as_deref(), latest.as_deref()) {
         (AppStatus::UpdateAvailable, Some(i), Some(l)) => vec![(format!("{i} → "), false), (l.to_string(), true)],

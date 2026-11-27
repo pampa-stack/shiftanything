@@ -972,6 +972,13 @@ pub fn promptica_social_icons(ui: &mut Ui, size: f32) {
             tip: "Promptica · Instagram".into(),
             url: "https://www.instagram.com/promptica_ai",
         },
+        IconLink {
+            name: "Reddit",
+            label: "Promptica Reddit".into(),
+            tip: "Promptica · Reddit".into(),
+            url: "https://www.reddit.com/user/Comfortable_Ice_4281/",
+        },
+        IconLink { name: "X", label: "Promptica X".into(), tip: "Promptica · X".into(), url: "https://x.com/Pampaeyes" },
     ];
     icon_links(ui, size, &links);
 }

@@ -125,3 +125,5 @@ Catalog import 298 (220 Base / 78 Advanced), Regia `e5690dca` after `863f89b5`, 
 SH*FTER data refresh, Regia `684e51eb` (2026-11-26): eight documented profiles, 20 documented alternatives, 50 additional commercial names for discovery only. Arq Backup notes preserve prerequisites and official evidence; suggested software never implies verified coverage or an installation recipe.
 
 Favorite heart outline/filled SVGs in `assets/ui-icons/heart-*.svg`: original geometric artwork drawn for this fork, 2026-11-26; covered by the repository MIT/Apache-2.0 licence. No external icon or font copied.
+
+`assets/social/reddit.svg`: Simple Icons contributors, version 16.34.0, CC0 1.0; source and tint change in assets/social/README.md. Reddit trademark belongs to Reddit, Inc.

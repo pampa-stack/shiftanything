@@ -65,6 +65,7 @@ pub const ARTCRAFT_LOGO_ASPECT: f32 = 1038.05 / 108.0;
 /// A social service's logo (Simple Icons, white, for tinting), by its name in `catalog::SOCIAL`.
 pub fn social(service: &str) -> Option<ImageSource<'static>> {
     Some(match service {
+        "Reddit" => egui::include_image!("../../../assets/social/reddit.svg"),
         "X" => egui::include_image!("../../../assets/social/x.svg"),
         "YouTube" => egui::include_image!("../../../assets/social/youtube.svg"),
         "TikTok" => egui::include_image!("../../../assets/social/tiktok.svg"),

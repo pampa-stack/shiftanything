@@ -1,0 +1,54 @@
+App=it.promptica.shiftanything (pid 48631)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 0
+			14 toggle button TROVA APP, Value: 1
+			15 toggle button KIT DI LAVORO, Value: 0
+			1534 search text field (disabled, settable) Cerca app, categoria o alternativa…
+				1535 text Cerca app, categoria o alternativa…
+			1536 toggle button (disabled) Vista schede, Value: 1
+			1537 toggle button (disabled) Vista tabella, Value: 0
+			1538 button AGGIORNAMENTI
+			1539 container
+				1540 heading Trova app
+				1541 text Che cosa vuoi fare?
+				1542 search text field (settable) Che cosa vuoi fare?, Value: Vorrei scrivere in tutte le app dettando
+					1558 text Vorrei scrivere in tutte le app dettando
+					1559 button cancel
+				1544 text Sistema per app desktop
+				1545 pop up button Sistema per app desktop, Value: macOS
+				1546 button VORREI SCRIVERE IN TUTTE LE APP DETTANDO
+				1547 button VOGLIO LA TRASCRIZIONE E IL RIEPILOGO DI UNA RIUNIONE
+				1548 button COPIA IL TESTO CHE VEDO SULLO SCHERMO
+				1549 button RENDI RICERCABILE UN PDF SCANSIONATO
+				1550 button FAI UN BACKUP CIFRATO DEI MIEI FILE
+				1551 button RIPRISTINA LINUX DOPO UN AGGIORNAMENTO
+				1552 button PASSA FILE DAL TELEFONO AL COMPUTER SENZA CLOUD
+				1553 button PROGRAMMA I POST DEI SOCIAL DA UN CALENDARIO
+				1554 button VOGLIO INVIARE UNA NEWSLETTER AGLI ISCRITTI
+				1555 button RACCOGLI I CONTATTI DAL MIO SITO CON UN MODULO
+				1556 button COLLEGA I DISPOSITIVI DELL’UFFICIO IN UNA VPN PRIVATA
+				1557 button GENERA VIDEO CON AI SUL MIO COMPUTER
+				1560 text 1 risultati
+				1561 container Handy
+					1562 heading Handy
+					1563 text Trascrive il microfono in locale e incolla il testo nel campo attivo con una scorciatoia.
+					1564 button SCHEDA
+					1565 link Fonte
+						1566 text Fonte
+			1347 container, Text: PROFILO TEMPORANEO · RUST 528 · MACOS/ARM64 · 40 STATI RILEVATI Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

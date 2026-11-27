@@ -1,0 +1,163 @@
+App=it.promptica.shiftanything (pid 48631)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Trova alternative open source per le funzioni che usi.
+					1204 container
+						1205 text SOFTWARE A PAGAMENTO
+						1206 combo box (settable) SOFTWARE A PAGAMENTO, Value: Little Snitch, Placeholder: Cerca, es. Photoshop
+						1207 button Elenco software A–Z
+						1208 button CONFRONTA
+				1209 container Funzioni che usi
+					1210 container
+						1211 heading Funzioni che usi
+						1411 text 4 / 4
+					1412 container
+						1413 checkbox Avvisi sulle connessioni in uscita, Value: 1
+						1414 text Avvisi sulle connessioni in uscita
+					1415 toggle button Indispensabile · Avvisi sulle connessioni in uscita, Value: 0
+					1416 container
+						1417 checkbox Regole per applicazione, Value: 1
+						1418 text Regole per applicazione
+					1419 toggle button Indispensabile · Regole per applicazione, Value: 0
+					1420 container
+						1421 checkbox Monitor delle connessioni per app, Value: 1
+						1422 text Monitor delle connessioni per app
+					1423 toggle button Indispensabile · Monitor delle connessioni per app, Value: 0
+					1424 container
+						1425 checkbox Liste di blocco da URL con aggiornamenti, Value: 1
+						1426 text Liste di blocco da URL con aggiornamenti
+					1427 toggle button Indispensabile · Liste di blocco da URL con aggiornamenti, Value: 0
+				1229 container Confronto con il catalogo
+					1230 container
+						1231 heading Confronto con il catalogo
+						1428 text Little Snitch
+						1429 text 528 APP NEL CONFRONTO
+						1234 text La copertura appare quando ci sono fonti per le funzioni selezionate.
+					1235 search text field (settable) Cerca app nel confronto
+						1236 text Cerca app nel confronto
+					1237 container Pagine delle app
+						1238 button (disabled) PRECEDENTE
+						1430 text 1–12 DI 528
+						1240 button SUCCESSIVA
+					1241 table
+						1242 row APPLICAZIONE COPERTURA DOCUMENTATA SCHEDA / FONTI
+							1243 cell APPLICAZIONE
+								1244 text APPLICAZIONE
+							1245 cell COPERTURA DOCUMENTATA
+								1246 text COPERTURA DOCUMENTATA
+							1247 cell SCHEDA / FONTI
+								1248 text SCHEDA / FONTI
+						1431 row LuLu 75% 3/4
+							1432 cell LuLu
+								1433 text LuLu
+							1434 cell 75% 3/4
+								1435 text 75%
+								1436 text 3/4
+							1437 cell
+								1438 button Scheda · LuLu
+								1439 button Fonti · LuLu
+						1440 row OpenSnitch 75% 3/4
+							1441 cell OpenSnitch
+								1442 text OpenSnitch
+							1443 cell 75% 3/4
+								1444 text 75%
+								1445 text 3/4
+							1446 cell
+								1447 button Scheda · OpenSnitch
+								1448 button Fonti · OpenSnitch
+						1449 row Portmaster Free 75% 3/4
+							1450 cell Portmaster Free
+								1451 text Portmaster Free
+							1452 cell 75% 3/4
+								1453 text 75%
+								1454 text 3/4
+							1455 cell
+								1456 button Scheda · Portmaster Free
+								1457 button Fonti · Portmaster Free
+						1458 row AbiWord —
+							1459 cell AbiWord
+								1460 text AbiWord
+							1461 cell —
+								1462 text —
+							1463 cell
+								1464 button Scheda · AbiWord
+						1465 row Ackee —
+							1466 cell Ackee
+								1467 text Ackee
+							1468 cell —
+								1469 text —
+							1470 cell
+								1471 button Scheda · Ackee
+						1472 row ActivityWatch —
+							1473 cell ActivityWatch
+								1474 text ActivityWatch
+							1475 cell —
+								1476 text —
+							1477 cell
+								1478 button Scheda · ActivityWatch
+						1479 row Actual Budget —
+							1480 cell Actual Budget
+								1481 text Actual Budget
+							1482 cell —
+								1483 text —
+							1484 cell
+								1485 button Scheda · Actual Budget
+						1486 row addy.io —
+							1487 cell addy.io
+								1488 text addy.io
+							1489 cell —
+								1490 text —
+							1491 cell
+								1492 button Scheda · addy.io
+						1493 row AdGuard Home —
+							1494 cell AdGuard Home
+								1495 text AdGuard Home
+							1496 cell —
+								1497 text —
+							1498 cell
+								1499 button Scheda · AdGuard Home
+						1500 row AiderDesk —
+							1501 cell AiderDesk
+								1502 text AiderDesk
+							1503 cell —
+								1504 text —
+							1505 cell
+								1506 button Scheda · AiderDesk
+						1507 row AionUi —
+							1508 cell AionUi
+								1509 text AionUi
+							1510 cell —
+								1511 text —
+							1512 cell
+								1513 button Scheda · AionUi
+						1514 row AIRI —
+							1515 cell AIRI
+								1516 text AIRI
+							1517 cell —
+								1518 text —
+							1519 cell
+								1520 button Scheda · AIRI
+					1521 text 528 app nel confronto · 1–12 di 528
+					1346 container, Text: La copertura conta le funzioni selezionate supportate per intero. Fonti controll... 2026-11-27 .
+			1347 container, Text: PROFILO TEMPORANEO · RUST 528 · MACOS/ARM64 · 40 STATI RILEVATI Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

@@ -1,0 +1,3 @@
+PASS 528 unique cards and matching IT/EN template IDs
+PASS 541 bundled file hashes, 505 bundled app logos
+Security / VPN / network: 44 17 18

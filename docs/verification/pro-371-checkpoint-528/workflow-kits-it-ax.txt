@@ -1,0 +1,184 @@
+App=it.promptica.shiftanything (pid 48631)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 0
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 1
+			1534 search text field (disabled, settable) Cerca app, categoria o alternativa…
+				1535 text Cerca app, categoria o alternativa…
+			1536 toggle button (disabled) Vista schede, Value: 1
+			1537 toggle button (disabled) Vista tabella, Value: 0
+			1538 button AGGIORNAMENTI
+			1567 container
+				1568 heading Kit di lavoro
+				1569 text Ruolo
+				1570 pop up button Ruolo, Value: Designer
+				1571 button (disabled) INSTALLA SELEZIONE
+				1572 text Fotoritocco, grafica vettoriale, impaginazione e prototipi.
+				1573 container Fotoritocco
+					1574 heading Fotoritocco
+					1575 text A pagamento · Adobe Photoshop
+					1576 button CONFRONTA
+					1577 container
+						1578 checkbox (disabled) Seleziona per installazione · GIMP, Value: 0
+						1579 text GIMP
+					1580 text Ritocco, composizione e livelli.
+					1581 button SCHEDA
+					1582 link Fonte
+						1583 text Fonte
+					1584 container
+						1585 checkbox (disabled) Seleziona per installazione · PhotoCraft, Value: 0
+						1586 text PhotoCraft
+					1587 text Livelli, maschere e PSD. L’app è in alpha.
+					1588 button SCHEDA
+					1589 link Fonte
+						1590 text Fonte
+					1591 container
+						1592 checkbox (disabled) Seleziona per installazione · Krita, Value: 0
+						1593 text Krita
+					1594 text Illustrazione, pennelli, livelli e maschere.
+					1595 button SCHEDA
+					1596 link Fonte
+						1597 text Fonte
+				1598 container Grafica vettoriale
+					1599 heading Grafica vettoriale
+					1600 text A pagamento · Adobe Illustrator
+					1601 button CONFRONTA
+					1602 container
+						1603 checkbox (disabled) Seleziona per installazione · Inkscape, Value: 0
+						1604 text Inkscape
+					1605 text Loghi, icone e illustrazioni in SVG.
+					1606 button SCHEDA
+					1607 link Fonte
+						1608 text Fonte
+					1609 container
+						1610 checkbox (disabled) Seleziona per installazione · VectorCraft, Value: 0
+						1611 text VectorCraft
+					1612 text Tracciati, forme e grafica vettoriale. Verifica i file .ai complessi.
+					1613 button SCHEDA
+					1614 link Fonte
+						1615 text Fonte
+				1616 container Impaginazione
+					1617 heading Impaginazione
+					1618 text A pagamento · Adobe InDesign
+					1619 container
+						1620 checkbox (disabled) Seleziona per installazione · Scribus, Value: 0
+						1621 text Scribus
+					1622 text Documenti multipagina e PDF/X per la stampa.
+					1623 button SCHEDA
+					1624 link Fonte
+						1625 text Fonte
+					1626 container
+						1627 checkbox (disabled) Seleziona per installazione · DesignCraft, Value: 0
+						1628 text DesignCraft
+					1629 text Impaginazione con testo e immagini. È un’app di ArtCraft.
+					1630 button SCHEDA
+					1631 link Fonte
+						1632 text Fonte
+				1633 container Prototipi di interfacce
+					1634 heading Prototipi di interfacce
+					1635 text A pagamento · Figma
+					1636 button CONFRONTA
+					1637 container
+						1638 checkbox (disabled) Seleziona per installazione · FigCraft, Value: 0
+						1639 text FigCraft
+					1640 text Design e prototipi offline. Apre file .fig con compatibilità parziale.
+					1641 button SCHEDA
+					1642 link Fonte
+						1643 text Fonte
+					1644 container
+						1645 checkbox (disabled) Seleziona per installazione · Doop, Value: 0
+						1646 text Doop
+					1647 text Prototipi HTML condivisi ed editing tramite MCP. La migrazione da Figma è disponibile su Doop Cloud.
+					1648 button SCHEDA
+					1649 link Fonte
+						1650 text Fonte
+					1651 container
+						1652 checkbox (disabled) Seleziona per installazione · Penpot, Value: 0
+						1653 text Penpot
+					1654 text Collega tavole e crea prototipi navigabili. Disponibile in self-hosting.
+					1655 button SCHEDA
+					1656 link Fonte
+						1657 text Fonte
+				1658 heading Classifica
+				1659 container Design · Italia
+					1660 heading Design · Italia
+					1661 text Uso dichiarato · 529 partecipanti al sondaggio aperto 2026. Estratto per le app del kit.
+					1662 link POLI.design · Experience Design Academy
+						1663 text POLI.design · Experience Design Academy
+					1664 text Figma
+					1665 text 91
+					1666 button FIGCRAFT · ★ 5442
+					1667 button DOOP · ★ 2337
+					1668 button PENPOT · ★ 62.786
+					1669 button CONFRONTA
+					1670 text Adobe Illustrator
+					1671 text 29
+					1672 button INKSCAPE
+					1673 button VECTORCRAFT · ★ 12.122
+					1674 button CONFRONTA
+					1675 text Adobe Photoshop
+					1676 text 25
+					1677 button GIMP
+					1678 button PHOTOCRAFT · ★ 81.662
+					1679 button KRITA
+					1680 button CONFRONTA
+					1681 text Adobe InDesign
+					1682 text 6
+					1683 button SCRIBUS
+					1684 button DESIGNCRAFT · ★ 5406
+				1685 container Architettura · AIBD
+					1686 heading Architettura · AIBD
+					1687 text Software principale · 165 risposte da progettisti di edilizia residenziale, 2026. Estratto per le app del kit.
+					1688 link American Institute of Building Design
+						1689 text American Institute of Building Design
+					1690 text Chief Architect
+					1691 text 33,9
+					1692 button FREECAD · ★ 35.815
+					1693 text SoftPlan
+					1694 text 19,4
+					1695 button FREECAD · ★ 35.815
+					1696 text Revit
+					1697 text 12,1
+					1698 button FREECAD · ★ 35.815
+					1699 text AutoCAD
+					1700 text 10,9
+					1701 button LIBRECAD · ★ 6646
+					1702 button FREECAD · ★ 35.815
+					1703 text Archicad
+					1704 text 6,1
+					1705 button FREECAD · ★ 35.815
+				1706 container Aziende · spesa rilevata
+					1707 heading Aziende · spesa rilevata
+					1708 text Aziende con acquisti · Aziende europee della categoria Design nel campione Moss. Dati di pagamento fino a maggio 2026. Estratto di due fornitori.
+					1709 link Moss
+						1710 text Moss
+					1711 text Adobe · suite
+					1712 text 68,4
+					1713 button GIMP
+					1714 button PHOTOCRAFT · ★ 81.662
+					1715 button INKSCAPE
+					1716 button VECTORCRAFT · ★ 12.122
+					1717 button SCRIBUS
+					1718 button DESIGNCRAFT · ★ 5406
+					1719 text Figma
+					1720 text 35,7
+					1721 button FIGCRAFT · ★ 5442
+					1722 button DOOP · ★ 2337
+					1723 button PENPOT · ★ 62.786
+					1724 button CONFRONTA
+
+No UI element is currently focused.

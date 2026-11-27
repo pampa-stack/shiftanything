@@ -257,8 +257,51 @@ const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIP
 }
 pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] = native_apps();
 
+/// AppImage recipes that completed install, launch, update and removal on Linux x86_64.
+/// Editorial rows and release metadata cannot add recipes to this list.
+pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform) -> bool {
+    if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
+        return false;
+    }
+    if app.id == LOCALSEND.id {
+        return app.repo == LOCALSEND.repo;
+    }
+    matches!(
+        (app.id, app.repo),
+        ("anicraft", "storytold/anicraft")
+            | ("cadcraft", "storytold/cadcraft")
+            | ("deckcraft", "storytold/deckcraft")
+            | ("effectcraft", "storytold/effectcraft")
+            | ("figcraft", "storytold/figcraft")
+            | ("filmcraft", "storytold/filmcraft")
+            | ("gridcraft", "storytold/gridcraft")
+            | ("lightcraft", "storytold/lightcraft")
+            | ("pdfcraft", "storytold/pdfcraft")
+            | ("photocraft", "storytold/photocraft")
+            | ("soundcraft", "storytold/soundcraft")
+            | ("texturecraft", "storytold/texturecraft")
+            | ("vectorcraft", "storytold/vectorcraft")
+            | ("wordcraft", "storytold/wordcraft")
+    )
+}
+
 #[cfg(test)]
 mod recipe_tests {
+    #[test]
+    fn verified_linux_appimages_require_the_tested_host_and_publisher() {
+        use crate::{Arch, CraftApp, Os, Platform};
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let arm = Platform { arch: Arch::Arm64, ..linux };
+        let photo = *CraftApp::by_id("photocraft").unwrap();
+        let impostor = CraftApp { repo: "elsewhere/photocraft", ..photo };
+        assert!(super::verified_linux_appimage(&photo, linux));
+        assert!(!super::verified_linux_appimage(&photo, arm));
+        assert!(!super::verified_linux_appimage(&impostor, linux));
+        assert!(!super::verified_linux_appimage(&super::HANDY, linux));
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 15);
+    }
+
     #[test]
     fn localsend_recipe_accepts_only_the_official_linux_x64_appimage() {
         use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};

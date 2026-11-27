@@ -50,8 +50,8 @@ pub(crate) fn verify_with(
     // Ignore existing assessment objects AND avoid storing this assessment. This does not
     // bypass trust/revocation caches or prove a fresh OCSP response.
     // Uncached assessments of these large bundles have exceeded the default bound.
-    use artcraft_launcher_core::curated::{GODOT, TERMIX};
-    let policy_timeout = if [GODOT.id, TERMIX.id].contains(&app.id) { Duration::from_secs(180) } else { TIMEOUT };
+    use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, TERMIX};
+    let policy_timeout = if [ACTUAL_BUDGET.id, APPFLOWY.id, GODOT.id, TERMIX.id].contains(&app.id) { Duration::from_secs(180) } else { TIMEOUT };
     let output = run(SPCTL, &["--assess", "--type", "execute", "--ignore-cache", "--no-cache", "--raw", path], policy_timeout)
         .map_err(|reason| format!("macOS verification did not succeed (macOS policy: {reason}), so the app wasn't installed"))?;
     if !output.success {
@@ -204,6 +204,23 @@ mod tests {
         assert_eq!(calls[3].1, ["--status"]);
         for flag in ["--ignore-cache", "--no-cache", "--raw"] {
             assert!(calls[4].1.iter().any(|a| a == flag));
+        }
+    }
+
+    #[test]
+    fn mac_install_allows_longer_uncached_assessments_for_large_bundles() {
+        use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, TERMIX};
+
+        for app in [&ACTUAL_BUDGET, &APPFLOWY, &GODOT, &TERMIX] {
+            verify_with(app, Path::new("/private/owned/Large.app"), app.mac_team.unwrap(), |program, args, timeout| {
+                if program == SPCTL && args.first() == Some(&"--assess") {
+                    assert_eq!(timeout, Duration::from_secs(180));
+                    return Ok(success(accepted()));
+                }
+                assert_eq!(timeout, TIMEOUT);
+                Ok(success(if program == SPCTL { "assessments enabled" } else { "" }))
+            })
+            .unwrap();
         }
     }
 

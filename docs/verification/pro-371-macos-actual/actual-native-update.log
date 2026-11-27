@@ -1,0 +1,4 @@
+Recipe actual selected Actual-mac-arm64.dmg 145818730 bytes
+Verifying after 15.478s
+Installing after 15.478s
+Error: "macOS verification did not succeed (macOS policy: /usr/sbin/spctl didn't finish within 60 seconds), so the app wasn't installed"

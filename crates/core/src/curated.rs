@@ -1159,7 +1159,28 @@ pub const APPFLOWY: crate::CraftApp = crate::CraftApp {
     mac_team: Some("VHB67HRSZG"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 45] = [
+pub const ACTUAL_BUDGET: crate::CraftApp = crate::CraftApp {
+    id: "actual",
+    name: "Actual Budget",
+    tagline: "Manage personal budgets, spending and goals locally",
+    repo: "actualbudget/actual",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [100, 84, 202],
+    ink_light: [60, 47, 145],
+    ink_dark: [197, 187, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Actual Budget",
+    msi_publisher: None,
+    bundle: Some("com.actualbudget.actual"),
+    site: Some("https://actualbudget.org/"),
+    mac_bundle_name: Some("Actual"),
+    mac_team: Some("79ANZ983YF"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 46] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1192,6 +1213,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 45] = [
     VIBE,
     OPENSCREEN,
     SOLVESPACE,
+    ACTUAL_BUDGET,
     APPFLOWY,
     BLOCKBENCH,
     DOSBOX_STAGING,
@@ -1439,6 +1461,32 @@ mod recipe_tests {
             }
             let prerelease = release::Release { prerelease: true, ..release.clone() };
             assert!(!release::appflowy_mac_asset(&prerelease, asset));
+        }
+    }
+
+    #[test]
+    fn actual_budget_selects_only_the_official_silicon_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("actual").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("com.actualbudget.actual"), Some("79ANZ983YF")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, size) in [("v26.10.0", 143_479_378), ("v26.11.0", 145_818_730)] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            assert_eq!(asset.name, "Actual-mac-arm64.dmg");
+            assert_eq!((asset.size, kind), (size, PackageKind::Dmg));
+            let intel = Platform { arch: Arch::X64, ..mac };
+            assert!(platform::pick_asset(&release, &[app.id], intel, intel.download_kinds()).is_none());
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let wrong_tag = release::Asset { url: asset.url.replace(tag, "v26.12.0"), ..asset.clone() };
+            let intel_asset = release::Asset { name: asset.name.replace("arm64", "x64"), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            for different in [different_size, wrong_tag, intel_asset, no_checksum] {
+                assert!(!release::actual_budget_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::actual_budget_mac_asset(&prerelease, asset));
         }
     }
 

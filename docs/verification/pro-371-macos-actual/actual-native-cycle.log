@@ -1,0 +1,7 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437099292    816292   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974819260   1536180   100%    /Volumes/T7-Backup
+Recipe actual selected Actual-mac-arm64.dmg 143479378 bytes
+Verifying after 18.024s
+Installing after 18.024s
+Error: "macOS verification did not succeed (macOS policy: /usr/sbin/spctl didn't finish within 60 seconds), so the app wasn't installed"

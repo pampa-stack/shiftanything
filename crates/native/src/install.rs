@@ -67,6 +67,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             ACTIVITYWATCH.id,
             TERMIX.id,
             NEOVIDE.id,
+            artcraft_launcher_core::curated::ACTUAL_BUDGET.id,
             artcraft_launcher_core::curated::APPFLOWY.id,
             artcraft_launcher_core::curated::BLOCKBENCH.id,
             artcraft_launcher_core::curated::DOSBOX_STAGING.id,
@@ -594,6 +595,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::APPFLOWY.id {
         return (app.repo == artcraft_launcher_core::curated::APPFLOWY.repo && release::appflowy_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::ACTUAL_BUDGET.id {
+        return (app.repo == artcraft_launcher_core::curated::ACTUAL_BUDGET.repo && release::actual_budget_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -3082,6 +3088,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::VIBE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::ACTUAL_BUDGET), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::APPFLOWY), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::BLOCKBENCH), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DOSBOX_STAGING), Some((12, 0)));

@@ -910,6 +910,7 @@ mod tests {
             (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),
             (crate::curated::BLENDER, ["5.2.5", "5.3.0"]),
             (crate::curated::GIMP, ["3.2.6", "3.2.8"]),
+            (crate::curated::KRITA, ["5.3.4.1", "5.3.5"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),

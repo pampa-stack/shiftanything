@@ -123,6 +123,9 @@ impl CraftApp {
         if self.uses_gimp_releases() {
             return crate::release::GIMP_DOWNLOADS_URL.to_string();
         }
+        if self.uses_krita_releases() {
+            return crate::release::KRITA_DOWNLOADS_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -132,6 +135,9 @@ impl CraftApp {
         }
         if self.uses_gimp_releases() {
             return "https://gitlab.gnome.org/GNOME/gimp".to_string();
+        }
+        if self.uses_krita_releases() {
+            return "https://invent.kde.org/graphics/krita".to_string();
         }
         format!("https://github.com/{}", self.repo)
     }
@@ -150,6 +156,10 @@ impl CraftApp {
 
     pub fn uses_gimp_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::GIMP.id, crate::curated::GIMP.repo)
+    }
+
+    pub fn uses_krita_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::KRITA.id, crate::curated::KRITA.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

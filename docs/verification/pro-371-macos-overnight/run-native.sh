@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -34,7 +34,19 @@ releases = []
 for tag in (old, new):
     [digest, size, url] = re.search(r'^ARTIFACT ([a-f0-9]{64}) (\d+) (https://\S+)$', Path(f'{log_id}-{tag}.log').read_text(), re.M).groups()
     name = url.rsplit('/', 1)[-1]
-    if app_id == 'gimp':
+    if app_id == 'krita':
+        assert re.fullmatch(r'\d+\.\d+\.\d+(?:\.1)?', tag)
+        assert url == f'https://download.kde.org/stable/krita/{tag}/krita-{tag}-signed.dmg'
+        mirrorlist = Path(f'krita-{tag}.mirrorlist').read_text()
+        checksum = re.search(r'>SHA256</a></td><td[^>]*>([a-f0-9]{64})</td>', mirrorlist)
+        assert checksum is not None and checksum.group(1) == digest
+        assert f'({int(size):,} bytes)' in mirrorlist or f'({size} bytes)' in mirrorlist
+        if tag == new:
+            html = Path('krita-download.html').read_text()
+            assert re.search(r' href=(?:"' + re.escape(url) + r'"|' + re.escape(url) + r'(?=\s|>))', html)
+        published_digests = {digest}
+        version = tag if tag != '5.3.4.1' else '5.3.4'
+    elif app_id == 'gimp':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         series = tag.rsplit('.', 1)[0]
         assert name == f'gimp-{tag}-arm64.dmg'
@@ -84,7 +96,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion

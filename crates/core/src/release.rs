@@ -91,6 +91,8 @@ pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
 pub const GIMP_DMG_URL: &str = "https://download.gimp.org/gimp/";
 pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
 pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
+pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
+pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
 pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
@@ -149,6 +151,29 @@ pub fn gimp_release(version: Version) -> Release {
         tag,
         ..Release::default()
     }
+}
+
+fn krita_mac_version(tag: &str) -> Option<Version> {
+    // KDE labels the hotfix 5.3.4.1, but the signed Mac bundle identifies itself as 5.3.4.
+    let label = if tag == "5.3.4.1" { "5.3.4" } else { tag };
+    let version = Version::parse(label).ok()?;
+    (version.to_string() == label && version.pre.is_empty() && version.build.is_empty()).then_some(version)
+}
+
+pub fn krita_mac_release(tag: &str) -> Option<Release> {
+    Some(Release {
+        assets: reviewed_assets(crate::curated::KRITA.repo, tag).collect(),
+        name: format!("Krita {tag}"),
+        html_url: KRITA_DOWNLOADS_URL.to_string(),
+        version: Some(krita_mac_version(tag)?),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn krita_mac_release_from_download(address: &str) -> Option<Release> {
+    let (tag, name) = address.strip_prefix(KRITA_DMG_URL)?.split_once('/')?;
+    (name == format!("krita-{tag}-signed.dmg")).then(|| krita_mac_release(tag))?
 }
 
 fn netnewswire_mac_version(tag: &str) -> Option<Version> {
@@ -607,6 +632,8 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         termix_desktop_version(tag)
     } else if repo == crate::curated::OPENCODE.repo {
         opencode_desktop_version(tag)
+    } else if repo == crate::curated::KRITA.repo {
+        krita_mac_version(tag)
     } else if repo == crate::curated::NETNEWSWIRE.repo {
         netnewswire_mac_version(tag)
     } else if repo == crate::curated::PICARD.repo {
@@ -988,6 +1015,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CODEEDIT,
         crate::curated::BLENDER,
         crate::curated::GIMP,
+        crate::curated::KRITA,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -998,7 +1026,9 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
             if app.repo == crate::curated::DBEAVER_CE.repo && app.id == crate::curated::DBEAVER_CE.id {
                 return version::parse_dbeaver(&release.tag).as_ref() == Some(version);
             }
-            let canonical_tag = if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
+            let canonical_tag = if app.uses_krita_releases() {
+                krita_mac_version(&release.tag).as_ref() == Some(version)
+            } else if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
                 release.tag == format!("version_{version}")
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
@@ -1489,6 +1519,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("GNOME/gimp", "3.2.6") => &[("gimp-3.2.6-arm64.dmg", 185_680_887, "854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294")],
         ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
+        ("KDE/krita", "5.3.4.1") => &[("krita-5.3.4.1-signed.dmg", 392_023_759, "531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de")],
+        ("KDE/krita", "5.3.5") => &[("krita-5.3.5-signed.dmg", 392_026_525, "273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175")],
         ("Ranchero-Software/NetNewsWire", "mac-7.3") => {
             &[("NetNewsWire7.3.zip", 10_478_881, "9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1")]
         }
@@ -1748,6 +1780,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             // These tags are the canonical stable versions in the receipts above.
             let (series, _) = tag.rsplit_once('.').expect("reviewed Blender version");
             format!("{BLENDER_DMG_URL}Blender{series}/{name}")
+        } else if repo == crate::curated::KRITA.repo {
+            format!("{KRITA_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::GIMP.repo {
             let (series, _) = tag.rsplit_once('.').expect("reviewed GIMP version");
             format!("{GIMP_DMG_URL}v{series}/macos/{name}")

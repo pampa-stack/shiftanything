@@ -473,6 +473,10 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::GIMP_INDEX_URL, 256 * 1024)
     }
 
+    pub(crate) fn get_krita_downloads(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::KRITA_DOWNLOADS_URL, 128 * 1024)
+    }
+
     fn get_bytes_with(agent: &ureq::Agent, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
         let mut resp = agent.get(url).call().map_err(|e| format!("{UNREACHABLE} {} ({e})", host(url)))?;
         match resp.status().as_u16() {
@@ -626,9 +630,13 @@ impl Http {
         .any(|prefix| url.starts_with(prefix))
         {
             req = req.config().https_only(true).max_redirects(0).build();
-        } else if [artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL, artcraft_launcher_core::release::GIMP_DMG_URL]
-            .iter()
-            .any(|prefix| url.starts_with(prefix))
+        } else if [
+            artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL,
+            artcraft_launcher_core::release::GIMP_DMG_URL,
+            artcraft_launcher_core::release::KRITA_DMG_URL,
+        ]
+        .iter()
+        .any(|prefix| url.starts_with(prefix))
         {
             req = req.config().https_only(true).build();
         }

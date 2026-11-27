@@ -1,0 +1,81 @@
+OFFICIAL METADATA 392023759 531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de
+2026-11-27T23:56:19+0100
+ARTIFACT 531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de 392023759 https://download.kde.org/stable/krita/5.3.4.1/krita-5.3.4.1-signed.dmg
+BUNDLE=krita.app
+CFBundleIdentifier=org.krita
+CFBundleShortVersionString=5.3.4
+CFBundleVersion=5.3.4
+CFBundleExecutable=krita
+LSMinimumSystemVersion=10.15
+<scratch>/preflight/krita/5.3.4.1/mount/krita.app/Contents/MacOS/krita: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/krita/5.3.4.1/mount/krita.app/Contents/MacOS/krita (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/krita/5.3.4.1/mount/krita.app/Contents/MacOS/krita (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/krita/5.3.4.1/mount/krita.app/Contents/MacOS/krita (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.krita
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: IVAN YOSSI SANTA MARIA GONZALEZ (DL93766A3G)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=5 Oct 2026 at 21:10:22
+TeamIdentifier=DL93766A3G
+<scratch>/preflight/krita/5.3.4.1/mount/krita.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT krita 5.3.4.1
+OFFICIAL METADATA 392026525 273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175
+2026-11-27T23:56:19+0100
+ARTIFACT 273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175 392026525 https://download.kde.org/stable/krita/5.3.5/krita-5.3.5-signed.dmg
+BUNDLE=krita.app
+CFBundleIdentifier=org.krita
+CFBundleShortVersionString=5.3.5
+CFBundleVersion=5.3.5
+CFBundleExecutable=krita
+LSMinimumSystemVersion=10.15
+<scratch>/preflight/krita/5.3.5/mount/krita.app/Contents/MacOS/krita: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/krita/5.3.5/mount/krita.app/Contents/MacOS/krita (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/krita/5.3.5/mount/krita.app/Contents/MacOS/krita (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/krita/5.3.5/mount/krita.app/Contents/MacOS/krita (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.krita
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: IVAN YOSSI SANTA MARIA GONZALEZ (DL93766A3G)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=21 Nov 2026 at 01:57:41
+TeamIdentifier=DL93766A3G
+<scratch>/preflight/krita/5.3.5/mount/krita.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT krita 5.3.5
+PASS PREFLIGHT krita 5.3.4.1
+PASS PREFLIGHT krita 5.3.5
+OFFICIAL INDEX krita 5.3.4.1 digest=published
+OFFICIAL INDEX krita 5.3.5 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 5.3.4.1 Dmg https://download.kde.org/stable/krita/5.3.4.1/krita-5.3.4.1-signed.dmg 392023759 531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de
+PASS OFFICIAL 5.3.5 Dmg https://download.kde.org/stable/krita/5.3.5/krita-5.3.5-signed.dmg 392026525 273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175
+NATIVE ORIGIN krita Krita
+PASS OFFICIAL 5.3.4.1 Dmg https://download.kde.org/stable/krita/5.3.4.1/krita-5.3.4.1-signed.dmg 392023759 531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de
+PASS NATIVE krita install: Krita installed: 5.3.4; package_bytes=392023759; elapsed=201.829s
+NATIVE ORIGIN krita Krita
+PASS OFFICIAL 5.3.5 Dmg https://download.kde.org/stable/krita/5.3.5/krita-5.3.5-signed.dmg 392026525 273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175
+PASS NATIVE krita update: Krita updated to 5.3.5; package_bytes=392026525; elapsed=101.628s
+PASS NATIVE krita remove: Krita was removed; package_bytes=0; elapsed=0.116s
+PASS NATIVE CYCLE krita (5.3.4.1 → 5.3.5), private Trash and synthetic data preserved

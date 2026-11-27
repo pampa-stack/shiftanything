@@ -1285,6 +1285,7 @@ impl LauncherUi {
         let mut zotero = false;
         let mut blender = false;
         let mut gimp = false;
+        let mut krita = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1294,6 +1295,7 @@ impl LauncherUi {
                     Some(Origin::Zotero) => zotero = true,
                     Some(Origin::Blender) => blender = true,
                     Some(Origin::Gimp) => gimp = true,
+                    Some(Origin::Krita) => krita = true,
                     None => {}
                 }
             }
@@ -1305,6 +1307,7 @@ impl LauncherUi {
             (zotero, Origin::Zotero),
             (blender, Origin::Blender),
             (gimp, Origin::Gimp),
+            (krita, Origin::Krita),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

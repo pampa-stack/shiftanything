@@ -13,6 +13,7 @@ pub(crate) struct Launch {
     pub root: PathBuf,
     pub language: &'static str,
     pub isolated: bool,
+    pub capture_window: bool,
     pub lifecycle: bool,
     _desktop_lock: Option<File>,
 }
@@ -76,7 +77,7 @@ fn desktop() -> Result<Option<Launch>, StartupError> {
     }
     let language = saved_language(&root).unwrap_or_else(|| preferred_language(sys_locale::get_locales()));
     let lifecycle = cfg!(any(target_os = "macos", target_os = "linux", all(windows, feature = "windows-lifecycle")));
-    Ok(Some(Launch { root, language, isolated: false, lifecycle, _desktop_lock: Some(lock) }))
+    Ok(Some(Launch { root, language, isolated: false, capture_window: false, lifecycle, _desktop_lock: Some(lock) }))
 }
 
 fn preferred_language(locales: impl IntoIterator<Item = impl AsRef<str>>) -> &'static str {
@@ -192,13 +193,14 @@ fn isolated_child(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
     }
     let language = proof_language(Some(args.get(2).ok_or("Missing verification language")?))?;
     let lifecycle = args.iter().skip(3).any(|arg| arg == "--lifecycle");
+    let capture_window = args.iter().skip(3).any(|arg| arg == "--capture-window");
     #[cfg(target_os = "macos")]
     crate::verification::seed_previous_from_args(&root, &args[3..], lifecycle)?;
     #[cfg(not(target_os = "macos"))]
     if args[3..].iter().any(|arg| arg.to_str().is_some_and(|arg| arg.starts_with("--seed-") && arg.ends_with("-previous"))) {
         return Err("Previous DMG preparation requires macOS".into());
     }
-    Ok(Some(Launch { root, language, isolated: true, lifecycle, _desktop_lock: None }))
+    Ok(Some(Launch { root, language, isolated: true, capture_window, lifecycle, _desktop_lock: None }))
 }
 
 #[cfg(all(test, windows))]

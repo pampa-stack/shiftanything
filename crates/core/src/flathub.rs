@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 102] = [
+pub const RECIPES: [(&str, &str); 103] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -104,6 +104,7 @@ pub const RECIPES: [(&str, &str); 102] = [
     ("godot-engine", "org.godotengine.Godot"),
     ("gpt4all", "io.gpt4all.gpt4all"),
     ("dbeaver-ce", "io.dbeaver.DBeaverCommunity"),
+    ("jan", "ai.jan.Jan"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -224,6 +225,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "godot-engine" => "https://github.com/godotengine/godot",
         "gpt4all" => "https://github.com/nomic-ai/gpt4all",
         "dbeaver-ce" => "https://github.com/dbeaver/dbeaver",
+        "jan" => "https://github.com/janhq/jan",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

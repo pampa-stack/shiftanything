@@ -46,7 +46,7 @@ Lo script materializza il server auditato nella sola cartella automation del pro
 python3 tools/verify_tauri_metrics.py "$shift_scratch/profile/visual-it.json"
 ```
 
-Il controllo verifica dimensioni uniformi su più righe, intestazioni maiuscole e media iniziali caricati a 1440×900. Le misurazioni sono disponibili nei profili di prova. Il catalogo esportato deve contenere gli stessi ID del catalogo Rust.
+Il controllo verifica dimensioni uniformi su più righe, intestazioni maiuscole e media iniziali caricati a 1440×900. Aggiungere `--capture-window` all’avvio del profilo temporaneo per acquisire i pixel a 1440×900, con la sola area web e senza icona nel Dock. Le misurazioni sono disponibili nei profili di prova. Il catalogo esportato deve contenere gli stessi ID del catalogo Rust.
 
 Esportazione opzionale dal riferimento Regia in sola lettura (nessuna API Doop):
 

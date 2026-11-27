@@ -1453,6 +1453,27 @@ pub const CHERRY_STUDIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("87242QY66T"),
 };
 
+pub const BRUNO: crate::CraftApp = crate::CraftApp {
+    id: "bruno",
+    name: "Bruno",
+    tagline: "Test APIs with local, Git-friendly collections",
+    repo: "usebruno/bruno",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [237, 175, 118],
+    ink_light: [113, 51, 23],
+    ink_dark: [255, 215, 173],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Anoop MD",
+    msi_publisher: None,
+    bundle: Some("com.usebruno.app"),
+    site: Some("https://www.usebruno.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("W7LPPWA48L"),
+};
+
 pub const UPSCAYL: crate::CraftApp = crate::CraftApp {
     id: "upscayl",
     name: "Upscayl",
@@ -1495,7 +1516,28 @@ pub const GHOST_DOWNLOADER: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 61] = [
+pub const JAN: crate::CraftApp = crate::CraftApp {
+    id: "jan",
+    name: "Jan",
+    tagline: "Chat with local AI models",
+    repo: "janhq/jan",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "JAN AI PTE. LTD.",
+    msi_publisher: None,
+    bundle: Some("jan.ai.app"),
+    site: Some("https://jan.ai/"),
+    mac_bundle_name: None,
+    mac_team: Some("F8AH6NHVY5"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 63] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1557,6 +1599,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 61] = [
     ANYTHING_LLM,
     CHERRY_STUDIO,
     UPSCAYL,
+    BRUNO,
+    JAN,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

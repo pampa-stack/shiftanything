@@ -60,6 +60,8 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::RUSTDESK.id => Some((12, 3)),
         id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
+        id if id == artcraft_launcher_core::curated::JAN.id => Some((13, 6)),
+        id if id == artcraft_launcher_core::curated::BRUNO.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::UPSCAYL.id || id == artcraft_launcher_core::curated::LOSSLESSCUT.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::CHERRY_STUDIO.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::ANYTHING_LLM.id => Some((11, 0)),

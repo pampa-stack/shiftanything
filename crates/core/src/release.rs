@@ -763,6 +763,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
         crate::curated::LOSSLESSCUT,
+        crate::curated::BRUNO,
+        crate::curated::JAN,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1143,12 +1145,19 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("CherryHQ/cherry-studio", "v2.2.3") => {
             &[("Cherry-Studio-2.2.3-mac-arm64.dmg", 291_610_226, "afa9c479997a3c28b5a8a79d5dff71bd38f0d2d662dce6093aee642ccbaafae3")]
         }
+        ("usebruno/bruno", "v4.3.0") => {
+            &[("bruno_4.3.0_arm64_mac.dmg", 167_922_780, "bb4c4d8de817a6f529880627606137fd16346ddece547c6a0862e84bd1cc69bf")]
+        }
+        ("usebruno/bruno", "v4.4.0") => {
+            &[("bruno_4.4.0_arm64_mac.dmg", 183_254_552, "b9e7a4d8a371578116c67c20ae2892e840324d58be5a0407b2623701dd40f2a3")]
+        }
         ("upscayl/upscayl", "v2.11.5") => {
             &[("upscayl-2.11.5-mac.dmg", 351_772_230, "abf7b625641560cfa180dd1b2b0864138559d29f2a3d0f9951e5034496ce8dac")]
         }
         ("upscayl/upscayl", "v2.15.0") => {
             &[("upscayl-2.15.0-mac.dmg", 385_264_901, "0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a")]
         }
+        ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

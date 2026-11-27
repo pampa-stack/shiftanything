@@ -212,6 +212,7 @@ fn local_navigation(url: &tauri::Url) -> bool {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let Some(launch) = startup::start(std::env::args_os().skip(1).collect())? else { return Ok(()) };
     let isolated = launch.isolated;
+    let capture_window = launch.capture_window;
     let lifecycle = launch.lifecycle;
     let state = NativeState::new(launch.root.clone(), lifecycle, isolated)?;
     let catalog_media = media::Media::new(state.catalog_media());
@@ -246,14 +247,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]
-            if isolated {
-                app.set_activation_policy(tauri::ActivationPolicy::Accessory);
-            }
+            app.set_activation_policy(if capture_window { tauri::ActivationPolicy::Accessory } else { tauri::ActivationPolicy::Regular });
             WebviewWindowBuilder::new(app, "proof", WebviewUrl::App(page.into()))
                 .title(if isolated { "Sh*ftAnything · Tauri proof" } else { "Sh*ftAnything" })
                 .inner_size(1440.0, 900.0)
-                .resizable(!isolated)
-                .decorations(!isolated)
+                .resizable(!capture_window)
+                .decorations(!capture_window)
                 .focused(!isolated)
                 .incognito(isolated)
                 .data_directory(webview_directory)

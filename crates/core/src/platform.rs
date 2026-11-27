@@ -826,6 +826,7 @@ mod tests {
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),
+            (crate::curated::BRUNO, ["v4.3.0", "v4.4.0"]),
             (crate::curated::CHERRY_STUDIO, ["v2.2.2", "v2.2.3"]),
             (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),
@@ -858,6 +859,26 @@ mod tests {
                 assert!(!selects(&untrusted, host));
             }
         }
+    }
+
+    #[test]
+    fn jan_macos_accepts_only_the_patched_apple_silicon_release() {
+        let app = crate::curated::JAN;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let accepted = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
+        let release = crate::release::release_from_sums(app.repo, "v0.8.8", &[]);
+        assert!(accepted(&release, mac));
+        assert!(!accepted(&release, Platform { arch: Arch::X64, ..mac }));
+        assert!(!accepted(&release, Platform { os: Os::Linux, ..mac }));
+
+        let mut previous = crate::release::release_from_sums(app.repo, "v0.8.7", &[]);
+        previous.assets = vec![crate::release::Asset {
+            name: "Jan_0.8.7_universal.dmg".into(),
+            url: "https://github.com/janhq/jan/releases/download/v0.8.7/Jan_0.8.7_universal.dmg".into(),
+            size: 105_287_843,
+            sha256: Some("bda3da88f0c799e4bbe08b95d039937e6f0d504d62b1bb79423b34aaae3aa1da".into()),
+        }];
+        assert!(!accepted(&previous, mac));
     }
 
     #[test]

@@ -15791,6 +15791,14 @@
       "https://dl.flathub.org/media/ai/jan/Jan/8fa7cf9d2f60b7e70970d75ea43d2348/screenshots/image-3_orig.png"
     ],
     "media_source": "https://flathub.org/apps/ai.jan.Jan",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "ai.jan.Jan",
+        "source": "https://flathub.org/apps/ai.jan.Jan"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

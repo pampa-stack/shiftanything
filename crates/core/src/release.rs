@@ -1097,12 +1097,23 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
     (name == format!("ente-{tag}.dmg")).then(|| tag.to_string())
 }
 
-/// Only the signed Windows x64 MSIs checked in the PhotoCraft package cycle are eligible.
-pub fn photocraft_windows_msi_asset(release: &Release, asset: &Asset) -> bool {
+/// Repositories whose Windows installer recipe requires a reviewed x64 MSI.
+pub fn reviewed_windows_msi_repo(id: &str) -> Option<&'static str> {
+    match id {
+        "photocraft" => Some("storytold/photocraft"),
+        "wordcraft" => Some("storytold/wordcraft"),
+        "keepassxc" => Some(crate::curated::KEEPASSXC.repo),
+        "drawio" => Some(crate::curated::DRAWIO.repo),
+        _ => None,
+    }
+}
+
+/// Admit only the exact official x64 MSI whose signed package was reviewed.
+pub fn reviewed_windows_msi_asset(repo: &str, release: &Release, asset: &Asset) -> bool {
     !release.prerelease
-        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
-        && asset.name.ends_with("-windows-x64.msi")
-        && reviewed_assets("storytold/photocraft", &release.tag).any(|reviewed| &reviewed == asset)
+        && release.version.as_ref().is_some_and(|version| release.tag.strip_prefix('v').unwrap_or(&release.tag) == version.to_string())
+        && asset.name.ends_with(".msi")
+        && reviewed_assets(repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
 // Official package receipts apply only to the original repository, tag and exact asset.
@@ -1170,12 +1181,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("audacity-linux-4.0.2-x86_64.AppImage", 73_726_456, "a5f8787aa13cdb500a60fc013403b986776876b960cca962bc6e7fff066172f3"),
             ("audacity-macOS-4.0.2-arm64.dmg", 50_030_766, "fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3"),
         ],
-        ("keepassxreboot/keepassxc", "2.7.12") => {
-            &[("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40")]
-        }
-        ("keepassxreboot/keepassxc", "2.8.0") => {
-            &[("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c")]
-        }
+        ("keepassxreboot/keepassxc", "2.7.12") => &[
+            ("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40"),
+            ("KeePassXC-2.7.12-Win64.msi", 35_901_440, "feee096c1d5d0d7bb7b36b18174818f7bac889be7668c550ff0e5ef9206ea9a5"),
+        ],
+        ("keepassxreboot/keepassxc", "2.8.0") => &[
+            ("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c"),
+            ("KeePassXC-2.8.0-x64.msi", 69_419_008, "4f105af5ba780428718c8be5614cf95deceed5cb3b474a9bd624c5df81cec6e5"),
+        ],
         ("laurent22/joplin", "v3.7.22") => &[
             ("Joplin-3.7.22.AppImage", 207_329_204, "2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc"),
             ("Joplin-3.7.22-arm64.DMG", 211_992_036, "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8"),
@@ -1198,6 +1211,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("zed-industries/zed", "v1.29.3") => &[("Zed-aarch64.dmg", 88_779_557, "b692c9effdfcec874c47f56c3b27df069a63c6b3d23ecd070ffec9238a708bb8")],
         ("zed-industries/zed", "v1.30.2") => &[("Zed-aarch64.dmg", 88_057_394, "36ab60379627730fc3ac6ab79bc57dba7a1cf6d6df8117b8e22190d9b639fff5")],
+        ("jgraph/drawio-desktop", "v31.5.2") => {
+            &[("draw.io-31.5.2.msi", 151_302_144, "08629728da5caee6c5975e9ae6142ce2f64a5608cf785da2ba993c70aabf1911")]
+        }
         ("jgraph/drawio-desktop", "v32.6.10") => &[
             ("drawio-x86_64-32.6.10.AppImage", 152_706_651, "94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256"),
             ("draw.io-arm64-32.6.10.dmg", 157_367_951, "83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727"),
@@ -1205,6 +1221,7 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("jgraph/drawio-desktop", "v32.7.4") => &[
             ("drawio-x86_64-32.7.4.AppImage", 154_092_007, "7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c"),
             ("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3"),
+            ("draw.io-32.7.4.msi", 150_347_776, "e2ab1ca54a249b29dd4935017c4994ab2b7732a99fdf7b5b90c50799c75c3bc9"),
         ],
         ("exelban/stats", "v3.1.0") => &[("Stats.dmg", 8_257_600, "a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7")],
         ("exelban/stats", "v3.1.1") => &[("Stats.dmg", 8_386_915, "2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9")],
@@ -1291,6 +1308,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d"),
             ("photocraft-0.23.1-windows-x64.msi", 118_427_648, "de757802d8a12a41718ba24248c281d83f3bbecd64c5230f46f10c7f62070671"),
         ],
+        ("storytold/wordcraft", "v0.18.0") => {
+            &[("wordcraft-0.18.0-windows-x64.msi", 95_031_296, "8a0bed4ddd40a96f6d7439a3bc7d9bebefe2507066b96ced67f4ef954174012c")]
+        }
+        ("storytold/wordcraft", "v0.19.1") => {
+            &[("wordcraft-0.19.1-windows-x64.msi", 103_383_040, "526abab4619d19ee432a834673044dc19f6ee2eac8f0f0bec6e9f6bf06cb7661")]
+        }
         ("openclaw/openclaw", "v2026.11.9") => {
             &[("OpenClaw-2026.11.9-arm64.dmg", 256_294_306, "b8583ed29e820ff9482839a73744d433c0530ba54019440c7faa6ff733f4f56f")]
         }

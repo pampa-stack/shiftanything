@@ -10,6 +10,32 @@ use session::NativeState;
 use std::{path::PathBuf, sync::Mutex};
 use tauri::{WebviewUrl, WebviewWindowBuilder};
 
+#[derive(Deserialize)]
+#[serde(rename_all = "lowercase")]
+enum SocialLink {
+    Website,
+    Linkedin,
+    Instagram,
+    Reddit,
+    X,
+}
+impl SocialLink {
+    fn url(&self) -> &'static str {
+        match self {
+            Self::Website => "https://promptica.it/",
+            Self::Linkedin => "https://www.linkedin.com/company/promptica/",
+            Self::Instagram => "https://www.instagram.com/promptica_ai",
+            Self::Reddit => "https://www.reddit.com/user/Comfortable_Ice_4281/",
+            Self::X => "https://x.com/Pampaeyes",
+        }
+    }
+}
+#[tauri::command]
+fn open_social_link(link: SocialLink) -> Result<(), String> {
+    artcraft_launcher_native::process::open(std::ffi::OsStr::new(link.url()))?;
+    eprintln!("EXTERNAL_LINK_REQUESTED {}", link.url());
+    Ok(())
+}
 #[tauri::command]
 fn catalog_snapshot() -> Result<serde_json::Value, String> {
     eprintln!("Native catalog requested");
@@ -32,6 +58,10 @@ fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::
 #[tauri::command]
 fn decide_native_action(request_id: String, approve: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
     state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve)
+}
+#[tauri::command]
+fn check_native_updates(state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
+    state.lock().map_err(|error| error.to_string())?.check_updates()
 }
 #[tauri::command]
 fn set_favorite(app_id: String, favorite: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<std::collections::BTreeSet<String>, String> {
@@ -171,11 +201,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .manage(Mutex::new(state))
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
+            open_social_link,
             native_snapshot,
             record_visual_metrics,
             request_native_action,
             decide_native_action,
-            set_favorite
+            set_favorite,
+            check_native_updates
         ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]

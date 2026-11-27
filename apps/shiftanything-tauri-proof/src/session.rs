@@ -185,6 +185,14 @@ impl NativeState {
         Ok(())
     }
 
+    pub fn check_updates(&mut self) -> Result<(), String> {
+        if !self.enabled {
+            return Err("Native lifecycle is disabled in this profile".into());
+        }
+        self.backend.send(Command::CheckForUpdates { force: true });
+        Ok(())
+    }
+
     pub fn snapshot(&mut self) -> Snapshot {
         self.poll();
         if self.enabled {

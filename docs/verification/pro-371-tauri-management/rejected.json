@@ -1,0 +1,268 @@
+{
+  "platform": {
+    "os": "MacOs",
+    "arch": "Arm64"
+  },
+  "detected": {
+    "anicraft": null,
+    "cadcraft": null,
+    "craft-anything": null,
+    "deckcraft": null,
+    "designcraft": null,
+    "effectcraft": null,
+    "figcraft": null,
+    "filmcraft": null,
+    "gridcraft": null,
+    "handy": {
+      "version": "0.10.1",
+      "source": "MacApp",
+      "location": "/private/tmp/shift-tauri-management-it/home/Applications/Handy.app",
+      "package": null,
+      "externally_managed": false,
+      "origin": null,
+      "installation": null
+    },
+    "lightcraft": null,
+    "mailcraft": null,
+    "materialcraft": null,
+    "pdfcraft": null,
+    "photocraft": null,
+    "solidcraft": null,
+    "soundcraft": null,
+    "texturecraft": null,
+    "vectorcraft": null,
+    "wordcraft": null
+  },
+  "lifecycle_enabled": true,
+  "inventory": {
+    "updated_at": 1795738066,
+    "apps": [
+      {
+        "id": "photocraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.23.1",
+        "job": null
+      },
+      {
+        "id": "vectorcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.24.1",
+        "job": null
+      },
+      {
+        "id": "filmcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.20.1",
+        "job": null
+      },
+      {
+        "id": "lightcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.21.1",
+        "job": null
+      },
+      {
+        "id": "pdfcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.22.0",
+        "job": null
+      },
+      {
+        "id": "effectcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.25.1",
+        "job": null
+      },
+      {
+        "id": "anicraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.2.1",
+        "job": null
+      },
+      {
+        "id": "designcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.21.1",
+        "job": null
+      },
+      {
+        "id": "figcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.18.1",
+        "job": null
+      },
+      {
+        "id": "soundcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.20.1",
+        "job": null
+      },
+      {
+        "id": "wordcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.19.1",
+        "job": null
+      },
+      {
+        "id": "deckcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.19.1",
+        "job": null
+      },
+      {
+        "id": "cadcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.20.1",
+        "job": null
+      },
+      {
+        "id": "gridcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.19.1",
+        "job": null
+      },
+      {
+        "id": "texturecraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.6.1",
+        "job": null
+      },
+      {
+        "id": "materialcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.4.1",
+        "job": null
+      },
+      {
+        "id": "craft-anything",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.6.1",
+        "job": null
+      },
+      {
+        "id": "solidcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": true,
+        "installable": true,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.50.0",
+        "job": null
+      },
+      {
+        "id": "mailcraft",
+        "detected": true,
+        "installed": false,
+        "compatible": false,
+        "installable": false,
+        "update_available": false,
+        "installed_version": null,
+        "latest_version": "0.15.0",
+        "job": null
+      },
+      {
+        "id": "handy",
+        "detected": true,
+        "installed": true,
+        "compatible": true,
+        "installable": true,
+        "update_available": true,
+        "installed_version": "0.10.1",
+        "latest_version": "0.10.2",
+        "job": null
+      }
+    ],
+    "results": {
+      "ui-1": "rejected"
+    }
+  },
+  "pending": null,
+  "progress": {},
+  "favorites": []
+}

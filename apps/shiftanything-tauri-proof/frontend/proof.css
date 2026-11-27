@@ -24,3 +24,12 @@
 .native-decision,.native-management {display:flex;gap:12px;flex-wrap:wrap;}
 .native-confirmation button {padding:10px 24px;background:#30343b;color:#fff;border:1px solid #777;cursor:pointer;}
 .native-result {width:100%;overflow-wrap:anywhere;}
+
+/* Management uses the approved Doop groups with live native rows and actions. */
+.body[hidden],.native-apps[hidden] {display:none;}
+.native-apps {overflow:auto;flex:1;min-height:0;}
+.native-apps .table-row {grid-template-columns:minmax(180px,1.1fr) 100px 100px minmax(150px,1fr) minmax(330px,1.6fr);}
+.native-apps .nm {display:flex;align-items:center;gap:12px;}
+.native-apps .nm .product-icon {width:32px;height:32px;}
+.native-apps .more-actions {flex-wrap:wrap;}
+.native-app-result {overflow-wrap:anywhere;font-size:12px;}

@@ -6,7 +6,7 @@
   window.addEventListener('error', event => {status.textContent = `Proof error: ${event.message}`;});
   for (const node of document.querySelector('.bar .seg').children) node.textContent = node.textContent.toUpperCase();
   const note = it ? 'Prova di sola lettura' : 'Read-only proof';
-  for (const node of document.querySelectorAll('[data-view]')) {
+  for (const node of document.querySelectorAll('[data-view]:not([data-view="manage"])')) {
     node.dataset.proofUnavailable = '';
     node.setAttribute('aria-disabled', 'true');
     node.title = note;
@@ -17,7 +17,18 @@
     if (!link) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-    status.textContent = `${note} · ${link.href}`;
+    const social = new Map([
+      ['https://promptica.it/','website'],
+      ['https://www.linkedin.com/company/promptica/','linkedin'],
+      ['https://www.instagram.com/promptica_ai','instagram'],
+      ['https://www.reddit.com/user/Comfortable_Ice_4281/','reddit'],
+      ['https://x.com/Pampaeyes','x'],
+    ]).get(link.href);
+    if (social && link.closest('.footer-brand')) {
+      invoke('open_social_link', {link:social}).then(() => {
+        status.textContent = it ? 'Link aperto nel browser esterno' : 'Link opened in external browser';
+      }).catch(error => {status.textContent=String(error);});
+    } else status.textContent = `${note} · ${link.href}`;
   }, true);
   for (const cell of document.querySelectorAll('.catalog-grid .cell')) {
     if (!cell.querySelector('.c-alt')) {
@@ -31,6 +42,7 @@
     return {x:r.x,y:r.y,width:r.width,height:r.height};
   };
   async function metrics() {
+    if (document.querySelector('.body').hidden) return;
     const cards = [...document.querySelectorAll('.catalog-grid .cell:not([hidden])')];
     const report = {
       language: document.documentElement.lang,
@@ -73,6 +85,7 @@
   let pendingId;
   function render(snapshot) {
     current = snapshot;
+    window.dispatchEvent(new CustomEvent('native-snapshot',{detail:snapshot}));
     const key=JSON.stringify(snapshot.favorites);
     if (key!==favoritesKey) {
       favoritesKey=key;
@@ -83,7 +96,7 @@
       const app = inventory.get(button.dataset.nativeApp);
       const operation = button.dataset.nativeOperation || (app?.installed ? 'open' : 'install');
       button.textContent = labels[operation];
-      const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.installable,open:app.installed,remove:app.installed,update:app.update_available})[operation]);
+      const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed,remove:app.installed,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
       button.disabled = !snapshot.lifecycle_enabled || !allowed;
       button.title = app?.job || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }

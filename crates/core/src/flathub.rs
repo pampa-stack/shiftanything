@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 26] = [
+pub const RECIPES: [(&str, &str); 30] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -28,6 +28,10 @@ pub const RECIPES: [(&str, &str); 26] = [
     ("d-j-dup-backups", "org.gnome.DejaDup"),
     ("rnote", "com.github.flxzt.rnote"),
     ("mixxx-dj-software", "org.mixxx.Mixxx"),
+    ("cherrytree", "net.giuspen.cherrytree"),
+    ("foliate", "com.github.johnfactotum.Foliate"),
+    ("pdf4qt", "io.github.JakubMelka.Pdf4qt"),
+    ("gnome-calendar", "org.gnome.Calendar"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -72,6 +76,10 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "d-j-dup-backups" => "https://gitlab.gnome.org/World/deja-dup",
         "rnote" => "https://github.com/flxzt/rnote",
         "mixxx-dj-software" => "https://github.com/mixxxdj/mixxx",
+        "cherrytree" => "https://github.com/giuspen/cherrytree",
+        "foliate" => "https://github.com/johnfactotum/foliate",
+        "pdf4qt" => "https://github.com/JakubMelka/PDF4QT",
+        "gnome-calendar" => "https://gitlab.gnome.org/GNOME/gnome-calendar",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -1,0 +1,18 @@
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/.var/app/com.github.johnfactotum.Foliate/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/47
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/47
+Uninstalling runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Uninstalling runtime/org.gnome.Platform/x86_64/49
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/49
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/.var/app/com.github.johnfactotum.Foliate/shift-profile-marker: OK
+foliate: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   54G   43G  56% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.6Gi       2.2Gi        22Mi       5.0Gi       6.8Gi
+Swap:          4.0Gi       3.3Gi       766Mi

@@ -1,0 +1,19 @@
+commit f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6
+Parent:  52d5209bfb1a3d8f2efe345b02e0ff66d888b3e72ca43c5a8e75553b1f857f38
+ContentChecksum:  40fdda251e9a1945b84b12e944db07c983dab171bdafbf774452edc880411e2d
+Date:  2024-12-20 10:44:19 +0000
+
+    Update to 3.2.1 (#36) (9ee3fedf)
+
+    Name: com.github.johnfactotum.Foliate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.14.10
+
+Found 1 signature:
+
+  Signature made Fri Dec 20 14:01:47 2024 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,17 @@
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/pdf4qt/home/.var/app/io.github.JakubMelka.Pdf4qt/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.10
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.10
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/pdf4qt/home/.var/app/io.github.JakubMelka.Pdf4qt/shift-profile-marker: OK
+pdf4qt: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   54G   43G  56% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.6Gi       1.9Gi        22Mi       5.2Gi       6.8Gi
+Swap:          4.0Gi       3.3Gi       766Mi

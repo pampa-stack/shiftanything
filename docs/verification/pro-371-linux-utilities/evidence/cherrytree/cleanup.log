@@ -1,0 +1,18 @@
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/cherrytree/home/.var/app/net.giuspen.cherrytree/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/50
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/50
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/51
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/51
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/cherrytree/home/.var/app/net.giuspen.cherrytree/shift-profile-marker: OK
+cherrytree: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   50G   47G  52% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.6Gi       3.9Gi        22Mi       3.1Gi       6.8Gi
+Swap:          4.0Gi       3.3Gi       766Mi

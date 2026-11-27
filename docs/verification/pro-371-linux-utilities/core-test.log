@@ -1,0 +1,15 @@
+warning: patch `egui_demo_lib v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_inspection v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_system_font_provider v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling artcraft-launcher-core v0.20.3 (/mnt/dati/lavori/shiftanything/shift-flatpak-desktop.9zCnbc8w/crates/core)
+    Finished `test` profile [optimized + debuginfo] target(s) in 28.12s
+     Running unittests src/lib.rs (/mnt/dati/lavori/shiftanything/shift-flatpak-rust.kghfPWUK/target/debug/deps/artcraft_launcher_core-192de40ae804fe79)
+
+running 1 test
+test flathub::tests::reviewed_flatpak_ids_match_canonical_curated_channels_only_on_linux_x64 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 130 filtered out; finished in 0.01s

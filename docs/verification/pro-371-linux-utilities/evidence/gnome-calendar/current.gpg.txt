@@ -1,0 +1,19 @@
+commit 54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a
+Parent:  f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826
+ContentChecksum:  5c5179490e7c1a8ea4c8c99b5de81821fee2bb57755de7cf77bb6dffdc449ee2
+Date:  2026-09-26 16:19:47 +0000
+
+    Update gcr, evolution-data-server and gnome-calendar modules (0406c23df0db)
+
+    Name: org.gnome.Calendar
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Sep 26 17:01:47 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

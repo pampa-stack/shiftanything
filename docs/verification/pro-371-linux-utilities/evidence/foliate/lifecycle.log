@@ -1,0 +1,69 @@
+
+=== 2026-11-27T09:06:32+00:00 foliate install ===
+foliate before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+foliate JobFinished: Ok("Flathub app installed")
+foliate after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/evidence/native-foliate-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (460)
+e37b215fb6cfc1f887db3ceae74dfa5ad70ebda2aa1efdc6d3e1dd88ae3b241a  /var/tmp/shift-flatpak-desktop.KoR57Rrd/evidence/native-foliate-icon.svg
+com.github.johnfactotum.Foliate/x86_64/stable	flathub	4ca532b54542	user	3.3.0
+TIMING foliate install 32830 ms
+
+=== 2026-11-27T09:07:05+00:00 foliate prior ===
+Info: org.gnome.Platform is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.gnome.Platform.Locale is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.gnome.Platform.Locale/x86_64/47
+Installing runtime/org.gnome.Platform/x86_64/47
+Previous runtime org.gnome.Platform/x86_64/47
+Info: org.gnome.Platform is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.gnome.Platform.Locale is end-of-life, with reason: The GNOME 47 runtime is no longer supported as of October 15, 2025. Please ask your application developer to migrate to a supported platform.
+Updating app/com.github.johnfactotum.Foliate/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.johnfactotum.Foliate/x86_64/stable	flathub	f0ccefbb5b7b	user	3.2.1
+foliate before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 2, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6", package: Some("com.github.johnfactotum.Foliate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.2.1"), update_available: false, can_remove: false, can_open: true }
+foliate JobFinished: Err("Approved action rejected: native installation state changed")
+foliate JobFinished: Err("This Flatpak is managed outside the launcher")
+foliate after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 2, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6", package: Some("com.github.johnfactotum.Foliate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.2.1"), update_available: false, can_remove: false, can_open: true })
+TIMING foliate prior 30199 ms
+
+=== 2026-11-27T09:07:35+00:00 foliate open ===
+dbus-daemon[2433603]: [session uid=1000 pid=2433603 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2433675 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2433603]: [session uid=1000 pid=2433603 pidfd=5] Successfully activated service 'org.a11y.Bus'
+foliate before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 2, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.2.1"), update_available: true, can_remove: true, can_open: true }
+foliate JobFinished: Ok("Launch request accepted")
+foliate after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 2, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.2.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2433718]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2434253 comm="xdg-dbus-proxy --args=66" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2433718]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING foliate open-previous 4461 ms
+TIMING foliate open 5326 ms
+
+=== 2026-11-27T09:07:40+00:00 foliate update-remove ===
+foliate before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 2, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.2.1"), update_available: true, can_remove: true, can_open: true }
+foliate JobFinished: Ok("Flathub app updated")
+foliate after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.3.0"), update_available: false, can_remove: true, can_open: true })
+TIMING foliate update 4602 ms
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/.var/app/com.github.johnfactotum.Foliate/shift-profile-marker: OK
+dbus-daemon[2435222]: [session uid=1000 pid=2435222 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2435266 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2435222]: [session uid=1000 pid=2435222 pidfd=5] Successfully activated service 'org.a11y.Bus'
+foliate before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.3.0"), update_available: false, can_remove: true, can_open: true }
+foliate JobFinished: Ok("Launch request accepted")
+foliate after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.3.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2435310]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2435818 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2435310]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING foliate open-current 4316 ms
+foliate before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/data/flatpak/app/com.github.johnfactotum.Foliate/x86_64/stable/4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c", package: Some("com.github.johnfactotum.Foliate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.3.0"), update_available: false, can_remove: true, can_open: true }
+foliate JobFinished: Ok("Flathub app removed")
+foliate after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING foliate remove 1949 ms
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/foliate/home/.var/app/com.github.johnfactotum.Foliate/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING foliate update-remove 13102 ms

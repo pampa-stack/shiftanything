@@ -6198,9 +6198,9 @@
       "GameMaker"
     ],
     "license": "MIT",
-    "license_url": "https://flathub.org/apps/org.godotengine.Godot",
+    "license_url": "https://godotengine.org/license/",
     "website": "https://godotengine.org/",
-    "releases": "https://flathub.org/apps/org.godotengine.Godot",
+    "releases": "https://github.com/godotengine/godot-builds/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "cli",
@@ -6243,7 +6243,7 @@
     "release": {
       "version": "4.7.2-stable",
       "date": "2026-08-18",
-      "source": "https://github.com/godotengine/godot/releases/tag/4.7.2-stable",
+      "source": "https://github.com/godotengine/godot-builds/releases/tag/4.7.2-stable",
       "packages": [
         {
           "platform": "linux",

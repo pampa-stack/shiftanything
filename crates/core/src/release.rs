@@ -475,9 +475,28 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         version::parse(tag.strip_prefix("Audacity-")?)
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
+    } else if repo == crate::curated::GODOT_RELEASES_REPO {
+        godot_stable_version(tag)
     } else {
         version::parse(tag)
     }
+}
+
+pub(crate) fn godot_stable_version(tag: &str) -> Option<Version> {
+    let label = tag.strip_suffix("-stable")?;
+    let version = version::parse(label)?;
+    let canonical = version.to_string() == label || (version.patch == 0 && format!("{}.{}", version.major, version.minor) == label);
+    (version.pre.is_empty() && version.build.is_empty() && canonical).then_some(version)
+}
+
+/// Godot publishes binaries from a dedicated repository. Pin the stable, standard, universal editor variant.
+pub fn godot_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && godot_stable_version(&release.tag).as_ref().is_some_and(|version| Some(version) == release.version.as_ref())
+        && asset.name == format!("Godot_v{}_macos.universal.zip", release.tag)
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::GODOT_RELEASES_REPO), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
 fn ente_auth_version(tag: &str) -> Option<Version> {
@@ -602,6 +621,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
+        }
+        (crate::curated::GODOT_RELEASES_REPO, "4.7.1-stable") => {
+            &[("Godot_v4.7.1-stable_macos.universal.zip", 166_939_858, "897cb7f9799796c717ae75f31446aed883dc92b1d6c3b33d893cc7843fff2fa9")]
+        }
+        (crate::curated::GODOT_RELEASES_REPO, "4.7.2-stable") => {
+            &[("Godot_v4.7.2-stable_macos.universal.zip", 170_622_178, "c58a24e31d720be9d62f60cb5627c4e695fb72f21b0cfe1bc9ccaa9a3b3ba63e")]
         }
         _ => &[],
     };

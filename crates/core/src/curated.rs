@@ -672,7 +672,30 @@ pub const ACTIVITYWATCH: crate::CraftApp = crate::CraftApp {
     mac_team: Some("XM9GC3SUL2"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 22] = [
+pub const GODOT_RELEASES_REPO: &str = "godotengine/godot-builds";
+
+pub const GODOT: crate::CraftApp = crate::CraftApp {
+    id: "godot-engine",
+    name: "Godot Engine",
+    tagline: "Create 2D and 3D games",
+    repo: "godotengine/godot",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [71, 140, 191],
+    ink_light: [37, 84, 120],
+    ink_dark: [162, 208, 238],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The Godot Engine Community",
+    msi_publisher: None,
+    bundle: Some("org.godotengine.godot"),
+    site: Some("https://godotengine.org/"),
+    mac_bundle_name: Some("Godot"),
+    mac_team: Some("6K46PWY5DM"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 23] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -695,6 +718,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 22] = [
     ENTE_AUTH,
     CRYPTOMATOR,
     ACTIVITYWATCH,
+    GODOT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -743,6 +767,37 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
 
 #[cfg(test)]
 mod recipe_tests {
+    #[test]
+    fn godot_recipe_accepts_only_the_official_stable_zip_with_digest() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("godot-engine").expect("compiled Godot recipe");
+        assert_eq!(app.repo, "godotengine/godot");
+        let repo = app.release_repository();
+        assert_eq!(repo, super::GODOT_RELEASES_REPO);
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let release = release::release_from_sums(repo, "4.7.2-stable", &[]);
+        let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).expect("official Mac ZIP");
+        assert_eq!(kind, PackageKind::MacZip);
+        assert_eq!(release.version_label(), "4.7.2");
+        assert_eq!(asset.size, 170_622_178);
+        for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }] {
+            assert!(platform::pick_asset(&release, &[app.id], host, host.download_kinds()).is_none());
+        }
+        let mut wrong = asset.clone();
+        wrong.sha256 = None;
+        assert!(!crate::release::godot_mac_asset(&release, &wrong));
+        wrong = asset.clone();
+        wrong.url = wrong.url.replace(repo, app.repo);
+        assert!(!crate::release::godot_mac_asset(&release, &wrong));
+        wrong = asset.clone();
+        wrong.name = wrong.name.replace("stable", "rc1");
+        assert!(!crate::release::godot_mac_asset(&release, &wrong));
+        let minor_release =
+            release::release_from_sums(repo, "4.7-stable", &[(asset.sha256.clone().unwrap(), "Godot_v4.7-stable_macos.universal.zip".into())]);
+        assert_eq!(minor_release.version_label(), "4.7.0");
+    }
+
     #[test]
     fn verified_linux_appimages_require_the_tested_host_and_publisher() {
         use crate::{Arch, CraftApp, Os, Platform};

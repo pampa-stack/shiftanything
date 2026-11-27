@@ -59,7 +59,7 @@ pub(crate) fn from_manifest(app: &CraftApp, manifest: &Manifest) -> Option<Insta
     }
     // On macOS the bundle itself is the truth (the app may have updated itself).
     #[cfg(target_os = "macos")]
-    if rec.kind == artcraft_launcher_core::PackageKind::Dmg {
+    if matches!(rec.kind, artcraft_launcher_core::PackageKind::Dmg | artcraft_launcher_core::PackageKind::MacZip) {
         return macos::read_bundle(app, &rec.path);
     }
     Some(Installed {

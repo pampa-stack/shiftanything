@@ -16,6 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = re.compile(r"https://github\.com/([\w.-]+/[\w.-]+)/?")
 FLATPAK = re.compile(r"https://flathub\.org/apps/([\w.-]+)")
 VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
+GODOT_REPO = "godotengine/godot"
+GODOT_BUILDS = "godotengine/godot-builds"
+GODOT_TAG = re.compile(r"\d+\.\d+(?:\.\d+)?-stable")
 PREVIEW = re.compile(r"\b(?:alpha|beta|nightly|preview|pre[- ]?release|rc)\d*\b", re.I)
 PREVIEW_TAG = re.compile(r"^((?:v|release-)?\d+(?:\.\d+)*)-(?:alpha|beta|nightly|preview|pre-release|prerelease|rc)\d*(?:[.-]\d+)*$", re.I)
 WINDOWS_INSTALLER = re.compile(
@@ -71,6 +74,8 @@ def package_platform(name):
 
 
 def version_key(value):
+    if isinstance(value, str) and GODOT_TAG.fullmatch(value):
+        value = value.removesuffix("-stable")
     match = VERSION.fullmatch(value) if isinstance(value, str) else None
     if not match:
         return None
@@ -85,6 +90,8 @@ def github_release(repo, data):
         return None
     version = data["tag_name"]
     if version_key(version) is None or PREVIEW.search(data.get("name") or ""):
+        return None
+    if repo == GODOT_BUILDS and not GODOT_TAG.fullmatch(version):
         return None
 
     def release_path(kind, suffix):
@@ -104,6 +111,8 @@ def github_release(repo, data):
     for asset in data["assets"]:
         name, size = asset["name"], asset["size"]
         platform = package_platform(name)
+        if repo == GODOT_BUILDS and name == f"Godot_v{version}_macos.universal.zip":
+            platform = "macos"
         expected = release_path("download", f"{version}/{name}")
         if platform and type(size) is int and size > 0 and official(asset["browser_download_url"], expected):
             packages[platform].append(size)
@@ -205,6 +214,8 @@ def release_for(app):
     if flatpak := FLATPAK.fullmatch(source):
         return flatpak_release(flatpak[1])
     repo = REPO.fullmatch(app.get("repo") or "")
+    if app.get("id") == "godot-engine" and repo and repo[1].lower() == GODOT_REPO:
+        return github_release(GODOT_BUILDS, github(GODOT_BUILDS))
     if repo and (not source or source.lower().startswith(f"https://github.com/{repo[1]}/releases/".lower())):
         return github_release(repo[1], github(repo[1]))
     return None

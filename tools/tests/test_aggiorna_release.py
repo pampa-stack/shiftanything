@@ -53,6 +53,28 @@ class ReleaseWatchTests(unittest.TestCase):
     def refresh(self, baseline=None, as_of=AS_OF):
         return updater.refresh(self.catalog, self.shifter, baseline or {}, set(), as_of)
 
+    def test_godot_reads_separate_stable_builds_and_the_exact_mac_zip(self):
+        repo = "godotengine/godot-builds"
+        tag = "4.7.2-stable"
+        name = f"Godot_v{tag}_macos.universal.zip"
+        url = f"https://github.com/{repo}/releases"
+        release = {
+            "tag_name": tag, "html_url": f"{url}/tag/{tag}", "published_at": "2026-08-18T15:56:46Z",
+            "assets": [
+                {"name": name, "size": 170622178, "browser_download_url": f"{url}/download/{tag}/{name}"},
+                {"name": name.replace("_macos", "_mono_macos"), "size": 200756622,
+                 "browser_download_url": f"{url}/download/{tag}/{name.replace('_macos', '_mono_macos')}"},
+            ],
+        }
+        with patch.object(updater, "github", return_value=release) as github:
+            app = {"id": "godot-engine", "repo": "https://github.com/godotengine/godot"}
+            current, _ = updater.release_for(app)
+            github.assert_called_once_with(repo)
+        self.assertEqual(updater.version_key(current["version"]), (4, 7, 2))
+        self.assertEqual(current["packages"], [{"platform": "macos", "size_min": 170622178, "size_max": 170622178}])
+        release["tag_name"] = "4.8-rc1"
+        self.assertIsNone(updater.github_release(repo, release))
+
     def test_new_versions_and_changelog_proposal_are_independent(self):
         comparison_before = deepcopy(self.shifter)
         report, proposals, notes = self.refresh()

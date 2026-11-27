@@ -57,6 +57,8 @@ pub enum PackageKind {
     PortableZip,
     /// macOS disk image with the `.app` bundle.
     Dmg,
+    /// A signed macOS .app bundle in a ZIP from an approved release source.
+    MacZip,
     AppImage,
     Deb,
     Rpm,
@@ -73,6 +75,7 @@ impl PackageKind {
             Self::Msi => "Installer (.msi)",
             Self::PortableZip => "Portable (.zip)",
             Self::Dmg => "Disk image (.dmg)",
+            Self::MacZip => "App archive (.zip)",
             Self::AppImage => "AppImage",
             Self::Deb => "Debian package (.deb)",
             Self::Rpm => "RPM package (.rpm)",
@@ -87,6 +90,7 @@ impl PackageKind {
             Self::Msi => ".msi",
             Self::PortableZip => "-portable.zip",
             Self::Dmg => ".dmg",
+            Self::MacZip => ".zip",
             Self::AppImage => ".AppImage",
             Self::Deb => ".deb",
             Self::Rpm => ".rpm",
@@ -162,7 +166,7 @@ impl Platform {
     pub fn default_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip],
             Os::Linux => &[PackageKind::AppImage, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -172,7 +176,7 @@ impl Platform {
     pub fn download_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip],
             Os::Linux => &[PackageKind::AppImage, PackageKind::Deb, PackageKind::Rpm, PackageKind::ArchPkg, PackageKind::Flatpak, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -254,8 +258,9 @@ fn valid_community_dmg_version(stem: &str, version: &str) -> bool {
 /// Reads `<stem>-<version>-<os>-<arch>[-portable].<ext>` or Studio's `<Stem>_<version>_<arch>[_<locale>].<ext>`;
 /// `None` for checksums, zsync files, CLI and web bundles, or anything else.
 pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
-    const KINDS: [PackageKind; 9] = [
+    const KINDS: [PackageKind; 10] = [
         PackageKind::PortableZip,
+        PackageKind::MacZip,
         PackageKind::TarGz,
         PackageKind::Msi,
         PackageKind::Dmg,
@@ -271,6 +276,16 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
         .filter(|base| base.starts_with("Joplin-") && stems.contains(&crate::curated::JOPLIN.id))
         .map(|base| (PackageKind::Dmg, base));
     let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b))).or(joplin_dmg)?;
+    if kind == PackageKind::MacZip {
+        let version = base.strip_prefix("Godot_v")?.strip_suffix("-stable_macos.universal")?;
+        let stem = crate::curated::GODOT.id;
+        return (stems.contains(&stem) && crate::release::godot_stable_version(&format!("{version}-stable")).is_some()).then(|| AssetName {
+            stem: stem.into(),
+            version: version.into(),
+            token: "macos-universal".into(),
+            kind,
+        });
+    }
     for stem in stems {
         if *stem == crate::curated::LOCALSEND.id {
             // LocalSend publishes a hyphenated architecture label. Recognize only this recipe's reviewed format.
@@ -367,6 +382,9 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         .iter()
         .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
         .filter(|(asset, name)| {
+            if name.kind == PackageKind::MacZip {
+                return crate::release::godot_mac_asset(release, asset);
+            }
             if name.stem == crate::curated::LIBREOFFICE.id {
                 return crate::release::libreoffice_arm64_asset(release, asset);
             }
@@ -433,8 +451,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
-        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY,
-        OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, GODOT, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND,
+        MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -461,6 +479,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         ENTE_AUTH.id,
         CRYPTOMATOR.id,
         ACTIVITYWATCH.id,
+        GODOT.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

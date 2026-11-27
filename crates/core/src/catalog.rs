@@ -101,7 +101,7 @@ impl CraftApp {
         if self.uses_tdf_releases() {
             return crate::release::LIBREOFFICE_STABLE_URL.to_string();
         }
-        format!("https://github.com/{}/releases", self.repo)
+        format!("https://github.com/{}/releases", self.release_repository())
     }
 
     pub fn repo_url(&self) -> String {
@@ -112,6 +112,15 @@ impl CraftApp {
         (self.id, self.repo) == (crate::curated::LIBREOFFICE.id, crate::curated::LIBREOFFICE.repo)
     }
 
+    pub fn release_repository(&self) -> &'static str {
+        if (self.id, self.repo) == (crate::curated::GODOT.id, crate::curated::GODOT.repo) { crate::curated::GODOT_RELEASES_REPO } else { self.repo }
+    }
+
+    /// A MAC application can be distributed as a disk image or an approved ZIP.
+    pub fn mac_package_kind(&self) -> crate::PackageKind {
+        if self.release_repository() == crate::curated::GODOT_RELEASES_REPO { crate::PackageKind::MacZip } else { crate::PackageKind::Dmg }
+    }
+
     /// The app's website: its page on getartcraft.com, or a community app's own site.
     pub fn website(&self) -> String {
         self.site.map_or_else(|| format!("https://getartcraft.com/apps/{}", self.id), str::to_string)
@@ -119,7 +128,10 @@ impl CraftApp {
 
     /// Whether the launcher installs this app from a `kind` package.
     pub fn installs(&self, kind: crate::PackageKind) -> bool {
-        kind != crate::PackageKind::Dmg || self.mac_team.is_some()
+        match kind {
+            crate::PackageKind::Dmg | crate::PackageKind::MacZip => self.mac_team.is_some() && self.mac_package_kind() == kind,
+            _ => true,
+        }
     }
 
     /// Whether this app runs on the given operating system.

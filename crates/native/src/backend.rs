@@ -2817,11 +2817,11 @@ fn limit_notice(source_used: Source, limited_until: Option<i64>) -> Option<i64> 
 
 /// The repo to ask GitHub about, following the feed's repo renames.
 fn feed_repo(feed: Option<&Feed>, app: &CraftApp) -> String {
-    feed_for_app(feed, app).map_or_else(|| app.repo.to_string(), |f| f.repo_for(app))
+    feed_for_app(feed, app).map_or_else(|| app.release_repository().to_string(), |f| f.repo_for(app))
 }
 
 fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> {
-    if app.uses_tdf_releases() { None } else { feed }
+    if app.uses_tdf_releases() || app.release_repository() != app.repo { None } else { feed }
 }
 
 fn release_origin(app: &CraftApp) -> Origin {

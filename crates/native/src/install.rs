@@ -166,7 +166,7 @@ struct Failure {
 pub fn keeps_old_copy(kind: PackageKind, existing: Option<&Installed>, previous: Option<&Record>) -> bool {
     let source = existing.map(|inst| inst.source);
     match kind {
-        PackageKind::Dmg => source == Some(InstallSource::MacApp),
+        PackageKind::Dmg | PackageKind::MacZip => source == Some(InstallSource::MacApp),
         PackageKind::AppImage => source == Some(InstallSource::Launcher) && previous.is_some_and(|r| r.kind == PackageKind::AppImage),
         PackageKind::Flatpak => existing.is_some_and(|inst| inst.source == InstallSource::Flatpak && !inst.externally_managed),
         _ => false,
@@ -394,11 +394,22 @@ fn install_at_with_profile(
     let result = match kind {
         // No team to check the signature against: refuse rather than install it unchecked.
         #[cfg(target_os = "macos")]
-        PackageKind::Dmg if app.mac_team.is_none() => {
+        PackageKind::Dmg | PackageKind::MacZip if !app.installs(kind) => {
             Err("ArtCraft Launcher has no macOS signing team recorded for this app, so it wasn't installed here".into())
         }
         #[cfg(target_os = "macos")]
         PackageKind::Dmg => macos::install_dmg(
+            app,
+            &file,
+            existing,
+            destination.as_deref(),
+            job.replace.then_some(job.approved_path).flatten(),
+            job.paths,
+            &macos::Expect::release(app, release),
+        )
+        .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "macos")]
+        PackageKind::MacZip => macos::install_zip(
             app,
             &file,
             existing,
@@ -532,6 +543,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     if app.uses_tdf_releases() {
         return artcraft_launcher_core::release::libreoffice_arm64_asset(release, asset).then_some(()).ok_or_else(mismatch);
     }
+    if app.release_repository() == artcraft_launcher_core::curated::GODOT_RELEASES_REPO {
+        return artcraft_launcher_core::release::godot_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
     let release_version = release.version.as_ref();
 
     // The version in the asset filename (`<stem>-<version>-<os>-<arch>.<ext>`), when it carries one.
@@ -579,7 +593,7 @@ pub fn occupied(
     let target = match kind {
         PackageKind::Msi => folder,
         PackageKind::PortableZip => Some(folder.unwrap_or_else(|| paths.apps()).join(app.id)),
-        PackageKind::Dmg => {
+        PackageKind::Dmg | PackageKind::MacZip => {
             folder.and_then(|f| app.mac_bundle_names().map(|n| f.join(format!("{n}.app"))).find(|t| std::fs::symlink_metadata(t).is_ok()))
         }
         #[cfg(target_os = "linux")]
@@ -629,7 +643,9 @@ fn destination(
         });
     }
     let Some(folder) = locations.folder(app.id) else { return Ok(None) };
-    if !matches!(kind, PackageKind::Dmg | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip) || process::in_sandbox() {
+    if !matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip)
+        || process::in_sandbox()
+    {
         return Err("custom install folders aren't supported on this system".into());
     }
     let parent = selected_folder(folder, kind != PackageKind::Msi)?;
@@ -663,7 +679,7 @@ pub fn default_folder(kind: PackageKind, arch: Option<Arch>, paths: &Paths) -> O
     #[cfg(target_os = "macos")]
     {
         let _ = (arch, paths);
-        (kind == PackageKind::Dmg).then(macos::default_applications_dir).flatten()
+        matches!(kind, PackageKind::Dmg | PackageKind::MacZip).then(macos::default_applications_dir).flatten()
     }
     #[cfg(not(any(windows, target_os = "macos")))]
     {
@@ -819,7 +835,7 @@ pub(crate) fn choose_kinds_with(
     if let Some(inst) = existing {
         let kind = match inst.source {
             InstallSource::Launcher => record.map(|r| r.kind),
-            InstallSource::MacApp => Some(PackageKind::Dmg),
+            InstallSource::MacApp => Some(app.mac_package_kind()),
             InstallSource::Msi => Some(PackageKind::Msi),
             InstallSource::Deb => Some(PackageKind::Deb),
             InstallSource::Rpm => Some(PackageKind::Rpm),
@@ -867,7 +883,7 @@ pub fn is_release_arch_package(app: &CraftApp, installed: &Installed) -> bool {
 /// Package formats this machine can install, best first.
 pub fn available_kinds() -> Vec<PackageKind> {
     #[cfg(target_os = "macos")]
-    return vec![PackageKind::Dmg];
+    return vec![PackageKind::Dmg, PackageKind::MacZip];
     #[cfg(windows)]
     return vec![PackageKind::Msi, PackageKind::PortableZip];
     #[cfg(target_os = "linux")]
@@ -2063,7 +2079,97 @@ pub mod macos {
         result
     }
 
-    /// Copies the `.app` bundle from `mount` into staging, verifies it, and swaps it into Applications.
+    pub fn install_zip(
+        app: &CraftApp,
+        archive: &Path,
+        existing: Option<&Installed>,
+        destination: Option<&Path>,
+        approved_replace: Option<&Path>,
+        paths: &Paths,
+        expect: &Expect<'_>,
+    ) -> Result<PathBuf, String> {
+        let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
+        extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()))?;
+        copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
+    }
+
+    fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str) -> Result<(), String> {
+        use std::io::Read;
+        use std::os::unix::fs::PermissionsExt;
+        use std::path::Component;
+
+        const MAX_FILES: usize = 4096;
+        const MAX_BYTES: u64 = 768 * 1024 * 1024;
+        let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
+        if file.metadata().map_err(|e| e.to_string())?.len() > MAX_BYTES {
+            return Err("The app ZIP is too large.".into());
+        }
+        let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("couldn't read the app ZIP ({e})"))?;
+        if zip.len() > MAX_FILES {
+            return Err("The app ZIP has too many files.".into());
+        }
+        let mut total = 0u64;
+        let mut entries = std::collections::BTreeSet::new();
+        for index in 0..zip.len() {
+            let mut entry = zip.by_index(index).map_err(|e| e.to_string())?;
+            let name = entry.name().map_err(|e| e.to_string())?;
+            let relative = Path::new(if entry.is_dir() { name.trim_end_matches('/') } else { &name });
+            let mut components = relative.components();
+            let mode = entry.unix_mode().unwrap_or(0);
+            let file_type = mode & 0o170000;
+            if name.contains(['\\', ':'])
+                || name.chars().any(char::is_control)
+                || name.split('/').any(|part| part == "." || part == "..")
+                || components.next() != Some(Component::Normal(bundle.as_ref()))
+                || !matches!(file_type, 0 | 0o100000 | 0o040000)
+                || (file_type == 0o040000 && !entry.is_dir())
+                || (relative == Path::new(bundle) && !entry.is_dir())
+                || !entries.insert(relative.to_string_lossy().to_lowercase())
+            {
+                return Err("The app ZIP has a path, link or entry outside the expected bundle layout.".into());
+            }
+            let output = unpacked.join(relative);
+            if entry.is_dir() {
+                std::fs::create_dir_all(output).map_err(|e| e.to_string())?;
+                continue;
+            }
+            let size = entry.size();
+            total = total.checked_add(size).filter(|n| *n <= MAX_BYTES).ok_or("The unpacked app ZIP is too large.")?;
+            let parent = output.parent().ok_or("The app ZIP has no bundle folder.")?;
+            std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+            let mut file = std::fs::OpenOptions::new().write(true).create_new(true).open(output).map_err(|e| e.to_string())?;
+            if std::io::copy(&mut (&mut entry).take(size.saturating_add(1)), &mut file).map_err(|e| e.to_string())? != size {
+                return Err("The app ZIP has an unexpected unpacked size.".into());
+            }
+            file.set_permissions(std::fs::Permissions::from_mode(if mode & 0o111 != 0 { 0o755 } else { 0o644 })).map_err(|e| e.to_string())?;
+        }
+        Ok(())
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn mac_app_zip_rejects_outside_paths_and_symlinks() {
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("app.zip");
+        let output = root.path().join("unpacked");
+        std::fs::create_dir(&output).unwrap();
+        for name in ["Godot.app/../../outside", "/Godot.app/Contents/Info.plist", "Other.app/Contents/file", "Godot.app"] {
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            writer.start_file(name, SimpleFileOptions::default()).unwrap();
+            writer.finish().unwrap();
+            assert!(extract_app_zip(&archive, &output, "Godot.app").is_err(), "{name}");
+        }
+        let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+        writer.add_symlink("Godot.app/Contents/link", "../../outside", SimpleFileOptions::default()).unwrap();
+        writer.finish().unwrap();
+        assert!(extract_app_zip(&archive, &output, "Godot.app").is_err());
+        assert!(!root.path().join("outside").exists());
+        assert_eq!(std::fs::read_dir(output).unwrap().count(), 0);
+    }
+
+    /// Copies the `.app` from a mounted or extracted package, verifies it and swaps it into Applications.
     fn copy_app(
         app: &CraftApp,
         mount: &Path,

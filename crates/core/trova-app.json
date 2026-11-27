@@ -551,6 +551,140 @@
         },
         "source": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md"
       }]
+    },
+    {
+      "id": "remote-desktop",
+      "example": {
+        "it": "Vorrei controllare un computer da remoto",
+        "en": "I want to control a computer remotely"
+      },
+      "match": [
+        [
+          "desktop remoto"
+        ],
+        [
+          "accesso remoto"
+        ],
+        [
+          "controll",
+          "remoto"
+        ],
+        [
+          "assistenza remota"
+        ],
+        [
+          "remote desktop"
+        ],
+        [
+          "control",
+          "remot"
+        ],
+        [
+          "remote support"
+        ],
+        [
+          "vnc"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "rustdesk",
+          "reason": {
+            "it": "Assistenza e controllo remoto tra computer, con possibilità di ospitare il proprio server.",
+            "en": "Remote support across computers, with the option to host your own server."
+          },
+          "source": "https://github.com/rustdesk/rustdesk#readme"
+        },
+        {
+          "id": "tigervnc",
+          "reason": {
+            "it": "Client VNC per connettersi a un desktop che ha già un server VNC.",
+            "en": "VNC viewer for connecting to a desktop that already has a VNC server."
+          },
+          "source": "https://tigervnc.org/"
+        },
+        {
+          "id": "remmina",
+          "reason": {
+            "it": "Client Linux per collegarsi a desktop VNC e RDP.",
+            "en": "Linux client for connecting to VNC and RDP desktops."
+          },
+          "source": "https://remmina.org/"
+        },
+        {
+          "id": "ultravnc",
+          "reason": {
+            "it": "Client e server VNC per Windows.",
+            "en": "VNC viewer and server for Windows."
+          },
+          "source": "https://uvnc.com/"
+        },
+        {
+          "id": "novnc",
+          "reason": {
+            "it": "Client VNC nel browser. Richiede un server VNC raggiungibile via WebSocket.",
+            "en": "VNC client in a browser. It requires a VNC server reachable via WebSocket."
+          },
+          "source": "https://github.com/novnc/noVNC#readme"
+        },
+        {
+          "id": "guacamole",
+          "reason": {
+            "it": "Accesso tramite browser a desktop VNC o RDP, attraverso un proprio gateway.",
+            "en": "Browser access to VNC or RDP desktops through a gateway you host."
+          },
+          "source": "https://guacamole.apache.org/"
+        }
+      ]
+    },
+    {
+      "id": "screen-sharing",
+      "example": {
+        "it": "Vorrei condividere lo schermo con un altro dispositivo",
+        "en": "I want to share my screen with another device"
+      },
+      "match": [
+        [
+          "condivid",
+          "schermo"
+        ],
+        [
+          "condivision",
+          "schermo"
+        ],
+        [
+          "mostr",
+          "schermo"
+        ],
+        [
+          "share",
+          "screen"
+        ],
+        [
+          "screen sharing"
+        ],
+        [
+          "screen mirror"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "deskreen",
+          "reason": {
+            "it": "Invia il tuo schermo o una finestra al browser di un altro dispositivo sulla stessa rete.",
+            "en": "Share the screen or a window with another device’s browser on the same network."
+          },
+          "source": "https://github.com/pavlobu/deskreen#readme"
+        },
+        {
+          "id": "rustdesk",
+          "reason": {
+            "it": "Permette a chi autorizzi di vedere lo schermo e interagire con il computer da remoto.",
+            "en": "Allows someone you authorize to view the screen and interact with the computer remotely."
+          },
+          "source": "https://github.com/rustdesk/rustdesk#readme"
+        }
+      ]
     }
   ]
 }

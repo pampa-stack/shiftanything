@@ -251,7 +251,9 @@
     return {label,detail};
   }
   function missingDownloadSize(snapshot, appId) {
-    if (catalogById.get(appId)?.delivery === 'self-hosted') return it?'Dipende dalla configurazione':'Varies by setup';
+    const delivery = catalogById.get(appId)?.delivery;
+    if (delivery === 'web') return it?'Nessun download':'No download';
+    if (delivery === 'self-hosted') return it?'Dipende dalla configurazione':'Varies by setup';
     const system = platformLabels[snapshot.platform?.os];
     return !system ? unavailableSize : it?`Dimensione non rilevata · ${system}`:`Size unavailable · ${system}`;
   }
@@ -288,6 +290,9 @@
       return {label:it?'🔒 Non supportata':'🔒 Unsupported', reason:it?'Il progetto non supporta questo sistema.':'The project does not support this system.'};
     }
     if (verified && app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled, operation:'install'};
+    if (entry?.delivery === 'web' && https(entry.website)) {
+      return {label:it?'Apri nel browser':'Open in browser', target:entry.website};
+    }
     const guide = entry?.delivery === 'self-hosted' && projectGuide(entry);
     if (guide) {
       return {
@@ -308,7 +313,7 @@
   function showInstallStatus(button, action, verified, platformReady, progress) {
     const surface = button.closest('.cell, .catalog-row, [data-app-content]');
     const heart = surface?.querySelector('button[data-favorite-app]');
-    if (heart && platformReady) {
+    if (heart && platformReady && catalogById.get(button.dataset.nativeApp)?.delivery === 'desktop') {
       let badge = heart.previousElementSibling;
       if (!badge?.classList.contains('install-indicator')) {
         badge = document.createElement('span');

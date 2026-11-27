@@ -280,7 +280,11 @@ impl LauncherUi {
             self.curated.detail = Some(app.id.clone());
         }
         ui.horizontal(|ui| {
-            ui.label(if app.delivery == "self-hosted" { tl!("Self-hosted") } else { tl!("Desktop app") });
+            ui.label(match app.delivery.as_str() {
+                "self-hosted" => tl!("Self-hosted"),
+                "web" => tl!("Browser app"),
+                _ => tl!("Desktop app"),
+            });
             ui.hyperlink_to(&app.license, &app.license_url);
             let control = match app.agent.kind.as_str() {
                 "mcp" => "MCP",
@@ -350,6 +354,14 @@ impl LauncherUi {
     }
 
     fn curated_action(&mut self, ui: &mut egui::Ui, app: &curated::App, width: f32) {
+        if app.delivery == "web" && app.website.starts_with("https://") {
+            let label = tl!("Open in browser");
+            if ui.add_sized([width, crate::theme::CONTROL_H], egui::Button::new(label)).accessible_name(format!("{label} · {}", app.name)).clicked()
+            {
+                ui.ctx().open_url(egui::OpenUrl::new_tab(&app.website));
+            }
+            return;
+        }
         let entry = self
             .entries
             .iter()

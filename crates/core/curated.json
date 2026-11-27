@@ -340,8 +340,8 @@
     "level": "base",
     "category": "ufficio",
     "description": {
-      "it": "Documenti, fogli e presentazioni",
-      "en": "Documents, spreadsheets and presentations"
+      "it": "Documenti, fogli di calcolo, presentazioni e disegni con Writer, Calc, Impress e Draw.",
+      "en": "Documents, spreadsheets, presentations and drawings with Writer, Calc, Impress and Draw."
     },
     "alternatives": [
       "Microsoft 365"
@@ -31887,5 +31887,375 @@
       "windows": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#start-a-separate-workspace",
       "linux": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#start-a-separate-workspace"
     }
+  },
+  {
+    "id": "graphite",
+    "name": "Graphite",
+    "repo": "https://github.com/GraphiteEditor/Graphite",
+    "author": "Graphite Labs",
+    "level": "base",
+    "category": "design",
+    "description": {
+      "it": "Editor vettoriale e raster in alpha, con livelli ed effetti non distruttivi basati su nodi.",
+      "en": "Alpha vector and raster editor with layers and node-based, nondestructive effects."
+    },
+    "alternatives": [
+      "Adobe Illustrator",
+      "Affinity Designer"
+    ],
+    "license": "MIT OR Apache-2.0",
+    "license_url": "https://graphite.art/license/",
+    "website": "https://editor.graphite.art/",
+    "delivery": "web",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://editor.graphite.art/apple-touch-icon.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/decb7011-18c2-4c68-82af-d1fa5064244a"
+    ],
+    "media_source": "https://github.com/GraphiteEditor/Graphite#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/GraphiteEditor/Graphite#readme"
+    },
+    "stars": {
+      "count": 28059,
+      "source": "https://github.com/GraphiteEditor/Graphite/stargazers",
+      "date": "2026-11-27"
+    }
+  },
+  {
+    "id": "openpencil",
+    "name": "OpenPencil",
+    "repo": "https://github.com/open-pencil/open-pencil",
+    "author": "OpenPencil",
+    "level": "base",
+    "category": "design",
+    "description": {
+      "it": "Editor gratuito per interfacce e prototipi. Apre documenti Figma e si collega agli agenti via MCP.",
+      "en": "Free editor for interfaces and prototypes. Opens Figma files and connects to agents via MCP."
+    },
+    "alternatives": [
+      "Figma",
+      "Sketch",
+      "Adobe XD"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/open-pencil/open-pencil/blob/master/LICENSE",
+    "website": "https://openpencil.dev/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://openpencil.dev/programmable/mcp-server"
+    },
+    "logo": "https://openpencil.dev/brand/favicon-96x96.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/open-pencil/open-pencil/master/packages/docs/public/screenshot.png"
+    ],
+    "media_source": "https://openpencil.dev/download",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://openpencil.dev/download"
+    },
+    "stars": {
+      "count": 10155,
+      "source": "https://github.com/open-pencil/open-pencil/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://openpencil.dev/download",
+      "linux": "https://openpencil.dev/download",
+      "windows": "https://openpencil.dev/download"
+    },
+    "release": {
+      "version": "0.17.0",
+      "date": "2026-11-22",
+      "source": "https://github.com/open-pencil/open-pencil/releases/tag/v0.17.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 19490106,
+          "size_max": null
+        },
+        {
+          "platform": "linux",
+          "size_min": 22466244,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 19308544,
+          "size_max": null
+        }
+      ]
+    },
+    "releases": "https://github.com/open-pencil/open-pencil/releases/tag/v0.17.0"
+  },
+  {
+    "id": "ardour",
+    "name": "Ardour",
+    "repo": "https://github.com/Ardour/ardour",
+    "author": "Ardour Community",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Registra, monta e mixa audio e MIDI su più tracce. Pacchetto completo gratuito per Linux su Flathub.",
+      "en": "Record, edit and mix multitrack audio and MIDI. Full free Linux package on Flathub."
+    },
+    "alternatives": [
+      "Avid Pro Tools",
+      "Logic Pro",
+      "Adobe Audition"
+    ],
+    "license": "GPL-2.0-or-later",
+    "license_url": "https://github.com/Ardour/ardour/blob/master/COPYING",
+    "website": "https://ardour.org/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/icons/128x128/org.ardour.Ardour.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/screenshots/image-1_1248x702@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.ardour.Ardour",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://ardour.org/faq.html"
+    },
+    "stars": {
+      "count": 5463,
+      "source": "https://github.com/Ardour/ardour/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/org.ardour.Ardour"
+    },
+    "release": {
+      "version": "9.10.0",
+      "date": "2026-11-09",
+      "source": "https://flathub.org/apps/org.ardour.Ardour",
+      "packages": []
+    },
+    "releases": "https://flathub.org/apps/org.ardour.Ardour",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.ardour.Ardour",
+        "source": "https://flathub.org/apps/org.ardour.Ardour"
+      }
+    ]
+  },
+  {
+    "id": "euro-office",
+    "name": "Euro-Office",
+    "repo": "https://github.com/Euro-Office/DocumentServer",
+    "author": "Euro-Office",
+    "level": "avanz",
+    "category": "ufficio",
+    "description": {
+      "it": "Editor web collaborativo di documenti, fogli e presentazioni. Richiede una piattaforma per i file, come Nextcloud.",
+      "en": "Collaborative web editor for documents, spreadsheets and slides. Requires a file platform such as Nextcloud."
+    },
+    "alternatives": [
+      "Microsoft 365",
+      "Google Workspace"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/Euro-Office/DocumentServer/blob/main/LICENSE",
+    "website": "https://euro-office.github.io/documentation/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://euro-office.github.io/documentation/assets/logo.svg",
+    "screenshots": [],
+    "media_source": "https://euro-office.github.io/documentation/installation/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://euro-office.github.io/documentation/installation/"
+    },
+    "stars": {
+      "count": 1918,
+      "source": "https://github.com/Euro-Office/DocumentServer/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "9.3.8",
+      "date": "2026-11-13",
+      "source": "https://github.com/Euro-Office/DocumentServer/releases/tag/v9.3.8",
+      "packages": []
+    },
+    "releases": "https://github.com/Euro-Office/DocumentServer/releases/tag/v9.3.8"
+  },
+  {
+    "id": "novnc",
+    "name": "noVNC",
+    "repo": "https://github.com/novnc/noVNC",
+    "author": "The noVNC authors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Visualizza e controlla in browser computer autorizzati con un server VNC.",
+      "en": "View and control authorized computers from a browser using a VNC server."
+    },
+    "alternatives": [
+      "RealVNC",
+      "Microsoft Remote Desktop"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/novnc/noVNC/blob/v1.7.0/LICENSE.txt",
+    "website": "https://novnc.com/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/novnc/noVNC/v1.7.0/app/images/icons/novnc-ios-180.png",
+    "screenshots": [
+      "https://novnc.com/img/noVNC-3-connected.png"
+    ],
+    "media_source": "https://github.com/novnc/noVNC#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/novnc/noVNC#readme"
+    },
+    "stars": {
+      "count": 14256,
+      "source": "https://github.com/novnc/noVNC/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "1.7.0",
+      "date": "2026-04-28",
+      "source": "https://github.com/novnc/noVNC/releases/tag/v1.7.0",
+      "packages": []
+    },
+    "releases": "https://github.com/novnc/noVNC/releases/tag/v1.7.0"
+  },
+  {
+    "id": "ultravnc",
+    "name": "UltraVNC",
+    "repo": "https://github.com/ultravnc/UltraVNC",
+    "author": "UltraVNC",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Client e server VNC per visualizzare e controllare lo schermo di computer Windows autorizzati.",
+      "en": "VNC client and server for viewing and controlling authorized Windows desktop screens."
+    },
+    "alternatives": [
+      "RealVNC",
+      "AnyDesk"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/ultravnc/UltraVNC/blob/main/LICENSE",
+    "website": "https://uvnc.com/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ultravnc/UltraVNC/main/vncviewer/res/logo.png",
+    "screenshots": [
+      "https://uvnc.com/images/ultravnc-viewer.png"
+    ],
+    "media_source": "https://uvnc.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://uvnc.com/downloads/ultravnc.html"
+    },
+    "stars": {
+      "count": 1556,
+      "source": "https://github.com/ultravnc/UltraVNC/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "windows": "https://uvnc.com/downloads/ultravnc.html"
+    },
+    "platform_scope_complete": true,
+    "distribution": [
+      {
+        "platform": "windows",
+        "manager": "installer",
+        "id": "ultravnc",
+        "source": "https://uvnc.com/downloads/ultravnc.html"
+      }
+    ]
+  },
+  {
+    "id": "deskreen",
+    "name": "Deskreen Community Edition",
+    "repo": "https://github.com/pavlobu/deskreen",
+    "author": "Pavlo Buidenkov",
+    "level": "base",
+    "category": "rete",
+    "description": {
+      "it": "Condividi lo schermo o una finestra con un browser sulla stessa rete, anche su un tablet.",
+      "en": "Share your screen or a window with a browser on the same network, including on a tablet."
+    },
+    "alternatives": [],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/pavlobu/deskreen/blob/master/LICENSE",
+    "website": "https://deskreen.com/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/pavlobu/deskreen/master/resources/icon.png",
+    "screenshots": [
+      "https://deskreen.com/images/share-screen-to-all.jpeg"
+    ],
+    "media_source": "https://github.com/pavlobu/deskreen#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/pavlobu/deskreen#readme"
+    },
+    "stars": {
+      "count": 21823,
+      "source": "https://github.com/pavlobu/deskreen/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16",
+      "linux": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16",
+      "windows": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16"
+    },
+    "release": {
+      "version": "3.2.16",
+      "date": "2026-07-08",
+      "source": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 147505602,
+          "size_max": null
+        },
+        {
+          "platform": "linux",
+          "size_min": 155306590,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 130162688,
+          "size_max": null
+        }
+      ]
+    },
+    "releases": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16"
   }
 ]

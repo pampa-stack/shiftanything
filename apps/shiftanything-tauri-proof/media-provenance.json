@@ -4246,6 +4246,110 @@
       "source": "https://raw.githubusercontent.com/pampa-stack/shiftanything/8d01e24ac459b6847503f62d9baa1b069b3faea8/apps/shiftanything-tauri-proof/frontend/media/opengame-shot-0.png",
       "file": "media/opengame-shot-0.png",
       "sha256": "4bec184e8f1d5c96bfca0a14fbfcdc53f408c20f82b47119f6977a409a00f1df"
+    },
+    {
+      "app": "graphite",
+      "slot": "logo",
+      "source": "https://editor.graphite.art/apple-touch-icon.png",
+      "file": "media/graphite-logo.png",
+      "sha256": "c998b996745db96b3a04b4696b10f6e0624606b69c2a02a278b049761c3b8685",
+      "source_sha256": "a392ba4e6a7895b2cafaaf9fb0653a9d347b23ea0412e585248435dbe26a9828"
+    },
+    {
+      "app": "graphite",
+      "slot": "shot-0",
+      "source": "https://github.com/user-attachments/assets/decb7011-18c2-4c68-82af-d1fa5064244a",
+      "file": "media/graphite-shot-0.jpg",
+      "sha256": "b03ea511512273ae70c8fdf19aae0492dc072f46c8c4a24047592bef811f386f",
+      "source_sha256": "8d3489c64be1d6f22fdbd8982b0ff6b52efaab3661b4230ee25bbb0e11573e35"
+    },
+    {
+      "app": "openpencil",
+      "slot": "logo",
+      "source": "https://openpencil.dev/brand/favicon-96x96.png",
+      "file": "media/openpencil-logo.png",
+      "sha256": "a3f4bd93eb9eb230085676a373944ccb60a6d9007ceac7f0b4e413a2d3e21e22",
+      "source_sha256": "51a356c78210df5e0e700c4538f964b410f0960accb3a0f566185f94e5a6d21d"
+    },
+    {
+      "app": "openpencil",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/open-pencil/open-pencil/master/packages/docs/public/screenshot.png",
+      "file": "media/openpencil-shot-0.jpg",
+      "sha256": "0487d28721ff35da03899f983e9172e4d5a06c03f12688e9390b0955e416963d",
+      "source_sha256": "f5a24ed52fbba4e3222a3676241dbd767c3651f52d7f18ada358084bd5219e43"
+    },
+    {
+      "app": "ardour",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/icons/128x128/org.ardour.Ardour.png",
+      "file": "media/ardour-logo.png",
+      "sha256": "f73fb577808b066e61231992e51f1d2af1bfcc2e0f95cc6cbc0534bf80dc1011",
+      "source_sha256": "3ac57991c01503c3ece1e1e8cb5e8228833ff6e097fc5ac293da6a504ce353a8"
+    },
+    {
+      "app": "ardour",
+      "slot": "shot-0",
+      "source": "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/screenshots/image-1_1248x702@1.png",
+      "file": "media/ardour-shot-0.jpg",
+      "sha256": "97f8e17b22b09ea74db3d6b04ec8b8c8861deb26ac441eed3b260b091c66af1d",
+      "source_sha256": "7da0d52a55af4fed02a1e0b1a589e809655597eef2990461fffec37c2757c51f"
+    },
+    {
+      "app": "novnc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/novnc/noVNC/v1.7.0/app/images/icons/novnc-ios-180.png",
+      "file": "media/novnc-logo.png",
+      "sha256": "343873349ebc689ebb75bbca25a05118ca10806de4b46c3b81560949e159d51e",
+      "source_sha256": "4053691ee642373acc680c7b0b05bf76d58de02e3a8aff936b641f02c6cb347e"
+    },
+    {
+      "app": "novnc",
+      "slot": "shot-0",
+      "source": "https://novnc.com/img/noVNC-3-connected.png",
+      "file": "media/novnc-shot-0.jpg",
+      "sha256": "9f0288e41fb114c7d7ca925f3ef5190d1041980f57b5324a5b8ded1bb9497084",
+      "source_sha256": "1e9ef455c3f6fc8e36a8772e3d5eb77e6c41ee82c822575ccbdf479ad7040808"
+    },
+    {
+      "app": "ultravnc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ultravnc/UltraVNC/main/vncviewer/res/logo.png",
+      "file": "media/ultravnc-logo.png",
+      "sha256": "834b4a7341c338565c3e03b5aa470b8eff21b3bc910002a57d9679f18901bf12",
+      "source_sha256": "bfcbf4047525e0f913c13e07989f0cad8d42977e227c52fdce48113b1c578365"
+    },
+    {
+      "app": "ultravnc",
+      "slot": "shot-0",
+      "source": "https://uvnc.com/images/ultravnc-viewer.png",
+      "file": "media/ultravnc-shot-0.jpg",
+      "sha256": "a2e2653c361920dd85c9a869ec54d746806ff0c9325078b00dfd114c782c0492",
+      "source_sha256": "1d4d728084544016bacf57cc8599ea34cdbbd4a23f715287bd4b4fe641278b88"
+    },
+    {
+      "app": "deskreen",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pavlobu/deskreen/master/resources/icon.png",
+      "file": "media/deskreen-logo.png",
+      "sha256": "7d1d38e255e37062ea52c326b6a4ef7a31b9f8c7ec357236bcca6941d428627d",
+      "source_sha256": "09e9fd930dc18cf29447877b603af8f0ea5fea53211996f541dce6870c6f20b2"
+    },
+    {
+      "app": "deskreen",
+      "slot": "shot-0",
+      "source": "https://deskreen.com/images/share-screen-to-all.jpeg",
+      "file": "media/deskreen-shot-0.jpg",
+      "sha256": "47fabe4e62b65e0ad438317da4c6e4b54b3c2f7a739d8f195cbdad16b534f9fc",
+      "source_sha256": "ca0275f34568a649086e519f7c6ef12f1af02e954860d86d45044c7ed9bfb7a0"
+    },
+    {
+      "app": "euro-office",
+      "slot": "logo",
+      "source": "https://euro-office.github.io/documentation/assets/logo.svg",
+      "file": "media/euro-office-logo.png",
+      "sha256": "1431c85a7de3da554caa70c5d99dbb9444cca58fbe776ea4c128261333699624",
+      "source_sha256": "25e3e10f105bf348d02ffa2f142f0c5cbcbcde0984be939fa6e6cb640e099832"
     }
   ]
 }

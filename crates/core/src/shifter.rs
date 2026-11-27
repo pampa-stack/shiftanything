@@ -289,11 +289,14 @@ mod tests {
         let migration = vec!["migration".into()];
         let scores = comparison.compare(&migration, &migration).unwrap();
         let candidates: BTreeSet<_> = scores.iter().filter(|score| score.coverage.is_some()).map(|score| score.app_id.as_str()).collect();
-        assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "penpot"]));
-        assert!(scores.iter().all(|score| score.missing_required == migration));
+        assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "openpencil", "penpot"]));
+        let openpencil = scores.iter().find(|score| score.app_id == "openpencil").unwrap();
+        assert_eq!(openpencil.supported, 1);
+        assert!(openpencil.missing_required.is_empty());
+        assert!(scores.iter().filter(|score| score.app_id != "openpencil").all(|score| score.missing_required == migration));
         let doop = scores.iter().find(|score| score.app_id == "doop").unwrap();
         assert_eq!(doop.unsupported, 1);
-        assert!(scores.iter().filter(|score| candidates.contains(score.app_id.as_str()) && score.app_id != "doop").all(|score| score.partial == 1));
+        assert!(scores.iter().filter(|score| matches!(score.app_id.as_str(), "figcraft" | "penpot")).all(|score| score.partial == 1));
 
         let kits = crate::kits::data().unwrap();
         let step = kits.kits.iter().flat_map(|kit| &kit.steps).find(|step| step.paid.iter().any(|name| name == "Figma")).unwrap();

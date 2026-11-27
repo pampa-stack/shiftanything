@@ -2455,6 +2455,75 @@
           }
         },
         {
+          "app_id": "openpencil",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Editor per livelli, forme vettoriali e testo.",
+                "en": "Editor for layers, vector shapes and text."
+              }
+            },
+            "auto_layout": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Layout automatico e vincoli modificabili nel pannello di design.",
+                "en": "Editable auto layout and constraints in the design panel."
+              }
+            },
+            "components": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Componenti riutilizzabili con istanze, slot e varianti.",
+                "en": "Reusable components with instances, slots and variants."
+              }
+            },
+            "tokens": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Token di design organizzati in collezioni con più modalità.",
+                "en": "Design tokens in collections with multiple modes."
+              }
+            },
+            "prototypes": {
+              "state": "partial",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "L’anteprima documenta controlli e stati interattivi dei componenti.",
+                "en": "The preview documents interactive controls and component states."
+              }
+            },
+            "collaboration": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Modifica in tempo reale peer-to-peer con link, cursori e commenti.",
+                "en": "Peer-to-peer live editing with share links, cursors and comments."
+              }
+            },
+            "handoff": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Esporta componenti Vue, React e Storybook e codice HTML o Tailwind.",
+                "en": "Exports Vue, React and Storybook components and HTML or Tailwind code."
+              }
+            },
+            "migration": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Apre e salva file .fig con livelli, componenti, variabili e layout modificabili.",
+                "en": "Opens and saves .fig files with editable layers, components, variables and layout."
+              }
+            }
+          }
+        },
+        {
           "app_id": "penpot",
           "evidence": {
             "canvas": {

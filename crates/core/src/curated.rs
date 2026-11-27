@@ -525,7 +525,49 @@ pub const PINTA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("D5G6C56TBH"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 15] = [
+pub const ZED: crate::CraftApp = crate::CraftApp {
+    id: "zed",
+    name: "Zed",
+    tagline: "Code editor",
+    repo: "zed-industries/zed",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [89, 149, 232],
+    ink_light: [40, 76, 124],
+    ink_dark: [163, 202, 252],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Zed Industries, Inc.",
+    msi_publisher: None,
+    bundle: Some("dev.zed.Zed"),
+    site: Some("https://zed.dev/"),
+    mac_bundle_name: None,
+    mac_team: Some("MQ55VZLNZQ"),
+};
+
+pub const DRAWIO: crate::CraftApp = crate::CraftApp {
+    id: "drawio",
+    name: "draw.io Desktop",
+    tagline: "Offline diagram and flowchart editor",
+    repo: "jgraph/drawio-desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [244, 127, 30],
+    ink_light: [127, 58, 4],
+    ink_dark: [255, 179, 110],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "DRAW.IO LTD",
+    msi_publisher: None,
+    bundle: Some("com.jgraph.drawio.desktop"),
+    site: Some("https://www.drawio.com/"),
+    mac_bundle_name: Some("draw.io"),
+    mac_team: Some("UZEUFB4N53"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 17] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -541,6 +583,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 15] = [
     JOPLIN,
     SHOTCUT,
     PINTA,
+    ZED,
+    DRAWIO,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -741,6 +785,13 @@ mod recipe_tests {
                 "com.Meltytech.Shotcut",
                 "Y6RX44QG2G",
             ),
+            (
+                super::DRAWIO,
+                ["v32.6.10", "v32.7.4"],
+                ["draw.io-arm64-32.6.10.dmg", "draw.io-arm64-32.7.4.dmg"],
+                "com.jgraph.drawio.desktop",
+                "UZEUFB4N53",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -789,6 +840,9 @@ mod recipe_tests {
             (super::SHOTCUT, "shotcut-macos-unsigned-26.11.15.dmg"),
             (super::SHOTCUT, "shotcut-macos-26.11.15-x86_64.dmg"),
             (super::SHOTCUT, "shotcut-macos-26.11.15-beta.1.dmg"),
+            (super::DRAWIO, "draw.io-x64-32.7.4.dmg"),
+            (super::DRAWIO, "draw.io-universal-32.7.4.dmg"),
+            (super::DRAWIO, "draw.io-arm64-32.7.4-beta.1.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }
@@ -797,47 +851,58 @@ mod recipe_tests {
     }
 
     #[test]
-    fn pinta_unversioned_arm64_asset_is_bound_to_the_official_stable_tag() {
+    fn unversioned_arm64_assets_are_bound_to_their_official_stable_tags() {
         use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
 
-        let app = CraftApp::by_id("pinta").expect("compiled Pinta recipe");
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        let installable =
-            |release: &release::Release, host: Platform| platform::pick_asset(release, &[app.id], host, host.download_kinds()).is_some();
-        assert_eq!(app.bundle, Some("com.ximian.pinta"));
-        assert_eq!(app.mac_team, Some("D5G6C56TBH"));
-        for tag in ["3.1.1", "3.1.2"] {
-            let official = release::release_from_sums(app.repo, tag, &[]);
-            let (asset, kind) = platform::pick_asset(&official, &[app.id], mac, mac.download_kinds()).expect("reviewed DMG");
-            assert_eq!((asset.name.as_str(), kind), ("Pinta-macos-arm64.dmg", PackageKind::Dmg));
-            assert!(asset.sha256.as_deref().is_some_and(release::is_hex64));
-            assert!(asset.size > 0);
-            for host in [
-                Platform { os: Os::MacOs, arch: Arch::X64 },
-                Platform { os: Os::Linux, arch: Arch::X64 },
-                Platform { os: Os::Windows, arch: Arch::Arm64 },
-            ] {
-                assert!(!installable(&official, host));
+        for (id, tags, filename, bundle, team, wrong_arch_filename) in [
+            ("pinta", ["3.1.1", "3.1.2"], "Pinta-macos-arm64.dmg", "com.ximian.pinta", "D5G6C56TBH", "Pinta-macos-x86_64.dmg"),
+            ("zed", ["v1.29.3", "v1.30.2"], "Zed-aarch64.dmg", "dev.zed.Zed", "MQ55VZLNZQ", "Zed-x86_64.dmg"),
+        ] {
+            let app = CraftApp::by_id(id).expect("compiled recipe");
+            let installable =
+                |release: &release::Release, host: Platform| platform::pick_asset(release, &[app.id], host, host.download_kinds()).is_some();
+            assert_eq!(app.bundle, Some(bundle));
+            assert_eq!(app.mac_team, Some(team));
+            for tag in tags {
+                let official = release::release_from_sums(app.repo, tag, &[]);
+                let (asset, kind) = platform::pick_asset(&official, &[app.id], mac, mac.download_kinds()).expect("reviewed DMG");
+                assert_eq!((asset.name.as_str(), kind), (filename, PackageKind::Dmg));
+                assert!(asset.sha256.as_deref().is_some_and(release::is_hex64));
+                assert!(asset.size > 0);
+                for host in [
+                    Platform { os: Os::MacOs, arch: Arch::X64 },
+                    Platform { os: Os::Linux, arch: Arch::X64 },
+                    Platform { os: Os::Windows, arch: Arch::Arm64 },
+                ] {
+                    assert!(!installable(&official, host));
+                }
+                let mut wrong = official.clone();
+                wrong.assets[0].url = wrong.assets[0].url.replace(tag, "v1.0.0");
+                assert!(!installable(&wrong, mac));
+                let mut wrong = official.clone();
+                wrong.assets[0].name = wrong_arch_filename.into();
+                wrong.assets[0].url = wrong.assets[0].url.replace(filename, wrong_arch_filename);
+                assert!(!installable(&wrong, mac));
+                let mut wrong = official.clone();
+                wrong.assets[0].url = wrong.assets[0].url.replace(app.repo, "mirror/community");
+                assert!(!installable(&wrong, mac));
+                let mut wrong = official.clone();
+                wrong.assets[0].sha256 = None;
+                assert!(!installable(&wrong, mac));
+                let mut wrong = official.clone();
+                wrong.prerelease = true;
+                assert!(!installable(&wrong, mac));
+                if id == super::ZED.id {
+                    let mut wrong = official.clone();
+                    wrong.tag = tag.trim_start_matches('v').into();
+                    wrong.assets[0].url = wrong.assets[0].url.replace(tag, &wrong.tag);
+                    assert!(!installable(&wrong, mac));
+                }
+                let mut wrong = official;
+                wrong.version = crate::version::parse("8.0.0");
+                assert!(!installable(&wrong, mac));
             }
-            let mut wrong = official.clone();
-            wrong.assets[0].url = wrong.assets[0].url.replace(tag, "3.1.0");
-            assert!(!installable(&wrong, mac));
-            let mut wrong = official.clone();
-            wrong.assets[0].name = "Pinta-macos-x86_64.dmg".into();
-            wrong.assets[0].url = wrong.assets[0].url.replace("arm64", "x86_64");
-            assert!(!installable(&wrong, mac));
-            let mut wrong = official.clone();
-            wrong.assets[0].url = wrong.assets[0].url.replace(app.repo, "mirror/pinta");
-            assert!(!installable(&wrong, mac));
-            let mut wrong = official.clone();
-            wrong.assets[0].sha256 = None;
-            assert!(!installable(&wrong, mac));
-            let mut wrong = official.clone();
-            wrong.prerelease = true;
-            assert!(!installable(&wrong, mac));
-            let mut wrong = official;
-            wrong.version = crate::version::parse("8.0.0");
-            assert!(!installable(&wrong, mac));
         }
     }
 

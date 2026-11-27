@@ -549,6 +549,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("PintaProject/Pinta", "3.1.2") => {
             &[("Pinta-macos-arm64.dmg", 68_171_678, "daad4b3550e7d5f27928ccb9ca99392aa46a5ef71cfd54ce72c0b7a810f4f993")]
         }
+        ("zed-industries/zed", "v1.29.3") => &[("Zed-aarch64.dmg", 88_779_557, "b692c9effdfcec874c47f56c3b27df069a63c6b3d23ecd070ffec9238a708bb8")],
+        ("zed-industries/zed", "v1.30.2") => &[("Zed-aarch64.dmg", 88_057_394, "36ab60379627730fc3ac6ab79bc57dba7a1cf6d6df8117b8e22190d9b639fff5")],
+        ("jgraph/drawio-desktop", "v32.6.10") => {
+            &[("draw.io-arm64-32.6.10.dmg", 157_367_951, "83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727")]
+        }
+        ("jgraph/drawio-desktop", "v32.7.4") => {
+            &[("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

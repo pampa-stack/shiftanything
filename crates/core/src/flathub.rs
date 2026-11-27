@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 13] = [
+pub const RECIPES: [(&str, &str); 16] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -15,6 +15,9 @@ pub const RECIPES: [(&str, &str); 13] = [
     ("pika-backup", "org.gnome.World.PikaBackup"),
     ("tenacity", "org.tenacityaudio.Tenacity"),
     ("peazip", "io.github.peazip.PeaZip"),
+    ("pinta", "com.github.PintaProject.Pinta"),
+    ("keepassxc", "org.keepassxc.KeePassXC"),
+    ("xournal", "com.github.xournalpp.xournalpp"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -46,6 +49,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "pika-backup" => "https://gitlab.gnome.org/World/pika-backup",
         "tenacity" => "https://codeberg.org/tenacityteam/tenacity",
         "peazip" => "https://github.com/peazip/PeaZip",
+        "pinta" => "https://github.com/PintaProject/Pinta",
+        "keepassxc" => "https://github.com/keepassxreboot/keepassxc",
+        "xournal" => "https://github.com/xournalpp/xournalpp",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -1,7 +1,9 @@
 /* Installed apps and ongoing actions come from NativeBackend's inventory. */
 (() => {
   const invoke = window.__TAURI__.core.invoke;
-  const it = document.documentElement.lang === 'it';
+  const language = document.documentElement.lang;
+  const it = language === 'it';
+  const dateFormatter = new Intl.DateTimeFormat(language, {year:'numeric', month:'short', day:'numeric', timeZone:'UTC'});
   const catalogBody = document.querySelector('.body');
   const panel = document.createElement('main');
   panel.className = 'main native-apps';
@@ -57,6 +59,19 @@
     button.disabled = !snapshot.lifecycle_enabled || (operation === 'cancel' ? !app.job || snapshot.progress[app.id]?.phase === 'cancelling' : !!app.job);
     return button;
   }
+  function releaseDay(app) {
+    // Each row refers to the version offered for update, or the installed version.
+    const versionKey = value => value?.replace(/^[vV](?=\d)/, '');
+    const version = versionKey(!app.installed || app.update_available ? app.latest_version : app.installed_version);
+    if (!version) return '';
+    const live = snapshot.release_assets?.[app.id];
+    if (Number.isFinite(live?.published_at) && [live.version, live.tag].some(value => versionKey(value) === version)) {
+      const date = new Date(live.published_at * 1000);
+      if (Number.isFinite(date.getTime())) return date.toISOString().slice(0, 10);
+    }
+    const documented = catalog.find(item => item.id === app.id)?.release;
+    return versionKey(documented?.version) === version ? documented.date || '' : '';
+  }
   function row(app) {
     const entry = catalog.find(item => item.id === app.id);
     const row = document.createElement('div');
@@ -68,6 +83,14 @@
     if (logo) identity.append(logo.cloneNode(true));
     identity.append(text('strong', entry?.name || app.id));
     row.append(identity, text('span', app.installed_version || '—'), text('span', app.update_available ? (app.latest_version || (it?'Nuova revisione':'New revision')) : '—'));
+    const date = new Date(app.releaseDay + 'T00:00:00Z');
+    if (Number.isFinite(date.getTime())) {
+      const time = text('time', dateFormatter.format(date));
+      time.dateTime = app.releaseDay;
+      row.append(time);
+    } else {
+      row.append(text('span', '—'));
+    }
     const activity = window.nativeAppActivity(snapshot, app.id);
     const state = text('span', activity.label || (app.installed ? (it?'Installata':'Installed') : (it?'In attesa':'Waiting')));
     state.title = activity.detail || '';
@@ -75,9 +98,15 @@
     row.append(state);
     const actions = document.createElement('div');
     actions.className = 'more-actions';
+    const source = original?.querySelector('.source-link')?.cloneNode(true);
+    if (source) {
+      source.dataset.catalogLink = app.id;
+      actions.append(source);
+    }
     if (app.installed && app.update_available) {
       const update = action(app, 'update', it?'Aggiorna':'Update');
-      update.disabled ||= !app.installable || !app.compatible;
+      update.disabled ||= !app.detected || !app.installable || !app.compatible;
+      update.classList.toggle('solid', !update.disabled);
       actions.append(update);
     }
     if (app.installed) {
@@ -101,14 +130,18 @@
   function paintRows(container, apps, emptyState) {
     const heading = document.createElement('div');
     heading.className = 'table-row table-labels mono';
-    const labels = it ? ['App','Versione','Disponibile','Stato','Azioni'] : ['App','Version','Available','Status','Actions'];
+    const labels = it
+      ? ['App','Versione installata','Nuova versione','Data di rilascio','Stato','Azioni']
+      : ['App','Installed version','New version','Release date','Status','Actions'];
     for (const label of labels) heading.append(text('span', label));
     container.replaceChildren(heading, ...apps.map(row));
     if (!apps.length && emptyState) container.append(text('p', emptyState));
   }
   function render() {
     if (!snapshot || !catalog) return;
-    const apps = snapshot.inventory.apps.filter(app => (app.installed || app.job) && catalog.some(entry => entry.id === app.id));
+    const apps = snapshot.inventory.apps
+      .filter(app => (app.installed || app.job) && catalog.some(entry => entry.id === app.id))
+      .map(app => ({...app, releaseDay: releaseDay(app)}));
     const installed = apps.filter(app => app.installed);
     const installing = apps.filter(app => !app.installed);
     const updates = installed.filter(app => app.update_available);
@@ -133,8 +166,9 @@
       panel.querySelector('[data-native-update-count]').textContent = updates.length;
       panel.querySelector('[data-native-installed-count]').textContent = upToDate.length;
       if (hadFocus && !focused.isConnected && !panel.hidden) {
-        const focusTarget = [...panel.querySelectorAll('button:enabled')].find(button =>
-          (focused.dataset.appDetail && focused.dataset.appDetail === button.dataset.appDetail)
+        const focusTarget = [...panel.querySelectorAll('button:enabled, a[data-catalog-link]')].find(button =>
+          (focused.dataset.catalogLink && focused.dataset.catalogLink === button.dataset.catalogLink)
+          || (focused.dataset.appDetail && focused.dataset.appDetail === button.dataset.appDetail)
           || (focused.dataset.nativeApp && focused.dataset.nativeApp === button.dataset.nativeApp
             && focused.dataset.nativeOperation === button.dataset.nativeOperation));
         (focusTarget || panel.querySelector('h1')).focus();

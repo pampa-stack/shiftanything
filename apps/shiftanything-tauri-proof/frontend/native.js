@@ -23,6 +23,7 @@
       ['https://www.instagram.com/promptica_ai','instagram'],
       ['https://www.reddit.com/user/Comfortable_Ice_4281/','reddit'],
       ['https://x.com/Pampaeyes','x'],
+      ['https://discord.gg/Xrg2kksz2m','discord'],
     ]).get(link.href);
     if (social && link.closest('.footer-brand')) {
       invoke('open_social_link', {link:social}).then(() => {

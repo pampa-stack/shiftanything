@@ -18,6 +18,7 @@ enum SocialLink {
     Instagram,
     Reddit,
     X,
+    Discord,
 }
 impl SocialLink {
     fn url(&self) -> &'static str {
@@ -27,12 +28,16 @@ impl SocialLink {
             Self::Instagram => "https://www.instagram.com/promptica_ai",
             Self::Reddit => "https://www.reddit.com/user/Comfortable_Ice_4281/",
             Self::X => "https://x.com/Pampaeyes",
+            Self::Discord => "https://discord.gg/Xrg2kksz2m",
         }
     }
 }
 #[tauri::command]
 fn open_social_link(link: SocialLink) -> Result<(), String> {
-    artcraft_launcher_native::process::open(std::ffi::OsStr::new(link.url()))?;
+    dispatch_social_link(link, artcraft_launcher_native::process::open)
+}
+fn dispatch_social_link(link: SocialLink, opener: impl FnOnce(&std::ffi::OsStr) -> Result<(), String>) -> Result<(), String> {
+    opener(std::ffi::OsStr::new(link.url()))?;
     eprintln!("EXTERNAL_LINK_REQUESTED {}", link.url());
     Ok(())
 }
@@ -230,6 +235,31 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn social_opener_accepts_only_closed_ids_and_propagates_failure() {
+        for (id, url) in [
+            ("website", "https://promptica.it/"),
+            ("linkedin", "https://www.linkedin.com/company/promptica/"),
+            ("instagram", "https://www.instagram.com/promptica_ai"),
+            ("reddit", "https://www.reddit.com/user/Comfortable_Ice_4281/"),
+            ("x", "https://x.com/Pampaeyes"),
+            ("discord", "https://discord.gg/Xrg2kksz2m"),
+        ] {
+            let link: super::SocialLink = serde_json::from_value(serde_json::json!(id)).unwrap();
+            let mut opened = None;
+            super::dispatch_social_link(link, |target| {
+                opened = Some(target.to_owned());
+                Ok(())
+            })
+            .unwrap();
+            assert_eq!(opened.as_deref(), Some(std::ffi::OsStr::new(url)));
+        }
+        for value in ["https://example.com/", "file:///tmp/private", "--args", "unknown", "Discord"] {
+            assert!(serde_json::from_value::<super::SocialLink>(serde_json::json!(value)).is_err());
+        }
+        let error = super::dispatch_social_link(super::SocialLink::Discord, |_| Err("opener unavailable".into())).unwrap_err();
+        assert_eq!(error, "opener unavailable");
+    }
     #[test]
     fn only_exact_embedded_documents_can_navigate() -> Result<(), Box<dyn std::error::Error>> {
         for local in ["tauri://localhost/it.html", "tauri://localhost/en.html", "http://tauri.localhost/index.html"] {

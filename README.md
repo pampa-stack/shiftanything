@@ -1,25 +1,25 @@
 # Sh*ftAnything
 
-Launcher desktop nativo di Promptica, derivato da ArtCraft Launcher v0.20.3. Rust/egui e motore originale; identità e dati distinti da ArtCraft. Repository privato: [lorenzotalamucci0-stack/shiftanything](https://github.com/lorenzotalamucci0-stack/shiftanything).
+Sh*ftAnything è il launcher gratuito e open source di Promptica. Trovi 531 app, confronti le alternative al software che usi e installi quelle verificate per il tuo sistema.
 
-Catalogo curato di 260 app, Le mie app per gestione e aggiornamenti, SH*FTER per confrontare funzioni documentate. Le schede distinguono scoperta da installazione: una voce nel catalogo non concede una ricetta nativa. I confronti manuali senza prove non producono percentuali. Font mantiene il codice storico, senza tab nella barra desktop.
+[Scarica la beta](https://promptica.it/shiftanything) · [Release e checksum](https://github.com/pampa-stack/shiftanything/releases/latest) · [Proponi un’app o segnala un problema](https://github.com/pampa-stack/shiftanything/issues/new)
 
-Collega agente offre configurazione MCP locale, copia ed esempi; richiede Python tramite `uv`. Il server rifiuta l'avvio senza le radici di automazione esplicite. Le operazioni sensibili passano per approvazione nel launcher; nessun comando shell arbitrario viene esposto. La configurazione dei client non viene scritta automaticamente.
+- **Mac con chip Apple** — DMG notarizzato, 69 app verificate per l’installazione.
+- **Ubuntu 24.04 x64** — pacchetto DEB, 170 app verificate per l’installazione.
 
-## Build locale macOS
+Le mie app raccoglie installazioni e aggiornamenti, SH*FTER confronta funzioni documentate, Trova app parte da ciò che vuoi fare e Kit di lavoro raccoglie strumenti per professione. Ogni scheda rimanda al progetto ufficiale.
+
+Collega agente offre la configurazione MCP locale. Richiede Python tramite `uv` e le operazioni di gestione passano dall’approvazione nel launcher.
+
+## Sviluppo
+
+Il launcher usa Tauri e Rust. Il motore nativo deriva da ArtCraft Launcher 0.20.3. Per compilare il desktop in locale:
 
 ```sh
-cargo build -p artcraft-launcher --locked
-packaging/macos/local-dmg.sh /tmp/shiftanything-local-proof
+cargo build -p shiftanything-tauri-proof --locked
 ```
 
-La cartella di output deve essere nuova. Con `CARGO_TARGET_DIR` la build e il confezionamento usano lo stesso target; il pacchetto locale usa il binario debug appena compilato. Il DMG viene firmato ad hoc e verificato in mount temporaneo di sola lettura. Non installa né avvia l'interfaccia, non legge credenziali e non pubblica nulla. Non è notarizzato: non è una release distribuibile.
-
-La pipeline di release e i percorsi di packaging/firma ereditati sono disabilitati. Windows/Linux/FreeBSD/web conservano i sorgenti upstream, ma non hanno pacchetti Sh*ftAnything verificati. Una futura pipeline richiede revisione separata e identità proprie.
-
-## Verifiche e limiti
-
-[Registro delle prove](docs/verification/pro-371.md): comandi, esiti e limiti reali. Parità Doop, regressioni residue e ciclo ufficiale UI/MCP di produzione restano in corso; fixture, avvio CLI e firma ad hoc non provano un rilascio completo.
+[Packaging Mac](packaging/macos/README.md) · [Verifiche di sicurezza della beta](docs/verification/pro-371-release-security/README.md)
 
 ## Crediti e licenze
 

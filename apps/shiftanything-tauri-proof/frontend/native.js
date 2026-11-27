@@ -480,6 +480,7 @@
     function renderUpdate() {
       if (!update) return;
       const {available, status: phase, error} = update;
+      const restarting = phase === 'restart_pending' || phase === 'restarting';
       const hiddenError = !commandError && ['channel_disabled', 'installation_unsupported', 'check_failed'].includes(error);
       banner.hidden = hiddenError || (!available && !['downloading', 'ready', 'error'].includes(phase) && !commandError);
       title.textContent = available
@@ -487,7 +488,13 @@
         : (it ? 'Aggiornamento di Sh*ftAnything' : 'Sh*ftAnything update');
 
       const failed = phase === 'error' || Boolean(commandError);
-      if (failed) {
+      if (phase === 'ready' && (error === 'restart_failed' || commandError)) {
+        detail.textContent = it ? 'Riavvio non riuscito. Puoi riprovare.' : 'Restart failed. You can try again.';
+      } else if (phase === 'restart_pending') {
+        detail.textContent = it ? 'Riavvio al termine delle operazioni in corso.' : 'Restarting after current operations finish.';
+      } else if (phase === 'restarting') {
+        detail.textContent = it ? 'Riavvio in corso…' : 'Restarting…';
+      } else if (failed) {
         const errors = {
           installation_cancelled: ['Installazione annullata.', 'Installation cancelled.'],
           installation_permissions: ['Serve il permesso per aggiornare Sh*ftAnything.', 'Permission is required to update Sh*ftAnything.'],
@@ -507,9 +514,10 @@
       } else {
         detail.textContent = it ? `Versione in uso: ${update.current}` : `Current version: ${update.current}`;
       }
-      action.hidden = !failed && phase !== 'available' && phase !== 'downloading';
-      action.disabled = Boolean(pending) || (!failed && (phase === 'downloading' || phase === 'checking'));
-      action.textContent = failed ? (it ? 'Riprova' : 'Retry') : (it ? 'Installa' : 'Install');
+      action.hidden = !failed && !['available', 'downloading', 'ready'].includes(phase) && !restarting;
+      action.disabled = Boolean(pending) || restarting || (!failed && (phase === 'downloading' || phase === 'checking'));
+      action.textContent = phase === 'ready' || restarting ? (it ? 'Riavvia' : 'Restart')
+        : failed ? (it ? 'Riprova' : 'Retry') : (it ? 'Installa' : 'Install');
     }
 
     function acceptUpdate(next) {
@@ -541,7 +549,9 @@
     }
 
     action.addEventListener('click', () => {
-      if (commandError || update?.status === 'error') {
+      if (update?.status === 'ready') {
+        void runUpdate('launcher_update_restart');
+      } else if (commandError || update?.status === 'error') {
         void runUpdate('launcher_update_check');
       } else if (update?.status === 'available') {
         void runUpdate('launcher_update_install');

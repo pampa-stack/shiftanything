@@ -212,6 +212,8 @@ fn local_navigation(url: &tauri::Url) -> bool {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let Some(launch) = startup::start(std::env::args_os().skip(1).collect())? else { return Ok(()) };
+    // Package replacement can invalidate current_exe() on the old process.
+    let executable = std::env::current_exe();
     let isolated = launch.isolated;
     let capture_window = launch.capture_window;
     let lifecycle = launch.lifecycle;
@@ -225,7 +227,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let builder = tauri::Builder::default();
     #[cfg(target_os = "macos")]
     let builder = builder.activate_ignoring_other_apps(false);
-    builder
+    let exit_code = builder
         .manage(Mutex::new(state))
         .manage(catalog_media)
         .manage(launcher_updater)
@@ -245,6 +247,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             launcher_update::launcher_update_state,
             launcher_update::launcher_update_check,
             launcher_update::launcher_update_install,
+            launcher_update::launcher_update_restart,
             mcp_configuration,
             mcp_connection,
             open_mcp_docs,
@@ -270,7 +273,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("Local-only window created; native lifecycle enabled: {lifecycle}");
             Ok(())
         })
-        .run(context)?;
+        .build(context)?
+        .run_return(|_, _| {});
+    if exit_code == launcher_update::RESTART_EXIT_CODE {
+        // The new process must be able to acquire the same desktop instance lock.
+        drop(launch);
+        startup::relaunch(&executable?)?;
+    } else if exit_code != 0 {
+        std::process::exit(exit_code);
+    }
     Ok(())
 }
 #[cfg(test)]

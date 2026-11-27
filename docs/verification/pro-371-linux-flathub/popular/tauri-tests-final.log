@@ -1,0 +1,28 @@
+warning: patch `egui_demo_lib v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_inspection v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_system_font_provider v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling artcraft-launcher-core v0.20.3 (/mnt/dati/lavori/shift-tauri-popular.CyuiVXMx/crates/core)
+   Compiling artcraft-launcher-native v0.20.3 (/mnt/dati/lavori/shift-tauri-popular.CyuiVXMx/crates/native)
+   Compiling shiftanything-tauri-proof v0.20.3 (/mnt/dati/lavori/shift-tauri-popular.CyuiVXMx/apps/shiftanything-tauri-proof)
+    Finished `test` profile [optimized] target(s) in 3m 02s
+
+running 12 tests
+test media::tests::a_finished_fetch_readmits_another_worker ... ok
+test session::tests::only_a_single_macos_install_from_the_window_can_request_a_first_open ... ok
+test session::tests::linux_install_action_requires_an_appimage_for_the_tested_platform_and_recipe ... ok
+     Running unittests src/main.rs (/mnt/dati/lavori/shift-tauri-linux-462.PaNnJvKW/target/debug/deps/shiftanything_tauri_proof-e4349f4ca81c612b)
+test startup::tests::existing_profile_directories_and_markers_must_not_be_symlinks ... ok
+test tests::only_exact_embedded_documents_can_navigate ... ok
+test tests::social_opener_accepts_only_closed_ids_and_propagates_failure ... ok
+test shifter::tests::sources_resolve_only_documented_ids ... ok
+test startup::tests::desktop_language_accepts_only_known_preferences ... ok
+test favorites::tests::favorites_survive_restart_and_remain_in_their_profile ... ok
+test catalog_links::tests::catalog_link_is_tied_to_the_selected_app ... ok
+test session::tests::repository_entry_replaces_the_asset_row_for_the_same_app ... ok
+test shifter::tests::compares_profile_and_reuses_only_qualified_manual_evidence ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s

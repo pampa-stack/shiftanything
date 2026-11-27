@@ -1,23 +1,44 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 4] = [
+pub const RECIPES: [(&str, &str); 7] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
     ("papers", "org.gnome.Papers"),
+    ("krita", "org.kde.krita"),
+    ("obs", "com.obsproject.Studio"),
+    ("celluloid", "io.github.celluloid_player.Celluloid"),
 ];
 
-pub const IDS: [&str; 4] = [RECIPES[0].0, RECIPES[1].0, RECIPES[2].0, RECIPES[3].0];
+pub const IDS: [&str; RECIPES.len()] = {
+    let mut ids = [""; RECIPES.len()];
+    let mut index = 0;
+    while index < RECIPES.len() {
+        ids[index] = RECIPES[index].0;
+        index += 1;
+    }
+    ids
+};
 
 pub fn supported(id: &str, platform: Platform) -> bool {
     platform.os == Os::Linux && platform.arch == Arch::X64 && IDS.contains(&id)
 }
 
 pub fn approved_catalog_identity(app: &App) -> bool {
+    let upstream = match app.id.as_str() {
+        "gnome-calculator" => "https://gitlab.gnome.org/GNOME/gnome-calculator",
+        "gnome-text-editor" => "https://gitlab.gnome.org/GNOME/gnome-text-editor",
+        "loupe" => "https://gitlab.gnome.org/GNOME/loupe",
+        "papers" => "https://gitlab.gnome.org/GNOME/papers",
+        "krita" => "https://invent.kde.org/graphics/krita",
+        "obs" => "https://github.com/obsproject/obs-studio",
+        "celluloid" => "https://github.com/celluloid-player/celluloid",
+        _ => return false,
+    };
     RECIPES.iter().any(|(id, flatpak_id)| {
         app.id == *id
-            && app.repo.trim_end_matches('/') == format!("https://gitlab.gnome.org/GNOME/{id}")
+            && app.repo.trim_end_matches('/') == upstream
             && app.distribution.iter().any(|channel| {
                 channel.platform == "linux"
                     && channel.manager == "flatpak"
@@ -25,4 +46,24 @@ pub fn approved_catalog_identity(app: &App) -> bool {
                     && channel.source == format!("https://flathub.org/apps/{flatpak_id}")
             })
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reviewed_flatpak_ids_match_canonical_curated_channels_only_on_linux_x64() {
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let arm = Platform { arch: Arch::Arm64, ..linux };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for id in IDS {
+            let app = crate::curated::apps().iter().find(|app| app.id == id).unwrap();
+            assert!(approved_catalog_identity(app), "{id} catalog identity");
+            assert!(supported(id, linux), "{id} Linux x64");
+            assert!(!supported(id, arm), "{id} Linux arm64");
+            assert!(!supported(id, mac), "{id} macOS");
+        }
+        assert!(!supported("vlc", linux));
+    }
 }

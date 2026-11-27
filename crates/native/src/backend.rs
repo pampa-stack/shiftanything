@@ -808,7 +808,10 @@ impl NativeBackend {
             http::clean_downloads(&paths.downloads(), Duration::from_secs(30 * 86_400), Duration::from_secs(7 * 86_400));
             let snapshot = shared.host.snapshot();
             let manifest = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner).clone();
-            for app in artcraft_launcher_core::hosted_catalog::apps().iter().filter(|a| platform.is_none_or(|p| a.runs_on(p.os))) {
+            for app in artcraft_launcher_core::hosted_catalog::apps()
+                .iter()
+                .filter(|app| platform.is_none_or(|p| app.runs_on(p.os)) && !routes_to_flathub(app.id, platform, shared.channel))
+            {
                 let found = shared.host.detect(app, &manifest, &snapshot);
                 publish_detected(app, found, &shared, platform);
             }
@@ -1146,6 +1149,10 @@ impl NativeBackend {
     /// can reach a free download slot ahead of a row above it that hasn't taken its place yet.
     fn prepare_job(&self, app_id: &str, work: Work) -> Option<Box<dyn FnOnce() + Send>> {
         // This is also called by bulk installs: a guard only in start_job is bypassable.
+        if routes_to_flathub(app_id, self.platform, self.shared.channel) {
+            self.shared.emit(Event::JobFinished { app: app_id.into(), result: Err("Flathub supports the reviewed stable branch".into()) });
+            return None;
+        }
         if self.refuse_unavailable_nightly_job(app_id, &work) {
             return None;
         }
@@ -1305,7 +1312,7 @@ impl NativeBackend {
         let mut ids: Vec<&str> = Vec::new();
         let mut repository = Vec::new();
         for id in apps {
-            if crate::flatpak::IDS.contains(&id.as_str()) {
+            if routes_to_flathub(id, self.platform, self.shared.channel) {
                 if !running.contains_key(id) && !repository.contains(&id) {
                     repository.push(id);
                 }
@@ -1432,9 +1439,7 @@ impl NativeBackend {
     pub fn flatpak_status(&self, app: &str) -> Option<crate::flatpak::Status> {
         #[cfg(target_os = "linux")]
         {
-            if self.platform.is_some_and(|platform| crate::flatpak::supported(app, platform))
-                && self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
-            {
+            if routes_to_flathub(app, self.platform, self.shared.channel) {
                 return Some(self.shared.flatpak.lock().unwrap_or_else(PoisonError::into_inner).get(app).cloned().unwrap_or_default());
             }
         }
@@ -1500,9 +1505,13 @@ fn flathub_client(host: &HostDetection) -> Result<crate::flatpak::UserFlatpak, S
     }
 }
 
+fn routes_to_flathub(app: &str, platform: Option<Platform>, channel: artcraft_launcher_core::nightly::InstallChannel) -> bool {
+    channel == artcraft_launcher_core::nightly::InstallChannel::Stable && platform.is_some_and(|platform| crate::flatpak::supported(app, platform))
+}
+
 #[cfg(target_os = "linux")]
 fn refresh_flathub(shared: &Shared, platform: Option<Platform>) {
-    if !platform.is_some_and(|p| crate::flatpak::supported(crate::flatpak::IDS[0], p)) {
+    if !routes_to_flathub(crate::flatpak::IDS[0], platform, shared.channel) {
         return;
     }
     let Ok(flatpak) = flathub_client(&shared.host) else { return };
@@ -2340,6 +2349,9 @@ fn installable_event(app: &CraftApp, shared: &Shared, platform: Option<Platform>
         let installable = nightly_installable(app, shared, platform, enabled && fresh);
         return Some(Event::Installable { app: app.id.into(), installable });
     }
+    if routes_to_flathub(app.id, platform, shared.channel) {
+        return None;
+    }
     let existing = shared.installed.lock().unwrap_or_else(PoisonError::into_inner).get(app.id).cloned()?;
     let release = shared.latest.lock().unwrap_or_else(PoisonError::into_inner).get(app.id).cloned()?;
     let record = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner).apps.get(app.id).cloned();
@@ -2404,6 +2416,9 @@ fn publish_detected(app: &CraftApp, found: Option<Installed>, shared: &Shared, p
 /// with the settings and state as they are now, one report at a time (`planning`), so a worker
 /// that started before a settings change never has the last word.
 fn report_partial(app: &CraftApp, shared: &Shared, paths: &Paths, platform: Option<Platform>) {
+    if routes_to_flathub(app.id, platform, shared.channel) {
+        return;
+    }
     let _one_at_a_time = shared.planning.lock().unwrap_or_else(PoisonError::into_inner);
     // A release or detection can change during planning; retry any rejected report.
     loop {
@@ -3109,7 +3124,7 @@ impl Backend for NativeBackend {
                 });
             }
             Command::Install { app } => {
-                if crate::flatpak::IDS.contains(&app.as_str()) {
+                if routes_to_flathub(&app, self.platform, self.shared.channel) {
                     self.start_flatpak(&app, Work::Install(None), None);
                 } else {
                     self.start_job(&app, Work::Install(None));
@@ -3144,7 +3159,7 @@ impl Backend for NativeBackend {
                 self.start_job(&app, Work::Chosen(Chosen { tag, fallback }));
             }
             Command::Uninstall { app } => {
-                if crate::flatpak::IDS.contains(&app.as_str()) {
+                if routes_to_flathub(&app, self.platform, self.shared.channel) {
                     self.start_flatpak(&app, Work::Uninstall, None);
                 } else {
                     self.start_job(&app, Work::Uninstall);
@@ -3172,7 +3187,7 @@ impl Backend for NativeBackend {
                 }
             }
             Command::Launch { app, args } => {
-                if crate::flatpak::IDS.contains(&app.as_str()) {
+                if routes_to_flathub(&app, self.platform, self.shared.channel) {
                     self.start_flatpak(&app, Work::Launch(args), None);
                     return;
                 }
@@ -3402,6 +3417,19 @@ mod tests {
     use super::*;
 
     use crate::source::Answer;
+
+    #[test]
+    fn obs_keeps_its_asset_route_on_macos_and_flathub_on_stable_linux_x64() {
+        use artcraft_launcher_core::{Arch, nightly::InstallChannel};
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert!(CraftApp::by_id("obs").is_some());
+        assert!(routes_to_flathub("obs", Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub("obs", Some(mac), InstallChannel::Stable));
+        assert!(!routes_to_flathub("obs", Some(linux), InstallChannel::Nightly));
+        assert!(!routes_to_flathub("obs", None, InstallChannel::Stable));
+    }
 
     #[test]
     fn verification_profile_rejects_external_records_and_client_changes() {

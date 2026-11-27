@@ -1,0 +1,12 @@
+dbus-daemon[2197186]: [session uid=1000 pid=2197186 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=2197244 comm="flatpak run --user --command=sh app/com.obsproject" label="unconfined")
+dbus-daemon[2197186]: [session uid=1000 pid=2197186 pidfd=5] Successfully activated service 'org.a11y.Bus'
+obs before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 33, minor: 0, patch: 3 }), source: Flatpak, location: "/var/tmp/shift-flatpak-popular.OnGe8ohG/obs/home/data/flatpak/app/com.obsproject.Studio/x86_64/stable/e0923f676887ac623291f0776fd82de68482516fc3d423017cec32f00921bbfc", package: Some("com.obsproject.Studio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), update_available: false, can_remove: true, can_open: true }
+obs JobFinished: Ok("Launch request accepted")
+obs after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 33, minor: 0, patch: 3 }), source: Flatpak, location: "/var/tmp/shift-flatpak-popular.OnGe8ohG/obs/home/data/flatpak/app/com.obsproject.Studio/x86_64/stable/e0923f676887ac623291f0776fd82de68482516fc3d423017cec32f00921bbfc", package: Some("com.obsproject.Studio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2197269]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2197485 comm="xdg-dbus-proxy --args=64" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2197269]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+obs before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 33, minor: 0, patch: 3 }), source: Flatpak, location: "/var/tmp/shift-flatpak-popular.OnGe8ohG/obs/home/data/flatpak/app/com.obsproject.Studio/x86_64/stable/e0923f676887ac623291f0776fd82de68482516fc3d423017cec32f00921bbfc", package: Some("com.obsproject.Studio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), update_available: false, can_remove: true, can_open: true }
+obs JobFinished: Ok("Flathub app removed")
+obs after remove: Some(Status { installable: true, installed: None, update_available: false, can_remove: false, can_open: false })
+PASS native install, open, update, remove, persisted ownership and profile data

@@ -10,6 +10,7 @@ pub use artcraft_launcher_core::flathub::{IDS, supported};
 pub struct Status {
     pub installable: bool,
     pub installed: Option<Installed>,
+    pub installed_version_label: Option<String>,
     pub update_available: bool,
     pub can_remove: bool,
     pub can_open: bool,
@@ -78,6 +79,13 @@ mod linux {
         commit: String,
         scope: String,
         version: String,
+    }
+
+    impl Deployment {
+        fn version_label(&self) -> Option<String> {
+            let label = self.version.trim();
+            (!label.is_empty() && label.len() <= 96 && !label.chars().any(char::is_control)).then(|| label.to_owned())
+        }
     }
 
     impl UserFlatpak {
@@ -264,6 +272,7 @@ mod linux {
                     origin: Some(deployed.origin.clone()),
                     installation: Some(deployed.scope.clone()),
                 }),
+                installed_version_label: deployed.version_label(),
                 update_available,
                 can_remove: managed,
                 can_open,
@@ -503,6 +512,16 @@ mod linux {
 
         const STABLE: &str = "app/org.gnome.Papers/x86_64/stable";
         const COMMIT: &str = "dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c";
+
+        #[test]
+        fn flatpak_status_can_display_a_four_component_version_label() {
+            let reference = "app/org.kde.krita/x86_64/stable";
+            let rows = format!("{reference}\tflathub\tuser\t5.3.4.1");
+            let deployments = parse_deployments(&rows, reference, |_| Ok(COMMIT.into())).unwrap();
+            let deployed = selected(&deployments);
+            assert_eq!(deployed.version_label().as_deref(), Some("5.3.4.1"));
+            assert!(version::parse(&deployed.version).is_none());
+        }
 
         #[test]
         fn only_exact_gui_ref_counts_and_user_scope_is_preserved() {

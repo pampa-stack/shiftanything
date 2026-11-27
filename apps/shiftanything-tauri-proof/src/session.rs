@@ -251,22 +251,25 @@ impl NativeState {
                 }
             })
             .collect();
-        apps.extend(artcraft_launcher_core::flathub::IDS.into_iter().filter_map(|id| {
-            let state = self.backend.flatpak_status(id)?;
-            Some(InventoryEntry {
-                id: id.into(),
-                detected: self.detected.contains_key(id),
-                installed: state.installed.is_some(),
-                compatible: true,
-                installable: self.enabled && state.installable,
-                update_available: self.enabled && state.update_available,
-                can_open: Some(state.can_open),
-                can_remove: Some(state.can_remove),
-                installed_version: state.installed.and_then(|entry| entry.version).map(|version| version.to_string()),
-                latest_version: None,
-                job: self.jobs.get(id).map(|phase| format!("{phase:?}")),
-            })
-        }));
+        for id in artcraft_launcher_core::flathub::IDS {
+            let Some(state) = self.backend.flatpak_status(id) else { continue };
+            insert_repository_entry(
+                &mut apps,
+                InventoryEntry {
+                    id: id.into(),
+                    detected: self.detected.contains_key(id),
+                    installed: state.installed.is_some(),
+                    compatible: true,
+                    installable: self.enabled && state.installable,
+                    update_available: self.enabled && state.update_available,
+                    can_open: Some(state.can_open),
+                    can_remove: Some(state.can_remove),
+                    installed_version: state.installed_version_label,
+                    latest_version: None,
+                    job: self.jobs.get(id).map(|phase| format!("{phase:?}")),
+                },
+            );
+        }
         Inventory { updated_at: self.backend.now(), apps, results: self.results.clone() }
     }
 
@@ -421,6 +424,15 @@ impl NativeState {
     }
 }
 
+/// One inventory row per app: the verified repository takes precedence on its target platform.
+fn insert_repository_entry(apps: &mut Vec<InventoryEntry>, repository: InventoryEntry) {
+    if let Some(existing) = apps.iter_mut().find(|app| app.id == repository.id) {
+        *existing = repository;
+    } else {
+        apps.push(repository);
+    }
+}
+
 fn can_open_after_install(request: &Request, from_ui: bool, platform: Option<Platform>) -> bool {
     from_ui && request.operation == Operation::Install && request.apps.len() == 1 && platform.is_some_and(|target| target.os == Os::MacOs)
 }
@@ -459,6 +471,44 @@ mod tests {
         request.apps.pop();
         request.operation = Operation::Update;
         assert!(!can_open_after_install(&request, true, mac));
+    }
+
+    #[test]
+    fn repository_entry_replaces_the_asset_row_for_the_same_app() {
+        let mut inventory = Inventory::default();
+        let asset = InventoryEntry {
+            id: "obs".into(),
+            detected: true,
+            installed: false,
+            compatible: false,
+            installable: false,
+            update_available: false,
+            can_open: None,
+            can_remove: None,
+            installed_version: None,
+            latest_version: Some("33.0.3".into()),
+            job: None,
+        };
+        inventory.apps.push(asset);
+        insert_repository_entry(
+            &mut inventory.apps,
+            InventoryEntry {
+                id: "obs".into(),
+                detected: true,
+                installed: true,
+                compatible: true,
+                installable: true,
+                update_available: true,
+                can_open: Some(true),
+                can_remove: Some(true),
+                installed_version: Some("33.0.2".into()),
+                latest_version: None,
+                job: None,
+            },
+        );
+        assert_eq!(inventory.apps.len(), 1);
+        let request = Request { id: "update-obs".into(), operation: Operation::Update, apps: vec!["obs".into()] };
+        assert!(validate_ui_request(&request, &inventory).is_ok());
     }
 
     #[test]

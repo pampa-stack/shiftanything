@@ -1,0 +1,19 @@
+commit 9ea4070808d99ace3ef27a5850dee1d9a815a66d81b6dc5079337660e43ff90e
+Parent:  299765ac29b8ad0dfbf4aca214a249eb93ab78423a02f45c6d11dd71f5b20152
+ContentChecksum:  75f9c0eedccf9681d63567df789347be80ce47ef687fc2d2f00da527d69dbdfc
+Date:  2026-11-25 12:15:08 +0000
+
+    Fix Anitya projects for libudfread and libbluray (5a097ac46eb5)
+
+    Name: io.github.celluloid_player.Celluloid
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 12:17:26 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

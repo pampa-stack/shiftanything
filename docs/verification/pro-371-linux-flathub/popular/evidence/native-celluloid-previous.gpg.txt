@@ -1,0 +1,19 @@
+commit 299765ac29b8ad0dfbf4aca214a249eb93ab78423a02f45c6d11dd71f5b20152
+Parent:  10e8345d9ce8aed17fd191c14e38fab4f578704f266b5093f8419da60a273a6a
+ContentChecksum:  c6522089a3d815d5e39335f4ed2d3ecf451a5b098ba52c30d4def9e7e947e621
+Date:  2026-11-25 04:45:26 +0000
+
+    fix source link in appdata (56ef4e3f25a6)
+
+    Name: io.github.celluloid_player.Celluloid
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 04:48:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

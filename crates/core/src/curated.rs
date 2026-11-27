@@ -1980,6 +1980,27 @@ pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     mac_team: Some("N7D7M3Q3CD"),
 };
 
+pub const OPEN_WHISPR: crate::CraftApp = crate::CraftApp {
+    id: "openwhispr",
+    name: "OpenWhispr Local",
+    tagline: "Dictate into desktop apps with local speech recognition",
+    repo: "OpenWhispr/openwhispr",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenWhispr contributors",
+    msi_publisher: None,
+    bundle: Some("com.gizmolabs.openwhispr"),
+    site: Some("https://openwhispr.com"),
+    mac_bundle_name: Some("OpenWhispr"),
+    mac_team: Some("T832773L2J"),
+};
+
 pub const ULTIMAKER_CURA: crate::CraftApp = crate::CraftApp {
     id: "ultimaker-cura",
     name: "UltiMaker Cura",
@@ -2106,7 +2127,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 91] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2191,6 +2212,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
     PASEO,
     ULTIMAKER_CURA,
     OPEN_PENCIL,
+    OPEN_WHISPR,
     FREECAD,
     OPENMAUSBOT,
     ZOTERO,

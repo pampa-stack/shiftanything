@@ -1,0 +1,9 @@
+PASS OFFICIAL v1.12.1 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.1/OpenWhispr-1.12.1-arm64.dmg 362841873 e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13
+PASS OFFICIAL v1.12.2 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.2/OpenWhispr-1.12.2-arm64.dmg 362952454 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea
+NATIVE ORIGIN openwhispr GitHub
+PASS OFFICIAL v1.12.1 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.1/OpenWhispr-1.12.1-arm64.dmg 362841873 e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13
+PASS NATIVE openwhispr install: OpenWhispr Local installed: 1.12.1; package_bytes=362841873; elapsed=168.514s
+NATIVE ORIGIN openwhispr GitHub
+PASS OFFICIAL v1.12.2 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.2/OpenWhispr-1.12.2-arm64.dmg 362952454 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea
+PASS NATIVE openwhispr update: OpenWhispr Local updated to 1.12.2; package_bytes=362952454; elapsed=132.632s
+PASS NATIVE openwhispr remove: OpenWhispr Local was removed; package_bytes=0; elapsed=0.101s

@@ -910,6 +910,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DESKREEN,
         crate::curated::MOONLIGHT,
         crate::curated::OPEN_PENCIL,
+        crate::curated::OPEN_WHISPR,
         crate::curated::SUNSHINE,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
@@ -1393,6 +1394,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("OpenPencil_0.17.0_amd64.AppImage", 99_834_360, "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc"),
             ("OpenPencil_0.17.0_aarch64.dmg", 19_490_106, "72c1332fe713ed97b52cc5f45811f55dc350ec4bd02dbdd8e8db4d54196018ba"),
         ],
+        ("OpenWhispr/openwhispr", "v1.12.1") => {
+            &[("OpenWhispr-1.12.1-arm64.dmg", 362_841_873, "e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13")]
+        }
+        ("OpenWhispr/openwhispr", "v1.12.2") => {
+            &[("OpenWhispr-1.12.2-arm64.dmg", 362_952_454, "324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea")]
+        }
         ("Ultimaker/Cura", "5.13.0") => {
             &[("UltiMaker-Cura-5.13.0-linux-X64.AppImage", 334_154_232, "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40")]
         }

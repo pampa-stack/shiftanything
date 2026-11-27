@@ -891,6 +891,7 @@ mod tests {
             (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),
             (crate::curated::SUNSHINE, ["v2026.906.222525", "v2026.914.233613"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
+            (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),

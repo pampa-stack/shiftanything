@@ -11,14 +11,22 @@ APP_NAME='Sh*ftAnything.app'
 BUNDLE_ID=it.promptica.shiftanything
 
 fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
-usage() { printf 'usage: release-dmg.sh --check | NEW_OUTPUT_DIRECTORY\n'; }
-if [[ $# != 1 ]]; then usage >&2; exit 2; fi
-case "$1" in
+usage() { printf 'usage: release-dmg.sh --check | NEW_OUTPUT_DIRECTORY | --resume OUTPUT_DIRECTORY\n'; }
+resume=0
+case "${1:-}" in
   -h|--help) usage; exit 0 ;;
-  --check) ;;
+  --resume) [[ $# = 2 ]] || { usage >&2; exit 2; }; resume=1; shift ;;
+  --check) [[ $# = 1 ]] || { usage >&2; exit 2; } ;;
   -*) usage >&2; exit 2 ;;
-  *) [[ ! -e "$1" && ! -L "$1" ]] || fail 'Choose a new output directory.' ;;
 esac
+[[ $# = 1 ]] || { usage >&2; exit 2; }
+if [[ "$1" != --check ]]; then
+  if [[ "$resume" = 1 ]]; then
+    [[ ! -L "$1" && -f "$1/.notary-resume-v1" && ! -L "$1/.notary-resume-v1" ]] || fail 'This directory does not contain resumable release state.'
+  else
+    [[ ! -e "$1" && ! -L "$1" ]] || fail 'Choose a new output directory or use --resume.'
+  fi
+fi
 
 [[ "$(uname -s)" = Darwin ]] || fail 'Run this script on macOS with Xcode.'
 [[ "${MACOS_SIGN_IDENTITY:-}" =~ ^[[:xdigit:]]{40}$ ]] || fail 'Set MACOS_SIGN_IDENTITY to the SHA-1 of a Developer ID Application identity.'
@@ -53,28 +61,26 @@ xcrun --find stapler >/dev/null || fail 'Xcode stapler is unavailable.'
 printf 'PASS local release preflight\n'
 [[ "$1" != --check ]] || exit 0
 
-case "$1" in
-  /*) output="$1" ;;
-  *) output="$PWD/$1" ;;
-esac
-mkdir -- "$output"
-output="$(cd "$output" && pwd -P)"
-work="$(mktemp -d "$output/.work.XXXXXXXX")"
+if [[ "$resume" = 0 ]]; then
+  mkdir -- "$1"
+  touch "$1/.notary-resume-v1"
+fi
+output="$(cd "$1" && pwd -P)"
+# Keep one local writer per release; lockf releases its advisory lock on process exit.
+if [[ "${SHIFTANYTHING_RELEASE_LOCKED:-}" != "$output" ]]; then
+  exec /usr/bin/lockf -k -t 0 "$output/.release-lock" /usr/bin/env SHIFTANYTHING_RELEASE_LOCKED="$output" "$HERE/release-dmg.sh" --resume "$output"
+fi
+work="$output/.work"
+[[ ! -L "$work" ]] || fail 'Unexpected release work directory symlink.'
 mount=
 mounted=0
-retain_submission=0
 cleanup() {
   local result=$?
   if [[ "$mounted" = 1 ]] && ! hdiutil detach "$mount" -quiet; then
-    printf 'error: detach %s before removing %s\n' "$mount" "$work" >&2
+    printf 'error: detach %s before continuing %s\n' "$mount" "$output" >&2
     exit 1
   fi
   [[ -z "$mount" ]] || rmdir -- "$mount"
-  if [[ "$retain_submission" = 1 ]]; then
-    printf 'Apple submission files retained at %s\n' "$work" >&2
-  else
-    rm -rf -- "$work"
-  fi
   exit "$result"
 }
 trap cleanup EXIT
@@ -91,25 +97,49 @@ staple_app() (
   retry xcrun stapler staple "$1"
 )
 
+submission_id() {
+  local id
+  id="$(plutil -extract id raw -o - "$1" 2>/dev/null)" || return 1
+  [[ "$id" =~ ^[[:xdigit:]]{8}(-[[:xdigit:]]{4}){3}-[[:xdigit:]]{12}$ ]] || return 1
+  printf '%s\n' "$id"
+}
+
 notarize() {
-  local artifact="$1" label="$2" id status tool_result=0
-  local submission="$output/notary-$label-submission.json"
-  local receipt="$output/notary-$label.json"
+  local artifact="$1" label="$2" id status wait_time="${MACOS_NOTARY_WAIT:-45m}"
+  local submission="$output/notary-$label-submission.json" receipt="$output/notary-$label.json"
+  local digest="$work/$label-submitted.sha256"
   local profile=(--keychain-profile "$MACOS_NOTARY_PROFILE" ${notary_keychain[@]+"${notary_keychain[@]}"})
-  retain_submission=1
-  xcrun notarytool submit "$artifact" "${profile[@]}" --output-format json > "$submission" \
-    || fail "Cannot confirm submission for $label. See $submission."
-  id="$(plutil -extract id raw -o - "$submission" 2>/dev/null)" || id=
-  [[ "$id" =~ ^[[:xdigit:]]{8}(-[[:xdigit:]]{4}){3}-[[:xdigit:]]{12}$ ]] || fail "Invalid or missing notarization ID for $label. See $submission."
-  printf 'Submitted %s to Apple as %s\n' "$label" "$id"
-  xcrun notarytool wait "$id" "${profile[@]}" --timeout 45m --output-format json > "$receipt" || tool_result=$?
-  status="$(plutil -extract status raw -o - "$receipt" 2>/dev/null)" || status=
-  if [[ "$tool_result" != 0 || "$status" != Accepted ]]; then
-    xcrun notarytool log "$id" "${profile[@]}" "$output/notary-$label-log.json" || true
-    fail "No acceptance for $label ($id). See $submission and $receipt."
+  [[ "$wait_time" =~ ^[1-9][0-9]*[smh]?$ ]] || fail 'MACOS_NOTARY_WAIT must be a positive duration.'
+  if [[ ! -e "$submission" && ! -e "$digest" ]]; then
+    shasum -a 256 "$artifact" > "$digest"
+    xcrun notarytool submit "$artifact" "${profile[@]}" --no-wait --output-format json > "$submission" || true
   fi
-  retain_submission=0
-  printf 'PASS notarization %s %s\n' "$label" "$id"
+  if [[ ! -s "$digest" ]] || ! shasum -a 256 -c "$digest" >/dev/null; then
+    fail "The preserved $label payload does not match its submission. See $digest."
+  fi
+  id="$(submission_id "$submission")" || fail "No valid Apple ID returned for $label. Check the existing request and receipt $submission before retrying."
+  status="$(plutil -extract status raw -o - "$receipt" 2>/dev/null)" || status=
+  # A saved receipt applies only to its matching Apple submission and unchanged payload.
+  if [[ -f "$receipt" && "$(submission_id "$receipt")" != "$id" ]]; then
+    fail "Unexpected saved Apple receipt for $label."
+  fi
+  if [[ -z "$status" || "$status" = 'In Progress' ]]; then
+    if ! xcrun notarytool wait "$id" "${profile[@]}" --timeout "$wait_time" --output-format json > "$receipt.wait"; then
+      if ! xcrun notarytool info "$id" "${profile[@]}" --output-format json > "$receipt.wait"; then
+        printf 'Apple receipt retained for %s (%s). Resume with --resume %s.\n' "$label" "$id" "$output" >&2
+        return 75
+      fi
+    fi
+    [[ "$(submission_id "$receipt.wait")" = "$id" ]] || fail "Unexpected Apple receipt for $label."
+    status="$(plutil -extract status raw -o - "$receipt.wait")" || fail "Missing Apple status for $label."
+    mv -- "$receipt.wait" "$receipt"
+  fi
+  case "$status" in
+    Accepted) printf 'PASS notarization %s %s\n' "$label" "$id" ;;
+    'In Progress') printf 'Apple is processing %s (%s). Resume with --resume %s.\n' "$label" "$id" "$output" >&2; return 75 ;;
+    *) xcrun notarytool log "$id" "${profile[@]}" "$output/notary-$label-log.json" || true
+       fail "Apple did not accept $label. See $receipt." ;;
+  esac
 }
 
 retry() {
@@ -152,8 +182,27 @@ verify_app() {
   done
 }
 
-"$HERE/local-app.sh" --tauri --release "$work/bundle"
+released=("$output"/ShiftAnything-*-macos-*.dmg)
+if [[ -f "${released[0]}" ]]; then
+  [[ ${#released[@]} = 1 ]] || fail 'Unexpected number of completed release images.'
+  completed="${released[0]}"
+  [[ "$(cat "$output/SHA256SUMS.txt")" = "$(cd "$output" && shasum -a 256 "${completed##*/}")" ]] || fail 'The completed release checksum does not match.'
+  codesign --verify --strict "$completed"
+  verify_signature "$completed" dmg
+  retry xcrun stapler validate "$completed"
+  retry assess --type open --context context:primary-signature "$completed"
+  printf 'PASS verified existing macOS DMG: %s\n' "${released[0]}"
+  exit 0
+fi
+mkdir -p -- "$work"
 app="$work/bundle/$APP_NAME"
+if [[ ! -d "$app" ]]; then
+  build="$(mktemp -d "$work/build.XXXXXXXX")"
+  "$HERE/local-app.sh" --tauri --release "$build/bundle"
+  sign --options runtime "$build/bundle/$APP_NAME"
+  mv -- "$build/bundle" "$work/bundle"
+  rmdir -- "$build"
+fi
 executable="$app/Contents/MacOS/ShiftAnything"
 version="$(plutil -extract CFBundleShortVersionString raw -o - "$app/Contents/Info.plist")"
 [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail 'The app version is not a three-part release version.'
@@ -167,25 +216,40 @@ case "$archs" in
 esac
 read -r -a architectures <<< "$archs"
 
-sign --options runtime "$app"
+filename="ShiftAnything-$version-macos-$release_arch.dmg"
 verify_app "$app"
-ditto -c -k --keepParent "$app" "$work/app.zip"
+if [[ ! -f "$work/app.zip" ]]; then
+  [[ ! -e "$output/notary-app-submission.json" && ! -e "$work/app-submitted.sha256" ]] || fail 'The original app archive is missing.'
+  ditto -c -k --keepParent "$app" "$work/app.tmp.zip"
+  mv -- "$work/app.tmp.zip" "$work/app.zip"
+fi
 notarize "$work/app.zip" app
-staple_app "$app"
+xcrun stapler validate "$app" >/dev/null 2>&1 || staple_app "$app"
 retry xcrun stapler validate "$app"
 verify_app "$app"
+retry assess --type execute "$app"
 
-mkdir -m 755 "$work/stage"
-ditto "$app" "$work/stage/$APP_NAME"
-ln -s /Applications "$work/stage/Applications"
-filename="ShiftAnything-$version-macos-$release_arch.dmg"
+mkdir -p -- "$work/unstapled"
+source_dmg="$work/unstapled/$filename"
+if [[ ! -f "$source_dmg" ]]; then
+  [[ ! -e "$output/notary-dmg-submission.json" && ! -e "$work/dmg-submitted.sha256" ]] || fail 'The original signed DMG is missing.'
+  stage="$(mktemp -d "$work/stage.XXXXXXXX")"
+  chmod 755 "$stage"
+  ditto "$app" "$stage/$APP_NAME"
+  ln -s /Applications "$stage/Applications"
+  hdiutil create -srcfolder "$stage" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$stage/build.dmg"
+  sign --identifier "$BUNDLE_ID.disk-image" "$stage/build.dmg"
+  codesign --verify --strict "$stage/build.dmg"
+  verify_signature "$stage/build.dmg" dmg
+  mv -- "$stage/build.dmg" "$source_dmg"
+fi
+codesign --verify --strict "$source_dmg"
+verify_signature "$source_dmg" dmg
+notarize "$source_dmg" dmg
+# Stapling changes the image bytes. Keep the exact submitted image for retries.
 dmg="$work/$filename"
-hdiutil create -srcfolder "$work/stage" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$dmg"
-sign --identifier "$BUNDLE_ID.disk-image" "$dmg"
-codesign --verify --strict "$dmg"
-verify_signature "$dmg" dmg
-notarize "$dmg" dmg
-retry xcrun stapler staple "$dmg"
+cp -- "$source_dmg" "$dmg"
+(umask 022; retry xcrun stapler staple "$dmg")
 retry xcrun stapler validate "$dmg"
 codesign --verify --strict "$dmg"
 verify_signature "$dmg" dmg
@@ -197,11 +261,12 @@ hdiutil attach "$dmg" -readonly -nobrowse -noautoopen -mountpoint "$mount"
 mounted=1
 [[ "$(readlink "$mount/Applications")" = /Applications ]] || fail 'Missing Applications shortcut in the mounted image.'
 verify_app "$mount/$APP_NAME"
-ditto "$mount/$APP_NAME" "$work/$APP_NAME"
-verify_app "$work/$APP_NAME"
-retry xcrun stapler validate "$work/$APP_NAME"
-retry assess --type execute "$work/$APP_NAME"
-check_bundle_version "$work/$APP_NAME" "$version"
+verified="$(mktemp -d "$work/verified.XXXXXXXX")"
+ditto "$mount/$APP_NAME" "$verified/$APP_NAME"
+verify_app "$verified/$APP_NAME"
+retry xcrun stapler validate "$verified/$APP_NAME"
+retry assess --type execute "$verified/$APP_NAME"
+check_bundle_version "$verified/$APP_NAME" "$version"
 hdiutil detach "$mount" -quiet
 mounted=0
 rmdir -- "$mount"
@@ -210,4 +275,5 @@ mount=
 (cd "$work" && shasum -a 256 "$filename" > "$output/SHA256SUMS.txt")
 chmod 644 "$dmg"
 mv -- "$dmg" "$output/$filename"
+rm -rf -- "$work"
 printf 'PASS notarized and verified macOS DMG: %s\n' "$output/$filename"

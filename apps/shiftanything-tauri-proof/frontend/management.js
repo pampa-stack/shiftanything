@@ -23,7 +23,10 @@
     }
     document.querySelector('[data-catalog-search]').disabled = manage;
     for (const button of document.querySelectorAll('[data-layout]')) button.disabled = manage;
-    if (manage) panel.querySelector('h1').focus();
+    if (manage) {
+      window.dispatchEvent(new CustomEvent('shiftanything:surface', {detail:'manage'}));
+      panel.querySelector('h1').focus();
+    }
   }
   for (let node of document.querySelectorAll('[data-view="manage"]')) {
     if (node.tagName !== 'BUTTON') {

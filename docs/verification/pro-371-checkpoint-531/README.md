@@ -23,6 +23,10 @@ Il controllo giornaliero dei rilasci è nel ramo di lavoro. Aggiorna versione e 
 - `shiftanything_0.20.3_amd64-local.deb` — SHA-256 `1f129e668cc4e68f81e98a9e2ca0ec34500f784a87536d862583a3a1df2182da`. Verificati architettura, versione e avvio del binario estratto in Ubuntu e isolato con bubblewrap e Xvfb.
 - Lo script di aggiornamento del catalogo ha passato 12 test. Il rendering del catalogo verifica titoli della barra in maiuscolo, dimensioni uniformi e caricamento dei media iniziali.
 
+## Correzione successiva al pacchetto
+
+Nella finestra macOS, il tasto Aggiornamenti lasciava visibile anche la pagina Kit di lavoro. La correzione chiude la pagina precedente quando si apre la gestione. Verificati tre passaggi in italiano e in inglese con Playwright sul frontend effettivo e il bridge Tauri simulato: Kit di lavoro e Trova app → Aggiornamenti, SH*FTER → Le mie app. I due pacchetti locali sopra precedono questa correzione.
+
 ## Limiti prima della release
 
 Rimangono da verificare le altre schede, macOS Intel, Linux ARM64 e Windows. La macchina Windows è arrivata a Windows Setup. Il desktop e i cicli dei pacchetti Windows sono aperti. Rimangono anche la verifica pixel per pixel con Doop e la notarizzazione del DMG. AppFlowy su Linux ha richiesto libkeybinder nel banco isolato e il suo editor resta da verificare. La ricetta Linux resta fuori da questo checkpoint. La PR resta in bozza. [Windows](../pro-371-windows-setup/desktop/README.md) · [PR 4](https://github.com/pampa-stack/shiftanything/pull/4)

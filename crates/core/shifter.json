@@ -207,6 +207,35 @@
           }
         },
         {
+          "app_id": "photodemon",
+          "evidence": {
+            "layers": {
+              "state": "partial",
+              "source": "https://photodemon.org/2024/07/11/photodemon-2024-7.html",
+              "note": {
+                "it": "Livelli grafici e di testo documentati. La fonte non conferma la modifica di maschere di livello.",
+                "en": "Image and text layers are documented. The source does not confirm editing layer masks."
+              }
+            },
+            "reversible": {
+              "state": "partial",
+              "source": "https://github.com/tannerhelland/PhotoDemon#pro-grade-features-and-tools",
+              "note": {
+                "it": "Sono documentate modifiche non distruttive ai livelli. La fonte non conferma livelli di regolazione equivalenti a quelli di Photoshop.",
+                "en": "Non-destructive layer edits are documented. The source does not confirm adjustment layers comparable to Photoshop’s."
+              }
+            },
+            "psd": {
+              "state": "supported",
+              "source": "https://photodemon.org/2020/08/21/photodemon-8-0.html",
+              "note": {
+                "it": "Apre e salva PSD con livelli raster e metodi di fusione. La compatibilità dipende dagli elementi del documento.",
+                "en": "Opens and saves PSD with raster layers and blend modes. Compatibility depends on the document’s features."
+              }
+            }
+          }
+        },
+        {
           "app_id": "pinta",
           "evidence": {
             "layers": {

@@ -1432,7 +1432,28 @@ pub const ANYTHING_LLM: crate::CraftApp = crate::CraftApp {
     mac_team: Some("35S2NMU3G4"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 58] = [
+pub const CHERRY_STUDIO: crate::CraftApp = crate::CraftApp {
+    id: "cherry-studio",
+    name: "Cherry Studio",
+    tagline: "Use AI assistants from a desktop interface",
+    repo: "CherryHQ/cherry-studio",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Shanghai Qianhui Technology Co., Ltd.",
+    msi_publisher: None,
+    bundle: Some("com.kangfenmao.CherryStudio"),
+    site: Some("https://www.cherry-ai.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("87242QY66T"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 59] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1491,6 +1512,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 58] = [
     VOICE_STUDIO,
     T3_CODE,
     ANYTHING_LLM,
+    CHERRY_STUDIO,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

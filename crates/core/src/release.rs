@@ -760,6 +760,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::VOICE_STUDIO,
         crate::curated::T3_CODE,
         crate::curated::ANYTHING_LLM,
+        crate::curated::CHERRY_STUDIO,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1109,6 +1110,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("Mintplex-Labs/anything-llm", "v1.20.0") => {
             &[("AnythingLLMDesktop-Silicon.dmg", 604_481_437, "eb5d0702d86ba7452660efcb6482141e8da863e397e802498a3884f21404aade")]
+        }
+        ("CherryHQ/cherry-studio", "v2.2.2") => {
+            &[("Cherry-Studio-2.2.2-mac-arm64.dmg", 300_083_451, "5de08748e4a62023e5b942722fc84623e5c466d51b403a3429a0f29dc31270cd")]
+        }
+        ("CherryHQ/cherry-studio", "v2.2.3") => {
+            &[("Cherry-Studio-2.2.3-mac-arm64.dmg", 291_610_226, "afa9c479997a3c28b5a8a79d5dff71bd38f0d2d662dce6093aee642ccbaafae3")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

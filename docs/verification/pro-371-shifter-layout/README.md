@@ -8,3 +8,11 @@ Selezionato «Riempimento generativo integrato» come indispensabile. Krita, Pho
 - Inglese. [Tabella](marked-en.png) · [Fonti](evidence-en.png) · [Controlli accessibili](marked-en.ax.txt) · [Dettagli fonti accessibili](evidence-en.ax.txt)
 
 Rispetto alla tavola Doop, la tabella include ricerca e paginazione per l’intero catalogo e attiva la colonna Indispensabili quando si marca almeno una funzione. La parità complessiva del launcher resta da verificare.
+
+## Prova dal DMG del 27 novembre
+
+La copia estratta dal DMG Apple Silicon, compilato da `52a8dc1`, mostra i loghi di Krita, PhotoCraft, GIMP, PhotoDemon, Drawpile e Pinta a sinistra dei nomi in SH*FTER. Lo stesso elenco usa iniziali per addy.io quando il logo non è disponibile. La finestra è quella della build con le azioni native abilitate, aperta in un profilo temporaneo. [Icone in SH*FTER](package-macos-icons-it.png)
+
+Con la rete disponibile, la scheda ActivityWatch ha mostrato il pacchetto macOS da 67,3 MB e il pulsante Installa ha aperto il consenso. Rifiuta ha riportato al catalogo senza richiesta pendente, job o app installata. Il ciclo completo del motore è documentato a parte. [Consenso](package-macos-activitywatch-consent-it.png) · [Prova ActivityWatch](../pro-371-macos-activitywatch/README.md)
+
+Il DMG locale `ShiftAnything-0.20.3-macos-arm64-tauri-local.dmg` ha SHA-256 `07d33c9810905a1034dadd2de919fd6a9bb968876debff8e8f0c6ff38456d944`. Verificati checksum del disco, mount in sola lettura, architettura, licenze e firma ad hoc dell’immagine e del bundle. La firma per la distribuzione resta aperta.

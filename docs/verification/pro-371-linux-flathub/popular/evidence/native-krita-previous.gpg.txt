@@ -1,0 +1,19 @@
+commit 59fe7ecf2377eee71b154bd29096704c2800f56026dcf0bbf54e0e694854d70d
+Parent:  ceb076d654c711d05990f31b3a13e80bf04bd12b81cfc444e0e2e5db85cfc436
+ContentChecksum:  94ca273b64e1846ef01a5c679ab384a276fe2cff366d1ab3f99e7fbc20b52484
+Date:  2026-11-23 10:06:38 +0000
+
+    Sdk 26.08 (#651) (0f2e09225869)
+
+    Name: org.kde.krita
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 23 11:00:59 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

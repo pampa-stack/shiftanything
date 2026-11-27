@@ -1,0 +1,52 @@
+name: Catalog release watch
+
+on:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/catalog-release-watch.yml'
+      - 'tools/aggiorna_release.py'
+      - 'tools/release-evidence.json'
+      - 'tools/tests/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalog-release-watch-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Replay official release fixtures
+        run: python3 -m unittest discover -s tools/tests -p 'test_aggiorna_release.py'
+      - name: Read current releases and changelogs
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          snapshot="$RUNNER_TEMP/catalog-release-watch"
+          python3 tools/aggiorna_release.py --output "$snapshot" > "$RUNNER_TEMP/release-watch.log"
+          jq -r '
+            "Catalog releases checked: \(.checked | length)",
+            "Metadata changes: \(.changes | length)",
+            "Skipped sources: \(.skipped | length)",
+            "Approved SH*FTER changes: \(.shifter_updates | length)"
+          ' "$snapshot/release-report.json" >> "$GITHUB_STEP_SUMMARY"
+          jq -r '"New changelog items to review: \(length)"' "$snapshot/shifter-proposals.json" >> "$GITHUB_STEP_SUMMARY"
+          jq -e '.checked | length > 0' "$snapshot/release-report.json"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: github.event_name != 'pull_request'
+        with:
+          name: catalog-release-watch
+          path: ${{ runner.temp }}/catalog-release-watch/
+          if-no-files-found: error
+          retention-days: 7

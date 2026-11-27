@@ -75,6 +75,16 @@ pub trait Host {
     }
     /// Quit the launcher for real (not just hide to the tray).
     fn quit(&mut self) {}
+    fn automation_connection(&self) -> Result<bool, String> {
+        Err("Desktop connection unavailable".into())
+    }
+    fn automation_configuration(&self) -> Result<String, String> {
+        Err("MCP connection is available in the desktop launcher".into())
+    }
+    fn automation_request(&mut self) -> Option<artcraft_launcher_core::automation::Request> {
+        None
+    }
+    fn automation_publish(&mut self, _snapshot: &artcraft_launcher_core::automation::Snapshot) {}
 }
 
 /// The launcher's pages, switched by the toggle at the start of the toolbar.
@@ -83,8 +93,12 @@ pub enum Page {
     /// The Craft App Suite.
     #[default]
     Apps,
+    Catalog,
+    Favorites,
     /// Craft Font Manager (desktop only).
     Fonts,
+    Shifter,
+    Kits,
 }
 
 pub(crate) struct Toast {
@@ -124,6 +138,7 @@ pub(crate) enum UiAction {
 pub(crate) enum Dialog {
     Notes(String),
     ConfirmUninstall(String),
+    InstallKit(Vec<String>),
     UnlockVersion {
         app: String,
         tag: String,
@@ -145,6 +160,7 @@ pub(crate) enum Dialog {
         fallback: String,
     },
     Settings,
+    ConnectAgent,
     LauncherUpdate(artcraft_launcher_core::Release),
     Versions(String),
     LaunchFlags {
@@ -160,11 +176,13 @@ impl Dialog {
         match self {
             Dialog::Notes(id) => ("notes", id),
             Dialog::ConfirmUninstall(id) => ("uninstall", id),
+            Dialog::InstallKit(_) => ("install-kit", ""),
             Dialog::UnlockVersion { app, .. } => ("unlock-version", app),
             Dialog::Install { app, .. } => ("install", app),
             Dialog::Replace { app, .. } => ("replace", app),
             Dialog::GoBackFallback { app, .. } => ("go-back-fallback", app),
             Dialog::Settings => ("settings", ""),
+            Dialog::ConnectAgent => ("connect-agent", ""),
             Dialog::LauncherUpdate(r) => ("launcher-update", &r.tag),
             Dialog::Versions(id) => ("versions", id),
             Dialog::LaunchFlags { app, .. } => ("launch-flags", app),
@@ -210,6 +228,16 @@ pub struct LauncherUi {
     pub(crate) bell_new: std::collections::BTreeSet<String>,
     /// Alerts from the signed notices file, shown as popups until acknowledged.
     pub(crate) alerts: Vec<artcraft_launcher_core::notices::Notice>,
+    pub(crate) automation_format: artcraft_launcher_core::mcp_config::McpConfigFormat,
+    pub(crate) automation_connection: Option<Result<bool, String>>,
+    pub(crate) automation_config: Option<Result<String, String>>,
+    pub(crate) automation_pending: Option<artcraft_launcher_core::automation::Request>,
+    pub(crate) automation_expected: std::collections::HashMap<String, bool>,
+    pub(crate) automation_links: std::collections::HashMap<String, Vec<String>>,
+    pub(crate) automation_results: std::collections::BTreeMap<String, String>,
+    pub(crate) curated: crate::curated::Catalog,
+    pub(crate) comparison: crate::shifter::Comparison,
+    pub(crate) kits: crate::kits::WorkKits,
     pub(crate) search: String,
     pub(crate) toasts: Vec<Toast>,
     pub(crate) dialog: Option<Dialog>,
@@ -255,7 +283,7 @@ pub struct LauncherUi {
     #[cfg(not(target_arch = "wasm32"))]
     pub(crate) fonts: crate::fonts::FontsTab,
     /// UI actions drawn in this pass, not sent yet.
-    pending: Vec<UiAction>,
+    pub(crate) pending: Vec<UiAction>,
     /// The `egui::Context::cumulative_frame_nr` those actions belong to.
     frame: Option<u64>,
     /// UI actions this visible frame has already sent, so a discarded pass cannot repeat them.
@@ -342,6 +370,16 @@ impl LauncherUi {
             bell_open: false,
             bell_new: std::collections::BTreeSet::new(),
             alerts: Vec::new(),
+            automation_format: artcraft_launcher_core::mcp_config::McpConfigFormat::Json,
+            automation_connection: None,
+            automation_config: None,
+            automation_pending: None,
+            automation_expected: std::collections::HashMap::new(),
+            automation_links: std::collections::HashMap::new(),
+            automation_results: std::collections::BTreeMap::new(),
+            curated: crate::curated::Catalog::default(),
+            comparison: crate::shifter::Comparison::default(),
+            kits: crate::kits::WorkKits::default(),
             search: String::new(),
             toasts: Vec::new(),
             dialog: None,
@@ -364,7 +402,7 @@ impl LauncherUi {
             was_focused: true,
             auto_update_attempted: std::collections::BTreeSet::new(),
             discord_url: artcraft_launcher_core::catalog::DISCORD_URL,
-            page: Page::Apps,
+            page: Page::Catalog,
             #[cfg(not(target_arch = "wasm32"))]
             fonts: crate::fonts::FontsTab::new(),
             pending: Vec::new(),
@@ -468,7 +506,10 @@ impl LauncherUi {
                 continue;
             }
             match action {
-                UiAction::Command(command) => self.backend.send(command.clone()),
+                UiAction::Command(command) => {
+                    let command = self.automation_guarded_command(command.clone());
+                    self.backend.send(command);
+                }
                 UiAction::NightlyCommand(command) => self.nightly.send(command.clone(), self.settings.nightly_enabled),
                 UiAction::NightlyConsent(enabled) => {
                     self.settings.nightly_enabled = *enabled;
@@ -794,6 +835,16 @@ impl LauncherUi {
 
     /// Summarizes a job's end as a toast; cancellations have their own messages.
     fn on_job_finished(&mut self, app: String, result: Result<String, String>) {
+        self.automation_expected.remove(&app);
+        let requests = self.automation_links.remove(&app).unwrap_or_default();
+        let outcome = match &result {
+            Ok(message) => format!("completed: {message}"),
+            Err(error) => format!("error: {error}"),
+        };
+        self.automation_results.insert(format!("app:{app}"), outcome.clone());
+        for request in requests {
+            self.automation_results.insert(format!("{request}:{app}"), outcome.clone());
+        }
         let launcher = app == artcraft_launcher_core::catalog::LAUNCHER_ID;
         // What the job was doing when it ended says what a cancellation called off.
         let last = if launcher { self.launcher_job.take() } else { self.entry(&app).and_then(|e| e.job) };
@@ -1036,11 +1087,25 @@ impl LauncherUi {
             }
             #[cfg(not(target_arch = "wasm32"))]
             self.fonts.hidden();
+            if self.page == Page::Kits {
+                self.kits_page(ui);
+                return;
+            }
+            if self.page == Page::Shifter {
+                self.shifter_page(ui);
+                return;
+            }
+            if matches!(self.page, Page::Catalog | Page::Favorites) {
+                self.curated_page(ui);
+                return;
+            }
             ui.add_space(18.0);
             egui::Frame::new().inner_margin(egui::Margin::symmetric(20, 0)).show(ui, |ui| self.apps_page(ui));
         });
+        self.curated_details(&ctx);
         self.details_drawer(&ctx);
         self.dialogs(&ctx, host);
+        self.automation_dialog(&ctx, host);
         self.nightly_consent_modal(&ctx);
         self.flush_actions();
         self.draw_toasts(&ctx);
@@ -1052,7 +1117,16 @@ impl LauncherUi {
     /// The Craft App Suite as cards or a table, below the toolbar.
     fn apps_page(&mut self, ui: &mut egui::Ui) {
         let tokens = Tokens::get(ui.ctx());
-        let ids = self.visible_ids();
+        let ids: Vec<_> = self
+            .visible_ids()
+            .into_iter()
+            .filter(|id| {
+                self.entries.iter().any(|entry| {
+                    entry.app.id == *id
+                        && (!self.caps.manage_apps || entry.installed.is_some() || entry.job.is_some() || entry.paused.is_some() || entry.ready)
+                })
+            })
+            .collect();
         // The table is wider than a narrow window: let it scroll sideways too.
         let scroll = match self.settings.view {
             ViewMode::Grid => egui::ScrollArea::vertical(),
@@ -1202,27 +1276,27 @@ impl LauncherUi {
         self.entry(id).is_some_and(|e| e.status(self.platform, self.caps.manage_apps).is_installed())
     }
 
-    /// "ArtCraft API", "GitHub" or "ArtCraft API and GitHub": the services behind the releases on
-    /// screen right now. `None` until something has loaded.
+    /// The services behind the releases on screen right now. `None` until something has loaded.
     pub(crate) fn sources_label(&self) -> Option<String> {
         use artcraft_launcher_core::protocol::Origin;
         let mut api = false;
         let mut github = false;
+        let mut tdf = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
                     Some(Origin::ArtCraftApi) => api = true,
                     Some(Origin::GitHub) => github = true,
+                    Some(Origin::TheDocumentFoundation) => tdf = true,
                     None => {}
                 }
             }
         }
-        match (api, github) {
-            (true, true) => Some(crate::i18n::fmt(tl!("{a} and {b}"), &[("a", Origin::ArtCraftApi.label()), ("b", Origin::GitHub.label())])),
-            (true, false) => Some(Origin::ArtCraftApi.label().to_string()),
-            (false, true) => Some(Origin::GitHub.label().to_string()),
-            (false, false) => None,
-        }
+        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation)]
+            .into_iter()
+            .filter(|&(present, _)| present)
+            .map(|(_, origin)| origin.label().to_string())
+            .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
     }
 
     pub(crate) fn count(&self, filter: Filter) -> usize {
@@ -1575,10 +1649,17 @@ mod tests {
     /// A UI driven through the real toolbar → Settings → language picker path, with the test-only
     /// font seam, so the selected frame and the single font-gate pass can be inspected exactly.
     fn cjk_picker_harness() -> Harness<'static, Option<LauncherUi>> {
+        picker_harness("en", 1180.0)
+    }
+
+    fn picker_harness(language: &str, width: f32) -> Harness<'static, Option<LauncherUi>> {
+        picker_with_settings(Settings { language: language.into(), notify: false, ..Settings::default() }, width).0
+    }
+
+    fn picker_with_settings(settings: Settings, width: f32) -> (Harness<'static, Option<LauncherUi>>, Rc<RefCell<Vec<Command>>>) {
         let sent = Rc::new(RefCell::new(Vec::new()));
-        let mut backend = Some(Recorder { sent });
-        let settings = Settings { language: "en".into(), notify: false, ..Settings::default() };
-        Harness::builder().with_size(egui::vec2(1180.0, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
+        let mut backend = Some(Recorder { sent: sent.clone() });
+        let harness = Harness::builder().with_size(egui::vec2(width, 900.0)).with_theme(egui::Theme::Dark).build_ui_state(
             move |ui, state: &mut Option<LauncherUi>| {
                 if state.is_none()
                     && let Some(backend) = backend.take()
@@ -1595,7 +1676,462 @@ mod tests {
                 }
             },
             None,
-        )
+        );
+        (harness, sent)
+    }
+
+    #[test]
+    fn expanded_catalog_categories_remain_reachable_by_keyboard() {
+        use egui_kittest::kittest::Queryable;
+        let mut h = picker_harness("en", 1440.0);
+        h.run_steps(4);
+        h.get_by_label_contains("Education and science").scroll_to_me();
+        h.run_steps(4);
+        let category = h.get_by_label_contains("Education and science");
+        assert!(category.rect().top() >= 110.0 && category.rect().bottom() < 860.0);
+        category.focus();
+        h.run_steps(2);
+        h.key_press(egui::Key::Space);
+        h.run_steps(4);
+        h.get_by_label("Stellarium");
+        assert!(h.query_by_label("PhotoCraft").is_none());
+        h.check_accessibility();
+    }
+
+    #[test]
+    fn curated_install_distinguishes_explicit_incompatibility_from_missing_recipes() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["en", "it"] {
+            for (query, expected) in [
+                ("Timeshift", if language == "it" { "Non supportato su questo dispositivo" } else { "Not supported on this device" }),
+                ("Handy", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
+                ("Meetily", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
+                ("Plane Community", "Self-hosted"),
+            ] {
+                let mut h = picker_harness(language, 1440.0);
+                h.run_steps(3);
+                h.state_mut().as_mut().unwrap().platform =
+                    Some(Platform { os: artcraft_launcher_core::Os::MacOs, arch: artcraft_launcher_core::Arch::X64 });
+                let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+                h.get_by_label(search).focus();
+                h.run_steps(2);
+                h.get_by_label(search).type_text(query);
+                h.run_steps(3);
+                assert!(
+                    h.query_all_by_label_contains(expected).any(|node| node.accesskit_node().is_disabled()),
+                    "unavailable action must be disabled: {query} {language}"
+                );
+                assert!(h.query_by_label("Manage app").is_none());
+                h.check_accessibility();
+                if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                    h.render().unwrap().save(std::path::Path::new(&dir).join(format!("install-state-{query}-{language}.png"))).unwrap();
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn curated_catalog_navigation_and_filters_are_accessible() {
+        use egui_kittest::kittest::Queryable;
+        let mut h = cjk_picker_harness();
+        h.run_steps(5);
+        h.get_by_label("Catalog");
+        h.get_by_label("My apps");
+        assert!(h.query_all_by_label("Fonts").next().is_none());
+        h.get_by_label("SH*FTER");
+        h.get_by_label("Settings");
+        assert!(
+            h.get_by_label("Image editing").rect().min.y >= h.get_by_label("PhotoCraft").rect().max.y,
+            "card description must be below its title"
+        );
+        assert!(h.query_all_by_label("PromptiCraft").next().is_none());
+        assert!(h.query_all_by_label("EyeCraft").next().is_none());
+        assert!(h.query_all_by_label("OneshotAnything").next().is_none());
+        h.get_by_label("Advanced").click_accesskit();
+        h.run_steps(3);
+        assert_eq!(h.state().as_ref().unwrap().curated.level, "avanz");
+        h.get_by_label("Reset filters").click_accesskit();
+        h.run_steps(3);
+        assert!(h.state().as_ref().unwrap().curated.level.is_empty());
+        if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+            h.render().unwrap().save(std::path::Path::new(&dir).join("catalog.png")).unwrap();
+            println!("Accessibility checked: Catalog, My apps, sh*fter, Settings, Advanced, Reset filters; deferred products absent");
+        }
+        h.get_by_label("Show apps as a table").click_accesskit();
+        h.run_steps(3);
+        h.get_by_label("Name");
+        h.get_by_label("App details · PhotoCraft");
+        assert!(h.query_by_label("PhotoCraft preview").is_none(), "table uses rows, not full preview cards");
+        if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+            h.render().unwrap().save(std::path::Path::new(&dir).join("catalog-table-en.png")).unwrap();
+        }
+    }
+
+    #[test]
+    fn shifter_profiles_require_explicit_selection_and_manual_mode_never_invents_coverage() {
+        use egui_kittest::kittest::Queryable;
+        for language in ["en", "it"] {
+            let paid = if language == "it" { "Software a pagamento" } else { "Paid software" };
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            assert!(h.query_all_by_label(if language == "it" { "Font" } else { "Fonts" }).next().is_none());
+            let apps = h.get_by_label(if language == "it" { "Le mie app" } else { "My apps" }).rect();
+            let shifter = h.get_by_label("SH*FTER").rect();
+            assert!(apps.right() <= shifter.left(), "sh*fter follows My apps");
+            h.get_by_label("SH*FTER").focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::Space);
+            h.run_steps(4);
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).click();
+            h.run_steps(3);
+            h.get_by_label("Adobe Photoshop").click_accesskit();
+            h.run_steps(4);
+            h.get_by_label(if language == "it" { "Copertura documentata" } else { "Documented coverage" });
+            let feature = if language == "it" { "Riempimento generativo integrato" } else { "Built-in Generative Fill" };
+            h.get_by_label(&format!("{} · {feature}", if language == "it" { "Indispensabile" } else { "Required" })).click_accesskit();
+            h.run_steps(3);
+            assert!(
+                h.query_all_by_label_contains(if language == "it" { "Indispensabile non confermata" } else { "Required feature not confirmed" })
+                    .next()
+                    .is_some()
+            );
+            let details = h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).rect();
+            let functions = h.get_by_label(feature).rect();
+            assert!(
+                functions.right() < details.left() && details.right() <= 1440.0 && details.bottom() <= 900.0,
+                "functions stay on the left and result actions inside the reference viewport"
+            );
+            let screenshot = |h: &mut egui_kittest::Harness<'_, _>, name: &str| {
+                if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                    h.render().unwrap().save(std::path::Path::new(&dir).join(format!("{name}-{language}.png"))).unwrap();
+                }
+            };
+            screenshot(&mut h, "shifter");
+            h.get_by_label(if language == "it" { "Fonti · PhotoCraft" } else { "Sources · PhotoCraft" }).click_accesskit();
+            h.run_steps(3);
+            assert!(h.query_all_by_label(if language == "it" { "Assente" } else { "Absent" }).next().is_some());
+            screenshot(&mut h, "shifter-sources");
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().comparison.sources.is_none());
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, paid).type_text("A new product");
+            h.run_steps(3);
+            // Typing does not replace the explicitly selected evidence profile.
+            assert!(h.query_all_by_label("Adobe Photoshop").next().is_some());
+            h.get_by_label(if language == "it" { "Confronta manualmente" } else { "Compare manually" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(if language == "it" {
+                "Confronto manuale. Riusa funzioni documentate o aggiungi le tue."
+            } else {
+                "Manual comparison. Reuse documented features or add your own."
+            });
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
+                .click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
+                .type_text("Fixture feature");
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Aggiungi" } else { "Add" }).click_accesskit();
+            h.run_steps(3);
+            let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).type_text("PhotoCraft");
+            h.run_steps(3);
+            assert!(h.query_all_by_label("—").next().is_some());
+            assert!(h.query_by_label(if language == "it" { "Non verificato" } else { "Unverified" }).is_none());
+            h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));
+        }
+    }
+
+    #[test]
+    fn shifter_dropdown_scrolls_filters_aliases_and_moves_keyboard_focus() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["it", "en"] {
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            h.get_by_label("SH*FTER").click_accesskit();
+            h.run_steps(3);
+            let input = if language == "it" { "Software a pagamento" } else { "Paid software" };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).focus();
+            h.run_steps(2);
+            assert!(h.query_by_label("1Password").is_none(), "no profile pill row");
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            assert!(h.get_by_label("1Password").accesskit_node().is_focused());
+            for _ in 1..artcraft_launcher_core::shifter::data().unwrap().software("").len() {
+                h.key_press(egui::Key::ArrowDown);
+                h.run_steps(2);
+            }
+            h.run_steps(8);
+            let last = h.get_by_label("Zoom");
+            assert!(last.accesskit_node().is_focused());
+            assert!(last.rect().bottom() < 900.0 && last.rect().top() > 100.0, "last suggestion scrolls inside the popup");
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.check_accessibility();
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-dropdown-{language}.png"))).unwrap();
+            }
+            h.key_press(egui::Key::Tab);
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none(), "Tab leaves the suggestions without a focus trap");
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none());
+            assert!(h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).accesskit_node().is_focused());
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).type_text("PHÓTOSHÓP®");
+            h.run_steps(3);
+            assert!(h.query_by_label("1Password").is_none());
+            h.key_press(egui::Key::ArrowDown);
+            h.run_steps(3);
+            assert!(h.get_by_label("Adobe Photoshop").accesskit_node().is_focused());
+            h.key_press(egui::Key::Enter);
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Copertura documentata" } else { "Documented coverage" });
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, input).type_text("Unknown product");
+            h.run_steps(3);
+            h.key_press(egui::Key::Enter);
+            h.run_steps(3);
+            h.get_by_label(if language == "it" {
+                "Confronto manuale. Riusa funzioni documentate o aggiungi le tue."
+            } else {
+                "Manual comparison. Reuse documented features or add your own."
+            });
+        }
+    }
+
+    #[test]
+    fn favorites_grid_table_details_survive_restart_without_native_actions() {
+        use egui_kittest::kittest::{NodeT, Queryable};
+        for language in ["it", "en"] {
+            let (mut h, sent) = picker_with_settings(Settings { language: language.into(), notify: false, ..Settings::default() }, 1440.0);
+            h.run_steps(5);
+            let (catalog, favorites, apps, add, remove) = if language == "it" {
+                ("Catalogo", "Preferiti", "Le mie app", "Aggiungi ai preferiti · Handy", "Rimuovi dai preferiti · Handy")
+            } else {
+                ("Catalog", "Favorites", "My apps", "Add to favorites · Handy", "Remove from favorites · Handy")
+            };
+            assert!(h.get_by_label(catalog).rect().right() <= h.get_by_label(favorites).rect().left());
+            assert!(h.get_by_label(favorites).rect().right() <= h.get_by_label(apps).rect().left());
+            h.get_by_label(add).click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().settings.favorites.contains("handy"));
+            assert_eq!(h.get_by_label(remove).accesskit_node().toggled(), Some(egui::accesskit::Toggled::True));
+            h.get_by_label(if language == "it" { "Mostra le app in elenco" } else { "Show apps as a table" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(remove).click_accesskit();
+            h.run_steps(3);
+            assert!(!h.state().as_ref().unwrap().settings.favorites.contains("handy"));
+            h.get_by_label(add).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(favorites).focus();
+            h.run_steps(2);
+            h.key_press(egui::Key::Space);
+            h.run_steps(3);
+            assert_eq!(h.state().as_ref().unwrap().page, Page::Favorites);
+            assert!(h.query_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).is_none());
+            h.get_by_label("Handy").click_accesskit();
+            h.run_steps(3);
+            assert_eq!(h.state().as_ref().unwrap().curated.detail.as_deref(), Some("handy"));
+            assert_eq!(h.query_all_by_label(remove).count(), 2, "catalog row and detail both expose the selected heart");
+            h.query_all_by_label(remove).last().unwrap().click_accesskit();
+            h.run_steps(3);
+            assert!(h.state().as_ref().unwrap().settings.favorites.is_empty());
+            h.get_by_label(add).click_accesskit(); // Only the open detail remains after removing the row.
+            h.run_steps(3);
+            h.key_press(egui::Key::Escape);
+            h.run_steps(3);
+            let saved = serde_json::to_vec(&h.state().as_ref().unwrap().settings).unwrap();
+            let (mut restarted, next_sent) = picker_with_settings(serde_json::from_slice(&saved).unwrap(), 1440.0);
+            restarted.run_steps(5);
+            restarted.get_by_label(favorites).click_accesskit();
+            restarted.run_steps(3);
+            restarted.get_by_label(remove);
+            restarted.check_accessibility();
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                restarted.render().unwrap().save(std::path::Path::new(&dir).join(format!("favorites-{language}.png"))).unwrap();
+            }
+            assert!(sent.borrow().iter().chain(next_sent.borrow().iter()).all(|command| !matches!(
+                command,
+                Command::Install { .. }
+                    | Command::InstallAll { .. }
+                    | Command::InstallExpected { .. }
+                    | Command::Replace { .. }
+                    | Command::InstallChosen { .. }
+                    | Command::Uninstall { .. }
+                    | Command::Launch { .. }
+                    | Command::UpdateLauncher
+            )));
+        }
+    }
+
+    fn assert_catalog_control_badges(h: &Harness<'_, Option<LauncherUi>>, language: &str) {
+        use egui_kittest::kittest::Queryable;
+        assert!(h.query_all_by_label(if language == "it" { "Controllo CLI" } else { "CLI control" }).next().is_some());
+        assert!(h.query_all_by_label(if language == "it" { "Controllo non verificato" } else { "Control unverified" }).next().is_some());
+        let platform_rects: Vec<_> = ["macOS", "Windows", "Linux"].iter().map(|label| h.query_all_by_label(label).next().unwrap().rect()).collect();
+        assert!(platform_rects.windows(2).all(|pair| pair[0].right() <= pair[1].left()), "platforms read macOS, Windows, Linux from left to right");
+    }
+
+    #[test]
+    fn catalog_and_agent_connection_render_in_both_languages() {
+        use egui_kittest::kittest::Queryable;
+        for (language, catalog, connect) in [("en", "Catalog", "Connect agent"), ("it", "Catalogo", "Collega agente")] {
+            let mut h = picker_harness(language, 1440.0);
+            h.run_steps(5);
+            h.get_by_label(catalog);
+            for (label, url) in [
+                ("Promptica LinkedIn", "https://www.linkedin.com/company/promptica/"),
+                ("Promptica Instagram", "https://www.instagram.com/promptica_ai"),
+            ] {
+                h.get_by_label(label).click_accesskit();
+                let mut opened = false;
+                for _ in 0..3 {
+                    h.step();
+                    opened |= h
+                        .output()
+                        .platform_output
+                        .commands
+                        .iter()
+                        .any(|command| matches!(command, egui::OutputCommand::OpenUrl(open) if open.url == url));
+                }
+                assert!(opened, "social link must request the official URL");
+            }
+            h.state_mut().as_mut().unwrap().platform =
+                Some(Platform { os: artcraft_launcher_core::Os::MacOs, arch: artcraft_launcher_core::Arch::Arm64 });
+            if let Some(media) = std::env::var_os("SHIFTANYTHING_MEDIA_PROOF") {
+                let ui = h.state_mut().as_mut().unwrap();
+                for id in ["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"] {
+                    for index in ["logo", "shot-0", "shot-1"] {
+                        let path = std::path::Path::new(&media).join(format!("{id}-catalog-{index}.image"));
+                        if let Ok(bytes) = std::fs::read(path) {
+                            ui.pictures.insert((id.into(), format!("catalog-{index}")), crate::details::Picture::from_result(Ok(bytes)));
+                        }
+                    }
+                }
+                h.run_steps(5);
+            }
+            h.run_steps(3);
+            assert_catalog_control_badges(&h, language);
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("catalog-{language}.png"))).unwrap();
+            }
+            h.get_by_label(if language == "it" { "Mostra le app in elenco" } else { "Show apps as a table" }).click_accesskit();
+            h.run_steps(3);
+            h.get_by_label(if language == "it" { "Popolarità" } else { "Popularity" });
+            for row in h.query_all_by_label_contains(if language == "it" { "Vedi scheda ·" } else { "App details ·" }) {
+                let rect = row.rect();
+                if rect.center().y > 240.0 && rect.center().y < 850.0 {
+                    assert!(rect.left() >= 214.0 && rect.right() <= 1432.0, "table action must fit the reference viewport: {language} {rect:?}");
+                }
+            }
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("table-{language}.png"))).unwrap();
+            }
+            h.get_by_label(connect).click_accesskit();
+            h.run_steps(3);
+            assert!(matches!(h.state().as_ref().unwrap().dialog, Some(Dialog::ConnectAgent)));
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("connect-{language}.png"))).unwrap();
+            }
+            if let Some(path) = std::env::var_os("SHIFTANYTHING_MCP_CONFIG_PROOF") {
+                let config = std::fs::read_to_string(path).unwrap();
+                h.state_mut().as_mut().unwrap().automation_config = Some(Ok(config.clone()));
+                for (label, format) in [
+                    ("JSON", artcraft_launcher_core::mcp_config::McpConfigFormat::Json),
+                    ("VS Code", artcraft_launcher_core::mcp_config::McpConfigFormat::VsCode),
+                    ("TOML", artcraft_launcher_core::mcp_config::McpConfigFormat::CodexToml),
+                ] {
+                    h.run_steps(3);
+                    h.get_by_label(label).click_accesskit();
+                    h.run_steps(3);
+                    assert_eq!(h.state().as_ref().unwrap().automation_format, format);
+                    let copy = if language == "it" { "Copia configurazione" } else { "Copy configuration" };
+                    h.get_by_label(copy).click_accesskit();
+                    let expected = artcraft_launcher_core::mcp_config::catalog_config(format, &config).unwrap();
+                    let mut copied = false;
+                    for _ in 0..3 {
+                        h.step();
+                        copied |= h
+                            .output()
+                            .platform_output
+                            .commands
+                            .iter()
+                            .any(|command| matches!(command, egui::OutputCommand::CopyText(text) if text == &expected));
+                    }
+                    assert!(copied, "selected format must reach the clipboard");
+                    if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                        h.render().unwrap().save(std::path::Path::new(&dir).join(format!("connect-{label}-{language}.png"))).unwrap();
+                    }
+                }
+            }
+            h.state_mut().as_mut().unwrap().caps.manage_apps = true;
+            h.state_mut().as_mut().unwrap().dialog = Some(Dialog::Settings);
+            h.run_steps(4);
+            for url in [
+                "https://promptica.it/",
+                "https://www.linkedin.com/company/promptica/",
+                "https://www.instagram.com/promptica_ai",
+                "https://promptica.it/contatti",
+            ] {
+                h.get_by_label(url);
+            }
+            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("settings-{language}.png"))).unwrap();
+            }
+        }
+    }
+
+    #[test]
+    fn agent_approval_rejects_changed_state_and_reports_native_outcomes() {
+        use artcraft_launcher_core::automation::{Operation, Request};
+        use egui_kittest::kittest::Queryable;
+        let mut h = cjk_picker_harness();
+        h.run_steps(5);
+        let req = Request { id: "approval-test".into(), operation: Operation::Open, apps: vec!["photocraft".into()] };
+        {
+            let ui = h.state_mut().as_mut().unwrap();
+            ui.caps.manage_apps = true;
+            ui.entries[0].detected = true;
+            ui.automation_pending = Some(req.clone());
+        }
+        h.run_steps(3);
+        h.get_by_label("Approve").click_accesskit();
+        h.run_steps(3);
+        let ui = h.state().as_ref().unwrap();
+        assert_eq!(ui.automation_results[&req.id], "rejected");
+        assert!(ui.automation_links.is_empty(), "Open without an installed copy never dispatches");
+        {
+            let ui = h.state_mut().as_mut().unwrap();
+            ui.automation_pending = Some(Request { id: "reject-test".into(), ..req.clone() });
+        }
+        h.run_steps(3);
+        h.get_by_label("Reject").click_accesskit();
+        h.run_steps(3);
+        assert_eq!(h.state().as_ref().unwrap().automation_results["reject-test"], "rejected");
+        let ui = h.state_mut().as_mut().unwrap();
+        ui.automation_expected.insert("photocraft".into(), true);
+        for _ in 0..2 {
+            assert!(
+                matches!(
+                    ui.automation_guarded_command(Command::Install { app: "photocraft".into() }),
+                    Command::InstallExpected { installed: true, .. }
+                ),
+                "interleaved/repeated commands retain the approved Update guard until a native outcome"
+            );
+        }
+        ui.automation_links.insert("photocraft".into(), vec![req.id.clone(), "cancel-test".into()]);
+        ui.on_job_finished("photocraft".into(), Err("cancelled".into()));
+        assert_eq!(ui.automation_results["approval-test:photocraft"], "error: cancelled");
+        assert_eq!(ui.automation_results["cancel-test:photocraft"], "error: cancelled");
+        ui.automation_links.insert("photocraft".into(), vec!["dialog-cancel".into()]);
+        ui.automation_dialog_closed(&Dialog::Install { app: "photocraft".into(), folder: String::new() });
+        assert_eq!(ui.automation_results["dialog-cancel:photocraft"], "cancelled before native operation");
     }
 
     /// Opens Settings and its language combo through visible labels, leaving the picker open for a

@@ -1,0 +1,233 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.eAG7lgtR/flathub.flatpakrepo
+=== org.gnome.Builder ===
+        ID: org.gnome.Builder
+       Ref: app/org.gnome.Builder/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 152.9 MB
+ Installed: 470.9 MB
+   Runtime: org.gnome.Sdk/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 1aad58b38f886f74f29669c2efe515e8be42eb9ab3cb26cf6318b37f39c62330
+    Parent: ec7ab5aeba400b5b934870d753a94608af444067a503e5977ec98b76134a26e1
+   Subject: update GNOME SDK version 50 to 51 (82c732191603)
+      Date: 2026-11-25 11:57:00 +0000
+   History:
+
+    Commit: ec7ab5aeba400b5b934870d753a94608af444067a503e5977ec98b76134a26e1
+   Subject: Update certifi to 2026.10.19 (#97) (0ff01f1a2a57)
+      Date: 2026-10-28 06:25:13 +0000
+
+    Commit: 34cce7530aa89739e69ab295f65138eaa9eecdc15a13d3c6d4e7b3011b050b80
+   Subject: Merge pull request #91 from yioannides/gnome-sdk-version (a09ecfbab398)
+      Date: 2026-08-22 14:26:49 +0000
+
+    Commit: f41666b11274d5f44834aa40456131ff83843913ad8c14330c4e6f70b71bce62
+   Subject: Merge pull request #74 from flathub/update-master-556d7a9 (e1fce39dc4a4)
+      Date: 2026-03-23 02:04:40 +0000
+
+    Commit: c32560c9ce0250923947d82170046adaadac025f12317f86766ab9e52de558d7
+   Subject: Remove libyaml, libxmlb, and libsteemer (ccfe2be1d3e3)
+=== org.kde.digikam ===
+        ID: org.kde.digikam
+       Ref: app/org.kde.digikam/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 372.6 MB
+ Installed: 992.7 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd
+    Parent: 63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e
+   Subject: hugin: Remove patch (40323b2f8add)
+      Date: 2026-11-27 00:34:43 +0000
+   History:
+
+    Commit: 63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e
+   Subject: Update to KDE Runtime 6.11 (59e41b0eff58)
+      Date: 2026-11-14 02:01:54 +0000
+
+    Commit: e66e115611cf6e79f30e435075b990fe6da3eb13bf45333e4e2c6e43be35a123
+   Subject: Fix url-template to GitHub as the previous URL didn't have the latest build (bcedce4549c0)
+      Date: 2026-07-31 05:07:51 +0000
+
+    Commit: 9741cd12251182c50a8a32c02376269bdad66bc875c605bfed4dc3dc1de22bc6
+   Subject: Merge pull request #317 from flathub/fix-map-crash-hardened-malloc (d3486fa14d78)
+      Date: 2026-07-24 13:07:24 +0000
+
+    Commit: c6638cdfbe6efaae52928dd25ef82140703492ca078f22175049726bf8104d44
+   Subject: Merge pull request #315 from flathub/update-master-738a57f (4f0c241eeab7)
+=== org.gnome.design.IconLibrary ===
+        ID: org.gnome.design.IconLibrary
+       Ref: app/org.gnome.design.IconLibrary/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 2.6 MB
+ Installed: 8.2 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: 0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25
+    Parent: 06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157
+   Subject: Merge pull request #27 from flathub/icon-library-0.0.23 (d36d2426ce6a)
+      Date: 2026-09-27 03:53:33 +0000
+   History:
+
+    Commit: 06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157
+   Subject: Merge pull request #26 from flathub/update-runtime (cbd75ee07093)
+      Date: 2026-04-10 22:49:42 +0000
+
+    Commit: ef7f5bff3cf984a2213955c640195eed3ed17079e0b1e5c6296d7df687a3e696
+   Subject: Merge pull request #25 from A6GibKm/update-0.0.22 (63199ce2a446)
+      Date: 2025-09-16 17:23:57 +0000
+
+    Commit: 76b0af7d0c19a53236a3e74e4d2246855a0287e7271ed0dcbfb9c96c848c4f47
+   Subject: icon-library: Update to 0.0.21 (44b643d4)
+      Date: 2025-03-29 11:52:49 +0000
+
+=== io.github.martinrotter.rssguard ===
+        ID: io.github.martinrotter.rssguard
+       Ref: app/io.github.martinrotter.rssguard/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 155.5 MB
+ Installed: 352.3 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2
+    Parent: 198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8
+   Subject: yt-dlp: Update yt-dlp.tar.gz to 2026.11.23 (323eed987e65)
+      Date: 2026-11-24 16:30:37 +0000
+   History:
+
+    Commit: 198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8
+   Subject: Update submodule shared-modules to d3a85ee07ae4 (a20555c3710f)
+      Date: 2026-11-21 17:29:42 +0000
+
+    Commit: 90b6d8939d7c9c2e79ea4c9ddf0e6d7410ed9b7df69541362964b021ec8d6efb
+   Subject: clang-format: Update llvm-project-23.1.5.src.tar.xz to 23.1.6 (d1405e892216)
+      Date: 2026-11-18 05:08:56 +0000
+
+    Commit: ffae1a3598e6e29e0c2be9c53bb0454317e15f004941478df86c72b3a15f8843
+   Subject: rssguard: Update rssguard-5.2.5-src.tar.gz to 5.3.0 (95741a997fa8)
+      Date: 2026-11-13 06:03:32 +0000
+
+    Commit: 5c5a599558a83eafb9b908139f1194bc86ba7faade616846852ee44d606db322
+   Subject: Update submodule shared-modules to 785a5394b6e4 (573cc1927f33)
+=== org.triliumnotes.Trilium ===
+        ID: org.triliumnotes.Trilium
+       Ref: app/org.triliumnotes.Trilium/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 206.3 MB
+ Installed: 468.2 MB
+   Runtime: org.freedesktop.Platform/x86_64/25.08
+       Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+    Commit: 3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2
+    Parent: cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c
+   Subject: Merge pull request #4 from flathub/update/beta (727756fb4e2a)
+      Date: 2026-11-09 19:23:19 +0000
+   History:
+
+    Commit: cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c
+   Subject: Merge pull request #2 from flathub/update/v0.106.0 (68ab0c4f1c3e)
+      Date: 2026-09-25 19:35:07 +0000
+
+    Commit: f51fa484ca383ae95d5c1e3aace09ececdac30353a281745da571401ab6d3ba0
+   Subject: chore: use a sandboxed data directory with optional user override (5e666e1edc8a)
+      Date: 2026-09-02 06:48:07 +0000
+
+    Commit: 9527600c8d40075776ba40e6c2f54f0da7fa87626e8513282636f059eef08ce8
+   Subject: chore: use a sandboxed data directory with optional user override (5e666e1edc8a)
+      Date: 2026-09-02 06:48:07 +0000
+=== com.zettlr.Zettlr ===
+        ID: com.zettlr.Zettlr
+       Ref: app/com.zettlr.Zettlr/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 189.9 MB
+ Installed: 558.1 MB
+   Runtime: org.freedesktop.Platform/x86_64/26.08
+       Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+    Commit: bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7
+    Parent: 866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf
+   Subject: Merge pull request #77 from flathub/update-master-8bbb754 (1f71fb846092)
+      Date: 2026-11-17 10:29:59 +0000
+   History:
+
+    Commit: 866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf
+   Subject: Merge pull request #75 from nathanlesage/4-9-update (7dcb6322ad2b)
+      Date: 2026-10-25 08:54:18 +0000
+
+    Commit: fa60932f1fcc291a45a9037c03c3a72e37804fea924a4e1cb53dd392289fd9aa
+   Subject: Merge pull request #72 from PunkPangolin/patch-1 (bbfc72eb3e3f)
+      Date: 2026-09-21 09:37:06 +0000
+
+    Commit: 7c34bd1472c22e00815a35f8854af8745684b65bea5562b945df739117d428a1
+   Subject: Merge pull request #74 from flathub/update-master-f9dea6b (2ab5164c282f)
+      Date: 2026-09-20 12:38:44 +0000
+
+    Commit: 669faba15aa779b0d32b172bb2a77a9fc48ae573e11d04880bcf9788c04ffe47
+   Subject: Merge pull request #71 from flathub/update-master-5b4ab87 (fab4fe5a806f)
+=== graphics.friction.Friction ===
+        ID: graphics.friction.Friction
+       Ref: app/graphics.friction.Friction/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 19.5 MB
+ Installed: 46.8 MB
+   Runtime: org.kde.Platform/x86_64/5.15-25.08
+       Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+    Commit: 68c8a696e44a7e255ae2a3445b8824520f81cc2d571254de1a2d387d8fa8dce0
+    Parent: eac4e5a6b0389c377624cb83eed914b5a97298a2bade1ba02345ef2ab7039b58
+   Subject: Add graphics.friction.Friction (4f481d05941d)
+      Date: 2026-11-20 10:48:35 +0000
+   History:
+
+    Commit: eac4e5a6b0389c377624cb83eed914b5a97298a2bade1ba02345ef2ab7039b58
+   Subject: Add graphics.friction.Friction (4f481d05941d)
+      Date: 2026-11-20 10:48:35 +0000
+=== com.github.vkohaupt.vokoscreenNG ===
+        ID: com.github.vkohaupt.vokoscreenNG
+       Ref: app/com.github.vkohaupt.vokoscreenNG/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 149.4 MB
+ Installed: 344.4 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 6eeef2c179e8683ec835791b4d628e54846ed47de22016ebae837987d59814c8
+    Parent: 5e75f22cb40d4cf01c847cf5a71d2c8f130a62b96020cdbb8a0a458e3dac995c
+   Subject: Merge pull request #190 from flathub/vkohaupt-patch-20 (116ea210c55e)
+      Date: 2026-11-20 06:42:24 +0000
+   History:
+
+    Commit: 5e75f22cb40d4cf01c847cf5a71d2c8f130a62b96020cdbb8a0a458e3dac995c
+   Subject: Merge pull request #189 from flathub/vkohaupt-patch-20 (b3b6743c8b7e)
+      Date: 2026-11-19 22:11:51 +0000
+
+    Commit: c3a231f2f47b78ae92ba453458b70cb30bcfd84264bf39a7f8d037ef5a5d5413
+   Subject: Merge pull request #185 from flathub/vkohaupt-patch-18 (7d7344f03286)
+      Date: 2026-11-19 17:22:55 +0000
+
+    Commit: 973554dc02e80195c10c84aee3d919acfc9ecf8aa34b326f7dc009a6e4b0f6a5
+   Subject: Merge pull request #182 from flathub/vkohaupt-patch-16 (66fd4e3ac0a6)
+      Date: 2026-11-18 20:34:17 +0000
+
+    Commit: e19b344c3c6fedad6f0237a2d12e3cb72ed055fe246753ec10590f980f73ffa5
+   Subject: Merge pull request #181 from flathub/vkohaupt-patch-16 (f180259df120)

@@ -1,0 +1,4 @@
+24488961e3e71db6a04d0d550dd6eacfd8a8c54b2b3c2662d229bfa3b9856f4d  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/main-interface/rapidraw/installed-icon.png
+bb821b7f08d5c49415f60ffa6fdcd07678709286b5b107cee520176906b2d081  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/main-interface/rapidraw/open-menu.png
+0719cec04944234533d79e95815d26216ed6506b1f318ac6572d3d1cdcc35667  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/main-interface/rapidraw/open-new.png
+6499054419c0dc47a8cb12e660b15414a4d622b7545fcca87c486a4e87d85933  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/main-interface/rapidraw/open-old.png

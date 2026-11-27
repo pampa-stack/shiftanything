@@ -1,0 +1,236 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.8NiwE1xk/flathub.flatpakrepo
+=== org.mozilla.firefox ===
+        ID: org.mozilla.firefox
+       Ref: app/org.mozilla.firefox/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 131.4 MB
+ Installed: 349.9 MB
+   Runtime: org.freedesktop.Platform/x86_64/25.08
+       Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+    Commit: b8dd418bd71860acb006d755db5b47184d7b88a6dea4f626dc52a1dc5f2dc96e
+    Parent: 3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-24 14:05:48 +0000
+   History:
+
+    Commit: 3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-17 14:07:05 +0000
+
+    Commit: 6e1de891c7933f796cb8ad8091dfa2d75b5e975db5602d76999351fd623b0ebd
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-10 13:37:15 +0000
+
+    Commit: df51b8005c4cd8f1e185d98ec86d15151ac35a453413e4629c2e46691015b207
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-03 14:07:49 +0000
+
+    Commit: 829e35ba8714341c76f9c5a6a3af90de611fb275b4710fbdda0684b0e587a41a
+   Subject: Export org.mozilla.firefox
+=== com.vscodium.codium ===
+        ID: com.vscodium.codium
+       Ref: app/com.vscodium.codium/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 220.8 MB
+ Installed: 637.0 MB
+   Runtime: org.freedesktop.Sdk/x86_64/26.08
+       Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+    Commit: b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab
+    Parent: bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+   Subject: fix: :fire: Remove extension fixed version (b8504c8266f7)
+      Date: 2026-11-10 22:28:32 +0000
+   History:
+
+    Commit: bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+   Subject: chore: :tada: Update vscodium v1.140.06880 (8225f3649031)
+      Date: 2026-10-14 16:30:54 +0000
+
+    Commit: b62989bf713784b33f6eac8fa7772ce6ccdc8bd3b9f25d862eef69956e591a98
+   Subject: chore: :tada: Update VSCodium v1.135.06055 (97ac965c6ed7)
+      Date: 2026-09-10 22:40:24 +0000
+
+    Commit: af803cf102996f7f250ee90983eac1c5f2c1260c7dae3acf33b7ac78b35b05f0
+   Subject: chore: :tada: Update vscodium v1.126.04524 (3b24dc17c072)
+      Date: 2026-08-04 23:51:10 +0000
+
+=== org.librecad.librecad ===
+        ID: org.librecad.librecad
+       Ref: app/org.librecad.librecad/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 68.1 MB
+ Installed: 246.7 MB
+   Runtime: org.kde.Platform/x86_64/5.15-25.08
+       Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+    Commit: 28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585
+    Parent: fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001
+   Subject: Update to 2.2.1.6 (1d53c914de70)
+      Date: 2026-10-18 00:49:32 +0000
+   History:
+
+    Commit: fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001
+   Subject: Update to 2.2.1.5 (81c90752d8a7)
+      Date: 2026-05-04 00:31:02 +0000
+
+    Commit: 2c35375a56d2fa12196c8b526d928683dc7e30183d5eb434bb5f514035560768
+   Subject: Update to the retagged tarball (e21a1b1cb400)
+      Date: 2026-01-13 02:00:08 +0000
+
+    Commit: 884bdc5788d4f4c09c950b4ac0f6b14f296af31571efb22a27e1205c15dc869f
+   Subject: Update to 2.2.1.3 (3585192f5ba2)
+      Date: 2026-01-11 16:58:11 +0000
+
+=== com.prusa3d.PrusaSlicer ===
+        ID: com.prusa3d.PrusaSlicer
+       Ref: app/com.prusa3d.PrusaSlicer/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 132.9 MB
+ Installed: 286.0 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 22caa5995fef8170cbed1d404f993996e5552e47159391666a7b096a85d8f641
+    Parent: bf3534e4ffc688bbaf625206f27f9333b1b8820d3425dae19d3083b47e08ce79
+   Subject: Release 2.9.7 (d541f9d7a0f7)
+      Date: 2026-11-03 11:49:06 +0000
+   History:
+
+    Commit: bf3534e4ffc688bbaf625206f27f9333b1b8820d3425dae19d3083b47e08ce79
+   Subject: Release 2.9.6 (9720ef5bfbfd)
+      Date: 2026-06-25 23:47:22 +0000
+
+    Commit: 1bb97818131a60a53e69baad729e3ef6cfbb9c738efc5c7dfbce0f13515cb152
+   Subject: Release 2.9.5 (1b11e972c2c9)
+      Date: 2026-05-19 23:02:38 +0000
+
+    Commit: bf3712d2411175a5465a4229d74f0f1b5949c4a6c8bec5fca97e999770f942ae
+   Subject: Release 2.9.4 (fc52edc210de)
+      Date: 2025-11-07 23:18:05 +0000
+
+=== org.gnucash.GnuCash ===
+        ID: org.gnucash.GnuCash
+       Ref: app/org.gnucash.GnuCash/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 113.4 MB
+ Installed: 292.2 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e
+    Parent: ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf
+   Subject: Package GnuCash 5.17 (f4fe8554deb6)
+      Date: 2026-09-29 23:59:23 +0000
+   History:
+
+    Commit: ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf
+   Subject: Package GnuCash 5.16 (291653c2becd)
+      Date: 2026-06-28 15:46:57 +0000
+
+    Commit: 5c79b14d9bfe437b9045a1631343b86ab61c3eae91433db2aaf5f374d9f27e77
+   Subject: Package GnuCash 5.15-1 (3b79d0545c86)
+      Date: 2026-04-03 23:56:04 +0000
+
+    Commit: 31a9d0a210ee6fc4196fc2e750d03b04667ca0c2f4ad769fbec8fe2ed1efe52b
+   Subject: Package GnuCash 5.15 (ff430c49fd01)
+      Date: 2026-03-29 16:11:11 +0000
+
+=== org.famistudio.FamiStudio ===
+        ID: org.famistudio.FamiStudio
+       Ref: app/org.famistudio.FamiStudio/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 76.6 MB
+ Installed: 161.1 MB
+   Runtime: org.freedesktop.Platform/x86_64/25.08
+       Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+    Commit: bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6
+    Parent: ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f
+   Subject: Merge pull request #48 from flathub/famistudio-454 (6dc82db3eabf)
+      Date: 2026-11-12 09:59:56 +0000
+   History:
+
+    Commit: ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f
+   Subject: Merge pull request #46 from flathub/famistudio-453 (4625123e32f9)
+      Date: 2026-08-10 09:22:25 +0000
+
+    Commit: da94c7b31c06e00991f9360c061ca615d16a81a3743b4ab19cbf8f5de2b21b88
+   Subject: Merge pull request #44 from flathub/famistudio-452 (246486817567)
+      Date: 2026-07-26 06:17:56 +0000
+
+    Commit: 13ac45b147389a7cb0dd559e90566dc80e4c562a93372297b6df0ed04ee316fa
+   Subject: Merge pull request #43 from flathub/famistudio-451 (9aad2e958a01)
+      Date: 2026-05-12 08:05:29 +0000
+
+=== io.seamly.seamly2d ===
+        ID: io.seamly.seamly2d
+       Ref: app/io.seamly.seamly2d/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 17.4 MB
+ Installed: 35.5 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be
+    Parent: af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59
+   Subject: seamly2d: Update Seamly2D.git to v2026.11.23.131 (#147) (4df8e36f6c1b)
+      Date: 2026-11-23 06:38:12 +0000
+   History:
+
+    Commit: af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59
+   Subject: seamly2d: Update Seamly2D.git to v2026.11.16.133 (#146) (9ddcc283e2c0)
+      Date: 2026-11-16 06:57:56 +0000
+
+    Commit: d8ee4ce2e95b08e467d4cc2ed5cbf5d65a3fc203f24fbf269ca729980235bc76
+   Subject: seamly2d: Update Seamly2D.git to v2026.11.9.131 (#145) (fd84770f3e34)
+      Date: 2026-11-10 06:35:14 +0000
+
+    Commit: 55f903706b8a103e682f1736cbeeb1a7a81e35752de6e13c47ee64ea2b406a73
+   Subject: poppler: Update poppler-26.10.0.tar.xz to 26.11.0 (#144) (f84a0f0fa001)
+      Date: 2026-11-07 08:33:30 +0000
+
+    Commit: bea01c459dc1f5b4e30871ea38c3dc9c86da95a56f92a20f93bcc36a451b5912
+   Subject: seamly2d: Update Seamly2D.git to v2026.11.2.131 (#143) (fa1b7eba1a13)
+=== org.nomacs.ImageLounge ===
+        ID: org.nomacs.ImageLounge
+       Ref: app/org.nomacs.ImageLounge/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 38.2 MB
+ Installed: 79.2 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 868178fae1e4f3180629355fd0a4765e213a0980b5b1768a781dda8b1113998f
+    Parent: b343340104f1ab512cee166f8222c5091ea31d4b20917c0fdd18612f5359af55
+   Subject: Grant /mnt access (6ac1310d9f6e)
+      Date: 2026-10-05 19:13:04 +0000
+   History:
+
+    Commit: b343340104f1ab512cee166f8222c5091ea31d4b20917c0fdd18612f5359af55
+   Subject: Update Exiv2 and opencv (bb877648750d)
+      Date: 2026-09-07 10:53:16 +0000
+
+    Commit: 9ff2ddcc6ecf0e53053265d7a16e7996b3b708668b5bf0c3fb66f37e6f5bef5f
+   Subject: update: version 3.23.3 (274cb2ec26fb)
+      Date: 2026-07-28 14:33:03 +0000
+
+    Commit: 1f884923e49afba0419c3a7479c64c037381dccbfe29425cddd7e209396f1dc2
+   Subject: update: version 3.23.1 (b87f00e128e1)
+      Date: 2026-07-06 16:50:27 +0000

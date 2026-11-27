@@ -1,0 +1,19 @@
+commit 355e7a9a5023dc3ac5800639d20e958f9b5f7e0326f5ea4e1ed922ead02a5328
+Parent:  ce1b9df0fdece9af182c00d3a56202c5c465d1809bc83bb0f312c323b1e03e9a
+ContentChecksum:  50fc6b7481e3558ff2384c0f8692e7cf3dd715eaf3539b4ee035701b02ab0fca
+Date:  2026-11-13 01:29:41 +0000
+
+    Merge pull request #401 from flathub/update-master-418ad63 (98ac207c9190)
+
+    Name: org.libreoffice.LibreOffice
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 02:04:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

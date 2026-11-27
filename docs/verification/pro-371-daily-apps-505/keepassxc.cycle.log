@@ -1,0 +1,49 @@
+
+=== 2026-11-27T05:38:59+00:00 keepassxc install ===
+keepassxc before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+keepassxc JobFinished: Ok("Flathub app installed")
+keepassxc after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/eddd9c1e1d5b574bfb550ac50c69d55a9ec219e6492e4ae2a5a4e00009329f0f", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.keepassxc.KeePassXC/x86_64/stable	flathub	eddd9c1e1d5b	user	2.8.0
+
+=== 2026-11-27T05:39:38+00:00 keepassxc prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/5.15-25.08
+Installing runtime/org.kde.Platform.Locale/x86_64/5.15-25.08
+Installing runtime/org.kde.Platform/x86_64/5.15-25.08
+Previous runtime org.kde.Platform/x86_64/5.15-25.08
+Updating app/org.keepassxc.KeePassXC/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.keepassxc.KeePassXC/x86_64/stable	flathub	c6c60a9c0b10	user	2.7.12
+keepassxc before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 7, patch: 12 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/c6c60a9c0b105ac68672b3eefbca498f8fcd820887c2182009a2013f63713cf3", package: Some("org.keepassxc.KeePassXC"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.7.12"), update_available: false, can_remove: false, can_open: true }
+keepassxc JobFinished: Err("Approved action rejected: native installation state changed")
+keepassxc JobFinished: Err("This Flatpak is managed outside the launcher")
+keepassxc after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 7, patch: 12 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/c6c60a9c0b105ac68672b3eefbca498f8fcd820887c2182009a2013f63713cf3", package: Some("org.keepassxc.KeePassXC"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.7.12"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T05:40:08+00:00 keepassxc open ===
+dbus-daemon[2286935]: [session uid=1000 pid=2286935 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2287009 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2286935]: [session uid=1000 pid=2286935 pidfd=5] Successfully activated service 'org.a11y.Bus'
+keepassxc before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 7, patch: 12 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/c6c60a9c0b105ac68672b3eefbca498f8fcd820887c2182009a2013f63713cf3", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.7.12"), update_available: true, can_remove: true, can_open: true }
+keepassxc JobFinished: Ok("Launch request accepted")
+keepassxc after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 7, patch: 12 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/c6c60a9c0b105ac68672b3eefbca498f8fcd820887c2182009a2013f63713cf3", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.7.12"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2287100]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2287358 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2287100]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+=== 2026-11-27T05:40:12+00:00 keepassxc update-remove ===
+keepassxc before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 7, patch: 12 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/c6c60a9c0b105ac68672b3eefbca498f8fcd820887c2182009a2013f63713cf3", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.7.12"), update_available: true, can_remove: true, can_open: true }
+keepassxc JobFinished: Ok("Flathub app updated")
+keepassxc after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/eddd9c1e1d5b574bfb550ac50c69d55a9ec219e6492e4ae2a5a4e00009329f0f", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.0"), update_available: false, can_remove: true, can_open: true })
+/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/.var/app/org.keepassxc.KeePassXC/shift-profile-marker: OK
+dbus-daemon[2288210]: [session uid=1000 pid=2288210 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2288243 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2288210]: [session uid=1000 pid=2288210 pidfd=5] Successfully activated service 'org.a11y.Bus'
+keepassxc before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/eddd9c1e1d5b574bfb550ac50c69d55a9ec219e6492e4ae2a5a4e00009329f0f", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.0"), update_available: false, can_remove: true, can_open: true }
+keepassxc JobFinished: Ok("Launch request accepted")
+keepassxc after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/eddd9c1e1d5b574bfb550ac50c69d55a9ec219e6492e4ae2a5a4e00009329f0f", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2288412]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2288782 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2288412]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+keepassxc before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/data/flatpak/app/org.keepassxc.KeePassXC/x86_64/stable/eddd9c1e1d5b574bfb550ac50c69d55a9ec219e6492e4ae2a5a4e00009329f0f", package: Some("org.keepassxc.KeePassXC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.0"), update_available: false, can_remove: true, can_open: true }
+keepassxc JobFinished: Ok("Flathub app removed")
+keepassxc after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-flatpak-office.aani3p1l/keepassxc/home/.var/app/org.keepassxc.KeePassXC/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data

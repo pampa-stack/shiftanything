@@ -1,0 +1,19 @@
+commit c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60
+Parent:  99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45
+ContentChecksum:  793db6d35c3fb1306822406ca709c3618649406da5b95338f3d4b47745c74928
+Date:  2026-11-14 02:15:53 +0000
+
+    Merge pull request #27 from hfiguiere/26.09 (f3f721e18221)
+
+    Name: org.leocad.LeoCAD
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 14 03:00:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

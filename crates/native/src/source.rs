@@ -2,8 +2,8 @@
 //!
 //! [`GitHubSource`] asks the GitHub REST API (one request per app, revalidated with ETags) and,
 //! whenever that produces no answer, falls back to github.com's release pages: the
-//! `releases/latest` redirect names the tag and `SHA256SUMS.txt` lists every file with its
-//! checksum, which costs no API quota at all. A later [`ReleaseSource`] will ask the ArtCraft
+//! `releases/latest` redirect names the tag and the publisher's manifest lists files with
+//! their checksums, which costs no API quota at all. A later [`ReleaseSource`] will ask the ArtCraft
 //! catalog API for every app in one request.
 //!
 //! The fallback is not only for the API's quota. `api.github.com` is a different host from
@@ -16,11 +16,14 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
+use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
 
 use crate::http::{Fetched, Http};
+
+mod libreoffice;
 
 /// One answer from a source.
 #[derive(Clone, Debug)]
@@ -63,7 +66,8 @@ pub trait ReleaseSource: Send + Sync {
             Ok(list) => release::choose_version_for(&list, track, query.separate_nightly).map_or(LatestRelease::None, LatestRelease::Found),
             Err(why) => LatestRelease::Failed(why),
         };
-        Answer { latest, source: Source::GitHubApi }
+        let source = if query.repo == LIBREOFFICE.repo { Source::TheDocumentFoundation } else { Source::GitHubApi };
+        Answer { latest, source }
     }
     /// The release `track` follows in the version list saved last time, however old, without
     /// asking GitHub. `None` when no list is saved.
@@ -169,7 +173,13 @@ impl GitHubSource {
         let cache = self.cache.lock().unwrap_or_else(PoisonError::into_inner);
         // New files keep one row per setting (`repo` and `repo+pre`). Old files stored one
         // row under `repo`, so that key is still read when it matches this setting.
-        let allowed = |entry: &Entry| entry.prereleases == prereleases && entry.release.as_ref().is_none_or(release::ordinary_release_allowed);
+        let allowed = |entry: &Entry| {
+            entry.prereleases == prereleases
+                && entry.release.as_ref().is_none_or(|cached| {
+                    release::ordinary_release_allowed(cached)
+                        && (query.repo != OPENCODE.repo || release::opencode_desktop_version(&cached.tag).is_some())
+                })
+        };
         cache.entries.get(&cache_key(&query.repo, prereleases)).or_else(|| cache.entries.get(&query.repo)).filter(|entry| allowed(entry)).cloned()
     }
 
@@ -205,8 +215,14 @@ impl GitHubSource {
         mut fetch: impl FnMut(&str, Option<&str>) -> Result<Fetched, String>,
     ) -> Result<Option<Answer>, String> {
         let (repo, separate) = (query.repo.as_str(), query.separate_nightly);
-        let per_page = if separate { VERSIONS_PAGE } else { LIST_PAGE };
-        let url = if prereleases {
+        let ente_auth = repo == ENTE_AUTH.repo;
+        let termix = repo == TERMIX.repo;
+        // OpenCode still labels the 1.x channel `Latest` for its legacy updater.
+        let opencode = repo == OPENCODE.repo;
+        let named_channel = ente_auth || termix || opencode;
+        let per_page = if separate || named_channel { VERSIONS_PAGE } else { LIST_PAGE };
+        let from_list = prereleases || named_channel;
+        let url = if from_list {
             format!("https://api.github.com/repos/{repo}/releases?per_page={per_page}")
         } else {
             format!("https://api.github.com/repos/{repo}/releases/latest")
@@ -217,8 +233,8 @@ impl GitHubSource {
         match fetch(&url, saved.as_ref().and_then(|e| e.etag.as_deref()))? {
             Fetched::Body { text, etag } => {
                 let mut multi_page = false;
-                let release = if prereleases {
-                    let mut release = release::parse_github_release_list(&text, repo, true)?;
+                let release = if from_list {
+                    let mut release = release::parse_github_release_list(&text, repo, prereleases)?;
                     // A Nightly is never an ordinary release for any app, so a page full of them
                     // proves nothing: look further, and report an incomplete answer rather than
                     // caching "no release" when the bounded search ends early.
@@ -230,13 +246,22 @@ impl GitHubSource {
                         let mut page = 2;
                         while release.is_none() && full {
                             if page > ORDINARY_PAGES {
+                                if ente_auth {
+                                    return Err(format!("No Ente Auth release found in the first {ORDINARY_PAGES} release pages."));
+                                }
+                                if termix {
+                                    return Err(format!("No Termix desktop release found in the first {ORDINARY_PAGES} release pages."));
+                                }
+                                if opencode {
+                                    return Err(format!("No OpenCode 2 release found in the first {ORDINARY_PAGES} release pages."));
+                                }
                                 return Err(format!(
                                     "Nightly builds fill the first {ORDINARY_PAGES} release pages; the newest ordinary release is unknown and nothing was cached."
                                 ));
                             }
                             match fetch(&format!("{url}&page={page}"), None)? {
                                 Fetched::Body { text, .. } => {
-                                    release = release::parse_github_release_list(&text, repo, true)?;
+                                    release = release::parse_github_release_list(&text, repo, prereleases)?;
                                     full = page_len(&text)? >= per_page;
                                 }
                                 Fetched::RateLimited { reset } => {
@@ -346,13 +371,36 @@ impl GitHubSource {
         why
     }
 
+    fn opencode_desktop_manifest(&self) -> Result<Release, String> {
+        let bytes = self.http.get_bytes(release::OPENCODE_DESKTOP_FEED, 32 * 1024)?.ok_or("OpenCode's desktop release manifest is unavailable.")?;
+        release::opencode_desktop_release(&bytes).ok_or_else(|| "OpenCode's desktop release manifest is invalid.".into())
+    }
+
+    fn ask_opencode_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
+        let release = self.opencode_desktop_manifest()?;
+        let repo = &query.repo;
+        let asset = &release.assets[0];
+        let manifest_url = format!("{}{}/{}", release::download_prefix(repo), release.tag, release::checksum_manifest_name(repo));
+        let sums = self.http.get_text(&manifest_url)?.ok_or("OpenCode's GitHub release is missing its checksum manifest.")?;
+        if !release::parse_sha256sums(&sums).iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash)) {
+            return Err("OpenCode's desktop and GitHub release checksums disagree.".into());
+        }
+        self.store(repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
+        Ok(Answer { latest: LatestRelease::Found(release), source: Source::GitHubPages })
+    }
+
     /// The quota-free route through github.com (stable releases only).
     fn ask_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
         let repo = query.repo.as_str();
-        if self.pages_quiet() {
+        if repo == OPENCODE.repo {
+            return self.ask_opencode_pages(query);
+        }
+        let github_page = repo != ENTE_AUTH.repo;
+        if github_page && self.pages_quiet() {
             return Err("github.com couldn't be reached a moment ago".into());
         }
-        let location = self.http.redirect_target(&format!("https://github.com/{repo}/releases/latest")).map_err(|e| self.note_pages_error(e))?;
+        let location =
+            self.http.redirect_target(&latest_page(repo)).map_err(|error| if github_page { self.note_pages_error(error) } else { error })?;
         let no_release = || Ok(Answer { latest: LatestRelease::None, source: Source::GitHubPages });
         // A repo that isn't there answers 404, which `redirect_target` reports as no target at all.
         let Some(target) = location.as_deref() else { return no_release() };
@@ -360,22 +408,29 @@ impl GitHubSource {
         if is_release_list(target, repo) {
             return no_release();
         }
-        let Some(tag) = release::tag_from_redirect(target, repo) else {
+        let Some(tag) = latest_redirect_tag(target, repo) else {
             // Somewhere that isn't github.com's: a captive portal's sign-in page, a filtering
             // proxy's notice. Reading that as "no release yet" would turn a blocked network into a
             // confident "Coming soon" on every card, so let the saved answer stand in instead.
             return Err("the latest-release redirect went somewhere that isn't github.com's".into());
         };
+        let manifest = release::checksum_manifest_name(repo);
         if let Some(e) = self.entry(query, false)
-            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag)
+            && let Some(r) = e.release.as_ref().filter(|r| {
+                r.tag == tag
+                    && r.assets.iter().any(|asset| if repo == TERMIX.repo { release::termix_mac_asset(r, asset) } else { asset.name != manifest })
+            })
         {
             return Ok(Answer { latest: LatestRelease::Found(r.clone()), source: Source::GitHubPages });
         }
-        let sums_url = format!("{}{tag}/SHA256SUMS.txt", release::download_prefix(repo));
+        let sums_url = format!("{}{tag}/{manifest}", release::download_prefix(repo));
         // Not `note_pages_error`: this one redirects to GitHub's asset CDN, so its failure says
         // nothing about whether github.com itself can be reached for the next app.
         let sums = self.http.get_text(&sums_url)?.map(|t| release::parse_sha256sums(&t)).unwrap_or_default();
-        let r = release::release_from_sums(repo, &tag, &sums);
+        let mut r = release::release_from_sums(repo, &tag, &sums);
+        if repo == TERMIX.repo {
+            complete_termix_package(&mut r, |url| self.http.github_asset_size(url))?;
+        }
         if !release::ordinary_release_allowed(&r) {
             return Err("The latest release is a Nightly of the separate developer channel, not an ordinary release.".into());
         }
@@ -397,6 +452,40 @@ fn retry_at(reset: Option<i64>, now: i64) -> i64 {
 fn is_release_list(location: &str, repo: &str) -> bool {
     let list = format!("https://github.com/{repo}/releases");
     location == list || location.strip_suffix('/') == Some(list.as_str())
+}
+
+fn latest_page(repo: &str) -> String {
+    if repo == ENTE_AUTH.repo {
+        // GitHub's /latest redirect targets a different app in Ente's shared repository.
+        "https://ente.com/download/auth/dmg".into()
+    } else {
+        format!("https://github.com/{repo}/releases/latest")
+    }
+}
+
+fn latest_redirect_tag(location: &str, repo: &str) -> Option<String> {
+    if repo == ENTE_AUTH.repo {
+        return release::ente_auth_tag_from_download(location);
+    }
+    let tag = release::tag_from_redirect(location, repo)?;
+    if repo == TERMIX.repo {
+        release::termix_mac_package_url(&tag)?;
+    }
+    if repo == OPENCODE.repo {
+        release::opencode_desktop_version(&tag).filter(|version| version.pre.is_empty() && version.build.is_empty())?;
+    }
+    Some(tag)
+}
+
+/// SHA256SUMS doesn't include lengths. Keep the original GitHub URL for recipe validation
+/// and download; the CDN supplies only the length, never the digest or package choice.
+fn complete_termix_package(release: &mut Release, size: impl FnOnce(&str) -> Result<u64, String>) -> Result<(), String> {
+    let url = release::termix_mac_package_url(&release.tag).ok_or("Invalid Termix desktop release tag")?;
+    let asset = release.assets.iter_mut().find(|asset| asset.url == url).ok_or("Termix desktop package is missing from SHA256SUMS")?;
+    if asset.size == 0 {
+        asset.size = size(&url)?;
+    }
+    Ok(())
 }
 
 /// Which route one lookup takes, with the three ways of asking handed in so the policy can be
@@ -473,10 +562,14 @@ impl GitHubSource {
         {
             return Ok(list.clone());
         }
-        if self.limited() {
-            return Err("GitHub's request limit was reached. Try again later.".into());
-        }
-        let list = self.versions_with(query, |url, etag| self.http.get_api_as(url, etag, query.priority))?;
+        let list = if query.repo == LIBREOFFICE.repo {
+            libreoffice::releases(&self.http, false)?
+        } else {
+            if self.limited() {
+                return Err("GitHub's request limit was reached. Try again later.".into());
+            }
+            self.versions_with(query, |url, etag| self.http.get_api_as(url, etag, query.priority))?
+        };
         self.cache.lock().unwrap_or_else(PoisonError::into_inner).versions.insert(query.repo.clone(), (crate::now(), list.clone()));
         // Kept on disk at once: a restart shouldn't ask for the list again within the hour.
         self.save();
@@ -531,10 +624,24 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn latest(&self, query: &ReleaseQuery, prereleases: bool) -> Answer {
+        if query.repo == LIBREOFFICE.repo {
+            let latest = match libreoffice::releases(&self.http, true) {
+                Ok(versions) => {
+                    let release = versions.into_iter().next();
+                    self.store(&query.repo, Entry { etag: None, release: release.clone(), prereleases: false, fetched_at: crate::now() });
+                    release.map_or(LatestRelease::None, LatestRelease::Found)
+                }
+                Err(why) => LatestRelease::Failed(why),
+            };
+            return Answer { latest, source: Source::TheDocumentFoundation };
+        }
         with_former(query, |q| self.latest_in(q, prereleases), |a| a.latest == LatestRelease::None)
     }
 
     fn cached(&self, query: &ReleaseQuery, prereleases: bool) -> Option<LatestRelease> {
+        if query.repo == LIBREOFFICE.repo {
+            return self.cached_in(query, false);
+        }
         with_former(query, |q| self.cached_in(q, prereleases), |c| matches!(c, None | Some(LatestRelease::None)))
     }
 
@@ -543,8 +650,14 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn newest_tag(&self, repo: &str) -> Option<String> {
-        match self.http.redirect_target(&format!("https://github.com/{repo}/releases/latest")) {
-            Ok(location) => location.as_deref().and_then(|l| release::tag_from_redirect(l, repo)),
+        if repo == OPENCODE.repo {
+            return self.opencode_desktop_manifest().ok().map(|release| release.tag);
+        }
+        if repo == LIBREOFFICE.repo {
+            return None;
+        }
+        match self.http.redirect_target(&latest_page(repo)) {
+            Ok(location) => location.as_deref().and_then(|l| latest_redirect_tag(l, repo)),
             Err(e) => {
                 log::debug!("{repo}: couldn't read the latest-release redirect: {e}");
                 None
@@ -700,6 +813,138 @@ mod tests {
         ] {
             assert!(!is_release_list(elsewhere, REPO), "{elsewhere}");
         }
+    }
+
+    #[test]
+    fn ente_auth_stable_discovery_excludes_other_products_and_unreviewed_packages() {
+        let dir = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), dir.path().join("releases.json"));
+        let repo = ENTE_AUTH.repo;
+        let result = source
+            .ask_api_with(&q(repo), false, |url, _| {
+                assert_eq!(url, "https://api.github.com/repos/ente/ente/releases?per_page=100");
+                Ok(Fetched::Body {
+                    text: r#"[
+                        {"tag_name":"v5.2.0"},
+                        {"tag_name":"ente-cli-v0.4.6"},
+                        {"tag_name":"auth-v4.4.29", "draft":true},
+                        {"tag_name":"auth-v4.4.28", "prerelease":true},
+                        {"tag_name":"auth-v4.4.27"}
+                    ]"#
+                    .into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert!(matches!(result.latest, LatestRelease::Found(release) if release.tag == "auth-v4.4.27"));
+        assert_eq!(latest_page(repo), "https://ente.com/download/auth/dmg");
+        let prefix = release::download_prefix(repo);
+        assert_eq!(latest_redirect_tag(&format!("{prefix}auth-v4.4.27/ente-auth-v4.4.27.dmg"), repo).as_deref(), Some("auth-v4.4.27"));
+        for path in [
+            "auth-v4.4.25/ente-auth-v4.4.25.dmg",
+            "auth-v4.4.27/ente-auth-v4.4.26.dmg",
+            "auth-v4.4.27/ente-auth-v4.4.27.dmg?download",
+            "ente-cli-v0.4.6/ente-cli-v0.4.6.dmg",
+            "v5.2.0/ente-5.2.0.dmg",
+        ] {
+            assert_eq!(latest_redirect_tag(&format!("{prefix}{path}"), repo), None, "{path}");
+        }
+    }
+
+    #[test]
+    fn opencode_stable_uses_release_list_for_desktop_v2() {
+        let directory = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), directory.path().join("releases.json"));
+        let repo = OPENCODE.repo;
+        let query = q(repo);
+        source.store(
+            repo,
+            Entry {
+                etag: Some("legacy".into()),
+                release: Some(Release { tag: "v1.19.6".into(), ..Release::default() }),
+                prereleases: false,
+                fetched_at: crate::now(),
+            },
+        );
+        assert!(source.cached(&query, false).is_none());
+
+        let result = source
+            .ask_api_with(&query, false, |url, etag| {
+                assert_eq!(url, "https://api.github.com/repos/anomalyco/opencode/releases?per_page=100");
+                assert_eq!(etag, None);
+                Ok(Fetched::Body {
+                    text: r#"[
+                        {"tag_name":"v1.19.6"},
+                        {"tag_name":"v2.4.1"},
+                        {"tag_name":"v2.4.2"},
+                        {"tag_name":"v2.4.10", "draft":true},
+                        {"tag_name":"v2.4.9-rc.1", "prerelease":true},
+                        {"tag_name":"v2.4.8-rc.1"},
+                        {"tag_name":"process-daemon-v3.0.0"}
+                    ]"#
+                    .into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert_eq!(tag_of(&result), Some("v2.4.2"));
+        let page = |tag| format!("https://github.com/{repo}/releases/tag/{tag}");
+        assert_eq!(latest_redirect_tag(&page("v1.19.6"), repo), None);
+        assert_eq!(latest_redirect_tag(&page("v2.4.9-rc.1"), repo), None);
+        assert_eq!(latest_redirect_tag(&page("v2.4.2"), repo).as_deref(), Some("v2.4.2"));
+    }
+
+    #[test]
+    fn termix_release_pages_require_the_stable_desktop_checksum_and_package_size() {
+        use artcraft_launcher_core::{Arch, Os, PackageKind, Platform, release::Asset};
+
+        fn pick(release: &Release) -> Option<(&Asset, PackageKind)> {
+            let platform = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+            artcraft_launcher_core::platform::pick_asset(release, &[TERMIX.id], platform, &[PackageKind::Dmg])
+        }
+
+        let repo = TERMIX.repo;
+        let tag = "v27.1.0";
+        let directory = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), directory.path().join("releases.json"));
+        let result = source
+            .ask_api_with(&q(repo), false, |url, _| {
+                assert_eq!(url, "https://api.github.com/repos/Termix-SSH/Termix/releases?per_page=100");
+                Ok(Fetched::Body {
+                    text: r#"[{"tag_name":"sdk-v28.0.0"},{"tag_name":"v27.1.1","prerelease":true},{"tag_name":"v27.1.0"}]"#.into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert_eq!(tag_of(&result), Some(tag));
+        let release_page = |tag| format!("https://github.com/{repo}/releases/tag/{tag}");
+        assert_eq!(latest_redirect_tag(&release_page(tag), repo).as_deref(), Some(tag));
+        for invalid in ["sdk-v27.1.0", "v27.1.0-beta.1", "v27.1", "v27.1.0+1"] {
+            assert_eq!(latest_redirect_tag(&release_page(invalid), repo), None);
+        }
+        let digest = "a".repeat(64);
+        let alternate = format!("{digest}  termix_macos_universal_full_dmg.dmg");
+        let mut incomplete = release::release_from_sums(repo, tag, &release::parse_sha256sums(&alternate));
+        assert!(complete_termix_package(&mut incomplete, |_| panic!("must never probe the alternate package")).is_err());
+
+        let manifest = format!("{alternate}\n{digest}  termix_macos_arm64_dmg.dmg\n");
+        let mut current = release::release_from_sums(repo, tag, &release::parse_sha256sums(&manifest));
+        assert_eq!(current.sums_asset().unwrap().name, "SHA256SUMS");
+        assert!(pick(&current).is_none());
+        assert!(complete_termix_package(&mut current, |_| Err("length unavailable".into())).is_err());
+        assert!(pick(&current).is_none());
+        complete_termix_package(&mut current, |url| {
+            assert_eq!(url, format!("https://github.com/{repo}/releases/download/{tag}/termix_macos_arm64_dmg.dmg"));
+            Ok(263_900_889)
+        })
+        .unwrap();
+        let (asset, kind) = pick(&current).unwrap();
+        assert_eq!(kind, PackageKind::Dmg);
+        assert_eq!(asset.sha256.as_deref(), Some(digest.as_str()));
+        assert_eq!(asset.size, 263_900_889);
     }
 
     #[test]

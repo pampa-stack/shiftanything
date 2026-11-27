@@ -1,0 +1,22 @@
+[
+  {
+    "id": "notepadnext",
+    "repo": "dail8859/NotepadNext",
+    "tag": "v0.14",
+    "version": "0.14.0",
+    "name": "NotepadNext-v0.14-x86_64.AppImage",
+    "size": 34466296,
+    "sha": "a5a60f66cda70852998fd929d8ab6cb99dc77638c7903f82aac9e0e468816bd7",
+    "url": "https://github.com/dail8859/NotepadNext/releases/download/v0.14/NotepadNext-v0.14-x86_64.AppImage"
+  },
+  {
+    "id": "notepadnext",
+    "repo": "dail8859/NotepadNext",
+    "tag": "v0.15",
+    "version": "0.15.0",
+    "name": "NotepadNext-v0.15-x86_64.AppImage",
+    "size": 36092408,
+    "sha": "33e092fb52fb4f8bdbe57c63ac14104a5e092ce5c614040a1dd322eebc44aa87",
+    "url": "https://github.com/dail8859/NotepadNext/releases/download/v0.15/NotepadNext-v0.15-x86_64.AppImage"
+  }
+]

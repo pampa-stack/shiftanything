@@ -1,0 +1,56 @@
+
+=== 2026-11-27T09:12:50+00:00 kid3 install ===
+kid3 before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+kid3 JobFinished: Ok("Flathub app installed")
+kid3 after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-kid3-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+5ed062785303c61de9bd3b619e0302d9e4d512eb458fae282003e12705dbfabb  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-kid3-icon.png
+org.kde.kid3/x86_64/stable	flathub	689653a7e94e	user	3.10.2
+TIMING kid3 install 40610 ms
+
+=== 2026-11-27T09:13:31+00:00 kid3 prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.kde.kid3/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.kid3/x86_64/stable	flathub	1aaf7a340335	user	3.10.1
+kid3 before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80", package: Some("org.kde.kid3"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.1"), update_available: false, can_remove: false, can_open: true }
+kid3 JobFinished: Err("Approved action rejected: native installation state changed")
+kid3 JobFinished: Err("This Flatpak is managed outside the launcher")
+kid3 after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80", package: Some("org.kde.kid3"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.1"), update_available: false, can_remove: false, can_open: true })
+TIMING kid3 prior 5476 ms
+
+=== 2026-11-27T09:13:36+00:00 kid3 open ===
+dbus-daemon[2442026]: [session uid=1000 pid=2442026 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2442088 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2442026]: [session uid=1000 pid=2442026 pidfd=5] Successfully activated service 'org.a11y.Bus'
+kid3 before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.1"), update_available: true, can_remove: true, can_open: true }
+kid3 JobFinished: Ok("Launch request accepted")
+kid3 after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2442161]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2442795 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2442161]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING kid3 open-previous 5624 ms
+TIMING kid3 open 6746 ms
+
+=== 2026-11-27T09:13:43+00:00 kid3 update-remove ===
+kid3 before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.1"), update_available: true, can_remove: true, can_open: true }
+kid3 JobFinished: Ok("Flathub app updated")
+kid3 after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.2"), update_available: false, can_remove: true, can_open: true })
+TIMING kid3 update 4522 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/.var/app/org.kde.kid3/shift-profile-marker: OK
+dbus-daemon[2443841]: [session uid=1000 pid=2443841 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2443878 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2443841]: [session uid=1000 pid=2443841 pidfd=5] Successfully activated service 'org.a11y.Bus'
+kid3 before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.2"), update_available: false, can_remove: true, can_open: true }
+kid3 JobFinished: Ok("Launch request accepted")
+kid3 after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.2"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2443893]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2444376 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2443893]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING kid3 open-current 3979 ms
+kid3 before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/data/flatpak/app/org.kde.kid3/x86_64/stable/689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386", package: Some("org.kde.kid3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.2"), update_available: false, can_remove: true, can_open: true }
+kid3 JobFinished: Ok("Flathub app removed")
+kid3 after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING kid3 remove 3421 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/kid3/home/.var/app/org.kde.kid3/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING kid3 update-remove 12923 ms

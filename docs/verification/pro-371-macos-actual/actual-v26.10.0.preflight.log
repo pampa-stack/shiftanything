@@ -1,0 +1,76 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437065400    850184   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974644904   1710536   100%    /Volumes/T7-Backup
+2026-11-27T10:21:15Z
+checksum PASS db3df92ab6febc0c4c682df7dd2c8b74dd4f47cc7035ca154d98ff883b318cfe 143479378 https://github.com/actualbudget/actual/releases/download/v26.10.0/Actual-mac-arm64.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $83494874
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $954D90FD
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $70378D97
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $649FB11C
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $70378D97
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $BE28345E
+verificato   CRC32 $6BA144E1
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.7TaBknGB
+APP=Actual.app
+CFBundleIdentifier=com.actualbudget.actual
+CFBundleShortVersionString=26.10.0
+CFBundleVersion=26.10.0
+CFBundleExecutable=Actual
+LSMinimumSystemVersion=12.0
+arm64
+/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/MacOS/Actual (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.4
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=com.actualbudget.actual
+Authority=Developer ID Application: Matiss Janis Aboltins (79ANZ983YF)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=79ANZ983YF
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (GPU).app
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (GPU).app
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (Plugin).app
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (Plugin).app
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (Renderer).app
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper (Renderer).app
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper.app
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Actual Helper.app
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.7TaBknGB/Actual.app
+The validate action worked!
+stapler_app_rc=0
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v26.10.0/Actual-mac-arm64.dmg
+Actual-mac-arm64.dmg does not have a ticket stapled to it.
+stapler_dmg_rc=65
+"disk8" ejected.

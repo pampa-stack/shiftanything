@@ -1,0 +1,41 @@
+PACKAGE v3.1.0 https://github.com/exelban/stats/releases/download/v3.1.0/Stats.dmg 8257600 a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7
+/Volumes/T7-Backup/shift-macos-stats-auth.qJd8yMHO/proof/payload-v3.1.0.xx6AdOcz/Stats.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-stats-auth-mount.LkY1vmTi
+BUNDLE Stats.app
+19249	/private/tmp/shift-stats-auth-mount.LkY1vmTi/Stats.app
+CFBundleIdentifier eu.exelban.Stats
+CFBundleShortVersionString 3.1.0
+CFBundleExecutable Stats
+LSMinimumSystemVersion 12.0
+x86_64 arm64
+/private/tmp/shift-stats-auth-mount.LkY1vmTi/Stats.app/Contents/MacOS/Stats (architecture x86_64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+/private/tmp/shift-stats-auth-mount.LkY1vmTi/Stats.app/Contents/MacOS/Stats (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Identifier=eu.exelban.Stats
+Authority=Developer ID Application: Serhiy Mytrovtsiy (RP2S87B72W)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=RP2S87B72W
+/private/tmp/shift-stats-auth-mount.LkY1vmTi/Stats.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Serhiy Mytrovtsiy (RP2S87B72W)
+PASS v3.1.0 official hash, strict signature, notarization, Gatekeeper
+CLEANUP v3.1.0 status=0

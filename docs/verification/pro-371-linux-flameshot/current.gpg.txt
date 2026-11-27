@@ -1,0 +1,19 @@
+commit 09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26
+Parent:  c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f
+ContentChecksum:  4518dfcab12b2e7cff4d76bbd2b79a202d330a6df1fa576c755cceb6acdccc9a
+Date:  2026-11-08 16:37:28 +0000
+
+    bumping for v15 (#36) (c017c9600794)
+
+    Name: org.flameshot.Flameshot
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Nov  8 17:00:52 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

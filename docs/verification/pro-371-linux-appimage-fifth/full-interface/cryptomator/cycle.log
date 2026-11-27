@@ -1,0 +1,313 @@
+START 2026-11-27T09:49:40Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/cryptomator/cryptomator/releases/download/1.19.6/cryptomator-1.19.6-x86_64.AppImage bytes=59075064 sha256=a6167f6ab3c5f161b31726b94bcf0abcb7f78c857b16e485adeb8e5096b74acd
+FILE /fixture/home/Applications/cryptomator-1.19.6-x86_64.AppImage version=1.19.6 bytes=59075064 sha256=a6167f6ab3c5f161b31726b94bcf0abcb7f78c857b16e485adeb8e5096b74acd
+DESKTOP /fixture/home/data/applications/org.cryptomator.Cryptomator.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.cryptomator.Cryptomator.png sha256=e7c2632895d0f6dfab408a07b2e3fdbc5356f62b4b2351e15222bae57dd30ec3
+PASS cryptomator install 5363 ms Cryptomator installed: 1.19.6
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=1000 pid=89 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[196]: Unknown username "root" on element <allow>
+dbus-daemon[196]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=89 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[196]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = org.cryptomator.launcher.Cryptomator$MainApp org.cryptomator.launcher.Cryptomator$MainApp
+Cryptomator
+PASS cryptomator open-old 0 ms Launch request accepted
+GUI cryptomator open-old 16123 ms window=4194307
+OFFICIAL https://github.com/cryptomator/cryptomator/releases/download/1.19.7/cryptomator-1.19.7-x86_64.AppImage bytes=59075064 sha256=7f0367d8b83fcda665016e1a907683a9037e61589f2493c4206ea850d55fef4e
+FILE /fixture/home/Applications/cryptomator-1.19.7-x86_64.AppImage version=1.19.7 bytes=59075064 sha256=7f0367d8b83fcda665016e1a907683a9037e61589f2493c4206ea850d55fef4e
+DESKTOP /fixture/home/data/applications/org.cryptomator.Cryptomator.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.cryptomator.Cryptomator.png sha256=e7c2632895d0f6dfab408a07b2e3fdbc5356f62b4b2351e15222bae57dd30ec3
+PASS cryptomator update 8561 ms Cryptomator updated to 1.19.7
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot5/cryptomator-full-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=1000 pid=95 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[217]: Unknown username "root" on element <allow>
+dbus-daemon[217]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=95 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[217]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = org.cryptomator.launcher.Cryptomator$MainApp org.cryptomator.launcher.Cryptomator$MainApp
+Cryptomator
+PASS cryptomator open-new 0 ms Launch request accepted
+GUI cryptomator open-new 15985 ms window=4194307
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=50 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[156]: Unknown username "root" on element <allow>
+dbus-daemon[156]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=50 comm="bin/Cryptomator" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[156]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = org.cryptomator.launcher.Cryptomator$MainApp org.cryptomator.launcher.Cryptomator$MainApp
+Cryptomator
+/usr/bin/dpkg
+dpkg-query: no packages found matching libgtk*
+dpkg-query: no packages found matching libgtk*
+09:50:31.212 [main] INFO  o.c.common.settings.SettingsProvider - Settings loaded from /fixture/home/.config/Cryptomator/settings.json
+09:50:31.397 [main] INFO  org.cryptomator.common.Environment - user.home: /fixture/home
+09:50:31.398 [main] INFO  org.cryptomator.common.Environment - java.library.path: :/tmp/appimage_extracted_dcf97b0aab571f1928e12fcc6b11dbff/lib/app:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+09:50:31.398 [main] INFO  org.cryptomator.common.Environment - user.language: en
+09:50:31.398 [main] INFO  org.cryptomator.common.Environment - user.region: null
+09:50:31.398 [main] INFO  org.cryptomator.common.Environment - logback.configurationFile: null
+09:50:31.398 [main] INFO  org.cryptomator.common.Environment - cryptomator.settingsPath: /fixture/home/.config/Cryptomator/settings.json:/fixture/home/.Cryptomator/settings.json
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.ipcSocketPath: /fixture/home/.config/Cryptomator/ipc.socket
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.integrationsWin.keychainPaths: null
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.integrationsWin.windowsHelloKeychainPaths: null
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.p12Path: /fixture/home/.config/Cryptomator/key.p12
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.logDir: /fixture/home/.local/share/Cryptomator/logs
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.loopbackAlias: null
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.mountPointsDir: /fixture/home/.local/share/Cryptomator/mnt
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.minPwLength: null
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.appVersion: 1.19.7
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.buildNumber: appimage-6591
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.pluginDir: null
+09:50:31.399 [main] INFO  org.cryptomator.common.Environment - cryptomator.showTrayIcon: true
+09:50:31.400 [main] INFO  org.cryptomator.common.Environment - cryptomator.disableUpdateCheck: null
+09:50:31.400 [main] INFO  org.cryptomator.common.Environment - cryptomator.licenseChainRequiredCn: null
+09:50:31.400 [main] INFO  org.cryptomator.common.Environment - cryptomator.hub.allowedHosts: null
+09:50:31.400 [main] INFO  org.cryptomator.common.Environment - cryptomator.hub.enableTrustOnFirstUse: true
+09:50:31.400 [main] INFO  o.cryptomator.launcher.Cryptomator - Starting Cryptomator 1.19.7 on Linux 6.8.0-136-generic (amd64)
+09:50:31.450 [main] INFO  org.cryptomator.ipc.Server - Spawning IPC server listening on socket /fixture/home/.config/Cryptomator/ipc.socket
+09:50:32.132 [JavaFX Application Thread] INFO  o.cryptomator.launcher.Cryptomator - JavaFX runtime started after 1883ms
+09:50:32.660 [JavaFX Application Thread] WARN  o.purejava.appindicator.AppIndicator - Directory '/etc/ld.so.conf.d/' does not exist
+09:50:32.663 [JavaFX Application Thread] INFO  o.purejava.appindicator.AppIndicator - Native code library libayatana-appindicator3.so.1 failed to load
+09:50:32.663 [JavaFX Application Thread] INFO  o.purejava.appindicator.AppIndicator - Native code library libappindicator3 failed to load
+09:50:33.051 [JavaFX Application Thread] WARN  o.c.i.common.IntegrationsLoader - Unable to load service provider org.cryptomator.linux.keychain.SecretServiceKeychainAccess.
+java.util.ServiceConfigurationError: org.cryptomator.integrations.keychain.KeychainAccessProvider: Provider org.cryptomator.linux.keychain.SecretServiceKeychainAccess could not be instantiated
+	at java.base/java.util.ServiceLoader.fail(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.newInstance(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.get(Unknown Source)
+	at org.cryptomator.integrations.api@1.10.0/org.cryptomator.integrations.common.IntegrationsLoader.instantiateServiceProvider(IntegrationsLoader.java:115)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(Unknown Source)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toList(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule.provideSupportedKeychainAccessProviders(KeychainModule.java:19)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.provideSupportedKeychainAccessProviders(KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.java:39)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6822)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6819)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6816)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2386)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.constructController(FxmlLoaderFactory.java:78)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$Element.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.load(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.load(FxmlLoaderFactory.java:46)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:63)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule.provideMainScene(MainWindowModule.java:86)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule_ProvideMainSceneFactory.provideMainScene(MainWindowModule_ProvideMainSceneFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2368)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowComponent.showMainWindow(MainWindowComponent.java:28)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$0(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.ExceptionInInitializerError
+	at org.purejava.secret/org.purejava.secret.api.EncryptedSession.<init>(EncryptedSession.java:40)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.SecretServiceKeychainAccess.<init>(SecretServiceKeychainAccess.java:34)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	... 64 common frames omitted
+Caused by: org.freedesktop.dbus.exceptions.AddressResolvingException: Cannot Resolve Session Bus Address: MachineId file can not be found
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.utils.AddressBuilder.getDbusMachineId(AddressBuilder.java:133)
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.connections.impl.DBusConnectionBuilder.forSessionBus(DBusConnectionBuilder.java:44)
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.connections.impl.DBusConnectionBuilder.forSessionBus(DBusConnectionBuilder.java:65)
+	at org.purejava.secret/org.purejava.secret.api.ConnectionManager.createConnection(ConnectionManager.java:32)
+	at org.purejava.secret/org.purejava.secret.api.ConnectionManager.<init>(ConnectionManager.java:16)
+	at org.purejava.secret/org.purejava.secret.api.ConnectionManager.getInstance(ConnectionManager.java:21)
+	at org.purejava.secret/org.purejava.secret.api.Service.<clinit>(Service.java:30)
+	... 69 common frames omitted
+09:50:33.062 [JavaFX Application Thread] WARN  d.s.s.simple.SimpleCollection - Could not communicate properly with the D-Bus [AddressResolvingException]: Cannot Resolve Session Bus Address: MachineId file can not be found
+09:50:33.066 [JavaFX Application Thread] WARN  d.s.s.simple.SimpleCollection - Secret service provider is not Gnome Keyring: Some operations are not supported.
+09:50:33.068 [JavaFX Application Thread] WARN  o.c.l.k.KDEWalletKeychainAccess - Connecting to SESSION bus failed.
+org.freedesktop.dbus.exceptions.AddressResolvingException: Cannot Resolve Session Bus Address: MachineId file can not be found
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.utils.AddressBuilder.getDbusMachineId(AddressBuilder.java:133)
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.connections.impl.DBusConnectionBuilder.forSessionBus(DBusConnectionBuilder.java:44)
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.connections.impl.DBusConnectionBuilder.forSessionBus(DBusConnectionBuilder.java:65)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess$ConnectedWallet.getNewConnection(KDEWalletKeychainAccess.java:95)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess$ConnectedWallet.connect(KDEWalletKeychainAccess.java:86)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess.<init>(KDEWalletKeychainAccess.java:38)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.newInstance(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.get(Unknown Source)
+	at org.cryptomator.integrations.api@1.10.0/org.cryptomator.integrations.common.IntegrationsLoader.instantiateServiceProvider(IntegrationsLoader.java:115)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(Unknown Source)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toList(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule.provideSupportedKeychainAccessProviders(KeychainModule.java:19)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.provideSupportedKeychainAccessProviders(KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.java:39)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6822)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6819)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6816)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2386)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.constructController(FxmlLoaderFactory.java:78)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$Element.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.load(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.load(FxmlLoaderFactory.java:46)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:63)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule.provideMainScene(MainWindowModule.java:86)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule_ProvideMainSceneFactory.provideMainScene(MainWindowModule_ProvideMainSceneFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2368)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowComponent.showMainWindow(MainWindowComponent.java:28)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$0(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+09:50:33.072 [JavaFX Application Thread] WARN  o.c.l.k.KDEWalletKeychainAccess - Falling back to SYSTEM DBus
+09:50:33.073 [JavaFX Application Thread] WARN  o.c.i.common.IntegrationsLoader - Unable to load service provider org.cryptomator.linux.keychain.KDEWalletKeychainAccess.
+java.util.ServiceConfigurationError: org.cryptomator.integrations.keychain.KeychainAccessProvider: Provider org.cryptomator.linux.keychain.KDEWalletKeychainAccess could not be instantiated
+	at java.base/java.util.ServiceLoader.fail(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.newInstance(Unknown Source)
+	at java.base/java.util.ServiceLoader$ProviderImpl.get(Unknown Source)
+	at org.cryptomator.integrations.api@1.10.0/org.cryptomator.integrations.common.IntegrationsLoader.instantiateServiceProvider(IntegrationsLoader.java:115)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(Unknown Source)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toArray(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.toList(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule.provideSupportedKeychainAccessProviders(KeychainModule.java:19)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.common.keychain.KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.provideSupportedKeychainAccessProviders(KeychainModule_ProvideSupportedKeychainAccessProvidersFactory.java:39)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6822)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6819)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$CryptomatorComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:6816)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2386)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.constructController(FxmlLoaderFactory.java:78)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$InstanceDeclarationElement.processAttribute(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$Element.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$IncludeElement.constructValue(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader$ValueElement.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.processStartElement(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.loadImpl(Unknown Source)
+	at javafx.fxml@25.0.5/javafx.fxml.FXMLLoader.load(Unknown Source)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.load(FxmlLoaderFactory.java:46)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:63)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.common.FxmlLoaderFactory.createScene(FxmlLoaderFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule.provideMainScene(MainWindowModule.java:86)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowModule_ProvideMainSceneFactory.provideMainScene(MainWindowModule_ProvideMainSceneFactory.java:51)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.launcher.DaggerCryptomatorComponent$MainWindowComponentImpl$SwitchingProvider.get(DaggerCryptomatorComponent.java:2368)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.getSynchronized(DoubleCheck.java:54)
+	at dagger@2.60.1/dagger.internal.DoubleCheck.get(DoubleCheck.java:45)
+	at org.cryptomator.desktop@1.19.7/org.cryptomator.ui.mainwindow.MainWindowComponent.showMainWindow(MainWindowComponent.java:28)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.javafx.application.PlatformImpl.lambda$runLater$0(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(Unknown Source)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication._runLoop(Native Method)
+	at javafx.graphics@25.0.5/com.sun.glass.ui.gtk.GtkApplication.lambda$runLoop$0(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.freedesktop.dbus.exceptions.AddressResolvingException: Cannot Resolve Session Bus Address: MachineId file can not be found
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.utils.AddressBuilder.getDbusMachineId(AddressBuilder.java:133)
+	at org.freedesktop.dbus@4.3.1/org.freedesktop.dbus.connections.impl.DBusConnectionBuilder.forSystemBus(DBusConnectionBuilder.java:56)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess$ConnectedWallet.getNewConnection(KDEWalletKeychainAccess.java:99)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess$ConnectedWallet.connect(KDEWalletKeychainAccess.java:86)
+	at org.cryptomator.integrations.linux@1.8.0/org.cryptomator.linux.keychain.KDEWalletKeychainAccess.<init>(KDEWalletKeychainAccess.java:38)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	... 64 common frames omitted
+09:50:34.976 [App Scheduled Executor 01] INFO  o.c.common.settings.SettingsProvider - Settings saved to /fixture/home/.config/Cryptomator/settings.json
+GUI cryptomator open-menu 15439 ms window=4194307
+PASS cryptomator remove 40 ms Cryptomator was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot5/cryptomator-full-interface-profile/home/verification-user-data.txt: OK

@@ -1,0 +1,6 @@
+cargo:rerun-if-changed=../../crates/core/curated.json
+cargo:rerun-if-changed=frontend/index.html
+
+thread 'main' (8314097) panicked at apps/shiftanything-tauri-proof/build.rs:30:13:
+frontend/index.html disagrees with the Rust catalog at  data-app=". Refresh with tools/export_tauri_proof.py <design-dir> --catalog-only.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=ONLYOFFICE Desktop Editors
+Comment=Work on documents, spreadsheets and presentations
+Exec="/fixture/home/Applications/DesktopEditors-x86_64.AppImage" --appimage-extract-and-run %F
+Icon=onlyoffice-desktopeditors
+Terminal=false
+Categories=Office;WordProcessor;Spreadsheet;Presentation;
+StartupWMClass=ONLYOFFICE
+X-ArtCraft-Launcher=true

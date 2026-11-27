@@ -1,0 +1,4 @@
+libpxbackend-1.0.so: cannot open shared object file: No such file or directory
+Failed to load module: /var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.
+error: ldconfig failed, exit status 256

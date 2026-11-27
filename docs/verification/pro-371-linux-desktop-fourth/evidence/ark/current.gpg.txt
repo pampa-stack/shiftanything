@@ -1,0 +1,19 @@
+commit 8275aad8fadad4178df3f8939ac1f36f5e67f556cfc18455b0afc18348ddfeab
+Parent:  908876d27bf2ede02d536cdc5f8369a94ac7dc3a77665c6ef31260346c9e4397
+ContentChecksum:  0ad51fe48e68203fdb41a1cce82dbcd295b1ee6cd1e740ca1dd1bbcbd6424093
+Date:  2026-11-10 14:51:19 +0000
+
+    7zip: Update 26.05.tar.gz to 26.06 (81e87fac0a77)
+
+    Name: org.kde.ark
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 10 15:02:51 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

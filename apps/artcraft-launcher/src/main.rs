@@ -31,7 +31,7 @@ use artcraft_launcher_ui_egui::theme::Tokens;
 use artcraft_launcher_ui_egui::{Host, LauncherUi, Settings, TitleBar};
 use eframe::wgpu::rwh::{HasDisplayHandle, RawDisplayHandle};
 
-const APP_ID: &str = "ai.storyteller.artcraft-launcher";
+const APP_ID: &str = "it.promptica.shiftanything";
 const SETTINGS_KEY: &str = "settings";
 
 type Wake = Arc<OnceLock<Box<dyn Fn() + Send + Sync>>>;
@@ -61,7 +61,7 @@ fn main() -> ExitCode {
         })
         .collect();
     if args.iter().any(|a| a == "--version" || a == "-V") {
-        println!("artcraft-launcher {}", env!("CARGO_PKG_VERSION"));
+        println!("shiftanything {}", env!("CARGO_PKG_VERSION"));
         return ExitCode::SUCCESS;
     }
     // An elevated copy running one batch of MSI installs ("update all" behind one permission
@@ -205,10 +205,9 @@ fn main() -> ExitCode {
 /// in charge, and wgpu limits are clamped to the adapter so a short adapter cannot fail device
 /// creation.
 fn native_options(hidden: bool, backends: Option<eframe::wgpu::Backends>) -> eframe::NativeOptions {
-    let icon =
-        eframe::icon_data::from_png_bytes(include_bytes!("../../../assets/app-icon/hicolor/256x256/apps/ai.storyteller.artcraft-launcher.png")).ok();
+    let icon = eframe::icon_data::from_png_bytes(include_bytes!("../../../assets/shiftanything/icon.png")).ok();
     let mut viewport = egui::ViewportBuilder::default()
-        .with_title("ArtCraft Launcher")
+        .with_title("Sh*ftAnything")
         .with_app_id(APP_ID)
         .with_inner_size([1120.0, 760.0])
         .with_min_inner_size([720.0, 500.0])
@@ -336,7 +335,7 @@ fn report_startup_failure(backend: Option<eframe::wgpu::Backends>, error: &efram
     let message = startup_failure_message(lang, &backend_label(backend), &error.to_string());
     log::error!("{message}");
     rfd::MessageDialog::new()
-        .set_title("ArtCraft Launcher")
+        .set_title("Sh*ftAnything")
         .set_description(message)
         .set_level(rfd::MessageLevel::Error)
         .set_buttons(rfd::MessageButtons::Ok)
@@ -686,6 +685,19 @@ struct DesktopHost {
 }
 
 impl Host for DesktopHost {
+    fn automation_connection(&self) -> Result<bool, String> {
+        artcraft_launcher_native::automation::connection()
+    }
+    fn automation_configuration(&self) -> Result<String, String> {
+        artcraft_launcher_native::automation::configuration()
+    }
+    fn automation_request(&mut self) -> Option<artcraft_launcher_core::automation::Request> {
+        artcraft_launcher_native::automation::take_request()
+    }
+    fn automation_publish(&mut self, snapshot: &artcraft_launcher_core::automation::Snapshot) {
+        artcraft_launcher_native::automation::publish(snapshot);
+    }
+
     fn title_bar(&self) -> TitleBar {
         if cfg!(target_os = "macos") { TitleBar::MacOs } else { TitleBar::Custom }
     }

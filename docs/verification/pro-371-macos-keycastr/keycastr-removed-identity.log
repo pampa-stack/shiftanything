@@ -1,0 +1,52 @@
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/Svelte.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/Minimal.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/Svelte.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/Minimal.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/KCDefaultVisualizer.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/PlugIns/KCDefaultVisualizer.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Versions/Current/.
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Versions/Current/.
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+home-keycastr/.Trash/KeyCastr.app: valid on disk
+home-keycastr/.Trash/KeyCastr.app: satisfies its Designated Requirement
+Executable=/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app/Contents/MacOS/KeyCastr
+Identifier=io.github.keycastr
+Format=app bundle with Mach-O universal (x86_64 arm64)
+CodeDirectory v=20500 size=542 flags=0x10000(runtime) hashes=6+7 location=embedded
+VersionPlatform=1
+VersionMin=720896
+VersionSDK=1705216
+Hash type=sha256 size=32
+CandidateCDHash sha256=3237029072270f2fca7c5851fbc82d4a4db51df9
+CandidateCDHashFull sha256=3237029072270f2fca7c5851fbc82d4a4db51df9ef5ddce631bffef39dee250a
+Hash choices=sha256
+CMSDigest=3237029072270f2fca7c5851fbc82d4a4db51df9ef5ddce631bffef39dee250a
+CMSDigestType=2
+Executable Segment base=0
+Executable Segment limit=49152
+Executable Segment flags=0x1
+Page size=16384
+CDHash=3237029072270f2fca7c5851fbc82d4a4db51df9
+Signature size=8978
+Authority=Developer ID Application: Andrew Kitchen (68TUCLNAPS)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=7 Sep 2026 at 03:40:47
+Notarization Ticket=stapled
+Info.plist entries=28
+TeamIdentifier=68TUCLNAPS
+Runtime Version=26.5.0
+Sealed Resources version=2 rules=13 files=21
+Internal requirements count=1 size=212
+0.11.1

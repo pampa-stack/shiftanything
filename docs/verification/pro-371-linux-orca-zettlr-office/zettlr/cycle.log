@@ -1,0 +1,58 @@
+START 2026-11-27T09:25:34Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/Zettlr/Zettlr/releases/download/v4.10.0/Zettlr-4.10.0-x86_64.AppImage bytes=172628308 sha256=bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc
+FILE /fixture/home/Applications/Zettlr-4.10.0-x86_64.AppImage version=4.10.0 bytes=172628308 sha256=bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc
+DESKTOP /fixture/home/data/applications/Zettlr.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/Zettlr.png sha256=485781149b84a27db16c34ea650b1840cdb0323045cab0dcbf08b81ce5de9ebf
+PASS zettlr install 8225 ms Zettlr installed: 4.10.0
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=114 comm="/tmp/appimage_extracted_b7edc757d3f4de83161bea4668" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = zettlr zettlr
+Zettlr
+PASS zettlr open-old 0 ms Launch request accepted
+GUI zettlr open-old 10553 ms window=2097155
+OFFICIAL https://github.com/Zettlr/Zettlr/releases/download/v4.11.0/Zettlr-4.11.0-x86_64.AppImage bytes=172657896 sha256=e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7
+FILE /fixture/home/Applications/Zettlr-4.11.0-x86_64.AppImage version=4.11.0 bytes=172657896 sha256=e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7
+DESKTOP /fixture/home/data/applications/Zettlr.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/Zettlr.png sha256=485781149b84a27db16c34ea650b1840cdb0323045cab0dcbf08b81ce5de9ebf
+PASS zettlr update 4498 ms Zettlr updated to 4.11.0
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot3/zettlr-final-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=142 comm="/tmp/appimage_extracted_47674c391471899e48f229ed0c" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = zettlr zettlr
+Zettlr
+PASS zettlr open-new 1 ms Launch request accepted
+GUI zettlr open-new 10087 ms window=2097155
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.3' (uid=1000 pid=99 comm="/tmp/appimage_extracted_47674c391471899e48f229ed0c" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = zettlr zettlr
+Zettlr
+[99:1127/092616.128414:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99:1127/092617.138967:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99:1127/092617.139142:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[Application] Performing environment check ...
+[Application] Info: The main process now uses both the bundled Mozilla CA as well as the system CA.
+[Application] Pandoc has been bundled with this release. Path: /tmp/appimage_extracted_47674c391471899e48f229ed0c42611f/resources/pandoc
+(node:99) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `Zettlr --trace-deprecation ...` to show where the warning was created)
+[Application] Quarto not found on system. *.qmd-files will be exported with Pandoc.
+[Application] Environment check complete.
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[346:1127/092621.671900:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: default,No such file or directory
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[346:1127/092621.673239:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: plug:default,No such file or directory
+GUI zettlr open-menu 11201 ms window=2097162
+PASS zettlr remove 40 ms Zettlr was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot3/zettlr-final-profile/home/verification-user-data.txt: OK

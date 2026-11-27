@@ -1,0 +1,71 @@
+{
+    "assets": [
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/latest.json",
+            "name": "latest.json",
+            "size": 5065
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_aarch64.dmg",
+            "name": "meetily_0.5.0_aarch64.dmg",
+            "size": 48053942
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_amd64.AppImage",
+            "name": "meetily_0.5.0_amd64.AppImage",
+            "size": 145361400
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_amd64.AppImage.sig",
+            "name": "meetily_0.5.0_amd64.AppImage.sig",
+            "size": 420
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_amd64.deb",
+            "name": "meetily_0.5.0_amd64.deb",
+            "size": 73859994
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_amd64.deb.sig",
+            "name": "meetily_0.5.0_amd64.deb.sig",
+            "size": 412
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_x64-setup.exe",
+            "name": "meetily_0.5.0_x64-setup.exe",
+            "size": 42600112
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_x64-setup.exe.sig",
+            "name": "meetily_0.5.0_x64-setup.exe.sig",
+            "size": 416
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_x64_en-US.msi",
+            "name": "meetily_0.5.0_x64_en-US.msi",
+            "size": 68816896
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_x64_en-US.msi.sig",
+            "name": "meetily_0.5.0_x64_en-US.msi.sig",
+            "size": 416
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_aarch64.app.tar.gz",
+            "name": "meetily_aarch64.app.tar.gz",
+            "size": 49354531
+        },
+        {
+            "browser_download_url": "https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_aarch64.app.tar.gz.sig",
+            "name": "meetily_aarch64.app.tar.gz.sig",
+            "size": 404
+        }
+    ],
+    "body": "* feat(linux): add native system audio and harden recording device switching by @safvanatzack in https://github.com/Zackriya-Solutions/meetily/pull/882\r",
+    "draft": false,
+    "html_url": "https://github.com/Zackriya-Solutions/meetily/releases/tag/v0.5.0",
+    "name": "Meetily v0.5.0",
+    "prerelease": false,
+    "published_at": "2026-11-14T13:53:36Z",
+    "tag_name": "v0.5.0"
+}

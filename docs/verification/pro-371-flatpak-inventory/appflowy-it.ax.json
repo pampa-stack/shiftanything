@@ -1,0 +1,183 @@
+{
+  "nodes_visited": 217,
+  "nodes": [
+    {
+      "role": "frame",
+      "name": "Sh*ftAnything · Tauri proof",
+      "depth": 2,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "COLLEGA AGENTE · MCP",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "Impostazioni",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "entry",
+      "name": "Cerca app, categoria o alternativa…",
+      "depth": 8,
+      "showing": true,
+      "focused": true,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "cancel",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "AGGIORNAMENTI",
+      "depth": 8,
+      "showing": true,
+      "focused": false,
+      "enabled": true,
+      "bounds": [
+        1308,
+        55,
+        119,
+        27
+      ]
+    },
+    {
+      "role": "landmark",
+      "name": "Categorie",
+      "depth": 8,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "heading",
+      "name": "Tutte le app1 app",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "AZZERA FILTRI",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "79,598 · Stelle GitHub · 2026-11-26",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "GitHub",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true,
+      "bounds": [
+        461,
+        244,
+        37,
+        13
+      ]
+    },
+    {
+      "role": "button",
+      "name": "Vedi scheda · AppFlowy",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "button",
+      "name": "INSTALLA",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true,
+      "bounds": [
+        230,
+        545,
+        186,
+        30
+      ]
+    },
+    {
+      "role": "button",
+      "name": "VEDI SCHEDA",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "Powered by Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "LinkedIn · Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "Instagram · Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "Reddit · Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "X · Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    },
+    {
+      "role": "link",
+      "name": "Discord · Promptica",
+      "depth": 9,
+      "showing": true,
+      "focused": false,
+      "enabled": true
+    }
+  ]
+}

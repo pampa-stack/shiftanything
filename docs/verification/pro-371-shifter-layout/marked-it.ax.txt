@@ -1,0 +1,194 @@
+App=shiftanything-tauri-proof-final (pid 78251)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof-final.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Trova alternative open source per le funzioni che usi.
+					1204 container
+						1205 text SOFTWARE A PAGAMENTO
+						1206 combo box (settable) SOFTWARE A PAGAMENTO, Value: Adobe Photoshop, Placeholder: Cerca, es. Photoshop
+						1207 button Elenco software A–Z
+						1208 button CONFRONTA
+				1209 container Funzioni che usi
+					1210 container
+						1211 heading Funzioni che usi
+						1347 text 4 / 4
+					1348 container
+						1349 checkbox Livelli e maschere, Value: 1
+						1350 text Livelli e maschere
+					1351 toggle button Indispensabile · Livelli e maschere, Value: 0
+					1352 container
+						1353 checkbox Regolazioni non distruttive, Value: 1
+						1354 text Regolazioni non distruttive
+					1355 toggle button Indispensabile · Regolazioni non distruttive, Value: 0
+					1356 container
+						1357 checkbox Aprire e salvare PSD con livelli, Value: 1
+						1358 text Aprire e salvare PSD con livelli
+					1359 toggle button Indispensabile · Aprire e salvare PSD con livelli, Value: 0
+					1360 container
+						1361 checkbox Riempimento generativo integrato, Value: 1
+						1362 text Riempimento generativo integrato
+					1363 toggle button Indispensabile · Riempimento generativo integrato, Value: 1
+				1229 container Confronto con il catalogo
+					1230 container
+						1231 heading Confronto con il catalogo
+						1364 text Adobe Photoshop
+					1233 search text field (settable) Cerca app nel confronto
+						1234 text Cerca app nel confronto
+					1365 text 528 APP NEL CONFRONTO
+					1236 container Pagine delle app
+						1237 button (disabled) PRECEDENTE
+						1366 text 1–12 DI 528
+						1239 button SUCCESSIVA
+					1240 table
+						1241 row APPLICAZIONE COPERTURA DOCUMENTATA INDISPENSABILI FONTI / SCHEDA
+							1242 cell APPLICAZIONE
+								1243 text APPLICAZIONE
+							1244 cell COPERTURA DOCUMENTATA
+								1245 text COPERTURA DOCUMENTATA
+							1367 cell INDISPENSABILI
+								1368 text INDISPENSABILI
+							1246 cell FONTI / SCHEDA
+								1247 text FONTI / SCHEDA
+						1369 row Krita 75% 3/4 1 funzione da coprire
+							1370 cell Krita
+								1371 text Krita
+							1372 cell 75% 3/4
+								1373 text 75%
+								1374 text 3/4
+							1375 cell 1 funzione da coprire, Description: Riempimento generativo integrato
+								1376 text 1 funzione da coprire
+							1377 cell
+								1378 button Fonti · Krita
+								1379 button Scheda · Krita
+						1380 row PhotoCraft 75% 3/4 1 funzione da coprire
+							1381 cell PhotoCraft
+								1382 text PhotoCraft
+							1383 cell 75% 3/4
+								1384 text 75%
+								1385 text 3/4
+							1386 cell 1 funzione da coprire, Description: Riempimento generativo integrato
+								1387 text 1 funzione da coprire
+							1388 cell
+								1389 button Fonti · PhotoCraft
+								1390 button Scheda · PhotoCraft
+						1391 row GIMP 50% 2/4 1 funzione da coprire
+							1392 cell GIMP
+								1393 text GIMP
+							1394 cell 50% 2/4
+								1395 text 50%
+								1396 text 2/4
+							1397 cell 1 funzione da coprire, Description: Riempimento generativo integrato
+								1398 text 1 funzione da coprire
+							1399 cell
+								1400 button Fonti · GIMP
+								1401 button Scheda · GIMP
+						1402 row PhotoDemon 25% 1/4 —
+							1403 cell PhotoDemon
+								1404 text PhotoDemon
+							1405 cell 25% 1/4
+								1406 text 25%
+								1407 text 1/4
+							1408 cell —, Description: Riempimento generativo integrato
+								1409 text —
+							1410 cell
+								1411 button Fonti · PhotoDemon
+								1412 button Scheda · PhotoDemon
+						1413 row Drawpile 0% 0/4 —
+							1414 cell Drawpile
+								1415 text Drawpile
+							1416 cell 0% 0/4
+								1417 text 0%
+								1418 text 0/4
+							1419 cell —, Description: Riempimento generativo integrato
+								1420 text —
+							1421 cell
+								1422 button Fonti · Drawpile
+								1423 button Scheda · Drawpile
+						1424 row Pinta 0% 0/4 —
+							1425 cell Pinta
+								1426 text Pinta
+							1427 cell 0% 0/4
+								1428 text 0%
+								1429 text 0/4
+							1430 cell —, Description: Riempimento generativo integrato
+								1431 text —
+							1432 cell
+								1433 button Fonti · Pinta
+								1434 button Scheda · Pinta
+						1435 row AbiWord —
+							1436 cell AbiWord
+								1437 text AbiWord
+							1438 cell —
+								1439 text —
+							1440 cell —, Description: Riempimento generativo integrato
+								1441 text —
+							1442 cell
+								1443 button Scheda · AbiWord
+						1444 row Ackee —
+							1445 cell Ackee
+								1446 text Ackee
+							1447 cell —
+								1448 text —
+							1449 cell —, Description: Riempimento generativo integrato
+								1450 text —
+							1451 cell
+								1452 button Scheda · Ackee
+						1453 row ActivityWatch —
+							1454 cell ActivityWatch
+								1455 text ActivityWatch
+							1456 cell —
+								1457 text —
+							1458 cell —, Description: Riempimento generativo integrato
+								1459 text —
+							1460 cell
+								1461 button Scheda · ActivityWatch
+						1462 row Actual Budget —
+							1463 cell Actual Budget
+								1464 text Actual Budget
+							1465 cell —
+								1466 text —
+							1467 cell —, Description: Riempimento generativo integrato
+								1468 text —
+							1469 cell
+								1470 button Scheda · Actual Budget
+						1471 row addy.io —
+							1472 cell addy.io
+								1473 text addy.io
+							1474 cell —
+								1475 text —
+							1476 cell —, Description: Riempimento generativo integrato
+								1477 text —
+							1478 cell
+								1479 button Scheda · addy.io
+						1480 row AdGuard Home —
+							1481 cell AdGuard Home
+								1482 text AdGuard Home
+							1483 cell —
+								1484 text —
+							1485 cell —, Description: Riempimento generativo integrato
+								1486 text —
+							1487 cell
+								1488 button Scheda · AdGuard Home
+					1489 text 528 app nel confronto · 1–12 di 528
+					1345 container, Text: La copertura conta le funzioni selezionate supportate per intero. Fonti controll... 2026-11-27 . La copertura appare quando ci sono fonti per le funzioni selezionate.
+			1346 container, Text: PROVA DI SOLA LETTURA · RUST 528 · MACOS/ARM64 · 41 STATI RILEVATI Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

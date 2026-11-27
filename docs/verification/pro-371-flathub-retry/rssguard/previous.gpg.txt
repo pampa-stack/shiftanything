@@ -1,0 +1,19 @@
+commit 198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8
+Parent:  90b6d8939d7c9c2e79ea4c9ddf0e6d7410ed9b7df69541362964b021ec8d6efb
+ContentChecksum:  13132ea17531fc1aa7cb9542f1c0af21f8145d7c7f934ec67f86c79961706743
+Date:  2026-11-21 17:29:42 +0000
+
+    Update submodule shared-modules to d3a85ee07ae4 (a20555c3710f)
+
+    Name: io.github.martinrotter.rssguard
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 21 18:03:52 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

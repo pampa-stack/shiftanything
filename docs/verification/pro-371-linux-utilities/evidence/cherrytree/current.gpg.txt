@@ -1,0 +1,19 @@
+commit 306d32be9bdb60fea1a0a37e3aa36008690aebf634d84522924f0b82fb0d2f57
+Parent:  190d875d7fd5c46e8e360783b76bb2db5aa1638b3d5806bbaba46a69f720738c
+ContentChecksum:  64a353089e2a3bd42f5f7565c84f618caf5f1b1299231f5963c3cd6b2d831fb9
+Date:  2026-11-07 15:13:53 +0000
+
+    Merge pull request #35 from flathub/cherrytree-v1.7.3 (a8d9bc940272)
+
+    Name: net.giuspen.cherrytree
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov  7 16:00:50 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

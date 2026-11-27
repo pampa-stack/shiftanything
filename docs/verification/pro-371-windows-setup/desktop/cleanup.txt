@@ -1,0 +1,7 @@
+guest image removed; qemu and swtpm stopped
+2026-11-27T04:45:19+00:00
+Filesystem        1B-blocks         Used   Available Use% Mounted on
+/dev/sda1      206900281344 177690312704 29193191424  86% /
+/dev/sdb       210241560576 175197880320 24289484800  88% /mnt/dati
+MemAvailable:   14897372 kB
+8225329152 bytes retained ISO

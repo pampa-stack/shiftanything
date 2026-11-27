@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436459056   1457552   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975716408    639032   100%    /Volumes/T7-Backup
+Recipe keycastr selected KeyCastr.app.zip 2628593 bytes
+Verifying after 1.025s
+Installing after 1.025s
+PASS 0.11.0 2628593 bytes
+PASS install 1.873s
+6192	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/Apps/KeyCastr.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436462288   1454320   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975720052    635388   100%    /Volumes/T7-Backup
+Recipe keycastr selected KeyCastr.app.zip 2714588 bytes
+Verifying after 0.777s
+Installing after 0.777s
+PASS 0.11.1 2714588 bytes
+PASS update 1.399s
+6192	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/Apps/KeyCastr.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-keycastr/.Trash/KeyCastr.app
+PASS remove 0.017s

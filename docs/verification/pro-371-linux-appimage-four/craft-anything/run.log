@@ -1,0 +1,41 @@
+HOST Linux x86_64
+UTC 2026-11-27T08:59:02+00:00
+PROFILE /mnt/dati/lavori/shiftanything/shift-official-linux-profile.craft-anything.CMWCZToy
+OFFICIAL storytold/craft-anything 0.6.0 65829368 sha256=9acc2befae0381dee9dcebd255bcdc7592b169f4ef4779c2e2d423f17cf6bf39
+PASS craft-anything install 6342ms: Craft Anything installed: 0.6.0
+Exec="/fixture/home/Applications/craft-anything-0.6.0-linux-x86_64.AppImage" %F
+1280 800
+PASS craft-anything launch-old 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch-old title=Craft Anything
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+f49c8ee90eea384a3517d85c5f43077a3c83aadb9fca630f9c0b2a6d06d8b393  config/craft-anything/desktop.log
+e449bbb378682abbdc2b9730012016b6b978b975e4f6913f4b29d31636fdca03  config/profile-fingerprint.txt
+OFFICIAL storytold/craft-anything 0.6.1 66660856 sha256=7eadde1d74ab42cc838862fe3f831e3cf3c9fa6ba5e2bf04e2824bbc47146134
+PASS craft-anything update 98517ms: Craft Anything updated to 0.6.1
+f49c8ee90eea384a3517d85c5f43077a3c83aadb9fca630f9c0b2a6d06d8b393  config/craft-anything/desktop.log
+e449bbb378682abbdc2b9730012016b6b978b975e4f6913f4b29d31636fdca03  config/profile-fingerprint.txt
+Exec="/fixture/home/Applications/craft-anything-0.6.1-linux-x86_64.AppImage" %F
+1280 800
+PASS craft-anything launch 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch title=Craft Anything
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+1d61facca56c651e6a82c144f4a6f99603ba575f718fd079a3445e5dfc145410  config/craft-anything/desktop.log
+e449bbb378682abbdc2b9730012016b6b978b975e4f6913f4b29d31636fdca03  config/profile-fingerprint.txt
+PASS craft-anything uninstall 84ms: Craft Anything was removed
+1d61facca56c651e6a82c144f4a6f99603ba575f718fd079a3445e5dfc145410  config/craft-anything/desktop.log
+e449bbb378682abbdc2b9730012016b6b978b975e4f6913f4b29d31636fdca03  config/profile-fingerprint.txt
+PASS craft-anything install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 128
+Temporary profile removed; test exit=0

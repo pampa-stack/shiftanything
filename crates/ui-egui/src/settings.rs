@@ -141,6 +141,8 @@ pub struct Settings {
     pub launches: BTreeMap<String, u32>,
     /// Catalog ids pinned to the top of the grid/table, in the order the user chose.
     pub pinned: Vec<String>,
+    /// Favorite catalog IDs, independent of pins, installation and platform compatibility.
+    pub favorites: std::collections::BTreeSet<String>,
     /// Extra command-line flags each app is opened with (catalog id → the text as typed, split
     /// by [`args::split`](artcraft_launcher_core::args::split) at launch).
     pub launch_flags: BTreeMap<String, String>,
@@ -332,6 +334,7 @@ impl Default for Settings {
             tray_hint_shown: false,
             launches: BTreeMap::new(),
             pinned: Vec::new(),
+            favorites: std::collections::BTreeSet::new(),
             launch_flags: BTreeMap::new(),
             fonts: FontSettings::default(),
         }

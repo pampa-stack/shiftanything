@@ -22,6 +22,22 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         return (meta.desktop_categories.as_str(), Some(meta.startup_wm_class.as_str()));
     }
     match app.id {
+        "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
+        "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
+        "musescore" => ("AudioVideo;Audio;Music;Qt;", Some("MuseScore4")),
+        "orca-slicer" => ("Graphics;3DGraphics;", Some("OrcaSlicer")),
+        "losslesscut" => ("AudioVideo;Video;AudioVideoEditing;", Some("losslesscut")),
+        "zettlr" => ("Office;WordProcessor;", Some("zettlr")),
+        "onlyoffice" => ("Office;WordProcessor;Spreadsheet;Presentation;", Some("ONLYOFFICE")),
+        "audacity" => ("AudioVideo;Audio;AudioVideoEditing;", Some("Audacity4")),
+        "drawio" => ("Graphics;", Some("draw-io")),
+        "nextcloud-desktop" => ("Utility;X-SuSE-SyncUtility;", Some("Nextcloud")),
+        "cryptomator" => ("Utility;Security;FileTools;", Some("org.cryptomator.launcher.Cryptomator$MainApp")),
+        "joplin" => ("Office;", Some("appimagekit-joplin")),
+        "notepadnext" => ("Qt;TextEditor;Utility;", Some("NotepadNext")),
+        "rapidraw" => ("Graphics;Photography;", Some("RapidRAW")),
+        "rustdesk" => ("Utility;Network;", Some("rustdesk")),
+        "activitywatch" => ("Utility;", Some("aw-qt")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -76,6 +92,39 @@ fn value(s: &str) -> String {
     s.replace('\\', "\\\\").replace('\n', "\\n").replace('\r', "\\r").replace('\t', "\\t")
 }
 
+/// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
+pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
+    use artcraft_launcher_core::curated::{
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, GHOST_DOWNLOADER, HANDY, JOPLIN, LOCALSEND, LOSSLESSCUT, MUSESCORE, NEXTCLOUD_DESKTOP,
+        NOTEPAD_NEXT, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, RAPIDRAW, RUSTDESK, ZETTLR,
+    };
+    (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
+        && [
+            LOCALSEND,
+            HANDY,
+            LOSSLESSCUT,
+            MUSESCORE,
+            ONLYOFFICE,
+            OPENSHOT,
+            ORCA_SLICER,
+            PENCIL2D,
+            ZETTLR,
+            AUDACITY,
+            DRAWIO,
+            NEXTCLOUD_DESKTOP,
+            CRYPTOMATOR,
+            JOPLIN,
+            NOTEPAD_NEXT,
+            RAPIDRAW,
+            RUSTDESK,
+            ACTIVITYWATCH,
+            GHOST_DOWNLOADER,
+        ]
+        .iter()
+        .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
+    .then_some("--appimage-extract-and-run")
+}
+
 /// The entry for `app` installed as the AppImage `appimage`; `icon` when its icon is installed
 /// under the app's id. `None` when the path can't be put in an `Exec=` line.
 pub fn render(app: &CraftApp, appimage: &Path, icon: bool) -> Option<String> {
@@ -84,13 +133,18 @@ pub fn render(app: &CraftApp, appimage: &Path, icon: bool) -> Option<String> {
     let mut text = String::from("[Desktop Entry]\nType=Application\n");
     text.push_str(&format!("Name={}\n", value(app.name)));
     text.push_str(&format!("Comment={}\n", value(app.tagline)));
-    text.push_str(&format!("Exec={exec} %F\n"));
+    text.push_str(&format!("Exec={exec}"));
+    if let Some(flag) = appimage_runtime_flag(app, appimage) {
+        text.push(' ');
+        text.push_str(flag);
+    }
+    text.push_str(" %F\n");
     if icon {
-        text.push_str(&format!("Icon={}\n", app.bundle_id()));
+        text.push_str(&format!("Icon={}\n", app.linux_desktop_id()));
     }
     text.push_str("Terminal=false\n");
     text.push_str(&format!("Categories={categories}\n"));
-    text.push_str(&format!("StartupWMClass={}\n", wm_class.map_or_else(|| app.bundle_id(), str::to_string)));
+    text.push_str(&format!("StartupWMClass={}\n", wm_class.map_or_else(|| app.linux_desktop_id(), str::to_string)));
     text.push_str(MARKER);
     text.push('\n');
     Some(text)
@@ -176,6 +230,16 @@ mod tests {
         // The spec forbids `=` in the executable name or path, even quoted.
         assert_eq!(exec_quote(Path::new("/opt/artcraft=beta/app")), None);
         assert!(render(app("photocraft"), Path::new("/a/line\nbreak.AppImage"), true).is_none());
+    }
+
+    #[test]
+    fn localsend_desktop_entry_runs_without_fuse_and_keeps_the_owned_path_readable() {
+        let path = Path::new("/home/ana/Applications/LocalSend-1.19.0-linux-x86-64.AppImage");
+        let text = render(app("localsend"), path, false).unwrap();
+        assert!(text.contains(&format!("Exec=\"{}\" --appimage-extract-and-run %F\n", path.display())));
+        assert_eq!(exec_program(&text).map(PathBuf::from).as_deref(), Some(path));
+        assert!(appimage_runtime_flag(app("localsend"), Path::new("/usr/bin/localsend")).is_none());
+        assert!(appimage_runtime_flag(app("photocraft"), path).is_none());
     }
 
     #[test]

@@ -1,0 +1,136 @@
+App=shiftanything-tauri-proof (pid 12892)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 130 of 1200 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) COLLEGA AGENTE · MCP
+				9 button (disabled) Impostazioni
+			10 toggle button CATALOGO, Value: 1
+			11 toggle button PREFERITI, Value: 0
+			12 container (disabled) Prova di sola lettura
+				13 text (disabled) LE MIE APP
+			14 toggle button (disabled) SH*FTER, Value: 0
+			15 toggle button (disabled) TROVA APP, Value: 0
+			16 toggle button (disabled) KIT DI LAVORO, Value: 0
+			17 search text field (settable) Cerca app, categoria o alternativa…
+				18 text Cerca app, categoria o alternativa…
+			19 toggle button Vista schede, Value: 1
+			20 toggle button Vista tabella, Value: 0
+			21 button (disabled) AGGIORNAMENTI
+			22 container Categorie
+				23 toggle button Tutte le app 336, Value: 1
+				24 summary Lavoro e documenti, Value: 0
+				25 summary Creatività, Value: 0
+				26 summary AI e sviluppo, Value: 0
+				27 summary Sistema e infrastruttura, Value: 0
+				28 summary Impresa, Value: 0
+				29 summary Tecnica e apprendimento, Value: 0
+			30 container
+				31 heading Tutte le app336 app
+				32 toggle button TUTTE, Value: 1
+				33 toggle button BASE, Value: 0
+				34 toggle button AVANZATE, Value: 0
+				35 container
+					36 text Autore / provider
+					37 pop up button Autore / provider, Value: Tutti gli autori
+				38 container
+					39 text Categorie
+					40 pop up button Categorie, Value: Tutte le categorie
+				41 container
+					42 text Ordina per
+					43 pop up button Ordina per, Value: In evidenza
+				44 button AZZERA FILTRI
+				45 text PhotoCraft
+				46 text ArtCraft
+				47 link 81,662 · Stelle GitHub · 2026-11-26
+					48 text ★ 81.7k
+				49 link GitHub
+					50 text GitHub
+				51 text Fotoritocco a livelli e file PSD
+				52 toggle button Salva nei preferiti · PhotoCraft, Value: 0
+				53 button Vedi scheda · PhotoCraft
+				54 text APP DESKTOP
+				55 link MCP DISPONIBILE
+					56 text MCP DISPONIBILE
+				57 container Piattaforme documentate
+					58 image macOS
+					59 image Windows
+					60 image Linux
+				61 text Alternativa a ·
+				62 text Adobe Photoshop
+				63 text Ultimo aggiornamento
+				64 text 12 nov 2026
+				65 text Dimensione download
+				66 text 274,2 MB · macOS
+				67 button (disabled) INSTALLA
+				68 button VEDI SCHEDA
+				69 text Handy
+				70 text CJ Pais
+				71 link 40,336 · Stelle GitHub · 2026-11-26
+					72 text ★ 40.3k
+				73 link GitHub
+					74 text GitHub
+				75 text Detta in locale in qualsiasi app
+				76 toggle button Salva nei preferiti · Handy, Value: 0
+				77 button Vedi scheda · Handy
+				78 text APP DESKTOP
+				79 link CONTROLLO VIA CLI
+					80 text CONTROLLO VIA CLI
+				81 container Piattaforme documentate
+					82 image macOS
+					83 image Windows
+					84 image Linux
+				85 text Alternativa a ·
+				86 text Wispr Flow
+				87 text Ultimo aggiornamento
+				88 text 24 nov 2026
+				89 text Dimensione download
+				90 text 15–15,3 MB · macOS
+				91 button (disabled) INSTALLA
+				92 button VEDI SCHEDA
+				93 text Meetily Community
+				94 text Zackriya Solutions
+				95 link 33,084 · Stelle GitHub · 2026-11-26
+					96 text ★ 33.1k
+				97 link GitHub
+					98 text GitHub
+				99 text Trascrive e riassume riunioni sul dispositivo
+				100 toggle button Salva nei preferiti · Meetily Community, Value: 0
+				101 button Vedi scheda · Meetily Community
+				102 text APP DESKTOP
+				103 text CONTROLLO DA VERIFICARE
+				104 container Piattaforme documentate
+					105 image macOS
+					106 image Windows
+					107 image Linux
+				108 text Alternativa a ·
+				109 text Granola, Otter.ai, Fireflies.ai
+				110 text Ultimo aggiornamento
+				111 text 14 nov 2026
+				112 text Dimensione download
+				113 text 48,1 MB · macOS
+				114 button (disabled) INSTALLA
+				115 button VEDI SCHEDA
+				116 text Rizzo-PII
+				117 text Rizzo AI Academy
+				118 link 1,308 · Stelle GitHub · 2026-11-26
+					119 text ★ 1.3k
+				120 link GitHub
+					121 text GitHub
+				122 text Oscura dati personali in documenti e immagini con OCR locale
+				123 toggle button Salva nei preferiti · Rizzo-PII, Value: 0
+				124 button Vedi scheda · Rizzo-PII
+				125 text APP DESKTOP
+				126 link CONTROLLO VIA API
+					127 text CONTROLLO VIA API
+				128 container Piattaforme documentate
+					129 image macOS
+
+The focused UI element is 0 standard window Sh*ftAnything · Tauri proof.

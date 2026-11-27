@@ -1,0 +1,33 @@
+PACKAGE v0.14.3 https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-macos-arm64.dmg 67250584 5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a
+/Volumes/T7-Backup/shift-mac-next.r9jGPOAa/proof/downloads/activitywatch-v0.14.3-macos-arm64.dmg: OK
+atteso   CRC32 $542338A1
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-activitywatch-preflight.BEsXPON8
+BUNDLE ActivityWatch.app
+181184	/private/tmp/shift-activitywatch-preflight.BEsXPON8/ActivityWatch.app
+CFBundleIdentifier net.activitywatch.ActivityWatch
+CFBundleShortVersionString 0.14.3
+CFBundleVersion 0.14.3
+CFBundleExecutable MacOS/aw-qt
+LSMinimumSystemVersion Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+arm64
+/private/tmp/shift-activitywatch-preflight.BEsXPON8/ActivityWatch.app/Contents/MacOS/aw-qt:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 12.1
+   ntools 1
+     tool LD
+  version 820.1
+Identifier=net.activitywatch.ActivityWatch
+Authority=Developer ID Application: Erik Bjareholt (XM9GC3SUL2)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=XM9GC3SUL2
+/private/tmp/shift-activitywatch-preflight.BEsXPON8/ActivityWatch.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Erik Bjareholt (XM9GC3SUL2)
+PASS v0.14.3 official hash, strict signature, notarization, Gatekeeper
+CLEANUP v0.14.3 status=0

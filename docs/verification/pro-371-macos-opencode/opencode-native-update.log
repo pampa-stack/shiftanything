@@ -1,0 +1,6 @@
+PASS PREFLIGHT opencode v2.4.2
+PHASE opencode update /private/tmp/shift-mac-ranked.avdZtp8L/profile-opencode.xieSwWYO
+CACHE opencode-desktop-mac-arm64.dmg from official download. NativeBackend rechecks SHA-256
+PASS OFFICIAL v2.4.2 Dmg https://github.com/anomalyco/opencode/releases/download/v2.4.2/opencode-desktop-mac-arm64.dmg 345253101 e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7
+PASS RELEASE ROUTE publisher desktop manifest and GitHub SHA256SUMS
+PASS NATIVE opencode update: OpenCode updated to 2.4.2; package_bytes=345253101; elapsed=10.206s

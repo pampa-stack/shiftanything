@@ -1,0 +1,173 @@
+{
+  "language": "it",
+  "viewport": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 900.0
+  },
+  "header": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "toolbar": {
+    "x": 0.0,
+    "y": 46.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "rail": {
+    "x": 0.0,
+    "y": 92.0,
+    "width": 214.0,
+    "height": 782.0
+  },
+  "navigation": [
+    "CATALOGO",
+    "PREFERITI",
+    "LE MIE APP",
+    "SH*FTER",
+    "TROVA APP",
+    "KIT DI LAVORO"
+  ],
+  "cards": [
+    {
+      "id": "pika-backup",
+      "rect": {
+        "x": 215.0,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "d-j-dup-backups",
+      "rect": {
+        "x": 623.328125,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "kbackup",
+      "rect": {
+        "x": 1031.65625,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "kopia",
+      "rect": {
+        "x": 215.0,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "vorta",
+      "rect": {
+        "x": 623.328125,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "timeshift",
+      "rect": {
+        "x": 1031.65625,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "back-in-time",
+      "rect": {
+        "x": 215.0,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "backrest",
+      "rect": {
+        "x": 623.328125,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": true
+    }
+  ]
+}

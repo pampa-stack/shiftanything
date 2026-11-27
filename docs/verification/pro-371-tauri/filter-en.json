@@ -1,0 +1,751 @@
+{
+  "language": "en",
+  "viewport": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 900.0
+  },
+  "header": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "toolbar": {
+    "x": 0.0,
+    "y": 46.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "rail": {
+    "x": 0.0,
+    "y": 92.0,
+    "width": 214.0,
+    "height": 782.0
+  },
+  "navigation": [
+    "CATALOG",
+    "FAVORITES",
+    "MY APPS",
+    "SH*FTER",
+    "FIND APPS",
+    "WORK KITS"
+  ],
+  "cards": [
+    {
+      "id": "kdenlive",
+      "rect": {
+        "x": 215.0,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "soundcraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "filmcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "effectcraft",
+      "rect": {
+        "x": 215.0,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "anicraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "obs",
+      "rect": {
+        "x": 1031.65625,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "audacity",
+      "rect": {
+        "x": 215.0,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "vlc",
+      "rect": {
+        "x": 623.328125,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "synfig-studio",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "lmms",
+      "rect": {
+        "x": 215.0,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "mixxx-dj-software",
+      "rect": {
+        "x": 623.328125,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "handbrake",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "shotcut",
+      "rect": {
+        "x": 215.0,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openshot-video-editor",
+      "rect": {
+        "x": 623.328125,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pitivi",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "olive",
+      "rect": {
+        "x": 215.0,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "showtime",
+      "rect": {
+        "x": 623.328125,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "celluloid",
+      "rect": {
+        "x": 1031.65625,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mpv",
+      "rect": {
+        "x": 215.0,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "flowblade",
+      "rect": {
+        "x": 623.328125,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "musicbrainz-picard",
+      "rect": {
+        "x": 1031.65625,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rhythmbox",
+      "rect": {
+        "x": 215.0,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "strawberry-music-player",
+      "rect": {
+        "x": 623.328125,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "opentoonz",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "video-trimmer",
+      "rect": {
+        "x": 215.0,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "video-downloader",
+      "rect": {
+        "x": 623.328125,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "musescore",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "audacious",
+      "rect": {
+        "x": 215.0,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "frescobaldi",
+      "rect": {
+        "x": 623.328125,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kid3",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "freac",
+      "rect": {
+        "x": 215.0,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "subtitlecomposer",
+      "rect": {
+        "x": 623.328125,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "famistudio",
+      "rect": {
+        "x": 1031.65625,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openutau",
+      "rect": {
+        "x": 215.0,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "losslesscut",
+      "rect": {
+        "x": 623.328125,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "iina",
+      "rect": {
+        "x": 1031.65625,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "screentogif",
+      "rect": {
+        "x": 215.0,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "natron",
+      "rect": {
+        "x": 623.328125,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "hydrogen",
+      "rect": {
+        "x": 1031.65625,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "furnace",
+      "rect": {
+        "x": 215.0,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "tenacity",
+      "rect": {
+        "x": 623.328125,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "glaxnimate",
+      "rect": {
+        "x": 1031.65625,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    }
+  ]
+}

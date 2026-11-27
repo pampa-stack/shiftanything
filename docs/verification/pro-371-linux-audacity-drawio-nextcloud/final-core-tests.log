@@ -1,0 +1,148 @@
+warning: patch `egui_demo_lib v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_inspection v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_system_font_provider v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling artcraft-launcher-core v0.20.3 (/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/source/crates/core)
+    Finished `test` profile [optimized + debuginfo] target(s) in 42.74s
+     Running unittests src/lib.rs (/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/source/target/debug/deps/artcraft_launcher_core-dbbca7ed60c280a9)
+
+running 134 tests
+test args::tests::an_unclosed_quote_is_an_error ... ok
+test args::tests::backslashes_are_kept_for_windows_paths ... ok
+test args::tests::quotes_keep_spaces_and_join_with_what_touches_them ... ok
+test catalog::tests::every_app_has_its_icon ... ok
+test catalog::tests::mac_bundle_names_and_platform_support ... ok
+test catalog::tests::anicraft_is_an_official_app ... ok
+test catalog::tests::materialcraft_is_an_official_app ... ok
+test catalog::tests::pdfcraft_also_answers_to_printcraft ... ok
+test catalog::tests::solidcraft_is_a_community_app_with_its_own_bundle_id ... ok
+test catalog::tests::mailcraft_is_a_community_app_not_installed_on_mac ... ok
+test catalog::tests::suite_has_nineteen_apps_with_unique_ids ... ok
+test catalog::tests::texturecraft_is_an_official_app ... ok
+test curated::media_tests::png_dimension_budget_precedes_decoding ... ok
+test curated::recipe_tests::community_dmg_recipes_accept_documented_apple_silicon_packages ... ok
+test args::tests::whitespace_separates_arguments ... ok
+test curated::recipe_tests::godot_recipe_accepts_only_the_official_stable_zip_with_digest ... ok
+test curated::recipe_tests::handy_recipe_pins_exact_official_asset_and_only_admits_verified_host ... ok
+test catalog::tests::craft_anything_is_an_official_app ... ok
+test curated::recipe_tests::keycastr_and_picard_use_only_the_reviewed_apple_silicon_release_packages ... ok
+test curated::recipe_tests::kopia_recipe_uses_only_its_verified_mac_format_and_official_checksum_source ... ok
+test curated::recipe_tests::localsend_recipe_accepts_only_the_official_linux_x64_appimage ... ok
+test curated::recipe_tests::localsend_dmg_recipe_accepts_the_reviewed_mac_asset_for_apple_silicon ... ok
+test catalog::tests::the_separate_nightly_roster_is_the_registrys_apps_with_targets ... ok
+test curated::recipe_tests::obs_recipe_selects_only_the_apple_silicon_dmg_for_the_exact_release ... ok
+test curated::recipe_tests::termix_recipe_accepts_only_the_signed_channel_asset_on_apple_silicon ... ok
+test curated::recipe_tests::libreoffice_checks_official_arm64_path_and_digest ... ok
+test curated::recipe_tests::unversioned_arm64_assets_are_bound_to_their_official_stable_tags ... ok
+test automation::tests::approval_revalidates_state_and_rejects_unknown_inputs ... ok
+test automation::tests::flathub_copies_can_open_without_ownership_but_cannot_be_removed ... ok
+test automation::tests::operations_require_the_expected_native_state ... ok
+test curated::recipe_tests::upstream_handy_targets_stay_supported_without_enabling_unverified_recipes ... ok
+test curated::recipe_tests::verified_linux_appimages_require_the_tested_host_and_publisher ... ok
+test curated::tests::only_explicit_complete_platform_evidence_can_disable_install_as_incompatible ... ok
+test details::tests::every_app_has_a_page ... ok
+test details::tests::every_page_belongs_to_a_suite_app_once ... ok
+test details::tests::only_jpeg_files_are_accepted ... ok
+test details::tests::oversized_screenshots_are_refused_before_decoding ... ok
+test details::tests::pages_are_filled_in ... ok
+test details::tests::picture_addresses_come_only_from_the_pages_own_pictures ... ok
+test details::tests::reads_jpeg_frame_dimensions ... ok
+test distro::tests::os_release_is_parsed ... ok
+test distro::tests::the_distro_family_picks_the_package_format ... ok
+test feed::tests::a_feed_release_with_an_odd_tag_asks_github ... ok
+test feed::tests::a_feed_url_cannot_traverse_out_of_the_repository ... ok
+test feed::tests::reads_what_storyteller_web_serves ... ignored, needs a sample written by storyteller-web
+test feed::tests::a_rename_out_of_storytold_is_dropped ... ok
+test feed::tests::an_app_with_a_former_repo_is_matched_under_either_name ... ok
+test feed::tests::a_local_mirror_is_trusted_only_when_asked_for_and_never_goes_stale ... ok
+test curated::tests::distribution_metadata_supplies_platforms_and_sizes_without_granting_a_recipe ... ok
+test feed::tests::follows_repo_renames_but_never_trusts_a_repo_it_was_not_told_about ... ok
+test feed::tests::survives_anything_the_server_might_send ... ok
+test flathub::tests::reviewed_flatpak_ids_match_canonical_curated_channels_only_on_linux_x64 ... ok
+test feed::tests::uses_fresh_entries_and_falls_back_for_everything_else ... ok
+test hosted_catalog::tests::icon_hashes_and_decode_dimensions_are_checked ... ok
+test feed::tests::feed_release_drops_an_asset_from_another_tag ... ok
+test hosted_catalog::tests::website_fixture_verifies_with_the_actual_pinned_public_key ... ok
+test hosted_catalog::tests::runtime_snapshot_adds_apps_details_icons_and_retains_omitted_bundled_apps ... ok
+test hosted_catalog::tests::tampered_wrong_key_missing_and_oversized_signatures_are_rejected ... ok
+test mcp_config::tests::codex_toml_escapes_the_path ... ok
+test mcp_config::tests::catalog_formats_preserve_scoped_arguments_with_spaces_and_quotes ... ok
+test mcp_config::tests::json_formats_name_the_gateway_with_stdio ... ok
+test nightly::tests::bounded_inputs_refuse_oversized_empty_and_missing_descriptors ... ok
+test nightly::tests::descriptor_and_payload_need_separate_published_checksums ... ok
+test nightly::tests::build_identity_time_can_precede_but_not_follow_actual_publication ... ok
+test hosted_catalog::tests::malformed_entries_and_unknown_fields_do_not_spoil_valid_apps ... ok
+test hosted_catalog::tests::signed_fixture_keeps_lf_bytes_on_every_platform ... ok
+test nightly::tests::duplicate_targets_names_and_recipe_injection_are_refused ... ok
+test nightly::tests::payload_url_size_and_digest_must_match_the_exact_release_asset ... ok
+test nightly::tests::valid_descriptor_is_not_a_profile_installation_capability ... ok
+test nightly::tests::identity_changes_cannot_borrow_another_release_or_its_trust ... ok
+test notices::tests::only_a_signature_by_the_pinned_key_is_accepted ... ok
+test nightly::tests::signed_v2_requires_exact_bounded_unique_linux_signature_binding ... ok
+test platform::tests::apple_silicon_keeps_the_intel_fallback ... ok
+test platform::tests::asset_names_carry_their_architecture ... ok
+test platform::tests::freebsd_picks_the_tarball_for_the_processor ... ok
+test platform::tests::artcraft_studio_selects_published_desktop_assets ... ok
+test notices::tests::a_hostile_file_is_bounded ... ok
+test platform::tests::intel_macos_never_selects_an_arm_only_build ... ok
+test platform::tests::macos_split_builds_match_the_processor ... ok
+test platform::tests::reads_artcraft_studio_asset_names ... ok
+test curated::tests::curated_catalog_is_valid_and_excludes_deferred_products ... ok
+test platform::tests::reads_asset_names ... ok
+test platform::tests::reviewed_linux_appimages_require_verified_stable_asset_metadata ... ok
+test notices::tests::rows_that_break_a_rule_are_skipped_and_the_rest_kept ... ok
+test platform::tests::strictly_matches_architecture_for_all_linux_package_formats ... ok
+test protocol::tests::install_folders_inherit_the_default_unless_the_app_has_an_override ... ok
+test platform::tests::texturecraft_selects_published_desktop_assets ... ok
+test platform::tests::picks_the_native_build_first_and_falls_back_to_emulation ... ok
+test platform::tests::tested_linux_appimages_are_available_without_github_api_quota ... ok
+test protocol::tests::old_backend_options_keep_system_install_locations ... ok
+test release::tests::a_nightly_without_published_checksums_is_unavailable ... ok
+test release::tests::audacity_release_tag_is_parsed_for_the_official_repo ... ok
+test release::tests::a_feed_repo_rename_or_a_missing_prerelease_flag_cannot_bring_photocraft_nightlies_back ... ok
+test release::tests::drops_downloads_that_point_elsewhere ... ok
+test platform::tests::macos_prefers_the_published_universal_build ... ok
+test release::tests::equal_nightly_precedence_prefers_smallest_tag_without_metadata_or_publication_ordering ... ok
+test release::tests::file_names_cannot_escape ... ok
+test release::tests::later_publication_of_an_older_nightly_cannot_replace_a_newer_version ... ok
+test release::tests::nightly_selection_requires_canonical_matching_tags_but_not_descriptor_shape ... ok
+test release::tests::only_plain_https_links_pass ... ok
+test release::tests::generic_prerelease_updates_cannot_select_a_separate_nightly ... ok
+test release::tests::list_picks_the_newest_stable_release ... ok
+test release::tests::ordinary_prerelease_lookup_never_offers_a_nightly_for_any_app ... ok
+test release::tests::release_html_url_rejects_traversal_and_metacharacters ... ok
+test release::tests::rerun_dates_and_opaque_ids_are_compared_only_as_semver_components ... ok
+test release::tests::reviewed_package_survives_quota_free_discovery_without_a_sums_manifest ... ok
+test release::tests::selected_release_cannot_download_an_asset_from_a_different_tag ... ok
+test release::tests::selection_follows_nightly_or_pins_an_older_release_without_beta_fallback ... ok
+test release::tests::ordinary_version_list_keeps_its_order_limit_beta_filtering_and_exact_pins ... ok
+test release::tests::reads_checksums_and_redirects ... ok
+test release::tests::reads_the_latest_release ... ok
+test release::tests::tags_are_plain ... ok
+test release::tests::traversal_cannot_escape_the_repository ... ok
+test release::tests::truncate_keeps_whole_characters ... ok
+test release::tests::version_choices_exclude_drafts_and_distinguish_nightly_from_betas ... ok
+test rollback::tests::a_numbers_only_installer_copy_falls_back_to_the_matching_pre_release_only_for_the_newest_stable ... ok
+test rollback::tests::the_installed_release_is_put_back_when_it_is_published ... ok
+test shifter::tests::evidence_gaps_and_partial_support_never_become_confirmed_support ... ok
+test status::tests::status_covers_every_case ... ok
+test time::tests::a_clock_reads_any_unix_time ... ok
+test time::tests::ago_kind_matches_the_english_fallback ... ok
+test hosted_catalog::tests::future_official_app_needs_no_launcher_release_but_stays_within_policy ... ok
+test time::tests::reads_github_timestamps ... ok
+test shifter::tests::figma_alternatives_agree_across_comparison_kits_and_rankings ... ok
+test shifter::tests::manual_comparison_reuses_only_explicit_feature_ids_and_prioritizes_required_gaps ... ok
+test time::tests::month_keys_cover_the_calendar ... ok
+test shifter::tests::product_search_accepts_accents_case_and_trademark_signs_without_selecting_free_text ... ok
+test time::tests::shows_dates_people_read ... ok
+test version::tests::orders_versions_and_spots_updates ... ok
+test shifter::tests::software_suggestions_filter_aliases_without_creating_evidence ... ok
+test version::tests::reads_package_manager_versions ... ok
+test version::tests::reads_tags_and_platform_spellings ... ok
+test hosted_catalog::tests::signature_cannot_expand_community_or_change_pinned_install_identity ... ok
+test shifter::tests::imported_evidence_is_scoped_to_catalog_apps_and_declared_features ... ok
+
+test result: ok. 133 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.07s

@@ -1,0 +1,39 @@
+REPLAY 2026-11-27T12:14:57+00:00 qbittorrent
+dbus-daemon[2842754]: [session uid=1000 pid=2842754 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2842781 comm="/usr/bin/xfwm4 --compositor=off --display=:555" label="unconfined")
+dbus-daemon[2842754]: [session uid=1000 pid=2842754 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2842799]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2842781 comm="/usr/bin/xfwm4 --compositor=off --display=:555" label="unconfined")
+dbus-daemon[2842754]: [session uid=1000 pid=2842754 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2842781 comm="/usr/bin/xfwm4 --compositor=off --display=:555" label="unconfined")
+dbus-daemon[2842799]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2842754]: [session uid=1000 pid=2842754 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+qbittorrent before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/215020c551b9056180760242d446c4fe76dfbe4e50b9b2594844643ca4d479b9", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true }
+qbittorrent JobFinished: Ok("Launch request accepted")
+qbittorrent after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/215020c551b9056180760242d446c4fe76dfbe4e50b9b2594844643ca4d479b9", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true })
+TIMING qbittorrent open-previous 60083 ms
+
+(xfconfd:2842809): xfconfd-WARNING **: 12:15:59.021: Name org.xfce.Xfconf lost on the message dbus, exiting.
+qbittorrent before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/215020c551b9056180760242d446c4fe76dfbe4e50b9b2594844643ca4d479b9", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true }
+qbittorrent JobFinished: Ok("Flathub app updated")
+qbittorrent after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/ccd0fbf87ef78dccf2447c28f26fa7d4f8ada430d09c4b7de9008cd3bce5cb24", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.1"), update_available: false, can_remove: true, can_open: true })
+TIMING qbittorrent update 4293 ms
+/var/tmp/shift-p.kjVz/qbittorrent/.var/app/org.qbittorrent.qBittorrent/shift-profile-marker: OK
+dbus-daemon[2846680]: [session uid=1000 pid=2846680 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2846707 comm="/usr/bin/xfwm4 --compositor=off --display=:481" label="unconfined")
+dbus-daemon[2846680]: [session uid=1000 pid=2846680 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2846722]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2846707 comm="/usr/bin/xfwm4 --compositor=off --display=:481" label="unconfined")
+dbus-daemon[2846680]: [session uid=1000 pid=2846680 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2846707 comm="/usr/bin/xfwm4 --compositor=off --display=:481" label="unconfined")
+dbus-daemon[2846722]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2846680]: [session uid=1000 pid=2846680 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+qbittorrent before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/ccd0fbf87ef78dccf2447c28f26fa7d4f8ada430d09c4b7de9008cd3bce5cb24", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.1"), update_available: false, can_remove: true, can_open: true }
+qbittorrent JobFinished: Ok("Launch request accepted")
+qbittorrent after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/ccd0fbf87ef78dccf2447c28f26fa7d4f8ada430d09c4b7de9008cd3bce5cb24", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.1"), update_available: false, can_remove: true, can_open: true })
+TIMING qbittorrent open-current 13553 ms
+
+(xfconfd:2846732): xfconfd-WARNING **: 12:16:22.393: Name org.xfce.Xfconf lost on the message dbus, exiting.
+qbittorrent before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-p.kjVz/qbittorrent/data/flatpak/app/org.qbittorrent.qBittorrent/x86_64/stable/ccd0fbf87ef78dccf2447c28f26fa7d4f8ada430d09c4b7de9008cd3bce5cb24", package: Some("org.qbittorrent.qBittorrent"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.1"), update_available: false, can_remove: true, can_open: true }
+qbittorrent JobFinished: Ok("Flathub app removed")
+qbittorrent after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING qbittorrent remove 2017 ms
+/var/tmp/shift-p.kjVz/qbittorrent/.var/app/org.qbittorrent.qBittorrent/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+CYCLE_PASS qbittorrent

@@ -1,0 +1,4 @@
+=== Exact Flatpak app user ref ===
+org.gnome.Calculator/x86_64/stable	flathub	0032886e3396	user	51.0
+Commit=0032886e3396c2e0cb107d453d600301c8090241d3fef31ca3f688510dba0e43
+flathub	https://dl.flathub.org/repo/

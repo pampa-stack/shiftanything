@@ -1,0 +1,28 @@
+/private/tmp root
+PROOF epicenter-whispering HOME=/private/tmp/shift-epicenter-whispering-scratch.Gp5IS6UJ/home before=7.9.0 after=7.11.0
+AVAILABLE_KIB 3621284
+PASS OFFICIAL v7.9.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.9.0/Whispering_7.9.0_aarch64.dmg 15206641 6a0e45d47ecdb2ada6afa8309914dd73c03db896fd153272e0891976867851c7
+PASS OFFICIAL v7.11.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.11.0/Whispering_7.11.0_aarch64.dmg 15606745 7c15883a5562e594633e2636db5abbc8197b8ae93c4714711bf802b531eaf2d0
+SEEDED official REST version list only, latest still online
+PASS OFFICIAL v7.9.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.9.0/Whispering_7.9.0_aarch64.dmg 15206641 6a0e45d47ecdb2ada6afa8309914dd73c03db896fd153272e0891976867851c7
+PASS OFFICIAL v7.11.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.11.0/Whispering_7.11.0_aarch64.dmg 15606745 7c15883a5562e594633e2636db5abbc8197b8ae93c4714711bf802b531eaf2d0
+PASS OFFICIAL v7.9.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.9.0/Whispering_7.9.0_aarch64.dmg 15206641 6a0e45d47ecdb2ada6afa8309914dd73c03db896fd153272e0891976867851c7
+PASS NATIVE epicenter-whispering install: Whispering installed: 7.9.0; transferred=15206641
+/private/tmp/shift-epicenter-whispering-scratch.Gp5IS6UJ/home/Applications/Whispering.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Braden Wong (3C7J97QA5Z)
+PASS SIGNATURE + PROFILE MARKER epicenter-whispering install 7.9.0
+AVAILABLE_KIB 3585980
+PASS OFFICIAL v7.11.0 Dmg https://github.com/EpicenterHQ/epicenter/releases/download/v7.11.0/Whispering_7.11.0_aarch64.dmg 15606745 7c15883a5562e594633e2636db5abbc8197b8ae93c4714711bf802b531eaf2d0
+PASS NATIVE epicenter-whispering update: Whispering updated to 7.11.0; transferred=15606745
+/private/tmp/shift-epicenter-whispering-scratch.Gp5IS6UJ/home/Applications/Whispering.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Braden Wong (3C7J97QA5Z)
+PASS SIGNATURE + PROFILE MARKER epicenter-whispering update 7.11.0
+AVAILABLE_KIB 3582684
+PASS NATIVE epicenter-whispering remove: Whispering was removed; transferred=0
+/private/tmp/shift-epicenter-whispering-scratch.Gp5IS6UJ/home/.Trash/Whispering.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Braden Wong (3C7J97QA5Z)
+PASS SIGNATURE + PROFILE MARKER epicenter-whispering remove 7.11.0
+CLEANUP /private/tmp/shift-epicenter-whispering-scratch.Gp5IS6UJ exit=0

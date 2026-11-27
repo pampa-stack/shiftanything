@@ -1,0 +1,64 @@
+
+=== 2026-11-27T10:07:47+00:00 zettlr install ===
+zettlr before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+zettlr JobFinished: Ok("Flathub app installed")
+zettlr after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 10, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-zettlr-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+485781149b84a27db16c34ea650b1840cdb0323045cab0dcbf08b81ce5de9ebf  /var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-zettlr-icon.png
+com.zettlr.Zettlr/x86_64/stable	flathub	bb96fc22a7bc	user	4.10.0
+TIMING zettlr install 37785 ms
+
+=== 2026-11-27T10:08:25+00:00 zettlr prior ===
+Previous runtime org.freedesktop.Platform/x86_64/26.08
+Updating app/com.zettlr.Zettlr/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.zettlr.Zettlr/x86_64/stable	flathub	866875b85c10	user	4.9.0
+zettlr before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 9, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf", package: Some("com.zettlr.Zettlr"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.9.0"), update_available: false, can_remove: false, can_open: true }
+zettlr JobFinished: Err("Approved action rejected: native installation state changed")
+zettlr JobFinished: Err("This Flatpak is managed outside the launcher")
+zettlr after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 9, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf", package: Some("com.zettlr.Zettlr"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.9.0"), update_available: false, can_remove: false, can_open: true })
+TIMING zettlr prior 11900 ms
+
+=== 2026-11-27T10:08:37+00:00 zettlr open ===
+dbus-daemon[2633968]: [session uid=1000 pid=2633968 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2634015 comm="/usr/bin/xfwm4 --compositor=off --display=:769" label="unconfined")
+dbus-daemon[2633968]: [session uid=1000 pid=2633968 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2634043]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2634015 comm="/usr/bin/xfwm4 --compositor=off --display=:769" label="unconfined")
+dbus-daemon[2633968]: [session uid=1000 pid=2633968 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2634015 comm="/usr/bin/xfwm4 --compositor=off --display=:769" label="unconfined")
+dbus-daemon[2633968]: [session uid=1000 pid=2633968 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2634043]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+zettlr before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 9, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.9.0"), update_available: true, can_remove: true, can_open: true }
+zettlr JobFinished: Ok("Launch request accepted")
+zettlr after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 9, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.9.0"), update_available: true, can_remove: true, can_open: true })
+TIMING zettlr open-previous 17169 ms
+
+(xfconfd:2634050): xfconfd-WARNING **: 10:08:56.241: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING zettlr open 19045 ms
+
+=== 2026-11-27T10:08:56+00:00 zettlr update-remove ===
+zettlr before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 9, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.9.0"), update_available: true, can_remove: true, can_open: true }
+zettlr JobFinished: Ok("Flathub app updated")
+zettlr after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 10, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.10.0"), update_available: false, can_remove: true, can_open: true })
+TIMING zettlr update 9841 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/.var/app/com.zettlr.Zettlr/shift-profile-marker: OK
+dbus-daemon[2637497]: [session uid=1000 pid=2637497 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2637520 comm="/usr/bin/xfwm4 --compositor=off --display=:798" label="unconfined")
+dbus-daemon[2637497]: [session uid=1000 pid=2637497 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2637534]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2637520 comm="/usr/bin/xfwm4 --compositor=off --display=:798" label="unconfined")
+dbus-daemon[2637497]: [session uid=1000 pid=2637497 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2637520 comm="/usr/bin/xfwm4 --compositor=off --display=:798" label="unconfined")
+dbus-daemon[2637534]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2637497]: [session uid=1000 pid=2637497 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+zettlr before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 10, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.10.0"), update_available: false, can_remove: true, can_open: true }
+zettlr JobFinished: Ok("Launch request accepted")
+zettlr after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 10, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.10.0"), update_available: false, can_remove: true, can_open: true })
+TIMING zettlr open-current 16996 ms
+
+(xfconfd:2637544): xfconfd-WARNING **: 10:09:26.640: Name org.xfce.Xfconf lost on the message dbus, exiting.
+zettlr before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 10, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/data/flatpak/app/com.zettlr.Zettlr/x86_64/stable/bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7", package: Some("com.zettlr.Zettlr"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.10.0"), update_available: false, can_remove: true, can_open: true }
+zettlr JobFinished: Ok("Flathub app removed")
+zettlr after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING zettlr remove 4523 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/zettlr/home/.var/app/com.zettlr.Zettlr/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING zettlr update-remove 35017 ms

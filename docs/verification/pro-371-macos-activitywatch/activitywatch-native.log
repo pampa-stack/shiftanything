@@ -1,0 +1,28 @@
+/private/tmp root
+PROOF activitywatch HOME=/private/tmp/shift-activitywatch-scratch.yLGNsh47/home before=0.14.2 after=0.14.3
+FREE_MEMORY_PERCENT 49
+AVAILABLE_KIB 3293480
+PASS OFFICIAL v0.14.2 Dmg https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.2/activitywatch-v0.14.2-macos-arm64.dmg 65835856 8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65
+PASS OFFICIAL v0.14.3 Dmg https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-macos-arm64.dmg 67250584 5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a
+PASS OFFICIAL v0.14.2 Dmg https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.2/activitywatch-v0.14.2-macos-arm64.dmg 65835856 8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65
+PASS NATIVE activitywatch install: ActivityWatch installed: 0.14.2; transferred=65835856
+/private/tmp/shift-activitywatch-scratch.yLGNsh47/home/Applications/ActivityWatch.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Erik Bjareholt (XM9GC3SUL2)
+PASS SIGNATURE + PROFILE MARKER activitywatch install 0.14.2
+FREE_MEMORY_PERCENT 49
+AVAILABLE_KIB 3058064
+PASS OFFICIAL v0.14.3 Dmg https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-v0.14.3-macos-arm64.dmg 67250584 5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a
+PASS NATIVE activitywatch update: ActivityWatch updated to 0.14.3; transferred=67250584
+/private/tmp/shift-activitywatch-scratch.yLGNsh47/home/Applications/ActivityWatch.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Erik Bjareholt (XM9GC3SUL2)
+PASS SIGNATURE + PROFILE MARKER activitywatch update 0.14.3
+FREE_MEMORY_PERCENT 50
+AVAILABLE_KIB 3048292
+PASS NATIVE activitywatch remove: ActivityWatch was removed; transferred=0
+/private/tmp/shift-activitywatch-scratch.yLGNsh47/home/.Trash/ActivityWatch.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Erik Bjareholt (XM9GC3SUL2)
+PASS SIGNATURE + PROFILE MARKER activitywatch remove 0.14.3
+CLEANUP /private/tmp/shift-activitywatch-scratch.yLGNsh47 exit=0

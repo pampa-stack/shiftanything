@@ -1,0 +1,28 @@
+/private/tmp root
+PROOF stats HOME=/private/tmp/shift-stats-scratch.bpKSko44/home before=3.1.0 after=3.1.1
+AVAILABLE_KIB 3631504
+PASS OFFICIAL v3.1.0 Dmg https://github.com/exelban/stats/releases/download/v3.1.0/Stats.dmg 8257600 a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7
+PASS OFFICIAL v3.1.1 Dmg https://github.com/exelban/stats/releases/download/v3.1.1/Stats.dmg 8386915 2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9
+SEEDED official REST version list only, latest still online
+PASS OFFICIAL v3.1.0 Dmg https://github.com/exelban/stats/releases/download/v3.1.0/Stats.dmg 8257600 a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7
+PASS OFFICIAL v3.1.1 Dmg https://github.com/exelban/stats/releases/download/v3.1.1/Stats.dmg 8386915 2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9
+PASS OFFICIAL v3.1.0 Dmg https://github.com/exelban/stats/releases/download/v3.1.0/Stats.dmg 8257600 a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7
+PASS NATIVE stats install: Stats installed: 3.1.0; transferred=8257600
+/private/tmp/shift-stats-scratch.bpKSko44/home/Applications/Stats.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Serhiy Mytrovtsiy (RP2S87B72W)
+PASS SIGNATURE + PROFILE MARKER stats install 3.1.0
+AVAILABLE_KIB 3604888
+PASS OFFICIAL v3.1.1 Dmg https://github.com/exelban/stats/releases/download/v3.1.1/Stats.dmg 8386915 2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9
+PASS NATIVE stats update: Stats updated to 3.1.1; transferred=8386915
+/private/tmp/shift-stats-scratch.bpKSko44/home/Applications/Stats.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Serhiy Mytrovtsiy (RP2S87B72W)
+PASS SIGNATURE + PROFILE MARKER stats update 3.1.1
+AVAILABLE_KIB 3601072
+PASS NATIVE stats remove: Stats was removed; transferred=0
+/private/tmp/shift-stats-scratch.bpKSko44/home/.Trash/Stats.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Serhiy Mytrovtsiy (RP2S87B72W)
+PASS SIGNATURE + PROFILE MARKER stats remove 3.1.1
+CLEANUP /private/tmp/shift-stats-scratch.bpKSko44 exit=0

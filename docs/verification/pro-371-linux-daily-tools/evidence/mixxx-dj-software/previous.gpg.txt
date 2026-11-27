@@ -1,0 +1,19 @@
+commit 8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e
+Parent:  34db820394644aaecbde6fe69d4afdf96d8b6d06ce1dfa6ccde0f1316b119aad
+ContentChecksum:  ca6c6987cf6eb7b83b19617161a5915d6dcff0af4d53de98dda076ca554ec9b3
+Date:  2026-07-11 15:09:04 +0000
+
+    Update runtime to 6.11, update components (#70) (6c8262be2a3c)
+
+    Name: org.mixxx.Mixxx
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jul 11 16:01:02 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

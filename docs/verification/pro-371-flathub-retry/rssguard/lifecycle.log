@@ -1,0 +1,63 @@
+=== 2026-11-27T10:24:40+00:00 rssguard install ===
+rssguard before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+rssguard JobFinished: Ok("Flathub app installed")
+rssguard after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/replay-evidence/native-rssguard-icon.png: PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced
+4bfb345af285c8e3cf5a7a22138c28bf8b5d36a497ae29d06a5c62e7331bbd94  /var/tmp/shift-flatpak-desktop.eAG7lgtR/replay-evidence/native-rssguard-icon.png
+io.github.martinrotter.rssguard/x86_64/stable	flathub	69e101bb6d83	user	5.3.0
+TIMING rssguard install 46679 ms
+
+=== 2026-11-27T10:25:26+00:00 rssguard prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/io.github.martinrotter.rssguard/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+io.github.martinrotter.rssguard/x86_64/stable	flathub	198a09f141e1	user	5.3.0
+rssguard before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8", package: Some("io.github.martinrotter.rssguard"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: false, can_open: true }
+rssguard JobFinished: Err("Approved action rejected: native installation state changed")
+rssguard JobFinished: Err("This Flatpak is managed outside the launcher")
+rssguard after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8", package: Some("io.github.martinrotter.rssguard"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: false, can_open: true })
+TIMING rssguard prior 5845 ms
+
+=== 2026-11-27T10:25:32+00:00 rssguard open ===
+dbus-daemon[2705242]: [session uid=1000 pid=2705242 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2705277 comm="/usr/bin/xfwm4 --compositor=off --display=:543" label="unconfined")
+dbus-daemon[2705242]: [session uid=1000 pid=2705242 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2705291]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2705277 comm="/usr/bin/xfwm4 --compositor=off --display=:543" label="unconfined")
+dbus-daemon[2705242]: [session uid=1000 pid=2705242 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2705277 comm="/usr/bin/xfwm4 --compositor=off --display=:543" label="unconfined")
+dbus-daemon[2705242]: [session uid=1000 pid=2705242 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2705291]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+rssguard before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true }
+rssguard JobFinished: Ok("Launch request accepted")
+rssguard after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true })
+TIMING rssguard open-previous 12574 ms
+
+(xfconfd:2705298): xfconfd-WARNING **: 10:25:47.087: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING rssguard open 15137 ms
+
+=== 2026-11-27T10:25:47+00:00 rssguard update-remove ===
+rssguard before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: true, can_remove: true, can_open: true }
+rssguard JobFinished: Ok("Flathub app updated")
+rssguard after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: true, can_open: true })
+TIMING rssguard update 7239 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/.var/app/io.github.martinrotter.rssguard/shift-profile-marker: OK
+dbus-daemon[2706625]: [session uid=1000 pid=2706625 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2706648 comm="/usr/bin/xfwm4 --compositor=off --display=:426" label="unconfined")
+dbus-daemon[2706625]: [session uid=1000 pid=2706625 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2706662]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2706648 comm="/usr/bin/xfwm4 --compositor=off --display=:426" label="unconfined")
+dbus-daemon[2706625]: [session uid=1000 pid=2706625 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2706648 comm="/usr/bin/xfwm4 --compositor=off --display=:426" label="unconfined")
+dbus-daemon[2706662]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2706625]: [session uid=1000 pid=2706625 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+rssguard before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: true, can_open: true }
+rssguard JobFinished: Ok("Launch request accepted")
+rssguard after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: true, can_open: true })
+TIMING rssguard open-current 11852 ms
+
+(xfconfd:2706669): xfconfd-WARNING **: 10:26:07.739: Name org.xfce.Xfconf lost on the message dbus, exiting.
+rssguard before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/data/flatpak/app/io.github.martinrotter.rssguard/x86_64/stable/69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2", package: Some("io.github.martinrotter.rssguard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.0"), update_available: false, can_remove: true, can_open: true }
+rssguard JobFinished: Ok("Flathub app removed")
+rssguard after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING rssguard remove 4724 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/rssguard/home/.var/app/io.github.martinrotter.rssguard/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING rssguard update-remove 25484 ms

@@ -1,0 +1,3 @@
+WM_CLASS = orca-slicer OrcaSlicer
+42
+Untitled - OrcaSlicer

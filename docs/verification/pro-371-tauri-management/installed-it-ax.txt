@@ -1,0 +1,52 @@
+App=shiftanything-tauri-proof (pid 20969)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) COLLEGA AGENTE · MCP
+				9 button (disabled) Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 button LE MIE APP
+			13 toggle button (disabled) SH*FTER, Value: 0
+			14 toggle button (disabled) TROVA APP, Value: 0
+			15 toggle button (disabled) KIT DI LAVORO, Value: 0
+			16 search text field (disabled, settable) Cerca app, categoria o alternativa…
+				17 text Cerca app, categoria o alternativa…
+			18 toggle button (disabled) Vista schede, Value: 1
+			19 toggle button (disabled) Vista tabella, Value: 0
+			20 button AGGIORNAMENTI
+			1200 container
+				1201 heading Le mie app
+				1202 button CERCA AGGIORNAMENTI
+				1203 button AGGIORNA TUTTE
+				1204 heading Aggiornamenti · 1
+				1205 text APP
+				1206 text VERSIONE
+				1207 text DISPONIBILE
+				1208 text STATO
+				1209 text AZIONI
+				1210 text Handy
+				1211 text 0.10.1
+				1212 text 0.10.2
+				1213 text Installata
+				1214 button AGGIORNA
+				1215 button APRI
+				1216 button SCHEDA
+				1217 button RIMUOVI
+				1218 heading Installate · 0
+				1219 text APP
+				1220 text VERSIONE
+				1221 text DISPONIBILE
+				1222 text STATO
+				1223 text AZIONI
+				1224 text Nessuna app installata nel profilo.
+			1225 container, Text: PROFILO TEMPORANEO · RUST 336 · MACOS/ARM64 · 20 STATI RILEVATI · Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica
+
+No UI element is currently focused.

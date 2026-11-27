@@ -1,0 +1,19 @@
+commit 8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39
+Parent:  ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e
+ContentChecksum:  faa7b162a1ff0c7a3bbb13cacc68ea7e03462bc9470a12a1e9651e7757708f7b
+Date:  2026-11-13 10:10:38 +0000
+
+    Update to KDE Runtime 6.11 (23acce4484c6)
+
+    Name: org.kde.glaxnimate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 11:03:27 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

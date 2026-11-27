@@ -1,0 +1,1207 @@
+App=shiftanything-tauri-proof (pid 54288)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) CONNECT AGENT · MCP
+				9 button (disabled) Settings
+			10 toggle button CATALOG, Value: 1
+			11 toggle button FAVORITES, Value: 0
+			12 container (disabled) Read-only proof
+				13 text (disabled) MY APPS
+			14 toggle button (disabled) SH*FTER, Value: 0
+			15 toggle button (disabled) FIND APPS, Value: 0
+			16 toggle button (disabled) WORK KITS, Value: 0
+			17 search text field (settable) Find apps, categories or alternatives…
+				18 text Find apps, categories or alternatives…
+			19 toggle button Card view, Value: 1
+			20 toggle button Table view, Value: 0
+			21 button (disabled) UPDATES
+			22 container Categories
+				23 toggle button All apps 298, Value: 1
+				24 toggle button Office and PDF 34, Value: 0
+				25 toggle button Photo and images 22, Value: 0
+				26 toggle button Design and 3D 25, Value: 0
+				27 toggle button Audio, video and animation 42, Value: 0
+				28 toggle button Voice and meetings 3, Value: 0
+				29 toggle button Communication 20, Value: 0
+				30 toggle button Coding and agents 15, Value: 0
+				31 toggle button Reverse engineering 3, Value: 0
+				32 toggle button AI assistants 16, Value: 0
+				33 toggle button Defensive security 4, Value: 0
+				34 toggle button Monitoring 3, Value: 0
+				35 toggle button System and files 29, Value: 0
+				36 toggle button Networking 4, Value: 0
+				37 toggle button Data and analytics 3, Value: 0
+				38 toggle button Backup and recovery 8, Value: 0
+				39 toggle button Accounting and invoicing 7, Value: 0
+				40 toggle button CRM and ERP 5, Value: 0
+				41 toggle button E-commerce 3, Value: 0
+				42 toggle button Projects and tasks 9, Value: 0
+				43 toggle button Notes and wikis 11, Value: 0
+				44 toggle button Architecture, CAD and BIM 8, Value: 0
+				45 toggle button Mapping and GIS 6, Value: 0
+				46 toggle button Accessibility and reading 5, Value: 0
+				47 toggle button Education and science 13, Value: 0
+			48 container
+				49 heading All apps298 apps
+				50 toggle button ALL, Value: 1
+				51 toggle button BASIC, Value: 0
+				52 toggle button ADVANCED, Value: 0
+				53 container
+					54 text Publisher
+					55 pop up button Publisher, Value: All publishers
+				56 container
+					57 text Categories
+					58 pop up button Categories, Value: All categories
+				59 container
+					60 text Sort by
+					61 pop up button Sort by, Value: Featured
+				62 button RESET FILTERS
+				63 text PhotoCraft
+				64 text ArtCraft
+				65 link 81,662 · GitHub stars · 2026-11-26
+					66 text ★ 81.7k
+				67 link GitHub
+					68 text GitHub
+				69 text Image editing
+				70 toggle button Save to favorites · PhotoCraft, Value: 0
+				71 button View app · PhotoCraft
+				72 text DESKTOP APP
+				73 link MCP AVAILABLE
+					74 text MCP AVAILABLE
+				75 container Documented platforms
+					76 image macOS
+					77 image Windows
+					78 image Linux
+				79 text Alternative to ·
+				80 text Adobe Photoshop
+				81 text Last updated
+				82 text 12 Nov 2026
+				83 text Download size
+				84 text 274.2 MB · macOS
+				85 button (disabled) INSTALL
+				86 button VIEW APP
+				87 text Handy
+				88 text CJ Pais
+				89 link 40,336 · GitHub stars · 2026-11-26
+					90 text ★ 40.3k
+				91 link GitHub
+					92 text GitHub
+				93 text Local voice dictation
+				94 toggle button Save to favorites · Handy, Value: 0
+				95 button View app · Handy
+				96 text DESKTOP APP
+				97 link CLI CONTROL
+					98 text CLI CONTROL
+				99 container Documented platforms
+					100 image macOS
+					101 image Windows
+					102 image Linux
+				103 text Alternative to ·
+				104 text Wispr Flow
+				105 text Last updated
+				106 text 24 Nov 2026
+				107 text Download size
+				108 text 15–15.3 MB · macOS
+				109 button (disabled) INSTALL
+				110 button VIEW APP
+				111 text Meetily Community
+				112 text Zackriya Solutions
+				113 link 33,084 · GitHub stars · 2026-11-26
+					114 text ★ 33.1k
+				115 link GitHub
+					116 text GitHub
+				117 text Transcribe and summarize meetings on your device
+				118 toggle button Save to favorites · Meetily Community, Value: 0
+				119 button View app · Meetily Community
+				120 text DESKTOP APP
+				121 text CONTROL UNVERIFIED
+				122 container Documented platforms
+					123 image macOS
+					124 image Windows
+					125 image Linux
+				126 text Alternative to ·
+				127 text Granola, Otter.ai, Fireflies.ai
+				128 text Last updated
+				129 text 14 Nov 2026
+				130 text Download size
+				131 text 48.1 MB · macOS
+				132 button (disabled) INSTALL
+				133 button VIEW APP
+				134 text Rizzo-PII
+				135 text Rizzo AI Academy
+				136 link 1,308 · GitHub stars · 2026-11-26
+					137 text ★ 1.3k
+				138 link GitHub
+					139 text GitHub
+				140 text Redact personal data in documents and images with local OCR
+				141 toggle button Save to favorites · Rizzo-PII, Value: 0
+				142 button View app · Rizzo-PII
+				143 text DESKTOP APP
+				144 link API CONTROL
+					145 text API CONTROL
+				146 container Documented platforms
+					147 image macOS
+					148 image Windows
+					149 image Linux
+				150 text Alternative to ·
+				151 text Adobe Acrobat Pro, Ollama OCR
+				152 text Last updated
+				153 text 16 Nov 2026
+				154 text Download size
+				155 text 197.2–1347.6 MB · macOS
+				156 button (disabled) INSTALL
+				157 button VIEW APP
+				158 text NormCap
+				159 text dynobo
+				160 link 2,782 · GitHub stars · 2026-11-26
+					161 text ★ 2.8k
+				162 link GitHub
+					163 text GitHub
+				164 text Copy text from a screen region with local OCR
+				165 toggle button Save to favorites · NormCap, Value: 0
+				166 button View app · NormCap
+				167 text DESKTOP APP
+				168 text CONTROL UNVERIFIED
+				169 container Documented platforms
+					170 image macOS
+					171 image Windows
+					172 image Linux
+				173 text Alternative to ·
+				174 text TextSniper, macOS Live Text
+				175 text Last updated
+				176 text 31 Aug 2025
+				177 text Download size
+				178 text 76–76.4 MB · macOS
+				179 button (disabled) INSTALL
+				180 button VIEW APP
+				181 text LibreOffice
+				182 text The Document Foundation
+				183 link 2,934,786 · Flathub installs · 2026-11-26
+					184 text 2.9M Flathub
+				185 link Code
+					186 text Code
+				187 text Documents, spreadsheets and presentations
+				188 toggle button Save to favorites · LibreOffice, Value: 0
+				189 button View app · LibreOffice
+				190 text DESKTOP APP
+				191 link CLI CONTROL
+					192 text CLI CONTROL
+				193 container Documented platforms
+					194 image macOS
+					195 image Windows
+					196 image Linux
+				197 text Alternative to ·
+				198 text Microsoft 365
+				199 text Last updated
+				200 text 13 Nov 2026
+				201 text Download size
+				202 text 331.1 MB · Linux · Flatpak
+				203 button (disabled) INSTALL
+				204 button VIEW APP
+				205 text Joplin
+				206 text Laurent Cozic e collaboratori
+				207 link 57,370 · GitHub stars · 2026-11-26
+					208 text ★ 57.4k
+				209 link GitHub
+					210 text GitHub
+				211 text Collect notes, notebooks and pages clipped from the web
+				212 toggle button Save to favorites · Joplin, Value: 0
+				213 button View app · Joplin
+				214 text DESKTOP APP
+				215 link API CONTROL
+					216 text API CONTROL
+				217 container Documented platforms
+					218 image macOS
+					219 image Windows
+					220 image Linux
+				221 text Alternative to ·
+				222 text Evernote, Microsoft OneNote
+				223 text Last updated
+				224 text 19 Nov 2026
+				225 text Download size
+				226 text 209.1–212.1 MB · macOS
+				227 button (disabled) INSTALL
+				228 button VIEW APP
+				229 text draw.io Desktop
+				230 text JGraph
+				231 link 64,166 · GitHub stars · 2026-11-26
+					232 text ★ 64.2k
+				233 link GitHub
+					234 text GitHub
+				235 text Draw diagrams and flowcharts offline
+				236 toggle button Save to favorites · draw.io Desktop, Value: 0
+				237 button View app · draw.io Desktop
+				238 text DESKTOP APP
+				239 text CONTROL UNVERIFIED
+				240 container Documented platforms
+					241 image macOS
+					242 image Windows
+					243 image Linux
+				244 text Alternative to ·
+				245 text Microsoft Visio, Lucidchart
+				246 text Last updated
+				247 text 17 Nov 2026
+				248 text Download size
+				249 text 158.9–260.8 MB · macOS
+				250 button (disabled) INSTALL
+				251 button VIEW APP
+				252 text Orca
+				253 text Stably
+				254 link 140,072 · GitHub stars · 2026-11-26
+					255 text ★ 140.1k
+				256 link GitHub
+					257 text GitHub
+				258 text Manage Claude Code, Codex and other agents
+				259 toggle button Save to favorites · Orca, Value: 0
+				260 button View app · Orca
+				261 text DESKTOP APP
+				262 link CLI CONTROL
+					263 text CLI CONTROL
+				264 container Documented platforms
+					265 image macOS
+					266 image Windows
+					267 image Linux
+				268 text Alternative to ·
+				269 text Conductor, Cursor
+				270 text Last updated
+				271 text 26 Nov 2026
+				272 text Download size
+				273 text 305.3–314 MB · macOS
+				274 button (disabled) INSTALL
+				275 button VIEW APP
+				276 text Craft Anything
+				277 text ArtCraft
+				278 link 44,016 · GitHub stars · 2026-11-26
+					279 text ★ 44.0k
+				280 link GitHub
+					281 text GitHub
+				282 text Software behavior analysis and documentation
+				283 toggle button Save to favorites · Craft Anything, Value: 0
+				284 button View app · Craft Anything
+				285 text DESKTOP APP
+				286 link MCP AVAILABLE
+					287 text MCP AVAILABLE
+				288 container Documented platforms
+					289 image macOS
+					290 image Windows
+					291 image Linux
+				292 text Last updated
+				293 text 12 Nov 2026
+				294 text Download size
+				295 text 135.6 MB · macOS
+				296 button (disabled) INSTALL
+				297 button VIEW APP
+				298 text T3 Code
+				299 text T3 Tools
+				300 link 80,664 · GitHub stars · 2026-11-26
+					301 text ★ 80.7k
+				302 link GitHub
+					303 text GitHub
+				304 text One workspace for Claude Code and Codex
+				305 toggle button Save to favorites · T3 Code, Value: 0
+				306 button View app · T3 Code
+				307 text DESKTOP APP
+				308 link MCP AVAILABLE
+					309 text MCP AVAILABLE
+				310 container Documented platforms
+					311 image macOS
+					312 image Windows
+					313 image Linux
+				314 text Alternative to ·
+				315 text Conductor
+				316 text Last updated
+				317 text 25 Nov 2026
+				318 text Download size
+				319 text 152.1–245.6 MB · macOS
+				320 button (disabled) INSTALL
+				321 button VIEW APP
+				322 text Kdenlive
+				323 text KDE
+				324 link 1,894,402 · Flathub installs · 2026-11-26
+					325 text 1.9M Flathub
+				326 link Code
+					327 text Code
+				328 text Multitrack video editing
+				329 toggle button Save to favorites · Kdenlive, Value: 0
+				330 button View app · Kdenlive
+				331 text DESKTOP APP
+				332 text CONTROL UNVERIFIED
+				333 container Documented platforms
+					334 image macOS
+					335 image Windows
+					336 image Linux
+				337 text Alternative to ·
+				338 text Adobe Premiere Pro
+				339 text Last updated
+				340 text 5 Nov 2026
+				341 text Download size
+				342 text 109.1 MB · Linux · Flatpak
+				343 button (disabled) INSTALL
+				344 button VIEW APP
+				345 text SoundCraft
+				346 text ArtCraft
+				347 link 4,578 · GitHub stars · 2026-11-26
+					348 text ★ 4.6k
+				349 link GitHub
+					350 text GitHub
+				351 text Recording, editing and mixing audio
+				352 toggle button Save to favorites · SoundCraft, Value: 0
+				353 button View app · SoundCraft
+				354 text DESKTOP APP
+				355 link MCP AVAILABLE
+					356 text MCP AVAILABLE
+				357 container Documented platforms
+					358 image macOS
+					359 image Windows
+					360 image Linux
+				361 text Alternative to ·
+				362 text Avid Pro Tools
+				363 text Last updated
+				364 text 12 Nov 2026
+				365 text Download size
+				366 text 31.4 MB · macOS
+				367 button (disabled) INSTALL
+				368 button VIEW APP
+				369 text Doop
+				370 text Kevin Goedecke · Community
+				371 link 2,337 · GitHub stars · 2026-11-26
+					372 text ★ 2.3k
+				373 link GitHub
+					374 text GitHub
+				375 text Collaborative design canvas for people and agents
+				376 toggle button Save to favorites · Doop, Value: 0
+				377 button View app · Doop
+				378 text DESKTOP APP
+				379 link MCP AVAILABLE
+					380 text MCP AVAILABLE
+				381 container Documented platforms
+					382 image macOS
+					383 image Windows
+					384 image Linux
+				385 text Alternative to ·
+				386 text Paper, Figma
+				387 text Last updated
+				388 text 25 Nov 2026
+				389 text Download size
+				390 text 272.2 MB · macOS
+				391 button (disabled) INSTALL
+				392 button VIEW APP
+				393 text SolidCraft
+				394 text Tangency Labs
+				395 link 18,473 · GitHub stars · 2026-11-26
+					396 text ★ 18.5k
+				397 link GitHub
+					398 text GitHub
+				399 text Parametric 3D CAD
+				400 toggle button Save to favorites · SolidCraft, Value: 0
+				401 button View app · SolidCraft
+				402 text DESKTOP APP
+				403 link MCP AVAILABLE
+					404 text MCP AVAILABLE
+				405 container Documented platforms
+					406 image macOS
+					407 image Windows
+					408 image Linux
+				409 text Alternative to ·
+				410 text SolidWorks
+				411 text Last updated
+				412 text 26 Nov 2026
+				413 text Download size
+				414 text 526.6 MB · macOS
+				415 button (disabled) INSTALL
+				416 button VIEW APP
+				417 text OpenMausBot
+				418 text Milind Soni e contributori
+				419 link 28,093 · GitHub stars · 2026-11-26
+					420 text ★ 28.1k
+				421 link GitHub
+					422 text GitHub
+				423 text Chat with a team of AI assistants
+				424 toggle button Save to favorites · OpenMausBot, Value: 0
+				425 button View app · OpenMausBot
+				426 text DESKTOP APP
+				427 link MCP AVAILABLE
+					428 text MCP AVAILABLE
+				429 container Documented platforms
+					430 image macOS
+					431 image Windows
+					432 image Linux
+				433 text Alternative to ·
+				434 text Grok Bot
+				435 text Last updated
+				436 text 26 Nov 2026
+				437 text Download size
+				438 text 329–347 MB · macOS
+				439 button (disabled) INSTALL
+				440 button VIEW APP
+				441 text Wazuh
+				442 text Wazuh
+				443 link 17,919 · GitHub stars · 2026-11-26
+					444 text ★ 17.9k
+				445 link GitHub
+					446 text GitHub
+				447 text Defensive endpoint and event monitoring
+				448 toggle button Save to favorites · Wazuh, Value: 0
+				449 button View app · Wazuh
+				450 text SELF-HOSTED
+				451 link API CONTROL
+					452 text API CONTROL
+				453 text Alternative to ·
+				454 text Splunk Enterprise Security
+				455 text Last updated
+				456 text 25 Nov 2026
+				457 text Download size
+				458 text Not listed
+				459 button (disabled) INSTALL
+				460 button VIEW APP
+				461 text Uptime Kuma
+				462 text Louis Lam
+				463 link 94,925 · GitHub stars · 2026-11-26
+					464 text ★ 94.9k
+				465 link GitHub
+					466 text GitHub
+				467 text Monitor uptime, latency and expirations
+				468 toggle button Save to favorites · Uptime Kuma, Value: 0
+				469 button View app · Uptime Kuma
+				470 text SELF-HOSTED
+				471 text CONTROL UNVERIFIED
+				472 text Alternative to ·
+				473 text Pingdom, UptimeRobot
+				474 text Last updated
+				475 text 17 Nov 2026
+				476 text Download size
+				477 text Not listed
+				478 button (disabled) INSTALL
+				479 button VIEW APP
+				480 text Ghidra
+				481 text NSA
+				482 link 101,435 · GitHub stars · 2026-11-26
+					483 text ★ 101.4k
+				484 link GitHub
+					485 text GitHub
+				486 text Understand and document compiled software
+				487 toggle button Save to favorites · Ghidra, Value: 0
+				488 button View app · Ghidra
+				489 text DESKTOP APP
+				490 link CLI CONTROL
+					491 text CLI CONTROL
+				492 container Documented platforms
+					493 image macOS
+					494 image Windows
+					495 image Linux
+				496 text Alternative to ·
+				497 text IDA Pro
+				498 text Last updated
+				499 text 22 Oct 2026
+				500 text Download size
+				501 text Not listed
+				502 button (disabled) INSTALL
+				503 button VIEW APP
+				504 text VectorCraft
+				505 text ArtCraft
+				506 link 12,122 · GitHub stars · 2026-11-26
+					507 text ★ 12.1k
+				508 link GitHub
+					509 text GitHub
+				510 text Vector illustration
+				511 toggle button Save to favorites · VectorCraft, Value: 0
+				512 button View app · VectorCraft
+				513 text DESKTOP APP
+				514 link MCP AVAILABLE
+					515 text MCP AVAILABLE
+				516 container Documented platforms
+					517 image macOS
+					518 image Windows
+					519 image Linux
+				520 text Alternative to ·
+				521 text Adobe Illustrator
+				522 text Last updated
+				523 text 12 Nov 2026
+				524 text Download size
+				525 text 178.4 MB · macOS
+				526 button (disabled) INSTALL
+				527 button VIEW APP
+				528 text FilmCraft
+				529 text ArtCraft
+				530 link 19,071 · GitHub stars · 2026-11-26
+					531 text ★ 19.1k
+				532 link GitHub
+					533 text GitHub
+				534 text Video editing, color and sound
+				535 toggle button Save to favorites · FilmCraft, Value: 0
+				536 button View app · FilmCraft
+				537 text DESKTOP APP
+				538 link MCP AVAILABLE
+					539 text MCP AVAILABLE
+				540 container Documented platforms
+					541 image macOS
+					542 image Windows
+					543 image Linux
+				544 text Alternative to ·
+				545 text Adobe Premiere Pro
+				546 text Last updated
+				547 text 12 Nov 2026
+				548 text Download size
+				549 text 118.8 MB · macOS
+				550 button (disabled) INSTALL
+				551 button VIEW APP
+				552 text LightCraft
+				553 text ArtCraft
+				554 link 16,446 · GitHub stars · 2026-11-26
+					555 text ★ 16.4k
+				556 link GitHub
+					557 text GitHub
+				558 text Photo library and raw development
+				559 toggle button Save to favorites · LightCraft, Value: 0
+				560 button View app · LightCraft
+				561 text DESKTOP APP
+				562 link MCP AVAILABLE
+					563 text MCP AVAILABLE
+				564 container Documented platforms
+					565 image macOS
+					566 image Windows
+					567 image Linux
+				568 text Alternative to ·
+				569 text Adobe Lightroom
+				570 text Last updated
+				571 text 12 Nov 2026
+				572 text Download size
+				573 text 127.3 MB · macOS
+				574 button (disabled) INSTALL
+				575 button VIEW APP
+				576 text PdfCraft
+				577 text ArtCraft
+				578 link 21,854 · GitHub stars · 2026-11-26
+					579 text ★ 21.9k
+				580 link GitHub
+					581 text GitHub
+				582 text Reading, organizing and protecting PDFs
+				583 toggle button Save to favorites · PdfCraft, Value: 0
+				584 button View app · PdfCraft
+				585 text DESKTOP APP
+				586 link MCP AVAILABLE
+					587 text MCP AVAILABLE
+				588 container Documented platforms
+					589 image macOS
+					590 image Windows
+					591 image Linux
+				592 text Alternative to ·
+				593 text Adobe Acrobat
+				594 text Last updated
+				595 text 23 Nov 2026
+				596 text Download size
+				597 text 145.8 MB · macOS
+				598 button (disabled) INSTALL
+				599 button VIEW APP
+				600 text EffectCraft
+				601 text ArtCraft
+				602 link 9,253 · GitHub stars · 2026-11-26
+					603 text ★ 9.3k
+				604 link GitHub
+					605 text GitHub
+				606 text Motion graphics and visual effects
+				607 toggle button Save to favorites · EffectCraft, Value: 0
+				608 button View app · EffectCraft
+				609 text DESKTOP APP
+				610 link MCP AVAILABLE
+					611 text MCP AVAILABLE
+				612 container Documented platforms
+					613 image macOS
+					614 image Windows
+					615 image Linux
+				616 text Alternative to ·
+				617 text Adobe After Effects
+				618 text Last updated
+				619 text 23 Nov 2026
+				620 text Download size
+				621 text 90.5 MB · macOS
+				622 button (disabled) INSTALL
+				623 button VIEW APP
+				624 text AniCraft
+				625 text ArtCraft
+				626 link 547 · GitHub stars · 2026-11-26
+					627 text ★ 547
+				628 link GitHub
+					629 text GitHub
+				630 text 2D vector animation
+				631 toggle button Save to favorites · AniCraft, Value: 0
+				632 button View app · AniCraft
+				633 text DESKTOP APP
+				634 link MCP AVAILABLE
+					635 text MCP AVAILABLE
+				636 container Documented platforms
+					637 image macOS
+					638 image Windows
+					639 image Linux
+				640 text Alternative to ·
+				641 text Adobe Animate
+				642 text Last updated
+				643 text 12 Nov 2026
+				644 text Download size
+				645 text 35.7 MB · macOS
+				646 button (disabled) INSTALL
+				647 button VIEW APP
+				648 text DesignCraft
+				649 text ArtCraft
+				650 link 5,406 · GitHub stars · 2026-11-26
+					651 text ★ 5.4k
+				652 link GitHub
+					653 text GitHub
+				654 text Page layout and publishing
+				655 toggle button Save to favorites · DesignCraft, Value: 0
+				656 button View app · DesignCraft
+				657 text DESKTOP APP
+				658 link MCP AVAILABLE
+					659 text MCP AVAILABLE
+				660 container Documented platforms
+					661 image macOS
+					662 image Windows
+					663 image Linux
+				664 text Alternative to ·
+				665 text Adobe InDesign
+				666 text Last updated
+				667 text 23 Nov 2026
+				668 text Download size
+				669 text 276.9 MB · macOS
+				670 button (disabled) INSTALL
+				671 button VIEW APP
+				672 text FigCraft
+				673 text ArtCraft
+				674 link 5,442 · GitHub stars · 2026-11-26
+					675 text ★ 5.4k
+				676 link GitHub
+					677 text GitHub
+				678 text Interface design and prototyping
+				679 toggle button Save to favorites · FigCraft, Value: 0
+				680 button View app · FigCraft
+				681 text DESKTOP APP
+				682 link MCP AVAILABLE
+					683 text MCP AVAILABLE
+				684 container Documented platforms
+					685 image macOS
+					686 image Windows
+					687 image Linux
+				688 text Alternative to ·
+				689 text Figma
+				690 text Last updated
+				691 text 12 Nov 2026
+				692 text Download size
+				693 text 111.6 MB · macOS
+				694 button (disabled) INSTALL
+				695 button VIEW APP
+				696 text WordCraft
+				697 text ArtCraft
+				698 link 18,614 · GitHub stars · 2026-11-26
+					699 text ★ 18.6k
+				700 link GitHub
+					701 text GitHub
+				702 text Writing and document design
+				703 toggle button Save to favorites · WordCraft, Value: 0
+				704 button View app · WordCraft
+				705 text DESKTOP APP
+				706 link MCP AVAILABLE
+					707 text MCP AVAILABLE
+				708 container Documented platforms
+					709 image macOS
+					710 image Windows
+					711 image Linux
+				712 text Alternative to ·
+				713 text Microsoft Word
+				714 text Last updated
+				715 text 25 Nov 2026
+				716 text Download size
+				717 text 144.5 MB · macOS
+				718 button (disabled) INSTALL
+				719 button VIEW APP
+				720 text DeckCraft
+				721 text ArtCraft
+				722 link 4,980 · GitHub stars · 2026-11-26
+					723 text ★ 5.0k
+				724 link GitHub
+					725 text GitHub
+				726 text Presentations and slide shows
+				727 toggle button Save to favorites · DeckCraft, Value: 0
+				728 button View app · DeckCraft
+				729 text DESKTOP APP
+				730 link MCP AVAILABLE
+					731 text MCP AVAILABLE
+				732 container Documented platforms
+					733 image macOS
+					734 image Windows
+					735 image Linux
+				736 text Alternative to ·
+				737 text Microsoft PowerPoint
+				738 text Last updated
+				739 text 25 Nov 2026
+				740 text Download size
+				741 text 114.5 MB · macOS
+				742 button (disabled) INSTALL
+				743 button VIEW APP
+				744 text CADCraft
+				745 text ArtCraft
+				746 link 8,519 · GitHub stars · 2026-11-26
+					747 text ★ 8.5k
+				748 link GitHub
+					749 text GitHub
+				750 text Computer-aided design and drafting
+				751 toggle button Save to favorites · CADCraft, Value: 0
+				752 button View app · CADCraft
+				753 text DESKTOP APP
+				754 link MCP AVAILABLE
+					755 text MCP AVAILABLE
+				756 container Documented platforms
+					757 image macOS
+					758 image Windows
+					759 image Linux
+				760 text Alternative to ·
+				761 text AutoCAD
+				762 text Last updated
+				763 text 12 Nov 2026
+				764 text Download size
+				765 text 84.8 MB · macOS
+				766 button (disabled) INSTALL
+				767 button VIEW APP
+				768 text GridCraft
+				769 text ArtCraft
+				770 link 7,835 · GitHub stars · 2026-11-26
+					771 text ★ 7.8k
+				772 link GitHub
+					773 text GitHub
+				774 text Spreadsheets and data
+				775 toggle button Save to favorites · GridCraft, Value: 0
+				776 button View app · GridCraft
+				777 text DESKTOP APP
+				778 link MCP AVAILABLE
+					779 text MCP AVAILABLE
+				780 container Documented platforms
+					781 image macOS
+					782 image Windows
+					783 image Linux
+				784 text Alternative to ·
+				785 text Microsoft Excel
+				786 text Last updated
+				787 text 12 Nov 2026
+				788 text Download size
+				789 text 86.7 MB · macOS
+				790 button (disabled) INSTALL
+				791 button VIEW APP
+				792 text TextureCraft
+				793 text ArtCraft
+				794 link 762 · GitHub stars · 2026-11-26
+					795 text ★ 762
+				796 link GitHub
+					797 text GitHub
+				798 text 3D texture painting
+				799 toggle button Save to favorites · TextureCraft, Value: 0
+				800 button View app · TextureCraft
+				801 text DESKTOP APP
+				802 link MCP AVAILABLE
+					803 text MCP AVAILABLE
+				804 container Documented platforms
+					805 image macOS
+					806 image Windows
+					807 image Linux
+				808 text Alternative to ·
+				809 text Adobe Substance 3D Painter
+				810 text Last updated
+				811 text 12 Nov 2026
+				812 text Download size
+				813 text 65.1 MB · macOS
+				814 button (disabled) INSTALL
+				815 button VIEW APP
+				816 text MailCraft
+				817 text UCS Labs
+				818 link 933 · GitHub stars · 2026-11-26
+					819 text ★ 933
+				820 link GitHub
+					821 text GitHub
+				822 text Mail, calendar and contacts
+				823 toggle button Save to favorites · MailCraft, Value: 0
+				824 button View app · MailCraft
+				825 text DESKTOP APP
+				826 link MCP AVAILABLE
+					827 text MCP AVAILABLE
+				828 container Documented platforms
+					829 image macOS
+					830 image Windows
+					831 image Linux
+				832 text Alternative to ·
+				833 text Microsoft Outlook
+				834 text Last updated
+				835 text 22 Nov 2026
+				836 text Download size
+				837 text 53.3 MB · macOS
+				838 button (disabled) INSTALL
+				839 button VIEW APP
+				840 text Paseo
+				841 text Mohamed Boudra
+				842 link 25,674 · GitHub stars · 2026-11-26
+					843 text ★ 25.7k
+				844 link GitHub
+					845 text GitHub
+				846 text Work with coding agents from desktop and phone
+				847 toggle button Save to favorites · Paseo, Value: 0
+				848 button View app · Paseo
+				849 text DESKTOP APP
+				850 link CLI CONTROL
+					851 text CLI CONTROL
+				852 container Documented platforms
+					853 image macOS
+					854 image Windows
+					855 image Linux
+				856 text Alternative to ·
+				857 text Conductor
+				858 text Last updated
+				859 text 26 Nov 2026
+				860 text Download size
+				861 text 190.1–201.7 MB · macOS
+				862 button (disabled) INSTALL
+				863 button VIEW APP
+				864 text OpenCode
+				865 text Anomaly
+				866 link 229,371 · GitHub stars · 2026-11-26
+					867 text ★ 229.4k
+				868 link GitHub
+					869 text GitHub
+				870 text Coding agent with a choice of models
+				871 toggle button Save to favorites · OpenCode, Value: 0
+				872 button View app · OpenCode
+				873 text DESKTOP APP
+				874 link API CONTROL
+					875 text API CONTROL
+				876 container Documented platforms
+					877 image macOS
+					878 image Windows
+					879 image Linux
+				880 text Alternative to ·
+				881 text Cursor, Claude Code
+				882 text Last updated
+				883 text 17 Nov 2026
+				884 text Download size
+				885 text 64.5–157.3 MB · macOS
+				886 button (disabled) INSTALL
+				887 button VIEW APP
+				888 text Cutter
+				889 text RizinOrg
+				890 link 20,273 · GitHub stars · 2026-11-26
+					891 text ★ 20.3k
+				892 link GitHub
+					893 text GitHub
+				894 text Visual analysis of compiled software
+				895 toggle button Save to favorites · Cutter, Value: 0
+				896 button View app · Cutter
+				897 text DESKTOP APP
+				898 text CONTROL UNVERIFIED
+				899 container Documented platforms
+					900 image macOS
+					901 image Windows
+					902 image Linux
+				903 text Alternative to ·
+				904 text IDA Pro, Binary Ninja
+				905 text Last updated
+				906 text 30 Jun 2026
+				907 text Download size
+				908 text 120.4–124.6 MB · macOS
+				909 button (disabled) INSTALL
+				910 button VIEW APP
+				911 text GIMP
+				912 text The GIMP team
+				913 link 3,966,300 · Flathub installs · 2026-11-26
+					914 text 4.0M Flathub
+				915 link Code
+					916 text Code
+				917 text Photo editing, compositing and illustration
+				918 toggle button Save to favorites · GIMP, Value: 0
+				919 button View app · GIMP
+				920 text DESKTOP APP
+				921 link CLI CONTROL
+					922 text CLI CONTROL
+				923 container Documented platforms
+					924 image macOS
+					925 image Windows
+					926 image Linux
+				927 text Alternative to ·
+				928 text Adobe Photoshop
+				929 text Last updated
+				930 text 2 Nov 2026
+				931 text Download size
+				932 text 102.5 MB · Linux · Flatpak
+				933 button (disabled) INSTALL
+				934 button VIEW APP
+				935 text Krita
+				936 text Krita Foundation
+				937 link 1,823,335 · Flathub installs · 2026-11-26
+					938 text 1.8M Flathub
+				939 link Code
+					940 text Code
+				941 text Digital painting and hand-drawn animation
+				942 toggle button Save to favorites · Krita, Value: 0
+				943 button View app · Krita
+				944 text DESKTOP APP
+				945 link API CONTROL
+					946 text API CONTROL
+				947 container Documented platforms
+					948 image macOS
+					949 image Windows
+					950 image Linux
+				951 text Alternative to ·
+				952 text Adobe Photoshop, Procreate
+				953 text Last updated
+				954 text 7 Oct 2026
+				955 text Download size
+				956 text 269.1 MB · Linux · Flatpak
+				957 button (disabled) INSTALL
+				958 button VIEW APP
+				959 text Blender
+				960 text Blender Foundation
+				961 link 1,381,729 · Flathub installs · 2026-11-26
+					962 text 1.4M Flathub
+				963 link Code
+					964 text Code
+				965 text 3D modeling, animation and rendering
+				966 toggle button Save to favorites · Blender, Value: 0
+				967 button View app · Blender
+				968 text DESKTOP APP
+				969 link CLI CONTROL
+					970 text CLI CONTROL
+				971 container Documented platforms
+					972 image macOS
+					973 image Windows
+					974 image Linux
+				975 text Alternative to ·
+				976 text Maya, Cinema 4D
+				977 text Last updated
+				978 text 10 Nov 2026
+				979 text Download size
+				980 text 508.8 MB · Linux · Flatpak
+				981 button (disabled) INSTALL
+				982 button VIEW APP
+				983 text Inkscape
+				984 text The Inkscape Community
+				985 link 1,514,149 · Flathub installs · 2026-11-26
+					986 text 1.5M Flathub
+				987 link Code
+					988 text Code
+				989 text Vector graphics and SVG editing
+				990 toggle button Save to favorites · Inkscape, Value: 0
+				991 button View app · Inkscape
+				992 text DESKTOP APP
+				993 link CLI CONTROL
+					994 text CLI CONTROL
+				995 container Documented platforms
+					996 image macOS
+					997 image Windows
+					998 image Linux
+				999 text Alternative to ·
+				1000 text Adobe Illustrator
+				1001 text Last updated
+				1002 text 6 May 2026
+				1003 text Download size
+				1004 text 98.9 MB · Linux · Flatpak
+				1005 button (disabled) INSTALL
+				1006 button VIEW APP
+				1007 text OBS Studio
+				1008 text OBS Project
+				1009 link 80,186 · GitHub stars · 2026-11-26
+					1010 text ★ 80.2k
+				1011 link GitHub
+					1012 text GitHub
+				1013 text Recording and live streaming
+				1014 toggle button Save to favorites · OBS Studio, Value: 0
+				1015 button View app · OBS Studio
+				1016 text DESKTOP APP
+				1017 link API CONTROL
+					1018 text API CONTROL
+				1019 container Documented platforms
+					1020 image macOS
+					1021 image Windows
+					1022 image Linux
+				1023 text Alternative to ·
+				1024 text XSplit
+				1025 text Last updated
+				1026 text 22 Nov 2026
+				1027 text Download size
+				1028 text 39.3–221.8 MB · macOS
+				1029 button (disabled) INSTALL
+				1030 button VIEW APP
+				1031 text Audacity
+				1032 text Muse Group
+				1033 link 19,188 · GitHub stars · 2026-11-26
+					1034 text ★ 19.2k
+				1035 link GitHub
+					1036 text GitHub
+				1037 text Audio recording and editing
+				1038 toggle button Save to favorites · Audacity, Value: 0
+				1039 button View app · Audacity
+				1040 text DESKTOP APP
+				1041 link API CONTROL
+					1042 text API CONTROL
+				1043 container Documented platforms
+					1044 image macOS
+					1045 image Windows
+					1046 image Linux
+				1047 text Alternative to ·
+				1048 text Adobe Audition
+				1049 text Last updated
+				1050 text 26 May 2026
+				1051 text Download size
+				1052 text 23.7 MB · Linux · Flatpak
+				1053 button (disabled) INSTALL
+				1054 button VIEW APP
+				1055 text VLC
+				1056 text VideoLAN et al.
+				1057 link 6,304,006 · Flathub installs · 2026-11-26
+					1058 text 6.3M Flathub
+				1059 link Code
+					1060 text Code
+				1061 text Video, audio and streaming playback
+				1062 toggle button Save to favorites · VLC, Value: 0
+				1063 button View app · VLC
+				1064 text DESKTOP APP
+				1065 link CLI CONTROL
+					1066 text CLI CONTROL
+				1067 container Documented platforms
+					1068 image macOS
+					1069 image Windows
+					1070 image Linux
+				1071 text Alternative to ·
+				1072 text QuickTime Player
+				1073 text Last updated
+				1074 text 17 Sep 2026
+				1075 text Download size
+				1076 text 58.1 MB · Linux · Flatpak
+				1077 button (disabled) INSTALL
+				1078 button VIEW APP
+				1079 text FreeCAD
+				1080 text The FreeCAD Team
+				1081 link 35,815 · GitHub stars · 2026-11-26
+					1082 text ★ 35.8k
+				1083 link GitHub
+					1084 text GitHub
+				1085 text Parametric CAD modeling
+				1086 toggle button Save to favorites · FreeCAD, Value: 0
+				1087 button View app · FreeCAD
+				1088 text DESKTOP APP
+				1089 link API CONTROL
+					1090 text API CONTROL
+				1091 container Documented platforms
+					1092 image macOS
+					1093 image Windows
+					1094 image Linux
+				1095 text Alternative to ·
+				1096 text SolidWorks, Autodesk Inventor
+				1097 text Last updated
+				1098 text 28 Sep 2026
+				1099 text Download size
+				1100 text 649.8–720.1 MB · macOS
+				1101 button (disabled) INSTALL
+				1102 button VIEW APP
+				1103 text calibre
+				1104 text Kovid Goyal
+				1105 link 26,530 · GitHub stars · 2026-11-26
+					1106 text ★ 26.5k
+				1107 link GitHub
+					1108 text GitHub
+				1109 text Ebook library management and conversion
+				1110 toggle button Save to favorites · calibre, Value: 0
+				1111 button View app · calibre
+				1112 text DESKTOP APP
+				1113 link CLI CONTROL
+					1114 text CLI CONTROL
+				1115 container Documented platforms
+					1116 image macOS
+					1117 image Windows
+					1118 image Linux
+				1119 text Alternative to ·
+				1120 text Adobe Digital Editions
+				1121 text Last updated
+				1122 text 6 Nov 2026
+				1123 text Download size
+				1124 text 352.7 MB · Linux · Flatpak
+				1125 button (disabled) INSTALL
+				1126 button VIEW APP
+				1127 text KeePassXC
+				1128 text KeePassXC Team
+				1129 link 30,203 · GitHub stars · 2026-11-26
+					1130 text ★ 30.2k
+				1131 link GitHub
+					1132 text GitHub
+				1133 text Password manager with a local vault
+				1134 toggle button Save to favorites · KeePassXC, Value: 0
+				1135 button View app · KeePassXC
+				1136 text DESKTOP APP
+				1137 link CLI CONTROL
+					1138 text CLI CONTROL
+				1139 container Documented platforms
+					1140 image macOS
+					1141 image Windows
+					1142 image Linux
+				1143 text Alternative to ·
+				1144 text 1Password
+				1145 text Last updated
+				1146 text 21 Oct 2026
+				1147 text Download size
+				1148 text 47.3–49.8 MB · macOS
+				1149 button (disabled) INSTALL
+				1150 button VIEW APP
+				1151 text Firefox
+				1152 text Mozilla
+				1153 link 13,959 · GitHub stars · 2026-11-26
+					1154 text ★ 14.0k
+				1155 link GitHub
+					1156 text GitHub
+				1157 text Fast, Private & Safe Web Browser
+				1158 toggle button Save to favorites · Firefox, Value: 0
+				1159 button View app · Firefox
+				1160 text DESKTOP APP
+				1161 link API CONTROL
+					1162 text API CONTROL
+				1163 container Documented platforms
+					1164 image macOS
+					1165 image Windows
+					1166 image Linux
+				1167 text Alternative to ·
+				1168 text Google Chrome, Microsoft Edge
+				1169 text Last updated
+				1170 text 18 Nov 2026
+				1171 text Download size
+				1172 text 131.4 MB · Linux · Flatpak
+				1173 button (disabled) INSTALL
+				1174 button VIEW APP
+				1175 text Fractal
+				1176 text The Fractal Team
+				1177 link 104,193 · Flathub installs · 2026-11-26
+					1178 text 104.2k Flathub
+				1179 link Code
+					1180 text Code
+				1181 text Chat on Matrix
+				1182 toggle button Save to favorites · Fractal, Value: 0
+				1183 button View app · Fractal
+				1184 text DESKTOP APP
+				1185 text CONTROL UNVERIFIED
+				1186 container Documented platforms
+					1187 image Linux
+				1188 text Alternative to ·
+				1189 text Slack
+				1190 text Last updated
+				1191 text 26 Oct 2026
+				1192 text Download size
+				1193 text 31.2 MB · Linux · Flatpak
+				1194 button (disabled) INSTALL
+				1195 button VIEW APP
+				1196 text Tokodon
+				1197 text KDE
+				1198 link 40,276 · Flathub installs · 2026-11-26
+					1199 text 40.3k Flathub
+				... 4403 more not shown (snapshot limit)
+			... 1 more not shown (snapshot limit)
+
+The focused UI element is 0 standard window Sh*ftAnything · Tauri proof.

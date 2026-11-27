@@ -25,6 +25,7 @@ param(
   [switch] $SkipBuild
 )
 $ErrorActionPreference = 'Stop'
+throw 'Upstream packaging/signing is disabled in Sh*ftAnything; no credentials are accepted.'
 $Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 
 # ---- app-specific values ----------------------------------------------------------------------

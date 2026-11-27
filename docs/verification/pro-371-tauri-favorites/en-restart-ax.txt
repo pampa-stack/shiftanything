@@ -1,0 +1,126 @@
+App=shiftanything-tauri-proof (pid 6879)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 120 of 1200 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) CONNECT AGENT · MCP
+				9 button (disabled) Settings
+			10 toggle button CATALOG, Value: 1
+			11 toggle button FAVORITES, Value: 0
+			12 container (disabled) Read-only proof
+				13 text (disabled) MY APPS
+			14 toggle button (disabled) SH*FTER, Value: 0
+			15 toggle button (disabled) FIND APPS, Value: 0
+			16 toggle button (disabled) WORK KITS, Value: 0
+			17 search text field (settable) Find apps, categories or alternatives…
+				18 text Find apps, categories or alternatives…
+			19 toggle button Card view, Value: 1
+			20 toggle button Table view, Value: 0
+			21 button (disabled) UPDATES
+			22 container Categories
+				23 toggle button All apps 298, Value: 1
+				24 toggle button Office and PDF 34, Value: 0
+				25 toggle button Photo and images 22, Value: 0
+				26 toggle button Design and 3D 25, Value: 0
+				27 toggle button Audio, video and animation 42, Value: 0
+				28 toggle button Voice and meetings 3, Value: 0
+				29 toggle button Communication 20, Value: 0
+				30 toggle button Coding and agents 15, Value: 0
+				31 toggle button Reverse engineering 3, Value: 0
+				32 toggle button AI assistants 16, Value: 0
+				33 toggle button Defensive security 4, Value: 0
+				34 toggle button Monitoring 3, Value: 0
+				35 toggle button System and files 29, Value: 0
+				36 toggle button Networking 4, Value: 0
+				37 toggle button Data and analytics 3, Value: 0
+				38 toggle button Backup and recovery 8, Value: 0
+				39 toggle button Accounting and invoicing 7, Value: 0
+				40 toggle button CRM and ERP 5, Value: 0
+				41 toggle button E-commerce 3, Value: 0
+				42 toggle button Projects and tasks 9, Value: 0
+				43 toggle button Notes and wikis 11, Value: 0
+				44 toggle button Architecture, CAD and BIM 8, Value: 0
+				45 toggle button Mapping and GIS 6, Value: 0
+				46 toggle button Accessibility and reading 5, Value: 0
+				47 toggle button Education and science 13, Value: 0
+			48 container
+				49 heading All apps298 apps
+				50 toggle button ALL, Value: 1
+				51 toggle button BASIC, Value: 0
+				52 toggle button ADVANCED, Value: 0
+				53 container
+					54 text Publisher
+					55 pop up button Publisher, Value: All publishers
+				56 container
+					57 text Categories
+					58 pop up button Categories, Value: All categories
+				59 container
+					60 text Sort by
+					61 pop up button Sort by, Value: Featured
+				62 button RESET FILTERS
+				63 text PhotoCraft
+				64 text ArtCraft
+				65 link 81,662 · GitHub stars · 2026-11-26
+					66 text ★ 81.7k
+				67 link GitHub
+					68 text GitHub
+				69 text Image editing
+				70 toggle button Save to favorites · PhotoCraft, Value: 0
+				71 button View app · PhotoCraft
+				72 text DESKTOP APP
+				73 link MCP AVAILABLE
+					74 text MCP AVAILABLE
+				75 container Documented platforms
+					76 image macOS
+					77 image Windows
+					78 image Linux
+				79 text Alternative to ·
+				80 text Adobe Photoshop
+				81 text Last updated
+				82 text 12 Nov 2026
+				83 text Download size
+				84 text 274.2 MB · macOS
+				85 button (disabled) INSTALL
+				86 button VIEW APP
+				87 text Handy
+				88 text CJ Pais
+				89 link 40,336 · GitHub stars · 2026-11-26
+					90 text ★ 40.3k
+				91 link GitHub
+					92 text GitHub
+				93 text Local voice dictation
+				94 toggle button Remove from favorites · Handy, Value: 1
+				95 button View app · Handy
+				96 text DESKTOP APP
+				97 link CLI CONTROL
+					98 text CLI CONTROL
+				99 container Documented platforms
+					100 image macOS
+					101 image Windows
+					102 image Linux
+				103 text Alternative to ·
+				104 text Wispr Flow
+				105 text Last updated
+				106 text 24 Nov 2026
+				107 text Download size
+				108 text 15–15.3 MB · macOS
+				109 button (disabled) INSTALL
+				110 button VIEW APP
+				111 text Meetily Community
+				112 text Zackriya Solutions
+				113 link 33,084 · GitHub stars · 2026-11-26
+					114 text ★ 33.1k
+				115 link GitHub
+					116 text GitHub
+				117 text Transcribe and summarize meetings on your device
+				118 toggle button Save to favorites · Meetily Community, Value: 0
+				119 button View app · Meetily Community
+
+The focused UI element is 0 standard window Sh*ftAnything · Tauri proof.

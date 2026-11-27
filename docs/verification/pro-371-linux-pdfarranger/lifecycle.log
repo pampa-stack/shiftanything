@@ -1,0 +1,60 @@
+native-cycle: OK
+
+=== 2026-11-27T06:43:47+00:00 pdfarranger install ===
+pdfarranger before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+pdfarranger JobFinished: Ok("Flathub app installed")
+pdfarranger after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 14, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.14.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.jeromerobert.pdfarranger/x86_64/stable	flathub	09dad0e4d6c3	user	1.14.0
+
+=== 2026-11-27T06:44:20+00:00 pdfarranger prior ===
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/com.github.jeromerobert.pdfarranger/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.jeromerobert.pdfarranger/x86_64/stable	flathub	0e6435e81fe9	user	1.13.0
+pdfarranger before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.0"), update_available: false, can_remove: false, can_open: true }
+pdfarranger JobFinished: Err("Approved action rejected: native installation state changed")
+pdfarranger JobFinished: Err("This Flatpak is managed outside the launcher")
+pdfarranger after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.0"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T06:44:32+00:00 pdfarranger open ===
+dbus-daemon[2343839]: [session uid=1000 pid=2343839 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2343868 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2343839]: [session uid=1000 pid=2343839 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pdfarranger before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.0"), update_available: true, can_remove: true, can_open: true }
+pdfarranger JobFinished: Ok("Launch request accepted")
+pdfarranger after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2343887]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2344081 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2343887]: Successfully activated service 'org.a11y.atspi.Registry'
+
+=== 2026-11-27T06:44:41+00:00 pdfarranger update-remove ===
+pdfarranger before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.0"), update_available: true, can_remove: true, can_open: true }
+pdfarranger JobFinished: Ok("Flathub app updated")
+pdfarranger after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 14, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.14.0"), update_available: false, can_remove: true, can_open: true })
+/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/.var/app/com.github.jeromerobert.pdfarranger/shift-profile-marker: OK
+dbus-daemon[2345180]: [session uid=1000 pid=2345180 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2345205 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2345180]: [session uid=1000 pid=2345180 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pdfarranger before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 14, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.14.0"), update_available: false, can_remove: true, can_open: true }
+pdfarranger JobFinished: Ok("Launch request accepted")
+pdfarranger after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 14, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.14.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2345233]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2345419 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2345233]: Successfully activated service 'org.a11y.atspi.Registry'
+pdfarranger before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 14, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/data/flatpak/app/com.github.jeromerobert.pdfarranger/x86_64/stable/09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a", package: Some("com.github.jeromerobert.pdfarranger"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.14.0"), update_available: false, can_remove: true, can_open: true }
+pdfarranger JobFinished: Ok("Flathub app removed")
+pdfarranger after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/.var/app/com.github.jeromerobert.pdfarranger/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/.var/app/com.github.jeromerobert.pdfarranger/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/50
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/50
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.PNAGoqmm/pdfarranger/home/.var/app/com.github.jeromerobert.pdfarranger/shift-profile-marker: OK
+pdfarranger: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   49G   48G  51% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.8Gi       2.0Gi        77Mi       4.0Gi       5.6Gi
+Swap:          4.0Gi       2.2Gi       1.8Gi

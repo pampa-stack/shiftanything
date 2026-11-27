@@ -1,0 +1,8 @@
+PROOF_ROOT=/tmp/shift-tauri-management-it
+DESKTOP_PID=38384
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+Native catalog requested
+APPROVED ui-1 Uninstall { app: "handy" }
+NATIVE handy: completed: Handy was removed
+Error: "Desktop proof failed"

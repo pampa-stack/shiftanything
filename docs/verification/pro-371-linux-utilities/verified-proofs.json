@@ -1,0 +1,189 @@
+[
+  {
+    "id": "cherrytree",
+    "flatpak": "net.giuspen.cherrytree",
+    "repo": "https://github.com/giuspen/cherrytree",
+    "metadata": {
+      "flathub::verification::website": "giuspen.net",
+      "flathub::verification::login_is_organization": false,
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::timestamp": "1746992632",
+      "flathub::verification::login_name": null,
+      "flathub::verification::login_provider": null
+    },
+    "urls": {
+      "bugtracker": null,
+      "homepage": "https://www.giuspen.net/cherrytree",
+      "help": null,
+      "donation": null,
+      "translate": null,
+      "faq": null,
+      "contact": null,
+      "vcs_browser": "https://github.com/giuspen/cherrytree",
+      "contribute": null
+    },
+    "logo": "https://dl.flathub.org/media/net/giuspen/cherrytree/d827d0baa46298c832e54ddd4e892577/icons/128x128/net.giuspen.cherrytree.png",
+    "verified": true,
+    "license": "GPL-3.0-or-later",
+    "stars": {
+      "count": 4009,
+      "source": "https://github.com/giuspen/cherrytree/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "146db7290d2b169b72cd27a1da7faa690bb02247e6dc244e9dc8b118ff3f0be6",
+    "current": "306d32be9bdb60fea1a0a37e3aa36008690aebf634d84522924f0b82fb0d2f57",
+    "window_search": "cherrytree|cherry.?tree",
+    "previous_version": "b'1.7.2'",
+    "current_version": "b'1.7.3'",
+    "times_ms": {
+      "install": 39587,
+      "prior": 35184,
+      "open-previous": 4470,
+      "open": 8539,
+      "update": 5332,
+      "open-current": 4371,
+      "remove": 3620,
+      "update-remove": 18069
+    },
+    "cycle_ms": 101436
+  },
+  {
+    "id": "foliate",
+    "flatpak": "com.github.johnfactotum.Foliate",
+    "repo": "https://github.com/johnfactotum/foliate",
+    "metadata": {
+      "flathub::verification::login_is_organization": true,
+      "flathub::verification::login_name": "johnfactotum",
+      "flathub::verification::login_provider": "github",
+      "flathub::verification::timestamp": "1699853625",
+      "flathub::verification::website": null,
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "login_provider"
+    },
+    "urls": {
+      "help": null,
+      "donation": "https://www.buymeacoffee.com/johnfactotum",
+      "translate": "https://github.com/johnfactotum/foliate/tree/gtk4/po",
+      "faq": "https://github.com/johnfactotum/foliate/blob/gtk4/docs/faq.md",
+      "contact": null,
+      "vcs_browser": "https://github.com/johnfactotum/foliate",
+      "contribute": null,
+      "bugtracker": "https://github.com/johnfactotum/foliate/issues",
+      "homepage": "https://johnfactotum.github.io/foliate/"
+    },
+    "logo": "https://dl.flathub.org/media/com/github/johnfactotum.Foliate/50c58d8da7fe3fa08d1fbf5174369d7d/icons/128x128/com.github.johnfactotum.Foliate.png",
+    "verified": true,
+    "license": "GPL-3.0-or-later",
+    "stars": {
+      "count": 8899,
+      "source": "https://github.com/johnfactotum/foliate/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6",
+    "current": "4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c",
+    "window_search": "foliate",
+    "previous_version": "3.2.1",
+    "current_version": "3.3.0",
+    "times_ms": {
+      "install": 32830,
+      "prior": 30199,
+      "open-previous": 4461,
+      "open": 5326,
+      "update": 4602,
+      "open-current": 4316,
+      "remove": 1949,
+      "update-remove": 13102
+    },
+    "cycle_ms": 81694
+  },
+  {
+    "id": "pdf4qt",
+    "flatpak": "io.github.JakubMelka.Pdf4qt",
+    "repo": "https://github.com/JakubMelka/PDF4QT",
+    "metadata": {
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::website": "jakubmelka.github.io",
+      "flathub::verification::timestamp": "1733593271",
+      "flathub::verification::login_is_organization": false
+    },
+    "urls": {
+      "bugtracker": "https://github.com/JakubMelka/PDF4QT/issues",
+      "homepage": "https://jakubmelka.github.io/",
+      "help": "https://github.com/JakubMelka/PDF4QT/discussions"
+    },
+    "logo": "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/icons/128x128/io.github.JakubMelka.Pdf4qt.png",
+    "verified": true,
+    "license": "MIT",
+    "stars": {
+      "count": 1537,
+      "source": "https://github.com/JakubMelka/PDF4QT/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "2e1b6551b978e4feb96fd54d4127615e730ff6d51407122f0fde63485c2d6ddd",
+    "current": "74aa672411f5f82032b7bdbc5a3e771b15616de215d16ecd54f050dbe513eca1",
+    "window_search": "pdf4qt|pdf4qteditor|pdf editor",
+    "previous_version": "1.6.0.0",
+    "current_version": "1.7.0.0",
+    "times_ms": {
+      "install": 40309,
+      "prior": 34905,
+      "open-previous": 3804,
+      "open": 5104,
+      "update": 5931,
+      "open-current": 4021,
+      "remove": 3320,
+      "update-remove": 14805
+    },
+    "cycle_ms": 95189
+  },
+  {
+    "id": "gnome-calendar",
+    "flatpak": "org.gnome.Calendar",
+    "repo": "https://gitlab.gnome.org/GNOME/gnome-calendar",
+    "metadata": {
+      "flathub::verification::website": "gnome.org",
+      "flathub::verification::login_provider": null,
+      "flathub::verification::timestamp": "1713433991",
+      "flathub::verification::login_is_organization": false,
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::login_name": null
+    },
+    "urls": {
+      "bugtracker": "https://gitlab.gnome.org/GNOME/gnome-calendar/issues",
+      "homepage": "https://apps.gnome.org/Calendar/",
+      "contact": "https://matrix.to/#/#gnome-calendar:gnome.org",
+      "help": null,
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/gnome-calendar/",
+      "faq": null,
+      "contribute": "https://welcome.gnome.org/app/Calendar/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/gnome-calendar"
+    },
+    "logo": "https://dl.flathub.org/media/org/gnome/Calendar/901c035c47f4a4d84f353fb1408250d4/icons/128x128/org.gnome.Calendar.png",
+    "verified": true,
+    "license": "GPL-3.0-or-later",
+    "stars": null,
+    "prev": "f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826",
+    "current": "54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a",
+    "window_search": "gnome.calendar|calendar",
+    "previous_version": "50.0",
+    "current_version": "51.0",
+    "times_ms": {
+      "install": 36267,
+      "prior": 29839,
+      "open-previous": 4765,
+      "open": 6329,
+      "update": 4521,
+      "open-current": 5114,
+      "remove": 3933,
+      "update-remove": 15281
+    },
+    "cycle_ms": 88094
+  }
+]

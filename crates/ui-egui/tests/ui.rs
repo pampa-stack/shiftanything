@@ -19,6 +19,34 @@ use artcraft_launcher_ui_egui::{Host, LauncherUi, Settings};
 use egui_kittest::Harness;
 use egui_kittest::kittest::{NodeT, Queryable};
 
+/// Open the manager explicitly: production starts on discovery, whose behavior is
+/// covered by the catalog/agent tests rather than these management scenarios.
+fn manager(ctx: &egui::Context, backend: Box<dyn Backend>, settings: Settings) -> LauncherUi {
+    let mut launcher = LauncherUi::new(ctx, backend, settings);
+    launcher.set_page(artcraft_launcher_ui_egui::Page::Apps);
+    launcher
+}
+
+/// Reach the existing native management drawer through discovery, including for a
+/// fresh install: My apps deliberately does not list absent applications.
+fn discover_management(h: &mut Harness<'_, Option<LauncherUi>>, id: &str) {
+    let app = artcraft_launcher_core::CraftApp::by_id(id).unwrap();
+    h.state_mut().as_mut().unwrap().set_page(artcraft_launcher_ui_egui::Page::Catalog);
+    h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::TextInput, "Search apps").type_text(app.name);
+    h.run_steps(4);
+    h.get_by_label(&format!("App details · {}", app.name)).click_accesskit();
+    h.run_steps(4);
+    h.get_by_label("Manage app").scroll_to_me();
+    h.run_steps(3);
+    h.get_by_label("Manage app").click_accesskit();
+    h.run_steps(6);
+    // Keep the native drawer open over the manager, without discovery's second
+    // Install control in the accessibility tree behind it.
+    h.state_mut().as_mut().unwrap().set_page(artcraft_launcher_ui_egui::Page::Apps);
+    h.run_steps(3);
+}
+
 const NOW: i64 = 1_791_500_000;
 
 /// How the fake backend answers a request for an app's details pictures, whenever it is polled.
@@ -156,18 +184,23 @@ fn test_harness_builder<State>(theme: egui::Theme) -> egui_kittest::HarnessBuild
 
 fn release(id: &str, v: &str, at: i64) -> Release {
     let name = format!("{id}-{v}-macos-universal.dmg");
+    let repo = if id == artcraft_launcher_core::catalog::LAUNCHER_ID || id == "artcraft-launcher" {
+        artcraft_launcher_core::catalog::LAUNCHER_REPO.to_owned()
+    } else {
+        format!("storytold/{id}")
+    };
     Release {
         tag: format!("v{v}"),
         version: version::parse(v),
         name: format!("v{v}"),
         published_at: Some(at),
-        html_url: format!("https://github.com/storytold/{id}/releases/tag/v{v}"),
+        html_url: format!("https://github.com/{repo}/releases/tag/v{v}"),
         notes: "## What's Changed\n* Faster things by @a in https://github.com/storytold/x/pull/1".into(),
         prerelease: false,
         assets: vec![Asset {
             name: name.clone(),
             size: 150 << 20,
-            url: format!("https://github.com/storytold/{id}/releases/download/v{v}/{name}"),
+            url: format!("https://github.com/{repo}/releases/download/v{v}/{name}"),
             sha256: None,
         }],
     }
@@ -216,6 +249,29 @@ fn events() -> Vec<Event> {
     ev.push(Event::ReadyToInstall { app: "cadcraft".into(), ready: true });
     ev.push(Event::CheckFinished { at: NOW - 180, source: Source::GitHubApi, rate_limited_until: None });
     ev
+}
+
+/// Gallery/visibility scenarios model every suite app as installed in the fake backend.
+/// This is UI fixture state only; no host detection or filesystem installation takes place.
+fn gallery_events() -> Vec<Event> {
+    let mut events = events();
+    for event in &mut events {
+        if let Event::Detected { app, installed } = event
+            && installed.is_none()
+        {
+            let app = artcraft_launcher_core::CraftApp::by_id(app).unwrap();
+            *installed = Some(Installed {
+                version: version::parse("0.4.0"),
+                source: InstallSource::MacApp,
+                location: format!("/fixture/Applications/{}.app", app.name),
+                package: None,
+                externally_managed: false,
+                origin: None,
+                installation: None,
+            });
+        }
+    }
+    events
 }
 
 fn harness(view: ViewMode, theme: egui::Theme, manage: bool) -> (Harness<'static, Option<LauncherUi>>, Rc<RefCell<Vec<Command>>>) {
@@ -321,7 +377,7 @@ fn harness_full(
                 } else {
                     artcraft_launcher_ui_egui::theme::ThemeChoice::Light
                 };
-                *state = Some(LauncherUi::new(ui.ctx(), b, s));
+                *state = Some(manager(ui.ctx(), b, s));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut HeaderHost(bar, discord_url));
@@ -373,7 +429,7 @@ fn folder_harness(picked: Rc<RefCell<Option<String>>>) -> (Harness<'static, Opti
     let harness = test_harness_builder(egui::Theme::Dark).with_size(egui::vec2(1180.0, 900.0)).build_ui_state(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -404,6 +460,8 @@ fn app_and_launcher_offer_version_choices_without_starting_an_install() {
     h.run_steps(3);
     h.get_by_label("Settings").click();
     h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").scroll_to_me();
+    h.run_steps(8);
     h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").click();
     h.run_steps(3);
     h.get_by_label("Latest release");
@@ -429,6 +487,8 @@ fn version_choices_have_room_and_nightly_scrolls_with_the_versions() {
     h.run_steps(6);
     h.get_by_label("Settings").click();
     h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").scroll_to_me();
+    h.run_steps(8);
     h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").click();
     h.run_steps(5);
     let nightly_before = h.get_by_label("Nightly (none published yet)").rect();
@@ -535,7 +595,7 @@ fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Relea
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
                 let settings = Settings { notify: false, preferred_kinds: preferred.clone(), ..Default::default() };
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), settings));
+                *state = Some(manager(ui.ctx(), Box::new(backend), settings));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut DummyHost);
@@ -545,6 +605,9 @@ fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Relea
         None,
     );
     h.run_steps(6);
+    if h.query_by_label("More actions for PhotoCraft").is_none() {
+        discover_management(&mut h, "photocraft");
+    }
     (h, sent, queue)
 }
 
@@ -574,6 +637,8 @@ fn launcher_menu_on(machine: Machine, answer: Vec<Release>) -> VersionsHarness {
     let (mut h, sent, queue) = versions_harness(machine, None, answer);
     h.get_by_label("Settings").click();
     h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").scroll_to_me();
+    h.run_steps(8);
     h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").click();
     h.run_steps(5);
     (h, sent, queue)
@@ -815,6 +880,8 @@ fn the_launcher_version_list_sizes_the_launchers_download() {
     h.run_steps(6);
     h.get_by_label("Settings").click();
     h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").scroll_to_me();
+    h.run_steps(8);
     h.get_by_role_and_label(egui::accesskit::Role::ComboBox, "Launcher version").click();
     h.run_steps(5);
     let facts = row_facts(&h, "v0.9.0 (latest release)").unwrap_or_default();
@@ -1127,6 +1194,7 @@ fn a_fresh_install_confirms_the_folder_and_configures_before_installing() {
     h.get_by_label("Done").click();
     h.run_steps(3);
     sent.borrow_mut().clear();
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1170,6 +1238,7 @@ fn use_default_removes_an_app_override_and_settings_can_reset_the_root() {
     h.state_mut().as_mut().unwrap().settings.install_locations.root = Some("/Volumes/Craft Apps".into());
     h.state_mut().as_mut().unwrap().settings.install_locations.per_app.insert("photocraft".into(), "/Volumes/Old Photo".into());
     h.run_steps(2);
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1183,6 +1252,8 @@ fn use_default_removes_an_app_override_and_settings_can_reset_the_root() {
     assert!(
         matches!(install_commands(&sent).first(), Some(Command::Configure(options)) if options.install_locations.folder("photocraft") == Some("/Volumes/Craft Apps"))
     );
+    h.key_press(egui::Key::Escape);
+    h.run_steps(10);
     h.get_by_label("Settings").click();
     h.run_steps(3);
     h.get_by_label("Use default").scroll_to_me();
@@ -1230,7 +1301,7 @@ fn the_install_folder_fields_default_to_the_hosts_answer() {
     let harness = test_harness_builder(egui::Theme::Dark).with_size(egui::vec2(1180.0, 900.0)).build_ui_state(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(backend), Settings { notify: false, ..Default::default() }));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -1252,6 +1323,7 @@ fn the_install_folder_fields_default_to_the_hosts_answer() {
     h.get_by_label("Done").click();
     h.run_steps(3);
     // So does the per-app install dialog's folder, and a saved root override replaces it.
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1317,7 +1389,7 @@ fn windows_package_harness(
         move |ui, state: &mut Option<LauncherUi>| {
             if let Some(backend) = backend.take() {
                 let settings = Settings { notify: false, preferred_kinds: preferred.clone(), ..Default::default() };
-                *state = Some(LauncherUi::new(ui.ctx(), backend, settings));
+                *state = Some(manager(ui.ctx(), backend, settings));
             }
             if let Some(launcher) = state {
                 launcher.logic(ui.ctx(), &mut host);
@@ -1337,6 +1409,7 @@ fn the_install_folder_default_follows_the_package_the_backend_falls_back_to() {
     let (mut h, initial) =
         windows_package_harness(&[("photocraft", &["photocraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
     h.run_steps(8);
+    discover_management(&mut h, "photocraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1897,7 +1970,7 @@ fn a_job_finished_while_hidden_shows_one_fresh_toast_on_the_next_frame() {
     );
     // The tray path: `logic` runs without any UI pass, with the input time of the last shown frame.
     let windowless = egui::Context::default();
-    let mut launcher = LauncherUi::new(&windowless, Box::new(backend), Settings { notify: false, language: "en".into(), ..Settings::default() });
+    let mut launcher = manager(&windowless, Box::new(backend), Settings { notify: false, language: "en".into(), ..Settings::default() });
     launcher.logic(&windowless, &mut NoHost);
     *h.state_mut() = Some(launcher);
     // The visible window's clock is far ahead of the logic-only tick's stale input time. The toast
@@ -1959,7 +2032,7 @@ fn keeps_working_with_no_window_then_draws_in_a_new_one() {
         clock: Rc::new(Cell::new(NOW)),
     };
     let windowless = egui::Context::default();
-    let mut ui = LauncherUi::new(&windowless, Box::new(backend), Settings { notify: false, ..Settings::default() });
+    let mut ui = manager(&windowless, Box::new(backend), Settings { notify: false, ..Settings::default() });
     // No window: the backend's news is still taken in.
     ui.logic(&windowless, &mut NoHost);
     assert!(sent.borrow().contains(&Command::CheckForUpdates { force: false }));
@@ -1989,7 +2062,8 @@ fn grid_shows_every_status_and_installs_on_click() {
     h.run_steps(8);
     snapshot(&mut h, "grid-dark");
     // Statuses the user asked for: available, installed and up to date, update with version.
-    assert!(h.query_all_by_label("Available to install").count() >= 3);
+    assert!(h.query_by_label("VectorCraft details").is_none(), "absent apps belong to discovery");
+    h.get_by_label("Retry install");
     assert_eq!(h.query_all_by_label("Installed · up to date").count(), 0, "an installed app carries no badge");
     h.get_by_label("Update to 0.5.0");
     h.get_by_label("Update to 0.6.0");
@@ -2002,9 +2076,9 @@ fn grid_shows_every_status_and_installs_on_click() {
     assert!(updated.iter().all(|l| l.starts_with("Last updated: Oct ") && l.ends_with(", 2026")), "{updated:?}");
     // The window has no title bar of its own here (the web build, and the tests).
     assert!(h.query_by_label("Close").is_none());
-    assert!(h.query_all_by_label_contains("Discord").count() >= 1); // the footer icon (the header has none)
+    h.get_by_label("Promptica LinkedIn");
     assert!(h.query_by_label("Join the ArtCraft community on Discord").is_none(), "no Discord link in the header");
-    assert!(h.query_all_by_label("Coming soon").count() >= 1);
+    assert!(h.query_by_label("Coming soon").is_none(), "unavailable apps do not appear in My apps");
     h.get_by_label_contains("48 MB of 131 MB");
     h.get_by_label("Update all (2)").click();
     h.run_steps(2);
@@ -2153,7 +2227,7 @@ fn a_retry_update_button_keeps_to_its_slot_and_leaves_room_for_the_menu() {
         let (mut h, _) = harness_with(ev, view, egui::Theme::Dark, true, 1.0);
         h.run_steps(8);
         let retry = h.get_by_label("Retry update to 0.12.0").rect();
-        let install = h.query_all_by_label("Install").next().unwrap().rect();
+        let install = h.get_by_label("Retry install").rect();
         let menu = h.get_by_label("More actions for EffectCraft").rect();
         assert!(retry.width() <= install.width() + 0.5, "{view:?}: retry {retry:?} wider than install {install:?}");
         assert!(retry.right() <= menu.left(), "{view:?}: retry {retry:?} overlaps menu {menu:?}");
@@ -2677,12 +2751,14 @@ fn the_first_close_to_the_tray_is_explained_once() {
 #[test]
 fn community_apps_can_be_hidden_and_restored_in_settings() {
     for view in [ViewMode::Grid, ViewMode::Table] {
-        let (mut h, _) = harness(view, egui::Theme::Dark, true);
+        let (mut h, _) = harness_with(gallery_events(), view, egui::Theme::Dark, true, 1.0);
         h.run_steps(6);
         assert!(!h.state().as_ref().unwrap().settings.hide_community_apps);
         assert!(h.query_by_label("SolidCraft details").is_some());
         h.get_by_label("Settings").click();
         h.run_steps(4);
+        h.get_by_label("Hide community apps").scroll_to_me();
+        h.run_steps(8);
         h.get_by_label("Hide community apps").click();
         h.run_steps(2);
         assert!(h.state().as_ref().unwrap().settings.hide_community_apps);
@@ -2692,6 +2768,8 @@ fn community_apps_can_be_hidden_and_restored_in_settings() {
         assert!(h.query_by_label("PhotoCraft details").is_some());
         h.get_by_label("Settings").click();
         h.run_steps(4);
+        h.get_by_label("Hide community apps").scroll_to_me();
+        h.run_steps(8);
         h.get_by_label("Hide community apps").click();
         h.run_steps(2);
         h.get_by_label("Done").click();
@@ -2710,8 +2788,8 @@ fn community_visibility_preference_round_trips_and_defaults_off_for_old_settings
 }
 
 #[test]
-/// The Settings dialog announces its heading once and shows the community section's Discord
-/// entry alongside the footer's.
+/// Settings announces its heading once and retains the working upstream community link;
+/// Promptica owns the footer links.
 fn settings_link_to_discord() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
     h.run_steps(6);
@@ -2725,8 +2803,18 @@ fn settings_link_to_discord() {
     );
     snapshot(&mut h, "settings-dark");
     h.get_by_label("Questions, ideas and news from the ArtCraft team");
-    // The footer icon and the button in Settings.
-    assert!(h.query_all_by_label_contains("Discord").count() >= 2);
+    h.get_by_label("Join the Discord").click_accesskit();
+    let mut opened = false;
+    for _ in 0..3 {
+        h.step();
+        opened |= h
+            .output()
+            .platform_output
+            .commands
+            .iter()
+            .any(|command| matches!(command, egui::OutputCommand::OpenUrl(open) if open.url == artcraft_launcher_core::catalog::DISCORD_URL));
+    }
+    assert!(opened, "the upstream community link must still open Discord");
 }
 
 #[test]
@@ -2765,23 +2853,19 @@ fn the_uninstall_prompt_keeps_its_own_size_after_a_taller_dialog() {
 fn links_to_the_website_github_and_each_apps_pages() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
     h.run_steps(6);
-    // Footer: website, GitHub and Discord.
-    for label in ["Website", "GitHub", "Discord"] {
-        assert!(h.query_all_by_label(label).count() >= 1, "{label}");
+    for label in ["Powered by Promptica", "Promptica LinkedIn", "Promptica Instagram"] {
+        h.get_by_label(label);
     }
-    // Cards: every app links to its repo and to its own page on getartcraft.com (plus the footer's).
-    let shown_cards = h.query_all_by_label("GitHub").count() - 1;
-    let shown_sites = h.query_all_by_label("Website").count() - 1;
-    assert!(shown_cards >= 13, "{shown_cards}");
-    assert_eq!(shown_sites, 0, "the cards only link to GitHub; the website is the footer's icon");
-    // The table's … menu has the app's website and GitHub repo.
+    let cards = h.query_all_by_label_contains(" details").count();
+    assert!(cards > 0);
+    assert_eq!(h.query_all_by_label("GitHub").count(), cards, "each visible managed card links its own source");
+    assert_eq!(h.query_all_by_label("Website").count(), 0);
     let (mut h, _) = harness(ViewMode::Table, egui::Theme::Dark, true);
     h.run_steps(6);
-    h.get_all_by_label_contains("More actions").nth(8).unwrap().click(); // WordCraft
+    h.get_by_label("More actions for WordCraft").click();
     h.run_steps(3);
     h.get_by_label("GitHub repository");
-    // The footer's Website link and WordCraft's now-live one in the menu.
-    assert!(h.query_all_by_label_contains("Website").count() >= 2);
+    assert_eq!(h.query_all_by_label_contains("Website").count(), 1);
 }
 
 /// Clicks the `n`th widget labelled `label` and returns the URL the app asked to open.
@@ -2816,26 +2900,19 @@ fn all_opened(h: &mut Harness<'_, Option<LauncherUi>>, label: &str) -> Vec<Strin
 fn links_open_the_right_pages() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
     h.run_steps(6);
-    assert_eq!(click_opens(&mut h, "Discord").as_deref(), Some("https://discord.gg/artcraft"));
-    // The footer's ArtCraft links and each card's own pages.
+    for (label, url) in [
+        ("Powered by Promptica", "https://promptica.it/"),
+        ("Promptica LinkedIn", "https://www.linkedin.com/company/promptica/"),
+        ("Promptica Instagram", "https://www.instagram.com/promptica_ai"),
+    ] {
+        assert_eq!(click_opens(&mut h, label).as_deref(), Some(url));
+    }
     let github = all_opened(&mut h, "GitHub");
-    assert!(github.contains(&"https://github.com/storytold".to_string()), "{github:?}");
-    assert!(github.contains(&"https://github.com/storytold/photocraft".to_string()), "{github:?}");
-    let sites = all_opened(&mut h, "Website");
-    assert!(sites.contains(&"https://getartcraft.com".to_string()), "{sites:?}");
-    assert_eq!(sites, vec!["https://getartcraft.com".to_string()], "{sites:?}");
-    // Social icons in the footer.
-    assert_eq!(click_opens(&mut h, "X").as_deref(), Some("https://x.com/get_artcraft"));
-    assert_eq!(click_opens(&mut h, "YouTube").as_deref(), Some("https://www.youtube.com/@OfficialArtcraftStudios"));
-    assert_eq!(click_opens(&mut h, "TikTok").as_deref(), Some("https://www.tiktok.com/@artcraft.studios"));
-    assert_eq!(click_opens(&mut h, "Instagram").as_deref(), Some("https://www.instagram.com/officialartcraftstudios"));
-    assert_eq!(click_opens(&mut h, "LinkedIn").as_deref(), Some("https://www.linkedin.com/company/artcraft-ai"));
-    // The … menu.
-    h.get_all_by_label_contains("More actions").next().unwrap().click();
+    assert!(github.contains(&"https://github.com/storytold/photocraft".to_owned()));
+    assert!(github.iter().all(|url| url.starts_with("https://github.com/")));
+    h.get_by_label("More actions for PhotoCraft").click();
     h.run_steps(3);
-    // The first card is the first installed app by name.
-    let url = click_opens(&mut h, "All releases").unwrap_or_default();
-    assert!(url.starts_with("https://github.com/storytold/") && url.ends_with("/releases"), "{url}");
+    assert_eq!(click_opens(&mut h, "All releases").as_deref(), Some("https://github.com/storytold/photocraft/releases"));
 }
 
 /// An asset URL can come straight from GitHub's release JSON; it must not reach the opener when
@@ -2874,7 +2951,11 @@ fn hostile_release_asset_urls_never_reach_the_opener() {
 fn discord_link_opens_app_when_discord_is_installed() {
     let (mut h, _) = harness_with_discord(Some(artcraft_launcher_core::catalog::DISCORD_APP_URL));
     h.run_steps(6);
-    assert_eq!(click_opens(&mut h, "Discord").as_deref(), Some("discord://-/invite/artcraft"));
+    h.get_by_label("Settings").click();
+    h.run_steps(4);
+    h.get_by_label("Join the Discord").scroll_to_me();
+    h.run_steps(8);
+    assert_eq!(click_opens(&mut h, "Join the Discord").as_deref(), Some("discord://-/invite/artcraft"));
 }
 
 #[test]
@@ -2896,7 +2977,7 @@ fn looks_again_at_installed_apps_every_few_minutes_not_every_frame() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -2972,7 +3053,7 @@ fn the_launcher_updates_itself_and_quits_to_restart() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut host);
@@ -3074,7 +3155,7 @@ fn feed_announcements_and_alerts_show_until_dismissed() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3142,7 +3223,7 @@ fn automatic_updates_queue_installs_for_outdated_apps_and_launcher() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3178,7 +3259,7 @@ fn automatic_updates_skip_a_release_without_a_download_here() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3251,7 +3332,7 @@ fn a_freebsd_system_binary_is_not_offered_an_update_it_would_refuse() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: true, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: true, notify: true, ..Settings::default() }));
             }
             let mut host = Notices(host_notices.clone());
             if let Some(l) = state.as_mut() {
@@ -3302,7 +3383,7 @@ fn automatic_updates_are_disabled_by_default() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { auto_update: false, notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { auto_update: false, notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3339,7 +3420,7 @@ fn the_footer_names_the_services_behind_what_is_on_screen() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -3393,7 +3474,7 @@ fn custom_title_bar_has_window_buttons() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut FramelessHost);
@@ -3461,7 +3542,7 @@ fn the_lifted_caption_buttons_leave_tab_and_the_backdrop_to_the_dialog() {
     assert_eq!(reached, caption, "without a dialog Tab reaches them in the order they're drawn");
     h.get_by_label("Settings").click();
     h.run_steps(3);
-    assert_eq!(tab(&mut h), "Language", "the first Tab goes to the dialog");
+    assert_eq!(tab(&mut h), "https://promptica.it/", "the first Tab goes to the dialog’s first link");
     for _ in 0..40 {
         let focused = tab(&mut h);
         assert!(!caption.contains(&focused.as_str()), "Tab left the dialog for {focused}");
@@ -3577,7 +3658,7 @@ fn a_press_on_the_window_edge_only_resizes() {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut FramelessHost);
@@ -3700,11 +3781,13 @@ fn details_drawer_hides_reorder_grip_for_pinned_apps() {
 /// Clicking a card opens its details drawer with the page links, wrapping picture arrows and
 /// Esc-to-close.
 fn clicking_a_card_opens_its_details_drawer() {
-    let (mut h, _sent) = harness(ViewMode::Grid, egui::Theme::Dark, true);
+    let (mut h, _sent) = harness_with(gallery_events(), ViewMode::Grid, egui::Theme::Dark, true, 1.0);
     h.run_steps(8);
     // Every app has a page: a card of each generation opens one.
     h.get_by_label("VectorCraft details");
     h.get_by_label("WordCraft details");
+    h.get_by_label("PhotoCraft details").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("PhotoCraft details").click();
     h.run_steps(10);
     h.check_accessibility();
@@ -3743,6 +3826,8 @@ fn clicking_a_card_opens_its_details_drawer() {
 fn details_drawer_in_the_light_theme() {
     let (mut h, _sent) = harness(ViewMode::Grid, egui::Theme::Light, true);
     h.run_steps(8);
+    h.get_by_label("PhotoCraft details").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("PhotoCraft details").click();
     h.run_steps(10);
     snapshot(&mut h, "details-light");
@@ -3755,9 +3840,11 @@ fn fetches(sent: &Rc<RefCell<Vec<Command>>>, app: &str) -> usize {
 
 #[test]
 fn opening_a_page_asks_for_its_pictures_once_and_only_while_it_lacks_some() {
-    let (mut h, sent) = harness(ViewMode::Grid, egui::Theme::Dark, true);
+    let (mut h, sent) = harness_with(gallery_events(), ViewMode::Grid, egui::Theme::Dark, true, 1.0);
     h.run_steps(8);
     assert_eq!(fetches(&sent, "photocraft"), 0, "nothing is fetched before a page is opened");
+    h.get_by_label("PhotoCraft details").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("PhotoCraft details").click();
     h.run_steps(10);
     assert_eq!(fetches(&sent, "photocraft"), 1);
@@ -3765,6 +3852,8 @@ fn opening_a_page_asks_for_its_pictures_once_and_only_while_it_lacks_some() {
     // Closed and opened again: the pictures are in hand, so nothing is asked.
     h.key_press(egui::Key::Escape);
     h.run_steps(10);
+    h.get_by_label("PhotoCraft details").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("PhotoCraft details").click();
     h.run_steps(10);
     assert_eq!(fetches(&sent, "photocraft"), 1);
@@ -3774,6 +3863,8 @@ fn opening_a_page_asks_for_its_pictures_once_and_only_while_it_lacks_some() {
     h.run_steps(10);
     h.get_by_label("VectorCraft details").scroll_to_me();
     h.run_steps(3);
+    h.get_by_label("VectorCraft details").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("VectorCraft details").click();
     h.run_steps(10);
     assert_eq!(fetches(&sent, "vectorcraft"), 1);
@@ -3854,7 +3945,7 @@ fn the_enlarged_view_shows_a_frame_for_a_picture_still_missing() {
 
 #[test]
 fn a_page_without_pictures_has_no_gallery() {
-    let (mut h, _sent) = harness(ViewMode::Grid, egui::Theme::Dark, true);
+    let (mut h, _sent) = harness_with(gallery_events(), ViewMode::Grid, egui::Theme::Dark, true, 1.0);
     h.run_steps(8);
     // PdfCraft's screenshots still show its old name (PrintCraft), so its page has none for now.
     h.get_by_label("PdfCraft details").scroll_to_me();
@@ -3903,7 +3994,7 @@ fn the_lead_picture_can_be_enlarged() {
 /// page that has one or none; the enlarged view is opened wherever there is a picture to enlarge.
 #[test]
 fn every_page_opens_and_pages_through_its_pictures() {
-    let (mut h, _sent) = harness(ViewMode::Grid, egui::Theme::Dark, true);
+    let (mut h, _sent) = harness_with(gallery_events(), ViewMode::Grid, egui::Theme::Dark, true, 1.0);
     // Tall enough to show all thirteen cards at once.
     h.set_size(egui::vec2(1180.0, 3000.0));
     h.run_steps(8);
@@ -3997,7 +4088,7 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -4013,12 +4104,12 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
         let checked = h.get_by_label_contains("Checked ").rect();
         // Cut short in a narrow window, but enough of it left to read.
         assert!(notice.width() >= 120.0 && notice.right() <= width, "{width}: notice {notice:?}");
-        // Everything on the footer's right: the website, GitHub and Discord icons and the social icons.
+        // Promptica's website and both official social links occupy the footer's right.
         let mut right = Vec::new();
-        for label in ["Website", "GitHub", "Discord", "X", "YouTube", "TikTok", "Instagram", "LinkedIn"] {
+        for label in ["Powered by Promptica", "Promptica LinkedIn", "Promptica Instagram"] {
             right.extend(h.query_all_by_label(label).map(|n| n.rect()).filter(|r| (r.center().y - notice.center().y).abs() < 12.0));
         }
-        assert_eq!(right.len(), 8, "{width}: {right:?}");
+        assert_eq!(right.len(), 3, "{width}: {right:?}");
         assert!(h.query_by_label_contains("Installing for").is_none(), "{width}: the footer no longer names the platform");
         for r in right {
             assert!(!r.intersects(notice), "{width}: notice {notice:?} overlaps {r:?}");
@@ -4032,7 +4123,7 @@ fn the_rate_limit_notice_never_runs_under_the_footer_links() {
 /// narrower, beside the page toggle, the sort picker moves to a second row under them.
 fn toolbar_keeps_navigation_refresh_search_and_view_on_one_unclipped_row() {
     let (mut h, _) = harness(ViewMode::Grid, egui::Theme::Dark, true);
-    for width in [720.0, 800.0] {
+    for width in [720.0, 800.0, 880.0] {
         h.set_size(egui::vec2(width, 900.0));
         h.run_steps(6);
         let refresh = h.get_by_label("Check for updates").rect();
@@ -4047,7 +4138,7 @@ fn toolbar_keeps_navigation_refresh_search_and_view_on_one_unclipped_row() {
         assert!(sort.left() >= 0.0 && sort.right() <= width, "{width}: sort is outside the window: {sort:?}");
         h.check_accessibility();
     }
-    for width in [880.0, 1180.0] {
+    for width in [1180.0] {
         h.set_size(egui::vec2(width, 900.0));
         h.run_steps(6);
         let refresh = h.get_by_label("Check for updates").rect();
@@ -4104,7 +4195,7 @@ fn saved_filters_are_migrated_on_ui_construction() {
             downloads: Default::default(),
             clock: Rc::new(Cell::new(NOW)),
         };
-        let ui = LauncherUi::new(&egui::Context::default(), Box::new(backend), settings);
+        let ui = manager(&egui::Context::default(), Box::new(backend), settings);
         assert_eq!(ui.settings.filter, expected, "{saved}");
         assert_eq!(ui.settings.last_check, Some(NOW));
     }
@@ -4117,7 +4208,7 @@ fn assert_header_at_width(h: &mut Harness<'_, Option<LauncherUi>>, bar: artcraft
     for label in ["Show apps as cards", "Show apps as a table", "Settings", "Check for updates"] {
         let rect = h.get_by_label(label).rect();
         assert!(rect.left() >= 0.0 && rect.right() <= width, "{bar:?} {width}: {label} {rect:?}");
-        if let Some(text) = h.query_by_label("Craft App Suite") {
+        for text in h.query_all_by_label("Sh*ftAnything") {
             assert!(!rect.intersects(text.rect()), "{bar:?} {width}: Craft App Suite overlaps {label} {rect:?}");
         }
     }
@@ -4129,7 +4220,7 @@ fn assert_header_at_width(h: &mut Harness<'_, Option<LauncherUi>>, bar: artcraft
     }
     if width == 1180.0 {
         assert!(h.query_by_label("Launcher").is_none());
-        h.get_by_label("Craft App Suite");
+        assert!(h.query_all_by_label("Sh*ftAnything").next().is_some());
     }
     if [720.0, 800.0, 1180.0].contains(&width) {
         snapshot(h, &format!("header-{theme:?}-{bar:?}-{width}"));
@@ -4186,7 +4277,7 @@ fn short_window(reduce: Rc<Cell<bool>>) -> Harness<'static, Option<LauncherUi>> 
                     && let Some(b) = backend.take()
                 {
                     let settings = Settings { view: ViewMode::Grid, notify: false, ..Settings::default() };
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), settings));
+                    *state = Some(manager(ui.ctx(), Box::new(b), settings));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut host);
@@ -4272,7 +4363,7 @@ fn with_animations_on_the_wheel_glides() {
 /// Moves the pointer from one card to the next. Returns how many frames are drawn before the
 /// window is still again.
 fn frames_to_hover_the_next_card(h: &mut Harness<'_, Option<LauncherUi>>) -> u64 {
-    let cards: Vec<egui::Pos2> = ["Image editing", "Vector illustration"].map(|t| h.get_by_label(t).rect().center()).to_vec();
+    let cards: Vec<egui::Pos2> = ["Image editing", "Photo library and raw development"].map(|t| h.get_by_label(t).rect().center()).to_vec();
     // Still to begin with: the icons are in, the first card is lit and the scroll bar is showing.
     h.hover_at(cards[0]);
     h.run();
@@ -4327,10 +4418,16 @@ fn install_and_update_actions_preview_download_sizes() {
             if view == ViewMode::Grid {
                 assert!(h.query_all_by_label("Download size: 150 MB").count() >= 2);
             }
-            // Keep the action visible as the suite gains more cards.
-            h.get_by_role(egui::accesskit::Role::TextInput).click();
-            h.get_by_role(egui::accesskit::Role::TextInput).type_text(if label == "Install" { "VectorCraft" } else { "PhotoCraft" });
-            h.run_steps(4);
+            if label == "Install" {
+                discover_management(&mut h, "vectorcraft");
+            }
+            if label != "Install" {
+                h.get_by_role(egui::accesskit::Role::TextInput).click();
+                h.get_by_role(egui::accesskit::Role::TextInput).type_text("PhotoCraft");
+                h.run_steps(4);
+            }
+            h.get_by_label(label).scroll_to_me();
+            h.run_steps(8);
             let pos = h.get_by_label(label).rect().center();
             assert!(h.ctx.content_rect().contains(pos), "the download action must be visible before hovering");
             h.hover_at(pos);
@@ -4403,7 +4500,18 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
             Fake {
                 events: vec![
                     Event::Latest { app: "photocraft".into(), latest: LatestRelease::Found(r), from: Origin::ArtCraftApi },
-                    Event::Detected { app: "photocraft".into(), installed: None },
+                    Event::Detected {
+                        app: "photocraft".into(),
+                        installed: Some(Installed {
+                            version: version::parse("0.4.0"),
+                            source: InstallSource::MacApp,
+                            location: "/fixture/PhotoCraft.app".into(),
+                            package: None,
+                            externally_managed: false,
+                            origin: None,
+                            installation: None,
+                        }),
+                    },
                     Event::CheckFinished { at: NOW, source: Source::GitHubApi, rate_limited_until: None },
                 ],
                 sent: Rc::default(),
@@ -4420,7 +4528,7 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
                 if state.is_none()
                     && let Some(b) = backend.take()
                 {
-                    *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
+                    *state = Some(manager(ui.ctx(), Box::new(b), Settings { notify: false, ..Settings::default() }));
                 }
                 if let Some(l) = state.as_mut() {
                     l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -4444,7 +4552,7 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
                 "an unknown managed plan or partial manual range must not imply a known size"
             );
         }
-        let pos = h.get_by_label(if manage { "Install" } else { "Download for Windows" }).rect().center();
+        let pos = h.get_by_label(if manage { "Update to 0.5.0" } else { "Download for Windows" }).rect().center();
         assert!(h.ctx.content_rect().contains(pos), "the download action must be visible before hovering");
         h.hover_at(pos);
         h.run_steps(40);
@@ -4855,11 +4963,15 @@ fn launcher_version_padlock_confirms_and_returns_to_settings() {
     h.state_mut().as_mut().unwrap().settings.launcher_version = VersionTrack::Pinned("v0.19.0".into());
     h.get_by_label("Settings").click();
     h.run_steps(6);
+    h.get_by_label("Version pinned to v0.19.0. Click to unlock.").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("Version pinned to v0.19.0. Click to unlock.").click();
     h.run_steps(4);
     h.get_by_label("Cancel").click();
     h.run_steps(4);
     assert_eq!(h.state().as_ref().unwrap().settings.launcher_version, VersionTrack::Pinned("v0.19.0".into()));
+    h.get_by_label("Version pinned to v0.19.0. Click to unlock.").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("Version pinned to v0.19.0. Click to unlock.").click();
     h.run_steps(4);
     h.get_by_label("Unlock").click();
@@ -4904,11 +5016,16 @@ fn ai_agents_switch_and_client_buttons_send_their_commands() {
         h.run_steps(3);
         assert!(h.query_all_by_label("Configuration copied.").next().is_some(), "{label}");
     }
-    // The font sources' "Add" button comes last in the tree: it sits in the other column.
-    h.get_all_by_label("Add").next().expect("client Add button").click();
+    h.get_by_label("Add · Claude Desktop").scroll_to_me();
+    h.run_steps(8);
+    h.get_by_label("Add · Claude Desktop").click();
     h.run_steps(3);
-    h.get_by_label("Remove").click();
+    h.get_by_label("Remove · Cursor").scroll_to_me();
+    h.run_steps(8);
+    h.get_by_label("Remove · Cursor").click();
     h.run_steps(3);
+    h.get_by_label("Let AI agents use Craft apps").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("Let AI agents use Craft apps").click();
     h.run_steps(2);
     let sent = sent.borrow();
@@ -4944,10 +5061,12 @@ fn ai_agents_offer_to_restart_a_client_right_after_adding_it() {
     h.get_by_label("Quick install").scroll_to_me();
     h.run_steps(4);
     assert!(h.query_by_label("Restart Claude Desktop").is_none(), "nothing to restart before adding");
-    // The font sources' "Add" button comes last in the tree: it sits in the other column.
-    let adds: Vec<_> = h.get_all_by_label("Add").collect();
-    adds[0].click();
-    adds[1].click();
+    for label in ["Add · Claude Desktop", "Add · Claude Code"] {
+        h.get_by_label(label).scroll_to_me();
+        h.run_steps(8);
+        h.get_by_label(label).click();
+        h.run_steps(3);
+    }
     h.run_steps(2);
     queue.borrow_mut().push(Event::Mcp { agents: agents(true) });
     h.run_steps(4);
@@ -4998,8 +5117,12 @@ fn ai_agents_left_on_without_the_gateway_can_still_be_turned_off() {
     h.run_steps(6);
     // Only the font sources' "Add" remains.
     assert_eq!(h.query_all_by_label("Add").count(), 1, "nothing to add without the gateway");
-    h.get_by_label("Remove").click();
+    h.get_by_label("Remove · Cursor").scroll_to_me();
+    h.run_steps(8);
+    h.get_by_label("Remove · Cursor").click();
     h.run_steps(3);
+    h.get_by_label("Let AI agents use Craft apps").scroll_to_me();
+    h.run_steps(8);
     h.get_by_label("Let AI agents use Craft apps").click();
     h.run_steps(3);
     let sent = sent.borrow();
@@ -5086,7 +5209,15 @@ fn wide_settings_columns_are_about_the_same_height() {
     h.run_steps(8);
     h.get_by_label("Settings").click();
     h.run_steps(8);
-    let top = h.get_by_label("Language").accesskit_node().bounding_box().unwrap().y0 - 40.0;
+    // Promptica precedes Language now; measure from the first content on either column.
+    let top = h
+        .get_by_label("Language")
+        .accesskit_node()
+        .bounding_box()
+        .unwrap()
+        .y0
+        .min(h.get_by_label("https://promptica.it/").accesskit_node().bounding_box().unwrap().y0)
+        - 40.0;
     let split = h.get_by_label("Install folder").accesskit_node().bounding_box().unwrap().x0 - 20.0;
     let (mut left, mut right) = (top, top);
     for node in h.root().children_recursive() {
@@ -5097,7 +5228,7 @@ fn wide_settings_columns_are_about_the_same_height() {
             in_dialog |= parent.role() == egui::accesskit::Role::Dialog;
             ancestor = parent.parent();
         }
-        let footer = matches!(node.label().as_deref(), Some("Quit ArtCraft Launcher" | "Done"));
+        let footer = matches!(node.label().as_deref(), Some("Quit Sh*ftAnything" | "Done"));
         let Some(rect) = node.bounding_box().filter(|rect| in_dialog && !footer && rect.y0 >= top) else { continue };
         let column = if rect.x0 < split { &mut left } else { &mut right };
         *column = column.max(rect.y1);
@@ -5124,4 +5255,126 @@ fn settings_without_app_management_is_one_column() {
         .collect();
     edges.dedup();
     assert!(!edges.is_empty() && edges.iter().all(|x| *x == edges[0]), "checkboxes start at {edges:?}");
+}
+
+#[test]
+fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
+    let (mut h, sent, queue) = versions_harness(Machine::default(), None, vec![]);
+    h.state_mut().as_mut().unwrap().settings.language = "en".into();
+    let native_installs = || {
+        sent.borrow()
+            .iter()
+            .filter(|command| {
+                matches!(
+                    command,
+                    Command::Install { .. } | Command::InstallAll { .. } | Command::InstallExpected { .. } | Command::InstallChosen { .. }
+                )
+            })
+            .cloned()
+            .collect::<Vec<_>>()
+    };
+    h.set_size(egui::vec2(1440.0, 900.0));
+    h.run_steps(4);
+    h.get_by_role_and_label(egui::accesskit::Role::Button, "Workflow Kits").click_accesskit();
+    h.run_steps(5);
+    assert!(h.query_by_label("Select · PhotoCraft").is_none(), "installed apps are never selected for an implicit update");
+    assert!(h.query_by_label("Select · GIMP").is_none(), "curated presence alone grants no recipe");
+    h.get_by_label("Self-hosted");
+    h.get_by_label("Select · VectorCraft").click_accesskit();
+    h.get_by_label("Select · DesignCraft").click_accesskit();
+    h.run_steps(4);
+    sent.borrow_mut().clear();
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    assert!(native_installs().is_empty(), "review must not submit jobs");
+    h.get_by_label("Cancel").click_accesskit();
+    h.run_steps(3);
+    assert!(native_installs().is_empty(), "cancel must leave native state alone");
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    // Detection changed after review opened: the whole batch must be refused.
+    queue.borrow_mut().push(Event::Detected {
+        app: "vectorcraft".into(),
+        installed: Some(Installed {
+            version: version::parse("0.7.0"),
+            source: InstallSource::MacApp,
+            location: "/fixture/VectorCraft.app".into(),
+            package: None,
+            externally_managed: false,
+            origin: None,
+            installation: None,
+        }),
+    });
+    h.run_steps(4);
+    h.get_by_label("App state changed. Review your selection again.");
+    assert!(h.get_by_label("Install selected apps").accesskit_node().is_disabled());
+    assert!(native_installs().is_empty());
+    h.get_by_label("Cancel").click_accesskit();
+    h.run_steps(3);
+    queue.borrow_mut().push(Event::Detected { app: "vectorcraft".into(), installed: None });
+    h.run_steps(3);
+    h.get_by_label("Review installation").click_accesskit();
+    h.run_steps(3);
+    h.get_by_label("Install selected apps").click_accesskit();
+    h.run_steps(3);
+    assert_eq!(
+        native_installs(),
+        vec![Command::InstallExpected { apps: vec!["designcraft".into(), "vectorcraft".into()], installed: false }],
+        "one guarded native batch, no Update and no unguarded InstallAll"
+    );
+    assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Apps);
+}
+
+#[test]
+fn work_kits_surveys_details_and_comparison_work_in_both_languages() {
+    for (language, kits, architect, ranking, compare) in [
+        ("en", "Workflow Kits", "Architect", "Ranking", "Compare in SH*FTER"),
+        ("it", "Kit di lavoro", "Architetto", "Classifica", "Confronta in SH*FTER"),
+    ] {
+        let (mut h, _, _) = versions_harness(Machine::default(), None, vec![]);
+        h.set_size(egui::vec2(1440.0, 900.0));
+        h.state_mut().as_mut().unwrap().settings.language = language.into();
+        h.run_steps(4);
+        h.get_by_role_and_label(egui::accesskit::Role::Button, kits).focus();
+        h.run_steps(2);
+        h.key_press(egui::Key::Space);
+        h.run_steps(4);
+        h.check_accessibility();
+        let tab = h.get_by_role_and_label(egui::accesskit::Role::Button, kits).rect();
+        assert!(tab.left() >= h.get_by_label("SH*FTER").rect().right());
+        assert!(h.query_by_label(if language == "it" { "Font" } else { "Fonts" }).is_none());
+        for node in h.get_all_by_label_contains(if language == "it" { "Vedi scheda ·" } else { "App details ·" }) {
+            assert!(node.rect().right() <= 1440.0, "kit actions must fit the reference viewport");
+        }
+        snapshot(&mut h, &format!("kits-designer-{language}"));
+        h.get_by_label("App details · GIMP".replace("App details", if language == "it" { "Vedi scheda" } else { "App details" }).as_str())
+            .click_accesskit();
+        h.run_steps(3);
+        assert!(h.query_all_by_label("GIMP").count() >= 1);
+        h.key_press(egui::Key::Escape);
+        h.run_steps(4);
+        h.run_steps(3);
+        h.get_by_label(architect).click_accesskit();
+        h.run_steps(4);
+        snapshot(&mut h, &format!("kits-architect-{language}"));
+        h.get_by_label(ranking).click_accesskit();
+        h.run_steps(4);
+        h.get_by_label("POLI.design · Experience Design Academy");
+        snapshot(&mut h, &format!("kits-ranking-{language}"));
+        h.get_by_label(if language == "it" { "Architettura · AIBD" } else { "Architecture · AIBD" }).click_accesskit();
+        h.run_steps(3);
+        h.get_by_label(if language == "it" { "33,9%" } else { "33.9%" });
+        h.get_by_label("American Institute of Building Design");
+        h.get_by_label(if language == "it" { "Aziende · spesa rilevata" } else { "Companies · recorded spending" }).click_accesskit();
+        h.run_steps(3);
+        h.get_by_label("Moss");
+        h.get_by_label(if language == "it" { "68,4%" } else { "68.4%" });
+        snapshot(&mut h, &format!("kits-ranking-moss-{language}"));
+        h.get_by_label("Designer").click_accesskit();
+        h.run_steps(3);
+        h.get_all_by_label(compare).next().unwrap().click_accesskit();
+        h.run_steps(4);
+        assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Shifter);
+        h.get_by_label(if language == "it" { "Funzioni da confrontare" } else { "Features to compare" });
+    }
 }

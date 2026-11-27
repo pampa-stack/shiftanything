@@ -1,0 +1,4 @@
+1918718a47be372d2b2a6fd97826303e523b0af13c8f2835ada2de6caedf91c9  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/musescore/installed-icon.png
+7537b7df09b214ade58a4452fe4e8ddd85b6dbc0292104be8f484fcc165dacb0  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/musescore/open-menu.png
+cb0128875b276a0d11d0e1dbb2952088daebef2b03879df4a061bc20c25a9a27  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/musescore/open-new.png
+137201f9c6e90ca7f31aa1871b54e12ec6f2ed1bbb7d1df67a60adc8ce712fc9  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/musescore/open-old.png

@@ -100,3 +100,56 @@ licensed like those apps. Refresh them from the source path, never redraw them.
 | Dependency | Author | Source and version | License |
 |---|---|---|---|
 | `rustix` | The rustix project developers | <https://github.com/bytecodealliance/rustix>, 1.1.5 (already locked; now directly used for Nightly held-directory operations) | MIT, selected from upstream's offered license alternatives; permission notice in `NOTICE` |
+
+## Sh*ftAnything fork
+
+The native engine and bundled fonts retain their upstream ArtCraft credits and MIT/Apache-2.0 licences.
+`assets/shiftanything/icon.png` is the approved Promptica Sh*ftAnything mark supplied by the operator, converted from `marchi/shiftanything.webp` in the Regia design reference on 2026-11-26. It replaces the upstream launcher mark in the desktop window and tray.
+`crates/core/curated.json` is the editorial catalog supplied by Promptica on 2026-11-26. Repository, release, media and verification sources remain recorded per entry. Linked third-party projects and marks belong to their respective authors; inclusion is not an installation verification.
+
+The 206-entry catalog update comes from Promptica's approved Regia data at commit `5124adce` (2026-11-26); per-entry licence and media provenance remain intact. No additional native recipe is granted by this import.
+`tools/mcp_catalogo.py` adapts Promptica's supplied local catalog server, extended with the closed native approval protocol. The Python stdio server is retained as explicitly required by the build mandate; the desktop application and engine remain Rust/egui.
+`assets/shiftanything/promptica.png`, `macos.svg`, `windows.png` and `linux.png` are unmodified operator-supplied design assets from the approved Doop canvas, respectively `/a/zdpS6LRqTI.png`, `/a/ne-Pn0I2Ou.svg`, `/a/_JZuqSLzQy.png`, `/a/7VwgzdAc_6.png`, copied 2026-11-26. Promptica and platform marks identify their respective owners; no ownership of third-party marks is claimed. Catalog logos and screenshots normally use the recorded HTTPS sources. Approved static conversions for formats outside the native decoder are bundled as documented below.
+
+`assets/catalog-media/` contains 15 static PNG conversions explicitly supplied and approved by the operator from Regia commit `cafc6fb9`. `manifest.json` records the official source URL, app, media slot and SHA-256 of each converted file; the per-app author, repository and licence remain in `crates/core/curated.json`. SVG/WebP images and selected GIF frames were converted by Regia without changing their content. No upstream source code, decoder or application bundle is copied. Marks and screenshots identify their original projects; no ownership of them is claimed. The operator specifically requested this catalog media import, including projects whose software licence is copyleft; it does not grant a software installation recipe.
+Promptica social links reuse the existing attributed Simple Icons files in `assets/social/`; no new social artwork or font is introduced.
+
+Catalog import 260 (205 Base / 55 Advanced), Regia `d6dbbd99`, 2026-11-26: original per-record sources retained, including distribution/platform documentation. Static media manifest now contains 18 approved PNGs, adding PDFsam Basic and AnythingLLM. No new installation capability is granted.
+
+sh*fter seed data: operator-supplied Regia `specs/launcher-scale-anything/shifter.json` (2026-11-26), with per-feature official sources and bilingual editorial notes. Comparison evidence does not grant installation capabilities. Unicode normalization uses `unicode-normalization` 0.1.26 ((MIT OR Apache-2.0) AND Unicode-3.0), and `tinyvec` 1.13.3 (Zlib OR Apache-2.0 OR MIT), unmodified crates with their upstream notices.
+
+Kit di lavoro / Work kits editorial data: operator-supplied Regia `specs/launcher-scale-anything/kit-di-lavoro.json`, commit 21f87b50 (2026-11-26). Each phase links its official documentation; each independent survey retains its publisher, scope, metric and source. Descriptions and rankings grant no installation capabilities.
+
+Catalog import 298 (220 Base / 78 Advanced), Regia `e5690dca` after `863f89b5`, 2026-11-26: 24 categories, explicit complete platform scope only where documented, 26 approved static PNG conversions with original URLs and SHA-256. SH*FTER Lightroom Classic now has eight documented functions; the evidence remains informational and grants no installation capability.
+
+SH*FTER data refresh, Regia `684e51eb` (2026-11-26): eight documented profiles, 20 documented alternatives, 50 additional commercial names for discovery only. Arq Backup notes preserve prerequisites and official evidence; suggested software never implies verified coverage or an installation recipe.
+
+Favorite heart outline/filled SVGs in `assets/ui-icons/heart-*.svg`: original geometric artwork drawn for this fork, 2026-11-26; covered by the repository MIT/Apache-2.0 licence. No external icon or font copied.
+
+## Reversible Tauri visual proof (operator-requested, 2026-11-27)
+
+`apps/shiftanything-tauri-proof/frontend/{it,en,index}.html`, `design.css` and `catalog.js` export Promptica's approved Doop design, supplied by the operator in Regia. `media-provenance.json` records design source hashes and each of 19 local image slots (six apps), with official URLs and SHA-256. These are the already approved catalog logos/screenshots, not upstream application source. The three local font copies retain the OFL notices in `assets/fonts/`; brand/platform copies retain the credits above. `proof.css`, `native.js`, the Rust shell and export script are original fork work under this repository's licences.
+
+The separate proof uses unmodified Tauri 2.12.5 (Tauri Programme within The Commons Conservancy; MIT OR Apache-2.0), <https://github.com/tauri-apps/tauri/tree/tauri-v2.12.5>. Its licence texts are included in `apps/shiftanything-tauri-proof/licenses/`. The product egui launcher is unchanged.
+
+Build-time dependencies cssparser 0.37.0, cssparser-macros 0.7.1, dtoa-short 0.3.5 and selectors 0.38.0 are unmodified MPL-2.0 crates used only by the Tauri proof (not the egui product). Source: <https://crates.io/crates/cssparser/0.37.0>, <https://crates.io/crates/cssparser-macros/0.7.1>, <https://crates.io/crates/dtoa-short/0.3.5>, <https://crates.io/crates/selectors/0.38.0>. The crate-provided MPL licence texts are included alongside Tauri's notices; selectors uses the same MPL-2.0 terms. No MPL source is modified or vendored. These build-time packages are absent from the webview's shipped assets.
+
+The Reddit footer vector in the Tauri export is Simple Icons 16.34.0, CC0 1.0, https://cdn.jsdelivr.net/npm/simple-icons@16.34.0/icons/reddit.svg; currentColor tint and size added. Reddit trademark belongs to Reddit, Inc. X reuses the existing attributed Simple Icons vector. Profile links explicitly supplied by the operator.
+
+The Sh*ftAnything catalog also includes the official Ackee v3.7.1 favicon (MIT, Tobias Reich), Healthchecks v5.0.3 self-hosted favicon (BSD-3-Clause, Pēteris Caune and contributors), and SoftEther VPN Client v4.41-9787-rtm desktop icon (Apache-2.0, SoftEther VPN contributors). The images were converted to 256 px PNG without altering their design. The exact upstream URLs and SHA-256 for source and converted file are in `apps/shiftanything-tauri-proof/media-provenance.json`. The assets identify the third-party applications and do not imply endorsement. See `NOTICE` for copyright and licence terms.
+
+Headplane v0.8.2 favicon and product screenshots are MIT-licensed by Aarnav Tale. The favicon is converted from ICO to PNG and screenshots are resized for the launcher. System Informer v4.0.26241.138 desktop icon is an unmodified PNG under the MIT licence from Winsider Seminars & Solutions, Inc. Original URLs, checksums and converted checksums are in the Tauri media manifest. The project assets identify the respective third-party software. Copyright and licence text are in `NOTICE`.
+
+Casdoor logo `static/img/casdoor.png` is the unmodified square icon from the Apache-2.0 website repository at commit `09bf3e7b84ef2209382c5b31d29d0d585801849d`. Used to identify the original app. Copyright and licence in `NOTICE` and `LICENSE-APACHE`.
+
+Authelia v4.39.28 favicon (converted from SVG), MeshCentral 1.3.2 favicon and Apache Guacamole 1.6.0 app icon are from the original Apache-2.0 projects and identify those apps. URLs and checksums are in the Tauri media manifest. See also `NOTICE` and `LICENSE-APACHE`.
+
+The Trayscale v0.21.0 app icon is unmodified and MIT-licensed by DeedleFake. The Outline VPN client logo is unmodified and identifies the original product. Outline is owned by the Outline Foundation. See the [Outline Brand User Guide](https://github.com/OutlineFoundation/outline-brand/blob/d8ddfd4891fe5def3e74f559dae970c9e026bfde/outline_brand_user_guide.pdf), `NOTICE` and the Tauri media manifest.
+
+The marks in `apps/shiftanything-tauri-proof/frontend/shifter-brands/` identify third-party products in the SH*FTER software selector and comparison. Each mark belongs to its respective owner and sits outside the launcher code licence. [Source URLs and SHA-256](docs/verification/pro-371-shifter-layout/vendor-icons.tsv) record the 48 × 48 PNG copies prepared from the publishers’ public assets on 2026-11-27.
+
+The original Tailscale Linux systray icon is distributed under the BSD 3-Clause license. See [the upstream license](https://github.com/tailscale/tailscale/blob/v1.104.7/LICENSE), `NOTICE` and the Tauri media manifest.
+
+The catalog includes the Sniffnet v1.6.0 and Termix v26.11.3 project icons. See the MIT notice for Sniffnet, LICENSE-APACHE for Termix, and media-provenance.json for both source URLs and hashes. The artwork identifies the original projects.
+
+The simplewall catalog icon uses an unaltered frame from the main icon in the v.3.8.7 GPL-3.0 release, converted from ICO to PNG. The source and hashes are recorded in media-provenance.json. See NOTICE for the asset licence.

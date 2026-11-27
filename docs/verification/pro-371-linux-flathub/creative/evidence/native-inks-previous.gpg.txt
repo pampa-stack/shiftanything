@@ -1,0 +1,19 @@
+commit c8f105875e5f89fc7b2a627a26ef23c9fc8a44e20ff6dbd26825a3b32e7143e8
+Parent:  2a8cfc1e1720072ae4508b2f849509ef7d28e5fb90a1e9d56da5fbb75038ba43
+ContentChecksum:  de0e444ebd38af1fe87c3828ffee8fe4fc642728363db69dc7489ec8efc4ae19
+Date:  2026-05-10 19:35:39 +0000
+
+    Merge pull request #210 from Erick555/patch-1 (2cc729687e8e)
+
+    Name: org.inkscape.Inkscape
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sun May 10 20:00:15 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

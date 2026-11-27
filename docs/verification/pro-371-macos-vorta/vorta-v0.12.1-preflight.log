@@ -1,0 +1,162 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436587428   1329180   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975867664    487776   100%    /Volumes/T7-Backup
+2026-11-27T09:28:01Z
+checksum PASS b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b 45686573 https://github.com/borgbase/vorta/releases/download/v0.12.1/Vorta-v0.12.1-arm.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $8AD725CF
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $B78E8209
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $F62F9298
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_APFS : 4)…
+         disk image (Apple_APFS : 4): verificato   CRC32 $BD4BD0C3
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $F62F9298
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $617C36A3
+verificato   CRC32 $6ED7E0A0
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_APFS
+/dev/disk9          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk9s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-mac-pkg-proof.m1fZcrmY
+APP=Vorta.app
+CFBundleIdentifier=com.borgbase.client.macos
+CFBundleShortVersionString=0.12.1
+CFBundleVersion=0.12.1
+CFBundleExecutable=vorta-darwin
+LSMinimumSystemVersion=14.4
+arm64
+/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/MacOS/vorta-darwin (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.0
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=com.borgbase.client.macos
+Authority=Developer ID Application: Manuel Riel (CNMSCAXT48)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=CNMSCAXT48
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreWLAN/_CoreWLAN.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreWLAN/_CoreWLAN.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreServices/_inlines.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreServices/_inlines.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/libpython3.12.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/libpython3.12.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Foundation/_inlines.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Foundation/_inlines.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Foundation/_Foundation.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/Foundation/_Foundation.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/playhouse/_sqlite_ext.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/playhouse/_sqlite_ext.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/AppKit/_inlines.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/AppKit/_inlines.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/AppKit/_AppKit.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/AppKit/_AppKit.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/objc/_objc.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/objc/_objc.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/psutil/_psutil_osx.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/psutil/_psutil_osx.abi3.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreFoundation/_inlines.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreFoundation/_inlines.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreFoundation/_CoreFoundation.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/CoreFoundation/_CoreFoundation.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/FSEvents/_callbacks.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/FSEvents/_callbacks.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtWidgets.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtWidgets.abi3.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtGui.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtGui.abi3.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/sip.cpython-312-darwin.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/sip.cpython-312-darwin.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqoffscreen.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqoffscreen.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqminimal.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqminimal.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqcocoa.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/platforms/libqcocoa.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/styles/libqmacstyle.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/styles/libqmacstyle.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqsecuretransportbackend.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqsecuretransportbackend.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqopensslbackend.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqopensslbackend.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqcertonlybackend.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/tls/libqcertonlybackend.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/iconengines/libqsvgicon.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/iconengines/libqsvgicon.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqgif.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqgif.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqwbmp.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqwbmp.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqwebp.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqwebp.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqico.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqico.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqmacheif.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqmacheif.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqjpeg.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqjpeg.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqtiff.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqtiff.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqsvg.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqsvg.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqicns.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqicns.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqtga.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqtga.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqmacjp2.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/imageformats/libqmacjp2.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/generic/libqtuiotouchplugin.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/generic/libqtuiotouchplugin.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/networkinformation/libqapplenetworkinformation.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/plugins/networkinformation/libqapplenetworkinformation.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtGui.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtGui.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtDBus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtDBus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtCore.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtCore.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtWidgets.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtWidgets.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtNetwork.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtNetwork.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtSvg.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/Qt6/lib/QtSvg.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtNetwork.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtNetwork.abi3.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtCore.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtCore.abi3.so
+--prepared:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtDBus.abi3.so
+--validated:/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app/Contents/Frameworks/PyQt6/QtDBus.abi3.so
+/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.m1fZcrmY/Vorta.app
+Vorta.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.12.1/Vorta-v0.12.1-arm.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

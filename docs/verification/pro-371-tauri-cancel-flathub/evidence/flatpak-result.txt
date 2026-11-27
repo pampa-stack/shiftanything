@@ -1,0 +1,13 @@
+[remote "flathub"]
+url=https://dl.flathub.org/repo/
+xa.title=Flathub
+gpg-verify=true
+gpg-verify-summary=true
+xa.comment=Central repository of Flatpak applications
+xa.description=Central repository of Flatpak applications
+xa.icon=https://dl.flathub.org/repo/logo.svg
+xa.homepage=https://flathub.org/
+c504fa5dc891df6cfcc10021dd9addf08459007f1787f40b9c6fd3c7e58416ea  /var/tmp/shift-cancel-tauri.ZtjoIuXG/launcher-profile/home/data/flatpak/repo/flathub.trustedkeys.gpg
+flathub	https://dl.flathub.org/repo/
+/var/tmp/shift-cancel-tauri.ZtjoIuXG/launcher-profile/home/.var/app/org.gimp.GIMP/shift-profile-marker: OK
+PASS: official GIMP ref absent; sentinel unchanged

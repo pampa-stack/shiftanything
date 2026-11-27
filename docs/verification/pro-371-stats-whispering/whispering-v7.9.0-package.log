@@ -1,0 +1,31 @@
+PACKAGE v7.9.0 https://github.com/EpicenterHQ/epicenter/releases/download/v7.9.0/Whispering_7.9.0_aarch64.dmg 15206641 6a0e45d47ecdb2ada6afa8309914dd73c03db896fd153272e0891976867851c7
+/Volumes/T7-Backup/shift-macos-stats-auth.qJd8yMHO/proof/payload-v7.9.0.IJ4vxCCE/Whispering_7.9.0_aarch64.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-stats-auth-mount.LokWz3AM
+BUNDLE Whispering.app
+30728	/private/tmp/shift-stats-auth-mount.LokWz3AM/Whispering.app
+CFBundleIdentifier com.bradenwong.whispering
+CFBundleShortVersionString 7.9.0
+CFBundleExecutable whispering
+LSMinimumSystemVersion 10.15
+arm64
+/private/tmp/shift-stats-auth-mount.LokWz3AM/Whispering.app/Contents/MacOS/whispering:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=com.bradenwong.whispering
+Authority=Developer ID Application: Braden Wong (3C7J97QA5Z)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=3C7J97QA5Z
+/private/tmp/shift-stats-auth-mount.LokWz3AM/Whispering.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Braden Wong (3C7J97QA5Z)
+PASS v7.9.0 official hash, strict signature, notarization, Gatekeeper
+CLEANUP v7.9.0 status=0

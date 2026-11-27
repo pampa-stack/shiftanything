@@ -1,0 +1,234 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.ck1FCGXU/flathub.flatpakrepo
+=== org.kde.kate ===
+        ID: org.kde.kate
+       Ref: app/org.kde.kate/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 10.2 MB
+ Installed: 22.7 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82
+    Parent: cb0d9fe7307bb55627dc90870b0646558f255becd002bca627242066cf57f9f6
+   Subject: Disable SSH support in Konsole (108304e0571a)
+      Date: 2026-11-12 23:24:36 +0000
+   History:
+
+    Commit: cb0d9fe7307bb55627dc90870b0646558f255becd002bca627242066cf57f9f6
+   Subject: Update runtime to 6.11 (e15a2580bfac)
+      Date: 2026-11-06 11:02:11 +0000
+
+    Commit: 391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194
+   Subject: Update markdownpart and konsole modules (e9d2b04732bf)
+      Date: 2026-07-03 09:24:54 +0000
+
+    Commit: b10cb69c14b530a70e8e367ab7b8f84531b228090d421ac3e74e11e114cae5e6
+   Subject: konsole: Update konsole-26.04.1.tar.xz to 26.04.2 (8592e7751925)
+      Date: 2026-06-18 07:20:36 +0000
+
+=== org.kde.ark ===
+        ID: org.kde.ark
+       Ref: app/org.kde.ark/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 7.8 MB
+ Installed: 21.0 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 8275aad8fadad4178df3f8939ac1f36f5e67f556cfc18455b0afc18348ddfeab
+    Parent: 908876d27bf2ede02d536cdc5f8369a94ac7dc3a77665c6ef31260346c9e4397
+   Subject: 7zip: Update 26.05.tar.gz to 26.06 (81e87fac0a77)
+      Date: 2026-11-10 14:51:19 +0000
+   History:
+
+    Commit: 908876d27bf2ede02d536cdc5f8369a94ac7dc3a77665c6ef31260346c9e4397
+   Subject: Update 7zip and ark modules (e638c9af8b85)
+      Date: 2026-11-06 10:48:58 +0000
+
+    Commit: 7b5c13f1398bdacd0ec35911b9187685aebb169a283ec030e50b54ef61187ef0
+   Subject: Update libzip and ark modules (85d56b24ed79)
+      Date: 2026-11-02 23:18:01 +0000
+
+    Commit: e8ea1e5a1226c8693c3794f350f71222eea8ef0ff1ee6ec15b700481667c2360
+   Subject: Update runtime to 6.11 (8708dd94a407)
+      Date: 2026-09-06 11:54:58 +0000
+
+=== org.kde.filelight ===
+        ID: org.kde.filelight
+       Ref: app/org.kde.filelight/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 521.7 kB
+ Installed: 862.2 kB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e
+    Parent: 939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e
+   Subject: filelight: Update filelight-26.08.2.tar.xz to 26.08.3 (37607eae02f9)
+      Date: 2026-11-10 15:09:10 +0000
+   History:
+
+    Commit: 939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e
+   Subject: filelight: Update filelight-26.04.3.tar.xz to 26.08.2 (557b0f3f98d2)
+      Date: 2026-11-05 23:20:15 +0000
+
+    Commit: 5b67351c4f8a8ad4f9f466a4e5ede0988c8c6fbdf4e7f571b8fcc3fa2e9f7da1
+   Subject: Update runtime to 6.11 (787571d37ff0)
+      Date: 2026-09-06 11:53:16 +0000
+
+    Commit: c4d76008383641eb80c410dc84eeb59c36efc03c37f597abe38f089e432e0050
+   Subject: filelight: Update filelight-26.04.2.tar.xz to 26.04.3 (e769f6cc6e39)
+      Date: 2026-07-02 16:54:51 +0000
+
+=== org.kde.glaxnimate ===
+        ID: org.kde.glaxnimate
+       Ref: app/org.kde.glaxnimate/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 4.3 MB
+ Installed: 11.1 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39
+    Parent: ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e
+   Subject: Update to KDE Runtime 6.11 (23acce4484c6)
+      Date: 2026-11-13 10:10:38 +0000
+   History:
+
+    Commit: ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e
+   Subject: Correct yaml for x-checker-data and fix URL for glaxnimate (b25cfdf54eec)
+      Date: 2026-07-31 03:20:42 +0000
+
+    Commit: ec52db50b07416424f463896d06602af4c7f39fb5bf735864f549f8966c5a618
+   Subject: Add org.kde.glaxnimate (4e73b2006c02)
+      Date: 2026-03-05 08:37:45 +0000
+
+    Commit: a432d8d48b2cedf6584fc300aca51eea5f3be8c8dbca009887641eeb600feaeb
+   Subject: Add org.kde.glaxnimate (4e73b2006c02)
+      Date: 2026-03-05 08:37:45 +0000
+=== org.gnome.Evolution ===
+        ID: org.gnome.Evolution
+       Ref: app/org.gnome.Evolution/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 25.6 MB
+ Installed: 65.5 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd
+    Parent: 2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d
+   Subject: Merge pull request #239 from flathub/beta (e9fdc5c4d416)
+      Date: 2026-10-19 19:00:21 +0000
+   History:
+
+    Commit: 2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d
+   Subject: Merge pull request #235 from flathub/beta (daf9916ab002)
+      Date: 2026-09-24 08:02:29 +0000
+
+    Commit: 63ab47e6c42c491ea602e64049b3ad395f310edabad2119bf65d4d105a026c7a
+   Subject: Merge pull request #231 from flathub/beta (f874c6252892)
+      Date: 2026-05-28 08:11:22 +0000
+
+    Commit: 9372698bcfea2d518451e4d61979afe01f656fdcebe5e3b355c8d94ae7bc772a
+   Subject: Merge pull request #224 from flathub/beta (528452c95102)
+      Date: 2026-04-23 12:37:04 +0000
+
+=== org.gnome.Contacts ===
+        ID: org.gnome.Contacts
+       Ref: app/org.gnome.Contacts/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 7.0 MB
+ Installed: 28.6 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: 80e107fdcfc3a4dc65da9dff1076d9af8bf6c899cae1a590c0fed0e410e11c87
+    Parent: 8d43797895871c1f92e4460ae2e0ab3a2f404787bf755df2cf1470e1b0c68dce
+   Subject: Merge pull request #100 from ostfriese4/libportal-shared-modules (d27a9ba34534)
+      Date: 2026-10-31 12:06:48 +0000
+   History:
+
+    Commit: 8d43797895871c1f92e4460ae2e0ab3a2f404787bf755df2cf1470e1b0c68dce
+   Subject: Merge pull request #99 from A6GibKm/contacts-51.0 (0fbef20d6d72)
+      Date: 2026-09-27 05:02:17 +0000
+
+    Commit: 68bb34c2dd0059b468c958b7401c509a545de984ef72dff3971a00ba83bf4a76
+   Subject: Merge pull request #98 from flathub/update-master-c9a2e8c (5d2525223370)
+      Date: 2026-03-19 23:10:26 +0000
+
+    Commit: d4978f60ed04f3eeadd2ccde3be92ab1555078d8d9feb8de9e558f8f93fb515c
+   Subject: Merge pull request #97 from A6GibKm/updates (bdeb1acb224f)
+      Date: 2026-01-10 12:57:50 +0000
+
+=== com.github.hluk.copyq ===
+        ID: com.github.hluk.copyq
+       Ref: app/com.github.hluk.copyq/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 5.3 MB
+ Installed: 13.7 MB
+   Runtime: org.kde.Platform/x86_64/6.10
+       Sdk: org.kde.Sdk/x86_64/6.10
+
+    Commit: 6f4996f09dd261bbcc5f17d676d13c576e9b4aaa525949a31532b674917169b6
+    Parent: 4bf3c85130e0ff4fe2743dfb8030ff21d0cc734e13c379405fa741a164017606
+   Subject: Update qt6keychain and miniaudio modules (#96) (62c0021b11a2)
+      Date: 2026-11-14 08:09:27 +0000
+   History:
+
+    Commit: 4bf3c85130e0ff4fe2743dfb8030ff21d0cc734e13c379405fa741a164017606
+   Subject: Update to v17.0.0 (#94) (da39f8fed01e)
+      Date: 2026-10-03 06:31:23 +0000
+
+    Commit: be6a37faba6cef5b01b88b62b11191678356a18929f9103ed3c97ff3d70e4e2a
+   Subject: qca-qt6: Update qca.git to 2.3.12 (#93) (7c848a43ea75)
+      Date: 2026-08-31 06:09:03 +0000
+
+    Commit: a29e3f9602dc96a3da53c9c22a0fb13c34256193c70c6b1375c4243c0ba78ab2
+   Subject: qt6keychain: Update qtkeychain.git to 0.17.0 (#92) (9d417159e433)
+      Date: 2026-07-13 06:57:16 +0000
+
+=== org.freac.freac ===
+        ID: org.freac.freac
+       Ref: app/org.freac.freac/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 13.0 MB
+ Installed: 27.2 MB
+   Runtime: org.freedesktop.Platform/x86_64/26.08
+       Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+    Commit: 2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092
+    Parent: 25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1
+   Subject: Update runtime version to 26.08 (#32) (3941733f54fc)
+      Date: 2026-11-17 23:26:07 +0000
+   History:
+
+    Commit: 25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1
+   Subject: Merge pull request #31 from flathub/update-libmac (b6b594908c14)
+      Date: 2026-11-11 18:11:48 +0000
+
+    Commit: 605d99760d5315624d908f0fdb0e0d3b269c8b1341a24afa67f64810819bf984
+   Subject: Merge pull request #30 from flathub/update-master-e8814e0 (4b4715ca9ba4)
+      Date: 2026-11-11 07:23:30 +0000
+
+    Commit: fdf0ad9acb3856c07761e4b1142fbddc17704f33dba3c62db0a76d1ad4ecdb95
+   Subject: libfdk-aac: Update v2.0.3.tar.gz to 3.0.0 (#27) (5b2a576252b9)
+      Date: 2026-10-13 21:10:51 +0000
+
+    Commit: f7d7ab8fa309a2fe2997e89143b8f487f2b5c90bc779aca93bd80d7a237ad188
+   Subject: libcdio: Update 2.3.0.tar.gz to 2.4.0 (#26) (0bc34dd91893)

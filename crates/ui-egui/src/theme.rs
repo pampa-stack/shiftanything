@@ -79,15 +79,15 @@ const fn hex(rgb: u32) -> Color32 {
 impl Tokens {
     pub const DARK: Self = Self {
         dark: true,
-        bg: hex(0x121316),
-        sunken: hex(0x060607),
+        bg: hex(0x08090a),
+        sunken: hex(0x0e0f12),
         ink: hex(0xf2f1ee),
         ink_strong: hex(0xffffff),
         muted: ink_alpha(0xf2f1ee, 153),
         faint: ink_alpha(0xf2f1ee, 97),
         line: ink_alpha(0xf2f1ee, 38),
         line_strong: ink_alpha(0xf2f1ee, 102),
-        accent: hex(0x2d81ff),
+        accent: hex(0x0089ff),
         accent_ink: hex(0x74aaff),
         invert_bg: hex(0xffffff),
         invert_fg: hex(0x0b0b0c),
@@ -107,7 +107,7 @@ impl Tokens {
         faint: ink_alpha(0x101014, 107),
         line: ink_alpha(0x101014, 41),
         line_strong: ink_alpha(0x101014, 102),
-        accent: hex(0x2d81ff),
+        accent: hex(0x0089ff),
         accent_ink: hex(0x1659c4),
         invert_bg: hex(0x101014),
         invert_fg: hex(0xf2f1ee),
@@ -252,7 +252,7 @@ pub const COLUMN_GAP: f32 = 32.0;
 /// Padding inside a hairline box: a group of settings, a feature, a release fact.
 pub const BOX_MARGIN: egui::Margin = egui::Margin::symmetric(14, 12);
 /// Below this width the toolbar moves the sort and "Update all" to a second row.
-pub const TOOLBAR_COMPACT_BELOW: f32 = 640.0;
+pub const TOOLBAR_COMPACT_BELOW: f32 = 600.0;
 /// From this width the large dialogs read in two columns.
 pub const DIALOG_COLUMNS_FROM: f32 = 760.0;
 /// From this width the app page reads in two columns (its pictures need the room).

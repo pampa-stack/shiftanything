@@ -25,10 +25,9 @@ pub use craft_ai_agents::{APPS_FILE, DIR_ENV};
 /// Largest client configuration read; anything bigger is not a configuration file.
 const MAX_CONFIG_BYTES: u64 = 64 << 20;
 
-/// The app list's folder: [`DIR_ENV`], otherwise `ArtCraft/mcp` in the per-user local
-/// configuration folder (beside the AI layer's `ArtCraft/ai`).
+/// The legacy gateway app list stays inside this fork's profile, separate from ArtCraft.
 pub fn mcp_dir() -> Option<PathBuf> {
-    craft_ai_agents::agents_dir()
+    crate::paths::Paths::new().ok().map(|paths| paths.data.join("craft-app-gateway"))
 }
 
 /// The app list for `services`: each app with a CLI, started as plain `<cli> mcp`. By the suite's
@@ -327,22 +326,13 @@ fn lock() -> MutexGuard<'static, ()> {
     LOCK.lock().unwrap_or_else(PoisonError::into_inner)
 }
 
-/// What Settings shows. While agents are on, the app list and the gateway copy are refreshed
-/// first, so an app installed (or a gateway updated) since then is used too; a failed refresh
-/// keeps the previous ones.
+/// Read-only settings state. Opening Settings never refreshes app lists or gateway files.
 pub fn state(services: &[InstalledApp]) -> McpAgents {
     let flag_on = flag_on();
     let dir = mcp_dir();
     let on = {
         let _guard = lock();
-        let on = flag_on && dir.as_deref().is_some_and(enabled);
-        if on && let Some(d) = &dir {
-            let _ = write_apps(d, services);
-            if let Some(src) = locate_gateway() {
-                let _ = install_gateway(&src, d);
-            }
-        }
-        on
+        flag_on && dir.as_deref().is_some_and(enabled)
     };
     let clients = CLIENTS
         .iter()

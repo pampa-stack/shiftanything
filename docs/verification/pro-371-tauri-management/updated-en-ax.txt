@@ -1,0 +1,52 @@
+App=shiftanything-tauri-proof (pid 25297)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1235 container
+				1236 image Sh*ftAnything
+				1237 text Sh
+				1238 text *
+				1239 text ftAnything
+				1240 button (disabled) CONNECT AGENT · MCP
+				1241 button (disabled) Settings
+			1242 toggle button CATALOG, Value: 0
+			1243 toggle button FAVORITES, Value: 0
+			1244 button MY APPS
+			1245 toggle button (disabled) SH*FTER, Value: 0
+			1246 toggle button (disabled) FIND APPS, Value: 0
+			1247 toggle button (disabled) WORK KITS, Value: 0
+			1248 search text field (disabled, settable) Find apps, categories or alternatives…
+				1249 text Find apps, categories or alternatives…
+			1250 toggle button (disabled) Card view, Value: 1
+			1251 toggle button (disabled) Table view, Value: 0
+			1252 button UPDATES
+			1253 container
+				1254 heading My apps
+				1255 button CHECK FOR UPDATES
+				1256 button (disabled) UPDATE ALL
+				1257 text Request sent: confirmation required.
+				1258 heading Updates · 0
+				1280 text APP
+				1281 text VERSION
+				1282 text AVAILABLE
+				1283 text STATUS
+				1284 text ACTIONS
+				1285 text No available updates detected.
+				1272 heading Installed · 1
+				1286 text APP
+				1287 text VERSION
+				1288 text AVAILABLE
+				1289 text STATUS
+				1290 text ACTIONS
+				1291 text Handy
+				1292 text 0.10.2
+				1293 text —
+				1294 text completed: Handy updated to 0.10.2
+				1295 button OPEN
+				1296 button DETAILS
+				1297 button REMOVE
+			1279 container, Text: TEMPORARY PROFILE · RUST 336 · MACOS/ARM64 · 20 DETECTED STATES · HANDY: COMPLET... Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica
+
+No UI element is currently focused.

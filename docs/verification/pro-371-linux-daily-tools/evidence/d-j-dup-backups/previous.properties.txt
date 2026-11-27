@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Déjà Dup Backups"
+WM_CLASS(STRING) = "org.gnome.DejaDup", "org.gnome.DejaDup"

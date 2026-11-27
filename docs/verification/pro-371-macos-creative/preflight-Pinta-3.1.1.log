@@ -1,0 +1,31 @@
+PACKAGE 3.1.1 https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg 67815026 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+/private/tmp/shift-creative-macos.CQu7hH09/payload-3.1.1.dpvll0QU/Pinta-macos-arm64.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_APFS
+/dev/disk9          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk9s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-creative-macos.CQu7hH09/payload-3.1.1.dpvll0QU/mount
+CFBundleIdentifier com.ximian.pinta
+CFBundleShortVersionString 3.1.1
+CFBundleExecutable Pinta
+LSMinimumSystemVersion Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+arm64
+/private/tmp/shift-creative-macos.CQu7hH09/payload-3.1.1.dpvll0QU/mount/Pinta.app/Contents/MacOS/Pinta:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=com.ximian.pinta
+Authority=Developer ID Application: Cameron White (D5G6C56TBH)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=D5G6C56TBH
+/private/tmp/shift-creative-macos.CQu7hH09/payload-3.1.1.dpvll0QU/mount/Pinta.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Cameron White (D5G6C56TBH)
+PASS 3.1.1 official hash, strict signature, notarization, Gatekeeper
+CLEANUP 3.1.1 status=0

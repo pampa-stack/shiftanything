@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437009096    907512   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974296376   2059064   100%    /Volumes/T7-Backup
+Recipe openscreen selected Openscreen-macOS-Apple-Silicon-2.3.0.dmg 141157755 bytes
+Verifying after 14.112s
+Installing after 14.112s
+PASS 2.3.0 141157755 bytes
+PASS install 56.914s
+349520	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-openscreen/Apps/Openscreen.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437015772    900836   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974636392   1719048   100%    /Volumes/T7-Backup
+Recipe openscreen selected Openscreen-macOS-Apple-Silicon-2.4.0.dmg 141308945 bytes
+Verifying after 14.178s
+Installing after 14.179s
+PASS 2.4.0 141308945 bytes
+PASS update 33.583s
+349700	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-openscreen/Apps/Openscreen.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-openscreen/.Trash/Openscreen.app
+PASS remove 0.020s

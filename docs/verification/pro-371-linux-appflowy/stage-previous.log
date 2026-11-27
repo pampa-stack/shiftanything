@@ -1,0 +1,9 @@
+Updating app/io.appflowy.AppFlowy/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/749936f8d1f2092876bb89ecb18b8e14e220a30d42fb26940ca8abdbe6ad01ba/files/appflowy/AppFlowy: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5cb0be24957de5137a527f8f168c0bedf82fb80a, for GNU/Linux 3.2.0, stripped
+appflowy before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/749936f8d1f2092876bb89ecb18b8e14e220a30d42fb26940ca8abdbe6ad01ba", package: Some("io.appflowy.AppFlowy"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.0"), update_available: false, can_remove: false, can_open: true }
+appflowy JobFinished: Err("Approved action rejected: native installation state changed")
+appflowy JobFinished: Err("This Flatpak is managed outside the launcher")
+appflowy after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/749936f8d1f2092876bb89ecb18b8e14e220a30d42fb26940ca8abdbe6ad01ba", package: Some("io.appflowy.AppFlowy"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.0"), update_available: false, can_remove: false, can_open: true })
+FIXTURE rebound launcher-owned record to signed previous deployment
+TIMING appflowy previous 9497 ms

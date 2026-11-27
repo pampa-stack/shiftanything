@@ -1,0 +1,19 @@
+commit cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34
+Parent:  793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966
+ContentChecksum:  5fd3c9778125e1ac7459a00611d79926484fa51a07c6694efa3002e6feb0d96e
+Date:  2026-11-21 16:39:12 +0000
+
+    Merge pull request #161 from flathub/update-master-9fda362 (68f09720e42e)
+
+    Name: org.gnome.Maps
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 21 18:01:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

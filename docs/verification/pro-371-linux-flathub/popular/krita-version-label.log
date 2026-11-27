@@ -1,0 +1,9 @@
+krita before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+krita JobFinished: Ok("Flathub app installed")
+krita after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-popular.OnGe8ohG/krita/home/data/flatpak/app/org.kde.krita/x86_64/stable/920c060ad1d7fbfeb798485e076f4dbe04049f00e2ab3f8182a6f14eaaebd30d", package: Some("org.kde.krita"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.4.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.krita/x86_64/stable	flathub	920c060ad1d7	user	5.3.4.1
+krita before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-popular.OnGe8ohG/krita/home/data/flatpak/app/org.kde.krita/x86_64/stable/920c060ad1d7fbfeb798485e076f4dbe04049f00e2ab3f8182a6f14eaaebd30d", package: Some("org.kde.krita"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3.4.1"), update_available: false, can_remove: true, can_open: true }
+krita JobFinished: Ok("Flathub app removed")
+krita after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+PASS native install, open, update, remove, persisted ownership and profile data

@@ -1,0 +1,19 @@
+commit 9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582
+Parent:  920b9936b19867f516005edb011d8905775cc58d67568dde7973525c5e1d65bd
+ContentChecksum:  46f1c6135335387d46fa7ac8c9ecb21c560fb1463ff3b6fe69ec528f83700f2f
+Date:  2026-11-16 16:58:42 +0000
+
+    Add FFmpeg 8 support (2dd0d7d16269)
+
+    Name: org.tenacityaudio.Tenacity
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 16 18:01:24 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

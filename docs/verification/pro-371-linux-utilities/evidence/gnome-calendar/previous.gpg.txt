@@ -1,0 +1,19 @@
+commit f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826
+Parent:  89a3cbaa6f45888216892aa3f350fd7a55c5c442d24b286c33ff758bf0bbc24e
+ContentChecksum:  4ca2e284d14c1833a9c0f20e6b262e5cdf22c0c9fb8ea330f36888c10e99f305
+Date:  2026-03-18 21:19:03 +0000
+
+    Merge pull request #86 from flathub/update-master-6448a6c (d6c89f3617f8)
+
+    Name: org.gnome.Calendar
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Wed Mar 18 22:04:15 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

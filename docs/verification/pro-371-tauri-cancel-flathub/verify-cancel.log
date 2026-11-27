@@ -1,0 +1,20 @@
+528b6410dec54c8d6528609ffdad0d6d6a98aebff7e8f9de5829fbf3b6de3ae7  /var/tmp/shift-cancel-tauri.ZtjoIuXG/launcher-profile/home/.var/app/org.gimp.GIMP/shift-profile-marker
+ac04d72c70f4cafe5fb50546e459178ebfb3b81a8f0500d52ae3a482f74dab52  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/01-gimp-installable.xwd
+50443d560b3bf4094bcc1e65ccca4dab139972b43e8b510cedcc63606f7dd96c  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/02-install-consent.xwd
+2026-11-27T05:21:37.374+00:00 PID 2276916: flatpak install --user --noninteractive --assumeyes flathub app/org.gimp.GIMP/x86_64/stable
+df941c7d0607d4db97be093141cb0d6a60c467d49690d58c8161bb24c3946762  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/03-actual-installation.xwd
+28a683380ed3d9a9cc1effb72ec560ae0ef8f9ff1d5026879f8aefe6cdd568f0  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/04-reject-cancellation.xwd
+2026-11-27T05:21:37.948+00:00 ui-2 rejected; original command still alive: PID 2276916: flatpak install --user --noninteractive --assumeyes flathub app/org.gimp.GIMP/x86_64/stable
+41ce9677f1b09cb0d2b470fcba0f0847906885f734bbee53bcaffd2b1745849d  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/05-still-installing-after-refusal.xwd
+2c30a82069e21943634efcc58f0bc787d2d66afd01639fa14436cb6901deb863  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/06-approve-cancellation.xwd
+47d6567b7d13db4589946d022f696757fcd3021f87d74dab0db964851b114f7b  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/07-no-installation-running.xwd
+0765a6618ddede35f4e4edea6b7551c18027dd24a53c7a6bc87bcef5e8a144b4  /var/tmp/shift-cancel-tauri.ZtjoIuXG/evidence/08-cancelled-in-gimp-details.xwd
+{
+  "app:gimp": "cancelled",
+  "ui-1": "approved; native operation requested (not completed)",
+  "ui-1:gimp": "cancelled",
+  "ui-2": "rejected",
+  "ui-3": "approved; native operation requested (not completed)",
+  "ui-3:gimp": "completed: operation cancelled"
+}
+2026-11-27T05:21:40.878+00:00 PASS live native cancellation and refusal, original/cancel outcomes, untouched sentinel

@@ -1,0 +1,19 @@
+commit 25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1
+Parent:  605d99760d5315624d908f0fdb0e0d3b269c8b1341a24afa67f64810819bf984
+ContentChecksum:  ad1a01919fe2b9ba15b56abfbcde33805a244c528fa2cdb95bb043a6af4c445b
+Date:  2026-11-11 18:11:48 +0000
+
+    Merge pull request #31 from flathub/update-libmac (b6b594908c14)
+
+    Name: org.freac.freac
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 11 19:03:36 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

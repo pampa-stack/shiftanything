@@ -1,0 +1,51 @@
+HOST Linux x86_64
+UTC 2026-11-27T08:59:02+00:00
+PROFILE /mnt/dati/lavori/shiftanything/shift-official-linux-profile.designcraft.fLzBr0QM
+OFFICIAL storytold/designcraft 0.20.1 118155768 sha256=f9d6fd6bb1a421850243c0d4be44235713a9ec5b26f8bf1d5ba87afcf8f91534
+PASS designcraft install 20672ms: DesignCraft installed: 0.20.1
+Exec="/fixture/home/Applications/designcraft-0.20.1-linux-x86_64.AppImage" %F
+1280 800
+PASS designcraft launch-old 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch-old title=DesignCraft
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+b41e57b1738bf87af4ff41bca4db4dfc66c42b96a6de4deed16dc80a79338265  config/designcraft/gpu.json
+6ab21795072cf54234d9f3d71c408201d9e34ad2b9437f5472ef335650c6276c  config/designcraft/logs/designcraft.1.log
+42fc5e3b2ae066e626e1eda7d26e66234c1f90dda82c9643b37e8fb988b48b03  config/designcraft/logs/designcraft.log
+75e118c34e2517ab9e10b8f72a934938d96e0ff86efd35f2fb1cc3953b0215ea  config/profile-fingerprint.txt
+4c04103ed0a38838aec9849b8e2303366a68d935dee312df8482572f2c848257  data/designcraft/recovery/run-69-0/lock
+OFFICIAL storytold/designcraft 0.21.1 130423288 sha256=bb08f639ca036da0d271aca1f1f4c9bd711415c4f7e085bc1bf42d7b1f6e0c03
+PASS designcraft update 56374ms: DesignCraft updated to 0.21.1
+b41e57b1738bf87af4ff41bca4db4dfc66c42b96a6de4deed16dc80a79338265  config/designcraft/gpu.json
+6ab21795072cf54234d9f3d71c408201d9e34ad2b9437f5472ef335650c6276c  config/designcraft/logs/designcraft.1.log
+42fc5e3b2ae066e626e1eda7d26e66234c1f90dda82c9643b37e8fb988b48b03  config/designcraft/logs/designcraft.log
+75e118c34e2517ab9e10b8f72a934938d96e0ff86efd35f2fb1cc3953b0215ea  config/profile-fingerprint.txt
+4c04103ed0a38838aec9849b8e2303366a68d935dee312df8482572f2c848257  data/designcraft/recovery/run-69-0/lock
+Exec="/fixture/home/Applications/designcraft-0.21.1-linux-x86_64.AppImage" %F
+1280 800
+PASS designcraft launch 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch title=DesignCraft
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+194e619245e68394b555f5384be3bba8cbdf4959cf662fe39762fe047efb8139  config/designcraft/gpu.json
+97c0002a1254dd97b69353290c41b1d5f4e72f434f170031a6eb187d92dd9c14  config/designcraft/logs/designcraft.1.log
+42fc5e3b2ae066e626e1eda7d26e66234c1f90dda82c9643b37e8fb988b48b03  config/designcraft/logs/designcraft.2.log
+9eba4f013faa77ed88ca00c869744cf30316d31ccc7db6bf8b95b1e8e0f87eb0  config/designcraft/logs/designcraft.log
+75e118c34e2517ab9e10b8f72a934938d96e0ff86efd35f2fb1cc3953b0215ea  config/profile-fingerprint.txt
+18b4216e73d59453e265cbc7c0c9bc033fc5a9fcfacd525c4a8eb48291d72a36  data/designcraft/recovery/run-78-0/lock
+PASS designcraft uninstall 80ms: DesignCraft was removed
+194e619245e68394b555f5384be3bba8cbdf4959cf662fe39762fe047efb8139  config/designcraft/gpu.json
+97c0002a1254dd97b69353290c41b1d5f4e72f434f170031a6eb187d92dd9c14  config/designcraft/logs/designcraft.1.log
+42fc5e3b2ae066e626e1eda7d26e66234c1f90dda82c9643b37e8fb988b48b03  config/designcraft/logs/designcraft.2.log
+9eba4f013faa77ed88ca00c869744cf30316d31ccc7db6bf8b95b1e8e0f87eb0  config/designcraft/logs/designcraft.log
+75e118c34e2517ab9e10b8f72a934938d96e0ff86efd35f2fb1cc3953b0215ea  config/profile-fingerprint.txt
+18b4216e73d59453e265cbc7c0c9bc033fc5a9fcfacd525c4a8eb48291d72a36  data/designcraft/recovery/run-78-0/lock
+PASS designcraft install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 130
+Temporary profile removed; test exit=0

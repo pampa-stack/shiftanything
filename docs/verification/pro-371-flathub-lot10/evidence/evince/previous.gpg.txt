@@ -1,0 +1,19 @@
+commit dc553d3b8e4d7e32cc674ebc184a49ba2609fbec24539e71dcf16e80367c6931
+Parent:  9f0403ef260ec7a60409742bc04348dc5d636cb7781ca03b589594e3437855ed
+ContentChecksum:  2c1d0ce2e78fe40138f2996560e42c8fc3024c5aec7498f01d8a0ef8394484dc
+Date:  2026-11-16 12:35:00 +0000
+
+    Update poppler, gspell and gnome-desktop modules (712658d5a2d1)
+
+    Name: org.gnome.Evince
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 16 13:01:42 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

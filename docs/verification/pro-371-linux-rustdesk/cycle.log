@@ -1,0 +1,39 @@
+START 2026-11-27T10:31:02Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/rustdesk/rustdesk/releases/download/1.5.1/rustdesk-1.5.1-x86_64.AppImage bytes=88472056 sha256=bb8b7ccb3f50a201dccdc89b46385cff90f33e60b4730faeda9fa5504ac4dce6
+FILE /fixture/home/Applications/rustdesk-1.5.1-x86_64.AppImage version=1.5.1 bytes=88472056 sha256=bb8b7ccb3f50a201dccdc89b46385cff90f33e60b4730faeda9fa5504ac4dce6
+DESKTOP /fixture/home/data/applications/rustdesk.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/rustdesk.png sha256=8d2523dcc7e61bcd2b39d2e17579c0a75e34b5972c30b8cb125f0015945403c7
+PASS rustdesk install 3355 ms RustDesk installed: 1.5.1
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=127 comm="/tmp/appimage_extracted_ccb51474f54db535fd626b68a1" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[212]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=127 comm="/tmp/appimage_extracted_ccb51474f54db535fd626b68a1" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[212]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = rustdesk Rustdesk
+RustDesk
+PASS rustdesk open-old 0 ms Launch request accepted
+GUI rustdesk open-old 7767 ms window=2097155
+OFFICIAL https://github.com/rustdesk/rustdesk/releases/download/1.5.3/rustdesk-1.5.3-x86_64.AppImage bytes=88492536 sha256=ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506
+FILE /fixture/home/Applications/rustdesk-1.5.3-x86_64.AppImage version=1.5.3 bytes=88492536 sha256=ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506
+DESKTOP /fixture/home/data/applications/rustdesk.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/rustdesk.png sha256=8d2523dcc7e61bcd2b39d2e17579c0a75e34b5972c30b8cb125f0015945403c7
+PASS rustdesk update 11341 ms RustDesk updated to 1.5.3
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/rustdesk-full-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=133 comm="/tmp/appimage_extracted_ede1ecf2c8fabe2011361f2027" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[204]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=133 comm="/tmp/appimage_extracted_ede1ecf2c8fabe2011361f2027" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[204]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = rustdesk Rustdesk
+RustDesk
+PASS rustdesk open-new 1 ms Launch request accepted
+GUI rustdesk open-new 7428 ms window=2097155
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=68 comm="/tmp/appimage_extracted_ede1ecf2c8fabe2011361f2027" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[150]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=68 comm="/tmp/appimage_extracted_ede1ecf2c8fabe2011361f2027" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[150]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = rustdesk Rustdesk
+RustDesk
+GUI rustdesk open-menu 7389 ms window=2097155
+PASS rustdesk remove 40 ms RustDesk was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/rustdesk-full-interface-profile/home/verification-user-data.txt: OK

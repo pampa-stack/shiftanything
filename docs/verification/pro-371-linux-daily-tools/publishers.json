@@ -1,0 +1,98 @@
+[
+  {
+    "id": "d-j-dup-backups",
+    "flatpak": "org.gnome.DejaDup",
+    "repo": "https://gitlab.gnome.org/World/deja-dup",
+    "metadata": {
+      "login_is_organization": false,
+      "login_name": "mterry",
+      "verified": true,
+      "login_provider": "gnome",
+      "method": "login_provider",
+      "timestamp": "1713615165",
+      "website": null
+    },
+    "urls": {
+      "bugtracker": "https://gitlab.gnome.org/World/deja-dup/-/work_items",
+      "homepage": "https://dejadup.org/",
+      "help": "https://gitlab.gnome.org/World/deja-dup/-/wikis/home",
+      "donation": "https://dejadup.org/donate",
+      "translate": "https://l10n.gnome.org/module/deja-dup/",
+      "contact": "https://matrix.to/#/#deja-dup:gnome.org",
+      "faq": "https://gitlab.gnome.org/World/deja-dup/-/wikis/FAQ",
+      "vcs_browser": "https://gitlab.gnome.org/World/deja-dup",
+      "contribute": "https://welcome.gnome.org/app/DejaDup/"
+    },
+    "release": [
+      "50.2",
+      "50.1",
+      "50.0",
+      "49.3"
+    ],
+    "logo": "https://dl.flathub.org/media/org/gnome/DejaDup/00692dcba561d76fbde09a6cf43b953a/icons/128x128/org.gnome.DejaDup.png"
+  },
+  {
+    "id": "rnote",
+    "flatpak": "com.github.flxzt.rnote",
+    "repo": "https://github.com/flxzt/rnote",
+    "metadata": {
+      "login_name": "flxzt",
+      "login_provider": "github",
+      "website": null,
+      "login_is_organization": true,
+      "verified": true,
+      "method": "login_provider",
+      "timestamp": "1676996885"
+    },
+    "urls": {
+      "translate": null,
+      "faq": null,
+      "contact": null,
+      "vcs_browser": "https://github.com/flxzt/rnote",
+      "contribute": null,
+      "bugtracker": "https://github.com/flxzt/rnote/issues",
+      "homepage": "https://rnote.flxzt.net",
+      "help": null,
+      "donation": "https://rnote.flxzt.net/donate/"
+    },
+    "release": [
+      "0.14.2",
+      "0.14.1",
+      "0.14.0",
+      "0.13.1"
+    ],
+    "logo": "https://dl.flathub.org/media/com/github/flxzt.rnote/93b04722947997f1b9c5cc51f10e3ced/icons/128x128/com.github.flxzt.rnote.png"
+  },
+  {
+    "id": "mixxx-dj-software",
+    "flatpak": "org.mixxx.Mixxx",
+    "repo": "https://github.com/mixxxdj/mixxx",
+    "metadata": {
+      "verified": true,
+      "method": "website",
+      "login_name": null,
+      "login_provider": null,
+      "website": "mixxx.org",
+      "login_is_organization": false,
+      "timestamp": "1708509667"
+    },
+    "urls": {
+      "vcs_browser": null,
+      "contribute": null,
+      "bugtracker": "https://github.com/mixxxdj/mixxx/issues/",
+      "homepage": "https://mixxx.org",
+      "help": "https://mixxx.org/support/",
+      "donation": "https://mixxx.org/donate/",
+      "translate": "https://explore.transifex.com/mixxx-dj-software/",
+      "faq": null,
+      "contact": "https://mixxx.zulipchat.com"
+    },
+    "release": [
+      "2.5.6",
+      "2.5.5",
+      "2.5.4",
+      "2.5.3"
+    ],
+    "logo": "https://dl.flathub.org/media/org/mixxx/Mixxx/d015ccf88220e7e77528a31f92318a32/icons/128x128/org.mixxx.Mixxx.png"
+  }
+]

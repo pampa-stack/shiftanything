@@ -1,0 +1,59 @@
+
+=== 2026-11-27T09:14:00+00:00 qview install ===
+qview before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+qview JobFinished: Ok("Flathub app installed")
+qview after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-qview-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+71b0a5827082ef29c158db5d774dd8173e69cbf1029c7f6e836f108fe9f19e52  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-qview-icon.png
+com.interversehq.qView/x86_64/stable	flathub	c543dd9cf1f7	user	6.1
+TIMING qview install 39069 ms
+
+=== 2026-11-27T09:14:39+00:00 qview prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/com.interversehq.qView/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.interversehq.qView/x86_64/stable	flathub	a50677be27a0	user	6.1
+qview before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8", package: Some("com.interversehq.qView"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: false, can_open: true }
+qview JobFinished: Err("Approved action rejected: native installation state changed")
+qview JobFinished: Err("This Flatpak is managed outside the launcher")
+qview after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8", package: Some("com.interversehq.qView"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: false, can_open: true })
+TIMING qview prior 29838 ms
+
+=== 2026-11-27T09:15:09+00:00 qview open ===
+dbus-daemon[2448053]: [session uid=1000 pid=2448053 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2448131 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2448053]: [session uid=1000 pid=2448053 pidfd=5] Successfully activated service 'org.a11y.Bus'
+qview before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: true, can_remove: true, can_open: true }
+qview JobFinished: Ok("Launch request accepted")
+qview after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2448254]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2448859 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2448254]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING qview open-previous 4607 ms
+TIMING qview open 8852 ms
+
+=== 2026-11-27T09:15:18+00:00 qview update-remove ===
+qview before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: true, can_remove: true, can_open: true }
+qview JobFinished: Ok("Flathub app updated")
+qview after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: true, can_open: true })
+TIMING qview update 4431 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/.var/app/com.interversehq.qView/shift-profile-marker: OK
+dbus-daemon[2449982]: [session uid=1000 pid=2449982 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2450010 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2449982]: [session uid=1000 pid=2449982 pidfd=5] Successfully activated service 'org.a11y.Bus'
+qview before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: true, can_open: true }
+qview JobFinished: Ok("Launch request accepted")
+qview after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2450083]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2450580 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2450083]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING qview open-current 3674 ms
+qview before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/data/flatpak/app/com.interversehq.qView/x86_64/stable/c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda", package: Some("com.interversehq.qView"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.1"), update_available: false, can_remove: true, can_open: true }
+qview JobFinished: Ok("Flathub app removed")
+qview after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING qview remove 3725 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qview/home/.var/app/com.interversehq.qView/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING qview update-remove 13624 ms

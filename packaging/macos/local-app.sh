@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# Assemble an isolated, ad-hoc signed test bundle. Never installs or launches it.
+# Usage: local-app.sh [--tauri [--release]] NEW_OUTPUT_DIRECTORY
+set -euo pipefail
+umask 077
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+PKG=artcraft-launcher
+PROFILE=debug
+if [[ "${1:-}" = --tauri ]]; then
+  PKG=shiftanything-tauri-proof
+  shift
+  if [[ "${1:-}" = --release ]]; then
+    PROFILE=release
+    shift
+  fi
+fi
+[[ $# = 1 && "$1" != -* ]] || { echo 'usage: local-app.sh [--tauri [--release]] NEW_OUTPUT_DIRECTORY' >&2; exit 2; }
+OUTPUT="$1"
+BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/$PROFILE/$PKG"
+if [[ ! -x "$BINARY" ]]; then
+  RELEASE_FLAG=
+  [[ "$PROFILE" != release ]] || RELEASE_FLAG=' --release'
+  printf 'Build the selected binary first: cargo build --locked%s -p %s\n' "$RELEASE_FLAG" "$PKG" >&2
+  exit 1
+fi
+mkdir -- "$OUTPUT"
+# Keep the workspace private while giving the bundle standard distribution modes.
+umask 022
+APP="$OUTPUT/Sh*ftAnything.app"
+mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$OUTPUT/icon.iconset"
+install -m 755 "$BINARY" "$APP/Contents/MacOS/ShiftAnything"
+for file in LICENSE-MIT LICENSE-APACHE NOTICE ATTRIBUTION.md; do
+  install -m 644 "$ROOT/$file" "$APP/Contents/Resources/$file"
+done
+for size in 16 32 64 128 256 512; do
+  sips -z "$size" "$size" "$ROOT/assets/shiftanything/icon.png" --out "$OUTPUT/icon.iconset/icon_${size}x${size}.png" >/dev/null
+done
+# iconutil's 2x entries carry the same pixels under the standard Retina names.
+for size in 16 32 128 256; do
+  double=$((size * 2))
+  cp "$OUTPUT/icon.iconset/icon_${double}x${double}.png" "$OUTPUT/icon.iconset/icon_${size}x${size}@2x.png"
+done
+iconutil -c icns "$OUTPUT/icon.iconset" -o "$APP/Contents/Resources/ShiftAnything.icns"
+VERSION="$(awk '/^\[/{active=($0=="[workspace.package]")} active && $1=="version" {gsub(/"/,"",$3);print $3;exit}' "$ROOT/Cargo.toml")"
+cat > "$APP/Contents/Info.plist" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>it.promptica.shiftanything</string>
+<key>CFBundleName</key><string>Sh*ftAnything</string>
+<key>CFBundleDisplayName</key><string>Sh*ftAnything</string>
+<key>CFBundleExecutable</key><string>ShiftAnything</string>
+<key>CFBundleIconFile</key><string>ShiftAnything</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+<key>CFBundleShortVersionString</key><string>$VERSION</string>
+<key>CFBundleVersion</key><string>$VERSION</string>
+<key>LSMinimumSystemVersion</key><string>11.0</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>NSHumanReadableCopyright</key><string>Promptica; ArtCraft contributors. MIT OR Apache-2.0. See bundled notices.</string>
+</dict></plist>
+PLIST
+plutil -lint "$APP/Contents/Info.plist"
+codesign --force --sign - --timestamp=none "$APP"
+codesign --verify --deep --strict "$APP"
+ACTUAL_VERSION="$("$APP/Contents/MacOS/ShiftAnything" --version)"
+[[ "$ACTUAL_VERSION" = "shiftanything $VERSION" ]] || { printf 'Unexpected launcher version: %s\n' "$ACTUAL_VERSION" >&2; exit 1; }
+printf '%s\n' "$ACTUAL_VERSION"
+printf 'PASS local bundle: %s\nAd-hoc test only; not notarized or installed.\n' "$APP"

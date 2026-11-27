@@ -1,0 +1,19 @@
+commit c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b
+Parent:  6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d
+ContentChecksum:  81e6e562b28f0f70bca7677d51668df52e8e6a143c385b8e47bdb548ab3fcb1b
+Date:  2026-11-27 06:24:52 +0000
+
+    QOwnNotes: Update qownnotes-26.11.15.tar.xz to 26.11.16 (29d46d98a2af)
+
+    Name: org.qownnotes.QOwnNotes
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 27 06:27:00 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

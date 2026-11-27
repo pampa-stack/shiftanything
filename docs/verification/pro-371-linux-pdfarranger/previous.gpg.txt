@@ -1,0 +1,19 @@
+commit 0e6435e81fe910ff596d44ebe7d523a5105d7b9089108ec24b073b790d2a310f
+Parent:  2123d090370139e2c3948a0f56ad79bfa4edea057e99cd79ef1c65e80db824e3
+ContentChecksum:  2dcfc364c1aac9fdcc814b9cf429acc11b0bb25c15b370cf705a28b190fbc24c
+Date:  2026-05-21 12:36:10 +0000
+
+    build(deps): bump flatpak-module-qpdf-pikepdf (beb24f8b92ce)
+
+    Name: com.github.jeromerobert.pdfarranger
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Thu May 21 13:03:38 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

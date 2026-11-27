@@ -1,0 +1,21 @@
+OFFICIAL https://github.com/audacity/audacity/releases/download/Audacity-4.0.1/audacity-macOS-4.0.1-arm64.dmg: size=50034126 sha256=Some("278c8647b78c77af7f07dbd5e7d9bfc950bc14168047b65738716b61d12055ec")
+PASS NATIVE audacity install: Audacity 4 installed: 4.0.1; transferred=50034126
+PASS AUDACITY 3 FIXTURE UNCHANGED during install
+/private/tmp/shift-daily-native-scratch.qutVcJJ8/home/Applications/Audacity 4.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: MuseScore (6EPAF2X3PR)
+PASS SIGNATURE + PROFILE MARKER audacity install 4.0.1
+OFFICIAL https://github.com/audacity/audacity/releases/download/Audacity-4.0.2/audacity-macOS-4.0.2-arm64.dmg: size=50030766 sha256=Some("fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3")
+PASS NATIVE audacity update: Audacity 4 updated to 4.0.2; transferred=50030766
+PASS AUDACITY 3 FIXTURE UNCHANGED during update
+/private/tmp/shift-daily-native-scratch.qutVcJJ8/home/Applications/Audacity 4.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: MuseScore (6EPAF2X3PR)
+PASS SIGNATURE + PROFILE MARKER audacity update 4.0.2
+PASS NATIVE audacity remove: Audacity 4 was removed; transferred=0
+PASS AUDACITY 3 FIXTURE UNCHANGED during remove
+/private/tmp/shift-daily-native-scratch.qutVcJJ8/home/.Trash/Audacity 4.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: MuseScore (6EPAF2X3PR)
+PASS SIGNATURE + PROFILE MARKER audacity remove 4.0.2
+CLEANUP audacity exit=0

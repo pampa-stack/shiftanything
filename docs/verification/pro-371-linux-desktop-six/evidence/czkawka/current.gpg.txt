@@ -1,0 +1,19 @@
+commit 55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c
+Parent:  952735e28f315a21c45931b978b5dc8818f3fa920cbd618f2b9e26ecf7b132af
+ContentChecksum:  e9efb357a4c1a04bed514a05f3c58679d4af43589237b6dd9433090087b51583
+Date:  2026-02-03 16:59:53 +0000
+
+    Fix GTK regression and problems (#34) (226bb5ef7fbc)
+
+    Name: com.github.qarmin.czkawka
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Feb  3 18:00:29 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

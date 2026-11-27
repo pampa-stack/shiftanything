@@ -1,0 +1,19 @@
+commit 4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c
+Parent:  31a7490cc66a3e96d208dae7f4a1d13847215b431d5139fb161bacfee5963a09
+ContentChecksum:  b700571a9a250080ca809fd2d444f2153ea6c165386bf36e78deb78da1b68f07
+Date:  2025-11-04 17:31:41 +0000
+
+    Update runtime to 49 (#39) (0a3662450f38)
+
+    Name: com.github.johnfactotum.Foliate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Tue Nov  4 18:00:53 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

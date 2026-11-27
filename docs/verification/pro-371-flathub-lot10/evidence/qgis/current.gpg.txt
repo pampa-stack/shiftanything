@@ -1,0 +1,19 @@
+commit c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e
+Parent:  0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d
+ContentChecksum:  ec08b9691da872606f8efb839cdcf9560a615b18dfed543310118ccc5f89ebf6
+Date:  2026-11-27 04:05:28 +0000
+
+    python-owslib: Update tomlkit-0.15.2-py3-none-any.whl to 0.15.3 (3aabd190543d)
+
+    Name: org.qgis.qgis
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 27 04:08:02 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

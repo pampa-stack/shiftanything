@@ -1,0 +1,10 @@
+{
+  "friction": "Quick Setup aperto con risoluzione, fotogrammi al secondo, durata e controlli di impostazione per entrambe le revisioni. Nessun progetto importato.",
+  "vokoscreenng": "Finestra con sorgenti schermo, finestra o area, impostazioni codec e comandi Start/Stop per entrambe le revisioni. Nel banco PulseAudio è escluso, nessuna registrazione avviata e nessuna periferica collegata. Entrambe le GUI riportano 4.11.0. L’ultima revisione Flathub corregge la vecchia etichetta AppStream 4.11.1 in 4.11.0. [Correzione del publisher](https://github.com/flathub/com.github.vkohaupt.vokoscreenNG/pull/190/files)",
+  "icon-library": "Griglia delle icone e campo di ricerca leggibili per entrambe le revisioni.",
+  "zettlr": "Schermata di ingresso con Skip e Start setup nello storico. App aggiornata mostra Update complete, versione 4.10.0 e pulsante Get started. Entrambe le finestre sono avviate dal motore.",
+  "digikam": "Wizard Welcome to digiKam 9.1.0 con navigazione e controlli visibili in entrambe le revisioni. Nessuna foto importata.",
+  "trilium": "Schermata Getting Started con lista lingue e Continue in entrambe le revisioni. Nessun account associato e nessuna nota personale.",
+  "builder": "La finestra Open a Project mostra ricerca, lista dei progetti GNOME e comandi Create New Project, Select a Folder e Clone Repository in entrambe le revisioni. Nessun progetto aperto o compilato.",
+  "rssguard": "Finestra RSS Guard 5.3.0 con menu, azioni feed, ricerca e lista articoli leggibili in entrambe le revisioni. La finestra aggiunta account resta nera su Xvfb e copre il centro. Nessun account o abbonamento configurato. Lo storico Flathub fornisce due commit distinti della stessa versione. L’icona 512x512 è il file originale esportato dal Flatpak firmato. Tempo installazione stimato dal timestamp del log nativo perché il primo passaggio del banco si è fermato cercando un’altra dimensione dell’icona."
+}

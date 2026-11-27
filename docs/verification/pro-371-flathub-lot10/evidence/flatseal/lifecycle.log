@@ -1,0 +1,61 @@
+=== 2026-11-27T10:29:11+00:00 flatseal install ===
+flatseal before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+flatseal JobFinished: Ok("Flathub app installed")
+flatseal after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-flatseal-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (425)
+ce576a50466f35dcad5723472b0aafaee0fcec4b884abeda44e97489fd670fc4  /var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-flatseal-icon.svg
+com.github.tchx84.Flatseal/x86_64/stable	flathub	ef9fe38e9cb9	user	2.4.1
+TIMING flatseal install 36956 ms
+
+=== 2026-11-27T10:29:48+00:00 flatseal prior ===
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Previous runtime org.gnome.Platform/x86_64/49
+Updating app/com.github.tchx84.Flatseal/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.tchx84.Flatseal/x86_64/stable	flathub	14ba14f23783	user	2.4.0
+flatseal before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1", package: Some("com.github.tchx84.Flatseal"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.0"), update_available: false, can_remove: false, can_open: true }
+flatseal JobFinished: Err("Approved action rejected: native installation state changed")
+flatseal JobFinished: Err("This Flatpak is managed outside the launcher")
+flatseal after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1", package: Some("com.github.tchx84.Flatseal"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.0"), update_available: false, can_remove: false, can_open: true })
+TIMING flatseal prior 26083 ms
+
+=== 2026-11-27T10:30:14+00:00 flatseal open ===
+dbus-daemon[2726159]: [session uid=1000 pid=2726159 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2726228 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2726159]: [session uid=1000 pid=2726159 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2726265]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2726228 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2726159]: [session uid=1000 pid=2726159 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2726228 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2726159]: [session uid=1000 pid=2726159 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2726265]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+flatseal before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.0"), update_available: true, can_remove: true, can_open: true }
+flatseal JobFinished: Ok("Launch request accepted")
+flatseal after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.0"), update_available: true, can_remove: true, can_open: true })
+TIMING flatseal open-previous 10212 ms
+
+(xfconfd:2726286): xfconfd-WARNING **: 10:30:26.902: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING flatseal open 11992 ms
+
+=== 2026-11-27T10:30:26+00:00 flatseal update-remove ===
+flatseal before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.0"), update_available: true, can_remove: true, can_open: true }
+flatseal JobFinished: Ok("Flathub app updated")
+flatseal after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.1"), update_available: false, can_remove: true, can_open: true })
+TIMING flatseal update 6331 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/.var/app/com.github.tchx84.Flatseal/shift-profile-marker: OK
+dbus-daemon[2729104]: [session uid=1000 pid=2729104 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2729149 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2729104]: [session uid=1000 pid=2729104 pidfd=5] Successfully activated service 'org.a11y.Bus'
+flatseal before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.1"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2729163]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2729832 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2729163]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+flatseal JobFinished: Ok("Launch request accepted")
+flatseal after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.1"), update_available: false, can_remove: true, can_open: true })
+TIMING flatseal open-current 9926 ms
+flatseal before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 4, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/data/flatpak/app/com.github.tchx84.Flatseal/x86_64/stable/ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae", package: Some("com.github.tchx84.Flatseal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.4.1"), update_available: false, can_remove: true, can_open: true }
+flatseal JobFinished: Ok("Flathub app removed")
+flatseal after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING flatseal remove 4934 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/flatseal/home/.var/app/com.github.tchx84.Flatseal/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING flatseal update-remove 23197 ms

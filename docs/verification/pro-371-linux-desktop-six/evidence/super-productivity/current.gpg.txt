@@ -1,0 +1,19 @@
+commit 33d0c4f8fc49bb51cb2f26c5e49a260fc1912fa9fed585cb5136e15cb9f47ab8
+Parent:  8af17b680214d158cc93bf523ff23cabd3cb1eccaaa0cf64a935d20c913caa4e
+ContentChecksum:  cef3ae39f665304698e559b72059b915747db0114f6b37278d4e3f626fbde27f
+Date:  2026-11-21 20:33:16 +0000
+
+    Merge pull request #149 from flathub/update-master-13228e6 (41b37979dde7)
+
+    Name: com.super_productivity.SuperProductivity
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 21 21:00:25 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

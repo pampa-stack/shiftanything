@@ -1,0 +1,10 @@
+dbus-daemon[2785310]: [session uid=1000 pid=2785310 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.5' (uid=1000 pid=2785339 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2785310]: [session uid=1000 pid=2785310 pidfd=5] Successfully activated service 'org.a11y.Bus'
+Testing editor startup with one logical CPU in the isolated display fixture.
+appflowy before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/1f0281272643b47ff7534f91d87b8dbd75a895d57e58e90e9c393f91f75c42c3", package: Some("io.appflowy.AppFlowy"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2785353]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2785916 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2785353]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+appflowy JobFinished: Ok("Launch request accepted")
+appflowy after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/1f0281272643b47ff7534f91d87b8dbd75a895d57e58e90e9c393f91f75c42c3", package: Some("io.appflowy.AppFlowy"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true })
+TIMING appflowy editor-current 15022 ms

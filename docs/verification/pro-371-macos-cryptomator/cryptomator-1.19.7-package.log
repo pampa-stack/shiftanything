@@ -1,0 +1,32 @@
+AVAILABLE_KIB 3420664
+PACKAGE 1.19.7 https://github.com/cryptomator/cryptomator/releases/download/1.19.7/Cryptomator-1.19.7-arm64.dmg 58716219 c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677
+/Volumes/T7-Backup/shift-mac-cad-safety.j3HFeFVQ/proof/payload-1.19.7.v2Ox7jhN/Cryptomator-1.19.7-arm64.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-cad-safety-mount.yRMqlWMS
+BUNDLE Cryptomator.app
+134022	/private/tmp/shift-cad-safety-mount.yRMqlWMS/Cryptomator.app
+CFBundleIdentifier org.cryptomator
+CFBundleShortVersionString 1.19.7
+CFBundleExecutable Cryptomator
+LSMinimumSystemVersion 11
+arm64
+/private/tmp/shift-cad-safety-mount.yRMqlWMS/Cryptomator.app/Contents/MacOS/Cryptomator:
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=org.cryptomator
+Authority=Developer ID Application: Skymatic GmbH (YZQJQUHA3L)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=YZQJQUHA3L
+/private/tmp/shift-cad-safety-mount.yRMqlWMS/Cryptomator.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Skymatic GmbH (YZQJQUHA3L)
+PASS 1.19.7 official hash, strict signature, notarization, Gatekeeper
+CLEANUP 1.19.7 status=0

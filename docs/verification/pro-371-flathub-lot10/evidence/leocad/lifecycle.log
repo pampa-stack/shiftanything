@@ -1,0 +1,67 @@
+=== 2026-11-27T10:34:49+00:00 leocad install ===
+leocad before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+leocad JobFinished: Ok("Flathub app installed")
+leocad after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-leocad-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+61e0ec016db12f5a4e9e3deb491abaddf0dfd7aadcd6637899e49ec97c7d544d  /var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-leocad-icon.png
+org.leocad.LeoCAD/x86_64/stable	flathub	c8e9f0aeba03	user	26.09
+TIMING leocad install 47845 ms
+
+=== 2026-11-27T10:35:37+00:00 leocad prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/5.15-25.08
+Installing runtime/org.kde.Platform.Locale/x86_64/5.15-25.08
+Installing runtime/org.kde.Platform/x86_64/5.15-25.08
+Previous runtime org.kde.Platform/x86_64/5.15-25.08
+Updating app/org.leocad.LeoCAD/x86_64/stable
+F: Removing magic mime rule from exports
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.leocad.LeoCAD/x86_64/stable	flathub	99a8416a25e0	user	25.09
+leocad before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45", package: Some("org.leocad.LeoCAD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("25.09"), update_available: false, can_remove: false, can_open: true }
+leocad JobFinished: Err("Approved action rejected: native installation state changed")
+leocad JobFinished: Err("This Flatpak is managed outside the launcher")
+leocad after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45", package: Some("org.leocad.LeoCAD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("25.09"), update_available: false, can_remove: false, can_open: true })
+TIMING leocad prior 53662 ms
+
+=== 2026-11-27T10:36:30+00:00 leocad open ===
+dbus-daemon[2756883]: [session uid=1000 pid=2756883 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2756907 comm="/usr/bin/xfwm4 --compositor=off --display=:684" label="unconfined")
+dbus-daemon[2756883]: [session uid=1000 pid=2756883 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2756934]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2756907 comm="/usr/bin/xfwm4 --compositor=off --display=:684" label="unconfined")
+dbus-daemon[2756883]: [session uid=1000 pid=2756883 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2756907 comm="/usr/bin/xfwm4 --compositor=off --display=:684" label="unconfined")
+dbus-daemon[2756934]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2756883]: [session uid=1000 pid=2756883 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+leocad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("25.09"), update_available: true, can_remove: true, can_open: true }
+leocad JobFinished: Ok("Launch request accepted")
+leocad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("25.09"), update_available: true, can_remove: true, can_open: true })
+TIMING leocad open-previous 11447 ms
+
+(xfconfd:2756941): xfconfd-WARNING **: 10:36:45.376: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING leocad open 15276 ms
+
+=== 2026-11-27T10:36:45+00:00 leocad update-remove ===
+leocad before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("25.09"), update_available: true, can_remove: true, can_open: true }
+leocad JobFinished: Ok("Flathub app updated")
+leocad after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09"), update_available: false, can_remove: true, can_open: true })
+TIMING leocad update 9545 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/.var/app/org.leocad.LeoCAD/shift-profile-marker: OK
+dbus-daemon[2759216]: [session uid=1000 pid=2759216 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2759252 comm="/usr/bin/xfwm4 --compositor=off --display=:517" label="unconfined")
+dbus-daemon[2759216]: [session uid=1000 pid=2759216 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2759266]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2759252 comm="/usr/bin/xfwm4 --compositor=off --display=:517" label="unconfined")
+dbus-daemon[2759216]: [session uid=1000 pid=2759216 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2759252 comm="/usr/bin/xfwm4 --compositor=off --display=:517" label="unconfined")
+dbus-daemon[2759266]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2759216]: [session uid=1000 pid=2759216 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+leocad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09"), update_available: false, can_remove: true, can_open: true }
+leocad JobFinished: Ok("Launch request accepted")
+leocad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09"), update_available: false, can_remove: true, can_open: true })
+TIMING leocad open-current 10330 ms
+
+(xfconfd:2759274): xfconfd-WARNING **: 10:37:12.603: Name org.xfce.Xfconf lost on the message dbus, exiting.
+leocad before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/data/flatpak/app/org.leocad.LeoCAD/x86_64/stable/c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60", package: Some("org.leocad.LeoCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09"), update_available: false, can_remove: true, can_open: true }
+leocad JobFinished: Ok("Flathub app removed")
+leocad after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING leocad remove 6023 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/leocad/home/.var/app/org.leocad.LeoCAD/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING leocad update-remove 33358 ms

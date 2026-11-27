@@ -1,0 +1,166 @@
+[
+  {
+    "id": "firefox",
+    "name": "Firefox",
+    "repo": "https://github.com/mozilla-firefox/firefox",
+    "license": "MPL-2.0",
+    "stars": 13959,
+    "flatpak": "org.mozilla.firefox",
+    "flathub": "https://flathub.org/apps/org.mozilla.firefox",
+    "download_size": 131375415,
+    "logo": "https://dl.flathub.org/media/icons/128x128/org.mozilla.firefox.png",
+    "metadata_urls": {
+      "homepage": "https://www.mozilla.org/firefox/",
+      "donation": "https://donate.mozilla.org/",
+      "translate": "https://wiki.mozilla.org/L10n:Starting_a_localization",
+      "bugtracker": "https://bugzilla.mozilla.org/",
+      "help": "https://support.mozilla.org/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "manual"
+    },
+    "display_versions": [
+      "161.0"
+    ],
+    "title": "firefox",
+    "current": "b8dd418bd71860acb006d755db5b47184d7b88a6dea4f626dc52a1dc5f2dc96e",
+    "prev": "3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc",
+    "previous_version": "160.0.1",
+    "current_version": "161.0",
+    "times_ms": {
+      "install": 41344,
+      "prior": 8394,
+      "open-previous": 30559,
+      "open": 35247,
+      "update": 10928,
+      "open-current": 35692,
+      "remove": 4422,
+      "update-remove": 57056
+    },
+    "cycle_ms": 142124
+  },
+  {
+    "id": "vscodium",
+    "name": "VSCodium",
+    "repo": "https://github.com/VSCodium/vscodium",
+    "license": "MIT",
+    "stars": 34282,
+    "flatpak": "com.vscodium.codium",
+    "flathub": "https://flathub.org/apps/com.vscodium.codium",
+    "download_size": 220815012,
+    "logo": "https://dl.flathub.org/media/com/vscodium/codium/e0a5c354f394516c7d99300ed5e4fd4a/icons/128x128/com.vscodium.codium.png",
+    "metadata_urls": {
+      "vcs_browser": "https://github.com/VSCodium/vscodium",
+      "help": "https://github.com/flathub/com.vscodium.codium#readme",
+      "homepage": "https://vscodium.com/",
+      "bugtracker": "https://github.com/flathub/com.vscodium.codium/issues"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "1.143.17232",
+      "1.143.17183"
+    ],
+    "title": "vscodium|visual studio code",
+    "current": "b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab",
+    "prev": "bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574",
+    "previous_version": "1.140.06880",
+    "current_version": "1.143.17232",
+    "times_ms": {
+      "install": 54419,
+      "prior": 44244,
+      "open-previous": 18932,
+      "open": 21050,
+      "update": 12836,
+      "open-current": 19305,
+      "remove": 5926,
+      "update-remove": 42186
+    },
+    "cycle_ms": 161974
+  },
+  {
+    "id": "librecad",
+    "name": "LibreCAD",
+    "repo": "https://github.com/LibreCAD/LibreCAD",
+    "license": "GPL-2.0",
+    "stars": 6646,
+    "flatpak": "org.librecad.librecad",
+    "flathub": "https://flathub.org/apps/org.librecad.librecad",
+    "download_size": 68063192,
+    "logo": "https://dl.flathub.org/media/org/librecad/librecad/9830fc18a21e6728ceeabb2f6079664d/icons/128x128/org.librecad.librecad.png",
+    "metadata_urls": {
+      "vcs_browser": "https://github.com/LibreCAD/LibreCAD",
+      "homepage": "https://librecad.org/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "2.2.1.6",
+      "2.2.1.5"
+    ],
+    "title": "librecad",
+    "current": "28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585",
+    "prev": "fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001",
+    "previous_version": "2.2.1.5",
+    "current_version": "2.2.1.6",
+    "times_ms": {
+      "install": 40923,
+      "prior": 6965,
+      "open-previous": 6800,
+      "open": 11375,
+      "update": 7530,
+      "open-current": 6890,
+      "remove": 4927,
+      "update-remove": 25954
+    },
+    "cycle_ms": 85316
+  },
+  {
+    "id": "gnucash",
+    "name": "GnuCash",
+    "repo": "https://github.com/Gnucash/gnucash",
+    "license": "GPL-2.0+",
+    "stars": 4429,
+    "flatpak": "org.gnucash.GnuCash",
+    "flathub": "https://flathub.org/apps/org.gnucash.GnuCash",
+    "download_size": 113376224,
+    "logo": "https://dl.flathub.org/media/org/gnucash/GnuCash/1a86a3cf1fcb0f8d45f915a88fa02491/icons/128x128/org.gnucash.GnuCash.png",
+    "metadata_urls": {
+      "homepage": "https://www.gnucash.org",
+      "help": "https://gnucash.org/docs.phtml",
+      "donation": "https://gnucash.org/donate.phtml",
+      "translate": "https://wiki.gnucash.org/wiki/Translation",
+      "faq": "https://wiki.gnucash.org/wiki/FAQ",
+      "vcs_browser": "https://github.com/Gnucash/gnucash",
+      "bugtracker": "https://bugs.gnucash.org"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "5.17+ (Flathub 5.17)"
+    ],
+    "title": "gnucash",
+    "current": "1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e",
+    "prev": "ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf",
+    "previous_version": "5.16+ (Flathub 5.16)",
+    "current_version": "5.17+ (Flathub 5.17)",
+    "times_ms": {
+      "install": 49087,
+      "prior": 13855,
+      "open-previous": 21993,
+      "open": 23574,
+      "update": 8642,
+      "open-current": 21798,
+      "remove": 4935,
+      "update-remove": 38881
+    },
+    "cycle_ms": 125449
+  }
+]

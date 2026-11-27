@@ -1,0 +1,3 @@
+PASS PREFLIGHT ollama v0.40.18
+PHASE ollama remove /private/tmp/shift-mac-ranked.avdZtp8L/profile-ollama.ElXU4X3B
+PASS NATIVE ollama remove: Ollama was removed; package_bytes=0; elapsed=0.071s

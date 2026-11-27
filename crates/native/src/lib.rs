@@ -13,6 +13,7 @@ pub mod desktop_entry;
 pub mod detect;
 pub mod downloads;
 pub mod feed_throttle;
+pub mod flatpak;
 mod github_budget;
 pub mod hosted_catalog;
 pub mod http;
@@ -54,3 +55,5 @@ pub use backend::NativeBackend;
 pub fn now() -> i64 {
     std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| i64::try_from(d.as_secs()).unwrap_or(i64::MAX))
 }
+
+pub mod automation;

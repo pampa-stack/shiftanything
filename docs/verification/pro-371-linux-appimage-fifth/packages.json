@@ -1,0 +1,62 @@
+[
+  {
+    "id": "keepassxc",
+    "repo": "keepassxreboot/keepassxc",
+    "tag": "2.7.12",
+    "version": "2.7.12",
+    "name": "KeePassXC-2.7.12-x86_64.AppImage",
+    "size": 49247424,
+    "sha": "564fe8b751b9ef7aa057e4d3d0b2878db24eaa0f6b1c855c82e699ab0913ae49",
+    "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.7.12/KeePassXC-2.7.12-x86_64.AppImage"
+  },
+  {
+    "id": "keepassxc",
+    "repo": "keepassxreboot/keepassxc",
+    "tag": "2.8.0",
+    "version": "2.8.0",
+    "name": "KeePassXC-2.8.0-1-x86_64.AppImage",
+    "size": 52062712,
+    "sha": "3ab1bfbb422272334b48057e6bfc984c839375d9a1cd9350c4ea62ca0b55ca5f",
+    "url": "https://github.com/keepassxreboot/keepassxc/releases/download/2.8.0/KeePassXC-2.8.0-1-x86_64.AppImage"
+  },
+  {
+    "id": "cryptomator",
+    "repo": "cryptomator/cryptomator",
+    "tag": "1.19.6",
+    "version": "1.19.6",
+    "name": "cryptomator-1.19.6-x86_64.AppImage",
+    "size": 59075064,
+    "sha": "a6167f6ab3c5f161b31726b94bcf0abcb7f78c857b16e485adeb8e5096b74acd",
+    "url": "https://github.com/cryptomator/cryptomator/releases/download/1.19.6/cryptomator-1.19.6-x86_64.AppImage"
+  },
+  {
+    "id": "cryptomator",
+    "repo": "cryptomator/cryptomator",
+    "tag": "1.19.7",
+    "version": "1.19.7",
+    "name": "cryptomator-1.19.7-x86_64.AppImage",
+    "size": 59075064,
+    "sha": "7f0367d8b83fcda665016e1a907683a9037e61589f2493c4206ea850d55fef4e",
+    "url": "https://github.com/cryptomator/cryptomator/releases/download/1.19.7/cryptomator-1.19.7-x86_64.AppImage"
+  },
+  {
+    "id": "joplin",
+    "repo": "laurent22/joplin",
+    "tag": "v3.7.22",
+    "version": "3.7.22",
+    "name": "Joplin-3.7.22.AppImage",
+    "size": 207329204,
+    "sha": "2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc",
+    "url": "https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22.AppImage"
+  },
+  {
+    "id": "joplin",
+    "repo": "laurent22/joplin",
+    "tag": "v3.7.24",
+    "version": "3.7.24",
+    "name": "Joplin-3.7.24.AppImage",
+    "size": 207407075,
+    "sha": "64d544b8c865b53d975d1cc9438300465be860dfd9b6c7d4bb6f66a9f3777584",
+    "url": "https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24.AppImage"
+  }
+]

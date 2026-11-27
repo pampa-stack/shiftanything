@@ -1,0 +1,660 @@
+[
+  {
+    "app": "t3code",
+    "key": "shot-0",
+    "file": "t3code-shot-0.png",
+    "source": "https://raw.githubusercontent.com/pingdotgg/t3code/main/.github/readme/hero.webp",
+    "sha256": "483fad9a359d2f207646535598fff34f99cae20fb0ebc431a01d1f334c3050ba"
+  },
+  {
+    "app": "solidcraft",
+    "key": "shot-0",
+    "file": "solidcraft-shot-0.png",
+    "source": "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/docs/screenshots/demo.gif",
+    "sha256": "dfa55db8b9df82eaa92c35384ecd72a2538df2484227cdebac2570681950a8d1"
+  },
+  {
+    "app": "wazuh",
+    "key": "logo",
+    "file": "wazuh-logo.png",
+    "source": "https://raw.githubusercontent.com/wazuh/wazuh-dashboard-plugins/main/plugins/main/public/assets/images/themes/light/icon.svg",
+    "sha256": "3acedaab75976cd12f5b0afff5edd5f4b5dfaf2e9f14f4e3afffa72372a66e45"
+  },
+  {
+    "app": "uptime",
+    "key": "logo",
+    "file": "uptime-logo.png",
+    "source": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg",
+    "sha256": "6b860ac029e824df9410e2c99c75f2dd13e609aa4d13694a6e02cca15b8d9daf"
+  },
+  {
+    "app": "paseo",
+    "key": "logo",
+    "file": "paseo-logo.png",
+    "source": "https://raw.githubusercontent.com/getpaseo/paseo/main/packages/website/public/logo.svg",
+    "sha256": "47367434b8d0946d86a80eb460413e81b4c244f20fa90366f2fcc8ba951a3834"
+  },
+  {
+    "app": "opencode",
+    "key": "logo",
+    "file": "opencode-logo.png",
+    "source": "https://raw.githubusercontent.com/anomalyco/opencode/dev/.github/assets/logo-ornate-dark.svg",
+    "sha256": "f1fdcc29c285a9e2a6f2868afc4a97d474e98d0b4dab6970f66a6626e34529d3"
+  },
+  {
+    "app": "cutter",
+    "key": "logo",
+    "file": "cutter-logo.png",
+    "source": "https://raw.githubusercontent.com/rizinorg/cutter/dev/src/img/cutter.svg",
+    "sha256": "5dcb000cef04047e1e36f632b043206d17dee5e643abd0973b462669add1b23d"
+  },
+  {
+    "app": "openutau",
+    "key": "logo",
+    "file": "openutau-logo.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Logo/openutau.svg",
+    "sha256": "69b93ca157675a4e867a899611b91cf6316ec368ff621c25c5baa56948d62370"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-0",
+    "file": "openutau-shot-0.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor.gif",
+    "sha256": "c4ba1f52a3a582a6e19299116fafd691dbcc298ef0e20be21e9092708696aa5a"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-1",
+    "file": "openutau-shot-1.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor2.gif",
+    "sha256": "2accd45b233a2969f9d8e57827776c091a5f4939a53811526de8e80e7dea882c"
+  },
+  {
+    "app": "openutau",
+    "key": "shot-2",
+    "file": "openutau-shot-2.png",
+    "source": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/vibrato.gif",
+    "sha256": "705f8f101fd36933e23b0493cf3fe95edb384c9032ea518ea749e84c4dbc0eb5"
+  },
+  {
+    "app": "plane",
+    "key": "shot-0",
+    "file": "plane-shot-0.png",
+    "source": "https://media.docs.plane.so/GitHub-readme/github-work-items.webp",
+    "sha256": "33ef5c456990e04a3ae5bf26e9b164d2e68898b53af0c5b75fec51831638d40e"
+  },
+  {
+    "app": "penpot",
+    "key": "logo",
+    "file": "penpot-logo.png",
+    "source": "https://raw.githubusercontent.com/penpot/penpot/develop/frontend/resources/images/assets/penpot-logo-icon.svg",
+    "sha256": "a1ce66bb590dac9d40cc9035885b309a8918702e292850ecdc5c416d31179de2"
+  },
+  {
+    "app": "penpot",
+    "key": "shot-0",
+    "file": "penpot-shot-0.png",
+    "source": "https://raw.githubusercontent.com/penpot/penpot/develop/docs/img/interface/dashboard-dark.webp",
+    "sha256": "70d19c4764a975e6b98761dd1f7baccef4fd69d3b9130b51d1ccddc0a50ba655"
+  },
+  {
+    "app": "rizzo-flow",
+    "key": "shot-0",
+    "file": "rizzo-flow-shot-0.png",
+    "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp",
+    "sha256": "d231363ca7e5bf7ad6831c5a3efb5c7b1fe225fea46d10c4d20851826f474795"
+  },
+  {
+    "app": "pdfsam-basic",
+    "key": "shot-0",
+    "file": "pdfsam-basic-shot-0.png",
+    "source": "https://pdfsam.org/imgs/features/basic-merge-pdf.webp",
+    "sha256": "f54fe34c106e2f757d20dbc766a15fe8669f8cb714b5db3d8fa8a7e03fa310bf"
+  },
+  {
+    "app": "pdfsam-basic",
+    "key": "shot-1",
+    "file": "pdfsam-basic-shot-1.png",
+    "source": "https://pdfsam.org/imgs/features/basic-split-pdf.webp",
+    "sha256": "98385be697e1e03f57f9f26af30fc1db98526032c17a6c290c9f6a384499931a"
+  },
+  {
+    "app": "anythingllm",
+    "key": "shot-0",
+    "file": "anythingllm-shot-0.png",
+    "source": "https://anythingllm.com/images/home/documentchat-poster.webp",
+    "sha256": "e6a2c64669d7254e4f85865dcf4c427e0e7b45a5774e4895d5437b9f4b3331bc"
+  },
+  {
+    "app": "vorta",
+    "key": "logo",
+    "file": "vorta-logo.png",
+    "source": "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/icons/icon.svg",
+    "sha256": "685f5fb5c66751916bda651dbf9112022c810da3a9fa1fcccbc521f0d9deaa32"
+  },
+  {
+    "app": "back-in-time",
+    "key": "logo",
+    "file": "back-in-time-logo.png",
+    "source": "https://raw.githubusercontent.com/bit-team/backintime/dev/qt/icons/scalable/apps/backintime.svg",
+    "sha256": "34f6bba5cbbd153deb28c4377dbbcc508ae537f3ef0770ccec0244393fa3a293"
+  },
+  {
+    "app": "invoiceshelf",
+    "key": "shot-0",
+    "file": "invoiceshelf-shot-0.png",
+    "source": "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/dashboard.webp",
+    "sha256": "16c6f10a85823a4c395a61b8dd86ad658c1f442d5880b891ce757973705d5540"
+  },
+  {
+    "app": "invoiceshelf",
+    "key": "shot-1",
+    "file": "invoiceshelf-shot-1.png",
+    "source": "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/invoices.webp",
+    "sha256": "1fc2c3a903872e045d3e4e042dd751bf955e4a81f8d44a7ff82d50ebfa48aaf9"
+  },
+  {
+    "app": "krayin",
+    "key": "logo",
+    "file": "krayin-logo.png",
+    "source": "https://raw.githubusercontent.com/krayin/laravel-crm/2.2/packages/Webkul/Admin/src/Resources/assets/images/logo.svg",
+    "sha256": "a343c8ffe5aafe43cd162dcffb396054dc38bebb999435d2f3e808a1e8adc866"
+  },
+  {
+    "app": "prestashop",
+    "key": "logo",
+    "file": "prestashop-logo.png",
+    "source": "https://www.prestashop-project.org/images/favicon.svg",
+    "sha256": "0c95368a7c58969b7d2812515b06e72ea07dc2bd8fb71de97ea4214de4c6e72a"
+  },
+  {
+    "app": "woocommerce",
+    "key": "logo",
+    "file": "woocommerce-logo.png",
+    "source": "https://ps.w.org/woocommerce/assets/icon.svg?rev=3640790",
+    "sha256": "8aa312bd250a06ebb75f93378437d48f69f971821d39493feb13346def43b082"
+  },
+  {
+    "app": "wiki-js",
+    "key": "shot-1",
+    "file": "wiki-js-shot-1.png",
+    "source": "https://raw.githubusercontent.com/requarks/wiki-docs-v3/main/en/guide/images/basics-ui-page-sidebar.webp",
+    "sha256": "f27f5216a8b9653f1f6a2c0497f2aa04ae7e6835cdaea214e1f39befea320ccb"
+  },
+  {
+    "app": "postiz",
+    "key": "logo",
+    "file": "postiz-logo.png",
+    "source": "https://docs.postiz.com/mintlify-assets/_mintlify/favicons/postiz/7ex-qxyRTSZphJ2G/_generated/favicon/android-chrome-192x192.png",
+    "sha256": "3a14eec8a76ba4bb8755ae97eca8fb36f5e3b70e7052b0badc01e7d8740e068f"
+  },
+  {
+    "app": "postiz",
+    "key": "shot-0",
+    "file": "postiz-shot-0.png",
+    "source": "https://mintcdn.com/postiz/WSXjecBlCeS6Sslb/images/general/calendar/week.png?fit=max&auto=format&n=WSXjecBlCeS6Sslb&q=85&s=8b5f88750dc44079dd3b2ed4903742bc",
+    "sha256": "4d136a5b13bfa24fbf2247a1df79df5f4c31cfbac2b168defae52d8744ff1350"
+  },
+  {
+    "app": "mixpost-lite",
+    "key": "logo",
+    "file": "mixpost-lite-logo.png",
+    "source": "https://mixpost.app/favicon.ico",
+    "sha256": "aa931f3813868c40b3f3b2ae1dba88a6c5a3ddd9ee30d7b966da63e8b05632a8"
+  },
+  {
+    "app": "mautic",
+    "key": "logo",
+    "file": "mautic-logo.png",
+    "source": "https://raw.githubusercontent.com/mautic/mautic/7.x/.github/readme_logo.png",
+    "sha256": "a64c5544656606f3bf81b757ebccd8a155b52a2d4421c7b302bd1310ad88e002"
+  },
+  {
+    "app": "mautic",
+    "key": "shot-0",
+    "file": "mautic-shot-0.png",
+    "source": "https://docs.mautic.org/en/7.2/_images/mautic-report-graph.png",
+    "sha256": "ed81ca88d4051b11b435c82a875824540124e369cf69f00d0ec430d5c3933c33"
+  },
+  {
+    "app": "listmonk",
+    "key": "logo",
+    "file": "listmonk-logo.png",
+    "source": "https://user-images.githubusercontent.com/547147/231084896-835dba66-2dfe-497c-ba0f-787564c0819e.png",
+    "sha256": "5a9bad4ce9b8c4ae9ded3dccbc878049c689bf5afa76ce40e6b90d329c88aa5e"
+  },
+  {
+    "app": "listmonk",
+    "key": "shot-0",
+    "file": "listmonk-shot-0.png",
+    "source": "https://github.com/user-attachments/assets/689b5fbb-dd25-4956-a36f-e3226a65f9c4",
+    "sha256": "e4394c4b202cf912f5d7450e21e07de50f7342b9db634099b14d34604ea71059"
+  },
+  {
+    "app": "keila",
+    "key": "logo",
+    "file": "keila-logo.png",
+    "source": "https://raw.githubusercontent.com/pentacent/keila/main/.github/assets/logo.svg",
+    "sha256": "09ca2ca758af2eab9b9e74b0e0de26174982a32ae8e6907cd50ec522aa168547"
+  },
+  {
+    "app": "keila",
+    "key": "shot-0",
+    "file": "keila-shot-0.png",
+    "source": "https://www.keila.io/_astro/keila-2024-05-01.BUp8L2VZ.png",
+    "sha256": "3cb5c993705fb48847f2a6bb9e1d366815055f04222990b674c2a72bde04f00f"
+  },
+  {
+    "app": "formbricks",
+    "key": "logo",
+    "file": "formbricks-logo.png",
+    "source": "https://github.com/formbricks/formbricks/assets/72809645/0086704f-bee7-4d38-9cc8-fa42ee59e004",
+    "sha256": "f6a4c04f40ad106f4e54421548a58dba1702dc105f22c0e62f3a3ef83f6a4940"
+  },
+  {
+    "app": "formbricks",
+    "key": "shot-0",
+    "file": "formbricks-shot-0.png",
+    "source": "https://github-production-user-asset-6210df.s3.amazonaws.com/675065/249441967-ccb89ea3-82b4-4bf2-8d2c-528721ec313b.png",
+    "sha256": "5482596a73c2cb757a58335c801a2e0e310af700b21e93448709a5c710780b98"
+  },
+  {
+    "app": "heyform",
+    "key": "logo",
+    "file": "heyform-logo.png",
+    "source": "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/logo.svg",
+    "sha256": "70492071ace889efd79fffabfd7c65888a449e7afa0d7a1ad040605cd79dce9c"
+  },
+  {
+    "app": "heyform",
+    "key": "shot-0",
+    "file": "heyform-shot-0.png",
+    "source": "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/screenshot.png",
+    "sha256": "2dbcdb5bfeaeeda6c903819e5146730d170f1fb1ae87e07286c815d2fb2ef958"
+  },
+  {
+    "app": "dittofeed",
+    "key": "logo",
+    "file": "dittofeed-logo.png",
+    "source": "https://raw.githubusercontent.com/dittofeed/dittofeed/main/packages/docs/logo/light.png",
+    "sha256": "a876b73657c90055e0b0abe6a9d21b8a197f63d0f84d97a813dc498e48b3f24d"
+  },
+  {
+    "app": "dittofeed",
+    "key": "shot-0",
+    "file": "dittofeed-shot-0.png",
+    "source": "https://storage.googleapis.com/dittofeed-public/journeys_v2.png",
+    "sha256": "2fc9098d98dc6f34c914f2ee3dadf6aa53d75fb1d03aa8902fed3f51bd1e7731"
+  },
+  {
+    "app": "opnform",
+    "key": "logo",
+    "file": "opnform-logo.png",
+    "source": "https://opnform.com/favicon.ico",
+    "sha256": "8b47b5e00a6465fd42254a14cd03d26a6118448ac3c4aa70255fc5c774b9e7c5"
+  },
+  {
+    "app": "opnform",
+    "key": "shot-0",
+    "file": "opnform-shot-0.png",
+    "source": "https://raw.githubusercontent.com/OpnForm/OpnForm/main/client/public/img/social-preview.jpg",
+    "sha256": "31ca22844591ce0baa26b23162b76c9d7ff9c2456bb3a98137a206b4e8d18b88"
+  },
+  {
+    "app": "sendportal",
+    "key": "logo",
+    "file": "sendportal-logo.png",
+    "source": "https://sendportal.io/img/sendportal.png",
+    "sha256": "d61ac2fb3251f4977ce44c29bc08aa429bfaebefe64899da6f421c4553ae24e6"
+  },
+  {
+    "app": "sendportal",
+    "key": "shot-0",
+    "file": "sendportal-shot-0.png",
+    "source": "https://sendportal.io/img/landing/subscribers.png",
+    "sha256": "d793d3070eecf23f66ded2242e80483f5a239d2d11cc7958e7a8744304874c01"
+  },
+  {
+    "app": "umami",
+    "key": "logo",
+    "file": "umami-logo.png",
+    "source": "https://raw.githubusercontent.com/umami-software/umami/master/public/favicon-32x32.png",
+    "sha256": "76166f0d27a7ec2203c95835021b6350b1e399e44e56f66838564183987a1e4d"
+  },
+  {
+    "app": "matomo",
+    "key": "logo",
+    "file": "matomo-logo.png",
+    "source": "https://raw.githubusercontent.com/matomo-org/matomo/6.x-dev/plugins/CoreHome/images/favicon.png",
+    "sha256": "c0b8b612334a3b97f8c026eadee14954785fb59d5f3daf6c588592a5d685b539"
+  },
+  {
+    "app": "yourls",
+    "key": "shot-0",
+    "file": "yourls-shot-0.png",
+    "source": "https://raw.githubusercontent.com/YOURLS/YOURLS/master/images/admin-dashboard.gif",
+    "sha256": "b1f42c7fb6fa5ff8db452846bf6fd190726ab13038469100b78e710dc18e04bb"
+  },
+  {
+    "app": "shlink",
+    "key": "logo",
+    "file": "shlink-logo.png",
+    "source": "https://raw.githubusercontent.com/shlinkio/shlink-web-client/develop/public/favicon.png",
+    "sha256": "1678d7bbe63297478d234a82ff970daeb00521d597f85a036ff2d1a1cca12cf9"
+  },
+  {
+    "app": "easyappointments",
+    "key": "logo",
+    "file": "easyappointments-logo.png",
+    "source": "https://raw.githubusercontent.com/alextselegidis/easyappointments/main/assets/img/logo.png",
+    "sha256": "6e90c186fe641daccab4e5d174a9cac116e41f308870725157840fef011e83f3"
+  },
+  {
+    "app": "easyappointments",
+    "key": "shot-0",
+    "file": "easyappointments-shot-0.png",
+    "source": "https://raw.githubusercontent.com/alextselegidis/easyappointments/main/screenshot.png",
+    "sha256": "2dd0cd3b37d7a555474b92fe9184a31353c486ccf93dd7188c81d00c170d80ce"
+  },
+  {
+    "app": "live-helper-chat",
+    "key": "logo",
+    "file": "live-helper-chat-logo.png",
+    "source": "https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/design/defaulttheme/images/general/logo.png",
+    "sha256": "a447197ac47ec1c92b124c4db37fa944e07e8dea1532ef9f5dbb81555ff16077"
+  },
+  {
+    "app": "twenty",
+    "key": "logo",
+    "file": "twenty-logo.png",
+    "source": "https://raw.githubusercontent.com/twentyhq/twenty/main/packages/twenty-docs/favicon.png",
+    "sha256": "bcdc91be62dabed4cad213460cbad9d809dd448233d437273568095516fdbb0a"
+  },
+  {
+    "app": "saleor",
+    "key": "logo",
+    "file": "saleor-logo.png",
+    "source": "https://raw.githubusercontent.com/saleor/saleor-dashboard/main/public/favicons/favicon-32x32.png",
+    "sha256": "b80618945644bd7a88cdbafae0c1332b7e983e011b1c89a28d9f9122aa534bba"
+  },
+  {
+    "app": "freefield",
+    "key": "shot-0",
+    "file": "freefield-shot-0.png",
+    "source": "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-explore.jpg",
+    "sha256": "e97e415dfab896f2db6107c48c624306c6adc295cdc5fe4d4d150fc2e61391ad"
+  },
+  {
+    "app": "freefield",
+    "key": "shot-1",
+    "file": "freefield-shot-1.png",
+    "source": "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-menu.jpg",
+    "sha256": "4d70b708c7da0426748540b72e7e099621b1c2da95472246501a64f445613423"
+  },
+  {
+    "app": "freefield",
+    "key": "shot-2",
+    "file": "freefield-shot-2.png",
+    "source": "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-how.jpg",
+    "sha256": "839b75bfb9aab8ba46b683e4d018e3afcb818d54a8e1732e20e0f7a9c1ffdf58"
+  },
+  {
+    "app": "locally-uncensored",
+    "key": "logo",
+    "file": "locally-uncensored-logo.png",
+    "source": "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/logos/LU-monogram-bw-transparent.png",
+    "sha256": "1d2fe74dc025cb564b4e6a5128704fd12bc6ba387ec93e11a1eb7aca887300fc"
+  },
+  {
+    "app": "locally-uncensored",
+    "key": "shot-0",
+    "file": "locally-uncensored-shot-0.png",
+    "source": "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/docs/screenshots/create_gallery_dark.webp",
+    "sha256": "eb38e1a5e0f06500282284aab8a431c845f38c9aab8342e82bf2cc35afbdd2ef"
+  },
+  {
+    "app": "locally-uncensored",
+    "key": "shot-1",
+    "file": "locally-uncensored-shot-1.png",
+    "source": "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/docs/guide/11-create.png",
+    "sha256": "e4f77599f75bb30cb4a882c55681375bd5b49bf3c3290d5b3aa8fb4ab06e3aef"
+  },
+  {
+    "app": "wg-easy",
+    "key": "logo",
+    "file": "wg-easy-logo.png",
+    "source": "https://wg-easy.github.io/wg-easy/latest/assets/logo/logo.png",
+    "sha256": "daa90e653a462294a034c316dbdc3715698113d1d6ccfb5313d2a0752e795d7a"
+  },
+  {
+    "app": "wg-easy",
+    "key": "shot-0",
+    "file": "wg-easy-shot-0.png",
+    "source": "https://raw.githubusercontent.com/wg-easy/wg-easy/master/assets/screenshot.png",
+    "sha256": "beadd2d2b36c55c6ca7d57a1ac09903e04cb6b24652aae3131912bbaa0e23781"
+  },
+  {
+    "app": "wgdashboard",
+    "key": "logo",
+    "file": "wgdashboard-logo.png",
+    "source": "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Logos/Logo-2-Rounded-512x512.png",
+    "sha256": "be03248b1994916fb6ad90a339bcfc0411c135ecbb0de2d0abf2adf897932f12"
+  },
+  {
+    "app": "wgdashboard",
+    "key": "shot-0",
+    "file": "wgdashboard-shot-0.png",
+    "source": "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Documentation%20Images/index.png",
+    "sha256": "627397a9444cfc22188ccc115a09fa3a15c964cc26876e0d0c8d559cd16dca7a"
+  },
+  {
+    "app": "headscale-ui",
+    "key": "shot-0",
+    "file": "headscale-ui-shot-0.png",
+    "source": "https://raw.githubusercontent.com/gurucomputing/headscale-ui/master/documentation/assets/headscale-ui-demo.gif",
+    "sha256": "3270aaf3add0c5a7f1a8233d051fa9e14e8eb3c8a230e53c22617ee20982041d"
+  },
+  {
+    "app": "netbird",
+    "key": "logo",
+    "file": "netbird-logo.png",
+    "source": "https://raw.githubusercontent.com/netbirdio/netbird/main/docs/media/logo-full.png",
+    "sha256": "4738fceaeed9d2d710c77e0e6354ff43d03a14dee8ea3fc6cde7757f3f6c56e3"
+  },
+  {
+    "app": "netbird",
+    "key": "shot-0",
+    "file": "netbird-shot-0.png",
+    "source": "https://docs.netbird.io/docs-static/img/selfhosted/quickstart/setup.png",
+    "sha256": "a16db4d34bbb7b7a1a088c8ca454338b96abcc0c8284d824dacca05c639d5a02"
+  },
+  {
+    "app": "opensnitch",
+    "key": "logo",
+    "file": "opensnitch-logo.png",
+    "source": "https://raw.githubusercontent.com/evilsocket/opensnitch/master/ui/opensnitch/res/icon.png",
+    "sha256": "1fa9502bd348828c15f10712ccd1273998c0c1e1195e59fe4820dbe43e4f9109"
+  },
+  {
+    "app": "opensnitch",
+    "key": "shot-0",
+    "file": "opensnitch-shot-0.png",
+    "source": "https://user-images.githubusercontent.com/2742953/85205382-6ba9cb00-b31b-11ea-8e9a-bd4b8b05a236.png",
+    "sha256": "ecb6e19bc2d695e921f1c63458904fa9230419ae3f56e9920be1f37c45548071"
+  },
+  {
+    "app": "portmaster",
+    "key": "shot-0",
+    "file": "portmaster-shot-0.png",
+    "source": "https://safing.io/assets/img/page-specific/landing/portmaster-thumbnail.png",
+    "sha256": "a3982251e108f72dcd974c2fd91137776424fc3bd52fb1abcd6c89fad11ea876"
+  },
+  {
+    "app": "adguard-home",
+    "key": "logo",
+    "file": "adguard-home-logo.png",
+    "source": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/doc/adguard_home_lightmode.svg",
+    "sha256": "793d47857ed5881dce9adab843b05823695ede5c201f5091e24f59a6d4d2d448"
+  },
+  {
+    "app": "adguard-home",
+    "key": "shot-0",
+    "file": "adguard-home-shot-0.png",
+    "source": "https://cdn.adtidy.org/content/release_notes/dns/home-v1-0-beta/dashboard.png?mw=1360",
+    "sha256": "2a4a4f565cfa5cdc69f2b85d1fe0a729723d1978ba50ebf487865e918688a44a"
+  },
+  {
+    "app": "pi-hole",
+    "key": "logo",
+    "file": "pi-hole-logo.png",
+    "source": "https://wp-cdn.pi-hole.net/wp-content/uploads/2023/05/pihole-logo-horizontal-white-e1683321640117.png",
+    "sha256": "280360e7bbcfb3394f86c3c655686d72593b288069ef1d2d1dcd8f89dbcd77a1"
+  },
+  {
+    "app": "pi-hole",
+    "key": "shot-0",
+    "file": "pi-hole-shot-0.png",
+    "source": "https://wp-cdn.pi-hole.net/wp-content/uploads/2026/09/v6-dashboard.png",
+    "sha256": "ae991f69c78891585578758e3f1f2add650cae1eb67b3d805764de209030af49"
+  },
+  {
+    "app": "technitium-dns-server",
+    "key": "logo",
+    "file": "technitium-dns-server-logo.png",
+    "source": "https://technitium.com/img/logo.png",
+    "sha256": "99ea75d48af4ba2cd6cea17183781e9b3d1b16418a1c1404a18a588171bdea96"
+  },
+  {
+    "app": "technitium-dns-server",
+    "key": "shot-0",
+    "file": "technitium-dns-server-shot-0.png",
+    "source": "https://technitium.com/dns/ScreenShot1.png",
+    "sha256": "6da5e2e520da9f52a4644449cc4aae800481552f8ed352666997c91abf5b88d0"
+  },
+  {
+    "app": "netalertx",
+    "key": "shot-0",
+    "file": "netalertx-shot-0.png",
+    "source": "https://raw.githubusercontent.com/netalertx/NetAlertX/main/docs/img/devices_split.png",
+    "sha256": "c9368021557a1efe3db736bde966fe4c2641b5e182ee48a8837b804c59b1d9ce"
+  },
+  {
+    "app": "librenms",
+    "key": "logo",
+    "file": "librenms-logo.png",
+    "source": "https://www.librenms.org/images/LibreNMS-Logo-Black.png",
+    "sha256": "85266db22db94a6b1adcf5fc4c6029f68cf476c508d4da3e68db2111c34e2793"
+  },
+  {
+    "app": "librenms",
+    "key": "shot-0",
+    "file": "librenms-shot-0.png",
+    "source": "https://www.librenms.org/images/screenshots/screenshot_device_list.png",
+    "sha256": "fb164d84c965d1698454be4da3ffff8093e96d89ecc54a3284e7e22f6239d8a2"
+  },
+  {
+    "app": "ntopng",
+    "key": "logo",
+    "file": "ntopng-logo.png",
+    "source": "https://www.ntop.org/images/2025/06/ntopng-icon.webp",
+    "sha256": "73f5ebd932984059fb47eda4d79bc59ea08905130ef7b1e828cac092c6956286"
+  },
+  {
+    "app": "malcolm",
+    "key": "logo",
+    "file": "malcolm-logo.png",
+    "source": "https://raw.githubusercontent.com/cisagov/Malcolm/main/docs/images/logo/Malcolm_outline_banner_dark.png",
+    "sha256": "529ece902c2f0abbb9d298a862bdce946c3b33238bd020f63cdc559cf7c4698c"
+  },
+  {
+    "app": "malcolm",
+    "key": "shot-0",
+    "file": "malcolm-shot-0.png",
+    "source": "https://malcolm.fyi/docs/images/screenshots/dashboards_security_overview.png",
+    "sha256": "5db7fd29654e8e8f7c4fcaf93de093d3c08c59d34f64f7de9fc60674cb951956"
+  },
+  {
+    "app": "arkime",
+    "key": "logo",
+    "file": "arkime-logo.png",
+    "source": "https://raw.githubusercontent.com/arkime/arkime/main/assets/Arkime_Logo_FullGradientBlack@3x.png",
+    "sha256": "cf384c664a268d3e067a8c4b23c78ae5711cf5d623cbe798ec388658793aa4ea"
+  },
+  {
+    "app": "arkime",
+    "key": "shot-0",
+    "file": "arkime-shot-0.png",
+    "source": "https://raw.githubusercontent.com/arkime/arkimeweb/main/assets/sessions.png",
+    "sha256": "10e424adca287cf275b37c6a5a4de3ef941373e4c577d812396dcd7247312d3b"
+  },
+  {
+    "app": "pangolin",
+    "key": "logo",
+    "file": "pangolin-logo.png",
+    "source": "https://raw.githubusercontent.com/fosrl/pangolin/main/public/logo/word_mark_black.png",
+    "sha256": "9e2190c6ac78dab0d88160938c712de0055dd9ace0ec794c9f3745494f990bd0"
+  },
+  {
+    "app": "pangolin",
+    "key": "shot-0",
+    "file": "pangolin-shot-0.png",
+    "source": "https://raw.githubusercontent.com/fosrl/pangolin/main/public/screenshots/sites.png",
+    "sha256": "7c3209f5b6d1c3adc5c093fe1a344c53b09eebd9f91df38887aa6f2c59386d70"
+  },
+  {
+    "app": "velociraptor",
+    "key": "logo",
+    "file": "velociraptor-logo.png",
+    "source": "https://docs.velociraptor.app/images/favicon.png",
+    "sha256": "6ef84928618f6836bc339e4ee383a83e5f3270d618db5be14c479f443b2c8278"
+  },
+  {
+    "app": "velociraptor",
+    "key": "shot-0",
+    "file": "velociraptor-shot-0.png",
+    "source": "https://docs.velociraptor.app/docs/gui/dashboard.png",
+    "sha256": "baac5d0e8846af0a1269c372d16ea00f685fa4ea739aa59c0611ca0fdc6b57df"
+  },
+  {
+    "app": "opensearch-dashboards",
+    "key": "logo",
+    "file": "opensearch-dashboards-logo.png",
+    "source": "https://raw.githubusercontent.com/opensearch-project/project-website/refs/heads/main/assets/brand/SVG/Logo/opensearch_dashboards_logo_darkmode.svg",
+    "sha256": "d9a9f72fae1af4af956bded97939b5bb06739bad5a07baff13b7fad3ba745253"
+  },
+  {
+    "app": "opensearch-dashboards",
+    "key": "shot-0",
+    "file": "opensearch-dashboards-shot-0.png",
+    "source": "https://docs.opensearch.org/latest/images/Security/secanalytics-det-nav.png",
+    "sha256": "ab724d95a3764a61d795e5c57374a76747947fe12597ca38bd9f70f6197f08a5"
+  },
+  {
+    "app": "wg-portal",
+    "key": "shot-0",
+    "file": "wg-portal-shot-0.png",
+    "source": "https://raw.githubusercontent.com/h44z/wg-portal/master/docs/assets/images/screenshot.png",
+    "sha256": "2a995840c08265d13f89529a87fa680bca7963a2d592691d6f3453b85fde8683"
+  },
+  {
+    "app": "opnsense",
+    "key": "logo",
+    "file": "opnsense-logo.png",
+    "source": "https://raw.githubusercontent.com/opnsense/core/master/src/opnsense/www/themes/opnsense/build/images/icon-logo.svg",
+    "sha256": "bd526437e8e80c4d8608f741365a744e8e0fea907b9ea0ef97f8f7afa174b867"
+  },
+  {
+    "app": "opnsense",
+    "key": "shot-0",
+    "file": "opnsense-shot-0.png",
+    "source": "https://docs.opnsense.org/_images/gui_grid.png",
+    "sha256": "28412629149a8d9765305c92c86092bcb58fc3186dfbb803715a42d932a101d5"
+  },
+  {
+    "app": "fleetdm",
+    "key": "shot-0",
+    "file": "fleetdm-shot-0.png",
+    "source": "https://raw.githubusercontent.com/fleetdm/fleet/main/docs/images/add-new-host-modal.png",
+    "sha256": "97927cb747038f63419e0bd2746cd955163cf2581bd775f4b3f639732fee9e87"
+  }
+]

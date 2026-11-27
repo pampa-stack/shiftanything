@@ -1,0 +1,19 @@
+commit 75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d
+Parent:  8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e
+ContentChecksum:  97ca0d42e5f26ac4ab3c82a2378e49469f2a9673318db1a117362c857927a3c2
+Date:  2026-07-12 02:47:16 +0000
+
+    Update to 2.5.6 (03d2a97fa31c)
+
+    Name: org.mixxx.Mixxx
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Jul 12 02:55:20 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

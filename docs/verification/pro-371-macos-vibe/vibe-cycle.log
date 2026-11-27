@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436888492   1028116   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974474968   1880472   100%    /Volumes/T7-Backup
+Recipe vibe-transcribe selected vibe_3.3.5_aarch64.dmg 38715249 bytes
+Verifying after 4.809s
+Installing after 4.809s
+PASS 3.3.5 38715249 bytes
+PASS install 7.524s
+89808	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-vibe-transcribe/Apps/vibe.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436889456   1027152   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974564672   1790768   100%    /Volumes/T7-Backup
+Recipe vibe-transcribe selected vibe_3.3.8_aarch64.dmg 38640733 bytes
+Verifying after 4.582s
+Installing after 4.582s
+PASS 3.3.8 38640733 bytes
+PASS update 7.617s
+89752	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-vibe-transcribe/Apps/vibe.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-vibe-transcribe/.Trash/vibe.app
+PASS remove 0.020s

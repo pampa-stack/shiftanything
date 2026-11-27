@@ -1,0 +1,19 @@
+commit 9e2b378ff1e21fb46f10d64168df6f0ca179a13744e3b1dee99ef32fe4d586c7
+Parent:  272abe012b6d2f2c1a1d8ecc623fcd67c7cd7530e5edc452f5a8bac881d4c029
+ContentChecksum:  690f002170fb1e339164a4d4d3960ee4edc6e2cb9c73a214cb00d96ceee3f76e
+Date:  2026-11-23 22:36:21 +0000
+
+    Update frei0r-plugins, intel-onevpl-runtime and ffmpeg modules (d5692e8ad323)
+
+    Name: org.kde.kdenlive
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 23 23:01:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

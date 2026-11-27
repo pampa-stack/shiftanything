@@ -1,0 +1,49 @@
+.launcher-settings {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1020px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  color: var(--tx);
+  background: var(--surf);
+  border: 1px solid var(--bd2);
+  border-radius: 7px;
+  box-shadow: 0 40px 100px #000b;
+}
+.launcher-settings[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.launcher-settings::backdrop { background: #040506d6; }
+.launcher-settings .set-b { min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.launcher-settings .card h3 { font-size: 15px; margin-bottom: 8px; }
+.launcher-settings .card p { color: var(--dim); margin: 0 0 12px; }
+.launcher-settings .set-ft { gap: 12px; align-items: center; }
+.launcher-settings [role=status] { color: var(--dim); overflow-wrap: anywhere; }
+.launcher-settings .btn[aria-pressed=true] { color: var(--acc); border-color: var(--acc); }
+.mcp-clients, .mcp-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.mcp-config {
+  min-height: 150px;
+  max-height: 45vh;
+  margin: 12px 0;
+  padding: 12px;
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 3px;
+  font-family: var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+.mcp-example {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bd);
+}
+.mcp-example:last-of-type { margin-bottom: 12px; }
+.clipboard-field { position: fixed; top: 0; left: 0; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 740px) {
+  .launcher-settings .set-b { grid-template-columns: minmax(0, 1fr); }
+}

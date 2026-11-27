@@ -1,0 +1,45 @@
+App=shiftanything-tauri-proof (pid 38384)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1316 container
+				1317 image Sh*ftAnything
+				1318 text Sh
+				1319 text *
+				1320 text ftAnything
+				1321 button (disabled) CONNECT AGENT · MCP
+				1322 button (disabled) Settings
+			1323 toggle button CATALOG, Value: 0
+			1324 toggle button FAVORITES, Value: 0
+			1325 toggle button MY APPS, Value: 1
+			1326 toggle button (disabled) SH*FTER, Value: 0
+			1327 toggle button (disabled) FIND APPS, Value: 0
+			1328 toggle button (disabled) WORK KITS, Value: 0
+			1329 search text field (disabled, settable) Find apps, categories or alternatives…
+				1330 text Find apps, categories or alternatives…
+			1331 toggle button (disabled) Card view, Value: 1
+			1332 toggle button (disabled) Table view, Value: 0
+			1333 button UPDATES
+			1334 container
+				1335 heading My apps
+				1336 button CHECK FOR UPDATES
+				1337 button (disabled) UPDATE ALL
+				1338 heading Updates · 0
+				1360 text APP
+				1361 text VERSION
+				1362 text AVAILABLE
+				1363 text STATUS
+				1364 text ACTIONS
+				1365 text No available updates detected.
+				1345 heading Installed · 0
+				1366 text APP
+				1367 text VERSION
+				1368 text AVAILABLE
+				1369 text STATUS
+				1370 text ACTIONS
+				1371 text No apps installed in this profile.
+			1359 container, Text: TEMPORARY PROFILE · RUST 336 · MACOS/ARM64 · 20 DETECTED STATES · HANDY: COMPLET... Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica
+
+No UI element is currently focused.

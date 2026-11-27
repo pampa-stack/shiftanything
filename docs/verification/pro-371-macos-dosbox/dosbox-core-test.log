@@ -1,0 +1,15 @@
+warning: patch `egui_demo_lib v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_inspection v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_system_font_provider v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling artcraft-launcher-core v0.20.3 (/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/source/crates/core)
+    Finished `test` profile [optimized + debuginfo] target(s) in 11.12s
+     Running unittests src/lib.rs (/Volumes/T7-Backup/builder-staging-agenti/shift-macos-b681f97.gC1Tq0Nw/target/debug/deps/artcraft_launcher_core-a8ea1782ba62989c)
+
+running 1 test
+test curated::recipe_tests::dosbox_staging_recipe_accepts_only_the_official_stable_dmg ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 136 filtered out; finished in 0.00s

@@ -620,6 +620,8 @@ pub struct Cell<'a> {
     pub tip: &'a str,
     /// A count after the label, and the colour it takes when it isn't zero.
     pub count: Option<(usize, Option<Color32>)>,
+    /// Preserve a product's explicitly specified spelling in an otherwise uppercase strip.
+    pub literal_case: bool,
 }
 
 /// Mutually exclusive options in a row of hairline cells (the site's share bar); the chosen one
@@ -667,7 +669,17 @@ pub fn cells_apart<T: PartialEq + Copy>(ui: &mut Ui, value: &mut T, options: &[(
 fn paint_cell<T: PartialEq + Copy>(ui: &mut Ui, value: &mut T, opt: &T, cell: &Cell<'_>, t: &Tokens) -> (Rect, bool) {
     let mut changed = false;
     let on = *value == *opt;
-    let label = hud_galley(ui, cell.label, t.ink);
+    let label = if cell.literal_case {
+        let format = egui::TextFormat {
+            font_id: egui::FontId::new(theme::HUD_SIZE, theme::mono()),
+            color: t.ink,
+            extra_letter_spacing: theme::HUD_SPACING,
+            ..Default::default()
+        };
+        ui.painter().layout_job(egui::text::LayoutJob::single_section(cell.label.to_owned(), format))
+    } else {
+        hud_galley(ui, cell.label, t.ink)
+    };
     let count = cell.count.map(|(n, highlight)| {
         let c = if on { t.invert_fg.gamma_multiply(0.6) } else { highlight.filter(|_| n > 0).unwrap_or(t.faint) };
         (hud_galley(ui, &n.to_string(), c), c)
@@ -942,6 +954,25 @@ pub fn social_icons(ui: &mut Ui, size: f32) {
         .iter()
         .map(|(name, url)| IconLink { name, label: (*name).to_string(), tip: crate::i18n::fmt(tl!("ArtCraft on {name}"), &[("name", name)]), url })
         .collect();
+    icon_links(ui, size, &links);
+}
+
+/// Promptica accounts, using the existing accessible link controls and bundled icons.
+pub fn promptica_social_icons(ui: &mut Ui, size: f32) {
+    let links = [
+        IconLink {
+            name: "LinkedIn",
+            label: "Promptica LinkedIn".into(),
+            tip: "Promptica · LinkedIn".into(),
+            url: "https://www.linkedin.com/company/promptica/",
+        },
+        IconLink {
+            name: "Instagram",
+            label: "Promptica Instagram".into(),
+            tip: "Promptica · Instagram".into(),
+            url: "https://www.instagram.com/promptica_ai",
+        },
+    ];
     icon_links(ui, size, &links);
 }
 

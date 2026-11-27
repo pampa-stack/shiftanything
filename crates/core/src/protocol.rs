@@ -29,6 +29,11 @@ pub enum Command {
     Install {
         app: String,
     },
+    /// An approved agent action or work-kit batch must retain its expected native presence state.
+    InstallExpected {
+        apps: Vec<String>,
+        installed: bool,
+    },
     /// Install or update every app in `apps` together: their downloads run as for [`Command::Install`],
     /// but where the platform needs a permission prompt (polkit on Linux, elevation on Windows)
     /// the batch shares one prompt instead of one per app. Apps already running a job are left out.
@@ -82,6 +87,10 @@ pub enum Command {
     /// Fetch the pictures of an app's details page (`core::details`), one [`Event::Screenshot`]
     /// each, the lead picture first. Pictures already saved on this machine arrive without
     /// touching the network. Asking again while they are on their way does nothing.
+    /// Load catalog-owned logo and preview URLs, never a caller-supplied URL.
+    FetchCatalogMedia {
+        app: String,
+    },
     FetchScreenshots {
         app: String,
     },
@@ -229,6 +238,8 @@ pub enum Origin {
     ArtCraftApi,
     /// GitHub directly: the fallback.
     GitHub,
+    /// The LibreOffice release directory.
+    TheDocumentFoundation,
 }
 
 impl Origin {
@@ -236,6 +247,7 @@ impl Origin {
         match self {
             Self::ArtCraftApi => "ArtCraft API",
             Self::GitHub => "GitHub",
+            Self::TheDocumentFoundation => "The Document Foundation",
         }
     }
 }
@@ -250,6 +262,8 @@ pub enum Source {
     /// github.com release pages (no API quota; used whenever the API gave no answer, whether it
     /// was out of quota or couldn't be reached).
     GitHubPages,
+    /// The LibreOffice release directory.
+    TheDocumentFoundation,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -260,6 +274,7 @@ impl Source {
             Self::Feed => "ArtCraft",
             Self::GitHubApi => "GitHub",
             Self::GitHubPages => "GitHub (release pages)",
+            Self::TheDocumentFoundation => "The Document Foundation",
             Self::Cache => "saved results",
         }
     }

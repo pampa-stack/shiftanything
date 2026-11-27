@@ -1,0 +1,19 @@
+commit 53e471bfc1d618952be26572f85a3b6965a70d0c5e2fb4240c985d871b8ddd00
+Parent:  3f79a0ca0556910be028d43f5eb7b2cc4a823c1ca4341e371619f7e8ab3fa40f
+ContentChecksum:  61fc936ac722ab715af7a7653a6ccde1e1181a67ca3883524f31742786c38676
+Date:  2026-11-05 13:45:35 +0000
+
+    Merge pull request #341 from flathub/lock-py-deps (84075b103a5e)
+
+    Name: net.ankiweb.Anki
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov  5 14:01:33 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

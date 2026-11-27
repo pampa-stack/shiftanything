@@ -1,0 +1,84 @@
+
+=== 2026-11-27T10:15:58+00:00 gnucash install ===
+gnucash before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnucash JobFinished: Ok("Flathub app installed")
+gnucash after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.17+ (Flathub 5.17)"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-gnucash-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+59fec8ad9629f9144f5c2fd507b838a7c8b37fbe9eb0cc611c7fb1f328b9df51  /var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-gnucash-icon.png
+org.gnucash.GnuCash/x86_64/stable	flathub	1ae4ecbe79a6	user	5.17+ (Flathub 5.17)
+TIMING gnucash install 49087 ms
+
+=== 2026-11-27T10:16:47+00:00 gnucash prior ===
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnucash.GnuCash/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnucash.GnuCash/x86_64/stable	flathub	ef3f97227486	user	5.16+ (Flathub 5.16)
+gnucash before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf", package: Some("org.gnucash.GnuCash"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.16+ (Flathub 5.16)"), update_available: false, can_remove: false, can_open: true }
+gnucash JobFinished: Err("Approved action rejected: native installation state changed")
+gnucash JobFinished: Err("This Flatpak is managed outside the launcher")
+gnucash after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf", package: Some("org.gnucash.GnuCash"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.16+ (Flathub 5.16)"), update_available: false, can_remove: false, can_open: true })
+TIMING gnucash prior 13855 ms
+
+=== 2026-11-27T10:17:01+00:00 gnucash open ===
+dbus-daemon[2661770]: [session uid=1000 pid=2661770 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2661796 comm="/usr/bin/xfwm4 --compositor=off --display=:571" label="unconfined")
+dbus-daemon[2661770]: [session uid=1000 pid=2661770 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2661812]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2661796 comm="/usr/bin/xfwm4 --compositor=off --display=:571" label="unconfined")
+dbus-daemon[2661770]: [session uid=1000 pid=2661770 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2661796 comm="/usr/bin/xfwm4 --compositor=off --display=:571" label="unconfined")
+dbus-daemon[2661812]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2661770]: [session uid=1000 pid=2661770 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+gnucash before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.16+ (Flathub 5.16)"), update_available: true, can_remove: true, can_open: true }
+gnucash JobFinished: Ok("Launch request accepted")
+gnucash after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.16+ (Flathub 5.16)"), update_available: true, can_remove: true, can_open: true })
+X Error: 9: Bad Drawable
+  Request Major code: 14
+  ResourceID in failed request: 0x200003
+  Serial number of failed request: 3
+xwininfo: error: No such window with id 0x200003.
+TIMING gnucash open-previous 21993 ms
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  42 (X_SetInputFocus)
+  Resource id in failed request:  0x200020
+  Serial number of failed request:  18
+  Current serial number in output stream:  18
+
+(xfconfd:2661819): xfconfd-WARNING **: 10:17:24.874: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING gnucash open 23574 ms
+
+=== 2026-11-27T10:17:24+00:00 gnucash update-remove ===
+gnucash before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.16+ (Flathub 5.16)"), update_available: true, can_remove: true, can_open: true }
+gnucash JobFinished: Ok("Flathub app updated")
+gnucash after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.17+ (Flathub 5.17)"), update_available: false, can_remove: true, can_open: true })
+TIMING gnucash update 8642 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/.var/app/org.gnucash.GnuCash/shift-profile-marker: OK
+dbus-daemon[2665475]: [session uid=1000 pid=2665475 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2665549 comm="/usr/bin/xfwm4 --compositor=off --display=:776" label="unconfined")
+dbus-daemon[2665475]: [session uid=1000 pid=2665475 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2665581]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2665549 comm="/usr/bin/xfwm4 --compositor=off --display=:776" label="unconfined")
+dbus-daemon[2665475]: [session uid=1000 pid=2665475 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2665549 comm="/usr/bin/xfwm4 --compositor=off --display=:776" label="unconfined")
+dbus-daemon[2665581]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2665475]: [session uid=1000 pid=2665475 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+gnucash before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.17+ (Flathub 5.17)"), update_available: false, can_remove: true, can_open: true }
+gnucash JobFinished: Ok("Launch request accepted")
+gnucash after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.17+ (Flathub 5.17)"), update_available: false, can_remove: true, can_open: true })
+X Error: 9: Bad Drawable
+  Request Major code: 14
+  ResourceID in failed request: 0x200003
+  Serial number of failed request: 3
+xwininfo: error: No such window with id 0x200003.
+TIMING gnucash open-current 21798 ms
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  42 (X_SetInputFocus)
+  Resource id in failed request:  0x200016
+  Serial number of failed request:  18
+  Current serial number in output stream:  19
+
+(xfconfd:2665600): xfconfd-WARNING **: 10:17:58.719: Name org.xfce.Xfconf lost on the message dbus, exiting.
+gnucash before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/data/flatpak/app/org.gnucash.GnuCash/x86_64/stable/1ae4ecbe79a6a4f4b3f8911697a3712c7a5c23cf6e34076d9c15424607d7a67e", package: Some("org.gnucash.GnuCash"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.17+ (Flathub 5.17)"), update_available: false, can_remove: true, can_open: true }
+gnucash JobFinished: Ok("Flathub app removed")
+gnucash after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING gnucash remove 4935 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/gnucash/home/.var/app/org.gnucash.GnuCash/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING gnucash update-remove 38881 ms

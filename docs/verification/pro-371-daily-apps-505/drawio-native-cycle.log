@@ -1,0 +1,22 @@
+/private/tmp root
+PROOF drawio HOME=/private/tmp/shift-drawio-scratch.ce7m8vJR/home before=32.6.10 after=32.7.4
+PASS OFFICIAL v32.6.10 Dmg https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/draw.io-arm64-32.6.10.dmg 157367951 83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727
+PASS OFFICIAL v32.7.4 Dmg https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/draw.io-arm64-32.7.4.dmg 158930055 b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3
+PASS OFFICIAL v32.6.10 Dmg https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/draw.io-arm64-32.6.10.dmg 157367951 83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727
+PASS NATIVE drawio install: draw.io Desktop installed: 32.6.10; transferred=157367951
+/private/tmp/shift-drawio-scratch.ce7m8vJR/home/Applications/draw.io.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: DRAW.IO LTD (UZEUFB4N53)
+PASS SIGNATURE + PROFILE MARKER drawio install 32.6.10
+PASS OFFICIAL v32.7.4 Dmg https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/draw.io-arm64-32.7.4.dmg 158930055 b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3
+PASS NATIVE drawio update: draw.io Desktop updated to 32.7.4; transferred=158930055
+/private/tmp/shift-drawio-scratch.ce7m8vJR/home/Applications/draw.io.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: DRAW.IO LTD (UZEUFB4N53)
+PASS SIGNATURE + PROFILE MARKER drawio update 32.7.4
+PASS NATIVE drawio remove: draw.io Desktop was removed; transferred=0
+/private/tmp/shift-drawio-scratch.ce7m8vJR/home/.Trash/draw.io.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: DRAW.IO LTD (UZEUFB4N53)
+PASS SIGNATURE + PROFILE MARKER drawio remove 32.7.4
+CLEANUP /private/tmp/shift-drawio-scratch.ce7m8vJR exit=0

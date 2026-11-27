@@ -88,12 +88,54 @@ impl CraftApp {
         self.bundle.map_or_else(|| format!("ai.storyteller.{}", self.id), str::to_string)
     }
 
+    /// Some publishers use a distinct AppImage desktop identifier.
+    pub fn linux_desktop_id(&self) -> String {
+        match (self.id, self.repo) {
+            ("localsend", "localsend/localsend") => "org.localsend.localsend_app".to_owned(),
+            ("audacity", "audacity/audacity") => "org.audacityteam.Audacity4portable".to_owned(),
+            ("drawio", "jgraph/drawio-desktop") => "drawio".to_owned(),
+            ("cryptomator", "cryptomator/cryptomator") => "org.cryptomator.Cryptomator".to_owned(),
+            ("joplin", "laurent22/joplin") => "appimagekit-joplin".to_owned(),
+            ("notepadnext", "dail8859/NotepadNext") => "NotepadNext".to_owned(),
+            ("rapidraw", "CyberTimon/RapidRAW") => "RapidRAW".to_owned(),
+            ("rustdesk", "rustdesk/rustdesk") => "rustdesk".to_owned(),
+            ("activitywatch", "ActivityWatch/activitywatch") => "aw-qt".to_owned(),
+            _ => self.bundle_id(),
+        }
+    }
+
     pub fn releases_url(&self) -> String {
-        format!("https://github.com/{}/releases", self.repo)
+        if self.uses_tdf_releases() {
+            return crate::release::LIBREOFFICE_STABLE_URL.to_string();
+        }
+        format!("https://github.com/{}/releases", self.release_repository())
     }
 
     pub fn repo_url(&self) -> String {
         format!("https://github.com/{}", self.repo)
+    }
+
+    pub fn uses_tdf_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::LIBREOFFICE.id, crate::curated::LIBREOFFICE.repo)
+    }
+
+    pub fn release_repository(&self) -> &'static str {
+        match (self.id, self.repo) {
+            ("godot-engine", "godotengine/godot") => crate::curated::GODOT_RELEASES_REPO,
+            ("nextcloud-desktop", "nextcloud/desktop") => crate::curated::NEXTCLOUD_DESKTOP_RELEASES_REPO,
+            _ => self.repo,
+        }
+    }
+
+    /// The package format verified for this macOS application.
+    pub fn mac_package_kind(&self) -> crate::PackageKind {
+        if (self.id, self.repo) == (crate::curated::NAPS2.id, crate::curated::NAPS2.repo) {
+            crate::PackageKind::MacPkg
+        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
+            crate::PackageKind::MacZip
+        } else {
+            crate::PackageKind::Dmg
+        }
     }
 
     /// The app's website: its page on getartcraft.com, or a community app's own site.
@@ -103,11 +145,19 @@ impl CraftApp {
 
     /// Whether the launcher installs this app from a `kind` package.
     pub fn installs(&self, kind: crate::PackageKind) -> bool {
-        kind != crate::PackageKind::Dmg || self.mac_team.is_some()
+        match kind {
+            crate::PackageKind::Dmg | crate::PackageKind::MacZip | crate::PackageKind::MacPkg => {
+                self.mac_team.is_some() && self.mac_package_kind() == kind
+            }
+            _ => true,
+        }
     }
 
     /// Whether this app runs on the given operating system.
     pub fn runs_on(&self, os: crate::Os) -> bool {
+        if self.id == "handy" {
+            return matches!(os, crate::Os::MacOs | crate::Os::Windows | crate::Os::Linux);
+        }
         match os {
             crate::Os::FreeBsd => self.id != "artcraft",
             _ => true,
@@ -207,16 +257,22 @@ pub const DISCORD_APP_URL: &str = "discord://-/invite/artcraft";
 /// ArtCraft Launcher itself, described like a Craft App so it can update itself with the same
 /// machinery (asset names `artcraft-launcher-<ver>-…`, bundle id `ai.storyteller.artcraft-launcher`,
 /// `ArtCraft Launcher.app`). Not part of [`SUITE`].
-pub const LAUNCHER: CraftApp = app(
-    "artcraft-launcher",
-    "ArtCraft Launcher",
-    "Installs and updates the Craft App Suite",
-    [[0x0b, 0x0b, 0x0c], [0x0b, 0x0b, 0x0c], [0xf2, 0xf1, 0xee]],
-    "storytold/craft-launcher",
-);
+pub const LAUNCHER: CraftApp = CraftApp {
+    publisher: "Promptica",
+    msi_publisher: Some("Promptica"),
+    bundle: Some("it.promptica.shiftanything"),
+    mac_team: None,
+    ..app(
+        "artcraft-launcher",
+        "Sh*ftAnything",
+        "Installs and updates the Craft App Suite",
+        [[0x0b, 0x0b, 0x0c], [0x0b, 0x0b, 0x0c], [0xf2, 0xf1, 0xee]],
+        "lorenzotalamucci0-stack/shiftanything",
+    )
+};
 
 /// The launcher's own repo, checked so it can say when a newer launcher is out.
-pub const LAUNCHER_REPO: &str = "storytold/craft-launcher";
+pub const LAUNCHER_REPO: &str = "lorenzotalamucci0-stack/shiftanything";
 /// The launcher's own asset stem.
 pub const LAUNCHER_ID: &str = "artcraft-launcher";
 
@@ -227,6 +283,22 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         return Some(icon);
     }
     Some(match id {
+        "pencil2d" => include_bytes!("../../../assets/app-icons/pencil2d.png"),
+        "openshot-video-editor" => include_bytes!("../../../assets/app-icons/openshot-video-editor.png"),
+        "musescore" => include_bytes!("../../../assets/app-icons/musescore.png"),
+        "orca-slicer" => include_bytes!("../../../assets/app-icons/orca-slicer.png"),
+        "losslesscut" => include_bytes!("../../../assets/app-icons/losslesscut.png"),
+        "zettlr" => include_bytes!("../../../assets/app-icons/zettlr.png"),
+        "onlyoffice" => include_bytes!("../../../assets/app-icons/onlyoffice.png"),
+        "audacity" => include_bytes!("../../../assets/app-icons/audacity.png"),
+        "drawio" => include_bytes!("../../../assets/app-icons/drawio.png"),
+        "nextcloud-desktop" => include_bytes!("../../../assets/app-icons/nextcloud-desktop.png"),
+        "cryptomator" => include_bytes!("../../../assets/app-icons/cryptomator.png"),
+        "joplin" => include_bytes!("../../../assets/app-icons/joplin.png"),
+        "notepadnext" => include_bytes!("../../../assets/app-icons/notepadnext.png"),
+        "rapidraw" => include_bytes!("../../../assets/app-icons/rapidraw.png"),
+        "rustdesk" => include_bytes!("../../../assets/app-icons/rustdesk.png"),
+        "activitywatch" => include_bytes!("../../../assets/app-icons/activitywatch.png"),
         "artcraft" => include_bytes!("../../../assets/app-icons/artcraft.png"),
         "photocraft" => include_bytes!("../../../assets/app-icons/photocraft.png"),
         "vectorcraft" => include_bytes!("../../../assets/app-icons/vectorcraft.png"),

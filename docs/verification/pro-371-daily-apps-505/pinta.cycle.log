@@ -1,0 +1,48 @@
+
+=== 2026-11-27T05:38:59+00:00 pinta install ===
+pinta before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+pinta JobFinished: Ok("Flathub app installed")
+pinta after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/a105c6c88f33ed7daf1cb2d28c75673bbfa8752e3a3ea3d44b587bee01a3ac72", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.PintaProject.Pinta/x86_64/stable	flathub	a105c6c88f33	user	3.1.2
+
+=== 2026-11-27T05:39:35+00:00 pinta prior ===
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Previous runtime org.gnome.Platform/x86_64/49
+Updating app/com.github.PintaProject.Pinta/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.PintaProject.Pinta/x86_64/stable	flathub	508be7108118	user	3.1.2
+pinta before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/508be71081185c107b88ecf2d6a4b96b6fd7962210950b048d68b174c8c130f2", package: Some("com.github.PintaProject.Pinta"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: false, can_open: true }
+pinta JobFinished: Err("Approved action rejected: native installation state changed")
+pinta JobFinished: Err("This Flatpak is managed outside the launcher")
+pinta after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/508be71081185c107b88ecf2d6a4b96b6fd7962210950b048d68b174c8c130f2", package: Some("com.github.PintaProject.Pinta"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T05:40:02+00:00 pinta open ===
+dbus-daemon[2286256]: [session uid=1000 pid=2286256 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2286293 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2286256]: [session uid=1000 pid=2286256 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pinta before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/508be71081185c107b88ecf2d6a4b96b6fd7962210950b048d68b174c8c130f2", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: true, can_remove: true, can_open: true }
+pinta JobFinished: Ok("Launch request accepted")
+pinta after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/508be71081185c107b88ecf2d6a4b96b6fd7962210950b048d68b174c8c130f2", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2286323]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2286529 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2286323]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+=== 2026-11-27T05:40:08+00:00 pinta update-remove ===
+pinta before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/508be71081185c107b88ecf2d6a4b96b6fd7962210950b048d68b174c8c130f2", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: true, can_remove: true, can_open: true }
+pinta JobFinished: Ok("Flathub app updated")
+pinta after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/a105c6c88f33ed7daf1cb2d28c75673bbfa8752e3a3ea3d44b587bee01a3ac72", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: true, can_open: true })
+/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/.var/app/com.github.PintaProject.Pinta/shift-profile-marker: OK
+dbus-daemon[2287789]: [session uid=1000 pid=2287789 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2287818 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2287789]: [session uid=1000 pid=2287789 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pinta before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/a105c6c88f33ed7daf1cb2d28c75673bbfa8752e3a3ea3d44b587bee01a3ac72", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: true, can_open: true }
+pinta JobFinished: Ok("Launch request accepted")
+pinta after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/a105c6c88f33ed7daf1cb2d28c75673bbfa8752e3a3ea3d44b587bee01a3ac72", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2287832]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2288004 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2287832]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+pinta before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 1, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/data/flatpak/app/com.github.PintaProject.Pinta/x86_64/stable/a105c6c88f33ed7daf1cb2d28c75673bbfa8752e3a3ea3d44b587bee01a3ac72", package: Some("com.github.PintaProject.Pinta"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.1.2"), update_available: false, can_remove: true, can_open: true }
+pinta JobFinished: Ok("Flathub app removed")
+pinta after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-flatpak-office.aani3p1l/pinta/home/.var/app/com.github.PintaProject.Pinta/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data

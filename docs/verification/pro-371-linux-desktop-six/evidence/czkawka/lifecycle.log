@@ -1,0 +1,69 @@
+
+=== 2026-11-27T09:14:05+00:00 czkawka install ===
+czkawka before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+czkawka JobFinished: Ok("Flathub app installed")
+czkawka after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-czkawka-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (789)
+23b61b21b5678f9ad9d23dd840652d2979e3fde8ee23bf313d1d4b2cb43c9d57  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-czkawka-icon.svg
+com.github.qarmin.czkawka/x86_64/stable	flathub	55440fc853ba	user	10.0.0
+TIMING czkawka install 33829 ms
+
+=== 2026-11-27T09:14:39+00:00 czkawka prior ===
+Info: org.gnome.Platform is end-of-life, with reason: The GNOME 48 runtime is no longer supported as of March 24, 2026. Please ask your application developer to migrate to a supported platform.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.gnome.Platform.Locale is end-of-life, with reason: The GNOME 48 runtime is no longer supported as of March 24, 2026. Please ask your application developer to migrate to a supported platform.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.gnome.Platform.Locale/x86_64/48
+Installing runtime/org.gnome.Platform/x86_64/48
+Previous runtime org.gnome.Platform/x86_64/48
+Info: org.gnome.Platform is end-of-life, with reason: The GNOME 48 runtime is no longer supported as of March 24, 2026. Please ask your application developer to migrate to a supported platform.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.gnome.Platform.Locale is end-of-life, with reason: The GNOME 48 runtime is no longer supported as of March 24, 2026. Please ask your application developer to migrate to a supported platform.
+Updating app/com.github.qarmin.czkawka/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.qarmin.czkawka/x86_64/stable	flathub	f009f980a358	user	9.0.0
+czkawka before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8", package: Some("com.github.qarmin.czkawka"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.0.0"), update_available: false, can_remove: false, can_open: true }
+czkawka JobFinished: Err("Approved action rejected: native installation state changed")
+czkawka JobFinished: Err("This Flatpak is managed outside the launcher")
+czkawka after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8", package: Some("com.github.qarmin.czkawka"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.0.0"), update_available: false, can_remove: false, can_open: true })
+TIMING czkawka prior 31861 ms
+
+=== 2026-11-27T09:15:11+00:00 czkawka open ===
+dbus-daemon[2448402]: [session uid=1000 pid=2448402 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2448473 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2448402]: [session uid=1000 pid=2448402 pidfd=5] Successfully activated service 'org.a11y.Bus'
+czkawka before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.0.0"), update_available: true, can_remove: true, can_open: true }
+czkawka JobFinished: Ok("Launch request accepted")
+czkawka after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.0.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2448513]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2449070 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2448513]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING czkawka open-previous 4023 ms
+TIMING czkawka open 8350 ms
+
+=== 2026-11-27T09:15:19+00:00 czkawka update-remove ===
+czkawka before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.0.0"), update_available: true, can_remove: true, can_open: true }
+czkawka JobFinished: Ok("Flathub app updated")
+czkawka after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.0"), update_available: false, can_remove: true, can_open: true })
+TIMING czkawka update 4421 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/.var/app/com.github.qarmin.czkawka/shift-profile-marker: OK
+dbus-daemon[2450150]: [session uid=1000 pid=2450150 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2450214 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2450150]: [session uid=1000 pid=2450150 pidfd=5] Successfully activated service 'org.a11y.Bus'
+czkawka before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.0"), update_available: false, can_remove: true, can_open: true }
+czkawka JobFinished: Ok("Launch request accepted")
+czkawka after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2450310]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2450804 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2450310]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING czkawka open-current 4007 ms
+czkawka before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/data/flatpak/app/com.github.qarmin.czkawka/x86_64/stable/55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c", package: Some("com.github.qarmin.czkawka"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.0"), update_available: false, can_remove: true, can_open: true }
+czkawka JobFinished: Ok("Flathub app removed")
+czkawka after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING czkawka remove 3118 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/czkawka/home/.var/app/com.github.qarmin.czkawka/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING czkawka update-remove 16088 ms

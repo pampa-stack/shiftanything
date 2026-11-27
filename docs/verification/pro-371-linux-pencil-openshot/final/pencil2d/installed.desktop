@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Pencil2D
+Comment=Draw and animate frame by frame
+Exec="/fixture/home/Applications/pencil2d-linux-amd64-v0.7.1.AppImage" --appimage-extract-and-run %F
+Icon=org.pencil2d.Pencil2D
+Terminal=false
+Categories=Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;
+StartupWMClass=Pencil2D
+X-ArtCraft-Launcher=true

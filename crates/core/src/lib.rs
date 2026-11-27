@@ -11,6 +11,7 @@ pub mod catalog;
 pub mod details;
 pub mod distro;
 pub mod feed;
+pub mod flathub;
 pub mod hosted_catalog;
 pub mod mcp_config;
 pub mod nightly;
@@ -27,3 +28,11 @@ pub use catalog::{CraftApp, SUITE};
 pub use platform::{Arch, Os, PackageKind, Platform};
 pub use release::{Asset, Release};
 pub use status::{AppStatus, InstallSource, Installed, Latest};
+
+pub mod curated;
+
+pub mod automation;
+
+pub mod shifter;
+
+pub mod kits;

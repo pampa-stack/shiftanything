@@ -1,0 +1,19 @@
+commit a24840b1f0ba3ef9dab76c886a0ae9ace33d8a00f1427e0cf1f72e6bf328ef90
+Parent:  c8f105875e5f89fc7b2a627a26ef23c9fc8a44e20ff6dbd26825a3b32e7143e8
+ContentChecksum:  4c5eb1efa90ece6763643c33c40603a95a1e1acab9553bf34e0f3e79b494a081
+Date:  2026-10-28 08:34:44 +0000
+
+    Update certifi to 2026.10.19 (#217) (eb9a012e466b)
+
+    Name: org.inkscape.Inkscape
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 28 09:16:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

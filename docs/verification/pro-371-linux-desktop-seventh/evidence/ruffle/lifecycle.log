@@ -1,0 +1,64 @@
+
+=== 2026-11-27T09:57:09+00:00 ruffle install ===
+ruffle before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+ruffle JobFinished: Ok("Flathub app installed")
+ruffle after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-ruffle-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (1069)
+53ac2dce1378f1b60db51e1d813eccd8684134a80fbe480d8b4df07f5e9b6a58  /var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-ruffle-icon.svg
+rs.ruffle.Ruffle/x86_64/stable	flathub	8699385915a1	user	0.8.0
+TIMING ruffle install 40578 ms
+
+=== 2026-11-27T09:57:50+00:00 ruffle prior ===
+Previous runtime org.freedesktop.Platform/x86_64/26.08
+Updating app/rs.ruffle.Ruffle/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+rs.ruffle.Ruffle/x86_64/stable	flathub	a8d37129b1e8	user	0.8.0
+ruffle before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499", package: Some("rs.ruffle.Ruffle"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: false, can_open: true }
+ruffle JobFinished: Err("Approved action rejected: native installation state changed")
+ruffle JobFinished: Err("This Flatpak is managed outside the launcher")
+ruffle after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499", package: Some("rs.ruffle.Ruffle"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: false, can_open: true })
+TIMING ruffle prior 5909 ms
+
+=== 2026-11-27T09:57:56+00:00 ruffle open ===
+dbus-daemon[2588500]: [session uid=1000 pid=2588500 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2588583 comm="/usr/bin/xfwm4 --compositor=off --display=:301" label="unconfined")
+dbus-daemon[2588500]: [session uid=1000 pid=2588500 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2588612]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2588583 comm="/usr/bin/xfwm4 --compositor=off --display=:301" label="unconfined")
+dbus-daemon[2588500]: [session uid=1000 pid=2588500 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2588583 comm="/usr/bin/xfwm4 --compositor=off --display=:301" label="unconfined")
+dbus-daemon[2588612]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2588500]: [session uid=1000 pid=2588500 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+ruffle before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: true, can_remove: true, can_open: true }
+ruffle JobFinished: Ok("Launch request accepted")
+ruffle after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: true, can_remove: true, can_open: true })
+TIMING ruffle open-previous 10916 ms
+
+(xfconfd:2588631): xfconfd-WARNING **: 09:58:08.944: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING ruffle open 12720 ms
+
+=== 2026-11-27T09:58:08+00:00 ruffle update-remove ===
+ruffle before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: true, can_remove: true, can_open: true }
+ruffle JobFinished: Ok("Flathub app updated")
+ruffle after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: true, can_open: true })
+TIMING ruffle update 4772 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/.var/app/rs.ruffle.Ruffle/shift-profile-marker: OK
+dbus-daemon[2591061]: [session uid=1000 pid=2591061 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2591084 comm="/usr/bin/xfwm4 --compositor=off --display=:362" label="unconfined")
+dbus-daemon[2591061]: [session uid=1000 pid=2591061 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2591098]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2591084 comm="/usr/bin/xfwm4 --compositor=off --display=:362" label="unconfined")
+dbus-daemon[2591061]: [session uid=1000 pid=2591061 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2591084 comm="/usr/bin/xfwm4 --compositor=off --display=:362" label="unconfined")
+dbus-daemon[2591098]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2591061]: [session uid=1000 pid=2591061 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+ruffle before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: true, can_open: true }
+ruffle JobFinished: Ok("Launch request accepted")
+ruffle after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: true, can_open: true })
+TIMING ruffle open-current 10634 ms
+
+(xfconfd:2591105): xfconfd-WARNING **: 09:58:28.190: Name org.xfce.Xfconf lost on the message dbus, exiting.
+ruffle before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/data/flatpak/app/rs.ruffle.Ruffle/x86_64/stable/8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51", package: Some("rs.ruffle.Ruffle"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.0"), update_available: false, can_remove: true, can_open: true }
+ruffle JobFinished: Ok("Flathub app removed")
+ruffle after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING ruffle remove 3724 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/ruffle/home/.var/app/rs.ruffle.Ruffle/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING ruffle update-remove 23185 ms

@@ -33,6 +33,113 @@ use crate::manifest::Record;
 use crate::paths::Paths;
 use crate::process;
 
+#[cfg(target_os = "macos")]
+fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
+    use artcraft_launcher_core::curated::{
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, NEOVIDE,
+        OBS_STUDIO, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
+    };
+
+    match app.id {
+        id if id == artcraft_launcher_core::curated::VORTA.id => Some((14, 4)),
+        "photocraft" if cfg!(target_arch = "aarch64") => Some((11, 0)),
+        id if [
+            artcraft_launcher_core::curated::KEYCASTR.id,
+            artcraft_launcher_core::curated::LAPCE.id,
+            artcraft_launcher_core::curated::SOLVESPACE.id,
+            artcraft_launcher_core::curated::VIBE.id,
+            artcraft_launcher_core::curated::DB_BROWSER_SQLITE.id,
+        ]
+        .contains(&id) =>
+        {
+            Some((11, 0))
+        }
+        id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::NAPS2.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::OPENCLAW.id => Some((26, 2)),
+        id if id == artcraft_launcher_core::curated::RUSTDESK.id => Some((12, 3)),
+        id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
+        id if id == artcraft_launcher_core::curated::LOCALAI.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::JAN.id => Some((13, 6)),
+        id if id == artcraft_launcher_core::curated::BRUNO.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::UPSCAYL.id || id == artcraft_launcher_core::curated::LOSSLESSCUT.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::CHERRY_STUDIO.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::ANYTHING_LLM.id => Some((11, 0)),
+        id if id == artcraft_launcher_core::curated::T3_CODE.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::VOICE_STUDIO.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::CLASH_VERGE_REV.id => Some((11, 0)),
+        id if id == artcraft_launcher_core::curated::ORCA.id => Some((13, 4)),
+        id if [
+            OBS_STUDIO.id,
+            AUDACITY.id,
+            DRAWIO.id,
+            artcraft_launcher_core::curated::OPENSCREEN.id,
+            artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id,
+        ]
+        .contains(&id) =>
+        {
+            Some((13, 0))
+        }
+        id if [
+            KOPIA.id,
+            TRANSMISSION.id,
+            IINA.id,
+            KEEPASSXC.id,
+            JOPLIN.id,
+            SHOTCUT.id,
+            STATS.id,
+            ZED.id,
+            ENTE_AUTH.id,
+            ACTIVITYWATCH.id,
+            TERMIX.id,
+            NEOVIDE.id,
+            artcraft_launcher_core::curated::ACTUAL_BUDGET.id,
+            artcraft_launcher_core::curated::APPFLOWY.id,
+            artcraft_launcher_core::curated::BLOCKBENCH.id,
+            artcraft_launcher_core::curated::DOSBOX_STAGING.id,
+        ]
+        .contains(&id) =>
+        {
+            Some((12, 0))
+        }
+        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id, WHISPERING.id, CRYPTOMATOR.id].contains(&id) => Some((11, 0)),
+        _ => None,
+    }
+}
+
+#[cfg(target_os = "macos")]
+fn macos_major_minor(version: &str) -> Option<(u16, u16)> {
+    let mut parts = version.trim().split('.');
+    Some((parts.next()?.parse().ok()?, parts.next().unwrap_or("0").parse().ok()?))
+}
+
+/// Some reviewed Apple Silicon packages require a minimum macOS version.
+pub fn recipe_system_supported(app: &CraftApp) -> bool {
+    #[cfg(target_os = "macos")]
+    {
+        let Some(minimum) = recipe_macos_minimum(app) else { return true };
+        static MACOS_VERSION: std::sync::OnceLock<Option<(u16, u16)>> = std::sync::OnceLock::new();
+        MACOS_VERSION
+            .get_or_init(|| {
+                std::process::Command::new("/usr/bin/sw_vers")
+                    .arg("-productVersion")
+                    .env_remove("SYSTEM_VERSION_COMPAT")
+                    .output()
+                    .ok()
+                    .filter(|output| output.status.success())
+                    .and_then(|output| String::from_utf8(output.stdout).ok())
+                    .and_then(|version| macos_major_minor(&version))
+            })
+            .is_some_and(|version| version >= minimum)
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        let _ = app;
+        true
+    }
+}
+
 /// What an install needs from the backend.
 pub struct Job<'a> {
     pub http: &'a Http,
@@ -121,7 +228,7 @@ struct Failure {
 pub fn keeps_old_copy(kind: PackageKind, existing: Option<&Installed>, previous: Option<&Record>) -> bool {
     let source = existing.map(|inst| inst.source);
     match kind {
-        PackageKind::Dmg => source == Some(InstallSource::MacApp),
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => source == Some(InstallSource::MacApp),
         PackageKind::AppImage => source == Some(InstallSource::Launcher) && previous.is_some_and(|r| r.kind == PackageKind::AppImage),
         PackageKind::Flatpak => existing.is_some_and(|inst| inst.source == InstallSource::Flatpak && !inst.externally_managed),
         _ => false,
@@ -235,6 +342,10 @@ fn install_at_with_profile(
     // Every early way out below gives the job's place in its batch back (see [`BatchPlace`]).
     #[cfg_attr(not(any(target_os = "linux", windows)), allow(unused_mut, unused_variables))]
     let mut batch = BatchPlace(job.batch.take());
+    #[cfg(target_os = "macos")]
+    if kind == PackageKind::MacPkg && (job.replace || existing.is_some_and(|copy| !owns_naps2_copy(previous, Path::new(&copy.location)))) {
+        return Err("NAPS2 was installed outside the launcher. Manage that copy the way it was installed.".into());
+    }
     #[allow(unused_variables)]
     let destination = destination(app, kind, existing, previous, job.install_locations)?;
     #[cfg(windows)]
@@ -349,7 +460,7 @@ fn install_at_with_profile(
     let result = match kind {
         // No team to check the signature against: refuse rather than install it unchecked.
         #[cfg(target_os = "macos")]
-        PackageKind::Dmg if app.mac_team.is_none() => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg if !app.installs(kind) => {
             Err("ArtCraft Launcher has no macOS signing team recorded for this app, so it wasn't installed here".into())
         }
         #[cfg(target_os = "macos")]
@@ -359,10 +470,23 @@ fn install_at_with_profile(
             existing,
             destination.as_deref(),
             job.replace.then_some(job.approved_path).flatten(),
+            &macos::Expect::release(app, release),
+        )
+        .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "macos")]
+        PackageKind::MacZip => macos::install_zip(
+            app,
+            &file,
+            existing,
+            destination.as_deref(),
+            job.replace.then_some(job.approved_path).flatten(),
             job.paths,
             &macos::Expect::release(app, release),
         )
         .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "macos")]
+        PackageKind::MacPkg => macos::install_pkg(app, &file, existing, destination.as_deref(), job.paths, &macos::Expect::release(app, release))
+            .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
         #[cfg(windows)]
         PackageKind::Msi => {
             // An update lands in the same Windows Installer context as the copy being replaced:
@@ -484,6 +608,105 @@ fn install_at_with_profile(
 /// the download URL to agree with the release version before any bytes are fetched.
 pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &Asset) -> Result<(), String> {
     let mismatch = || format!("{}'s download does not match the advertised version {}.", app.name, release.version_label());
+    if app.uses_tdf_releases() {
+        return artcraft_launcher_core::release::libreoffice_arm64_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.release_repository() == artcraft_launcher_core::curated::GODOT_RELEASES_REPO {
+        return artcraft_launcher_core::release::godot_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
+        return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
+        return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id {
+        return (app.repo == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.repo && release::super_productivity_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::DB_BROWSER_SQLITE.id {
+        return (app.repo == artcraft_launcher_core::curated::DB_BROWSER_SQLITE.repo && release::db_browser_sqlite_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
+        && (app.id != artcraft_launcher_core::curated::LOSSLESSCUT.id || asset.name.ends_with(".dmg"))
+    {
+        return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::NAPS2.id {
+        return (app.repo == artcraft_launcher_core::curated::NAPS2.repo && release::naps2_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::BLOCKBENCH.id {
+        return (app.repo == artcraft_launcher_core::curated::BLOCKBENCH.repo && release::blockbench_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::APPFLOWY.id {
+        return (app.repo == artcraft_launcher_core::curated::APPFLOWY.repo && release::appflowy_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::ACTUAL_BUDGET.id {
+        return (app.repo == artcraft_launcher_core::curated::ACTUAL_BUDGET.repo && release::actual_budget_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::OPENSCREEN.id {
+        return (app.repo == artcraft_launcher_core::curated::OPENSCREEN.repo && release::openscreen_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::VIBE.id {
+        return (app.repo == artcraft_launcher_core::curated::VIBE.repo && release::vibe_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::DOSBOX_STAGING.id {
+        return (app.repo == artcraft_launcher_core::curated::DOSBOX_STAGING.repo && release::dosbox_staging_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::SOLVESPACE.id {
+        return (app.repo == artcraft_launcher_core::curated::SOLVESPACE.repo && release::solvespace_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::VORTA.id {
+        return (app.repo == artcraft_launcher_core::curated::VORTA.repo && release::vorta_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::LAPCE.id {
+        return (app.repo == artcraft_launcher_core::curated::LAPCE.repo && release::lapce_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::GHOST_DOWNLOADER.id {
+        return (app.repo == artcraft_launcher_core::curated::GHOST_DOWNLOADER.repo && release::ghost_downloader_linux_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::HANDY.id && asset.name.ends_with(".AppImage") {
+        return (app.repo == artcraft_launcher_core::curated::HANDY.repo && release::handy_linux_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::PICARD.id {
+        return (app.repo == artcraft_launcher_core::curated::PICARD.repo && release::picard_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::NEOVIDE.id {
+        return (app.repo == artcraft_launcher_core::curated::NEOVIDE.repo && release::neovide_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
     let release_version = release.version.as_ref();
 
     // The version in the asset filename (`<stem>-<version>-<os>-<arch>.<ext>`), when it carries one.
@@ -531,7 +754,7 @@ pub fn occupied(
     let target = match kind {
         PackageKind::Msi => folder,
         PackageKind::PortableZip => Some(folder.unwrap_or_else(|| paths.apps()).join(app.id)),
-        PackageKind::Dmg => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => {
             folder.and_then(|f| app.mac_bundle_names().map(|n| f.join(format!("{n}.app"))).find(|t| std::fs::symlink_metadata(t).is_ok()))
         }
         #[cfg(target_os = "linux")]
@@ -581,7 +804,11 @@ fn destination(
         });
     }
     let Some(folder) = locations.folder(app.id) else { return Ok(None) };
-    if !matches!(kind, PackageKind::Dmg | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip) || process::in_sandbox() {
+    if !matches!(
+        kind,
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip
+    ) || process::in_sandbox()
+    {
         return Err("custom install folders aren't supported on this system".into());
     }
     let parent = selected_folder(folder, kind != PackageKind::Msi)?;
@@ -615,7 +842,7 @@ pub fn default_folder(kind: PackageKind, arch: Option<Arch>, paths: &Paths) -> O
     #[cfg(target_os = "macos")]
     {
         let _ = (arch, paths);
-        (kind == PackageKind::Dmg).then(macos::default_applications_dir).flatten()
+        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg).then(macos::default_applications_dir).flatten()
     }
     #[cfg(not(any(windows, target_os = "macos")))]
     {
@@ -771,7 +998,7 @@ pub(crate) fn choose_kinds_with(
     if let Some(inst) = existing {
         let kind = match inst.source {
             InstallSource::Launcher => record.map(|r| r.kind),
-            InstallSource::MacApp => Some(PackageKind::Dmg),
+            InstallSource::MacApp => Some(app.mac_package_kind()),
             InstallSource::Msi => Some(PackageKind::Msi),
             InstallSource::Deb => Some(PackageKind::Deb),
             InstallSource::Rpm => Some(PackageKind::Rpm),
@@ -819,7 +1046,7 @@ pub fn is_release_arch_package(app: &CraftApp, installed: &Installed) -> bool {
 /// Package formats this machine can install, best first.
 pub fn available_kinds() -> Vec<PackageKind> {
     #[cfg(target_os = "macos")]
-    return vec![PackageKind::Dmg];
+    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg];
     #[cfg(windows)]
     return vec![PackageKind::Msi, PackageKind::PortableZip];
     #[cfg(target_os = "linux")]
@@ -862,7 +1089,7 @@ fn download_turn(app: &CraftApp, asset: &Asset, job: &mut Job<'_>) -> Result<Opt
 }
 
 /// Fetches `asset` into the download folder, checked against its published SHA-256: the feed's
-/// or GitHub's per-file digest, else the release's `SHA256SUMS.txt`. A release with neither is
+/// or GitHub's per-file digest, else the release's checksum manifest. A release with neither is
 /// refused before anything is fetched: a file nothing vouches for is never installed (#90).
 /// Returns the file and the checksum it was checked against.
 pub(crate) fn download(release: &Release, asset: &Asset, job: &mut Job<'_>) -> Result<(PathBuf, String), String> {
@@ -889,7 +1116,7 @@ pub(crate) fn download(release: &Release, asset: &Asset, job: &mut Job<'_>) -> R
     Ok((dest, sha))
 }
 
-/// The file's line in the release's `SHA256SUMS.txt`. `Ok(None)` only when the release really
+/// The file's line in the release's checksum manifest. `Ok(None)` only when the release really
 /// publishes no checksum for it; a list that exists but can't be fetched is an error, so a
 /// network hiccup never downgrades the check.
 fn published_checksum(release: &Release, asset: &Asset, http: &Http) -> Result<Option<String>, String> {
@@ -974,6 +1201,11 @@ fn parse_pacman_repo(si: &str) -> Option<String> {
     })
 }
 
+#[cfg(target_os = "macos")]
+fn owns_naps2_copy(record: Option<&Record>, path: &Path) -> bool {
+    record.is_some_and(|record| record.kind == PackageKind::MacPkg && record.path == path)
+}
+
 /// Removes an installed copy. `phase` hears when the removal has to wait for another install;
 /// `stop` cancels it while it waits.
 pub fn uninstall(
@@ -986,6 +1218,10 @@ pub fn uninstall(
 ) -> Result<(), String> {
     let _ = (record, stop, &phase, paths);
     let path = PathBuf::from(&installed.location);
+    #[cfg(target_os = "macos")]
+    if app.mac_package_kind() == PackageKind::MacPkg && !owns_naps2_copy(record, &path) {
+        return Err("NAPS2 was installed outside the launcher. Manage that copy the way it was installed.".into());
+    }
     if let Some(msg) = managed_elsewhere(app, installed, true) {
         return Err(msg);
     }
@@ -1063,8 +1299,8 @@ pub fn launch(app: &CraftApp, installed: &Installed, paths: &Paths, args: &[Stri
             cmd.args(args);
             process::spawn_detached(cmd)
         }
-        // `open` starts the app through Launch Services, which gives it the user's real home, so
-        // it finds the file at its default path; not every macOS `open` takes an environment.
+        // Normal Launch Services uses the user's home. An explicitly isolated CF profile is
+        // forwarded by open_app and fails closed if this host cannot accept --env.
         InstallSource::MacApp => process::open_app(path, args),
         // A tarball the launcher unpacked into its own folder: run it here, against its own
         // home, rather than on the host through `flatpak-spawn` (which is what `launch_binary`
@@ -1098,7 +1334,14 @@ pub fn launch(app: &CraftApp, installed: &Installed, paths: &Paths, args: &[Stri
                 }
                 return Err(format!("{} isn't where it was installed ({})", app.name, path.display()));
             }
-            process::launch_binary_with_env(path, args, &env)
+            if let Some(flag) = crate::desktop_entry::appimage_runtime_flag(app, path)
+                && !args.first().is_some_and(|arg| arg == flag)
+            {
+                let args: Vec<String> = std::iter::once(flag.to_owned()).chain(args.iter().cloned()).collect();
+                process::launch_binary_with_env(path, &args, &env)
+            } else {
+                process::launch_binary_with_env(path, args, &env)
+            }
         }
     }
     .map_err(|e| format!("Couldn't open {}: {e}", app.name))
@@ -1804,11 +2047,11 @@ pub(crate) mod linux {
     }
 
     fn desktop_path(data: &Path, app: &CraftApp) -> PathBuf {
-        data.join("applications").join(format!("{}.desktop", app.bundle_id()))
+        data.join("applications").join(format!("{}.desktop", app.linux_desktop_id()))
     }
 
     fn icon_path(data: &Path, app: &CraftApp) -> PathBuf {
-        data.join("icons/hicolor/128x128/apps").join(format!("{}.png", app.bundle_id()))
+        data.join("icons/hicolor/128x128/apps").join(format!("{}.png", app.linux_desktop_id()))
     }
 
     /// Adds `appimage` to the desktop's menu. Best effort: a failure here never fails the
@@ -1961,16 +2204,16 @@ pub mod macos {
         existing: Option<&Installed>,
         destination: Option<&Path>,
         approved_replace: Option<&Path>,
-        paths: &Paths,
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
-        // A new, empty mount point for every install. A fixed one can still hold an image from an
-        // attach that was interrupted or timed out, and hdiutil won't mount another over it.
-        let attempt = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or_default();
-        let mount = paths.cache.join(format!("mount-{}-{}-{attempt}", app.id, std::process::id()));
-        std::fs::create_dir_all(&mount).map_err(|e| format!("couldn't create a folder to open the disk image in ({e})"))?;
+        // DiskImages can read a DMG from an external cache, but may reject a mount point on
+        // that volume. Create a private, empty directory on the system volume for each attempt.
+        let mount_dir = tempfile::Builder::new()
+            .prefix("shiftanything-dmg-")
+            .tempdir_in("/private/tmp")
+            .map_err(|e| format!("couldn't create a folder to open the disk image in ({e})"))?;
+        let mount = mount_dir.path();
         let (Some(dmg_s), Some(mount_s)) = (dmg.to_str(), mount.to_str()) else {
-            let _ = std::fs::remove_dir(&mount);
             return Err("unusual characters in the cache folder's path".into());
         };
         // diskimages-helper refuses an attach while it is busy with another image ("Resource
@@ -1992,23 +2235,286 @@ pub mod macos {
                 if attached.is_ok() {
                     break;
                 }
-                let _ = detach(&mount);
+                let _ = detach(mount);
                 std::thread::sleep(Duration::from_secs(wait));
                 attached = attach();
             }
             attached
         };
         if let Err(reason) = attached {
-            let _ = std::fs::remove_dir(&mount);
             return Err(format!("couldn't open the disk image: {reason}"));
         }
-        let result = copy_app(app, &mount, existing, destination, approved_replace, expect);
-        let _ = detach(&mount);
-        let _ = std::fs::remove_dir(&mount);
+        let result = copy_app(app, mount, existing, destination, approved_replace, expect);
+        let _ = detach(mount);
         result
     }
 
-    /// Copies the `.app` bundle from `mount` into staging, verifies it, and swaps it into Applications.
+    pub fn install_zip(
+        app: &CraftApp,
+        archive: &Path,
+        existing: Option<&Installed>,
+        destination: Option<&Path>,
+        approved_replace: Option<&Path>,
+        paths: &Paths,
+        expect: &Expect<'_>,
+    ) -> Result<PathBuf, String> {
+        let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
+        let framework_links = app.id == artcraft_launcher_core::curated::KEYCASTR.id;
+        extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
+        copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
+    }
+
+    /// Extract the signed NAPS2 payload without executing an installer or touching its receipt DB.
+    pub(super) fn install_pkg(
+        app: &CraftApp,
+        package: &Path,
+        existing: Option<&Installed>,
+        destination: Option<&Path>,
+        paths: &Paths,
+        expect: &Expect<'_>,
+    ) -> Result<PathBuf, String> {
+        use artcraft_launcher_core::curated::NAPS2;
+
+        const PKGUTIL: &str = "/usr/sbin/pkgutil";
+        const SPCTL: &str = "/usr/sbin/spctl";
+        const SANDBOX: &str = "/usr/bin/sandbox-exec";
+        const PROFILE: &str = r#"(version 1) (allow default) (deny network*) (deny file-write*)
+            (allow file-write* (subpath (param "PACKAGE_STAGE")))"#;
+        let team = NAPS2.mac_team.ok_or("NAPS2 has no configured macOS signing team")?;
+        if (app.id, app.repo, expect.team) != (NAPS2.id, NAPS2.repo, Some(team)) {
+            return Err("This macOS installer has not been reviewed.".into());
+        }
+        let package = package.to_str().ok_or("unusual characters in the macOS package path")?;
+        let deadline = Duration::from_secs(60);
+        let mut signature = process::command(PKGUTIL);
+        signature.args(["--check-signature", package]).env("LC_ALL", "C");
+        let signature = process::run_command(signature, PKGUTIL, deadline)?;
+        let team_suffix = format!(" ({team})");
+        if !signature.lines().map(str::trim).any(|line| line.starts_with("1. Developer ID Installer: ") && line.ends_with(&team_suffix))
+            || !signature.lines().map(str::trim).any(|line| line == "Notarization: trusted by the Apple notary service")
+        {
+            return Err("The macOS package did not pass installer identity and notarization checks.".into());
+        }
+        let assessment = process::run(SPCTL, &["--assess", "--type", "install", "--ignore-cache", "--no-cache", "--raw", package], deadline)?;
+        if !super::macos_verify::assessment_accepted(&assessment) {
+            return Err("macOS did not accept the signed installer package.".into());
+        }
+
+        let stage = tempfile::tempdir_in(&paths.cache).map_err(|error| format!("couldn't stage the macOS package ({error})"))?;
+        let stage_path = stage.path().canonicalize().map_err(|error| error.to_string())?;
+        let expanded = stage_path.join("expanded");
+        let area = stage_path.to_str().ok_or("unusual characters in the staging path")?;
+        let expanded_path = expanded.to_str().ok_or("unusual characters in the expanded staging path")?;
+        let mut unpack = process::command(SANDBOX);
+        unpack
+            .args(["-D", &format!("PACKAGE_STAGE={area}"), "-p", PROFILE, PKGUTIL, "--expand-full", package, expanded_path])
+            .env("TMPDIR", &stage_path);
+        process::run_command(unpack, SANDBOX, deadline)?;
+
+        let component = expanded.join("com.naps2.desktop.pkg");
+        let payload = component.join("Payload");
+        if !exact_directory(&expanded, &["Distribution", "com.naps2.desktop.pkg"])
+            || !exact_directory(&component, &["Bom", "PackageInfo", "Payload"])
+            || !exact_directory(&payload, &["NAPS2.app"])
+        {
+            return Err("The macOS package does not have the reviewed NAPS2 payload layout.".into());
+        }
+        copy_app(app, &payload, existing, destination, None, expect)
+    }
+
+    fn exact_directory(path: &Path, expected: &[&str]) -> bool {
+        if !std::fs::symlink_metadata(path).is_ok_and(|meta| meta.is_dir()) {
+            return false;
+        }
+        let Ok(entries) = std::fs::read_dir(path) else { return false };
+        let mut found = 0;
+        for entry in entries {
+            let Ok(entry) = entry else { return false };
+            if !entry.file_name().to_str().is_some_and(|name| expected.contains(&name))
+                || !entry.file_type().is_ok_and(|kind| kind.is_file() || kind.is_dir())
+            {
+                return false;
+            }
+            found += 1;
+        }
+        found == expected.len()
+    }
+
+    fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str, framework_links: bool) -> Result<(), String> {
+        use std::io::Read;
+        use std::os::unix::fs::PermissionsExt;
+        use std::path::Component;
+
+        const MAX_FILES: usize = 4096;
+        const MAX_BYTES: u64 = 768 * 1024 * 1024;
+        let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
+        if file.metadata().map_err(|e| e.to_string())?.len() > MAX_BYTES {
+            return Err("The app ZIP is too large.".into());
+        }
+        let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("couldn't read the app ZIP ({e})"))?;
+        if zip.len() > MAX_FILES {
+            return Err("The app ZIP has too many files.".into());
+        }
+        let mut total = 0u64;
+        let mut entries = std::collections::BTreeSet::new();
+        let mut links = Vec::new();
+        for index in 0..zip.len() {
+            let mut entry = zip.by_index(index).map_err(|e| e.to_string())?;
+            let name = entry.name().map_err(|e| e.to_string())?;
+            let relative = Path::new(if entry.is_dir() { name.trim_end_matches('/') } else { &name });
+            let mut components = relative.components();
+            let mode = entry.unix_mode().unwrap_or(0);
+            let file_type = mode & 0o170000;
+            // The older ZIP has this one Finder sidecar outside its bundle. The current ZIP
+            // includes AppleDouble records directly beside app files. They are metadata, not files
+            // in the signed bundle: materializing them breaks macOS resource sealing.
+            let legacy_keycastr_sidecar = framework_links && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
+            let appledouble = framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._"));
+            let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
+            if name.contains(['\\', ':'])
+                || name.chars().any(char::is_control)
+                || name.split('/').any(|part| part == "." || part == "..")
+                || (components.next() != Some(Component::Normal(bundle.as_ref())) && !legacy_keycastr_sidecar)
+                || (appledouble && (file_type != 0o100000 || entry.is_dir()))
+                || (!matches!(file_type, 0 | 0o100000 | 0o040000) && framework.is_none())
+                || (file_type == 0o040000 && !entry.is_dir())
+                || (relative == Path::new(bundle) && !entry.is_dir())
+                || !entries.insert(relative.to_string_lossy().to_lowercase())
+            {
+                return Err("The app ZIP has a path, link or entry outside the expected bundle layout.".into());
+            }
+            let output = unpacked.join(relative);
+            if entry.is_dir() {
+                std::fs::create_dir_all(output).map_err(|e| e.to_string())?;
+                continue;
+            }
+            let size = entry.size();
+            total = total.checked_add(size).filter(|n| *n <= MAX_BYTES).ok_or("The unpacked app ZIP is too large.")?;
+            if appledouble {
+                let mut header = [0u8; 8];
+                const APPLEDOUBLE_V2: [u8; 8] = [0, 5, 0x16, 7, 0, 2, 0, 0];
+                if size < 26 || entry.read_exact(&mut header).is_err() || header != APPLEDOUBLE_V2 {
+                    return Err("The app ZIP contains an invalid AppleDouble sidecar.".into());
+                }
+                continue;
+            }
+            let parent = output.parent().ok_or("The app ZIP has no bundle folder.")?;
+            std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+            if let Some(framework) = framework {
+                // Write the ordinary files and prepare every parent directory before making any links.
+                // Nothing from this or a later archive entry can be written through a link.
+                let mut target = String::new();
+                if size == 0
+                    || size > 1024
+                    || (&mut entry).take(size + 1).read_to_string(&mut target).map_err(|e| e.to_string())? as u64 != size
+                    || target.contains(['\\', ':'])
+                    || target.chars().any(char::is_control)
+                    || target.split('/').any(|part| part.is_empty() || part == "." || part == "..")
+                    || !Path::new(&target).components().all(|part| matches!(part, Component::Normal(_)))
+                {
+                    return Err("The app ZIP contains an invalid framework link target.".into());
+                }
+                links.push((output, target, unpacked.join(framework)));
+                continue;
+            }
+            let mut file = std::fs::OpenOptions::new().write(true).create_new(true).open(output).map_err(|e| e.to_string())?;
+            if std::io::copy(&mut (&mut entry).take(size.saturating_add(1)), &mut file).map_err(|e| e.to_string())? != size {
+                return Err("The app ZIP has an unexpected unpacked size.".into());
+            }
+            file.set_permissions(std::fs::Permissions::from_mode(if mode & 0o111 != 0 { 0o755 } else { 0o644 })).map_err(|e| e.to_string())?;
+        }
+        for (link, target, _) in &links {
+            std::os::unix::fs::symlink(target, link).map_err(|e| e.to_string())?;
+        }
+        for (link, _, framework) in links {
+            let resolved = std::fs::canonicalize(link).map_err(|e| format!("The app ZIP contains an unresolved framework link ({e})."))?;
+            let framework = std::fs::canonicalize(framework).map_err(|e| e.to_string())?;
+            if !resolved.starts_with(framework) {
+                return Err("The app ZIP contains a link outside its framework.".into());
+            }
+        }
+        Ok(())
+    }
+
+    fn framework_root(bundle: &str, relative: &Path) -> Option<PathBuf> {
+        use std::path::Component;
+
+        let roots = Path::new(bundle).join("Contents").join("Frameworks");
+        let mut parts = relative.strip_prefix(&roots).ok()?.components();
+        let Component::Normal(framework) = parts.next()? else { return None };
+        if Path::new(framework).extension()? != "framework" || parts.next().is_none() {
+            return None;
+        }
+        Some(roots.join(framework))
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn mac_app_zip_rejects_outside_paths_and_symlinks() {
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("app.zip");
+        let output = root.path().join("unpacked");
+        std::fs::create_dir(&output).unwrap();
+        for name in ["Godot.app/../../outside", "/Godot.app/Contents/Info.plist", "Other.app/Contents/file", "Godot.app"] {
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            writer.start_file(name, SimpleFileOptions::default()).unwrap();
+            writer.finish().unwrap();
+            assert!(extract_app_zip(&archive, &output, "Godot.app", false).is_err(), "{name}");
+        }
+        let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+        writer.add_symlink("Godot.app/Contents/link", "../../outside", SimpleFileOptions::default()).unwrap();
+        writer.finish().unwrap();
+        assert!(extract_app_zip(&archive, &output, "Godot.app", false).is_err());
+        assert!(!root.path().join("outside").exists());
+        assert_eq!(std::fs::read_dir(output).unwrap().count(), 0);
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn keycastr_zip_confines_framework_links_and_ignores_the_known_finder_metadata() {
+        use std::io::Write;
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("app.zip");
+        const FRAMEWORK: &str = "KeyCastr.app/Contents/Frameworks/X.framework";
+        let options = SimpleFileOptions::default().unix_permissions(0o644);
+        let sidecar_header = [0, 5, 0x16, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let cases = [
+            ("Versions/Current/Binary", false, true),
+            ("../Elsewhere", false, false),
+            ("/etc/passwd", false, false),
+            ("Versions/Current/Missing", false, false),
+            ("Versions/Current/Binary", true, false),
+        ];
+        for (index, (target, child_through_link, expected)) in cases.into_iter().enumerate() {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            writer.add_symlink(format!("{FRAMEWORK}/Binary"), target, options).unwrap();
+            writer.add_symlink(format!("{FRAMEWORK}/Versions/Current"), "A", options).unwrap();
+            writer.start_file(format!("{FRAMEWORK}/Versions/A/Binary"), options).unwrap();
+            writer.write_all(b"fixture").unwrap();
+            writer.start_file("__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png", options).unwrap();
+            writer.write_all(&sidecar_header).unwrap();
+            writer.start_file(format!("{FRAMEWORK}/Versions/A/._Binary"), options).unwrap();
+            writer.write_all(&sidecar_header).unwrap();
+            if child_through_link {
+                writer.start_file(format!("{FRAMEWORK}/Versions/Current/external-data"), options).unwrap();
+            }
+            writer.finish().unwrap();
+            assert_eq!(extract_app_zip(&archive, &output, "KeyCastr.app", true).is_ok(), expected, "{target}");
+            assert!(!output.join("__MACOSX").exists());
+            assert!(!output.join(FRAMEWORK).join("Versions/A/._Binary").exists());
+            if expected {
+                assert_eq!(std::fs::read(output.join(FRAMEWORK).join("Binary")).unwrap(), b"fixture");
+            }
+        }
+    }
+
+    /// Copies the `.app` from a mounted or extracted package, verifies it and swaps it into Applications.
     fn copy_app(
         app: &CraftApp,
         mount: &Path,
@@ -2042,12 +2548,18 @@ pub mod macos {
         let staging = super::staging_dir(&dir)?;
         let staged = staging.path().join(&bundle);
         let (Some(src_s), Some(staged_s)) = (src.to_str(), staged.to_str()) else { return Err("unusual characters in a path".into()) };
-        // ditto keeps the code signature and symlinks intact. The disk image's volume adds Finder
-        // metadata (com.apple.FinderInfo) to the files; leave it and the extended attributes
-        // behind, or `codesign --verify --strict` rejects the bundle as carrying "detritus". A
-        // bundle's signature lives in its files, not in extended attributes.
-        process::run(DITTO, &["--norsrc", "--noextattr", "--noacl", src_s, staged_s], Duration::from_secs(600))
-            .map_err(|reason| format!("couldn't copy the app: {reason}"))?;
+        // Pinta's .NET libraries and SQLite Browser 3.12.2's Qt translations store
+        // detached signatures in extended attributes. The staged copy still goes
+        // through the same signature and notarization checks.
+        let sqlite = artcraft_launcher_core::curated::DB_BROWSER_SQLITE;
+        let sqlite_legacy =
+            (app.id, app.repo) == (sqlite.id, sqlite.repo) && expect.version == Some(&artcraft_launcher_core::version::Version::new(3, 12, 2));
+        let args = if app.id == artcraft_launcher_core::curated::PINTA.id || sqlite_legacy {
+            ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
+        } else {
+            ["--norsrc", "--noextattr", "--noacl", src_s, staged_s]
+        };
+        process::run(DITTO, &args, Duration::from_secs(600)).map_err(|reason| format!("couldn't copy the app: {reason}"))?;
         if !std::fs::symlink_metadata(&staged).is_ok_and(|m| m.is_dir()) {
             return Err("the copied app is not an app directory".into());
         }
@@ -2114,6 +2626,11 @@ pub mod macos {
     /// Moves an app to the user's Trash (so it can be put back).
     pub fn move_to_trash(path: &Path) -> Result<(), String> {
         let trash = dirs::home_dir().ok_or("no home folder")?.join(".Trash");
+        move_to_trash_in(path, &trash)
+    }
+
+    /// Move into an explicitly selected trash directory (also used by isolated verification).
+    pub fn move_to_trash_in(path: &Path, trash: &Path) -> Result<(), String> {
         let name = path.file_name().ok_or("not an app")?;
         let mut dest = trash.join(name);
         if dest.exists() {
@@ -2703,6 +3220,57 @@ fn complete_nightly_install(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[cfg(target_os = "macos")]
+    #[test]
+    fn reviewed_daily_apps_require_their_verified_macos_versions() {
+        use artcraft_launcher_core::curated::{AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, JOPLIN, KEEPASSXC, SHOTCUT, STATS, WHISPERING, ZED};
+
+        assert_eq!(recipe_macos_minimum(&AUDACITY), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&JOPLIN), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&SHOTCUT), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&ZED), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&DRAWIO), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&STATS), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&WHISPERING), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::VIBE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::ACTUAL_BUDGET), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::APPFLOWY), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::BLOCKBENCH), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DOSBOX_STAGING), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::OPENSCREEN), Some((13, 0)));
+        let vorta = recipe_macos_minimum(&artcraft_launcher_core::curated::VORTA).unwrap();
+        assert_eq!(vorta, (14, 4));
+        for (version, supported) in [("14.3.9", false), ("14.4", true), ("14.4.1", true), ("15.0", true), ("14", false), ("14.err", false)] {
+            assert_eq!(macos_major_minor(version).is_some_and(|current| current >= vorta), supported);
+        }
+    }
+
+    #[test]
+    fn neovide_install_rechecks_the_unversioned_dmg_before_downloading() {
+        let app = artcraft_launcher_core::curated::NEOVIDE;
+        let release = release::release_from_sums(app.repo, "0.17.4", &[]);
+        let official = &release.assets[0];
+        assert!(bind_artifact_version(&app, &release, official).is_ok());
+        let old_package = Asset { url: official.url.replace("/0.17.4/", "/0.17.3/"), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &old_package).is_err());
+        let mirror = Asset { url: official.url.replace(app.repo, "mirror/neovide"), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &mirror).is_err());
+        let unchecked = Asset { sha256: None, ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &unchecked).is_err());
+        let bad_digest = Asset { sha256: Some("0".repeat(64)), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &bad_digest).is_err());
+        let bad_size = Asset { size: official.size + 1, ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &bad_size).is_err());
+    }
 
     /// A bare app name is never a launchable location, even when the working folder holds a
     /// folder of that name (an app folder beside the launcher in a custom install folder).
@@ -4290,15 +4858,53 @@ mod tests {
             panic!("hdiutil create failed after 5 tries: {said}");
         }
 
+        include!("mcp_fixture_tests.rs");
+
+        #[test]
+        fn temporary_profile_install_launch_update_remove_cycle() {
+            use std::os::unix::fs::PermissionsExt;
+            let dir = tempfile::tempdir().unwrap();
+            let apps = dir.path().join("Applications");
+            let trash = dir.path().join("Trash");
+            std::fs::create_dir(&apps).unwrap();
+            std::fs::create_dir(&trash).unwrap();
+            let expect = Expect { team: None, version: None };
+            let image = dmg(dir.path(), "0.6.0");
+            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &expect).unwrap();
+            let executable = placed.join("Contents/MacOS/PhotoCraft");
+            // Own executable fixture: launch proof is a file in the temporary profile.
+            std::fs::write(&executable, "#!/bin/sh\nprintf launched > \"$1\"\n").unwrap();
+            std::fs::set_permissions(&executable, std::fs::Permissions::from_mode(0o755)).unwrap();
+            let marker = dir.path().join("launched");
+            crate::process::launch_binary(&executable, &[marker.display().to_string()]).unwrap();
+            let deadline = std::time::Instant::now() + std::time::Duration::from_secs(5);
+            while !marker.exists() && std::time::Instant::now() < deadline {
+                std::thread::sleep(std::time::Duration::from_millis(20));
+            }
+            assert_eq!(std::fs::read_to_string(&marker).unwrap(), "launched");
+            let mut manifest = crate::manifest::Manifest::default();
+            manifest.apps.insert("photocraft".into(), record("0.6.0", PackageKind::Dmg, placed.clone(), vec![], false));
+            let installed = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
+            let user_data = dir.path().join("user-document");
+            std::fs::write(&user_data, "keep me").unwrap();
+            let update = dmg(dir.path(), "0.7.0");
+            assert_eq!(install_dmg(photocraft(), &update, Some(&installed), Some(&apps), None, &expect).unwrap(), placed);
+            let updated = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
+            assert!(updated.version > installed.version);
+            super::macos::move_to_trash_in(&placed, &trash).unwrap();
+            assert!(!placed.exists());
+            assert!(trash.join("PhotoCraft.app").exists());
+            assert_eq!(std::fs::read_to_string(user_data).unwrap(), "keep me");
+        }
+
         #[test]
         fn custom_bundles_are_detected_and_updates_stay_in_their_actual_location() {
             let dir = tempfile::tempdir().unwrap();
             let apps = dir.path().join("Craft Apps");
             std::fs::create_dir(&apps).unwrap();
-            let paths = Paths::under(dir.path());
             let image = dmg(dir.path(), "0.6.0");
             let expect = Expect { team: None, version: None };
-            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &paths, &expect).unwrap();
+            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &expect).unwrap();
             assert_eq!(placed, apps.join("PhotoCraft.app"));
             let mut manifest = crate::manifest::Manifest::default();
             manifest.apps.insert("photocraft".into(), record("0.6.0", PackageKind::Dmg, placed.clone(), vec![], false));
@@ -4310,7 +4916,7 @@ mod tests {
             let new_default = dir.path().join("Other Apps");
             std::fs::create_dir(&new_default).unwrap();
             let update = dmg(dir.path(), "0.7.0");
-            assert_eq!(install_dmg(photocraft(), &update, Some(&existing), Some(&new_default), None, &paths, &expect).unwrap(), placed);
+            assert_eq!(install_dmg(photocraft(), &update, Some(&existing), Some(&new_default), None, &expect).unwrap(), placed);
             assert!(!new_default.join("PhotoCraft.app").exists());
             let detected = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
             assert_eq!(detected.version.unwrap().to_string(), "0.7.0");
@@ -4329,23 +4935,14 @@ mod tests {
             let unrelated = std::fs::read_to_string(&plist).unwrap().replace("ai.storyteller.photocraft", "com.example.other");
             std::fs::write(&plist, &unrelated).unwrap();
             let image = dmg(dir.path(), "0.6.0");
-            let result =
-                install_dmg(photocraft(), &image, None, Some(dir.path()), None, &Paths::under(dir.path()), &Expect { team: None, version: None });
+            let result = install_dmg(photocraft(), &image, None, Some(dir.path()), None, &Expect { team: None, version: None });
             assert!(result.unwrap_err().contains("already exists"));
             assert_eq!(std::fs::read_to_string(&plist).unwrap(), unrelated);
             assert_eq!(std::fs::read(placed.join("Contents/MacOS/PhotoCraft")).unwrap(), b"0.5.0");
 
             // Approval for a different path does not authorize overwriting `placed`.
             let other = dir.path().join("Other.app");
-            let refused = install_dmg(
-                photocraft(),
-                &image,
-                None,
-                Some(dir.path()),
-                Some(&other),
-                &Paths::under(dir.path()),
-                &Expect { team: None, version: None },
-            );
+            let refused = install_dmg(photocraft(), &image, None, Some(dir.path()), Some(&other), &Expect { team: None, version: None });
             assert!(refused.unwrap_err().contains("already exists"));
             assert_eq!(std::fs::read_to_string(&plist).unwrap(), unrelated);
         }
@@ -4380,14 +4977,13 @@ mod tests {
                 origin: None,
                 installation: None,
             };
-            let paths = Paths::under(dir.path());
             let image = dmg(dir.path(), "0.6.0");
 
             for (release, ok) in [("0.6.0", true), ("0.7.0", false), ("0.6.0-rc.1", true), ("0.5.0", false)] {
                 std::fs::write(current.join("Contents/MacOS/PhotoCraft"), "0.5.0").unwrap();
                 let want = version::parse(release).unwrap();
                 let expect = Expect { team: None, version: Some(&want) };
-                let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &paths, &expect);
+                let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &expect);
                 assert_eq!(result.is_ok(), ok, "release {release}: {result:?}");
                 let now = std::fs::read_to_string(current.join("Contents/MacOS/PhotoCraft")).unwrap();
                 assert_eq!(now, if ok { "0.6.0" } else { "0.5.0" }, "release {release}");
@@ -4404,7 +5000,7 @@ mod tests {
             let rc = dmg(dir.path(), "0.8.0-rc.2");
             let want = version::parse("0.8.0-rc.1").unwrap();
             let expect = Expect { team: None, version: Some(&want) };
-            assert!(install_dmg(photocraft(), &rc, Some(&existing), None, None, &paths, &expect).is_err());
+            assert!(install_dmg(photocraft(), &rc, Some(&existing), None, None, &expect).is_err());
         }
 
         #[test]
@@ -4424,8 +5020,7 @@ mod tests {
             let image = dmg(dir.path(), "0.6.0");
             let release = Release { tag: "v0.6.0".into(), version: version::parse("0.6.0"), ..Release::default() };
 
-            let result =
-                install_dmg(photocraft(), &image, Some(&existing), None, None, &Paths::under(dir.path()), &Expect::release(photocraft(), &release));
+            let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &Expect::release(photocraft(), &release));
             assert!(result.unwrap_err().contains("macOS verification did not succeed (signature integrity"));
             assert_eq!(std::fs::read_to_string(current.join("Contents/MacOS/PhotoCraft")).unwrap(), "0.5.0");
             assert_eq!(

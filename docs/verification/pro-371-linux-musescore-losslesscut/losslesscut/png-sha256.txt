@@ -1,0 +1,4 @@
+ec5517eefd33d8faed123a5893022d36f1de941e1925023c3a7979d38cd9c50b  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/losslesscut/installed-icon.png
+be429d0dc10666bc79e57a611d4af87630a6b1b66bb096b6b21b46d743e8053f  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/losslesscut/open-menu.png
+5f188e9e1e9d93f062f164bf18e7fa495b76ba1b78491f0622fcfc7f17827f58  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/losslesscut/open-new.png
+be429d0dc10666bc79e57a611d4af87630a6b1b66bb096b6b21b46d743e8053f  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/final/losslesscut/open-old.png

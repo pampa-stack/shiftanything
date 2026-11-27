@@ -1,0 +1,10 @@
+
+xwininfo: Window id: 0x21f (the root window) (has no name)
+
+  Root window id: 0x21f (the root window) (has no name)
+  Parent window id: 0x0 (none)
+     4 children:
+     0x20000e "Choose music library directory": ("mixxx.bin" "Mixxx")  632x412+394+294  +394+294
+     0x200009 "Mixxx": ()  1x1+0+0  +0+0
+     0x200007 "Mixxx": ("mixxx.bin" "Mixxx")  1280x668+0+0  +0+0
+     0x200005 "Qt Selection Owner for Mixxx": ()  3x3+0+0  +0+0

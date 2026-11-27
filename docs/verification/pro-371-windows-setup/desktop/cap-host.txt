@@ -1,0 +1,8 @@
+2026-11-27T04:44:58+00:00
+17179869184 bytes logical, 33533464 allocated blocks of 512 bytes
+Filesystem        1B-blocks         Used   Available Use% Mounted on
+/dev/sda1      206900281344 194849984512 12033519616  95% /
+/dev/sdb       210241560576 175197507584 24289857536  88% /mnt/dati
+MemAvailable:   10605056 kB
+    PID ELAPSED %CPU   RSS STAT COMMAND
+1785882    1467  160 4226928 RNl qemu-system-x86

@@ -1,0 +1,14 @@
+App=shiftanything-tauri-proof (pid 81441)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1200 container Installa
+				1201 container
+					1202 heading Installa
+					1203 text handy · Azione nel profilo temporaneo.
+					1204 button Rifiuta
+					1205 button Approva
+
+No UI element is currently focused.

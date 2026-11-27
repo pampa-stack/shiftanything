@@ -1,0 +1,158 @@
+START 2026-11-27T09:11:23Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/musescore/MuseScore/releases/download/v4.7.6/MuseScore-Studio-4.7.6.261022093-x86_64.AppImage bytes=192616952 sha256=5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6
+FILE /fixture/home/Applications/MuseScore-Studio-4.7.6.261022093-x86_64.AppImage version=4.7.6 bytes=192616952 sha256=5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6
+DESKTOP /fixture/home/data/applications/org.musescore.MuseScore4portable.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.musescore.MuseScore4portable.png sha256=1918718a47be372d2b2a6fd97826303e523b0af13c8f2835ada2de6caedf91c9
+PASS musescore install 12411 ms MuseScore Studio installed: 4.7.6
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=119 comm="/tmp/appimage_extracted_fdbf54ea9b0b903d2bd42eb5a2" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[135]: Unknown username "root" on element <allow>
+dbus-daemon[135]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=119 comm="/tmp/appimage_extracted_fdbf54ea9b0b903d2bd42eb5a2" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[135]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  20 (X_GetProperty)
+  Resource id in failed request:  0x200007
+  Serial number of failed request:  7
+  Current serial number in output stream:  7
+START 2026-11-27T09:14:04Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=111 comm="/tmp/appimage_extracted_fdbf54ea9b0b903d2bd42eb5a2" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[129]: Unknown username "root" on element <allow>
+dbus-daemon[129]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=111 comm="/tmp/appimage_extracted_fdbf54ea9b0b903d2bd42eb5a2" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[129]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = mscore4portable MuseScore4
+MuseScore Studio
+PASS musescore open-old 0 ms Launch request accepted
+GUI musescore open-old 9544 ms window=2097172
+OFFICIAL https://github.com/musescore/MuseScore/releases/download/v4.7.7/MuseScore-Studio-4.7.7.261109195-x86_64.AppImage bytes=192743928 sha256=8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d
+FILE /fixture/home/Applications/MuseScore-Studio-4.7.7.261109195-x86_64.AppImage version=4.7.7 bytes=192743928 sha256=8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d
+DESKTOP /fixture/home/data/applications/org.musescore.MuseScore4portable.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.musescore.MuseScore4portable.png sha256=1918718a47be372d2b2a6fd97826303e523b0af13c8f2835ada2de6caedf91c9
+PASS musescore update 8548 ms MuseScore Studio updated to 4.7.7
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/musescore-final-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=119 comm="/tmp/appimage_extracted_f0cdc9b55e40d1558f33fd1244" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[135]: Unknown username "root" on element <allow>
+dbus-daemon[135]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=119 comm="/tmp/appimage_extracted_f0cdc9b55e40d1558f33fd1244" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[135]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = mscore4portable MuseScore4
+MuseScore Studio
+PASS musescore open-new 0 ms Launch request accepted
+GUI musescore open-new 9745 ms window=4194324
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=99 comm="/tmp/appimage_extracted_f0cdc9b55e40d1558f33fd1244" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[115]: Unknown username "root" on element <allow>
+dbus-daemon[115]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=99 comm="/tmp/appimage_extracted_f0cdc9b55e40d1558f33fd1244" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[115]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = mscore4portable MuseScore4
+MuseScore Studio
+/lib/x86_64-linux-gnu/libOpenGL.so.0
+/lib/x86_64-linux-gnu/libjack.so.0
+/lib/x86_64-linux-gnu/libnss3.so
+/lib/x86_64-linux-gnu/libpipewire-0.3.so.0
+/lib/x86_64-linux-gnu/libsystemd.so.0
+[1;32m09:14:38.546 | INFO  | main_thread     | GlobalModule::onPreInit | log path: /fixture/home/data/MuseScore/MuseScore4/logs/MuseScore_261127_091438.log[0m
+[1;32m09:14:38.546 | INFO  | main_thread     | GlobalModule::onPreInit | === Started MuseScore Studio 4.7.7, build: 261109195 ===[0m
+[1;32m09:14:38.547 | INFO  | main_thread     | UiConfiguration::correctUserFontIfNeeded | The user font "Sans"  is missing, we will use the fallback font Sans[0m
+[1;32m09:14:38.548 | INFO  | main_thread     | LanguagesService::effectiveLanguageCode | System languages: QVariant(QStringList, QList("C")) [0m
+[1;31m09:14:38.548 | ERROR | main_thread     | LanguagesService::setCurrentLanguage | Unsupported language code: "system" [0m
+[1;32m09:14:38.548 | INFO  | main_thread     | MultiProcessProvider::init | our instance id is: 6d33f625272d40068fb9eed49e3c6a6e[0m
+[1;32m09:14:38.549 | INFO  | main_thread     | IpcChannel::setupConnection | starting ipc server[0m
+[1;32m09:14:38.549 | INFO  | 131953829336768 | IpcServer::listen | ipc server: client with id "6d33f625272d40068fb9eed49e3c6a6e"  has connected[0m
+[1;32m09:14:38.550 | INFO  | main_thread     | IpcSocket::connect | success connected to ipc server[0m
+[1;33m09:14:38.567 | WARN  | main_thread     | Qt              | dbus reply error: [ "org.freedesktop.DBus.Error.ServiceUnknown" ] "The name org.freedesktop.portal.Desktop was not provided by any .service files"[0m
+[1;33m09:14:38.567 | WARN  | main_thread     | Qt              | dbus reply error: [ "org.freedesktop.DBus.Error.ServiceUnknown" ] "The name org.freedesktop.portal.Desktop was not provided by any .service files"[0m
+[1;31m09:14:38.583 | ERROR | main_thread     | CrashHandler::start | crash handler not exists, path: /tmp/appimage_extracted_f0cdc9b55e40d1558f33fd12446170bb/bin/crashpad_handler[0m
+[1;31m09:14:38.584 | ERROR | main_thread     | DiagnosticsModule::onInit | failed start crash handler[0m
+[1;32m09:14:38.584 | INFO  | main_thread     | AudioDriverController::open | Trying to open audio driver: ALSA, deviceId: default, sampleRate: 44100, channels: 2, samplesPerChannel: 1024[0m
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[1;31m09:14:38.585 | ERROR | main_thread     | AlsaAudioDriver::open | Unable to open device: default, err code: -2[0m
+[1;33m09:14:38.585 | WARN  | main_thread     | AudioDriverController::open | Failed to open device: default, falling back to default: default[0m
+[1;32m09:14:38.585 | INFO  | 131953819727552 | StartAudioController::th_setupEngine | begin engine run[0m
+[1;32m09:14:38.586 | INFO  | 131953819727552 | StartAudioController::th_setupEngine | audio engine running[0m
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[1;31m09:14:38.586 | ERROR | main_thread     | AlsaAudioDriver::open | Unable to open device: default, err code: -2[0m
+[1;31m09:14:38.586 | ERROR | main_thread     | AudioDriverController::switchToDefaultAudioDriver | Already on the default audio driver: ALSA, cannot fall back further[0m
+[1;31m09:14:38.586 | ERROR | main_thread     | AudioDriverController::open | Failed to open any audio driver, last tried: ALSA[0m
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed[1;32m09:14:38.586 | INFO  | main_thread     | MuseSamplerResolver::init | MuseSampler library not found: /fixture/home/data/MuseSampler/lib/libMuseSamplerCoreLib.so[0m
+: No such file or directory
+[1;32m09:14:38.623 | INFO  | main_thread     | FFmpegLibHandler::loadLib | FFmpeg loaded: avutil=/usr/lib/x86_64-linux-gnu/libavutil.so.58, avcodec=/usr/lib/x86_64-linux-gnu/libavcodec.so.60, avformat=/usr/lib/x86_64-linux-gnu/libavformat.so.60, swscale=/usr/lib/x86_64-linux-gnu/libswscale.so.7, swresample=/usr/lib/x86_64-linux-gnu/libswresample.so.4[0m
+[1;32m09:14:38.629 | INFO  | main_thread     | AbstractCloudService::readTokens | Could not find the tokens file: /fixture/home/data/MuseScore/MuseScore4/musescorecom_cred.dat[0m
+[1;32m09:14:38.629 | INFO  | main_thread     | AbstractCloudService::readTokens | Could not find the tokens file: /fixture/home/data/MuseScore/MuseScore4/audiocom_cred.dat[0m
+[1;31m09:14:39.441 | ERROR | main_thread     | ExtensionsConfiguration::manifestConfigs | failed read config data, err: [406] An error occurred when reading from the file, file: /fixture/home/data/MuseScore/MuseScore4/plugins/plugins.json[0m
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+[1;32m09:14:40.018 | INFO  | main_thread     | GuiApp::setup   | Using graphics api: "opengl" [0m
+[1;32m09:14:40.018 | INFO  | main_thread     | GuiApp::setup   | Gui platform: "xcb" [0m
+[1;32m09:14:40.018 | INFO  | main_thread     | GuiApp::setup   | Detecting problems with graphics api[0m
+[1;32m09:14:40.018 | INFO  | main_thread     | GuiApp::setupNewContext | New context created with id: 0[0m
+[1;33m09:14:41.175 | WARN  | main_thread     | Qt              | void KDDockWidgets::DockRegistry::registerDockWidget(KDDockWidgets::DockWidgetBase*) Another DockWidget KDDockWidgets::DockWidgetQuick(0x58ac6295bd30, name="undoRedoToolBar", parent=0x0, geometry=0,0 800x800) with name "undoRedoToolBar"  already exists. KDDockWidgets::DockWidgetBase(0x58ac61587f70, parent=0x0, geometry=0,0 800x800)[0m
+[1;33m09:14:41.177 | WARN  | main_thread     | Qt              | void KDDockWidgets::DockRegistry::registerDockWidget(KDDockWidgets::DockWidgetBase*) Another DockWidget KDDockWidgets::DockWidgetQuick(0x58ac62974080, name="extensionsToolBar", parent=0x0, geometry=0,0 800x800) with name "extensionsToolBar"  already exists. KDDockWidgets::DockWidgetBase(0x58ac615a0480, parent=0x0, geometry=0,0 800x800)[0m
+[1;33m09:14:41.211 | WARN  | main_thread     | Qt              | void KDDockWidgets::DockRegistry::registerDockWidget(KDDockWidgets::DockWidgetBase*) Another DockWidget KDDockWidgets::DockWidgetQuick(0x58ac61335c00, name="playbackToolBar", parent=0x0, geometry=0,0 800x800) with name "playbackToolBar"  already exists. KDDockWidgets::DockWidgetBase(0x58ac61862fc0, parent=0x0, geometry=0,0 800x800)[0m
+[1;31m09:14:41.462 | ERROR | main_thread     | AppShellConfiguration::sessionProjectsPaths | [401] The file does not exist[0m
+[1;32m09:14:41.706 | INFO  | main_thread     | main            | "SSL Info: supported: 1, build: OpenSSL 3.0.7 1 Nov 2022, runtime: OpenSSL 3.0.13 30 Jan 2024, active backend: openssl, available backends: openssl, cert-only" [0m
+[1;31m09:14:41.716 | ERROR | main_thread     | MuseSoundsRepository::init | [503] Host customers-api.musehub.com not found[0m
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+[1;32m09:14:41.760 | INFO  | 131953819727552 | SoundFontRepository::loadSoundFonts | try add sound font: file:///tmp/appimage_extracted_f0cdc9b55e40d1558f33fd12446170bb/share/mscore4portable-4.7/sound/MS%20Basic.sf3[0m
+[1;32m09:14:41.853 | INFO  | 131953819727552 | SoundFontRepository::doAddSoundFont | added sound font, uri: file:///tmp/appimage_extracted_f0cdc9b55e40d1558f33fd12446170bb/share/mscore4portable-4.7/sound/MS%20Basic.sf3[0m
+[1;32m09:14:41.853 | INFO  | 131953819727552 | SoundFontRepository::loadSoundFonts | remaining: 0, total: 1[0m
+[1;32m09:14:41.855 | INFO  | 131953819727552 | SoundFontRepository::loadSoundFonts | all added notify about sound fonts changed[0m
+[1;31m09:14:41.916 | ERROR | main_thread     | AppUpdateScenario::checkForUpdate | [503] Host updates.musescore.org not found[0m
+[1;31m09:14:41.916 | ERROR | main_thread     | ConvertFileToScoreService::init | Could not prefetch convert config: [1813] Network error[0m
+[1;31m09:14:41.916 | ERROR | main_thread     | MuseSoundsCheckUpdateScenario::checkForUpdate | [503] Host updates.musescore.org not found[0m
+[1;32m09:14:41.916 | INFO  | main_thread     | GuiApp::setup   | No problems detected with graphics api[0m
+[1;33m09:14:41.934 | WARN  | main_thread     | Qt              | qrc:/qt/qml/MuseScore/AppShell/FirstLaunchSetup/FirstLaunchSetupDialog.qml: Setting initial properties failed: FirstLaunchSetupDialog does not have a property called floating[0m
+[1;32m09:14:41.973 | INFO  | main_thread     | AudioDriverController::setNewDriver | Available output devices changed, checking connection...[0m
+[1;33m09:14:41.974 | WARN  | main_thread     | AudioDriverController::handleOutputDeviceChange | Active spec is invalid, using default spec[0m
+[1;32m09:14:41.974 | INFO  | main_thread     | AudioDriverController::handleOutputDeviceChange | Reopening output device, deviceId: default, sampleRate: 44100, channels: 2, samplesPerChannel: 1024[0m
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[1;31m09:14:41.974 | ERROR | main_thread     | AlsaAudioDriver::open | Unable to open device: default, err code: -2[0m
+[1;33m09:14:41.974 | WARN  | main_thread     | AudioDriverController::handleOutputDeviceChange | Failed to reopen device: default, falling back to default[0m
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+[1;31m09:14:41.974 | ERROR | main_thread     | AlsaAudioDriver::open | Unable to open device: default, err code: -2[0m
+[1;31m09:14:41.974 | ERROR | main_thread     | AudioDriverController::handleOutputDeviceChange | Failed to reopen default device on ALSA, switching to default audio driver[0m
+[1;31m09:14:41.974 | ERROR | main_thread     | AudioDriverController::switchToDefaultAudioDriver | Already on the default audio driver: ALSA, cannot fall back further[0m
+[1;31m09:14:41.974 | ERROR | main_thread     | AudioDriverController::handleOutputDeviceChange | Failed to reopen output device, will retry on next device list change[0m
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failedALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+: No such file or directory
+GUI musescore open-menu 9435 ms window=2097172
+PASS musescore remove 81 ms MuseScore Studio was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/musescore-final-profile/home/verification-user-data.txt: OK

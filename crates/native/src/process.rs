@@ -186,6 +186,31 @@ pub fn spawn_detached(mut cmd: Command) -> Result<(), String> {
     Ok(())
 }
 
+/// Reports immediate launcher errors without waiting for a running desktop app to close.
+#[cfg(target_os = "linux")]
+pub(crate) fn check_desktop_start(mut cmd: Command, grace: Duration) -> Result<(), String> {
+    let mut child = cmd
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()
+        .map_err(|error| format!("Couldn't start the desktop application ({error})"))?;
+    let start = Instant::now();
+    loop {
+        match child.try_wait() {
+            Ok(Some(status)) if status.success() => return Ok(()),
+            Ok(Some(status)) => return Err(format!("Desktop application exited during startup ({status})")),
+            Ok(None) if start.elapsed() < grace => std::thread::sleep(Duration::from_millis(25)),
+            result => {
+                std::thread::spawn(move || {
+                    let _ = child.wait();
+                });
+                return result.map(|_| ()).map_err(|error| format!("Couldn't observe desktop application startup ({error})"));
+            }
+        }
+    }
+}
+
 /// Waits up to `timeout` for the process `pid` to exit, and says whether it has. A process that
 /// can't be opened, because it's gone or never was, counts as exited.
 #[cfg(windows)]
@@ -423,8 +448,32 @@ pub fn open(target: &std::ffi::OsStr) -> Result<(), String> {
 /// macOS: opens an `.app` bundle with `open`, handing `args` to the app (`open … --args`).
 pub fn open_app(bundle: &Path, args: &[String]) -> Result<(), String> {
     let mut cmd = opener(bundle.as_os_str())?;
+    // Launch Services otherwise discards a redirected HOME. Preserve an explicitly isolated
+    // Core Foundation profile, including Rust/XDG paths, and never reuse a personal instance.
+    #[cfg(target_os = "macos")]
+    let isolated = if let Some(home) = std::env::var_os("CFFIXED_USER_HOME") {
+        let home_path = Path::new(&home);
+        if std::env::var_os("HOME").as_ref() != Some(&home) || !home_path.is_absolute() || !home_path.is_dir() {
+            return Err("Isolated launch requires matching absolute HOME and CFFIXED_USER_HOME directories".into());
+        }
+        cmd.args(["-n", "-g"]);
+        for key in ["HOME", "CFFIXED_USER_HOME", "XDG_CONFIG_HOME", "XDG_DATA_HOME", "XDG_CACHE_HOME", "CRAFT_VERSIONS_FILE"] {
+            if let Some(value) = std::env::var_os(key) {
+                let mut assignment = std::ffi::OsString::from(format!("{key}="));
+                assignment.push(value);
+                cmd.arg("--env").arg(assignment);
+            }
+        }
+        true
+    } else {
+        false
+    };
     if !args.is_empty() {
         cmd.arg("--args").args(args);
+    }
+    #[cfg(target_os = "macos")]
+    if isolated {
+        return run_command(cmd, "Open app in isolated profile", Duration::from_secs(15)).map(|_| ());
     }
     spawn_detached(cmd)
 }
@@ -863,6 +912,18 @@ mod tests {
     use std::process::Child;
 
     use super::*;
+
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn desktop_start_reports_a_quick_failure_and_leaves_a_running_child_alone() {
+        let mut failing = Command::new("/bin/sh");
+        failing.args(["-c", "exit 42"]);
+        assert!(check_desktop_start(failing, Duration::from_secs(1)).unwrap_err().contains("42"));
+
+        let mut running = Command::new("/bin/sh");
+        running.args(["-c", "sleep 1; exit 42"]);
+        assert!(check_desktop_start(running, Duration::from_millis(50)).is_ok());
+    }
 
     /// A program found through a relative `PATH` entry comes back as an absolute path, so it is
     /// still a launchable location once stored.

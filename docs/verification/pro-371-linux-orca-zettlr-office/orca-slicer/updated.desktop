@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=OrcaSlicer
+Comment=Prepare sliced models for 3D printing
+Exec="/fixture/home/Applications/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage" --appimage-extract-and-run %F
+Icon=com.orcaslicer.OrcaSlicer
+Terminal=false
+Categories=Graphics;3DGraphics;
+StartupWMClass=OrcaSlicer
+X-ArtCraft-Launcher=true

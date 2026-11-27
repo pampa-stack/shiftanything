@@ -1,0 +1,19 @@
+commit 2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092
+Parent:  25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1
+ContentChecksum:  e122102ffbb3baf127a022550fe9d8b267285ff4cad1c334677b80c292112c4a
+Date:  2026-11-17 23:26:07 +0000
+
+    Update runtime version to 26.08 (#32) (3941733f54fc)
+
+    Name: org.freac.freac
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 18 00:20:14 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

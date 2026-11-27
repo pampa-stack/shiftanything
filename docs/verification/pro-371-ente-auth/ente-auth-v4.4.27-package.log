@@ -1,0 +1,41 @@
+PACKAGE auth-v4.4.27 https://github.com/ente/ente/releases/download/auth-v4.4.27/ente-auth-v4.4.27.dmg 58891715 9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718
+/Volumes/T7-Backup/shift-macos-stats-auth.qJd8yMHO/proof/payload-auth-v4.4.27.G6y0R7AV/ente-auth-v4.4.27.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-stats-auth-mount.JpCV7Ote
+BUNDLE Ente Auth.app
+131666	/private/tmp/shift-stats-auth-mount.JpCV7Ote/Ente Auth.app
+CFBundleIdentifier io.ente.auth.mac
+CFBundleShortVersionString 4.4.27
+CFBundleExecutable Ente Auth
+LSMinimumSystemVersion 12.0
+x86_64 arm64
+/private/tmp/shift-stats-auth-mount.JpCV7Ote/Ente Auth.app/Contents/MacOS/Ente Auth (architecture x86_64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+/private/tmp/shift-stats-auth-mount.JpCV7Ote/Ente Auth.app/Contents/MacOS/Ente Auth (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=io.ente.auth.mac
+Authority=Developer ID Application: Ente Technologies, Inc. (6Z68YJY9Q2)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=6Z68YJY9Q2
+/private/tmp/shift-stats-auth-mount.JpCV7Ote/Ente Auth.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Ente Technologies, Inc. (6Z68YJY9Q2)
+PASS auth-v4.4.27 official hash, strict signature, notarization, Gatekeeper
+CLEANUP auth-v4.4.27 status=0

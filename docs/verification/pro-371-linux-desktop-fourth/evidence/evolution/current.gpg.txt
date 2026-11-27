@@ -1,0 +1,19 @@
+commit 053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd
+Parent:  2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d
+ContentChecksum:  33faabeb11b848b1388e487e4e146125d916c6f9774bb965209a93ad9c4b14a4
+Date:  2026-10-19 19:00:21 +0000
+
+    Merge pull request #239 from flathub/beta (e9fdc5c4d416)
+
+    Name: org.gnome.Evolution
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Oct 19 20:45:20 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

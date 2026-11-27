@@ -1,0 +1,56 @@
+
+=== 2026-11-27T09:12:50+00:00 qownnotes install ===
+qownnotes before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+qownnotes JobFinished: Ok("Flathub app installed")
+qownnotes after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 16 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.16"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-qownnotes-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+514a8f3543af855e132addaa5c9478647eefbd5b019bc7111ce3a21cd054fafb  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-qownnotes-icon.png
+org.qownnotes.QOwnNotes/x86_64/stable	flathub	c5f6310c3174	user	26.11.16
+TIMING qownnotes install 41841 ms
+
+=== 2026-11-27T09:13:32+00:00 qownnotes prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.qownnotes.QOwnNotes/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.qownnotes.QOwnNotes/x86_64/stable	flathub	6a4eb97df1cf	user	26.11.15
+qownnotes before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d", package: Some("org.qownnotes.QOwnNotes"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.15"), update_available: false, can_remove: false, can_open: true }
+qownnotes JobFinished: Err("Approved action rejected: native installation state changed")
+qownnotes JobFinished: Err("This Flatpak is managed outside the launcher")
+qownnotes after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d", package: Some("org.qownnotes.QOwnNotes"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.15"), update_available: false, can_remove: false, can_open: true })
+TIMING qownnotes prior 4595 ms
+
+=== 2026-11-27T09:13:37+00:00 qownnotes open ===
+dbus-daemon[2442103]: [session uid=1000 pid=2442103 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2442145 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2442103]: [session uid=1000 pid=2442103 pidfd=5] Successfully activated service 'org.a11y.Bus'
+qownnotes before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.15"), update_available: true, can_remove: true, can_open: true }
+qownnotes JobFinished: Ok("Launch request accepted")
+qownnotes after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.15"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2442192]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2442813 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2442192]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING qownnotes open-previous 4234 ms
+TIMING qownnotes open 8364 ms
+
+=== 2026-11-27T09:13:45+00:00 qownnotes update-remove ===
+qownnotes before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.15"), update_available: true, can_remove: true, can_open: true }
+qownnotes JobFinished: Ok("Flathub app updated")
+qownnotes after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 16 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.16"), update_available: false, can_remove: true, can_open: true })
+TIMING qownnotes update 4420 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/.var/app/org.qownnotes.QOwnNotes/shift-profile-marker: OK
+dbus-daemon[2444140]: [session uid=1000 pid=2444140 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2444209 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2444140]: [session uid=1000 pid=2444140 pidfd=5] Successfully activated service 'org.a11y.Bus'
+qownnotes before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 16 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.16"), update_available: false, can_remove: true, can_open: true }
+qownnotes JobFinished: Ok("Launch request accepted")
+qownnotes after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 16 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.16"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2444262]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2444704 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2444262]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING qownnotes open-current 4019 ms
+qownnotes before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 16 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/data/flatpak/app/org.qownnotes.QOwnNotes/x86_64/stable/c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b", package: Some("org.qownnotes.QOwnNotes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.16"), update_available: false, can_remove: true, can_open: true }
+qownnotes JobFinished: Ok("Flathub app removed")
+qownnotes after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING qownnotes remove 3223 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/qownnotes/home/.var/app/org.qownnotes.QOwnNotes/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING qownnotes update-remove 15802 ms

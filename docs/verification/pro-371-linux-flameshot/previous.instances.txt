@@ -1,0 +1,2 @@
+org.flameshot.Flameshot	3212531475
+org.flameshot.Flameshot	3897731719

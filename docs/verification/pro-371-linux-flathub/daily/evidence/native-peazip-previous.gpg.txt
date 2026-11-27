@@ -1,0 +1,19 @@
+commit d913ad334b2802ed0a6651498c1493d2b7626bdb72994e1c923de811c10d3820
+Parent:  6cabdbf411c665b166e2f60ccb9fef2877a79b4f82171ba30d2c8cff00657d0c
+ContentChecksum:  f159e06d9c75bad366554b1771120cb124ee31640421fe7d7b55752ceb0b813b
+Date:  2026-11-07 23:52:11 +0000
+
+    Merge pull request #181 from flathub/update-master-d96532f (1351e96e9810)
+
+    Name: io.github.peazip.PeaZip
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Nov  8 00:02:33 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

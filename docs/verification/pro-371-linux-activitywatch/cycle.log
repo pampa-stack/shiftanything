@@ -1,0 +1,102 @@
+START 2026-11-27T10:31:14Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.2/activitywatch-linux-x86_64.AppImage bytes=109992440 sha256=216575f31d47488d8865c70352f948c52711ca348e74fc2412da82e6273b3621
+FILE /fixture/home/Applications/activitywatch-linux-x86_64.AppImage version=0.14.2 bytes=109992440 sha256=216575f31d47488d8865c70352f948c52711ca348e74fc2412da82e6273b3621
+DESKTOP /fixture/home/data/applications/aw-qt.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/aw-qt.png sha256=e25a4895255edade2134b4248f3834b99c2d9ec19e29d4567e1721d31a23a8b1
+PASS activitywatch install 11635 ms ActivityWatch installed: 0.14.2
+{
+    "version": "v0.14.2",
+    "testing": false,
+    "profile": "default"
+}
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=1000 pid=209 comm="/opt/fixture-firefox/firefox --no-remote --profile" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = Navigator firefox
+ActivityWatch — Mozilla Firefox
+PASS activitywatch open-old 0 ms Launch request accepted
+GUI activitywatch open-old 42792 ms window=10485763
+Error: "Need direct GitHub API update metadata, got GitHubPages"
+START 2026-11-27T10:33:52Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+{
+  "version": "v0.14.2",
+  "testing": false,
+  "profile": "default"
+}
+START 2026-11-27T10:35:23Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+{
+  "version": "v0.14.2",
+  "testing": false,
+  "profile": "default"
+}
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=1000 pid=221 comm="/opt/fixture-firefox/firefox --no-remote --profile" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = Navigator firefox
+ActivityWatch — Mozilla Firefox
+PASS activitywatch open-old 0 ms Launch request accepted
+GUI activitywatch open-old 32653 ms window=10485763
+LATEST source=GitHubPages
+OFFICIAL https://github.com/ActivityWatch/activitywatch/releases/download/v0.14.3/activitywatch-linux-x86_64.AppImage bytes=110492152 sha256=875aa539e81006e26695675dc55a14496d5a14fa7730495bda6a2e08ea92e59d
+FILE /fixture/home/Applications/activitywatch-linux-x86_64.AppImage version=0.14.3 bytes=110492152 sha256=875aa539e81006e26695675dc55a14496d5a14fa7730495bda6a2e08ea92e59d
+DESKTOP /fixture/home/data/applications/aw-qt.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/aw-qt.png sha256=e25a4895255edade2134b4248f3834b99c2d9ec19e29d4567e1721d31a23a8b1
+PASS activitywatch update 12803 ms ActivityWatch updated to 0.14.3
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/activitywatch-full-interface-profile/home/verification-user-data.txt: OK
+{
+  "version": "v0.14.3",
+  "testing": false,
+  "profile": "default"
+}
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=1000 pid=126 comm="/opt/fixture-firefox/firefox --no-remote --profile" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = Navigator firefox
+ActivityWatch — Mozilla Firefox
+PASS activitywatch open-new 0 ms Launch request accepted
+GUI activitywatch open-new 18341 ms window=10485763
+{
+  "version": "v0.14.3",
+  "testing": false,
+  "profile": "default"
+}
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=64 comm="/opt/fixture-firefox/firefox --no-remote --profile" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = Navigator firefox
+ActivityWatch — Mozilla Firefox
+PyInstaller/loader/pyimod02_importers.py:384: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+2026-11-27 10:36:31 [INFO ]: Started aw-qt...  (aw_qt.main:108)
+2026-11-27 10:36:31 [WARNING]: Found matching file but was not executable: /tmp/appimage_extracted_951e5b23fc19ecacc8092fe02df65800/aw-server-rust/aw-server.service  (aw_qt.manager:293)
+2026-11-27 10:36:31 [INFO ]: Found 8 bundled modules  (aw_qt.manager:318)
+2026-11-27 10:36:31 [INFO ]: Found 0 system modules  (aw_qt.manager:366)
+2026-11-27 10:36:31 [INFO ]: Starting module aw-server  (aw_qt.manager:438)
+2026-11-27 10:36:31 [INFO ]: Starting module aw-watcher-afk  (aw_qt.manager:438)
+2026-11-27 10:36:31 [INFO ]: Starting module aw-watcher-window  (aw_qt.manager:438)
+2026-11-27 10:36:31 [INFO ]: Creating trayicon...  (aw_qt.trayicon:534)
+qt.qpa.plugin: From 6.5.0, xcb-cursor0 or libxcb-cursor0 is needed to load the Qt xcb platform plugin.
+qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
+This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
+
+Available platform plugins are: xcb, wayland, wayland-egl, vnc, vkkhrdisplay, offscreen, minimalegl, minimal, linuxfb.
+
+PyInstaller/loader/pyimod02_importers.py:384: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+PyInstaller/loader/pyimod02_importers.py:384: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+PyInstaller/loader/pyimod02_importers.py:384: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+Aborted (core dumped)
+aw_watcher_window/main.py:193: UserWarning: Queued requests require calling connect() or using `with client:` before buckets can be created and queued events can flush.
+2026-11-27 10:36:32 [INFO ]: aw-watcher-window started  (aw_watcher_window.main:195)
+2026-11-27 10:36:32 [INFO ]: window-watcher stopped because parent process died  (aw_watcher_window.main:298)
+2026-11-27 10:36:32 [WARNING]: Not connected to server, 0 requests in queue  (aw_client.client:774)
+2026-11-27 10:36:32 [INFO ]: aw-watcher-afk started  (aw_watcher_afk.afk:66)
+aw_watcher_afk/afk.py:71: UserWarning: Queued requests require calling connect() or using `with client:` before buckets can be created and queued events can flush.
+2026-11-27 10:36:32 [WARNING]: Not connected to server, 0 requests in queue  (aw_client.client:774)
+2026-11-27 10:36:32 [INFO ]: Using storage method: peewee  (aw_server.main:53)
+2026-11-27 10:36:32 [INFO ]: Starting up...  (aw_server.main:64)
+2026-11-27 10:36:32 [INFO ]: Using database file: /fixture/home/data/activitywatch/aw-server/peewee-sqlite.v2.db  (aw_datastore.storages.peewee:189)
+ * Serving Flask app 'aw-server'
+ * Debug mode: off
+2026-11-27 10:36:32 [INFO ]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5600  (werkzeug:187)
+2026-11-27 10:36:32 [INFO ]: [33mPress CTRL+C to quit[0m  (werkzeug:187)
+2026-11-27 10:36:42 [INFO ]: Connection to aw-server established by aw-watcher-afk  (aw_client.client:676)
+GUI activitywatch open-menu 19244 ms window=10485763
+PASS activitywatch remove 40 ms ActivityWatch was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/activitywatch-full-interface-profile/home/verification-user-data.txt: OK

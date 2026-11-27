@@ -2,6 +2,9 @@
 //! fetches them once and keeps them in the cache folder, so the next time (and any time offline)
 //! they come from disk.
 
+#[path = "catalog_media.rs"]
+mod catalog_media;
+
 use std::path::Path;
 
 use artcraft_launcher_core::details::{AppDetails, MAX_SCREENSHOT_BYTES, looks_like_jpeg, screenshot_within_budget};
@@ -86,6 +89,100 @@ pub fn fetch_all(http: Option<&Http>, paths: &Paths, details: &AppDetails, mut e
     }
 }
 
+/// Reads individual curated media slots through the existing backend HTTPS and profile cache.
+#[derive(Clone)]
+pub struct CatalogMedia {
+    http: Option<Http>,
+    paths: Paths,
+}
+
+impl CatalogMedia {
+    pub(crate) fn new(http: Option<Http>, paths: Paths) -> Self {
+        Self { http, paths }
+    }
+
+    /// A missing index requests the logo. Slots and URLs always come from the curated catalog.
+    pub fn fetch(&self, app_id: &str, screenshot: Option<usize>) -> Result<Vec<u8>, String> {
+        let entry =
+            artcraft_launcher_core::curated::apps().iter().find(|entry| entry.id == app_id).ok_or_else(|| "Unknown catalog app".to_string())?;
+        let (key, url) = match screenshot {
+            Some(index) => {
+                let url = entry.screenshots.get(index).ok_or_else(|| "Unknown catalog screenshot".to_string())?;
+                (format!("catalog-shot-{index}"), url.as_str())
+            }
+            None => ("catalog-logo".to_string(), entry.logo.as_str()),
+        };
+        load_catalog_picture(self.http.as_ref(), &self.paths, app_id, &key, url)
+    }
+}
+
+/// Uses the same bounded native HTTPS/cache path for frontends that request whole galleries.
+pub fn fetch_catalog(
+    http: Option<&Http>,
+    paths: &Paths,
+    app: &artcraft_launcher_core::curated::App,
+    mut emit: impl FnMut(&str, Result<Vec<u8>, String>),
+) {
+    let media = std::iter::once(("catalog-logo".to_string(), app.logo.as_str()))
+        .chain(app.screenshots.iter().enumerate().map(|(i, url)| (format!("catalog-shot-{i}"), url.as_str())));
+    for (key, url) in media {
+        emit(&key, load_catalog_picture(http, paths, &app.id, &key, url));
+    }
+}
+
+fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &str, url: &str) -> Result<Vec<u8>, String> {
+    use sha2::{Digest, Sha256};
+    use std::io::Read;
+    let saved = paths.cache.join("curated-media").join(format!("{:x}", Sha256::digest(url.as_bytes())));
+    let valid = |bytes: &[u8]| bytes.len() <= MAX_SCREENSHOT_BYTES && artcraft_launcher_core::curated::media_within_budget(bytes);
+    if std::fs::metadata(&saved).is_ok_and(|metadata| metadata.is_file() && metadata.len() <= MAX_SCREENSHOT_BYTES as u64)
+        && let Ok(file) = std::fs::File::open(&saved)
+    {
+        let mut bytes = Vec::new();
+        if file.take(MAX_SCREENSHOT_BYTES as u64 + 1).read_to_end(&mut bytes).is_ok() && valid(&bytes) {
+            return Ok(bytes);
+        }
+    }
+    if let Some(bytes) = catalog_media::fallback(app_id, key, url).filter(|bytes| valid(bytes)) {
+        let _ = write_atomic(&saved, &bytes);
+        return Ok(bytes);
+    }
+    let allowed = [
+        "https://raw.githubusercontent.com/",
+        "https://getartcraft.com/",
+        "https://dl.flathub.org/",
+        "https://paseo.sh/",
+        "https://uptime.kuma.pet/",
+        "https://getsharex.com/",
+        "https://media.docs.plane.so/",
+        "https://github.com/",
+        "https://static-site.onlyoffice.com/",
+        "https://b3log.org/",
+        "https://activitywatch.net/",
+        "https://anythingllm.com/",
+        "https://docmost.com/",
+        "https://files.ollama.com/",
+        "https://files.sumatrapdfreader.org/",
+        "https://iina.io/",
+        "https://nickemanarin.github.io/",
+        "https://pdfsam.org/",
+        "https://www.librechat.ai/",
+        "https://www.naps2.com/",
+    ];
+    if !allowed.iter().any(|base| url.starts_with(base)) {
+        return Err("Unapproved catalog media origin".into());
+    }
+    let bytes = http
+        .ok_or_else(|| "HTTPS isn't available".to_string())?
+        .get_bytes(url, MAX_SCREENSHOT_BYTES)?
+        .ok_or_else(|| "Catalog image unavailable".to_string())?;
+    if !valid(&bytes) {
+        return Err("Unsupported image or image exceeds dimensions budget".into());
+    }
+    let _ = write_atomic(&saved, &bytes);
+    Ok(bytes)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -164,6 +261,26 @@ mod tests {
         assert_eq!(saved_copy(&saved), None, "too big");
         std::fs::write(&saved, jpeg()).unwrap();
         assert_eq!(saved_copy(&saved), Some(jpeg()));
+    }
+
+    #[test]
+    fn individual_catalog_slots_are_validated_and_share_the_existing_cache() {
+        use sha2::{Digest, Sha256};
+        let profile = tempfile::tempdir().unwrap();
+        let paths = Paths::under(profile.path());
+        let media = CatalogMedia::new(None, paths.clone());
+        assert!(media.fetch("https://example.test/logo.png", None).is_err());
+        assert!(media.fetch("localsend", Some(usize::MAX)).is_err());
+        let app = artcraft_launcher_core::curated::apps().iter().find(|entry| entry.id == "localsend").unwrap();
+        let cache = paths.cache.join("curated-media");
+        let first = cache.join(format!("{:x}", Sha256::digest(app.screenshots[0].as_bytes())));
+        write_atomic(&first, &jpeg()).unwrap();
+        assert_eq!(media.fetch(&app.id, Some(0)).unwrap(), jpeg());
+        assert_eq!(std::fs::read_dir(&cache).unwrap().count(), 1);
+        assert!(media.fetch(&app.id, Some(1)).is_err());
+        write_atomic(&first, &vec![0xff; MAX_SCREENSHOT_BYTES + 1]).unwrap();
+        assert!(media.fetch(&app.id, Some(0)).is_err());
+        assert!(media.fetch("wazuh", None).unwrap().starts_with(b"\x89PNG"));
     }
 
     #[test]

@@ -1,0 +1,19 @@
+commit f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8
+Parent:  9662c3813b9aeb4d2c47e2d62a63df6408fff90baae3bb72c440738ed1eea555
+ContentChecksum:  b590a70a7ba3887df687aeb4b9e27674b24de843e93b529139f5d1fedf800ab7
+Date:  2025-04-24 20:27:59 +0000
+
+    chore: bump runtime to gnome 48 (#29) (60f3c6c57f67)
+
+    Name: com.github.qarmin.czkawka
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.0
+
+Found 1 signature:
+
+  Signature made Thu Apr 24 21:00:33 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

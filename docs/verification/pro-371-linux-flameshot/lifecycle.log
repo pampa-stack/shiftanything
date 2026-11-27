@@ -1,0 +1,72 @@
+native-cycle: OK
+
+=== 2026-11-27T07:04:38+00:00 flameshot install ===
+flameshot before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+flameshot JobFinished: Ok("Flathub app installed")
+flameshot after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.0.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.flameshot.Flameshot/x86_64/stable	flathub	09826023adac	user	15.0.0
+
+=== 2026-11-27T07:05:25+00:00 flameshot prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.flameshot.Flameshot/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.flameshot.Flameshot/x86_64/stable	flathub	c5bcb9c0126a	user	14.0.0
+flameshot before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 14, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f", package: Some("org.flameshot.Flameshot"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.0.0"), update_available: false, can_remove: false, can_open: true }
+flameshot JobFinished: Err("Approved action rejected: native installation state changed")
+flameshot JobFinished: Err("This Flatpak is managed outside the launcher")
+flameshot after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 14, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f", package: Some("org.flameshot.Flameshot"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.0.0"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T07:05:53+00:00 flameshot open ===
+dbus[3]: Unable to set up transient service directory: XDG_RUNTIME_DIR "/run/user/1000" not available: No such file or directory
+bwrap: No permissions to create a new namespace, likely because the kernel does not allow non-privileged user namespaces. See <https://deb.li/bubblewrap> or <file:///usr/share/doc/bubblewrap/README.Debian.gz>.
+error: ldconfig failed, exit status 256
+
+=== 2026-11-27T07:06:17+00:00 flameshot resume via established Flatpak sandbox ===
+dbus-daemon[2361214]: [session uid=1000 pid=2361214 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2361242 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2361214]: [session uid=1000 pid=2361214 pidfd=5] Successfully activated service 'org.a11y.Bus'
+flameshot before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.0.0"), update_available: true, can_remove: true, can_open: true }
+flameshot JobFinished: Ok("Launch request accepted")
+flameshot after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.0.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2361257]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2361470 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+NativeBackend launch produced a live Flameshot instance
+dbus-daemon[2361257]: Successfully activated service 'org.a11y.atspi.Registry'
+flameshot before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/c5bcb9c0126aecba6d56b9b796925145707b721a0d82f704bc3fd3e3c731798f", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.0.0"), update_available: true, can_remove: true, can_open: true }
+flameshot JobFinished: Ok("Flathub app updated")
+flameshot after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.0.0"), update_available: false, can_remove: true, can_open: true })
+/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/.var/app/org.flameshot.Flameshot/shift-profile-marker: OK
+dbus-daemon[2362082]: [session uid=1000 pid=2362082 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2362110 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2362082]: [session uid=1000 pid=2362082 pidfd=5] Successfully activated service 'org.a11y.Bus'
+flameshot before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.0.0"), update_available: false, can_remove: true, can_open: true }
+flameshot JobFinished: Ok("Launch request accepted")
+flameshot after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.0.0"), update_available: false, can_remove: true, can_open: true })
+NativeBackend launch produced a live Flameshot instance
+dbus-daemon[2362125]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2362432 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2362125]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+flameshot before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/data/flatpak/app/org.flameshot.Flameshot/x86_64/stable/09826023adac291134b5ecca84c0c449ac4d847249ba628dce5331dcae74ad26", package: Some("org.flameshot.Flameshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.0.0"), update_available: false, can_remove: true, can_open: true }
+flameshot JobFinished: Ok("Flathub app removed")
+flameshot after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/.var/app/org.flameshot.Flameshot/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/.var/app/org.flameshot.Flameshot/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.10
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.10
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.GYWAlwlR/flameshot/home/.var/app/org.flameshot.Flameshot/shift-profile-marker: OK
+flameshot: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   50G   47G  52% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.8Gi       1.8Gi        77Mi       4.1Gi       5.6Gi
+Swap:          4.0Gi       2.2Gi       1.8Gi

@@ -1,0 +1,19 @@
+commit fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001
+Parent:  2c35375a56d2fa12196c8b526d928683dc7e30183d5eb434bb5f514035560768
+ContentChecksum:  1cf7b386cd4e4f73aff0686c0ecc9134b36fc91237ec993a1f29888c3bd131a6
+Date:  2026-05-04 00:31:02 +0000
+
+    Update to 2.2.1.5 (81c90752d8a7)
+
+    Name: org.librecad.librecad
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Mon May  4 01:01:17 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

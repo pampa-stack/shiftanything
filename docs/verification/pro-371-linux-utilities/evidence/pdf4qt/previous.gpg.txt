@@ -1,0 +1,19 @@
+commit 2e1b6551b978e4feb96fd54d4127615e730ff6d51407122f0fde63485c2d6ddd
+Parent:  7cbc524d09798f2f71414743f1c3e45782981c8500d53e4e8898a76be8f682b2
+ContentChecksum:  daf2ad6fe8e07c1bdeb8ccea9bb499c91ce685d8bc5058bcd3ec05dcd73ceaef
+Date:  2026-06-20 15:57:43 +0000
+
+    Merge pull request #19 from flathub/branches/update1600 (0eff0c4d14bb)
+
+    Name: io.github.JakubMelka.Pdf4qt
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jun 20 17:00:28 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

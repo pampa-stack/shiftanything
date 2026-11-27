@@ -1,0 +1,31 @@
+/private/tmp root
+PROOF cryptomator HOME=/private/tmp/shift-cryptomator-scratch.DDprrFk2/home before=1.19.6 after=1.19.7
+FREE_MEMORY_PERCENT 46
+AVAILABLE_KIB 3403844
+PASS OFFICIAL 1.19.6 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.6/Cryptomator-1.19.6-arm64.dmg 58714109 fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02
+PASS OFFICIAL 1.19.7 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.7/Cryptomator-1.19.7-arm64.dmg 58716219 c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677
+SEEDED official REST version list only, latest still online
+PASS OFFICIAL 1.19.6 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.6/Cryptomator-1.19.6-arm64.dmg 58714109 fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02
+PASS OFFICIAL 1.19.7 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.7/Cryptomator-1.19.7-arm64.dmg 58716219 c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677
+PASS OFFICIAL 1.19.6 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.6/Cryptomator-1.19.6-arm64.dmg 58714109 fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02
+PASS NATIVE cryptomator install: Cryptomator installed: 1.19.6; transferred=58714109
+/private/tmp/shift-cryptomator-scratch.DDprrFk2/home/Applications/Cryptomator.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Skymatic GmbH (YZQJQUHA3L)
+PASS SIGNATURE + PROFILE MARKER cryptomator install 1.19.6
+FREE_MEMORY_PERCENT 49
+AVAILABLE_KIB 3267728
+PASS OFFICIAL 1.19.7 Dmg https://github.com/cryptomator/cryptomator/releases/download/1.19.7/Cryptomator-1.19.7-arm64.dmg 58716219 c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677
+PASS NATIVE cryptomator update: Cryptomator updated to 1.19.7; transferred=58716219
+/private/tmp/shift-cryptomator-scratch.DDprrFk2/home/Applications/Cryptomator.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Skymatic GmbH (YZQJQUHA3L)
+PASS SIGNATURE + PROFILE MARKER cryptomator update 1.19.7
+FREE_MEMORY_PERCENT 50
+AVAILABLE_KIB 3379460
+PASS NATIVE cryptomator remove: Cryptomator was removed; transferred=0
+/private/tmp/shift-cryptomator-scratch.DDprrFk2/home/.Trash/Cryptomator.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Skymatic GmbH (YZQJQUHA3L)
+PASS SIGNATURE + PROFILE MARKER cryptomator remove 1.19.7
+CLEANUP /private/tmp/shift-cryptomator-scratch.DDprrFk2 exit=0

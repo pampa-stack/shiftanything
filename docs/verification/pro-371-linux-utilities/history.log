@@ -1,0 +1,179 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.KoR57Rrd/flathub.flatpakrepo
+=== net.giuspen.cherrytree ===
+        ID: net.giuspen.cherrytree
+       Ref: app/net.giuspen.cherrytree/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 83.3 MB
+ Installed: 211.3 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: 306d32be9bdb60fea1a0a37e3aa36008690aebf634d84522924f0b82fb0d2f57
+    Parent: 190d875d7fd5c46e8e360783b76bb2db5aa1638b3d5806bbaba46a69f720738c
+   Subject: Merge pull request #35 from flathub/cherrytree-v1.7.3 (a8d9bc940272)
+      Date: 2026-11-07 15:13:53 +0000
+   History:
+
+    Commit: 190d875d7fd5c46e8e360783b76bb2db5aa1638b3d5806bbaba46a69f720738c
+   Subject: Merge pull request #34 from flathub/update-runtime (6315a73e1a06)
+      Date: 2026-11-02 22:16:08 +0000
+
+    Commit: 146db7290d2b169b72cd27a1da7faa690bb02247e6dc244e9dc8b118ff3f0be6
+   Subject: Merge pull request #33 from flathub/cherrytree-1.7.2 (3e752a0e710b)
+      Date: 2026-08-22 22:02:38 +0000
+
+    Commit: 158db8a456f3bb7d9e839957fcd8050ae5b7ef99825eac114990cc757cdb88b4
+   Subject: Merge pull request #32 from flathub/cherrytree-1.7.1 (7f012f8830e2)
+      Date: 2026-07-19 10:17:47 +0000
+
+=== com.github.johnfactotum.Foliate ===
+        ID: com.github.johnfactotum.Foliate
+       Ref: app/com.github.johnfactotum.Foliate/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 11.8 MB
+ Installed: 20.3 MB
+   Runtime: org.gnome.Platform/x86_64/49
+       Sdk: org.gnome.Sdk/x86_64/49
+
+    Commit: 4ca532b545422340d60651e8d4a912192dade5dc6f0af264f051215c5e6f489c
+    Parent: 31a7490cc66a3e96d208dae7f4a1d13847215b431d5139fb161bacfee5963a09
+   Subject: Update runtime to 49 (#39) (0a3662450f38)
+      Date: 2025-11-04 17:31:41 +0000
+   History:
+
+    Commit: 31a7490cc66a3e96d208dae7f4a1d13847215b431d5139fb161bacfee5963a09
+   Subject: Update to 3.3.0 (#38) (380d9916)
+      Date: 2025-04-08 07:00:56 +0000
+
+    Commit: f0ccefbb5b7b52e8e1ad7ab51db8ecc3e229a540cdfef8d2bb903762393630e6
+   Subject: Update to 3.2.1 (#36) (9ee3fedf)
+      Date: 2024-12-20 10:44:19 +0000
+
+    Commit: 52d5209bfb1a3d8f2efe345b02e0ff66d888b3e72ca43c5a8e75553b1f857f38
+   Subject: Update to 3.2.0 (#35) (c957846f)
+      Date: 2024-11-28 04:25:58 +0000
+
+=== io.github.JakubMelka.Pdf4qt ===
+        ID: io.github.JakubMelka.Pdf4qt
+       Ref: app/io.github.JakubMelka.Pdf4qt/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 45.3 MB
+ Installed: 86.1 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 74aa672411f5f82032b7bdbc5a3e771b15616de215d16ecd54f050dbe513eca1
+    Parent: 2e1b6551b978e4feb96fd54d4127615e730ff6d51407122f0fde63485c2d6ddd
+   Subject: Merge pull request #20 from flathub/branches/update1700 (b209f9dd3cae)
+      Date: 2026-11-11 21:58:27 +0000
+   History:
+
+    Commit: 2e1b6551b978e4feb96fd54d4127615e730ff6d51407122f0fde63485c2d6ddd
+   Subject: Merge pull request #19 from flathub/branches/update1600 (0eff0c4d14bb)
+      Date: 2026-06-20 15:57:43 +0000
+
+    Commit: 7cbc524d09798f2f71414743f1c3e45782981c8500d53e4e8898a76be8f682b2
+   Subject: Merge pull request #18 from flathub/improve-cleanup (33c05afcb646)
+      Date: 2026-02-13 16:01:11 +0000
+
+    Commit: 95085f754755ae8b0679fb5accdb45dff6d5b4135f27d5092b2fba36709b5390
+   Subject: Merge pull request #16 from flathub/remove-empty-file (bbffaabb7e74)
+      Date: 2026-02-13 14:55:19 +0000
+
+=== com.github.vkohaupt.vokoscreenNG ===
+        ID: com.github.vkohaupt.vokoscreenNG
+       Ref: app/com.github.vkohaupt.vokoscreenNG/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 149.4 MB
+ Installed: 344.4 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 6eeef2c179e8683ec835791b4d628e54846ed47de22016ebae837987d59814c8
+    Parent: 5e75f22cb40d4cf01c847cf5a71d2c8f130a62b96020cdbb8a0a458e3dac995c
+   Subject: Merge pull request #190 from flathub/vkohaupt-patch-20 (116ea210c55e)
+      Date: 2026-11-20 06:42:24 +0000
+   History:
+
+    Commit: 5e75f22cb40d4cf01c847cf5a71d2c8f130a62b96020cdbb8a0a458e3dac995c
+   Subject: Merge pull request #189 from flathub/vkohaupt-patch-20 (b3b6743c8b7e)
+      Date: 2026-11-19 22:11:51 +0000
+
+    Commit: c3a231f2f47b78ae92ba453458b70cb30bcfd84264bf39a7f8d037ef5a5d5413
+   Subject: Merge pull request #185 from flathub/vkohaupt-patch-18 (7d7344f03286)
+      Date: 2026-11-19 17:22:55 +0000
+
+    Commit: 973554dc02e80195c10c84aee3d919acfc9ecf8aa34b326f7dc009a6e4b0f6a5
+   Subject: Merge pull request #182 from flathub/vkohaupt-patch-16 (66fd4e3ac0a6)
+      Date: 2026-11-18 20:34:17 +0000
+
+    Commit: e19b344c3c6fedad6f0237a2d12e3cb72ed055fe246753ec10590f980f73ffa5
+   Subject: Merge pull request #181 from flathub/vkohaupt-patch-16 (f180259df120)
+=== org.gnome.Calendar ===
+        ID: org.gnome.Calendar
+       Ref: app/org.gnome.Calendar/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 6.2 MB
+ Installed: 16.7 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: 54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a
+    Parent: f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826
+   Subject: Update gcr, evolution-data-server and gnome-calendar modules (0406c23df0db)
+      Date: 2026-09-26 16:19:47 +0000
+   History:
+
+    Commit: f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826
+   Subject: Merge pull request #86 from flathub/update-master-6448a6c (d6c89f3617f8)
+      Date: 2026-03-18 21:19:03 +0000
+
+    Commit: 89a3cbaa6f45888216892aa3f350fd7a55c5c442d24b286c33ff758bf0bbc24e
+   Subject: Merge pull request #84 from flathub/small-fix (25b252bcdb1a)
+      Date: 2026-02-04 19:30:37 +0000
+
+    Commit: ec2410e42ce20e4e594ffdf228b0760e4a2e6f3cf98b78cb144cd59ff7b2a79e
+   Subject: Drop the metadata patch (fadcbb96cc63)
+      Date: 2026-01-10 12:59:37 +0000
+
+=== org.qownnotes.QOwnNotes ===
+        ID: org.qownnotes.QOwnNotes
+       Ref: app/org.qownnotes.QOwnNotes/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 30.3 MB
+ Installed: 76.1 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b
+    Parent: 6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d
+   Subject: QOwnNotes: Update qownnotes-26.11.15.tar.xz to 26.11.16 (29d46d98a2af)
+      Date: 2026-11-27 06:24:52 +0000
+   History:
+
+    Commit: 6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d
+   Subject: QOwnNotes: Update qownnotes-26.11.14.tar.xz to 26.11.15 (0b9f8eea8051)
+      Date: 2026-11-24 20:09:05 +0000
+
+    Commit: 31c68aabae2898932263704f234057544dcfe84a1cd8b6027a9304fb91c5feeb
+   Subject: QOwnNotes: Update qownnotes-26.11.13.tar.xz to 26.11.14 (207c8966f0a7)
+      Date: 2026-11-23 21:54:45 +0000
+
+    Commit: 5cc8a3b53c2f77a0f9fb9bdc5a89b1e181f0ac8e4d95d9874a29650e63b3269d
+   Subject: QOwnNotes: Update qownnotes-26.11.12.tar.xz to 26.11.13 (22a547c004b8)
+      Date: 2026-11-22 17:03:16 +0000
+
+    Commit: 2050768123fdccde2ecec5a68fc3a767f6fd708d22629755059edf5054a5cc6b
+   Subject: QOwnNotes: Update qownnotes-26.11.11.tar.xz to 26.11.12 (69f89702937d)

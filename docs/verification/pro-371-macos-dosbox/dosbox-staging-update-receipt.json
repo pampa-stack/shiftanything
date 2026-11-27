@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "dosbox-staging": {
+      "version": "0.83.1",
+      "kind": "Dmg",
+      "path": "/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Apps/DOSBox Staging.app",
+      "installed_at": 1795773725,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

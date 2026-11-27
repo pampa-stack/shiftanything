@@ -1,0 +1,19 @@
+commit bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+Parent:  b62989bf713784b33f6eac8fa7772ce6ccdc8bd3b9f25d862eef69956e591a98
+ContentChecksum:  3f3c10a45a398c34ae120f6000a42c52515be220fc438a9efb875102ab186cfd
+Date:  2026-10-14 16:30:54 +0000
+
+    chore: :tada: Update vscodium v1.140.06880 (8225f3649031)
+
+    Name: com.vscodium.codium
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 14 17:37:49 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

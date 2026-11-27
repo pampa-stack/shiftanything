@@ -1,0 +1,19 @@
+commit 09dad0e4d6c3ae002efe5299fb2a0af5eba9ffd2a4a0f17370e2b7049302290a
+Parent:  f5e5ac00b0e349ca9de8500188deaca5374ab89b727d54b659c3a35f1ffe00e4
+ContentChecksum:  3ef1611716fa5b18c9413fd63833c1f48528ff319d8714340fcd9fff2acac41e
+Date:  2026-07-11 16:28:06 +0000
+
+    poppler: Update poppler-26.05.0.tar.xz to 26.07.0 (617b0b4fd254)
+
+    Name: com.github.jeromerobert.pdfarranger
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jul 11 17:00:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

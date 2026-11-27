@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "super-productivity": {
+      "version": "20.1.0",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-sqlitebrowser.VSTrWMYi/home-native-sp-cached/Applications/Super Productivity.app",
+      "installed_at": 1795778749,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

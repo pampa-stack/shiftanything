@@ -1,0 +1,81 @@
+App=it.promptica.shiftanything (pid 48631)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Trova alternative open source per le funzioni che usi.
+					1204 container
+						1205 text SOFTWARE A PAGAMENTO
+						1206 combo box (settable) SOFTWARE A PAGAMENTO, Value: Little Snitch, Placeholder: Cerca, es. Photoshop
+						1207 button Elenco software A–Z
+						1208 button CONFRONTA
+				1209 container Funzioni che usi
+					1210 container
+						1211 heading Funzioni che usi
+						1411 text 4 / 4
+					1412 container
+						1413 checkbox Avvisi sulle connessioni in uscita, Value: 1
+						1414 text Avvisi sulle connessioni in uscita
+					1415 toggle button Indispensabile · Avvisi sulle connessioni in uscita, Value: 0
+					1416 container
+						1417 checkbox Regole per applicazione, Value: 1
+						1418 text Regole per applicazione
+					1419 toggle button Indispensabile · Regole per applicazione, Value: 0
+					1420 container
+						1421 checkbox Monitor delle connessioni per app, Value: 1
+						1422 text Monitor delle connessioni per app
+					1423 toggle button Indispensabile · Monitor delle connessioni per app, Value: 0
+					1424 container
+						1425 checkbox Liste di blocco da URL con aggiornamenti, Value: 1
+						1426 text Liste di blocco da URL con aggiornamenti
+					1427 toggle button Indispensabile · Liste di blocco da URL con aggiornamenti, Value: 0
+				1229 container Confronto con il catalogo
+					1230 container
+						1231 heading Confronto con il catalogo
+						1428 text Little Snitch
+						1522 text 528 APP NEL CONFRONTO
+						1234 text La copertura appare quando ci sono fonti per le funzioni selezionate.
+					1235 search text field (settable) Cerca app nel confronto, Value: Tailscale
+						1523 text Tailscale
+						1524 button cancel
+					1237 container Pagine delle app
+						1238 button (disabled) PRECEDENTE
+						1525 text 1–1 DI 1
+						1240 button (disabled) SUCCESSIVA
+					1241 table
+						1242 row APPLICAZIONE COPERTURA DOCUMENTATA SCHEDA / FONTI
+							1243 cell APPLICAZIONE
+								1244 text APPLICAZIONE
+							1245 cell COPERTURA DOCUMENTATA
+								1246 text COPERTURA DOCUMENTATA
+							1247 cell SCHEDA / FONTI
+								1248 text SCHEDA / FONTI
+						1526 row Tailscale per Linux —
+							1527 cell Tailscale per Linux
+								1528 text Tailscale per Linux
+							1529 cell —
+								1530 text —
+							1531 cell
+								1532 button Scheda · Tailscale per Linux
+					1533 text 528 app nel confronto · 1–1 di 1
+					1346 container, Text: La copertura conta le funzioni selezionate supportate per intero. Fonti controll... 2026-11-27 .
+			1347 container, Text: PROFILO TEMPORANEO · RUST 528 · MACOS/ARM64 · 40 STATI RILEVATI Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "blockbench": {
+      "version": "5.2.2",
+      "kind": "Dmg",
+      "path": "/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-blockbench/Apps/Blockbench.app",
+      "installed_at": 1795774143,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=RapidRAW
+Comment=Edit RAW photos with non-destructive controls
+Exec="/fixture/home/Applications/03_RapidRAW_v1.7.0_ubuntu-22.04_amd64.AppImage" --appimage-extract-and-run %F
+Icon=RapidRAW
+Terminal=false
+Categories=Graphics;Photography;
+StartupWMClass=RapidRAW
+X-ArtCraft-Launcher=true

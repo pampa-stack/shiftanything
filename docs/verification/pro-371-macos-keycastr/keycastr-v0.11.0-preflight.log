@@ -1,0 +1,54 @@
+symlink KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Resources 'Versions/Current/Resources'
+symlink KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/ShortcutRecorder 'Versions/Current/ShortcutRecorder'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/Resources 'Versions/Current/Resources'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/Autoupdate 'Versions/Current/Autoupdate'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/Updater.app 'Versions/Current/Updater.app'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/XPCServices 'Versions/Current/XPCServices'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/Sparkle 'Versions/Current/Sparkle'
+symlink KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Resources 'Versions/Current/Resources'
+symlink KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/KCVisualizer 'Versions/Current/KCVisualizer'
+symlink KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Headers 'Versions/Current/Headers'
+symlink KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Versions/Current 'A'
+symlink KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current 'B'
+symlink KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Versions/Current 'A'
+ZIP entries outside root app: 1 ['__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png']
+ZIP inflated total bytes: 6046851
+CFBundleIdentifier=io.github.keycastr
+CFBundleShortVersionString=0.11.0
+CFBundleVersion=0.11.0
+CFBundleExecutable=KeyCastr
+LSMinimumSystemVersion=10.13
+x86_64 arm64
+Identifier=io.github.keycastr
+Authority=Developer ID Application: Andrew Kitchen (68TUCLNAPS)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=68TUCLNAPS
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/Svelte.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/Svelte.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/KCDefaultVisualizer.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/Minimal.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/KCDefaultVisualizer.kcplugin
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/PlugIns/Minimal.kcplugin
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Versions/Current/.
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/KCVisualizer.framework/Versions/Current/.
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/ShortcutRecorder.framework/Versions/Current/.
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--prepared:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--validated:/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app: valid on disk
+/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app: satisfies its Designated Requirement
+/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/zip-inspection-v0.11.0/KeyCastr.app
+The validate action worked!
+stapler_app_rc=0

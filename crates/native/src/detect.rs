@@ -59,7 +59,10 @@ pub(crate) fn from_manifest(app: &CraftApp, manifest: &Manifest) -> Option<Insta
     }
     // On macOS the bundle itself is the truth (the app may have updated itself).
     #[cfg(target_os = "macos")]
-    if rec.kind == artcraft_launcher_core::PackageKind::Dmg {
+    if matches!(
+        rec.kind,
+        artcraft_launcher_core::PackageKind::Dmg | artcraft_launcher_core::PackageKind::MacZip | artcraft_launcher_core::PackageKind::MacPkg
+    ) {
         return macos::read_bundle(app, &rec.path);
     }
     Some(Installed {
@@ -164,7 +167,7 @@ fn suite_folders(app: &CraftApp, roots: &[PathBuf]) -> Vec<PathBuf> {
 fn install_dir_keys(app: &CraftApp) -> Vec<String> {
     let mut keys = vec![format!(r"SOFTWARE\{}", app.name)];
     if app.id == artcraft_launcher_core::catalog::LAUNCHER_ID {
-        keys.push(format!(r"SOFTWARE\{PUBLISHER}\{}", app.name));
+        keys.push(format!(r"SOFTWARE\{}\{}", app.msi_publisher.unwrap_or(PUBLISHER), app.name));
     }
     keys
 }
@@ -240,7 +243,7 @@ pub mod macos {
             .chain(["CFBundleShortVersionString", "CFBundleVersion"])
             .find_map(|k| dict.get(k).and_then(plist::Value::as_string));
         Some(Installed {
-            version: text.and_then(version::parse),
+            version: text.and_then(|text| bundle_version(app, text)),
             source: InstallSource::MacApp,
             location: path.display().to_string(),
             package: None,
@@ -248,6 +251,59 @@ pub mod macos {
             origin: None,
             installation: None,
         })
+    }
+
+    fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+        use artcraft_launcher_core::curated::DOSBOX_STAGING;
+
+        // Stable DOSBox Staging bundles append the five-character git commit (e.g. 0.83.1-8888e).
+        if (app.id, app.repo) == (DOSBOX_STAGING.id, DOSBOX_STAGING.repo)
+            && let Some((label, hash)) = text.rsplit_once('-')
+            && hash.len() == 5
+            && hash.bytes().all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+            && let Ok(parsed) = version::Version::parse(label)
+            && parsed.pre.is_empty()
+            && parsed.build.is_empty()
+        {
+            return Some(parsed);
+        }
+        if !app.uses_tdf_releases() {
+            return version::parse(text);
+        }
+        // TDF names its stable DMGs after the first three components of the bundle version.
+        if let Some(stable) = artcraft_launcher_core::release::libreoffice_stable_version(text) {
+            return Some(stable);
+        }
+        let (stable, build) = text.rsplit_once('.')?;
+        let build_number = build.parse::<u64>().ok()?;
+        if build_number.to_string() != build {
+            return None;
+        }
+        artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn only_dosbox_staging_removes_its_bundled_git_commit_suffix() {
+        use artcraft_launcher_core::curated::{DOSBOX_STAGING, HANDY};
+
+        for (bundle, stable) in [("0.83.0-7b400", "0.83.0"), ("0.83.1-8888e", "0.83.1")] {
+            assert_eq!(bundle_version(&DOSBOX_STAGING, bundle), version::parse(stable));
+            assert_eq!(bundle_version(&HANDY, bundle), version::parse(bundle));
+        }
+        for label in ["0.83.1-alpha", "0.83.1-8888", "0.83.1-zzzzz", "0.83.1+foo-8888e", "0.83.1-rc.1-8888e"] {
+            assert_eq!(bundle_version(&DOSBOX_STAGING, label), version::parse(label));
+        }
+    }
+
+    #[test]
+    fn only_libreoffice_matches_its_four_part_bundle_version_to_stable_tag() {
+        use artcraft_launcher_core::curated::{HANDY, LIBREOFFICE};
+
+        assert_eq!(bundle_version(&LIBREOFFICE, "26.8.3.1"), version::parse("26.8.3"));
+        assert!(bundle_version(&HANDY, "26.8.3.1").is_none());
+        for malformed in ["26.8.3.1.0", "26.8.3.+1", "26.8.3.01", "26.8.3-rc.1"] {
+            assert!(bundle_version(&LIBREOFFICE, malformed).is_none(), "{malformed}");
+        }
     }
 }
 
@@ -1320,7 +1376,7 @@ mod tests {
     fn the_launcher_records_its_folder_under_the_publisher_key() {
         assert_eq!(
             install_dir_keys(&artcraft_launcher_core::catalog::LAUNCHER),
-            [r"SOFTWARE\ArtCraft Launcher".to_string(), format!(r"SOFTWARE\{LEARNING_MACHINES}\ArtCraft Launcher")]
+            [r"SOFTWARE\Sh*ftAnything".to_string(), r"SOFTWARE\Promptica\Sh*ftAnything".to_string()]
         );
         let photo = CraftApp::by_id("photocraft").unwrap();
         assert_eq!(install_dir_keys(photo), [r"SOFTWARE\PhotoCraft".to_string()]);

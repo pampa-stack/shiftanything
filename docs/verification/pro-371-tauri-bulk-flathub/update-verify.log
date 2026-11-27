@@ -1,0 +1,10 @@
+libpxbackend-1.0.so: cannot open shared object file: No such file or directory
+Failed to load module: /var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+libpxbackend-1.0.so: cannot open shared object file: No such file or directory
+Failed to load module: /var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+PASS verify gnome-calculator 00516a24d410ad62ed3e955fa5deb5af221ab6b181ed5549103f3670d10d2fca, Flatpak and manifest agree, GPG and data verified
+libpxbackend-1.0.so: cannot open shared object file: No such file or directory
+Failed to load module: /var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+libpxbackend-1.0.so: cannot open shared object file: No such file or directory
+Failed to load module: /var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/lib/x86_64-linux-gnu/gio/modules/libgiolibproxy.so
+PASS verify gnome-text-editor 8effd3457368016ed2bcb2a7b7c5058938c7ad949050d282c4337951a91941a4, Flatpak and manifest agree, GPG and data verified

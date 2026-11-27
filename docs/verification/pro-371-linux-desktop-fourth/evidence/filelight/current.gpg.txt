@@ -1,0 +1,19 @@
+commit b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e
+Parent:  939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e
+ContentChecksum:  8fa7775ac50a03844845ace8c4933d3443b014373b14604bd1641d7fe3ebb266
+Date:  2026-11-10 15:09:10 +0000
+
+    filelight: Update filelight-26.08.2.tar.xz to 26.08.3 (37607eae02f9)
+
+    Name: org.kde.filelight
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 10 16:13:40 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

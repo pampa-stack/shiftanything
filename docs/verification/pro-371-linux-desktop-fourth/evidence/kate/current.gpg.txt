@@ -1,0 +1,19 @@
+commit c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82
+Parent:  cb0d9fe7307bb55627dc90870b0646558f255becd002bca627242066cf57f9f6
+ContentChecksum:  f0f836ffc257bb86b6600fb421c19d865893cd1f31f312427d1807541dbb1299
+Date:  2026-11-12 23:24:36 +0000
+
+    Disable SSH support in Konsole (108304e0571a)
+
+    Name: org.kde.kate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 00:01:02 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,73 @@
+HOST Linux x86_64
+UTC 2026-11-27T08:59:03+00:00
+PROFILE /mnt/dati/lavori/shiftanything/shift-official-linux-profile.solidcraft.hnO4x2gK
+OFFICIAL tangency-labs/solidcraft 0.49.1 202754552 sha256=90d865f949c8f89f53ac1b1d596c61af1da95e2ba7959bddc0f843ade4bad31f
+PASS solidcraft install 21539ms: SolidCraft installed: 0.49.1
+Exec="/fixture/home/Applications/solidcraft-0.49.1-linux-x86_64.AppImage" %F
+1280 800
+PASS solidcraft launch-old 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch-old title=SolidCraft
+Window 4194306
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+3e9fb35543cff3c35a9161de1822737513dfdcb0a231f2063490d34b49f3e859  config/profile-fingerprint.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/solidcraft/crashes/.seen
+ff5cc6f7cf3c3b56e5f2137b2df8754289b0fb8d5a84eb16d57f941c7acb5b40  data/solidcraft/crashes/sessions/20261127-090031-141-0.jsonl
+474835e88af0bd7c8558f10b3a91458074cf8684a2c9c4c5251e020dfab2ab3f  data/solidcraft/graphics.json
+82124555c569aa5a803ab64e2e4baee0d69697f0db8ddbf071e095f99031bf0e  data/solidcraft/logs/solidcraft.log
+146edbec8efd05d29b27bfd551464e9884b2ad6ba05a46ea8a26afc1f35dd436  data/solidcraft/open.token
+6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b  data/solidcraft/starting
+OFFICIAL tangency-labs/solidcraft 0.50.0 207395320 sha256=f3afd0df54df5cfba281fe0d2b0476f87f154606464bd21b0094226063505d88
+PASS solidcraft update 30375ms: SolidCraft updated to 0.50.0
+3e9fb35543cff3c35a9161de1822737513dfdcb0a231f2063490d34b49f3e859  config/profile-fingerprint.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/solidcraft/crashes/.seen
+ff5cc6f7cf3c3b56e5f2137b2df8754289b0fb8d5a84eb16d57f941c7acb5b40  data/solidcraft/crashes/sessions/20261127-090031-141-0.jsonl
+474835e88af0bd7c8558f10b3a91458074cf8684a2c9c4c5251e020dfab2ab3f  data/solidcraft/graphics.json
+82124555c569aa5a803ab64e2e4baee0d69697f0db8ddbf071e095f99031bf0e  data/solidcraft/logs/solidcraft.log
+146edbec8efd05d29b27bfd551464e9884b2ad6ba05a46ea8a26afc1f35dd436  data/solidcraft/open.token
+6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b  data/solidcraft/starting
+Exec="/fixture/home/Applications/solidcraft-0.50.0-linux-x86_64.AppImage" %F
+1280 800
+PASS solidcraft launch 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch title=SolidCraft
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+3e9fb35543cff3c35a9161de1822737513dfdcb0a231f2063490d34b49f3e859  config/profile-fingerprint.txt
+7c7542f8c7c4e7859086f0326fa4d9b2a3976026b57034cc29f9c921fd475fe1  data/solidcraft/crashes/.seen
+88e388299b92025c9c3bedc6497ecbeb1cba92e72ac4faa3e199ef9299ca1e91  data/solidcraft/crashes/20261127-090112-9a3f5bc29366cc9a/report.json
+d048df3dffbf9560daafe03e905512cf8d56205a8129773e7006d8a334317add  data/solidcraft/crashes/sessions/20261127-090112-129-0.jsonl
+55dfd27479b5197e291fc3570f2537af23341229a0a0c640f3035c8250af5412  data/solidcraft/graphics.json
+9229654fe68f05c3da30a0b6a91879a3e7b0886e6b7beec331d3d66f21e89234  data/solidcraft/logs/solidcraft.log
+82124555c569aa5a803ab64e2e4baee0d69697f0db8ddbf071e095f99031bf0e  data/solidcraft/logs/solidcraft.previous.log
+1dd80c7e483316d3dd7153077cf3f6e6bc0cc225bf57462fc0bbe292fe86308d  data/solidcraft/open.token
+d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35  data/solidcraft/starting
+PASS solidcraft uninstall 121ms: SolidCraft was removed
+3e9fb35543cff3c35a9161de1822737513dfdcb0a231f2063490d34b49f3e859  config/profile-fingerprint.txt
+7c7542f8c7c4e7859086f0326fa4d9b2a3976026b57034cc29f9c921fd475fe1  data/solidcraft/crashes/.seen
+88e388299b92025c9c3bedc6497ecbeb1cba92e72ac4faa3e199ef9299ca1e91  data/solidcraft/crashes/20261127-090112-9a3f5bc29366cc9a/report.json
+d048df3dffbf9560daafe03e905512cf8d56205a8129773e7006d8a334317add  data/solidcraft/crashes/sessions/20261127-090112-129-0.jsonl
+55dfd27479b5197e291fc3570f2537af23341229a0a0c640f3035c8250af5412  data/solidcraft/graphics.json
+9229654fe68f05c3da30a0b6a91879a3e7b0886e6b7beec331d3d66f21e89234  data/solidcraft/logs/solidcraft.log
+82124555c569aa5a803ab64e2e4baee0d69697f0db8ddbf071e095f99031bf0e  data/solidcraft/logs/solidcraft.previous.log
+1dd80c7e483316d3dd7153077cf3f6e6bc0cc225bf57462fc0bbe292fe86308d  data/solidcraft/open.token
+d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35  data/solidcraft/starting
+PASS solidcraft install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 132
+Temporary profile removed; test exit=0

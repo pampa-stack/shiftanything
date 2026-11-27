@@ -1,0 +1,87 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.HtjJ7bJn/flathub.flatpakrepo
+=== org.gnome.DejaDup ===
+        ID: org.gnome.DejaDup
+       Ref: app/org.gnome.DejaDup/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 56.0 MB
+ Installed: 160.0 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13
+    Parent: 88e34c66c2147bdb96adae9f78ee69ac7f5f4e6e252f07a82f2b06adf09d0e8a
+   Subject: Merge pull request #72 from flathub/sdk51 (a02c7e01daa1)
+      Date: 2026-09-20 01:23:58 +0000
+   History:
+
+    Commit: 88e34c66c2147bdb96adae9f78ee69ac7f5f4e6e252f07a82f2b06adf09d0e8a
+   Subject: Merge pull request #71 from flathub/50.2 (3edfccd89b7b)
+      Date: 2026-09-05 16:26:40 +0000
+
+    Commit: 9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851
+   Subject: Merge pull request #70 from flathub/50.1 (cd944c6d6fa8)
+      Date: 2026-04-26 13:40:58 +0000
+
+    Commit: 539c9042ee5bb9792b2bc4a2bea9726bc1e1bdc3479534622052640c1f8d100a
+   Subject: Merge pull request #69 from flathub/golang (f550595f52ce)
+      Date: 2026-04-03 12:48:52 +0000
+
+=== com.github.flxzt.rnote ===
+        ID: com.github.flxzt.rnote
+       Ref: app/com.github.flxzt.rnote/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 20.0 MB
+ Installed: 41.4 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433
+    Parent: ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8
+   Subject: update to v0.14.2 (#72) (b9dfdc45ddc9)
+      Date: 2026-05-01 12:16:42 +0000
+   History:
+
+    Commit: ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8
+   Subject: update to v0.14.1 (#70) (a87d0b220817)
+      Date: 2026-04-13 19:38:28 +0000
+
+    Commit: 933473d84c55691f1af0e39d6b77a49540cabeb158a159de5f020452fa579518
+   Subject: update to v0.14.0 (#68) (eadd6c4f28b2)
+      Date: 2026-03-25 21:33:26 +0000
+
+    Commit: 32da03f904f852850a258a71bb65b734ee981cdff4ec811fac994e37e401f64a
+   Subject: update to v0.13.1 (#65) (0896e64b2096)
+      Date: 2025-09-09 17:57:26 +0000
+
+=== org.mixxx.Mixxx ===
+        ID: org.mixxx.Mixxx
+       Ref: app/org.mixxx.Mixxx/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 36.0 MB
+ Installed: 75.7 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d
+    Parent: 8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e
+   Subject: Update to 2.5.6 (03d2a97fa31c)
+      Date: 2026-07-12 02:47:16 +0000
+   History:
+
+    Commit: 8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e
+   Subject: Update runtime to 6.11, update components (#70) (6c8262be2a3c)
+      Date: 2026-07-11 15:09:04 +0000
+
+    Commit: 34db820394644aaecbde6fe69d4afdf96d8b6d06ce1dfa6ccde0f1316b119aad
+   Subject: Merge pull request #67 from PunkPangolin/qt6.9 (15b3ad651f73)
+      Date: 2025-08-24 16:13:00 +0000
+
+    Commit: 9b0eba52b8699c36d219eedbb8a06d3151cd7a95e2d57e9255c18c3a651db5cf
+   Subject: Merge pull request #64 from djantti/2.5.2 (a4f20efa2ed4)
+      Date: 2025-06-15 07:12:07 +0000

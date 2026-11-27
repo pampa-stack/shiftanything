@@ -1,0 +1,4 @@
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=papers --file-forwarding org.gnome.Papers @@u %U @@
+Type=Application
+X-Flatpak=org.gnome.Papers
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=papers org.gnome.Papers

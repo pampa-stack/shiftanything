@@ -1,0 +1,75 @@
+HOST Linux x86_64
+UTC 2026-11-27T08:59:03+00:00
+PROFILE /mnt/dati/lavori/shiftanything/shift-official-linux-profile.mailcraft.11gsFo7e
+OFFICIAL UCSLabs/mailcraft 0.14.0 37480952 sha256=8543b249b69bd484e1fb203a3590c0c21026601380f80b02b0e51bd1f73fc4a6
+PASS mailcraft install 4477ms: MailCraft installed: 0.14.0
+Exec="/fixture/home/Applications/mailcraft-0.14.0-linux-x86_64.AppImage" %F
+1280 800
+PASS mailcraft launch-old 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch-old title=MailCraft
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+40723b9c382e660d18da8ece408b4a00610b7d02a0590457fa79bfd74f69e402  config/mailcraft/logs/mailcraft.log
+867981c9cb836355b31a49010e4ad8feed44f35addd87edee7da775c340a906f  config/mailcraft/mailbox.mailcraft.instance
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/mailbox.mailcraft.lock
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/update.lock
+1fc9f1544c853f95c8e9f1891f226cb8dab6ba1f1fe4111958a330f9bab8849b  config/profile-fingerprint.txt
+OFFICIAL UCSLabs/mailcraft 0.15.0 38500856 sha256=07b85f9a10a55989c05a9391e185d698dd7e37797378fc036fff966bfd845bce
+PASS mailcraft update 44202ms: MailCraft updated to 0.15.0
+40723b9c382e660d18da8ece408b4a00610b7d02a0590457fa79bfd74f69e402  config/mailcraft/logs/mailcraft.log
+867981c9cb836355b31a49010e4ad8feed44f35addd87edee7da775c340a906f  config/mailcraft/mailbox.mailcraft.instance
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/mailbox.mailcraft.lock
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/update.lock
+1fc9f1544c853f95c8e9f1891f226cb8dab6ba1f1fe4111958a330f9bab8849b  config/profile-fingerprint.txt
+Exec="/fixture/home/Applications/mailcraft-0.15.0-linux-x86_64.AppImage" %F
+1280 800
+PASS mailcraft launch 0ms: Launch request accepted
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+dbus-daemon[3]: Could not get password database information for UID of current process: User "???" unknown or no memory to allocate password entry
+
+X11_WINDOW phase=launch title=MailCraft
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1280x800
+40723b9c382e660d18da8ece408b4a00610b7d02a0590457fa79bfd74f69e402  config/mailcraft/logs/mailcraft.1.log
+98cde85c8b72e63ddc363f260080a45c63221b19117e8366120f16c9d0a8fa4e  config/mailcraft/logs/mailcraft.log
+21ebbd35bf8664facbf68c1f8f5fef51ad0dab745417ef4414ace55e32a7b7e2  config/mailcraft/mailbox.mailcraft.instance
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/mailbox.mailcraft.lock
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/update.lock
+1fc9f1544c853f95c8e9f1891f226cb8dab6ba1f1fe4111958a330f9bab8849b  config/profile-fingerprint.txt
+PASS mailcraft uninstall 242ms: MailCraft was removed
+40723b9c382e660d18da8ece408b4a00610b7d02a0590457fa79bfd74f69e402  config/mailcraft/logs/mailcraft.1.log
+98cde85c8b72e63ddc363f260080a45c63221b19117e8366120f16c9d0a8fa4e  config/mailcraft/logs/mailcraft.log
+21ebbd35bf8664facbf68c1f8f5fef51ad0dab745417ef4414ace55e32a7b7e2  config/mailcraft/mailbox.mailcraft.instance
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/mailbox.mailcraft.lock
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/mailcraft/update.lock
+1fc9f1544c853f95c8e9f1891f226cb8dab6ba1f1fe4111958a330f9bab8849b  config/profile-fingerprint.txt
+PASS mailcraft install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 70
+Temporary profile removed; test exit=0

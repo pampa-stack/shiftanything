@@ -1,0 +1,19 @@
+commit 3f79a0ca0556910be028d43f5eb7b2cc4a823c1ca4341e371619f7e8ab3fa40f
+Parent:  3121ab1be6c0cddc71c1b2c6b84fa28cd27d8fe4cfd7c746bc62f3f1cc955645
+ContentChecksum:  f48fbcf46c6bfa3e06d5e327de6dd7f25d4646ea1fd30416a8add72c083cee37
+Date:  2026-11-04 15:37:42 +0000
+
+    Merge pull request #340 from flathub/26.09.4 (f502b7266c5b)
+
+    Name: net.ankiweb.Anki
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov  4 16:01:53 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

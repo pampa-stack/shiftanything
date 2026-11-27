@@ -1,0 +1,163 @@
+App=it.promptica.shiftanything (pid 50211)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button CONNECT AGENT · MCP
+				9 button Settings
+			10 toggle button CATALOG, Value: 0
+			11 toggle button FAVORITES, Value: 0
+			12 toggle button MY APPS, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button FIND APPS, Value: 0
+			15 toggle button WORKFLOW KITS, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Find open-source alternatives for the features you use.
+					1204 container
+						1205 text PAID SOFTWARE
+						1206 combo box (settable) PAID SOFTWARE, Value: Little Snitch, Placeholder: Search, e.g. Photoshop
+						1207 button Software list A–Z
+						1208 button COMPARE
+				1209 container Features you use
+					1210 container
+						1211 heading Features you use
+						1411 text 4 / 4
+					1412 container
+						1413 checkbox Outbound connection prompts, Value: 1
+						1414 text Outbound connection prompts
+					1415 toggle button Essential · Outbound connection prompts, Value: 0
+					1416 container
+						1417 checkbox Per-application rules, Value: 1
+						1418 text Per-application rules
+					1419 toggle button Essential · Per-application rules, Value: 0
+					1420 container
+						1421 checkbox Per-app connection monitor, Value: 1
+						1422 text Per-app connection monitor
+					1423 toggle button Essential · Per-app connection monitor, Value: 0
+					1424 container
+						1425 checkbox Remote blocklists with updates, Value: 1
+						1426 text Remote blocklists with updates
+					1427 toggle button Essential · Remote blocklists with updates, Value: 0
+				1229 container Catalog comparison
+					1230 container
+						1231 heading Catalog comparison
+						1428 text Little Snitch
+						1429 text 528 APPS IN COMPARISON
+						1234 text Coverage appears when there are sources for the selected features.
+					1235 search text field (settable) Search apps in comparison
+						1236 text Search apps in comparison
+					1237 container App result pages
+						1238 button (disabled) PREVIOUS
+						1430 text 1–12 OF 528
+						1240 button NEXT
+					1241 table
+						1242 row APP DOCUMENTED COVERAGE APP DETAILS / SOURCES
+							1243 cell APP
+								1244 text APP
+							1245 cell DOCUMENTED COVERAGE
+								1246 text DOCUMENTED COVERAGE
+							1247 cell APP DETAILS / SOURCES
+								1248 text APP DETAILS / SOURCES
+						1431 row LuLu 75% 3/4
+							1432 cell LuLu
+								1433 text LuLu
+							1434 cell 75% 3/4
+								1435 text 75%
+								1436 text 3/4
+							1437 cell
+								1438 button App details · LuLu
+								1439 button Sources · LuLu
+						1440 row OpenSnitch 75% 3/4
+							1441 cell OpenSnitch
+								1442 text OpenSnitch
+							1443 cell 75% 3/4
+								1444 text 75%
+								1445 text 3/4
+							1446 cell
+								1447 button App details · OpenSnitch
+								1448 button Sources · OpenSnitch
+						1449 row Portmaster Free 75% 3/4
+							1450 cell Portmaster Free
+								1451 text Portmaster Free
+							1452 cell 75% 3/4
+								1453 text 75%
+								1454 text 3/4
+							1455 cell
+								1456 button App details · Portmaster Free
+								1457 button Sources · Portmaster Free
+						1458 row AbiWord —
+							1459 cell AbiWord
+								1460 text AbiWord
+							1461 cell —
+								1462 text —
+							1463 cell
+								1464 button App details · AbiWord
+						1465 row Ackee —
+							1466 cell Ackee
+								1467 text Ackee
+							1468 cell —
+								1469 text —
+							1470 cell
+								1471 button App details · Ackee
+						1472 row ActivityWatch —
+							1473 cell ActivityWatch
+								1474 text ActivityWatch
+							1475 cell —
+								1476 text —
+							1477 cell
+								1478 button App details · ActivityWatch
+						1479 row Actual Budget —
+							1480 cell Actual Budget
+								1481 text Actual Budget
+							1482 cell —
+								1483 text —
+							1484 cell
+								1485 button App details · Actual Budget
+						1486 row addy.io —
+							1487 cell addy.io
+								1488 text addy.io
+							1489 cell —
+								1490 text —
+							1491 cell
+								1492 button App details · addy.io
+						1493 row AdGuard Home —
+							1494 cell AdGuard Home
+								1495 text AdGuard Home
+							1496 cell —
+								1497 text —
+							1498 cell
+								1499 button App details · AdGuard Home
+						1500 row AiderDesk —
+							1501 cell AiderDesk
+								1502 text AiderDesk
+							1503 cell —
+								1504 text —
+							1505 cell
+								1506 button App details · AiderDesk
+						1507 row AionUi —
+							1508 cell AionUi
+								1509 text AionUi
+							1510 cell —
+								1511 text —
+							1512 cell
+								1513 button App details · AionUi
+						1514 row AIRI —
+							1515 cell AIRI
+								1516 text AIRI
+							1517 cell —
+								1518 text —
+							1519 cell
+								1520 button App details · AIRI
+					1521 text 528 apps in comparison · 1–12 of 528
+					1346 container, Text: Coverage counts selected features with full support. Sources checked on 2026-11-27 .
+			1347 container, Text: READ-ONLY PROOF · RUST 528 · MACOS/ARM64 · 40 DETECTED STATES Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

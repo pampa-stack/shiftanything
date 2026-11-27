@@ -54,13 +54,13 @@ impl LauncherUi {
         ui.set_max_height(size.y);
         let hero_h = sheet::hero(
             ui,
-            Some(crate::icons::artcraft_mark()),
+            Some(egui::include_image!("../../../assets/shiftanything/icon.png")),
             tl!("Settings"),
-            &format!("ArtCraft Launcher {}", env!("CARGO_PKG_VERSION")),
+            &format!("Sh*ftAnything {}", env!("CARGO_PKG_VERSION")),
             |_| {},
         );
 
-        let quit_width = widgets::button_width(ui, tl!("Quit ArtCraft Launcher"), 0.0);
+        let quit_width = widgets::button_width(ui, tl!("Quit Sh*ftAnything"), 0.0);
         let done_width = widgets::button_width(ui, tl!("Done"), 90.0);
         let stack_actions = self.caps.manage_apps && quit_width + done_width + ui.spacing().item_spacing.x + 48.0 > size.x;
         let footer_h = if stack_actions { 2.0 * theme::CONTROL_H + ui.spacing().item_spacing.y } else { theme::CONTROL_H } + 32.0;
@@ -82,7 +82,7 @@ impl LauncherUi {
         egui::Frame::new().inner_margin(egui::Margin::symmetric(theme::PAD as i8, 16)).show(ui, |ui| {
             ui.set_width(ui.available_width());
             let quit = |ui: &mut Ui, host: &mut dyn Host| {
-                if self.caps.manage_apps && widgets::button(ui, tl!("Quit ArtCraft Launcher"), Kind::Secondary, 0.0).clicked() {
+                if self.caps.manage_apps && widgets::button(ui, tl!("Quit Sh*ftAnything"), Kind::Secondary, 0.0).clicked() {
                     host.quit();
                 }
             };
@@ -120,14 +120,13 @@ impl LauncherUi {
                     return;
                 };
                 let (this, _) = &mut *state;
-                // Fonts makes the right column long, so the left also takes Community and the
-                // nightly opt-in, which keeps the two columns about the same height.
+                // General preferences and Promptica links at left; native management and
+                // agent configuration at right keep both columns useful while scrolling.
+                this.settings_promptica(ui);
                 this.settings_language(ui);
                 this.settings_updates(ui);
                 this.settings_appearance(ui);
                 this.settings_nightly(ui);
-                this.settings_community(ui);
-                this.settings_agents(ui);
             },
             |ui| {
                 let Ok(mut state) = state.try_borrow_mut() else {
@@ -138,8 +137,26 @@ impl LauncherUi {
                 #[cfg(not(target_arch = "wasm32"))]
                 this.settings_fonts(ui);
                 this.settings_background(ui, &mut **host);
+                this.settings_community(ui);
+                this.settings_agents(ui);
             },
         );
+    }
+
+    fn settings_promptica(&mut self, ui: &mut Ui) {
+        sheet::panel(ui, "Promptica", |ui| {
+            for (label, url) in [
+                (tl!("Website"), "https://promptica.it/"),
+                ("LinkedIn", "https://www.linkedin.com/company/promptica/"),
+                ("Instagram", "https://www.instagram.com/promptica_ai"),
+                (tl!("Contact"), "https://promptica.it/contatti"),
+            ] {
+                ui.horizontal_wrapped(|ui| {
+                    ui.label(label);
+                    ui.hyperlink_to(url, url);
+                });
+            }
+        });
     }
 
     /// The language picker. It changes the preference immediately but keeps this pass on a language
@@ -410,11 +427,11 @@ impl LauncherUi {
                     "When on, opening the launcher from the menu bar brings its window to the desktop you're on. When off, macOS switches you to the desktop the window was on."
                 ));
                 ui.add_enabled_ui(host.has_tray() && self.settings.close_to_tray, |ui| {
-                    ui.checkbox(&mut self.settings.hide_from_dock_when_hidden, tl!("Hide ArtCraft Launcher from the Dock while in the background"));
+                    ui.checkbox(&mut self.settings.hide_from_dock_when_hidden, tl!("Hide Sh*ftAnything from the Dock while in the background"));
                 });
             }
             if let Some(mut on) = host.login_item()
-                && ui.checkbox(&mut on, tl!("Start ArtCraft Launcher when I log in")).changed()
+                && ui.checkbox(&mut on, tl!("Start Sh*ftAnything when I log in")).changed()
                 && let Err(e) = host.set_login_item(on)
             {
                 self.toast_from_ui(fmt(tl!("Couldn't change the login item: {e}"), &[("e", &e)]), true);
@@ -453,7 +470,11 @@ impl LauncherUi {
         let mut theme_choice = self.settings.theme;
         sheet::panel(ui, tl!("Appearance"), |ui| {
             ui.horizontal(|ui| {
-                widgets::cells(ui, &mut theme_choice, &ThemeChoice::ALL.map(|c| (c, Cell { label: c.label(), tip: c.label(), count: None })));
+                widgets::cells(
+                    ui,
+                    &mut theme_choice,
+                    &ThemeChoice::ALL.map(|c| (c, Cell { label: c.label(), tip: c.label(), count: None, literal_case: false })),
+                );
             });
             ui.checkbox(&mut self.settings.hide_community_apps, tl!("Hide community apps"));
         });
@@ -512,6 +533,7 @@ impl LauncherUi {
                             McpConfigFormat::Json => tl!("Copy JSON"),
                             McpConfigFormat::VsCode => tl!("Copy for VS Code"),
                             McpConfigFormat::CodexToml => tl!("Copy for Codex (TOML)"),
+                            McpConfigFormat::OpenCode => tl!("Copy for OpenCode"),
                         };
                         if ui.button(label).clicked() {
                             ui.ctx().copy_text(mcp_config(format, gateway));
@@ -530,12 +552,16 @@ impl LauncherUi {
             ui.label(c.name.as_str());
             if c.added {
                 ui.label(RichText::new(tl!("Added")).size(12.0).color(t.muted));
-                if ui.button(tl!("Remove")).clicked() {
+                let remove = ui.button(tl!("Remove"));
+                remove.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Button, true, format!("{} · {}", tl!("Remove"), c.name)));
+                if remove.clicked() {
                     self.act_command(Command::McpSetClient { client: c.client, added: false });
                     self.mcp_restart_offer = None;
                 }
             } else if c.installed && can_add {
-                if ui.button(tl!("Add")).clicked() {
+                let add = ui.button(tl!("Add"));
+                add.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Button, true, format!("{} · {}", tl!("Add"), c.name)));
+                if add.clicked() {
                     self.act_command(Command::McpSetClient { client: c.client, added: true });
                     if c.restartable {
                         self.mcp_restart_offer = Some(c.client);

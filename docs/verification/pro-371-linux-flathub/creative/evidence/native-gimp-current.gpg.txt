@@ -1,0 +1,19 @@
+commit 2ce192597264e754c155884f9f308db1e3c42df225f202df246846319e3c4e05
+Parent:  b1acd452acc9f3436e3cf520390c66c8a2f02ade9f879f14dfd55c402684f03e
+ContentChecksum:  626b1193e782fcc5c188522839f31663f21ac8b65a5bbe1333f02b72693be999
+Date:  2026-11-24 20:59:56 +0000
+
+    openexr: Update v3.5.4.tar.gz to 3.5.5 (#790) (6a5c21eabec0)
+
+    Name: org.gimp.GIMP
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 24 21:14:00 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

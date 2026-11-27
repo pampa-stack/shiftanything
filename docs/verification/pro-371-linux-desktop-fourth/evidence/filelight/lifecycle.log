@@ -1,0 +1,56 @@
+
+=== 2026-11-27T09:27:16+00:00 filelight install ===
+filelight before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+filelight JobFinished: Ok("Flathub app installed")
+filelight after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-filelight-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+7ee5aad91b179f1a7ee4171f1cf40e1eef54f5bc46065ce6e938e8f42c49e334  /var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-filelight-icon.png
+org.kde.filelight/x86_64/stable	flathub	b0344bab1ac7	user	26.08.3
+TIMING filelight install 38090 ms
+
+=== 2026-11-27T09:27:54+00:00 filelight prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.kde.filelight/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.filelight/x86_64/stable	flathub	939300f48e84	user	26.08.2
+filelight before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e", package: Some("org.kde.filelight"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.2"), update_available: false, can_remove: false, can_open: true }
+filelight JobFinished: Err("Approved action rejected: native installation state changed")
+filelight JobFinished: Err("This Flatpak is managed outside the launcher")
+filelight after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e", package: Some("org.kde.filelight"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.2"), update_available: false, can_remove: false, can_open: true })
+TIMING filelight prior 4631 ms
+
+=== 2026-11-27T09:27:59+00:00 filelight open ===
+dbus-daemon[2477050]: [session uid=1000 pid=2477050 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2477098 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2477050]: [session uid=1000 pid=2477050 pidfd=5] Successfully activated service 'org.a11y.Bus'
+filelight before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.2"), update_available: true, can_remove: true, can_open: true }
+filelight JobFinished: Ok("Launch request accepted")
+filelight after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.2"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2477132]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2477555 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2477132]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING filelight open-previous 5116 ms
+TIMING filelight open 6126 ms
+
+=== 2026-11-27T09:28:05+00:00 filelight update-remove ===
+filelight before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.2"), update_available: true, can_remove: true, can_open: true }
+filelight JobFinished: Ok("Flathub app updated")
+filelight after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+TIMING filelight update 4223 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/.var/app/org.kde.filelight/shift-profile-marker: OK
+dbus-daemon[2478587]: [session uid=1000 pid=2478587 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2478631 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2478587]: [session uid=1000 pid=2478587 pidfd=5] Successfully activated service 'org.a11y.Bus'
+filelight before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+filelight JobFinished: Ok("Launch request accepted")
+filelight after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2478662]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2479310 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2478662]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING filelight open-current 4411 ms
+filelight before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/data/flatpak/app/org.kde.filelight/x86_64/stable/b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e", package: Some("org.kde.filelight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+filelight JobFinished: Ok("Flathub app removed")
+filelight after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING filelight remove 3320 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/filelight/home/.var/app/org.kde.filelight/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING filelight update-remove 12897 ms

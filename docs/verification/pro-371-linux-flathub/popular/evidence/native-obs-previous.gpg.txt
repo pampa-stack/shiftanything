@@ -1,0 +1,19 @@
+commit 1e330b0905f47f5f32725844404da917f008a0d3b9fa6ebf30813860d718a0d6
+Parent:  28b32b8f9e50b4fc6564266312cce8af79d22b72a2f39ba1556c7cbb516563ec
+ContentChecksum:  f7054e5c4a20691500cbc788efd3b21b6dabee14bacce97f4a32d06774a5a76a
+Date:  2026-11-20 17:14:51 +0000
+
+    Built from 3047d4a4fd5cc32767338a6dd218ada532f51043
+
+    Name: com.obsproject.Studio
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 20 17:18:16 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

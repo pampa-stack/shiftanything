@@ -1,0 +1,19 @@
+commit 205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19
+Parent:  0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77
+ContentChecksum:  da0667a4f9b51986d2ff99fdb13b0d3fac4ea18ab6ab4a6fae25269f67addbac
+Date:  2026-10-28 06:34:30 +0000
+
+    Update certifi to 2026.10.19 (#219) (812e31333cb4)
+
+    Name: org.gnome.World.PikaBackup
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 28 07:05:51 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

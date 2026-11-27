@@ -1,0 +1,8 @@
+PROOF_ROOT=/tmp/shift-tauri-management-it
+DESKTOP_PID=25297
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+Native catalog requested
+APPROVED ui-1 InstallExpected { apps: ["handy"], installed: true }
+NATIVE handy: completed: Handy updated to 0.10.2
+Error: "Desktop proof failed"

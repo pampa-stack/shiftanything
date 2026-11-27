@@ -1,0 +1,19 @@
+commit 272abe012b6d2f2c1a1d8ecc623fcd67c7cd7530e5edc452f5a8bac881d4c029
+Parent:  b1fc34accc861c296d08863b01c65d9c32816bdf1d08414ee157de565e56199d
+ContentChecksum:  39d76a03aaaecb77857b1229cc39ec96bfe835360859b0869a5c9f3239424581
+Date:  2026-11-07 05:22:09 +0000
+
+    Merge pull request #741 from flathub/update-master-9f538bd (9569b113fef6)
+
+    Name: org.kde.kdenlive
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov  7 06:00:45 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

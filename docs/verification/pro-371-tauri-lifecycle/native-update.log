@@ -1,0 +1,9 @@
+PROOF_ROOT=/tmp/shift-tauri-update-20261127
+PREPARED official Handy 0.10.1; native digest, signature and version checks passed
+DESKTOP_PID=95518
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+APPROVED 5724e1f3-2ef4-4ff4-8fb1-b5239e5829e5 InstallExpected { apps: ["handy"], installed: true }
+NATIVE handy: completed: Handy updated to 0.10.2
+APPROVED 964a5794-5405-464c-99a6-b02f49ce897e Uninstall { app: "handy" }
+NATIVE handy: completed: Handy was removed

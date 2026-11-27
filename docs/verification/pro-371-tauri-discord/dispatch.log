@@ -1,0 +1,2 @@
+PASS it: six footer URLs dispatch to closed native IDs; unknown and non-footer links rejected
+PASS en: six footer URLs dispatch to closed native IDs; unknown and non-footer links rejected

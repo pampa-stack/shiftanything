@@ -1,0 +1,46 @@
+App=shiftanything-tauri-proof (pid 44592)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 40 of 1200 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) COLLEGA AGENTE · MCP
+				9 button (disabled) Impostazioni
+			10 toggle button CATALOGO, Value: 1
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button (disabled) SH*FTER, Value: 0
+			14 toggle button (disabled) TROVA APP, Value: 0
+			15 toggle button (disabled) KIT DI LAVORO, Value: 0
+			16 search text field (settable) Cerca app, categoria o alternativa…
+				17 text Cerca app, categoria o alternativa…
+			18 toggle button Vista schede, Value: 1
+			19 toggle button Vista tabella, Value: 0
+			20 button AGGIORNAMENTI
+			21 container Categorie
+				22 toggle button Tutte le app 336, Value: 1
+				23 summary Lavoro e documenti, Value: 0
+				24 summary Creatività, Value: 0
+				25 summary AI e sviluppo, Value: 0
+				26 summary Sistema e infrastruttura, Value: 0
+				27 summary Impresa, Value: 0
+				28 summary Tecnica e apprendimento, Value: 0
+			29 container
+				30 heading Tutte le app336 app
+				31 toggle button TUTTE, Value: 1
+				32 toggle button BASE, Value: 0
+				33 toggle button AVANZATE, Value: 0
+				34 container
+					35 text Autore / provider
+					36 pop up button Autore / provider, Value: Tutti gli autori
+				37 container
+					38 text Categorie
+					39 pop up button Categorie, Value: Tutte le categorie
+
+No UI element is currently focused.

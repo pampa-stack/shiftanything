@@ -1,0 +1,194 @@
+App=shiftanything-tauri-proof-final (pid 79659)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof-final.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button CONNECT AGENT · MCP
+				9 button Settings
+			10 toggle button CATALOG, Value: 0
+			11 toggle button FAVORITES, Value: 0
+			12 toggle button MY APPS, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button FIND APPS, Value: 0
+			15 toggle button WORKFLOW KITS, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Find open-source alternatives for the features you use.
+					1204 container
+						1205 text PAID SOFTWARE
+						1206 combo box (settable) PAID SOFTWARE, Value: Adobe Photoshop, Placeholder: Search, e.g. Photoshop
+						1207 button Software list A–Z
+						1208 button COMPARE
+				1209 container Features you use
+					1210 container
+						1211 heading Features you use
+						1347 text 4 / 4
+					1348 container
+						1349 checkbox Layers and masks, Value: 1
+						1350 text Layers and masks
+					1351 toggle button Essential · Layers and masks, Value: 0
+					1352 container
+						1353 checkbox Non-destructive adjustments, Value: 1
+						1354 text Non-destructive adjustments
+					1355 toggle button Essential · Non-destructive adjustments, Value: 0
+					1356 container
+						1357 checkbox Open and save layered PSD, Value: 1
+						1358 text Open and save layered PSD
+					1359 toggle button Essential · Open and save layered PSD, Value: 0
+					1360 container
+						1361 checkbox Built-in Generative Fill, Value: 1
+						1362 text Built-in Generative Fill
+					1363 toggle button Essential · Built-in Generative Fill, Value: 1
+				1229 container Catalog comparison
+					1230 container
+						1231 heading Catalog comparison
+						1364 text Adobe Photoshop
+					1233 search text field (settable) Search apps in comparison
+						1234 text Search apps in comparison
+					1365 text 528 APPS IN COMPARISON
+					1236 container App result pages
+						1237 button (disabled) PREVIOUS
+						1366 text 1–12 OF 528
+						1239 button NEXT
+					1240 table
+						1241 row APP DOCUMENTED COVERAGE ESSENTIALS SOURCES / APP DETAILS
+							1242 cell APP
+								1243 text APP
+							1244 cell DOCUMENTED COVERAGE
+								1245 text DOCUMENTED COVERAGE
+							1367 cell ESSENTIALS
+								1368 text ESSENTIALS
+							1246 cell SOURCES / APP DETAILS
+								1247 text SOURCES / APP DETAILS
+						1369 row Krita 75% 3/4 1 feature to cover
+							1370 cell Krita
+								1371 text Krita
+							1372 cell 75% 3/4
+								1373 text 75%
+								1374 text 3/4
+							1375 cell 1 feature to cover, Description: Built-in Generative Fill
+								1376 text 1 feature to cover
+							1377 cell
+								1378 button Sources · Krita
+								1379 button App details · Krita
+						1380 row PhotoCraft 75% 3/4 1 feature to cover
+							1381 cell PhotoCraft
+								1382 text PhotoCraft
+							1383 cell 75% 3/4
+								1384 text 75%
+								1385 text 3/4
+							1386 cell 1 feature to cover, Description: Built-in Generative Fill
+								1387 text 1 feature to cover
+							1388 cell
+								1389 button Sources · PhotoCraft
+								1390 button App details · PhotoCraft
+						1391 row GIMP 50% 2/4 1 feature to cover
+							1392 cell GIMP
+								1393 text GIMP
+							1394 cell 50% 2/4
+								1395 text 50%
+								1396 text 2/4
+							1397 cell 1 feature to cover, Description: Built-in Generative Fill
+								1398 text 1 feature to cover
+							1399 cell
+								1400 button Sources · GIMP
+								1401 button App details · GIMP
+						1402 row PhotoDemon 25% 1/4 —
+							1403 cell PhotoDemon
+								1404 text PhotoDemon
+							1405 cell 25% 1/4
+								1406 text 25%
+								1407 text 1/4
+							1408 cell —, Description: Built-in Generative Fill
+								1409 text —
+							1410 cell
+								1411 button Sources · PhotoDemon
+								1412 button App details · PhotoDemon
+						1413 row Drawpile 0% 0/4 —
+							1414 cell Drawpile
+								1415 text Drawpile
+							1416 cell 0% 0/4
+								1417 text 0%
+								1418 text 0/4
+							1419 cell —, Description: Built-in Generative Fill
+								1420 text —
+							1421 cell
+								1422 button Sources · Drawpile
+								1423 button App details · Drawpile
+						1424 row Pinta 0% 0/4 —
+							1425 cell Pinta
+								1426 text Pinta
+							1427 cell 0% 0/4
+								1428 text 0%
+								1429 text 0/4
+							1430 cell —, Description: Built-in Generative Fill
+								1431 text —
+							1432 cell
+								1433 button Sources · Pinta
+								1434 button App details · Pinta
+						1435 row AbiWord —
+							1436 cell AbiWord
+								1437 text AbiWord
+							1438 cell —
+								1439 text —
+							1440 cell —, Description: Built-in Generative Fill
+								1441 text —
+							1442 cell
+								1443 button App details · AbiWord
+						1444 row Ackee —
+							1445 cell Ackee
+								1446 text Ackee
+							1447 cell —
+								1448 text —
+							1449 cell —, Description: Built-in Generative Fill
+								1450 text —
+							1451 cell
+								1452 button App details · Ackee
+						1453 row ActivityWatch —
+							1454 cell ActivityWatch
+								1455 text ActivityWatch
+							1456 cell —
+								1457 text —
+							1458 cell —, Description: Built-in Generative Fill
+								1459 text —
+							1460 cell
+								1461 button App details · ActivityWatch
+						1462 row Actual Budget —
+							1463 cell Actual Budget
+								1464 text Actual Budget
+							1465 cell —
+								1466 text —
+							1467 cell —, Description: Built-in Generative Fill
+								1468 text —
+							1469 cell
+								1470 button App details · Actual Budget
+						1471 row addy.io —
+							1472 cell addy.io
+								1473 text addy.io
+							1474 cell —
+								1475 text —
+							1476 cell —, Description: Built-in Generative Fill
+								1477 text —
+							1478 cell
+								1479 button App details · addy.io
+						1480 row AdGuard Home —
+							1481 cell AdGuard Home
+								1482 text AdGuard Home
+							1483 cell —
+								1484 text —
+							1485 cell —, Description: Built-in Generative Fill
+								1486 text —
+							1487 cell
+								1488 button App details · AdGuard Home
+					1489 text 528 apps in comparison · 1–12 of 528
+					1345 container, Text: Coverage counts selected features with full support. Sources checked on 2026-11-27 . Coverage appears when there are sources for the selected features.
+			1346 container, Text: READ-ONLY PROOF · RUST 528 · MACOS/ARM64 · 41 DETECTED STATES Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

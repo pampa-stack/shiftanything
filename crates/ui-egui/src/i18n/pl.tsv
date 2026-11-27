@@ -472,6 +472,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Copy JSON	Kopiuj JSON
 	Copy for VS Code	Kopiuj dla VS Code
 	Copy for Codex (TOML)	Kopiuj dla Codex (TOML)
+	Copy for OpenCode	Kopiuj dla OpenCode
 	Configuration copied.	Skopiowano konfigurację.
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} wczytuje serwery MCP tylko przy uruchomieniu, więc aplikacje Craft pojawią się po ponownym uruchomieniu. Ponowne uruchomienie zamyka {client}, także odpowiedź, którą właśnie pisze.
 	Restart {client}	Uruchom ponownie {client}
@@ -563,3 +564,139 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Go back	Go back
 	{app} {version} isn't published any more, so it couldn't be put back if going back fails.	{app} {version} isn't published any more, so it couldn't be put back if going back fails.
 	Going back to an older version of {app} isn't available for this kind of install yet.	Going back to an older version of {app} isn't available for this kind of install yet.
+
+# Sh*ftAnything catalog (English fallback).
+	Agent control	Agent control
+	Alternative to	Alternative to
+	Basic	Basic
+	Catalog	Catalog
+	Category	Category
+	GitHub stars	GitHub stars
+	Managed installation not available	Managed installation not available
+	My apps	My apps
+	Publisher	Publisher
+	Reset filters	Reset filters
+	Search	Search
+	Quit Sh*ftAnything	Quit Sh*ftAnything
+	Show Sh*ftAnything	Show Sh*ftAnything
+	All apps	All apps
+
+@plural	Sh*ftAnything · {n} update available|Sh*ftAnything · {n} updates available	Sh*ftAnything · {n} dostępna aktualizacja|Sh*ftAnything · {n} dostępne aktualizacje|Sh*ftAnything · {n} dostępnych aktualizacji
+	Agent request	Agent request
+	Approve this action in the launcher	Approve this action in the launcher
+	Reject	Reject
+	Approve	Approve
+	Connect agent	Connect agent
+	Search the catalog and request app actions. Approve each action in this launcher.	Search the catalog and request app actions. Approve each action in this launcher.
+	Requires uv. Copy this configuration into your MCP client, then keep the launcher open.	Requires uv. Copy this configuration into your MCP client, then keep the launcher open.
+	Copy configuration	Copy configuration
+	Preview unavailable	Preview unavailable
+	Media source	Media source
+	Manage app	Manage app
+	Featured	Featured
+	Setup unavailable	Setup unavailable
+	Check connection	Check connection
+	Documentation	Documentation
+	Agent contacted this launcher in the last minute	Agent contacted this launcher in the last minute
+	No recent agent call. Ask your client to call get_inventory.	No recent agent call. Ask your client to call get_inventory.
+	Examples	Examples
+	Copy examples	Copy examples
+	Request history	Request history
+	No requests in this session	No requests in this session
+
+	Desktop app	Desktop app
+
+	Last update	Last update
+
+	Download size	Download size
+
+	Source code	Source code
+
+	Self-hosted	Self-hosted
+
+	Contact	Contact
+
+	Popularity	Popularity
+
+	MCP available	MCP available
+
+	CLI control	CLI control
+
+	API control	API control
+
+	Control unverified	Control unverified
+
+	License	License
+
+	Start Sh*ftAnything when I log in	Start Sh*ftAnything when I log in
+
+	Hide Sh*ftAnything from the Dock while in the background	Hide Sh*ftAnything from the Dock while in the background
+
+	Absent	Absent
+	Add a feature	Add a feature
+	All required features confirmed	All required features confirmed
+	Choose catalog apps	Choose catalog apps
+	Choose what matters. Compare documented features.	Choose what matters. Compare documented features.
+	Compare manually	Compare manually
+	Comparison data unavailable	Comparison data unavailable
+	Complete requirements first, then documented coverage and name.	Complete requirements first, then documented coverage and name.
+	Confirmed	Confirmed
+	Coverage counts confirmed features only. Partial and unverified remain separate.	Coverage counts confirmed features only. Partial and unverified remain separate.
+	Documented coverage	Documented coverage
+	Evidence checked	Evidence checked
+	Features to compare	Features to compare
+	Manual comparison: no evidence profile. No percentage is calculated.	Manual comparison: no evidence profile. No percentage is calculated.
+	No verified evidence	No verified evidence
+	Paid software	Paid software
+	Partial	Partial
+	Required	Required
+	Required feature not confirmed	Required feature not confirmed
+	Required features	Required features
+	Select a documented profile or start a manual comparison.	Select a documented profile or start a manual comparison.
+	Select at least one feature. No percentage is calculated.	Select at least one feature. No percentage is calculated.
+	Source	Source
+	Unverified	Unverified
+
+	Manual comparison. Reuse documented features or add your own.	Manual comparison. Reuse documented features or add your own.
+	No apps selected	No apps selected
+	Remove feature	Remove feature
+	Reuse a documented feature	Reuse a documented feature
+
+	Open-source alternatives	Open-source alternatives
+	Sources / details	Sources / details
+	Workflow Kits	Workflow Kits
+	Workflow kit data unavailable	Workflow kit data unavailable
+	Choose a role and find an app for each stage.	Choose a role and find an app for each stage.
+	Ranking	Ranking
+	Review installation	Review installation
+	Selected apps	Selected apps
+	Stage	Stage
+	Open source alternatives	Open source alternatives
+	Sources checked	Sources checked
+	App unavailable in catalog	App unavailable in catalog
+	Documented features	Documented features
+	Installable	Installable
+	Select	Select
+	In progress	In progress
+	Unmanaged installation	Unmanaged installation
+	Install only these new apps using the native installer. Existing apps will not be updated.	Install only these new apps using the native installer. Existing apps will not be updated.
+	App state changed. Review your selection again.	App state changed. Review your selection again.
+	Install selected apps	Install selected apps
+	Compare in SH*FTER	Compare in SH*FTER
+	Backup and recovery	Backup and recovery
+	Accounting and invoicing	Accounting and invoicing
+	CRM and ERP	CRM and ERP
+	E-commerce	E-commerce
+	Projects and tasks	Projects and tasks
+	Notes and wikis	Notes and wikis
+	Architecture, CAD and BIM	Architecture, CAD and BIM
+	Mapping and GIS	Mapping and GIS
+	Accessibility and reading	Accessibility and reading
+	Education and science	Education and science
+	Not supported on this device	Not supported on this device
+	Recipe to integrate	Recipe to integrate
+
+
+	Favorites	Favorites
+	Add to favorites	Add to favorites
+	Remove from favorites	Remove from favorites

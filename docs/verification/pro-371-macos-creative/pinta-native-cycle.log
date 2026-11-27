@@ -1,0 +1,35 @@
+PASS OFFICIAL 3.1.1 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg 67815026 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+PASS OFFICIAL 3.1.2 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.2/Pinta-macos-arm64.dmg 68171678 daad4b3550e7d5f27928ccb9ca99392aa46a5ef71cfd54ce72c0b7a810f4f993
+PASS OFFICIAL 3.1.1 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg 67815026 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+PASS NATIVE install: Pinta installed: 3.1.1; transferred=67815026
+com.apple.cs.CodeDirectory
+com.apple.cs.CodeEntitlements
+com.apple.cs.CodeRequirements
+com.apple.cs.CodeRequirements-1
+com.apple.cs.CodeSignature
+/private/tmp/shift-pinta-scratch.oU9LCy3L/home/Applications/Pinta.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Cameron White (D5G6C56TBH)
+PASS SIGNATURE + PROFILE MARKER install 3.1.1
+PASS OFFICIAL 3.1.2 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.2/Pinta-macos-arm64.dmg 68171678 daad4b3550e7d5f27928ccb9ca99392aa46a5ef71cfd54ce72c0b7a810f4f993
+PASS NATIVE update: Pinta updated to 3.1.2; transferred=68171678
+com.apple.cs.CodeDirectory
+com.apple.cs.CodeEntitlements
+com.apple.cs.CodeRequirements
+com.apple.cs.CodeRequirements-1
+com.apple.cs.CodeSignature
+/private/tmp/shift-pinta-scratch.oU9LCy3L/home/Applications/Pinta.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Cameron White (D5G6C56TBH)
+PASS SIGNATURE + PROFILE MARKER update 3.1.2
+PASS NATIVE remove: Pinta was removed; transferred=0
+com.apple.cs.CodeDirectory
+com.apple.cs.CodeEntitlements
+com.apple.cs.CodeRequirements
+com.apple.cs.CodeRequirements-1
+com.apple.cs.CodeSignature
+/private/tmp/shift-pinta-scratch.oU9LCy3L/home/.Trash/Pinta.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Cameron White (D5G6C56TBH)
+PASS SIGNATURE + PROFILE MARKER remove 3.1.2
+CLEANUP /private/tmp/shift-pinta-scratch.oU9LCy3L exit=0

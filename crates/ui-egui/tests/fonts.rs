@@ -1,4 +1,4 @@
-//! The Fonts page: Craft Font Manager beside the apps in the toolbar's page toggle, and its
+//! Historical Fonts panel, retained without a desktop navigation entry, and its
 //! download switch, preview settings and sources in Settings. The page runs against the bundled Google Fonts
 //! index, a font folder made per test (the launcher's own Inter, Archivo and Geist Mono, and
 //! egui's Ubuntu Light, as installed fonts) and a fake font store.
@@ -117,6 +117,7 @@ fn launcher(name: &str, language: &str, runner: Runner) -> (Harness<'static, Opt
                     let mut s = settings.clone();
                     s.theme = artcraft_launcher_ui_egui::theme::ThemeChoice::Dark;
                     let mut launcher = LauncherUi::new(ui.ctx(), Box::new(Quiet), s);
+                    launcher.set_page(Page::Apps);
                     if let Some(options) = options.take() {
                         launcher.use_font_options(options);
                     }
@@ -143,7 +144,8 @@ fn click(h: &mut Harness<'_, Option<LauncherUi>>, label: &str) {
 
 fn fonts_page(h: &mut Harness<'_, Option<LauncherUi>>) {
     settle(h);
-    h.get_by_role_and_label(Role::Button, "Fonts").click();
+    assert!(h.query_by_role_and_label(Role::Button, "Fonts").is_none());
+    h.state_mut().as_mut().unwrap().set_page(Page::Fonts);
     settle(h);
     assert_eq!(h.state().as_ref().map(LauncherUi::page), Some(Page::Fonts));
 }
@@ -153,7 +155,7 @@ fn results(h: &Harness<'_, Option<LauncherUi>>) -> Vec<String> {
 }
 
 #[test]
-fn the_page_toggle_switches_between_apps_and_fonts() {
+fn the_historical_fonts_panel_still_works_without_a_navigation_entry() {
     let (mut h, _) = launcher("page-toggle", "en", Runner::Inline);
     assert_eq!(h.state().as_ref().map(LauncherUi::page), Some(Page::Apps));
     assert!(h.state().as_ref().and_then(|l| l.fonts_panel()).is_none(), "the panel is built when the page first shows");
@@ -173,7 +175,7 @@ fn the_page_toggle_switches_between_apps_and_fonts() {
     settle(&mut h);
     assert_eq!(results(&h), ["Noto Sans JP"]);
 
-    h.get_by_role_and_label(Role::Button, "Apps").click();
+    h.get_by_role_and_label(Role::Button, "My apps").click();
     settle(&mut h);
     assert_eq!(h.state().as_ref().map(LauncherUi::page), Some(Page::Apps));
     assert!(h.query_by_label("Show apps as cards").is_some());
@@ -318,7 +320,7 @@ fn screenshots() {
         store.release();
     };
     shot("apps", "en", &|h, _| {
-        h.get_by_role_and_label(Role::Button, "Apps").click();
+        h.get_by_role_and_label(Role::Button, "My apps").click();
         settle(h);
     });
     shot("fonts-downloads-off", "en", &|_, _| {});

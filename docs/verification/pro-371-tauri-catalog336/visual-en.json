@@ -1,0 +1,5749 @@
+{
+  "language": "en",
+  "viewport": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 900.0
+  },
+  "header": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "toolbar": {
+    "x": 0.0,
+    "y": 46.0,
+    "width": 1440.0,
+    "height": 46.0
+  },
+  "rail": {
+    "x": 0.0,
+    "y": 92.0,
+    "width": 214.0,
+    "height": 782.0
+  },
+  "navigation": [
+    "CATALOG",
+    "FAVORITES",
+    "MY APPS",
+    "SH*FTER",
+    "FIND APPS",
+    "WORK KITS"
+  ],
+  "cards": [
+    {
+      "id": "photocraft",
+      "rect": {
+        "x": 215.0,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "handy",
+      "rect": {
+        "x": 623.328125,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "meetily",
+      "rect": {
+        "x": 1031.65625,
+        "y": 212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "rizzo-pii",
+      "rect": {
+        "x": 215.0,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "normcap",
+      "rect": {
+        "x": 623.328125,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "libreoffice",
+      "rect": {
+        "x": 1031.65625,
+        "y": 612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "joplin",
+      "rect": {
+        "x": 215.0,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "drawio",
+      "rect": {
+        "x": 623.328125,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "orca",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "craft-anything",
+      "rect": {
+        "x": 215.0,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "t3code",
+      "rect": {
+        "x": 623.328125,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "kdenlive",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": true,
+      "preview_loaded": true
+    },
+    {
+      "id": "soundcraft",
+      "rect": {
+        "x": 215.0,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "doop",
+      "rect": {
+        "x": 623.328125,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "solidcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 1812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 1900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openmausbot",
+      "rect": {
+        "x": 215.0,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wazuh",
+      "rect": {
+        "x": 623.328125,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "uptime",
+      "rect": {
+        "x": 1031.65625,
+        "y": 2212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 2300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ghidra",
+      "rect": {
+        "x": 215.0,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vectorcraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "filmcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 2612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 2700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "lightcraft",
+      "rect": {
+        "x": 215.0,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pdfcraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "effectcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "anicraft",
+      "rect": {
+        "x": 215.0,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "designcraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "figcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wordcraft",
+      "rect": {
+        "x": 215.0,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "deckcraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cadcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 3812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 3900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gridcraft",
+      "rect": {
+        "x": 215.0,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "texturecraft",
+      "rect": {
+        "x": 623.328125,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mailcraft",
+      "rect": {
+        "x": 1031.65625,
+        "y": 4212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 4300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "paseo",
+      "rect": {
+        "x": 215.0,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "opencode",
+      "rect": {
+        "x": 623.328125,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cutter",
+      "rect": {
+        "x": 1031.65625,
+        "y": 4612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 4700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gimp",
+      "rect": {
+        "x": 215.0,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "krita",
+      "rect": {
+        "x": 623.328125,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "blender",
+      "rect": {
+        "x": 1031.65625,
+        "y": 5012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 5100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "inks",
+      "rect": {
+        "x": 215.0,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "obs",
+      "rect": {
+        "x": 623.328125,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "audacity",
+      "rect": {
+        "x": 1031.65625,
+        "y": 5412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 5500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vlc",
+      "rect": {
+        "x": 215.0,
+        "y": 5812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 5900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "free",
+      "rect": {
+        "x": 623.328125,
+        "y": 5812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 5900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "calibre",
+      "rect": {
+        "x": 1031.65625,
+        "y": 5812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 5900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "keepassxc",
+      "rect": {
+        "x": 215.0,
+        "y": 6212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 6300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "firefox",
+      "rect": {
+        "x": 623.328125,
+        "y": 6212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 6300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "fractal",
+      "rect": {
+        "x": 1031.65625,
+        "y": 6212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 6300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "tokodon",
+      "rect": {
+        "x": 215.0,
+        "y": 6612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 6700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "element",
+      "rect": {
+        "x": 623.328125,
+        "y": 6612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 6700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "jitsi-meet",
+      "rect": {
+        "x": 1031.65625,
+        "y": 6612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 6700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "evolution",
+      "rect": {
+        "x": 215.0,
+        "y": 7012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 7100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "geary",
+      "rect": {
+        "x": 623.328125,
+        "y": 7012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 7100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-contacts",
+      "rect": {
+        "x": 1031.65625,
+        "y": 7012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 7100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kontact",
+      "rect": {
+        "x": 215.0,
+        "y": 7412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 7500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "evince",
+      "rect": {
+        "x": 623.328125,
+        "y": 7412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 7500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "okular",
+      "rect": {
+        "x": 1031.65625,
+        "y": 7412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 7500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "papers",
+      "rect": {
+        "x": 215.0,
+        "y": 7812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 7900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "xournal",
+      "rect": {
+        "x": 623.328125,
+        "y": 7812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 7900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rnote",
+      "rect": {
+        "x": 1031.65625,
+        "y": 7812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 7900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "apostrophe",
+      "rect": {
+        "x": 215.0,
+        "y": 8212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 8300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-text-editor",
+      "rect": {
+        "x": 623.328125,
+        "y": 8212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 8300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kate",
+      "rect": {
+        "x": 1031.65625,
+        "y": 8212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 8300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vscodium",
+      "rect": {
+        "x": 215.0,
+        "y": 8612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 8700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "workbench",
+      "rect": {
+        "x": 623.328125,
+        "y": 8612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 8700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "builder",
+      "rect": {
+        "x": 1031.65625,
+        "y": 8612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 8700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "bottles",
+      "rect": {
+        "x": 215.0,
+        "y": 9012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 9100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-boxes",
+      "rect": {
+        "x": 623.328125,
+        "y": 9012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 9100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "filezilla",
+      "rect": {
+        "x": 1031.65625,
+        "y": 9012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 9100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "filelight",
+      "rect": {
+        "x": 215.0,
+        "y": 9412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 9500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "flatseal",
+      "rect": {
+        "x": 623.328125,
+        "y": 9412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 9500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "warehouse",
+      "rect": {
+        "x": 1031.65625,
+        "y": 9412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 9500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "firmware",
+      "rect": {
+        "x": 215.0,
+        "y": 9812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 9900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "czkawka",
+      "rect": {
+        "x": 623.328125,
+        "y": 9812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 9900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "localsend",
+      "rect": {
+        "x": 1031.65625,
+        "y": 9812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 9900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "raspberry-pi-imager",
+      "rect": {
+        "x": 215.0,
+        "y": 10212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 10300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "yakuake",
+      "rect": {
+        "x": 623.328125,
+        "y": 10212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 10300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mission-center",
+      "rect": {
+        "x": 1031.65625,
+        "y": 10212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 10300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wireshark",
+      "rect": {
+        "x": 215.0,
+        "y": 10612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 10700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "remmina",
+      "rect": {
+        "x": 623.328125,
+        "y": 10612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 10700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "darktable",
+      "rect": {
+        "x": 1031.65625,
+        "y": 10612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 10700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rawtherapee",
+      "rect": {
+        "x": 215.0,
+        "y": 11012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 11100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "digikam",
+      "rect": {
+        "x": 623.328125,
+        "y": 11012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 11100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "shotwell",
+      "rect": {
+        "x": 1031.65625,
+        "y": 11012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 11100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "loupe",
+      "rect": {
+        "x": 215.0,
+        "y": 11412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 11500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "snapshot",
+      "rect": {
+        "x": 623.328125,
+        "y": 11412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 11500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "koko",
+      "rect": {
+        "x": 1031.65625,
+        "y": 11412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 11500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "icon-library",
+      "rect": {
+        "x": 215.0,
+        "y": 11812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 11900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "color-palette",
+      "rect": {
+        "x": 623.328125,
+        "y": 11812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 11900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "scribus",
+      "rect": {
+        "x": 1031.65625,
+        "y": 11812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 11900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "synfig-studio",
+      "rect": {
+        "x": 215.0,
+        "y": 12212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 12300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "drawing",
+      "rect": {
+        "x": 623.328125,
+        "y": 12212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 12300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "librecad",
+      "rect": {
+        "x": 1031.65625,
+        "y": 12212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 12300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openscad",
+      "rect": {
+        "x": 215.0,
+        "y": 12612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 12700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "prusaslicer",
+      "rect": {
+        "x": 623.328125,
+        "y": 12612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 12700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ultimaker-cura",
+      "rect": {
+        "x": 1031.65625,
+        "y": 12612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 12700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "godot-engine",
+      "rect": {
+        "x": 215.0,
+        "y": 13012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 13100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "lmms",
+      "rect": {
+        "x": 623.328125,
+        "y": 13012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 13100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mixxx-dj-software",
+      "rect": {
+        "x": 1031.65625,
+        "y": 13012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 13100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "handbrake",
+      "rect": {
+        "x": 215.0,
+        "y": 13412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 13500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "shotcut",
+      "rect": {
+        "x": 623.328125,
+        "y": 13412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 13500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openshot-video-editor",
+      "rect": {
+        "x": 1031.65625,
+        "y": 13412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 13500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pitivi",
+      "rect": {
+        "x": 215.0,
+        "y": 13812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 13900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "olive",
+      "rect": {
+        "x": 623.328125,
+        "y": 13812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 13900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "showtime",
+      "rect": {
+        "x": 1031.65625,
+        "y": 13812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 13900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "celluloid",
+      "rect": {
+        "x": 215.0,
+        "y": 14212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 14300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mpv",
+      "rect": {
+        "x": 623.328125,
+        "y": 14212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 14300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "flowblade",
+      "rect": {
+        "x": 1031.65625,
+        "y": 14212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 14300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-sound-recorder",
+      "rect": {
+        "x": 215.0,
+        "y": 14612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 14700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "passwords-and-keys",
+      "rect": {
+        "x": 623.328125,
+        "y": 14612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 14700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ungoogled-chromium",
+      "rect": {
+        "x": 1031.65625,
+        "y": 14612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 14700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "floorp",
+      "rect": {
+        "x": 215.0,
+        "y": 15012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 15100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "librewolf",
+      "rect": {
+        "x": 623.328125,
+        "y": 15012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 15100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "zen",
+      "rect": {
+        "x": 1031.65625,
+        "y": 15012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 15100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "musicbrainz-picard",
+      "rect": {
+        "x": 215.0,
+        "y": 15412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 15500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rhythmbox",
+      "rect": {
+        "x": 623.328125,
+        "y": 15412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 15500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "strawberry-music-player",
+      "rect": {
+        "x": 1031.65625,
+        "y": 15412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 15500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "nicotine",
+      "rect": {
+        "x": 215.0,
+        "y": 15812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 15900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "qbittorrent",
+      "rect": {
+        "x": 623.328125,
+        "y": 15812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 15900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "fragments",
+      "rect": {
+        "x": 1031.65625,
+        "y": 15812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 15900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "transmission",
+      "rect": {
+        "x": 215.0,
+        "y": 16212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 16300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "frog",
+      "rect": {
+        "x": 623.328125,
+        "y": 16212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 16300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "foliate",
+      "rect": {
+        "x": 1031.65625,
+        "y": 16212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 16300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pika-backup",
+      "rect": {
+        "x": 215.0,
+        "y": 16612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 16700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "d-j-dup-backups",
+      "rect": {
+        "x": 623.328125,
+        "y": 16612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 16700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kbackup",
+      "rect": {
+        "x": 1031.65625,
+        "y": 16612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 16700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-calculator",
+      "rect": {
+        "x": 215.0,
+        "y": 17012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 17100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-calendar",
+      "rect": {
+        "x": 623.328125,
+        "y": 17012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 17100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-maps",
+      "rect": {
+        "x": 1031.65625,
+        "y": 17012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 17100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-clocks",
+      "rect": {
+        "x": 215.0,
+        "y": 17412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 17500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ark",
+      "rect": {
+        "x": 623.328125,
+        "y": 17412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 17500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "file-roller",
+      "rect": {
+        "x": 1031.65625,
+        "y": 17412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 17500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "simple-scan",
+      "rect": {
+        "x": 215.0,
+        "y": 17812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 17900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "opentoonz",
+      "rect": {
+        "x": 623.328125,
+        "y": 17812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 17900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "neochat",
+      "rect": {
+        "x": 1031.65625,
+        "y": 17812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 17900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnu-octave",
+      "rect": {
+        "x": 215.0,
+        "y": 18212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 18300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "db-browser-for-sqlite",
+      "rect": {
+        "x": 623.328125,
+        "y": 18212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 18300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "video-trimmer",
+      "rect": {
+        "x": 1031.65625,
+        "y": 18212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 18300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "video-downloader",
+      "rect": {
+        "x": 215.0,
+        "y": 18612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 18700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "secrets",
+      "rect": {
+        "x": 623.328125,
+        "y": 18612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 18700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pixelorama",
+      "rect": {
+        "x": 1031.65625,
+        "y": 18612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 18700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pinta",
+      "rect": {
+        "x": 215.0,
+        "y": 19012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 19100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "solvespace",
+      "rect": {
+        "x": 623.328125,
+        "y": 19012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 19100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pdfarranger",
+      "rect": {
+        "x": 1031.65625,
+        "y": 19012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 19100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "musescore",
+      "rect": {
+        "x": 215.0,
+        "y": 19412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 19500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ruffle",
+      "rect": {
+        "x": 623.328125,
+        "y": 19412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 19500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "audacious",
+      "rect": {
+        "x": 1031.65625,
+        "y": 19412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 19500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "dosbox-x",
+      "rect": {
+        "x": 215.0,
+        "y": 19812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 19900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "scummvm",
+      "rect": {
+        "x": 623.328125,
+        "y": 19812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 19900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openttd",
+      "rect": {
+        "x": 1031.65625,
+        "y": 19812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 19900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openra",
+      "rect": {
+        "x": 215.0,
+        "y": 20212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 20300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnucash",
+      "rect": {
+        "x": 623.328125,
+        "y": 20212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 20300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "homebank",
+      "rect": {
+        "x": 1031.65625,
+        "y": 20212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 20300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "qgis",
+      "rect": {
+        "x": 215.0,
+        "y": 20612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 20700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "stellarium",
+      "rect": {
+        "x": 623.328125,
+        "y": 20612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 20700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wxmaxima",
+      "rect": {
+        "x": 1031.65625,
+        "y": 20612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 20700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "scilab",
+      "rect": {
+        "x": 215.0,
+        "y": 21012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 21100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "frescobaldi",
+      "rect": {
+        "x": 623.328125,
+        "y": 21012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 21100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kid3",
+      "rect": {
+        "x": 1031.65625,
+        "y": 21012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 21100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "hydrus",
+      "rect": {
+        "x": 215.0,
+        "y": 21412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 21500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gromit",
+      "rect": {
+        "x": 623.328125,
+        "y": 21412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 21500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kicad",
+      "rect": {
+        "x": 1031.65625,
+        "y": 21412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 21500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "geany",
+      "rect": {
+        "x": 215.0,
+        "y": 21812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 21900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "dolphin",
+      "rect": {
+        "x": 623.328125,
+        "y": 21812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 21900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "libresprite",
+      "rect": {
+        "x": 1031.65625,
+        "y": 21812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 21900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "dosbox-staging",
+      "rect": {
+        "x": 215.0,
+        "y": 22212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 22300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openrgb",
+      "rect": {
+        "x": 623.328125,
+        "y": 22212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 22300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "opentabletdriver",
+      "rect": {
+        "x": 1031.65625,
+        "y": 22212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 22300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "blockbench",
+      "rect": {
+        "x": 215.0,
+        "y": 22612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 22700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "bazaar",
+      "rect": {
+        "x": 623.328125,
+        "y": 22612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 22700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mesh-lab",
+      "rect": {
+        "x": 1031.65625,
+        "y": 22612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 22700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "headlamp",
+      "rect": {
+        "x": 215.0,
+        "y": 23012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 23100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "lapce",
+      "rect": {
+        "x": 623.328125,
+        "y": 23012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 23100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "notepadnext",
+      "rect": {
+        "x": 1031.65625,
+        "y": 23012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 23100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "zim",
+      "rect": {
+        "x": 215.0,
+        "y": 23412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 23500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "abiword",
+      "rect": {
+        "x": 623.328125,
+        "y": 23412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 23500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "lazpaint",
+      "rect": {
+        "x": 1031.65625,
+        "y": 23412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 23500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "freac",
+      "rect": {
+        "x": 215.0,
+        "y": 23812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 23900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "subtitlecomposer",
+      "rect": {
+        "x": 623.328125,
+        "y": 23812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 23900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "famistudio",
+      "rect": {
+        "x": 1031.65625,
+        "y": 23812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 23900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "jami",
+      "rect": {
+        "x": 215.0,
+        "y": 24212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 24300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mumble",
+      "rect": {
+        "x": 623.328125,
+        "y": 24212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 24300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "liferea",
+      "rect": {
+        "x": 1031.65625,
+        "y": 24212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 24300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "angryip",
+      "rect": {
+        "x": 215.0,
+        "y": 24612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 24700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "virt-manager",
+      "rect": {
+        "x": 623.328125,
+        "y": 24612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 24700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "seamly",
+      "rect": {
+        "x": 1031.65625,
+        "y": 24612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 24700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "goxel",
+      "rect": {
+        "x": 215.0,
+        "y": 25012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 25100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kstars",
+      "rect": {
+        "x": 623.328125,
+        "y": 25012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 25100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "jasp",
+      "rect": {
+        "x": 1031.65625,
+        "y": 25012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 25100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "qalculate",
+      "rect": {
+        "x": 215.0,
+        "y": 25412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 25500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gnome-connections",
+      "rect": {
+        "x": 623.328125,
+        "y": 25412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 25500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openutau",
+      "rect": {
+        "x": 1031.65625,
+        "y": 25412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 25500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rssguard",
+      "rect": {
+        "x": 215.0,
+        "y": 25812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 25900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kaneo",
+      "rect": {
+        "x": 623.328125,
+        "y": 25812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 25900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "plane",
+      "rect": {
+        "x": 1031.65625,
+        "y": 25812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 25900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "paperless-ngx",
+      "rect": {
+        "x": 215.0,
+        "y": 26212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 26300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "penpot",
+      "rect": {
+        "x": 623.328125,
+        "y": 26212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 26300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "appflowy",
+      "rect": {
+        "x": 1031.65625,
+        "y": 26212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 26300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "immich",
+      "rect": {
+        "x": 215.0,
+        "y": 26612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 26700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rizzo-flow",
+      "rect": {
+        "x": 623.328125,
+        "y": 26612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 26700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "onlyoffice",
+      "rect": {
+        "x": 1031.65625,
+        "y": 26612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 26700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "sharex",
+      "rect": {
+        "x": 215.0,
+        "y": 27012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 27100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "actual",
+      "rect": {
+        "x": 623.328125,
+        "y": 27012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 27100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "siyuan",
+      "rect": {
+        "x": 1031.65625,
+        "y": 27012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 27100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "saber",
+      "rect": {
+        "x": 215.0,
+        "y": 27412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 27500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "naps2",
+      "rect": {
+        "x": 623.328125,
+        "y": 27412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 27500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "losslesscut",
+      "rect": {
+        "x": 1031.65625,
+        "y": 27412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 27500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "zotero",
+      "rect": {
+        "x": 215.0,
+        "y": 27812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 27900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "logseq",
+      "rect": {
+        "x": 623.328125,
+        "y": 27812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 27900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "trilium",
+      "rect": {
+        "x": 1031.65625,
+        "y": 27812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 27900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "super-productivity",
+      "rect": {
+        "x": 215.0,
+        "y": 28212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 28300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "zettlr",
+      "rect": {
+        "x": 623.328125,
+        "y": 28212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 28300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cherrytree",
+      "rect": {
+        "x": 1031.65625,
+        "y": 28212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 28300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "qownnotes",
+      "rect": {
+        "x": 215.0,
+        "y": 28612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 28700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pdf4qt",
+      "rect": {
+        "x": 623.328125,
+        "y": 28612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 28700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "sumatrapdf",
+      "rect": {
+        "x": 1031.65625,
+        "y": 28612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 28700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pdfsam-basic",
+      "rect": {
+        "x": 215.0,
+        "y": 29012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 29100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openboard",
+      "rect": {
+        "x": 623.328125,
+        "y": 29012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 29100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "anki",
+      "rect": {
+        "x": 1031.65625,
+        "y": 29012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 29100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "sigil",
+      "rect": {
+        "x": 215.0,
+        "y": 29412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 29500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "rapidraw",
+      "rect": {
+        "x": 623.328125,
+        "y": 29412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 29500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "upscayl",
+      "rect": {
+        "x": 1031.65625,
+        "y": 29412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 29500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "nomacs",
+      "rect": {
+        "x": 215.0,
+        "y": 29812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 29900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "qview",
+      "rect": {
+        "x": 623.328125,
+        "y": 29812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 29900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "iina",
+      "rect": {
+        "x": 1031.65625,
+        "y": 29812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 29900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "screentogif",
+      "rect": {
+        "x": 215.0,
+        "y": 30212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 30300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "natron",
+      "rect": {
+        "x": 623.328125,
+        "y": 30212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 30300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "hydrogen",
+      "rect": {
+        "x": 1031.65625,
+        "y": 30212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 30300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "furnace",
+      "rect": {
+        "x": 215.0,
+        "y": 30612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 30700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "tenacity",
+      "rect": {
+        "x": 623.328125,
+        "y": 30612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 30700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "glaxnimate",
+      "rect": {
+        "x": 1031.65625,
+        "y": 30612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 30700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "leocad",
+      "rect": {
+        "x": 215.0,
+        "y": 31012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 31100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "librepcb",
+      "rect": {
+        "x": 623.328125,
+        "y": 31012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 31100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "peazip",
+      "rect": {
+        "x": 1031.65625,
+        "y": 31012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 31100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "copyq",
+      "rect": {
+        "x": 215.0,
+        "y": 31412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 31500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kando",
+      "rect": {
+        "x": 623.328125,
+        "y": 31412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 31500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "activitywatch",
+      "rect": {
+        "x": 1031.65625,
+        "y": 31412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 31500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "jan",
+      "rect": {
+        "x": 215.0,
+        "y": 31812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 31900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cherry-studio",
+      "rect": {
+        "x": 623.328125,
+        "y": 31812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 31900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "alpaca",
+      "rect": {
+        "x": 1031.65625,
+        "y": 31812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 31900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "anythingllm",
+      "rect": {
+        "x": 215.0,
+        "y": 32212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 32300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "osaurus",
+      "rect": {
+        "x": 623.328125,
+        "y": 32212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 32300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ollama",
+      "rect": {
+        "x": 1031.65625,
+        "y": 32212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 32300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "librechat",
+      "rect": {
+        "x": 215.0,
+        "y": 32612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 32700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "docsgpt",
+      "rect": {
+        "x": 623.328125,
+        "y": 32612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 32700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "aionui",
+      "rect": {
+        "x": 1031.65625,
+        "y": 32612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 32700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "nimbalyst",
+      "rect": {
+        "x": 215.0,
+        "y": 33012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 33100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cloudcli",
+      "rect": {
+        "x": 623.328125,
+        "y": 33012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 33100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vibe-kanban",
+      "rect": {
+        "x": 1031.65625,
+        "y": 33012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 33100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "neovide",
+      "rect": {
+        "x": 215.0,
+        "y": 33412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 33500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "bruno",
+      "rect": {
+        "x": 623.328125,
+        "y": 33412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 33500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "dbeaver-ce",
+      "rect": {
+        "x": 1031.65625,
+        "y": 33412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 33500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "zed",
+      "rect": {
+        "x": 215.0,
+        "y": 33812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 33900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "sioyek",
+      "rect": {
+        "x": 623.328125,
+        "y": 33812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 33900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gpt4all",
+      "rect": {
+        "x": 1031.65625,
+        "y": 33812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 33900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "docmost",
+      "rect": {
+        "x": 215.0,
+        "y": 34212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 34300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "leantime",
+      "rect": {
+        "x": 623.328125,
+        "y": 34212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 34300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openproject",
+      "rect": {
+        "x": 1031.65625,
+        "y": 34212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 34300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kopia",
+      "rect": {
+        "x": 215.0,
+        "y": 34612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 34700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vorta",
+      "rect": {
+        "x": 623.328125,
+        "y": 34612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 34700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "timeshift",
+      "rect": {
+        "x": 1031.65625,
+        "y": 34612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 34700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "back-in-time",
+      "rect": {
+        "x": 215.0,
+        "y": 35012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 35100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "invoiceshelf",
+      "rect": {
+        "x": 623.328125,
+        "y": 35012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 35100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "invoiceplane",
+      "rect": {
+        "x": 1031.65625,
+        "y": 35012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 35100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "firefly-iii",
+      "rect": {
+        "x": 215.0,
+        "y": 35412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 35500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "money-manager-ex",
+      "rect": {
+        "x": 623.328125,
+        "y": 35412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 35500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "erpnext",
+      "rect": {
+        "x": 1031.65625,
+        "y": 35412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 35500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "dolibarr",
+      "rect": {
+        "x": 215.0,
+        "y": 35812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 35900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "espocrm",
+      "rect": {
+        "x": 623.328125,
+        "y": 35812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 35900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "frappe-crm",
+      "rect": {
+        "x": 1031.65625,
+        "y": 35812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 35900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "krayin",
+      "rect": {
+        "x": 215.0,
+        "y": 36212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 36300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "prestashop",
+      "rect": {
+        "x": 623.328125,
+        "y": 36212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 36300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "woocommerce",
+      "rect": {
+        "x": 1031.65625,
+        "y": 36212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 36300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "bagisto",
+      "rect": {
+        "x": 215.0,
+        "y": 36612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 36700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ganttproject",
+      "rect": {
+        "x": 623.328125,
+        "y": 36612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 36700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kanboard",
+      "rect": {
+        "x": 1031.65625,
+        "y": 36612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 36700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wekan",
+      "rect": {
+        "x": 215.0,
+        "y": 37012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 37100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vikunja",
+      "rect": {
+        "x": 623.328125,
+        "y": 37012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 37100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "wiki-js",
+      "rect": {
+        "x": 1031.65625,
+        "y": 37012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 37100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "silverbullet",
+      "rect": {
+        "x": 215.0,
+        "y": 37412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 37500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "sweethome3d",
+      "rect": {
+        "x": 623.328125,
+        "y": 37412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 37500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "cloudcompare",
+      "rect": {
+        "x": 1031.65625,
+        "y": 37412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 37500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "grass-gis",
+      "rect": {
+        "x": 215.0,
+        "y": 37812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 37900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openorienteering-mapper",
+      "rect": {
+        "x": 623.328125,
+        "y": 37812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 37900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "webodm",
+      "rect": {
+        "x": 1031.65625,
+        "y": 37812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 37900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "nvda",
+      "rect": {
+        "x": 215.0,
+        "y": 38212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 38300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "keycastr",
+      "rect": {
+        "x": 623.328125,
+        "y": 38212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 38300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "input-remapper",
+      "rect": {
+        "x": 1031.65625,
+        "y": 38212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 38300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "speech-note",
+      "rect": {
+        "x": 215.0,
+        "y": 38612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 38700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "readest",
+      "rect": {
+        "x": 623.328125,
+        "y": 38612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 38700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "celestia",
+      "rect": {
+        "x": 1031.65625,
+        "y": 38612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 38700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gcompris",
+      "rect": {
+        "x": 215.0,
+        "y": 39012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 39100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "labplot",
+      "rect": {
+        "x": 623.328125,
+        "y": 39012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 39100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "jamovi",
+      "rect": {
+        "x": 1031.65625,
+        "y": 39012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 39100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "tux-paint",
+      "rect": {
+        "x": 215.0,
+        "y": 39412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 39500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "hermes-agent",
+      "rect": {
+        "x": 623.328125,
+        "y": 39412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 39500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openclaw",
+      "rect": {
+        "x": 1031.65625,
+        "y": 39412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 39500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "voice-studio",
+      "rect": {
+        "x": 215.0,
+        "y": 39812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 39900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "recordly",
+      "rect": {
+        "x": 623.328125,
+        "y": 39812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 39900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openscreen",
+      "rect": {
+        "x": 1031.65625,
+        "y": 39812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 39900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "vibe-transcribe",
+      "rect": {
+        "x": 215.0,
+        "y": 40212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 40300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openwhispr",
+      "rect": {
+        "x": 623.328125,
+        "y": 40212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 40300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "kooha",
+      "rect": {
+        "x": 1031.65625,
+        "y": 40212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 40300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "easyeffects",
+      "rect": {
+        "x": 215.0,
+        "y": 40612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 40700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "umi-ocr",
+      "rect": {
+        "x": 623.328125,
+        "y": 40612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 40700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "esearch",
+      "rect": {
+        "x": 1031.65625,
+        "y": 40612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 40700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openrefine",
+      "rect": {
+        "x": 215.0,
+        "y": 41012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 41100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "memos",
+      "rect": {
+        "x": 623.328125,
+        "y": 41012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 41100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ezbookkeeping",
+      "rect": {
+        "x": 1031.65625,
+        "y": 41012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 41100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "gatus",
+      "rect": {
+        "x": 215.0,
+        "y": 41412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 41500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "everywhere",
+      "rect": {
+        "x": 623.328125,
+        "y": 41412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 41500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "live-captions",
+      "rect": {
+        "x": 1031.65625,
+        "y": 41412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 41500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "text-grab",
+      "rect": {
+        "x": 215.0,
+        "y": 41812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 41900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "pensieve",
+      "rect": {
+        "x": 623.328125,
+        "y": 41812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 41900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "deepchat",
+      "rect": {
+        "x": 1031.65625,
+        "y": 41812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 41900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "airi",
+      "rect": {
+        "x": 215.0,
+        "y": 42212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 42300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "subtitle-edit",
+      "rect": {
+        "x": 623.328125,
+        "y": 42212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 42300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "chainner",
+      "rect": {
+        "x": 1031.65625,
+        "y": 42212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 42300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ghost-downloader-3",
+      "rect": {
+        "x": 215.0,
+        "y": 42612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 42700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "mister-download-manager",
+      "rect": {
+        "x": 623.328125,
+        "y": 42612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 42700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "clash-verge-rev",
+      "rect": {
+        "x": 1031.65625,
+        "y": 42612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 42700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "filee",
+      "rect": {
+        "x": 215.0,
+        "y": 43012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 43100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "libretranslate",
+      "rect": {
+        "x": 623.328125,
+        "y": 43012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 43100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "ebook2audiobook",
+      "rect": {
+        "x": 1031.65625,
+        "y": 43012.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 43100.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "videolingo",
+      "rect": {
+        "x": 215.0,
+        "y": 43412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 43500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "karakeep",
+      "rect": {
+        "x": 623.328125,
+        "y": 43412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 43500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "open-notebook",
+      "rect": {
+        "x": 1031.65625,
+        "y": 43412.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 43500.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "deeptutor",
+      "rect": {
+        "x": 215.0,
+        "y": 43812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 43900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "openmaic",
+      "rect": {
+        "x": 623.328125,
+        "y": 43812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 43900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "weknora",
+      "rect": {
+        "x": 1031.65625,
+        "y": 43812.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 43900.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "odysseus",
+      "rect": {
+        "x": 215.0,
+        "y": 44212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 44300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "magpie",
+      "rect": {
+        "x": 623.328125,
+        "y": 44212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 44300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "comfyui",
+      "rect": {
+        "x": 1031.65625,
+        "y": 44212.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 44300.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "invoke-community",
+      "rect": {
+        "x": 215.0,
+        "y": 44612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 230.0,
+        "y": 44700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "hyperframes",
+      "rect": {
+        "x": 623.328125,
+        "y": 44612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 638.328125,
+        "y": 44700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    },
+    {
+      "id": "backrest",
+      "rect": {
+        "x": 1031.65625,
+        "y": 44612.0,
+        "width": 408.328125,
+        "height": 400.0
+      },
+      "preview": {
+        "x": 1046.65625,
+        "y": 44700.0,
+        "width": 377.328125,
+        "height": 134.0
+      },
+      "logo_loaded": false,
+      "preview_loaded": false
+    }
+  ]
+}

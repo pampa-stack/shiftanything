@@ -1,0 +1,19 @@
+/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.83.0/dosbox-staging-macOS-v0.83.0.dmg: OK
+atteso   CRC32 $2545407C
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_APFS
+/dev/disk9          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk9s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-mac-dosbox-cli.SMkPYyvC
+/private/tmp/shift-mac-dosbox-cli.SMkPYyvC/DOSBox Staging.app: valid on disk
+/private/tmp/shift-mac-dosbox-cli.SMkPYyvC/DOSBox Staging.app: satisfies its Designated Requirement
+exit=0
+dosbox-staging, version 0.83.0 (7b400)
+
+Copyright (C) 2020-2026 The DOSBox Staging Team
+License: GNU GPL-2.0-or-later <https://www.gnu.org/licenses/gpl-2.0.html>
+
+This is free software, and you are welcome to change and redistribute it under
+certain conditions; please read the COPYING file thoroughly before doing so.
+There is NO WARRANTY, to the extent permitted by law.
+PASS isolated direct --version
+"disk8" ejected.

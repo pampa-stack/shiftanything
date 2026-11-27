@@ -1,0 +1,156 @@
+App=shiftanything-tauri-proof (pid 42527)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 150 of 167 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 0
+			1200 container SH*FTER
+				1201 container
+					1202 heading SH*FTER
+					1203 text Trova alternative open source per le funzioni che usi.
+					1204 container
+						1205 text SOFTWARE A PAGAMENTO
+						1206 combo box (settable) SOFTWARE A PAGAMENTO, Value: Loom, Placeholder: Cerca, es. Photoshop
+						1207 button Elenco software A–Z
+						1208 button CONFRONTA
+				1209 container Funzioni che usi
+					1210 container
+						1211 heading Funzioni che usi
+						1411 text 6 / 6
+					1412 container
+						1413 checkbox Registrare schermo e voce, Value: 1
+						1414 text Registrare schermo e voce
+					1415 toggle button Indispensabile · Registrare schermo e voce, Value: 0
+					1416 container
+						1417 checkbox Mostrare anche la webcam, Value: 1
+						1418 text Mostrare anche la webcam
+					1419 toggle button Indispensabile · Mostrare anche la webcam, Value: 0
+					1420 container
+						1421 checkbox Tagliare parti del video, Value: 1
+						1422 text Tagliare parti del video
+					1423 toggle button Indispensabile · Tagliare parti del video, Value: 0
+					1424 container
+						1425 checkbox Generare sottotitoli automatici, Value: 1
+						1426 text Generare sottotitoli automatici
+					1427 toggle button Indispensabile · Generare sottotitoli automatici, Value: 0
+					1428 container
+						1429 checkbox Salvare un file MP4, Value: 1
+						1430 text Salvare un file MP4
+					1431 toggle button Indispensabile · Salvare un file MP4, Value: 0
+					1432 container
+						1433 checkbox Condividere un link di riproduzione, Value: 1
+						1434 text Condividere un link di riproduzione
+					1435 toggle button Indispensabile · Condividere un link di riproduzione, Value: 0
+				1229 container Confronto con il catalogo
+					1230 container
+						1231 heading Confronto con il catalogo
+						1436 text Loom
+					1233 search text field (settable) Cerca app nel confronto
+						1234 text Cerca app nel confronto
+					1437 text 531 APP NEL CONFRONTO
+					1236 container Pagine delle app
+						1237 button (disabled) PRECEDENTE
+						1438 text 1–12 DI 531
+						1239 button SUCCESSIVA
+					1240 table
+						1241 row APPLICAZIONE COPERTURA DOCUMENTATA FONTI / SCHEDA
+							1242 cell APPLICAZIONE
+								1243 text APPLICAZIONE
+							1244 cell COPERTURA DOCUMENTATA
+								1245 text COPERTURA DOCUMENTATA
+							1246 cell FONTI / SCHEDA
+								1247 text FONTI / SCHEDA
+						1439 row OpenScreen 83% 5/6
+							1440 cell OpenScreen
+								1441 text OpenScreen
+							1442 cell 83% 5/6
+								1443 text 83%
+								1444 text 5/6
+							1445 cell
+								1446 button Fonti · OpenScreen
+								1447 button Scheda · OpenScreen
+						1448 row Recordly 67% 4/6
+							1449 cell Recordly
+								1450 text Recordly
+							1451 cell 67% 4/6
+								1452 text 67%
+								1453 text 4/6
+							1454 cell
+								1455 button Fonti · Recordly
+								1456 button Scheda · Recordly
+						1457 row OBS Studio 50% 3/6
+							1458 cell OBS Studio
+								1459 text OBS Studio
+							1460 cell 50% 3/6
+								1461 text 50%
+								1462 text 3/6
+							1463 cell
+								1464 button Fonti · OBS Studio
+								1465 button Scheda · OBS Studio
+						1466 row Kooha 33% 2/6
+							1467 cell Kooha
+								1468 text Kooha
+							1469 cell 33% 2/6
+								1470 text 33%
+								1471 text 2/6
+							1472 cell
+								1473 button Fonti · Kooha
+								1474 button Scheda · Kooha
+						1475 row AbiWord —
+							1476 cell AbiWord
+								1477 text AbiWord
+							1478 cell —
+								1479 text —
+							1480 cell
+								1481 button Scheda · AbiWord
+						1482 row Ackee —
+							1483 cell Ackee
+								1484 text Ackee
+							1485 cell —
+								1486 text —
+							1487 cell
+								1488 button Scheda · Ackee
+						1489 row ActivityWatch —
+							1490 cell ActivityWatch
+								1491 text ActivityWatch
+							1492 cell —
+								1493 text —
+							1494 cell
+								1495 button Scheda · ActivityWatch
+						1496 row Actual Budget —
+							1497 cell Actual Budget
+								1498 text Actual Budget
+							1499 cell —
+								1500 text —
+							1501 cell
+								1502 button Scheda · Actual Budget
+						1503 row addy.io —
+							1504 cell addy.io
+								1505 text addy.io
+							1506 cell —
+								1507 text —
+							1508 cell
+								1509 button Scheda · addy.io
+						1510 row AdGuard Home —
+							1511 cell AdGuard Home
+								1512 text AdGuard Home
+							1513 cell —
+								1514 text —
+							1515 cell
+								1516 button Scheda · AdGuard Home
+
+No UI element is currently focused.

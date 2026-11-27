@@ -1,0 +1,25 @@
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436583168   1333440   100% 8155062 13334400   38%   /System/Volumes/Data
+Recipe lapce selected Lapce-macos.dmg 46084234 bytes
+Verifying after 4.931s
+Installing after 4.931s
+PASS 0.4.5 46084234 bytes
+PASS install 17.050s
+93720	/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-lapce/Apps/Lapce.app
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436662312   1254296   100% 8155082 12542960   39%   /System/Volumes/Data
+Recipe lapce selected Lapce-macos.dmg 45483653 bytes
+Verifying after 4.886s
+Installing after 4.886s
+PASS 0.4.6 45483653 bytes
+PASS update 6.766s
+92444	/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-lapce/Apps/Lapce.app
+PASS private Trash /private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-lapce/.Trash/Lapce.app
+PASS remove 0.020s
+Identifier=io.lapce
+Authority=Developer ID Application: Dongdong Zhou (CYSGAZFR8D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=CYSGAZFR8D
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436661888   1254720   100% 8155082 12547200   39%   /System/Volumes/Data

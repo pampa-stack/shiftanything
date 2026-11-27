@@ -1,0 +1,15 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1       193G  188G  4.8G  98% /
+/dev/sdb        196G  177G  9.8G  95% /mnt/dati
+warning: patch `egui_demo_lib v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_inspection v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+warning: patch `egui_system_font_provider v0.37.0 (https://github.com/storytold/egui.git?rev=6d518fc799681571963842f95b55a6b68431b15a#6d518fc7)` was not used in the crate graph
+help: Check that the patched package version and available features are compatible
+      with the dependency requirements. If the patch has a different version from
+      what is locked in the Cargo.lock file, run `cargo update` to use the new
+      version. This may also occur with an optional dependency that is not enabled.
+   Compiling artcraft-launcher-core v0.20.3 (/mnt/dati/lavori/shiftanything/shift-flatpak-desktop.toahZ1W2/crates/core)
+   Compiling artcraft-launcher-native v0.20.3 (/mnt/dati/lavori/shiftanything/shift-flatpak-desktop.toahZ1W2/crates/native)
+   Compiling artcraft-launcher-ui-egui v0.20.3 (/mnt/dati/lavori/shiftanything/shift-flatpak-desktop.toahZ1W2/crates/ui-egui)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 2m 16s
+a72e8bea76591352cbeba2b0c87e12bad5fc88e790207cc0e152875a1274880f  /mnt/dati/lavori/shiftanything/shift-flatpak-desktop.toahZ1W2/native-cycle

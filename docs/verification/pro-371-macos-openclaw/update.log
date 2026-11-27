@@ -1,0 +1,5 @@
+PASS PREFLIGHT openclaw v2026.11.10
+PHASE openclaw update /private/tmp/shift-mac-ranked.avdZtp8L/profile-openclaw.Rb6cR9xX
+CACHE OpenClaw-2026.11.10-arm64.dmg from official download. NativeBackend rechecks SHA-256
+PASS OFFICIAL v2026.11.10 Dmg https://github.com/openclaw/openclaw/releases/download/v2026.11.10/OpenClaw-2026.11.10-arm64.dmg 248813181 e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a
+PASS NATIVE openclaw update: OpenClaw updated to 2026.11.10; package_bytes=248813181; elapsed=49.251s

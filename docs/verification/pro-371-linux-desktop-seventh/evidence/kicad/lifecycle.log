@@ -1,0 +1,73 @@
+
+=== 2026-11-27T10:01:44+00:00 kicad install ===
+kicad before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+kicad JobFinished: Ok("Flathub app installed")
+kicad after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 8 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.8"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-kicad-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+375a4486619c52f8d710d5ad33b2c4f53a9bc102e31aa9cdaf7e37beb2ce08cb  /var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-kicad-icon.png
+org.kicad.KiCad/x86_64/stable	flathub	d59131f226fe	user	10.0.8
+TIMING kicad install 103614 ms
+
+=== 2026-11-27T10:03:28+00:00 kicad prior ===
+=== kicad native recovery after validating the exact signed GNOME SDK 51 runtime ===
+Previous runtime org.gnome.Sdk/x86_64/51
+Updating app/org.kicad.KiCad/x86_64/stable
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kicad.KiCad/x86_64/stable	flathub	256130c735cc	user	10.0.7
+kicad before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db", package: Some("org.kicad.KiCad"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.7"), update_available: false, can_remove: false, can_open: true }
+kicad JobFinished: Err("Approved action rejected: native installation state changed")
+kicad JobFinished: Err("This Flatpak is managed outside the launcher")
+kicad after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db", package: Some("org.kicad.KiCad"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.7"), update_available: false, can_remove: false, can_open: true })
+TIMING kicad prior 14339 ms
+dbus-daemon[2613936]: [session uid=1000 pid=2613936 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2613986 comm="/usr/bin/xfwm4 --compositor=off --display=:737" label="unconfined")
+dbus-daemon[2613936]: [session uid=1000 pid=2613936 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2614000]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2613986 comm="/usr/bin/xfwm4 --compositor=off --display=:737" label="unconfined")
+dbus-daemon[2613936]: [session uid=1000 pid=2613936 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2613986 comm="/usr/bin/xfwm4 --compositor=off --display=:737" label="unconfined")
+dbus-daemon[2614000]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2613936]: [session uid=1000 pid=2613936 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+kicad before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.7"), update_available: true, can_remove: true, can_open: true }
+kicad JobFinished: Ok("Launch request accepted")
+kicad after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.7"), update_available: true, can_remove: true, can_open: true })
+TIMING kicad open-previous 11336 ms
+
+(xfconfd:2614010): xfconfd-WARNING **: 10:04:51.938: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING kicad open 16820 ms
+kicad before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.7"), update_available: true, can_remove: true, can_open: true }
+kicad JobFinished: Ok("Flathub app updated")
+kicad after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 8 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.8"), update_available: false, can_remove: true, can_open: true })
+TIMING kicad update 13036 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/.var/app/org.kicad.KiCad/shift-profile-marker: OK
+dbus-daemon[2616225]: [session uid=1000 pid=2616225 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2616248 comm="/usr/bin/xfwm4 --compositor=off --display=:526" label="unconfined")
+dbus-daemon[2616225]: [session uid=1000 pid=2616225 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2616262]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2616248 comm="/usr/bin/xfwm4 --compositor=off --display=:526" label="unconfined")
+dbus-daemon[2616225]: [session uid=1000 pid=2616225 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2616248 comm="/usr/bin/xfwm4 --compositor=off --display=:526" label="unconfined")
+dbus-daemon[2616262]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2616225]: [session uid=1000 pid=2616225 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+kicad before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 8 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.8"), update_available: false, can_remove: true, can_open: true }
+kicad JobFinished: Ok("Launch request accepted")
+kicad after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 8 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.8"), update_available: false, can_remove: true, can_open: true })
+TIMING kicad open-current 11994 ms
+
+(xfconfd:2616269): xfconfd-WARNING **: 10:05:24.025: Name org.xfce.Xfconf lost on the message dbus, exiting.
+kicad before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 10, minor: 0, patch: 8 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/data/flatpak/app/org.kicad.KiCad/x86_64/stable/d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5", package: Some("org.kicad.KiCad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("10.0.8"), update_available: false, can_remove: true, can_open: true }
+kicad JobFinished: Ok("Flathub app removed")
+kicad after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING kicad remove 5975 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/kicad/home/.var/app/org.kicad.KiCad/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING kicad update-remove 38609 ms

@@ -1,0 +1,61 @@
+
+=== 2026-11-27T09:41:56+00:00 apostrophe install ===
+apostrophe before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+apostrophe JobFinished: Ok("Flathub app installed")
+apostrophe after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-apostrophe-icon.svg: SVG Scalable Vector Graphics image, ASCII text
+8ff195e7284c00f7ffd3b920939e04a07e84cd90728840e55c456b936d95dac7  /var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-apostrophe-icon.svg
+org.gnome.gitlab.somas.Apostrophe/x86_64/stable	flathub	eebf714c8880	user	3.5
+TIMING apostrophe install 38400 ms
+
+=== 2026-11-27T09:42:34+00:00 apostrophe prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Previous runtime org.gnome.Platform/x86_64/49
+Updating app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.gitlab.somas.Apostrophe/x86_64/stable	flathub	522ff389b5bf	user	3.4
+apostrophe before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.4"), update_available: false, can_remove: false, can_open: true }
+apostrophe JobFinished: Err("Approved action rejected: native installation state changed")
+apostrophe JobFinished: Err("This Flatpak is managed outside the launcher")
+apostrophe after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.4"), update_available: false, can_remove: false, can_open: true })
+TIMING apostrophe prior 37430 ms
+
+=== 2026-11-27T09:43:12+00:00 apostrophe open ===
+dbus-daemon[2530284]: [session uid=1000 pid=2530284 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2530313 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2530284]: [session uid=1000 pid=2530284 pidfd=5] Successfully activated service 'org.a11y.Bus'
+apostrophe before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.4"), update_available: true, can_remove: true, can_open: true }
+apostrophe JobFinished: Ok("Launch request accepted")
+apostrophe after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.4"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2530328]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2530712 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2530328]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING apostrophe open-previous 6116 ms
+TIMING apostrophe open 7417 ms
+
+=== 2026-11-27T09:43:19+00:00 apostrophe update-remove ===
+apostrophe before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.4"), update_available: true, can_remove: true, can_open: true }
+apostrophe JobFinished: Ok("Flathub app updated")
+apostrophe after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5"), update_available: false, can_remove: true, can_open: true })
+TIMING apostrophe update 9541 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/.var/app/org.gnome.gitlab.somas.Apostrophe/shift-profile-marker: OK
+dbus-daemon[2531533]: [session uid=1000 pid=2531533 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2531578 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2531533]: [session uid=1000 pid=2531533 pidfd=5] Successfully activated service 'org.a11y.Bus'
+apostrophe before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5"), update_available: false, can_remove: true, can_open: true }
+apostrophe JobFinished: Ok("Launch request accepted")
+apostrophe after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2531610]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2531983 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2531610]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING apostrophe open-current 7384 ms
+apostrophe before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/data/flatpak/app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable/eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a", package: Some("org.gnome.gitlab.somas.Apostrophe"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5"), update_available: false, can_remove: true, can_open: true }
+apostrophe JobFinished: Ok("Flathub app removed")
+apostrophe after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING apostrophe remove 5124 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/apostrophe/home/.var/app/org.gnome.gitlab.somas.Apostrophe/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING apostrophe update-remove 23873 ms

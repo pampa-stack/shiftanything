@@ -1,0 +1,19 @@
+commit ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e
+Parent:  ec52db50b07416424f463896d06602af4c7f39fb5bf735864f549f8966c5a618
+ContentChecksum:  8fb2192a2798e2bd45abc96027fa7125c48f9bdc25e8756433515e0d03037c64
+Date:  2026-07-31 03:20:42 +0000
+
+    Correct yaml for x-checker-data and fix URL for glaxnimate (b25cfdf54eec)
+
+    Name: org.kde.glaxnimate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Jul 31 04:02:20 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

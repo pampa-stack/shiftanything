@@ -1,0 +1,64 @@
+
+=== 2026-11-27T10:09:43+00:00 trilium install ===
+trilium before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+trilium JobFinished: Ok("Flathub app installed")
+trilium after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 107, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.107.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-trilium-icon.png: PNG image data, 128 x 128, 8-bit colormap, non-interlaced
+d4e0637b4cda8f0b2e04ffda48db4c5bb97ae763c01c98c29ea621e22ee3d844  /var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-trilium-icon.png
+org.triliumnotes.Trilium/x86_64/stable	flathub	3072536765c2	user	0.107.0
+TIMING trilium install 40341 ms
+
+=== 2026-11-27T10:10:24+00:00 trilium prior ===
+Previous runtime org.freedesktop.Platform/x86_64/25.08
+Updating app/org.triliumnotes.Trilium/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.triliumnotes.Trilium/x86_64/stable	flathub	cfdea575049f	user	0.106.0
+trilium before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 106, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c", package: Some("org.triliumnotes.Trilium"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.106.0"), update_available: false, can_remove: false, can_open: true }
+trilium JobFinished: Err("Approved action rejected: native installation state changed")
+trilium JobFinished: Err("This Flatpak is managed outside the launcher")
+trilium after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 106, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c", package: Some("org.triliumnotes.Trilium"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.106.0"), update_available: false, can_remove: false, can_open: true })
+TIMING trilium prior 24493 ms
+
+=== 2026-11-27T10:10:48+00:00 trilium open ===
+dbus-daemon[2643734]: [session uid=1000 pid=2643734 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2643786 comm="/usr/bin/xfwm4 --compositor=off --display=:535" label="unconfined")
+dbus-daemon[2643734]: [session uid=1000 pid=2643734 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2643804]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2643786 comm="/usr/bin/xfwm4 --compositor=off --display=:535" label="unconfined")
+dbus-daemon[2643734]: [session uid=1000 pid=2643734 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2643786 comm="/usr/bin/xfwm4 --compositor=off --display=:535" label="unconfined")
+dbus-daemon[2643734]: [session uid=1000 pid=2643734 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2643804]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+trilium before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 106, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.106.0"), update_available: true, can_remove: true, can_open: true }
+trilium JobFinished: Ok("Launch request accepted")
+trilium after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 106, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.106.0"), update_available: true, can_remove: true, can_open: true })
+TIMING trilium open-previous 17105 ms
+
+(xfconfd:2643813): xfconfd-WARNING **: 10:11:10.317: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING trilium open 21535 ms
+
+=== 2026-11-27T10:11:10+00:00 trilium update-remove ===
+trilium before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 106, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.106.0"), update_available: true, can_remove: true, can_open: true }
+trilium JobFinished: Ok("Flathub app updated")
+trilium after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 107, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.107.0"), update_available: false, can_remove: true, can_open: true })
+TIMING trilium update 10741 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/.var/app/org.triliumnotes.Trilium/shift-profile-marker: OK
+dbus-daemon[2646403]: [session uid=1000 pid=2646403 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2646426 comm="/usr/bin/xfwm4 --compositor=off --display=:704" label="unconfined")
+dbus-daemon[2646403]: [session uid=1000 pid=2646403 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2646440]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2646426 comm="/usr/bin/xfwm4 --compositor=off --display=:704" label="unconfined")
+dbus-daemon[2646403]: [session uid=1000 pid=2646403 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2646426 comm="/usr/bin/xfwm4 --compositor=off --display=:704" label="unconfined")
+dbus-daemon[2646440]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2646403]: [session uid=1000 pid=2646403 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+trilium before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 107, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.107.0"), update_available: false, can_remove: true, can_open: true }
+trilium JobFinished: Ok("Launch request accepted")
+trilium after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 107, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.107.0"), update_available: false, can_remove: true, can_open: true })
+TIMING trilium open-current 16334 ms
+
+(xfconfd:2646447): xfconfd-WARNING **: 10:11:43.510: Name org.xfce.Xfconf lost on the message dbus, exiting.
+trilium before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 107, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/data/flatpak/app/org.triliumnotes.Trilium/x86_64/stable/3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2", package: Some("org.triliumnotes.Trilium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.107.0"), update_available: false, can_remove: true, can_open: true }
+trilium JobFinished: Ok("Flathub app removed")
+trilium after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING trilium remove 4322 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/trilium/home/.var/app/org.triliumnotes.Trilium/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING trilium update-remove 37612 ms

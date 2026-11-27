@@ -1,0 +1,19 @@
+commit 391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194
+Parent:  b10cb69c14b530a70e8e367ab7b8f84531b228090d421ac3e74e11e114cae5e6
+ContentChecksum:  66088b8ee03b03fa1ec07b758f3b2180c7715475cf40036229c4d96d01536fa1
+Date:  2026-07-03 09:24:54 +0000
+
+    Update markdownpart and konsole modules (e9d2b04732bf)
+
+    Name: org.kde.kate
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Jul  3 10:03:40 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,295 @@
+[
+  {
+    "id": "db-browser-for-sqlite",
+    "name": "DB Browser for SQLite",
+    "repo": "https://github.com/sqlitebrowser/sqlitebrowser",
+    "license": "MPL-2.0 and GPL-3.0+",
+    "stars": 24835,
+    "flatpak": "org.sqlitebrowser.sqlitebrowser",
+    "flathub": "https://flathub.org/apps/org.sqlitebrowser.sqlitebrowser",
+    "download_size": 9785924,
+    "logo": "https://dl.flathub.org/media/org/sqlitebrowser/sqlitebrowser/f936f43dea69ed8f0e3eeb8e936ac8d4/icons/128x128/org.sqlitebrowser.sqlitebrowser.png",
+    "metadata_urls": {
+      "bugtracker": "https://github.com/sqlitebrowser/sqlitebrowser/issues",
+      "homepage": "https://sqlitebrowser.org/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "3.13.1",
+      "3.13.0"
+    ],
+    "current": "0ab811662bd9a64e32f82648425a1d2e797e747fcb83be28c29addf62b5de4ae",
+    "prev": "56cf9737dbc30b9154a082f4e51a13d03126e2926aa30fea4ad7fb3a87511c9d",
+    "title": "db browser|sqlitebrowser",
+    "previous_version": "3.13.1",
+    "current_version": "3.13.1",
+    "times_ms": {
+      "install": 42525,
+      "prior": 5748,
+      "open-previous": 6156,
+      "open": 8087,
+      "update": 5230,
+      "open-current": 5916,
+      "remove": 3183,
+      "update-remove": 18684
+    },
+    "cycle_ms": 75223
+  },
+  {
+    "id": "showtime",
+    "name": "Showtime",
+    "repo": "https://gitlab.gnome.org/GNOME/showtime",
+    "license": "GPL-3.0-or-later",
+    "stars": null,
+    "flatpak": "org.gnome.Showtime",
+    "flathub": "https://flathub.org/apps/org.gnome.Showtime",
+    "download_size": 4312264,
+    "logo": "https://dl.flathub.org/media/org/gnome/Showtime/132475895d8f5ddd9b4725da0d1774b7/icons/128x128/org.gnome.Showtime.png",
+    "metadata_urls": {
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/showtime",
+      "translate": "https://l10n.gnome.org/module/showtime/",
+      "contribute": "https://welcome.gnome.org/app/Showtime/",
+      "bugtracker": "https://gitlab.gnome.org/GNOME/showtime/-/work_items",
+      "homepage": "https://apps.gnome.org/Showtime/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "50.1.1",
+      "50.0"
+    ],
+    "current": "58989bd5eaea18f0a811e019f65064cee5b9a5fd57c4e82fd62523eb28f48c14",
+    "prev": "4e606152a4522fbf1f367edadeb0f803e735029295103f1441f6153349d507bc",
+    "title": "video player|showtime",
+    "previous_version": "50.0",
+    "current_version": "50.1.1",
+    "times_ms": {
+      "install": 37615,
+      "prior": 4663,
+      "open-previous": 7069,
+      "open": 9585,
+      "update": 5413,
+      "open-current": 5699,
+      "remove": 3747,
+      "update-remove": 18677
+    },
+    "cycle_ms": 70681
+  },
+  {
+    "id": "ruffle",
+    "name": "Ruffle",
+    "repo": "https://github.com/ruffle-rs/ruffle",
+    "license": "MIT OR Apache-2.0",
+    "stars": 18958,
+    "flatpak": "rs.ruffle.Ruffle",
+    "flathub": "https://flathub.org/apps/rs.ruffle.Ruffle",
+    "download_size": 14285935,
+    "logo": "https://dl.flathub.org/media/rs/ruffle/Ruffle/f323dfdf0f32570b0b2f5e2e7abd601e/icons/128x128/rs.ruffle.Ruffle.png",
+    "metadata_urls": {
+      "translate": "https://crowdin.com/project/ruffle",
+      "faq": "https://github.com/ruffle-rs/ruffle/wiki/Frequently-Asked-Questions-For-Users",
+      "contact": "https://discord.gg/ruffle",
+      "vcs_browser": "https://github.com/ruffle-rs/ruffle",
+      "contribute": "https://github.com/ruffle-rs/ruffle/blob/master/CONTRIBUTING.md",
+      "bugtracker": "https://github.com/ruffle-rs/ruffle/issues",
+      "homepage": "https://ruffle.rs",
+      "donation": "https://opencollective.com/ruffle"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "0.8.0",
+      "0.7.1"
+    ],
+    "current": "8699385915a1755c17ca2f30417c60ae9c3169e0fef931ac76c0fbabba15df51",
+    "prev": "a8d37129b1e8c6fce7913f5bca80dfcf4ae58eed2d533e9908dddaa1db59b499",
+    "title": "ruffle",
+    "previous_version": "0.8.0",
+    "current_version": "0.8.0",
+    "times_ms": {
+      "install": 40578,
+      "prior": 5909,
+      "open-previous": 10916,
+      "open": 12720,
+      "update": 4772,
+      "open-current": 10634,
+      "remove": 3724,
+      "update-remove": 23185
+    },
+    "cycle_ms": 82529
+  },
+  {
+    "id": "tux-paint",
+    "name": "Tux Paint",
+    "repo": "https://sourceforge.net/p/tuxpaint/tuxpaint/ci/master/tree",
+    "license": "GPL-2.0+",
+    "stars": null,
+    "flatpak": "org.tuxpaint.Tuxpaint",
+    "flathub": "https://flathub.org/apps/org.tuxpaint.Tuxpaint",
+    "download_size": 133917463,
+    "logo": "https://dl.flathub.org/media/org/tuxpaint/Tuxpaint/a47b8e7203892f5e1adb3ec2933797b6/icons/128x128/org.tuxpaint.Tuxpaint.png",
+    "metadata_urls": {
+      "help": "https://tuxpaint.org/docs/",
+      "homepage": "https://tuxpaint.org/",
+      "translate": "https://tuxpaint.org/help/po/",
+      "faq": "https://tuxpaint.org/docs/en/html/FAQ.html",
+      "contact": "https://tuxpaint.org/contact/",
+      "bugtracker": "https://sourceforge.net/p/tuxpaint/_list/tickets"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "0.9.35",
+      "0.9.34"
+    ],
+    "current": "84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571",
+    "prev": "c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c",
+    "title": "tux paint|tuxpaint",
+    "previous_version": "0.9.35",
+    "current_version": "0.9.35",
+    "times_ms": {
+      "install": 42478,
+      "prior": 42511,
+      "open-previous": 10912,
+      "open": 15300,
+      "update": 7158,
+      "open-current": 10966,
+      "remove": 5533
+    },
+    "cycle_ms": 250377
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "repo": "https://invent.kde.org/system/dolphin",
+    "license": "GPL-2.0-or-later",
+    "stars": null,
+    "flatpak": "org.kde.dolphin",
+    "flathub": "https://flathub.org/apps/org.kde.dolphin",
+    "download_size": 51562832,
+    "logo": "https://dl.flathub.org/media/org/kde/dolphin.desktop/a5ae5061105c9afb5f00757d39f07d3c/icons/128x128/org.kde.dolphin.desktop.png",
+    "metadata_urls": {
+      "homepage": "https://apps.kde.org/dolphin",
+      "help": "https://docs.kde.org/?application=dolphin",
+      "donation": "https://www.kde.org/community/donations/?app=dolphin&source=appdata",
+      "contribute": "https://invent.kde.org/system/dolphin/-/blob/master/README.md",
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=dolphin"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "26.08.3",
+      "26.08.2"
+    ],
+    "current": "ea8c4005fabd629392cdf6872d64f2283998f218924d37998403b8f8657cdf2b",
+    "prev": "b305226e54014b0e8eca9cabfa7ea85c2c84d3d96f7fd36117f993e39c4d38cf",
+    "title": "dolphin",
+    "previous_version": "26.08.3",
+    "current_version": "26.08.3",
+    "times_ms": {
+      "install": 49804,
+      "prior": 5691,
+      "open-previous": 5960,
+      "open": 7567,
+      "update": 5427,
+      "open-current": 5655,
+      "remove": 4020,
+      "update-remove": 18684
+    },
+    "cycle_ms": 81939
+  },
+  {
+    "id": "synfig-studio",
+    "name": "Synfig Studio",
+    "repo": "https://github.com/synfig/synfig",
+    "license": "GPL-3.0",
+    "stars": 2479,
+    "flatpak": "org.synfig.SynfigStudio",
+    "flathub": "https://flathub.org/apps/org.synfig.SynfigStudio",
+    "download_size": 35182156,
+    "logo": "https://dl.flathub.org/media/org/synfig/SynfigStudio/04b93a93fa24d0ecfdb489070af5bcfa/icons/128x128/org.synfig.SynfigStudio.png",
+    "metadata_urls": {
+      "help": "https://wiki.synfig.org/Category:Manual",
+      "translate": "https://www.transifex.com/morevnaproject/synfig/",
+      "bugtracker": "https://github.com/synfig/synfig/issues",
+      "homepage": "https://synfig.org/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "1.5.3",
+      "1.4.5"
+    ],
+    "current": "945f078467290baafb2ae8b79445a96f0cb1b79e5f32485efe15dd0201931e4b",
+    "prev": "6d88a1781e7d3cb80533784a75e48f54f33b7e623801fd793ad636b30ee8a177",
+    "title": "synfig",
+    "previous_version": "1.5.3",
+    "current_version": "1.5.3",
+    "times_ms": {
+      "install": 37857,
+      "prior": 7348,
+      "open-previous": 8229,
+      "update": 7544,
+      "open-current": 6758,
+      "remove": 4329,
+      "update-remove": 23472
+    },
+    "cycle_ms": 205590
+  },
+  {
+    "id": "kicad",
+    "name": "KiCad",
+    "repo": "https://gitlab.com/kicad/code/kicad",
+    "license": "GPL-3.0-or-later",
+    "stars": null,
+    "flatpak": "org.kicad.KiCad",
+    "flathub": "https://flathub.org/apps/org.kicad.KiCad",
+    "download_size": 603684766,
+    "logo": "https://dl.flathub.org/media/org/kicad/KiCad/883d4a1950a8a021fd2deae742a1daa2/icons/128x128/org.kicad.KiCad.png",
+    "metadata_urls": {
+      "translate": "https://go.kicad.org/translate",
+      "vcs_browser": "https://gitlab.com/kicad/code/kicad",
+      "contribute": "https://go.kicad.org/contribute",
+      "bugtracker": "https://go.kicad.org/issue",
+      "homepage": "https://www.kicad.org/",
+      "help": "https://go.kicad.org/docs/9",
+      "donation": "https://go.kicad.org/donate"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "10.0.8"
+    ],
+    "current": "d59131f226fe88b11529c1ac55e8cbae33525e0b2e72b78d85b7c4ad3fe8b7d5",
+    "prev": "256130c735cc7f3a032c0e3bfc78e44848a768e6096390f95c82b23de9c920db",
+    "title": "kicad",
+    "previous_version": "10.0.7",
+    "current_version": "10.0.8",
+    "times_ms": {
+      "install": 103614,
+      "prior": 14339,
+      "open-previous": 11336,
+      "open": 16820,
+      "update": 13036,
+      "open-current": 11994,
+      "remove": 5975,
+      "update-remove": 38609
+    },
+    "cycle_ms": 226578
+  }
+]

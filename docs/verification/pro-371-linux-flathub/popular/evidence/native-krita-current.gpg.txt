@@ -1,0 +1,19 @@
+commit 920c060ad1d7fbfeb798485e076f4dbe04049f00e2ab3f8182a6f14eaaebd30d
+Parent:  59fe7ecf2377eee71b154bd29096704c2800f56026dcf0bbf54e0e694854d70d
+ContentChecksum:  37a26b538a15b81fa57dc5b199ccd797a905cce7f0f73cd64c0634d63ccbb799
+Date:  2026-11-25 05:44:49 +0000
+
+    python-packaging: Update packaging-26.3.tar.gz to 26.4 (#664) (12ee4d099358)
+
+    Name: org.kde.krita
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 05:55:02 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

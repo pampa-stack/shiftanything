@@ -1,0 +1,48 @@
+App=shiftanything-tauri-proof (pid 81441)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			4812 container Vedi scheda
+				4813 button CHIUDI
+				4814 heading Handy
+				4815 text CJ Pais · Voce e riunioni
+				4816 link 40,336 · Stelle GitHub · 2026-11-26
+					4817 text ★ 40.3k
+				4818 link GitHub
+					4819 text GitHub
+				4820 text Detta in locale in qualsiasi app
+				4821 toggle button Salva nei preferiti · Handy, Value: 0
+				4822 button APRI
+				4823 text Versione
+				4824 text v0.10.2
+				4825 text Ultimo aggiornamento
+				4826 text 24 nov 2026
+				4827 text Dimensione download
+				4828 container, Text: 15–15,3 MB · macOS 10,9–32,9 MB · Windows 29,9–124 MB · Linux
+				4829 image Handy
+				4830 toggle button Screenshot 1, Value: 1
+				4831 toggle button Screenshot 2, Value: 0
+				4832 text CONTROLLO CON UN AGENTE
+				4833 link CONTROLLO VIA CLI
+					4834 text CONTROLLO VIA CLI
+				4835 text ALTERNATIVA A
+				4836 text Wispr Flow
+				4837 text LICENZA
+				4838 link MIT
+					4839 text MIT
+				4840 text PIATTAFORME DOCUMENTATE
+				4841 text macOS · Windows · Linux
+				4842 link SITO UFFICIALE
+					4843 text SITO UFFICIALE
+				4844 link FONTE DELLE IMMAGINI
+					4845 text FONTE DELLE IMMAGINI
+				4846 link VERIFICA DA FONTI PUBBLICHE
+					4847 text VERIFICA DA FONTI PUBBLICHE
+				4848 button (disabled) AGGIORNA
+				4849 button RIMUOVI
+				4850 button (disabled) ANNULLA DOWNLOAD
+				4851 text 0.10.2 → 0.10.2 · completed: Handy installed: 0.10.2
+
+No UI element is currently focused.

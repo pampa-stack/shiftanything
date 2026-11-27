@@ -1,0 +1,19 @@
+commit 2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90
+Parent:  9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582
+ContentChecksum:  44f79ad39710f8284fd2d3c215d7821fe9f021ce83fa36faa7b43ee50977ef25
+Date:  2026-11-22 09:20:17 +0000
+
+    utf8cpp: Update utfcpp to 5.0.0 (430366087502)
+
+    Name: org.tenacityaudio.Tenacity
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Nov 22 10:00:41 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,13 @@
+/var/tmp/shift-flatpak-desktop.aK9ux4Y6/libreoffice/home/.var/app/org.libreoffice.LibreOffice/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.freedesktop.Platform/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.Locale/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.aK9ux4Y6/libreoffice/home/.var/app/org.libreoffice.LibreOffice/shift-profile-marker: OK
+libreoffice: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   51G   46G  53% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.8Gi       1.4Gi        77Mi       4.6Gi       5.6Gi
+Swap:          4.0Gi       2.2Gi       1.8Gi

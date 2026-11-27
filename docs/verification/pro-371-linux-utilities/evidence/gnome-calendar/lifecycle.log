@@ -1,0 +1,61 @@
+
+=== 2026-11-27T09:06:28+00:00 gnome-calendar install ===
+gnome-calendar before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnome-calendar JobFinished: Ok("Flathub app installed")
+gnome-calendar after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/evidence/native-gnome-calendar-icon.svg: SVG Scalable Vector Graphics image, ASCII text
+2d1921b39d1b00937dae3ab1f594e3dc93e2ea4e73c02fc31aaf275a87690918  /var/tmp/shift-flatpak-desktop.KoR57Rrd/evidence/native-gnome-calendar-icon.svg
+org.gnome.Calendar/x86_64/stable	flathub	54b277584941	user	51.0
+TIMING gnome-calendar install 36267 ms
+
+=== 2026-11-27T09:07:04+00:00 gnome-calendar prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnome.Calendar/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.Calendar/x86_64/stable	flathub	f2e677fbdcc9	user	50.0
+gnome-calendar before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826", package: Some("org.gnome.Calendar"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true }
+gnome-calendar JobFinished: Err("Approved action rejected: native installation state changed")
+gnome-calendar JobFinished: Err("This Flatpak is managed outside the launcher")
+gnome-calendar after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826", package: Some("org.gnome.Calendar"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true })
+TIMING gnome-calendar prior 29839 ms
+
+=== 2026-11-27T09:07:34+00:00 gnome-calendar open ===
+dbus-daemon[2433401]: [session uid=1000 pid=2433401 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2433493 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2433401]: [session uid=1000 pid=2433401 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gnome-calendar before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+gnome-calendar JobFinished: Ok("Launch request accepted")
+gnome-calendar after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2433588]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2434106 comm="xdg-dbus-proxy --args=70" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2433588]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING gnome-calendar open-previous 4765 ms
+TIMING gnome-calendar open 6329 ms
+
+=== 2026-11-27T09:07:40+00:00 gnome-calendar update-remove ===
+gnome-calendar before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/f2e677fbdcc96a412ac5b2d0054efc60c1e654079a7bd242d20b65b5ae306826", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+gnome-calendar JobFinished: Ok("Flathub app updated")
+gnome-calendar after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+TIMING gnome-calendar update 4521 ms
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/.var/app/org.gnome.Calendar/shift-profile-marker: OK
+dbus-daemon[2435253]: [session uid=1000 pid=2435253 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2435296 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2435253]: [session uid=1000 pid=2435253 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gnome-calendar before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+gnome-calendar JobFinished: Ok("Launch request accepted")
+gnome-calendar after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2435326]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2435878 comm="xdg-dbus-proxy --args=70" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2435326]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING gnome-calendar open-current 5114 ms
+gnome-calendar before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/data/flatpak/app/org.gnome.Calendar/x86_64/stable/54b27758494108a51e1747428909fe8337d21ddb923894b2ff3418b881de738a", package: Some("org.gnome.Calendar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+gnome-calendar JobFinished: Ok("Flathub app removed")
+gnome-calendar after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING gnome-calendar remove 3933 ms
+/var/tmp/shift-flatpak-desktop.KoR57Rrd/gnome-calendar/home/.var/app/org.gnome.Calendar/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING gnome-calendar update-remove 15281 ms

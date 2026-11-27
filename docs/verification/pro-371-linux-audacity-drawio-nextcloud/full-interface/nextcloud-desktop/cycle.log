@@ -1,0 +1,24 @@
+START 2026-11-27T09:44:12Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/nextcloud-releases/desktop/releases/download/v35.0.2/Nextcloud-35.0.2-x86_64.AppImage bytes=63248888 sha256=cd62e276ecc8172b3075043abeec789024355bba3d0cd9ad8b3c850e9ad0d7d8
+FILE /fixture/home/Applications/Nextcloud-35.0.2-x86_64.AppImage version=35.0.2 bytes=63248888 sha256=cd62e276ecc8172b3075043abeec789024355bba3d0cd9ad8b3c850e9ad0d7d8
+DESKTOP /fixture/home/data/applications/com.nextcloud.desktopclient.nextcloud.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/com.nextcloud.desktopclient.nextcloud.png sha256=be294d1a7cdd6d912dff05b15e83a63dde559c5bb85c4d202f2728e874718e53
+PASS nextcloud-desktop install 1979 ms Nextcloud Desktop installed: 35.0.2
+WM_CLASS = AppRun Nextcloud
+Nextcloud
+PASS nextcloud-desktop open-old 1 ms Launch request accepted
+GUI nextcloud-desktop open-old 13807 ms window=2097165
+OFFICIAL https://github.com/nextcloud-releases/desktop/releases/download/v35.0.3/Nextcloud-35.0.3-x86_64.AppImage bytes=63248888 sha256=334e83b145c991ae80ec9db9483334066d2562335e2191362824ccd10aa16e54
+FILE /fixture/home/Applications/Nextcloud-35.0.3-x86_64.AppImage version=35.0.3 bytes=63248888 sha256=334e83b145c991ae80ec9db9483334066d2562335e2191362824ccd10aa16e54
+DESKTOP /fixture/home/data/applications/com.nextcloud.desktopclient.nextcloud.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/com.nextcloud.desktopclient.nextcloud.png sha256=be294d1a7cdd6d912dff05b15e83a63dde559c5bb85c4d202f2728e874718e53
+PASS nextcloud-desktop update 7871 ms Nextcloud Desktop updated to 35.0.3
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/nextcloud-desktop-full-interface-profile/home/verification-user-data.txt: OK
+WM_CLASS = AppRun Nextcloud
+Nextcloud
+PASS nextcloud-desktop open-new 0 ms Launch request accepted
+GUI nextcloud-desktop open-new 12943 ms window=2097165
+WM_CLASS = AppRun Nextcloud
+Nextcloud
+GUI nextcloud-desktop open-menu 20332 ms window=2097165
+PASS nextcloud-desktop remove 40 ms Nextcloud Desktop was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/nextcloud-desktop-full-interface-profile/home/verification-user-data.txt: OK

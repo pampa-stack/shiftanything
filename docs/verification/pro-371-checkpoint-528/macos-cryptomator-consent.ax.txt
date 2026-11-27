@@ -1,0 +1,17 @@
+App=it.promptica.shiftanything (pid 62115)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1730 container Installa
+				1731 container
+					1732 heading Installa
+					1733 text Cryptomator · Azione nel profilo temporaneo.
+					1734 container
+						1735 checkbox Apri dopo l’installazione e mostra nel Dock, Value: 1
+						1736 text Apri dopo l’installazione e mostra nel Dock
+					1737 button Rifiuta
+					1738 button Approva
+
+No UI element is currently focused.

@@ -173,15 +173,6 @@ impl LauncherUi {
         let t = Tokens::get(ui.ctx());
         let h = HEADER_H;
         let channel_width = self.channel_navigation_width(ui);
-        let logo = vec2(14.0 * crate::icons::ARTCRAFT_LOGO_ASPECT, 14.0);
-        // The Settings gear and the announcements bell are each one h-wide cell.
-        let reserved = h
-            + h
-            + channel_width.unwrap_or(0.0)
-            + theme::PAD
-            + if bar == TitleBar::Custom { widgets::window_buttons_width() } else { 0.0 }
-            + if bar == TitleBar::MacOs { TRAFFIC_LIGHTS_W } else { 0.0 };
-        let compact_brand = channel_width.is_some() && logo.x + 40.0 + reserved > ui.available_width();
         if bar != TitleBar::Native {
             widgets::title_bar_drag(ui);
         }
@@ -190,17 +181,21 @@ impl LauncherUi {
             if bar == TitleBar::MacOs {
                 ui.add_space(TRAFFIC_LIGHTS_W);
             }
-            // The ArtCraft wordmark exactly as supplied, in its own cell.
-            let (cell, _) = ui.allocate_exact_size(vec2(if compact_brand { h } else { logo.x + 40.0 }, h), Sense::hover());
-            if compact_brand {
-                egui::Image::new(crate::icons::artcraft_mark())
-                    .alt_text(tl!("ArtCraft"))
-                    .paint_at(ui, Rect::from_center_size(cell.center(), vec2(28.0, 28.0)));
-            } else {
-                egui::Image::new(crate::icons::artcraft_logo(t.dark))
-                    .alt_text(tl!("ArtCraft"))
-                    .paint_at(ui, Rect::from_center_size(cell.center(), logo));
-            }
+            ui.add(
+                egui::Image::new(egui::include_image!("../../../assets/shiftanything/icon.png"))
+                    .alt_text("Sh*ftAnything")
+                    .fit_to_exact_size(vec2(32.0, 32.0)),
+            );
+            let brand_width =
+                (ui.available_width() - if bar == TitleBar::Custom { widgets::window_buttons_width() } else { 0.0 } - 2.0 * h).clamp(100.0, 240.0);
+            let (cell, response) = ui.allocate_exact_size(vec2(brand_width, h), Sense::hover());
+            ui.put(
+                cell,
+                egui::Label::new(
+                    RichText::new("Sh*ftAnything").font(egui::FontId::new(18.0, crate::theme::display())).strong().italics().color(t.ink_strong),
+                ),
+            );
+            response.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Label, true, "Sh*ftAnything"));
             ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                 if bar == TitleBar::Custom {
                     widgets::window_buttons(ui, h);
@@ -214,14 +209,9 @@ impl LauncherUi {
                     ui.allocate_ui_with_layout(vec2(width, h), egui::Layout::left_to_right(egui::Align::Center), |ui| self.channel_navigation(ui));
                     ui.add_space(theme::PAD / 2.0);
                 }
-                // The controls reserve their actual widths before the secondary text gets space.
-                ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
-                    if ui.available_width() >= 17.0 + widgets::hud_galley(ui, tl!("Craft App Suite"), t.muted).size().x {
-                        widgets::rule(ui, h);
-                        ui.add_space(16.0);
-                        widgets::hud(ui, tl!("Craft App Suite"), t.muted);
-                    }
-                });
+                if ui.button(tl!("Connect agent")).clicked() {
+                    self.dialog = Some(Dialog::ConnectAgent);
+                }
             });
         });
     }
@@ -321,6 +311,10 @@ impl LauncherUi {
         let mut compact = false;
         ui.horizontal(|ui| {
             self.page_toggle(ui);
+            if matches!(self.page, Page::Catalog | Page::Favorites) {
+                self.curated_toolbar(ui);
+                return;
+            }
             // The rest of the row works on the apps; the Fonts page has its own search.
             if self.page != Page::Apps {
                 return;
@@ -465,32 +459,18 @@ impl LauncherUi {
             let short = fmt(tl!("Next check at {time}"), &[("time", &time)]);
             (format!("· {full}"), format!("· {short}"))
         });
-        use artcraft_launcher_core::catalog::{GITHUB_URL, SOCIAL, WEBSITE_URL};
-        // Every link is an icon, reading Website, GitHub, Discord, then the social accounts.
-        let named =
-            |name: &'static str, label: &str, url: &'static str| widgets::IconLink { name, label: label.to_string(), tip: label.to_string(), url };
-        let mut links = vec![
-            named("Website", tl!("Website"), WEBSITE_URL),
-            named("GitHub", tl!("GitHub"), GITHUB_URL),
-            widgets::IconLink {
-                name: "Discord",
-                label: tl!("Discord").to_string(),
-                tip: tl!("Join the ArtCraft community on Discord").to_string(),
-                url: self.discord_url,
-            },
-        ];
-        links.extend(SOCIAL.iter().map(|(name, url)| widgets::IconLink {
-            name,
-            label: (*name).to_string(),
-            tip: fmt(tl!("ArtCraft on {name}"), &[("name", name)]),
-            url,
-        }));
-        let icon = 13.0;
+        let icon = 18.0;
         let spacing = ui.spacing().item_spacing.x;
         // The icons on the right keep their size; the status on the left gets what is left and
         // is cut short with "…", never drawn under them.
         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-            widgets::icon_links(ui, icon, &links);
+            ui.add(
+                egui::Image::new(egui::include_image!("../../../assets/shiftanything/promptica.png"))
+                    .fit_to_exact_size(vec2(icon, icon))
+                    .alt_text("Promptica"),
+            );
+            ui.hyperlink_to("Powered by Promptica", "https://promptica.it/");
+            widgets::promptica_social_icons(ui, icon);
             ui.add_space(8.0);
             ui.with_layout(egui::Layout::left_to_right(egui::Align::Center), |ui| {
                 // While GitHub is rate limited, saying so matters more than when we last checked.
@@ -1068,6 +1048,15 @@ impl LauncherUi {
     /// Non-hidden apps get a pin toggle; when `place.allows_reorder()` is set, a pinned app's actions
     /// start with the reorder grip (grid/table only — the details drawer has no siblings to drop onto).
     /// The table widens its column by [`Self::grip_w`] for that leading grip.
+    /// Compact catalog action; management remains available from the app details.
+    pub(crate) fn catalog_action(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus, width: f32) {
+        if entry.job.is_some() {
+            self.job_actions(ui, entry, entry.app.id, width, width);
+        } else if !self.paused_actions(ui, entry, status, width, false, false) {
+            self.primary_button(ui, entry, entry.app.id, status, width, Place::Row);
+        }
+    }
+
     pub(crate) fn actions_in(&mut self, ui: &mut Ui, entry: &AppEntry, status: &AppStatus, mut width: f32, place: Place) {
         let id = entry.app.id.to_string();
         let gap = ui.spacing().item_spacing.x;
@@ -1576,9 +1565,14 @@ enum PinDropAxis {
 
 /// The pages the toolbar's toggle offers, in order: the Craft App Suite, then Fonts (desktop only).
 fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
-    let mut pages = vec![(Page::Apps, widgets::Cell { label: tl!("Apps"), tip: tl!("Craft App Suite"), count: None })];
+    let mut pages = vec![
+        (Page::Catalog, widgets::Cell { label: tl!("Catalog"), tip: tl!("Catalog"), count: None, literal_case: false }),
+        (Page::Favorites, widgets::Cell { label: tl!("Favorites"), tip: tl!("Favorites"), count: None, literal_case: false }),
+        (Page::Apps, widgets::Cell { label: tl!("My apps"), tip: tl!("My apps"), count: None, literal_case: false }),
+    ];
     if cfg!(not(target_arch = "wasm32")) {
-        pages.push((Page::Fonts, widgets::Cell { label: tl!("Fonts"), tip: tl!("Fonts for every Craft app"), count: None }));
+        pages.push((Page::Shifter, widgets::Cell { label: "SH*FTER", tip: "SH*FTER", count: None, literal_case: true }));
+        pages.push((Page::Kits, widgets::Cell { label: tl!("Workflow Kits"), tip: tl!("Workflow Kits"), count: None, literal_case: false }));
     }
     pages
 }

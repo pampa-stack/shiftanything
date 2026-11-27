@@ -1,0 +1,54 @@
+App=it.promptica.shiftanything (pid 57850)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 0
+			14 toggle button TROVA APP, Value: 1
+			15 toggle button KIT DI LAVORO, Value: 0
+			16 search text field (disabled, settable) Cerca app, categoria o alternativa…
+				17 text Cerca app, categoria o alternativa…
+			18 toggle button (disabled) Vista schede, Value: 1
+			19 toggle button (disabled) Vista tabella, Value: 0
+			20 button AGGIORNAMENTI
+			1200 container
+				1201 heading Trova app
+				1202 text Che cosa vuoi fare?
+				1203 search text field (settable) Che cosa vuoi fare?, Value: Copia il testo che vedo sullo schermo, Placeholder: Vorrei scrivere in tutte le app dettando
+					1241 text Copia il testo che vedo sullo schermo
+					1221 button cancel
+				1205 text Sistema per app desktop
+				1206 pop up button Sistema per app desktop, Value: macOS
+				1207 button VORREI SCRIVERE IN TUTTE LE APP DETTANDO
+				1208 button VOGLIO LA TRASCRIZIONE E IL RIEPILOGO DI UNA RIUNIONE
+				1209 button COPIA IL TESTO CHE VEDO SULLO SCHERMO
+				1210 button RENDI RICERCABILE UN PDF SCANSIONATO
+				1211 button FAI UN BACKUP CIFRATO DEI MIEI FILE
+				1212 button RIPRISTINA LINUX DOPO UN AGGIORNAMENTO
+				1213 button PASSA FILE DAL TELEFONO AL COMPUTER SENZA CLOUD
+				1214 button PROGRAMMA I POST DEI SOCIAL DA UN CALENDARIO
+				1215 button VOGLIO INVIARE UNA NEWSLETTER AGLI ISCRITTI
+				1216 button RACCOGLI I CONTATTI DAL MIO SITO CON UN MODULO
+				1217 button COLLEGA I DISPOSITIVI DELL’UFFICIO IN UNA VPN PRIVATA
+				1218 button GENERA VIDEO CON AI SUL MIO COMPUTER
+				1242 text 1 risultato
+				1243 container NormCap
+					1244 heading NormCap
+					1245 text Selezioni una zona dello schermo e copi il testo riconosciuto negli appunti.
+					1246 button SCHEDA
+					1247 link Fonte
+						1248 text Fonte
+			1219 container, Text: PROFILO TEMPORANEO · RUST 528 · MACOS/ARM64 · 40 STATI RILEVATI Powered by Promptica POWERED BY PROMPTICA LinkedIn · Promptica Instagram · Promptica Reddit · Promptica X · Promptica Discord · Promptica
+
+No UI element is currently focused.

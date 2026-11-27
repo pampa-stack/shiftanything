@@ -1,0 +1,41 @@
+/* Requested adjustments to the approved Promptica template: one card height per breakpoint. */
+.bar .seg > * { text-transform:uppercase; }
+.catalog-grid .cell { height:400px; display:grid; grid-template-rows:66px 134px 19px 16px 40px 47px; gap:9px; align-content:start; }
+.card-head,.c-mid,.c-mid > div { min-width:0; }
+.card-head .c-mid > div { flex:1; }
+.c-name { overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.cell .c-tag { height:34px; min-height:34px; line-height:17px; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.cell .byline-meta { flex-wrap:nowrap; white-space:nowrap; overflow:hidden; }
+.cell .byline-meta > span:first-child { overflow:hidden; text-overflow:ellipsis; }
+.cell .c-alt { height:16px; overflow:hidden; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; }
+.cell .badges { overflow:hidden; white-space:nowrap; }
+.cell .c-acts { margin:0; align-items:start; }
+.cell .c-acts .btn { min-height:30px; }
+[data-proof-unavailable] { opacity:.5; cursor:default; }
+@media(max-width:1100px) { .catalog-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
+@media(max-width:760px) { .catalog-grid {grid-template-columns:1fr;} }
+
+.catalog-filters select { appearance:none; height:29px; box-sizing:border-box; }
+.catalog-filters .install-filter[aria-pressed="true"] { background:var(--tx); color:#090a0b; }
+
+.catalog-filters select { padding-right:25px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%23d5d7da' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 8px center; }
+
+.native-confirmation {position:fixed;inset:0;margin:auto;color:#eee;background:#17191d;border:1px solid #555;max-width:520px;padding:24px;}
+.native-confirmation::backdrop {background:#0009;}
+.native-first-open {margin-block:14px; display:flex; gap:8px; align-items:center;}
+.native-first-open[hidden] {display:none;}
+.native-decision,.native-management {display:flex;gap:12px;flex-wrap:wrap;}
+.native-confirmation button {padding:10px 24px;background:#30343b;color:#fff;border:1px solid #777;cursor:pointer;}
+.native-management {padding:0 26px 18px;}
+.native-management[hidden],.native-management [hidden] {display:none;}
+.native-result {width:100%;overflow-wrap:anywhere;}
+
+/* Management uses the approved Doop groups with live native rows and actions. */
+.body[hidden],.native-apps[hidden] {display:none;}
+.native-apps {overflow:auto;flex:1;min-height:0;}
+.native-apps .table-row {grid-template-columns:minmax(155px,1.5fr) minmax(83px,.7fr) minmax(80px,.7fr) minmax(100px,.8fr) minmax(105px,1fr) minmax(225px,1.5fr);}
+.native-apps .nm {display:flex;align-items:center;gap:12px;}
+.native-apps .nm .product-icon {width:32px;height:32px;}
+.native-apps .more-actions {align-items:center;justify-content:flex-end;flex-wrap:wrap;}
+.native-apps .more-actions .source-link {padding:5px 8px;border:1px solid var(--bd2);border-radius:3px;}
+.native-app-result {overflow-wrap:anywhere;font-size:12px;}

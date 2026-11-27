@@ -1076,6 +1076,14 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
     (name == format!("ente-{tag}.dmg")).then(|| tag.to_string())
 }
 
+/// Only the signed Windows x64 MSIs checked in the PhotoCraft package cycle are eligible.
+pub fn photocraft_windows_msi_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && asset.name.ends_with("-windows-x64.msi")
+        && reviewed_assets("storytold/photocraft", &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
@@ -1254,12 +1262,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
         }
-        ("storytold/photocraft", "v0.23.0") => {
-            &[("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d")]
-        }
-        ("storytold/photocraft", "v0.23.1") => {
-            &[("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d")]
-        }
+        ("storytold/photocraft", "v0.23.0") => &[
+            ("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d"),
+            ("photocraft-0.23.0-windows-x64.msi", 118_390_784, "eac24e0e5a675c3cb50d25752138d63c405f0fb9482163968f0553d04653c789"),
+        ],
+        ("storytold/photocraft", "v0.23.1") => &[
+            ("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d"),
+            ("photocraft-0.23.1-windows-x64.msi", 118_427_648, "de757802d8a12a41718ba24248c281d83f3bbecd64c5230f46f10c7f62070671"),
+        ],
         ("openclaw/openclaw", "v2026.11.9") => {
             &[("OpenClaw-2026.11.9-arm64.dmg", 256_294_306, "b8583ed29e820ff9482839a73744d433c0530ba54019440c7faa6ff733f4f56f")]
         }

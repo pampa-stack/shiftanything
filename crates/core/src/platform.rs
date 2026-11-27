@@ -364,6 +364,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
+    if platform.os == Os::Windows && stems.contains(&"photocraft") {
+        if !kinds.contains(&PackageKind::Msi) {
+            return None;
+        }
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::photocraft_windows_msi_asset(release, asset))
+            .map(|asset| (asset, PackageKind::Msi));
+    }
     if platform.os == Os::Linux
         && let Some(app) = crate::release::qualified_linux_appimage_recipe(stems)
             .or_else(|| [crate::curated::GHOST_DOWNLOADER, crate::curated::HANDY].iter().find(|app| stems.contains(&app.id)))
@@ -687,6 +697,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
+    if platform.os == Os::Windows && stems.contains(&"photocraft") {
+        return platform.arch == Arch::X64;
+    }
     if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
         .iter()
         .any(|id| stems.contains(id))
@@ -774,6 +787,46 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn photocraft_selects_only_the_two_reviewed_x64_msis_on_windows() {
+        use crate::release::release_from_sums;
+
+        let repo = "storytold/photocraft";
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        let select = |release: &Release, platform, kinds: &[PackageKind]| {
+            pick_asset(release, &["photocraft"], platform, kinds).map(|(asset, kind)| (asset.clone(), kind))
+        };
+        for tag in ["v0.23.0", "v0.23.1"] {
+            let mut release = release_from_sums(repo, tag, &[]);
+            let (verified, kind) = select(&release, windows, &[PackageKind::PortableZip, PackageKind::Msi]).unwrap();
+            assert_eq!(kind, PackageKind::Msi);
+            assert!(verified.name.ends_with("-windows-x64.msi"));
+            for arch in [Arch::X86, Arch::Arm64] {
+                assert!(select(&release, Platform { arch, ..windows }, &[PackageKind::Msi]).is_none());
+            }
+            assert!(select(&release, windows, &[PackageKind::PortableZip]).is_none());
+            for substituted in [
+                Asset { sha256: None, ..verified.clone() },
+                Asset { sha256: Some("a".repeat(64)), ..verified.clone() },
+                Asset { size: verified.size + 1, ..verified.clone() },
+                Asset { url: verified.url.replace(repo, "other/photocraft"), ..verified.clone() },
+                Asset { name: verified.name.replace("-x64.msi", "-x86.msi"), ..verified.clone() },
+                Asset { name: verified.name.replace("-x64.msi", "-x64-portable.zip"), ..verified.clone() },
+            ] {
+                release.assets = vec![substituted];
+                assert!(select(&release, windows, &[PackageKind::Msi, PackageKind::PortableZip]).is_none());
+            }
+            release.assets = vec![verified];
+            release.prerelease = true;
+            assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+            release.prerelease = false;
+            release.version = crate::version::parse("0.23.2");
+            assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+        }
+        let future = release_from_sums(repo, "v0.23.2", &[("a".repeat(64), "photocraft-0.23.2-windows-x64.msi".into())]);
+        assert!(select(&future, windows, &[PackageKind::Msi]).is_none());
+    }
 
     #[test]
     fn super_productivity_macos_requires_stable_tag_and_official_arm64_asset() {
@@ -1233,19 +1286,20 @@ mod tests {
         let r = release(PHOTO);
         let pick = |os, arch, kinds: &[PackageKind]| pick_asset(&r, &["photocraft"], Platform { os, arch }, kinds).map(|(a, _)| a.name.clone());
         assert_eq!(pick(Os::MacOs, Arch::Arm64, &[PackageKind::Dmg]).as_deref(), Some("photocraft-0.5.0-macos-universal.dmg"));
-        assert_eq!(pick(Os::Windows, Arch::X64, &[PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x64.msi"));
-        // No arm64 MSI in this release: Windows on ARM runs the x64 build.
-        assert_eq!(pick(Os::Windows, Arch::Arm64, &[PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x64.msi"));
         assert_eq!(pick(Os::Linux, Arch::Arm64, &[PackageKind::AppImage]).as_deref(), Some("photocraft-0.5.0-linux-aarch64.AppImage"));
         assert_eq!(pick(Os::Linux, Arch::Arm64, &[PackageKind::TarGz]), None);
         assert_eq!(pick(Os::Linux, Arch::Riscv64, &[PackageKind::TarGz]).as_deref(), Some("photocraft-0.5.0-linux-riscv64.tar.gz"));
         assert_eq!(pick(Os::FreeBsd, Arch::X64, &[PackageKind::TarGz]).as_deref(), Some("photocraft-0.5.0-freebsd-x86_64.tar.gz"));
+        let windows = release(&["generic-0.5.0-windows-x64.msi", "generic-0.5.0-windows-x86.msi", "generic-0.5.0-windows-x64-portable.zip"]);
+        let pick_windows = |arch, kinds: &[PackageKind]| {
+            pick_asset(&windows, &["generic"], Platform { os: Os::Windows, arch }, kinds).map(|(asset, _)| asset.name.as_str())
+        };
+        assert_eq!(pick_windows(Arch::X64, &[PackageKind::Msi]), Some("generic-0.5.0-windows-x64.msi"));
+        // No arm64 MSI in this release: Windows on ARM runs the x64 build.
+        assert_eq!(pick_windows(Arch::Arm64, &[PackageKind::Msi]), Some("generic-0.5.0-windows-x64.msi"));
         // Preference order across kinds.
-        assert_eq!(
-            pick(Os::Windows, Arch::X64, &[PackageKind::PortableZip, PackageKind::Msi]).as_deref(),
-            Some("photocraft-0.5.0-windows-x64-portable.zip")
-        );
-        assert_eq!(pick(Os::Windows, Arch::X86, &[PackageKind::PortableZip, PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x86.msi"));
+        assert_eq!(pick_windows(Arch::X64, &[PackageKind::PortableZip, PackageKind::Msi]), Some("generic-0.5.0-windows-x64-portable.zip"));
+        assert_eq!(pick_windows(Arch::X86, &[PackageKind::PortableZip, PackageKind::Msi]), Some("generic-0.5.0-windows-x86.msi"));
 
         let p_riscv = Platform { os: Os::Linux, arch: Arch::Riscv64 };
         assert_eq!(

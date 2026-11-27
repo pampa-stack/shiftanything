@@ -388,7 +388,18 @@ fn install_at_with_profile(
         Some(profile) => {
             profile.admit_new()?.bind_release(release, asset)?;
         }
-        None => bind_artifact_version(app, release, asset)?,
+        None => {
+            bind_artifact_version(app, release, asset)?;
+            #[cfg(windows)]
+            if app.id == "photocraft" {
+                if kind != PackageKind::Msi {
+                    return Err("Only the verified PhotoCraft Windows x64 MSI is supported.".into());
+                }
+                if let Some(Downgrade::Reinstall { previous, asset }) = job.downgrade {
+                    bind_artifact_version(app, previous, asset)?;
+                }
+            }
+        }
     }
     // A feed can't send an app back to an older build; only a version the person chose by name
     // (a downgrade with a way back if it fails) gets past this.
@@ -631,6 +642,12 @@ fn install_at_with_profile(
 /// the download URL to agree with the release version before any bytes are fetched.
 pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &Asset) -> Result<(), String> {
     let mismatch = || format!("{}'s download does not match the advertised version {}.", app.name, release.version_label());
+    #[cfg(windows)]
+    if app.id == "photocraft" {
+        return (cfg!(target_arch = "x86_64") && app.repo == "storytold/photocraft" && release::photocraft_windows_msi_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
     if app.uses_tdf_releases() {
         return artcraft_launcher_core::release::libreoffice_arm64_asset(release, asset).then_some(()).ok_or_else(mismatch);
     }
@@ -3783,20 +3800,16 @@ mod tests {
     #[test]
     fn a_downgrade_refuses_anything_but_an_msi_over_an_msi_install() {
         let app = CraftApp::by_id("photocraft").unwrap();
-        let tagged = |v: &str| Release { tag: format!("v{v}"), version: version::parse(v), ..Release::default() };
-        let msi = |v: &str| Asset {
-            name: format!("photocraft-{v}-windows-x64.msi"),
-            size: 3,
-            url: format!("https://example.invalid/photocraft-{v}-windows-x64.msi"),
-            sha256: None,
-        };
-        let (older, newer, older_msi, newer_msi) = (tagged("0.4.0"), tagged("0.5.0"), msi("0.4.0"), msi("0.5.0"));
+        let older = release::release_from_sums(app.repo, "v0.23.0", &[]);
+        let newer = release::release_from_sums(app.repo, "v0.23.1", &[]);
+        let older_msi = older.assets.iter().find(|asset| asset.name.ends_with(".msi")).unwrap();
+        let newer_msi = newer.assets.iter().find(|asset| asset.name.ends_with(".msi")).unwrap();
         let dir = tempfile::tempdir().unwrap();
         let paths = Paths::under(dir.path());
         let http = Http::new().unwrap();
         let locations = InstallLocations::default();
         let portable = Installed {
-            version: version::parse("0.5.0"),
+            version: version::parse("0.23.1"),
             source: InstallSource::Launcher,
             location: dir.path().join("photocraft.exe").display().to_string(),
             package: None,
@@ -3815,12 +3828,12 @@ mod tests {
                 install_locations: &locations,
                 replace: false,
                 approved_path: None,
-                downgrade: Some(Downgrade::Reinstall { previous: &newer, asset: &newer_msi }),
+                downgrade: Some(Downgrade::Reinstall { previous: &newer, asset: newer_msi }),
                 batch: None,
                 place: None,
                 put_back: None,
             };
-            install(app, &older, &older_msi, PackageKind::Msi, Some(&portable), None, &mut job).unwrap_err()
+            install(app, &older, older_msi, PackageKind::Msi, Some(&portable), None, &mut job).unwrap_err()
         };
         assert!(error.contains("isn't available for this kind of install"), "{error}");
         assert!(phases.is_empty(), "nothing started");
@@ -4759,13 +4772,13 @@ mod tests {
         let http = Http::new().unwrap();
         let phase = &mut |_| ();
         let locations = InstallLocations::default();
-        let app = CraftApp::by_id("photocraft").unwrap();
+        let app = CraftApp::by_id("wordcraft").unwrap();
         let release = Release { version: version::parse("0.4.0"), tag: "v0.4.0".into(), ..Release::default() };
-        let asset = Asset { name: "photocraft-0.4.0-linux-x86_64.AppImage".into(), ..Asset::default() };
+        let asset = Asset { name: "wordcraft-0.4.0-linux-x86_64.AppImage".into(), ..Asset::default() };
         let installed = Installed {
             version: version::parse("0.5.0"),
             source: InstallSource::Launcher,
-            location: dir.path().join("PhotoCraft.AppImage").display().to_string(),
+            location: dir.path().join("WordCraft.AppImage").display().to_string(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4799,11 +4812,11 @@ mod tests {
         let http = Http::new().unwrap();
         let phase = &mut |_| ();
         let locations = InstallLocations::default();
-        let app = CraftApp::by_id("photocraft").unwrap();
+        let app = CraftApp::by_id("wordcraft").unwrap();
         let release = Release { version: version::parse("99.0.0"), tag: "v99.0.0".into(), ..Release::default() };
         let asset = Asset {
-            name: "photocraft-0.4.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/photocraft/releases/download/v0.4.0/photocraft-0.4.0-linux-x86_64.AppImage".into(),
+            name: "wordcraft-0.4.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/wordcraft/releases/download/v0.4.0/wordcraft-0.4.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         let stop = Stop::default();
@@ -4826,24 +4839,24 @@ mod tests {
 
         // A matching artifact passes the guard (it fails later for unrelated reasons, not the bind).
         let good = Asset {
-            name: "photocraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/photocraft/releases/download/v99.0.0/photocraft-99.0.0-linux-x86_64.AppImage".into(),
+            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/wordcraft/releases/download/v99.0.0/wordcraft-99.0.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &good).is_ok());
 
         // URL filename mismatch is rejected (CWE-494).
         let bad_url_name = Asset {
-            name: "photocraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/photocraft/releases/download/v99.0.0/other.AppImage".into(),
+            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/wordcraft/releases/download/v99.0.0/other.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &bad_url_name).is_err());
 
         // URL tag mismatch is rejected.
         let bad_tag = Asset {
-            name: "photocraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/photocraft/releases/download/unparsed_tag/photocraft-99.0.0-linux-x86_64.AppImage".into(),
+            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/wordcraft/releases/download/unparsed_tag/wordcraft-99.0.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &bad_tag).is_err());

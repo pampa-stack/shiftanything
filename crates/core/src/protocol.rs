@@ -242,6 +242,8 @@ pub enum Origin {
     TheDocumentFoundation,
     /// Zotero's official macOS release channel.
     Zotero,
+    /// Blender Foundation's release archive.
+    Blender,
 }
 
 impl Origin {
@@ -251,6 +253,7 @@ impl Origin {
             Self::GitHub => "GitHub",
             Self::TheDocumentFoundation => "The Document Foundation",
             Self::Zotero => "Zotero",
+            Self::Blender => "Blender Foundation",
         }
     }
 }
@@ -269,6 +272,8 @@ pub enum Source {
     TheDocumentFoundation,
     /// Zotero's official macOS release channel.
     Zotero,
+    /// Blender Foundation's release archive.
+    Blender,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -281,6 +286,7 @@ impl Source {
             Self::GitHubPages => "GitHub (release pages)",
             Self::TheDocumentFoundation => "The Document Foundation",
             Self::Zotero => "Zotero",
+            Self::Blender => "Blender Foundation",
             Self::Cache => "saved results",
         }
     }

@@ -463,6 +463,12 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, url, max)
     }
 
+    pub(crate) fn get_blender_index(&self, series: Option<(u64, u64)>) -> Result<Option<Vec<u8>>, String> {
+        let base = artcraft_launcher_core::release::BLENDER_DMG_URL;
+        let url = series.map_or_else(|| base.to_string(), |(major, minor)| format!("{base}Blender{major}.{minor}/"));
+        Self::get_bytes_with(&self.no_redirect, &url, 256 * 1024)
+    }
+
     fn get_bytes_with(agent: &ureq::Agent, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
         let mut resp = agent.get(url).call().map_err(|e| format!("{UNREACHABLE} {} ({e})", host(url)))?;
         match resp.status().as_u16() {
@@ -610,6 +616,7 @@ impl Http {
             artcraft_launcher_core::release::CALIBRE_DMG_URL,
             artcraft_launcher_core::release::OPENTTD_DMG_URL,
             artcraft_launcher_core::release::ZOTERO_DMG_URL,
+            artcraft_launcher_core::release::BLENDER_DMG_URL,
         ]
         .iter()
         .any(|prefix| url.starts_with(prefix))

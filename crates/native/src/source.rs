@@ -16,13 +16,14 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
 
 use crate::http::{Fetched, Http};
 
+mod blender;
 mod libreoffice;
 
 /// One answer from a source.
@@ -69,6 +70,7 @@ pub trait ReleaseSource: Send + Sync {
         let source = match query.repo.as_str() {
             repo if repo == LIBREOFFICE.repo => Source::TheDocumentFoundation,
             repo if repo == ZOTERO.repo => Source::Zotero,
+            repo if repo == BLENDER.repo => Source::Blender,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -584,6 +586,8 @@ impl GitHubSource {
             libreoffice::releases(&self.http, false)?
         } else if query.repo == ZOTERO.repo {
             release::zotero_release_history(self.latest_zotero()?)
+        } else if query.repo == BLENDER.repo {
+            blender::releases(&self.http, false)?
         } else {
             if self.limited() {
                 return Err("GitHub's request limit was reached. Try again later.".into());
@@ -664,6 +668,16 @@ impl ReleaseSource for GitHubSource {
             };
             return Answer { latest, source: Source::TheDocumentFoundation };
         }
+        if query.repo == BLENDER.repo {
+            return match blender::releases(&self.http, true) {
+                Ok(releases) => {
+                    let release = releases.into_iter().next();
+                    self.store(&query.repo, Entry { etag: None, release: release.clone(), prereleases: false, fetched_at: crate::now() });
+                    Answer { latest: release.map_or(LatestRelease::None, LatestRelease::Found), source: Source::Blender }
+                }
+                Err(why) => Answer { latest: self.cached(query, false).unwrap_or(LatestRelease::Failed(why)), source: Source::Cache },
+            };
+        }
         with_former(query, |q| self.latest_in(q, prereleases), |a| a.latest == LatestRelease::None)
     }
 
@@ -681,6 +695,16 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
+        if query.repo == BLENDER.repo {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if saved.html_url == release::BLENDER_RELEASES_URL && !saved.prerelease => saved
+                    .version
+                    .filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)
+                    .map(release::blender_release)
+                    .map(LatestRelease::Found),
+                _ => None,
+            };
+        }
         with_former(query, |q| self.cached_in(q, prereleases), |c| matches!(c, None | Some(LatestRelease::None)))
     }
 
@@ -692,7 +716,7 @@ impl ReleaseSource for GitHubSource {
         if repo == OPENCODE.repo {
             return self.opencode_desktop_manifest().ok().map(|release| release.tag);
         }
-        if repo == LIBREOFFICE.repo || repo == ZOTERO.repo {
+        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo].contains(&repo) {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

@@ -1283,6 +1283,7 @@ impl LauncherUi {
         let mut github = false;
         let mut tdf = false;
         let mut zotero = false;
+        let mut blender = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1290,15 +1291,22 @@ impl LauncherUi {
                     Some(Origin::GitHub) => github = true,
                     Some(Origin::TheDocumentFoundation) => tdf = true,
                     Some(Origin::Zotero) => zotero = true,
+                    Some(Origin::Blender) => blender = true,
                     None => {}
                 }
             }
         }
-        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation), (zotero, Origin::Zotero)]
-            .into_iter()
-            .filter(|&(present, _)| present)
-            .map(|(_, origin)| origin.label().to_string())
-            .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
+        [
+            (api, Origin::ArtCraftApi),
+            (github, Origin::GitHub),
+            (tdf, Origin::TheDocumentFoundation),
+            (zotero, Origin::Zotero),
+            (blender, Origin::Blender),
+        ]
+        .into_iter()
+        .filter(|&(present, _)| present)
+        .map(|(_, origin)| origin.label().to_string())
+        .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
     }
 
     pub(crate) fn count(&self, filter: Filter) -> usize {

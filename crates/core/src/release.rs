@@ -86,6 +86,8 @@ pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
 pub const ZOTERO_STABLE_URL: &str = "https://www.zotero.org/download/client/dl?channel=release&platform=mac";
 pub const ZOTERO_DMG_URL: &str = "https://download.zotero.org/client/release/";
 pub const ZOTERO_CHANGELOG: &str = "https://www.zotero.org/support/changelog";
+pub const BLENDER_DMG_URL: &str = "https://download.blender.org/release/";
+pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
     ("10.0.9", ("Zotero-10.0.9.dmg", 192_346_587, "fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387")),
@@ -119,6 +121,18 @@ pub fn zotero_release_history(latest: Release) -> Vec<Release> {
         .filter(|version| Some(version) < latest_version.as_ref())
         .map(zotero_release);
     std::iter::once(latest).chain(older).collect()
+}
+
+pub fn blender_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::BLENDER.repo, &tag).collect(),
+        name: format!("Blender {tag}"),
+        html_url: BLENDER_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
 }
 
 pub fn libreoffice_stable_version(tag: &str) -> Option<Version> {
@@ -917,6 +931,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENTTD,
         crate::curated::RECTANGLE,
         crate::curated::CODEEDIT,
+        crate::curated::BLENDER,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -939,6 +954,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
                 || app.uses_zotero_releases()
+                || app.uses_blender_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -1431,6 +1447,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("CodeEditApp/CodeEdit", "v0.3.6") => &[("CodeEdit.dmg", 35_962_501, "fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9")],
         ("p0deje/Maccy", "2.7.1") => &[("Maccy.app.zip", 4_709_233, "f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077")],
         ("p0deje/Maccy", "2.8.0") => &[("Maccy.app.zip", 5_288_775, "e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0")],
+        ("blender/blender", "5.2.5") => {
+            &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
+        }
+        ("blender/blender", "5.3.0") => {
+            &[("blender-5.3.0-macos-arm64.dmg", 359_893_873, "2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720")]
+        }
         ("moeru-ai/airi", "v0.15.2") => {
             &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
         }
@@ -1686,6 +1708,10 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             format!("{OPENTTD_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::ZOTERO.repo {
             format!("{ZOTERO_DMG_URL}{tag}/{name}")
+        } else if repo == crate::curated::BLENDER.repo {
+            // These tags are the canonical stable versions in the receipts above.
+            let (series, _) = tag.rsplit_once('.').expect("reviewed Blender version");
+            format!("{BLENDER_DMG_URL}Blender{series}/{name}")
         } else {
             format!("{}{tag}/{name}", download_prefix(repo))
         },

@@ -2594,6 +2594,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::TheDocumentFoundation
     } else if sources.contains(&Source::Zotero) {
         Source::Zotero
+    } else if sources.contains(&Source::Blender) {
+        Source::Blender
     } else {
         Source::Feed
     }
@@ -2832,6 +2834,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
     // Some publishers serve their qualified packages outside the generic GitHub feed.
     if app.uses_tdf_releases()
         || app.uses_zotero_releases()
+        || app.uses_blender_releases()
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
     {
@@ -2846,6 +2849,8 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::TheDocumentFoundation
     } else if app.uses_zotero_releases() {
         Origin::Zotero
+    } else if app.uses_blender_releases() {
+        Origin::Blender
     } else {
         Origin::GitHub
     }

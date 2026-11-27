@@ -1,0 +1,77 @@
+2026-11-27T23:36:27+0100
+ARTIFACT 3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4 346321744 https://download.blender.org/release/Blender5.2/blender-5.2.5-macos-arm64.dmg
+BUNDLE=Blender.app
+CFBundleIdentifier=org.blenderfoundation.blender
+CFBundleShortVersionString=5.2.5
+CFBundleVersion=5.2.5
+CFBundleExecutable=Blender
+LSMinimumSystemVersion=11.2
+<scratch>/preflight/blender/5.2.5/mount/Blender.app/Contents/MacOS/Blender: Mach-O 64-bit executable arm64
+<scratch>/preflight/blender/5.2.5/mount/Blender.app/Contents/MacOS/Blender (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.2
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+Identifier=org.blenderfoundation.blender
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Stichting Blender Foundation (68UA947AUU)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=24 Nov 2026 at 03:40:01
+TeamIdentifier=68UA947AUU
+<scratch>/preflight/blender/5.2.5/mount/Blender.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT blender 5.2.5
+2026-11-27T23:37:59+0100
+ARTIFACT 2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720 359893873 https://download.blender.org/release/Blender5.3/blender-5.3.0-macos-arm64.dmg
+BUNDLE=Blender.app
+CFBundleIdentifier=org.blenderfoundation.blender
+CFBundleShortVersionString=5.3.0
+CFBundleVersion=5.3.0
+CFBundleExecutable=Blender
+LSMinimumSystemVersion=13.0
+<scratch>/preflight/blender/5.3.0/mount/Blender.app/Contents/MacOS/Blender: Mach-O 64-bit executable arm64
+<scratch>/preflight/blender/5.3.0/mount/Blender.app/Contents/MacOS/Blender (architecture arm64):
+Load command 12
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+Identifier=org.blenderfoundation.blender
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Stichting Blender Foundation (68UA947AUU)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=10 Nov 2026 at 03:44:27
+TeamIdentifier=68UA947AUU
+<scratch>/preflight/blender/5.3.0/mount/Blender.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT blender 5.3.0
+PASS PREFLIGHT blender 5.2.5
+PASS PREFLIGHT blender 5.3.0
+OFFICIAL INDEX blender 5.2.5 digest=published
+OFFICIAL INDEX blender 5.3.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 5.2.5 Dmg https://download.blender.org/release/Blender5.2/blender-5.2.5-macos-arm64.dmg 346321744 3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4
+PASS OFFICIAL 5.3.0 Dmg https://download.blender.org/release/Blender5.3/blender-5.3.0-macos-arm64.dmg 359893873 2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720
+NATIVE ORIGIN blender Blender
+PASS OFFICIAL 5.2.5 Dmg https://download.blender.org/release/Blender5.2/blender-5.2.5-macos-arm64.dmg 346321744 3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4
+PASS NATIVE blender install: Blender installed: 5.2.5; package_bytes=346321744; elapsed=53.014s
+PASS CLI Blender --version: Blender 5.2.5 LTS
+NATIVE ORIGIN blender Blender
+PASS OFFICIAL 5.3.0 Dmg https://download.blender.org/release/Blender5.3/blender-5.3.0-macos-arm64.dmg 359893873 2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720
+PASS NATIVE blender update: Blender updated to 5.3.0; package_bytes=359893873; elapsed=61.612s
+PASS CLI Blender --version: Blender 5.3.0
+PASS NATIVE blender remove: Blender was removed; package_bytes=0; elapsed=0.161s
+PASS NATIVE CYCLE blender (5.2.5 → 5.3.0), private Trash and synthetic data preserved

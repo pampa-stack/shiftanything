@@ -100,7 +100,19 @@
   });
 
   function buildFind(intents, catalog) {
-    const prompt = node('label', it ? 'Che cosa vuoi fare?' : 'What do you want to do?');
+    const platforms = [
+      ['macos', 'macOS', 'brand/macos.svg'],
+      ['windows', 'Windows', 'brand/windows.png'],
+      ['linux', 'Linux', 'brand/linux.png'],
+      ['freebsd', 'FreeBSD'],
+    ];
+    const compact = new Intl.NumberFormat(language, {notation:'compact', maximumFractionDigits:1});
+    const fullNumber = new Intl.NumberFormat(language);
+    const content = node('div', '', 'find-content');
+    find.classList.add('find-panel');
+    content.append(find.firstElementChild);
+    find.append(content);
+    const prompt = node('label', it ? 'Cosa vuoi fare?' : 'What do you want to do?');
     const query = node('input');
     query.type = 'search';
     query.id = 'find-app-query';
@@ -108,17 +120,19 @@
     query.placeholder = label(intents[0]?.example);
     prompt.htmlFor = query.id;
     const controls = node('div', '', 'discovery-controls');
-    const osLabel = node('label', it ? 'Sistema per app desktop' : 'Desktop operating system');
+    const osLabel = node('label', it ? 'Sistema operativo' : 'Operating system');
     system = node('select');
     system.id = 'find-app-system';
     osLabel.htmlFor = system.id;
-    for (const [key, value] of [['all',it?'Tutti':'All'],['macos','macOS'],['windows','Windows'],['linux','Linux'],['freebsd','FreeBSD']]) {
+    for (const [key, value] of [['all',it?'Tutti':'All'], ...platforms]) {
       const option = node('option', value);
       option.value = key;
       system.append(option);
     }
     system.value = [...system.options].find(option => option.value === snapshot?.platform?.os?.toLowerCase())?.value || 'all';
-    controls.append(prompt, query, osLabel, system);
+    prompt.append(query);
+    osLabel.append(system);
+    controls.append(prompt, osLabel);
     const examples = node('div', '', 'discovery-examples');
     const results = node('div', '', 'discovery-results');
     const browserResults = node('div', '', 'discovery-results');
@@ -127,9 +141,79 @@
     browserSection.append(node('h2', it?'Utilizzabili via browser':'Available in a browser'), browserResults);
     const feedback = node('p', '', 'discovery-feedback');
     feedback.setAttribute('role', 'status');
-    find.append(controls, examples, feedback, results, browserSection);
+    content.append(controls, examples, feedback, results, browserSection);
+
+    function resultRow(app, result, browser) {
+      const row = node('article', '', 'discovery-tile');
+      const logo = node('span', [...app.name].slice(0, 2).join('').toUpperCase(), 'find-logo find-initials');
+      logo.setAttribute('aria-hidden', 'true');
+      logo.dataset.findLogo = app.id;
+      const summary = node('div', '', 'find-app-summary');
+      const byline = node('div', '', 'find-byline');
+      byline.append(node('span', app.author));
+      if (app.stars?.count) {
+        const stars = node('span', `★ ${compact.format(app.stars.count)}`, 'star-count');
+        stars.title = `${fullNumber.format(app.stars.count)} · ${it?'Stelle GitHub':'GitHub stars'}`;
+        byline.append(stars);
+      } else if (app.popularity?.kind === 'flathub_installs') {
+        byline.append(node('span', `${compact.format(app.popularity.count)} Flathub`, 'star-count'));
+      }
+      if (app.repo?.startsWith('https://github.com/')) byline.append(source('GitHub', app.id, app.repo));
+      const description = node('p', label(app.description), 'find-description');
+      const reason = node('p', label(result.reason), 'find-reason');
+      summary.append(node('h2', app.name), byline, description);
+      if (app.delivery === 'self-hosted') {
+        summary.append(node('p', it ? 'Da configurare sul proprio computer o server' : 'Set up on your own computer or server'));
+      }
+      const side = node('div', '', 'find-result-side');
+      const systems = node('div', '', 'platform-badges');
+      if (!browser) {
+        for (const [key, name, image] of platforms) {
+          if (!supportsPlatform(app, key)) continue;
+          const badge = node('span', image ? '' : name, 'bdg');
+          badge.title = name;
+          if (image) {
+            const mark = node('img');
+            mark.src = image;
+            mark.alt = name;
+            badge.append(mark);
+          }
+          systems.append(badge);
+        }
+      }
+      const actions = node('div', '', 'discovery-actions');
+      const detail = details(app.id, it?'Vedi scheda':'View app');
+      detail.setAttribute('aria-label', `${detail.textContent} · ${app.name}`);
+      const evidence = source(it?'Fonte':'Source', app.id, result.source);
+      evidence.setAttribute('aria-label', `${evidence.textContent} · ${app.name}`);
+      actions.append(evidence, detail);
+      if (systems.childElementCount) side.append(systems);
+      side.append(actions);
+      row.append(logo, summary, reason, side);
+      return row;
+    }
+
+    const moreExamples = node('div', '', 'find-more-examples');
+    moreExamples.id = 'find-more-examples';
+    moreExamples.hidden = true;
+    const more = button(it ? 'Altri esempi' : 'More examples', () => {
+      moreExamples.hidden = !moreExamples.hidden;
+      more.setAttribute('aria-expanded', String(!moreExamples.hidden));
+      more.textContent = moreExamples.hidden ? (it ? 'Altri esempi' : 'More examples') : (it ? 'Meno esempi' : 'Fewer examples');
+    });
+    more.setAttribute('aria-controls', moreExamples.id);
+    more.setAttribute('aria-expanded', 'false');
+    const chips = intents.map((intent, index) => {
+      const example = label(intent.example);
+      const chip = button(example, () => { query.value = example; query.focus(); renderFind(); });
+      chip.setAttribute('aria-pressed', 'false');
+      (index < 7 ? examples : moreExamples).append(chip);
+      return {phrase:normalize(example), chip};
+    });
+    if (moreExamples.childElementCount) examples.append(more, moreExamples);
     renderFind = () => {
       const phrase = normalize(query.value);
+      for (const example of chips) example.chip.setAttribute('aria-pressed', String(phrase === example.phrase));
       const includes = term => (' ' + phrase).includes(' ' + term);
       const matched = phrase ? intents.filter(intent => !intent.exclude?.some(includes) && intent.match.some(group => group.every(includes))) : [];
       const seen = new Set();
@@ -142,26 +226,18 @@
         const browser = app.delivery === 'self-hosted' || app.delivery === 'web';
         if (!browser && os !== 'all' && !supportsPlatform(app, os)) continue;
         seen.add(app.id);
-        const row = node('article', '', 'discovery-tile');
-        const actions = node('div', '', 'discovery-actions');
-        actions.append(details(app.id), source(it?'Fonte':'Source', app.id, result.source));
-        row.append(node('h2', app.name), node('p', label(result.reason)));
-        if (app.delivery === 'self-hosted') {
-          row.append(node('p', it ? 'Da configurare sul proprio computer o server' : 'Set up on your own computer or server'));
-        }
-        row.append(actions);
-        (browser ? browserRows : rows).push(row);
+        (browser ? browserRows : rows).push(resultRow(app, result, browser));
       }
       results.replaceChildren(...rows);
       browserResults.replaceChildren(...browserRows);
       browserSection.hidden = !browserRows.length;
+      for (const group of [results, browserResults]) group.dispatchEvent(new Event('find-logos-rendered', {bubbles:true}));
       const count = rows.length + browserRows.length;
       const resultLabel = count === 1 ? (it ? 'risultato' : 'result') : (it ? 'risultati' : 'results');
       feedback.textContent = !phrase ? '' : count ? `${count} ${resultLabel}` : matched.length
         ? (it?'Nessun risultato documentato per questo sistema.':'No documented result for this system.')
         : (it?'Nessuna corrispondenza. Prova con un problema più specifico.':'No matches. Try a more specific problem.');
     };
-    for (const intent of intents) examples.append(button(label(intent.example), () => { query.value = label(intent.example); query.focus(); renderFind(); }));
     query.addEventListener('input', renderFind);
     system.addEventListener('change', () => { choseSystem = true; renderFind(); });
   }

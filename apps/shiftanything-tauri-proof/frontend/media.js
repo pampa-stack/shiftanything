@@ -115,6 +115,7 @@
   }
   document.addEventListener('comparison-rows-rendered', event => watchSmallLogos(event.target, 'data-sh-logo', 'icoapp product-icon'));
   document.addEventListener('kit-logos-rendered', event => watchSmallLogos(event.target, 'data-kit-logo', 'kit-logo'));
+  document.addEventListener('find-logos-rendered', event => watchSmallLogos(event.target, 'data-find-logo', 'find-logo'));
   for (const table of document.querySelectorAll('.kit-table-wrap')) watchSmallLogos(table, 'data-kit-logo', 'kit-logo');
 
   function watchDetail() {

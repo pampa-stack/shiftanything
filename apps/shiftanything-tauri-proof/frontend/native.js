@@ -151,7 +151,10 @@
     if (snapshot.pending) {
       pendingId = snapshot.pending.id;
       confirmation.querySelector('h2').textContent = labels[snapshot.pending.operation];
-      confirmation.querySelector('p').textContent = snapshot.pending.apps.map(id => catalogById.get(id)?.name || id).join(', ') + (it?' · Azione nel profilo temporaneo.':' · Action in the temporary profile.');
+      const destination = snapshot.isolated_profile
+        ? (it ? ' · Azione nel profilo temporaneo.' : ' · Action in the temporary profile.')
+        : (it ? ' · Azione su questo computer.' : ' · Action on this computer.');
+      confirmation.querySelector('p').textContent = snapshot.pending.apps.map(id => catalogById.get(id)?.name || id).join(', ') + destination;
       if (!confirmation.open) confirmation.showModal();
     } else { pendingId=undefined; if (confirmation.open) confirmation.close(); }
   }
@@ -192,7 +195,8 @@
     async function poll() {
     const snapshot = await invoke('native_snapshot');
     render(snapshot);
-    status.textContent = `${snapshot.lifecycle_enabled?(it?'Profilo temporaneo':'Temporary profile'):note} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'} · ${actionError || Object.entries(snapshot.progress).map(([id,p])=>id+': '+p.phase).join(' · ') || Object.entries(snapshot.inventory.results).filter(([id])=>id.startsWith('app:')).map(([id,result])=>id.slice(4)+': '+result).slice(-1).join('')}`;
+    const profile = snapshot.isolated_profile ? (snapshot.lifecycle_enabled ? (it ? 'Profilo temporaneo' : 'Temporary profile') : note) : 'Sh*ftAnything';
+    status.textContent = `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'} · ${actionError || Object.entries(snapshot.progress).map(([id,p])=>id+': '+p.phase).join(' · ') || Object.entries(snapshot.inventory.results).filter(([id])=>id.startsWith('app:')).map(([id,result])=>id.slice(4)+': '+result).slice(-1).join('')}`;
     setTimeout(() => poll().catch(error => {status.textContent=String(error);}),1000);
     }
     await poll();

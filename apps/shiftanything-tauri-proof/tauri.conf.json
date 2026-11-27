@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Sh*ftAnything Proof",
+  "productName": "Sh*ftAnything",
   "version": "0.20.3",
-  "identifier": "it.promptica.shiftanything.proof",
+  "identifier": "it.promptica.shiftanything",
   "build": {
     "frontendDist": "frontend"
   },

@@ -1,17 +1,18 @@
-//! Local-only desktop proof with explicitly enabled, approved native lifecycle operations.
+//! Local desktop launcher with approved native lifecycle operations.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
 mod catalog_links;
 mod discovery;
 mod favorites;
 mod session;
 mod shifter;
+mod startup;
 #[cfg(target_os = "macos")]
 mod verification;
 use artcraft_launcher_core::automation::{Operation, Request};
 use artcraft_launcher_core::mcp_config::{McpConfigFormat, catalog_config};
 use serde::{Deserialize, Serialize};
 use session::NativeState;
-use std::{path::PathBuf, sync::Mutex};
+use std::sync::Mutex;
 use tauri::{WebviewUrl, WebviewWindowBuilder};
 
 #[derive(Deserialize)]
@@ -192,114 +193,14 @@ fn local_navigation(url: &tauri::Url) -> bool {
     local_origin && matches!(url.path(), "/index.html" | "/it.html" | "/en.html") && url.query().is_none()
 }
 
-#[cfg(target_os = "linux")]
-fn linux_profile_directory(path: &std::path::Path) -> std::io::Result<()> {
-    use std::os::unix::fs::DirBuilderExt;
-
-    match std::fs::DirBuilder::new().mode(0o700).create(path) {
-        Ok(()) => Ok(()),
-        Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists && std::fs::symlink_metadata(path)?.file_type().is_dir() => Ok(()),
-        Err(error) => Err(error),
-    }
-}
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let args: Vec<_> = std::env::args_os().skip(1).collect();
-    let lifecycle = args.iter().any(|arg| arg == "--lifecycle");
-    if args.first().is_none_or(|arg| arg != "--child") {
-        let root = PathBuf::from(args.first().ok_or("Supply a new absolute temporary profile directory, followed by it/en")?);
-        if !root.is_absolute() {
-            return Err("Profile must be absolute".into());
-        }
-        let marker = root.join(".shiftanything-proof");
-        if args.iter().any(|argument| argument == "--resume") {
-            let metadata = std::fs::symlink_metadata(&marker)?;
-            if !metadata.is_file()
-                || metadata.file_type().is_symlink()
-                || metadata.len() > 64
-                || std::fs::read(&marker)? != b"shiftanything-tauri-proof-v1\n"
-            {
-                return Err("Resume requires a profile created by this proof".into());
-            }
-        } else {
-            #[cfg(target_os = "linux")]
-            {
-                use std::os::unix::fs::DirBuilderExt;
-                std::fs::DirBuilder::new().mode(0o700).create(&root)?;
-            }
-            #[cfg(not(target_os = "linux"))]
-            std::fs::create_dir(&root)?;
-            std::fs::write(marker, b"shiftanything-tauri-proof-v1\n")?;
-        }
-        let root = root.canonicalize()?;
-        let home = root.join("home");
-        for path in [&home, &home.join(".Trash"), &home.join("config"), &home.join("data"), &home.join("cache")] {
-            #[cfg(target_os = "linux")]
-            linux_profile_directory(path)?;
-            #[cfg(not(target_os = "linux"))]
-            std::fs::create_dir_all(path)?;
-        }
-        #[cfg(target_os = "linux")]
-        linux_profile_directory(&home.join("state"))?;
-        let language = args.get(1).and_then(|s| s.to_str()).unwrap_or("it");
-        if !matches!(language, "it" | "en") {
-            return Err("Use it or en".into());
-        }
-        println!("PROOF_ROOT={}", root.display());
-        let mut child = std::process::Command::new(std::env::current_exe()?);
-        #[cfg(target_os = "linux")]
-        child.env("XDG_STATE_HOME", home.join("state")).env("APPIMAGE_EXTRACT_AND_RUN", "1");
-        let status = child
-            .arg("--child")
-            .arg(&root)
-            .arg(language)
-            .args(args.iter().skip(2))
-            .env("HOME", &home)
-            .env("CFFIXED_USER_HOME", &home)
-            .env("XDG_CONFIG_HOME", home.join("config"))
-            .env("XDG_DATA_HOME", home.join("data"))
-            .env("XDG_CACHE_HOME", home.join("cache"))
-            .env("CRAFT_VERSIONS_FILE", home.join("Library/Application Support/ShiftAnything/versions.json"))
-            .env_remove("ARTCRAFT_LAUNCHER_GITHUB_TOKEN")
-            .env_remove("ARTCRAFT_LAUNCHER_DOWNLOAD_BASE")
-            .env_remove("ARTCRAFT_LAUNCHER_FEED_URL")
-            .status()?;
-        return if status.success() { Ok(()) } else { Err("Desktop proof failed".into()) };
-    }
-    let root = PathBuf::from(args.get(1).ok_or("Missing profile")?).canonicalize()?;
-    let language = args.get(2).and_then(|s| s.to_str()).ok_or("Missing language")?;
-    if !matches!(language, "it" | "en") {
-        return Err("Use it or en".into());
-    }
-    if let Some(position) = args.iter().position(|argument| argument == "--seed-handy-previous") {
-        if !lifecycle {
-            return Err("Previous release preparation requires --lifecycle".into());
-        }
-        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous Handy DMG")?);
-        #[cfg(target_os = "macos")]
-        verification::seed_previous_handy(&root, previous)?;
-        #[cfg(not(target_os = "macos"))]
-        {
-            let _ = previous;
-            return Err("Previous Handy preparation requires macOS".into());
-        }
-    }
-    if let Some(position) = args.iter().position(|argument| argument == "--seed-localsend-previous") {
-        if !lifecycle {
-            return Err("Previous release preparation requires --lifecycle".into());
-        }
-        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous LocalSend DMG")?);
-        #[cfg(target_os = "macos")]
-        verification::seed_previous_localsend(&root, previous)?;
-        #[cfg(not(target_os = "macos"))]
-        {
-            let _ = previous;
-            return Err("Previous LocalSend preparation requires macOS".into());
-        }
-    }
-    let state = NativeState::new(root.clone(), lifecycle)?;
+    let Some(launch) = startup::start(std::env::args_os().skip(1).collect())? else { return Ok(()) };
+    let isolated = launch.isolated;
+    let lifecycle = launch.lifecycle;
+    let state = NativeState::new(launch.root.clone(), lifecycle, isolated)?;
     println!("DESKTOP_PID={}", std::process::id());
-    let page = format!("{language}.html");
+    let page = format!("{}.html", launch.language);
+    let webview_directory = launch.root.join("webview");
     let builder = tauri::Builder::default();
     #[cfg(target_os = "macos")]
     let builder = builder.activate_ignoring_other_apps(false);
@@ -325,14 +226,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]
-            app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+            if isolated {
+                app.set_activation_policy(tauri::ActivationPolicy::Accessory);
+            }
             WebviewWindowBuilder::new(app, "proof", WebviewUrl::App(page.into()))
-                .title("Sh*ftAnything · Tauri proof")
+                .title(if isolated { "Sh*ftAnything · Tauri proof" } else { "Sh*ftAnything" })
                 .inner_size(1440.0, 900.0)
-                .resizable(false)
-                .decorations(false)
-                .focused(false)
-                .data_directory(root.join("webview"))
+                .resizable(!isolated)
+                .decorations(!isolated)
+                .focused(!isolated)
+                .incognito(isolated)
+                .data_directory(webview_directory)
                 .on_navigation(local_navigation)
                 .on_new_window(|_, _| tauri::webview::NewWindowResponse::Deny)
                 .build()?;

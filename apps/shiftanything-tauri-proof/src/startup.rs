@@ -1,0 +1,193 @@
+//! The normal desktop entry point and the opt-in isolated verification profile.
+use std::ffi::OsString;
+use std::fs::{self, File, OpenOptions, TryLockError};
+use std::io::{self, Read};
+use std::path::{Path, PathBuf};
+
+const MARKER: &str = ".shiftanything-proof";
+const MARKER_CONTENTS: &[u8] = b"shiftanything-tauri-proof-v1\n";
+type StartupError = Box<dyn std::error::Error>;
+
+pub(crate) struct Launch {
+    pub root: PathBuf,
+    pub language: &'static str,
+    pub isolated: bool,
+    pub lifecycle: bool,
+    _desktop_lock: Option<File>,
+}
+
+pub(crate) fn start(args: Vec<OsString>) -> Result<Option<Launch>, StartupError> {
+    if args.len() == 1 && (args[0] == "--version" || args[0] == "-V") {
+        println!("shiftanything {}", env!("CARGO_PKG_VERSION"));
+        return Ok(None);
+    }
+    if args.is_empty() || finder_launch(&args) {
+        return desktop();
+    }
+    if args[0] == "--child" {
+        return isolated_child(&args);
+    }
+    spawn_isolated(&args)?;
+    Ok(None)
+}
+
+fn finder_launch(args: &[OsString]) -> bool {
+    cfg!(target_os = "macos") && args.len() == 1 && args[0].as_encoded_bytes().starts_with(b"-psn_")
+}
+
+fn desktop() -> Result<Option<Launch>, StartupError> {
+    let root = artcraft_launcher_native::paths::Paths::new()?.data.join("desktop");
+    fs::create_dir_all(root.parent().ok_or("Missing launcher data folder")?)?;
+    private_directory(&root, true)?;
+    let lock_path = root.join("instance.lock");
+    if fs::symlink_metadata(&lock_path).is_ok_and(|metadata| !metadata.is_file() || metadata.is_symlink()) {
+        return Err("Launcher instance lock must be a regular file".into());
+    }
+    let lock = OpenOptions::new().write(true).create(true).truncate(false).open(lock_path)?;
+    match lock.try_lock() {
+        Ok(()) => {}
+        Err(TryLockError::WouldBlock) => return Ok(None),
+        Err(TryLockError::Error(error)) => return Err(error.into()),
+    }
+    let language = ["LC_ALL", "LC_MESSAGES", "LANG"]
+        .iter()
+        .find_map(|key| std::env::var(key).ok().filter(|value| !value.is_empty()))
+        .map_or("it", |locale| if locale.split(['_', '-', '.']).next() == Some("en") { "en" } else { "it" });
+    // The Tauri shell does not yet implement the Windows MSI broker entry point.
+    let lifecycle = cfg!(any(target_os = "macos", target_os = "linux"));
+    Ok(Some(Launch { root, language, isolated: false, lifecycle, _desktop_lock: Some(lock) }))
+}
+
+fn private_directory(path: &Path, allow_existing: bool) -> io::Result<()> {
+    let builder = fs::DirBuilder::new();
+    #[cfg(unix)]
+    let builder = {
+        use std::os::unix::fs::DirBuilderExt;
+        let mut builder = builder;
+        builder.mode(0o700);
+        builder
+    };
+    match builder.create(path) {
+        Ok(()) => Ok(()),
+        Err(error) if allow_existing && error.kind() == io::ErrorKind::AlreadyExists && fs::symlink_metadata(path)?.file_type().is_dir() => Ok(()),
+        Err(error) => Err(error),
+    }
+}
+
+fn check_marker(root: &Path) -> Result<(), StartupError> {
+    let marker = root.join(MARKER);
+    if !fs::symlink_metadata(&marker)?.file_type().is_file() {
+        return Err("Resume requires a profile created by this proof".into());
+    }
+    let mut bytes = Vec::new();
+    File::open(marker)?.take(65).read_to_end(&mut bytes)?;
+    if bytes != MARKER_CONTENTS {
+        return Err("Resume requires a profile created by this proof".into());
+    }
+    Ok(())
+}
+
+fn proof_language(value: Option<&OsString>) -> Result<&'static str, StartupError> {
+    match value {
+        None => Ok("it"),
+        Some(value) if value == "it" => Ok("it"),
+        Some(value) if value == "en" => Ok("en"),
+        Some(_) => Err("Use it or en".into()),
+    }
+}
+
+fn spawn_isolated(args: &[OsString]) -> Result<(), StartupError> {
+    let root = PathBuf::from(&args[0]);
+    if !root.is_absolute() {
+        return Err("Verification profile must be absolute".into());
+    }
+    let language = proof_language(args.get(1))?;
+    if args.iter().skip(2).any(|argument| argument == "--resume") {
+        check_marker(&root)?;
+    } else {
+        private_directory(&root, false)?;
+        fs::write(root.join(MARKER), MARKER_CONTENTS)?;
+    }
+    let root = root.canonicalize()?;
+    let home = root.join("home");
+    for path in [&home, &home.join(".Trash"), &home.join("config"), &home.join("data"), &home.join("cache")] {
+        private_directory(path, true)?;
+    }
+    #[cfg(target_os = "linux")]
+    private_directory(&home.join("state"), true)?;
+    println!("PROOF_ROOT={}", root.display());
+    let mut child = std::process::Command::new(std::env::current_exe()?);
+    #[cfg(target_os = "linux")]
+    child.env("XDG_STATE_HOME", home.join("state")).env("APPIMAGE_EXTRACT_AND_RUN", "1");
+    let status = child
+        .arg("--child")
+        .arg(&root)
+        .arg(language)
+        .args(args.iter().skip(2))
+        .env("HOME", &home)
+        .env("CFFIXED_USER_HOME", &home)
+        .env("XDG_CONFIG_HOME", home.join("config"))
+        .env("XDG_DATA_HOME", home.join("data"))
+        .env("XDG_CACHE_HOME", home.join("cache"))
+        .env("CRAFT_VERSIONS_FILE", home.join("Library/Application Support/ShiftAnything/versions.json"))
+        .env_remove("ARTCRAFT_LAUNCHER_GITHUB_TOKEN")
+        .env_remove("ARTCRAFT_LAUNCHER_DOWNLOAD_BASE")
+        .env_remove("ARTCRAFT_LAUNCHER_FEED_URL")
+        .status()?;
+    if status.success() { Ok(()) } else { Err("Desktop proof failed".into()) }
+}
+
+fn isolated_child(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
+    let root = PathBuf::from(args.get(1).ok_or("Missing verification profile")?).canonicalize()?;
+    check_marker(&root)?;
+    let home = root.join("home");
+    if home.canonicalize()? != home || std::env::var_os("HOME").as_deref() != Some(home.as_os_str()) {
+        return Err("The verification process must use its own home directory".into());
+    }
+    let language = proof_language(Some(args.get(2).ok_or("Missing verification language")?))?;
+    let lifecycle = args.iter().skip(3).any(|arg| arg == "--lifecycle");
+    for flag in ["--seed-handy-previous", "--seed-localsend-previous"] {
+        if let Some(position) = args.iter().skip(3).position(|argument| argument == flag) {
+            if !lifecycle {
+                return Err("Previous release preparation requires --lifecycle".into());
+            }
+            let previous = Path::new(args.get(position + 4).ok_or("Missing previous DMG")?);
+            #[cfg(target_os = "macos")]
+            if flag == "--seed-handy-previous" {
+                crate::verification::seed_previous_handy(&root, previous)?;
+            } else {
+                crate::verification::seed_previous_localsend(&root, previous)?;
+            }
+            #[cfg(not(target_os = "macos"))]
+            {
+                let _ = previous;
+                return Err("Previous release preparation requires macOS".into());
+            }
+        }
+    }
+    Ok(Some(Launch { root, language, isolated: true, lifecycle, _desktop_lock: None }))
+}
+
+#[cfg(all(test, unix))]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn existing_profile_directories_and_markers_must_not_be_symlinks() -> Result<(), StartupError> {
+        use std::os::unix::fs::symlink;
+
+        let root = tempfile::tempdir()?;
+        let directory = root.path().join("home");
+        private_directory(&directory, false)?;
+        assert!(private_directory(&directory, false).is_err());
+        assert!(private_directory(&directory, true).is_ok());
+        let link = root.path().join("linked-home");
+        symlink(&directory, &link)?;
+        assert!(private_directory(&link, true).is_err());
+        let real_marker = root.path().join("other");
+        fs::write(&real_marker, MARKER_CONTENTS)?;
+        symlink(&real_marker, root.path().join(MARKER))?;
+        assert!(check_marker(root.path()).is_err());
+        Ok(())
+    }
+}

@@ -23,6 +23,7 @@ pub struct NativeState {
     pending: Option<Request>,
     next_request: u64,
     enabled: bool,
+    isolated: bool,
     pub diagnostics: PathBuf,
     pub favorites: crate::favorites::Favorites,
 }
@@ -39,6 +40,7 @@ pub struct Snapshot {
     platform: Option<Platform>,
     detected: BTreeMap<String, Option<Installed>>,
     lifecycle_enabled: bool,
+    isolated_profile: bool,
     inventory: Inventory,
     pending: Option<Request>,
     progress: BTreeMap<String, Progress>,
@@ -64,12 +66,17 @@ impl NativeState {
         self.enabled
     }
 
-    pub fn new(root: PathBuf, enabled: bool) -> Result<Self, String> {
-        #[cfg(target_os = "linux")]
-        let mut backend = NativeBackend::new_isolated_linux_profile(&root.join("home"), || {})?;
-        #[cfg(not(target_os = "linux"))]
-        let mut backend = NativeBackend::new_isolated_macos_profile(|| {})?;
-        if enabled {
+    pub fn new(root: PathBuf, enabled: bool, isolated: bool) -> Result<Self, String> {
+        let mut backend = if isolated {
+            #[cfg(target_os = "linux")]
+            let backend = NativeBackend::new_isolated_linux_profile(&root.join("home"), || {})?;
+            #[cfg(not(target_os = "linux"))]
+            let backend = NativeBackend::new_isolated_macos_profile(|| {})?;
+            backend
+        } else {
+            NativeBackend::new(|| {})
+        };
+        if isolated && enabled {
             let applications = root.join("home/Applications");
             if let Err(error) = std::fs::create_dir(&applications)
                 && error.kind() != std::io::ErrorKind::AlreadyExists
@@ -101,6 +108,7 @@ impl NativeState {
             pending: None,
             next_request: 0,
             enabled,
+            isolated,
             favorites: crate::favorites::Favorites::load(&root)?,
             diagnostics: root,
         })
@@ -195,7 +203,8 @@ impl NativeState {
             return Err("Read-only proof".into());
         }
         validate_ui_request(request, &self.inventory())?;
-        if request.operation == Operation::Open
+        if self.isolated
+            && request.operation == Operation::Open
             && request.apps.iter().any(|id| id == "handy")
             && std::path::Path::new("/tmp/com_pais_handy_si.sock").exists()
         {
@@ -239,6 +248,7 @@ impl NativeState {
             platform: self.backend.platform(),
             detected: self.detected.clone(),
             lifecycle_enabled: self.enabled,
+            isolated_profile: self.isolated,
             inventory: self.inventory(),
             pending: self.pending.clone(),
             favorites: self.favorites.ids().clone(),

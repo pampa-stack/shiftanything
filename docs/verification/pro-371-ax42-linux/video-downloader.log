@@ -1,0 +1,9 @@
+2026-11-27T16:41:36+01:00	video-downloader	current-installed SIGNATURE 983e7354ce656d1f27572b4af78e7087148bcb912d33db6d02a9ff4ec02fa5f8
+2026-11-27T16:41:36+01:00	video-downloader	INSTALL
+2026-11-27T16:41:41+01:00	video-downloader	previous SIGNATURE 5a651a7331c0946a7ebccdf0cf6402833210f9d1b9681fe10f6cd2997931bf07
+2026-11-27T16:41:49+01:00	video-downloader	previous GUI_WINDOW 0x200005 Video Downloader
+2026-11-27T16:41:54+01:00	video-downloader	current-updated SIGNATURE 983e7354ce656d1f27572b4af78e7087148bcb912d33db6d02a9ff4ec02fa5f8
+2026-11-27T16:41:54+01:00	video-downloader	UPDATE
+2026-11-27T16:42:01+01:00	video-downloader	current GUI_WINDOW 0x200005 Video Downloader
+2026-11-27T16:42:02+01:00	video-downloader	REMOVE
+2026-11-27T16:42:03+01:00	video-downloader	CLEANUP_NO_REFS

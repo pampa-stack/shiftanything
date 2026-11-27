@@ -765,6 +765,9 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::LOSSLESSCUT,
         crate::curated::SIYUAN,
         crate::curated::MAGPIE,
+        crate::curated::GHOST_DOWNLOADER,
+        crate::curated::KANDO,
+        crate::curated::TRILIUM,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -923,12 +926,14 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
-        ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => {
-            &[("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956")]
-        }
-        ("XiaoYouChR/Ghost-Downloader-3", "v4.6.1") => {
-            &[("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb")]
-        }
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => &[
+            ("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956"),
+            ("Ghost-Downloader-v4.5.11-macOS-arm64.dmg", 67_408_491, "36d531576819349920abb0008a6105046f5e48c3bcf7d8e478c61b03edb87ca9"),
+        ],
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.6.1") => &[
+            ("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb"),
+            ("Ghost-Downloader-v4.6.1-macOS-arm64.dmg", 59_261_074, "85f87ae7d2100b2296bf09097cc3e56011b1dc96e05fab7e1c7af6bf29caf38c"),
+        ],
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
@@ -1174,6 +1179,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("yetone/magpie", "v0.1.4971") => {
             &[("magpie-darwin-arm64.dmg", 49_832_333, "bdab8e88f4e3c6b288b1144483b1fb3f633ff3f6cf39b6e8e028061fe9573c8c")]
+        }
+        ("TriliumNext/Trilium", "v0.106.1") => {
+            &[("TriliumNotes-v0.106.1-macos-arm64.dmg", 197_580_559, "8d25e356d690152a2288d0317712cb198e270b1dca5b66df70496593f951f9a3")]
+        }
+        ("TriliumNext/Trilium", "v0.107.0") => {
+            &[("TriliumNotes-v0.107.0-macos-arm64.dmg", 196_222_346, "e3bda6547213396bd497bd680f33b0d0b12ed9dff410a10b3998cdaf72d9a231")]
+        }
+        ("kando-menu/kando", "v3.0.0") => {
+            &[("Kando-3.0.0-arm64.dmg", 154_824_121, "4b6542e0e6191b742603f3577c599f137b127520b465289c522b23d1d31f71c0")]
+        }
+        ("kando-menu/kando", "v3.0.1") => {
+            &[("Kando-3.0.1-arm64.dmg", 154_825_532, "da33fde36a63766e1d646c5ebfaaf62865dcb764b835c0c38873d18c45d642c2")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

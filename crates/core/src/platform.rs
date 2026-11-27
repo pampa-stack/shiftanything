@@ -364,7 +364,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
+    if platform.os == Os::Linux && stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
         kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
             .assets
@@ -693,10 +693,10 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == linux_x64;
     }
-    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
-        return platform == linux_x64;
-    }
-    if stems.contains(&crate::curated::LOSSLESSCUT.id) {
+    if [crate::curated::GHOST_DOWNLOADER.id, crate::curated::LOSSLESSCUT.id]
+        .iter()
+        .any(|id| stems.contains(id))
+    {
         return platform == mac_arm64 || platform == linux_x64;
     }
     if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
@@ -826,6 +826,9 @@ mod tests {
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
             (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
+            (crate::curated::GHOST_DOWNLOADER, ["v4.5.11", "v4.6.1"]),
+            (crate::curated::KANDO, ["v3.0.0", "v3.0.1"]),
+            (crate::curated::TRILIUM, ["v0.106.1", "v0.107.0"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),

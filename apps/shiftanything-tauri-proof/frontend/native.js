@@ -221,7 +221,8 @@
     }
     setText(output, label || fallback);
     let bar = container.querySelector('progress');
-    if (progress?.phase !== 'downloading' && progress?.phase !== 'reconnecting') {
+    const phase = progress?.phase;
+    if (phase !== 'downloading' && phase !== 'reconnecting' && phase !== 'installing') {
       bar?.remove();
       return;
     }
@@ -230,8 +231,8 @@
       bar.max = 100;
       container.append(bar);
     }
-    bar.setAttribute('aria-label', `${phases[progress.phase]} · ${appName}`);
-    const percent = downloadPercent(progress);
+    bar.setAttribute('aria-label', `${phases[phase]} · ${appName}`);
+    const percent = phase === 'installing' ? undefined : downloadPercent(progress);
     if (percent === undefined) bar.removeAttribute('value');
     else if (bar.position < 0 || bar.value !== percent) bar.value = percent;
   }

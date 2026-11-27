@@ -1510,10 +1510,10 @@ pub const GHOST_DOWNLOADER: crate::CraftApp = crate::CraftApp {
     kind: crate::catalog::AppKind::Community,
     publisher: "XiaoYouChR",
     msi_publisher: None,
-    bundle: None,
+    bundle: Some("com.xychr.ghostdownloader"),
     site: Some("https://gd.xychr.com/"),
-    mac_bundle_name: None,
-    mac_team: None,
+    mac_bundle_name: Some("Ghost Downloader"),
+    mac_team: Some("GQ255NCW97"),
 };
 
 pub const JAN: crate::CraftApp = crate::CraftApp {
@@ -1600,7 +1600,49 @@ pub const MAGPIE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("LY7MVTUDZG"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 66] = [
+pub const TRILIUM: crate::CraftApp = crate::CraftApp {
+    id: "trilium",
+    name: "Trilium Notes",
+    tagline: "Build a personal knowledge base",
+    repo: "TriliumNext/Trilium",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Jonathon Fuller",
+    msi_publisher: None,
+    bundle: Some("com.electron.trilium-notes"),
+    site: Some("https://triliumnotes.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("6549K3VGX9"),
+};
+
+pub const KANDO: crate::CraftApp = crate::CraftApp {
+    id: "kando",
+    name: "Kando",
+    tagline: "Open apps and shortcuts from a radial menu",
+    repo: "kando-menu/kando",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Simon Schneegans",
+    msi_publisher: None,
+    bundle: Some("com.electron.kando"),
+    site: Some("https://kando.menu/"),
+    mac_bundle_name: None,
+    mac_team: Some("ASTCNA5X2Y"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 68] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1667,6 +1709,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 66] = [
     LOCALAI,
     SIYUAN,
     MAGPIE,
+    TRILIUM,
+    KANDO,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

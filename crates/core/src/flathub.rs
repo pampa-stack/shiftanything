@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 104] = [
+pub const RECIPES: [(&str, &str); 107] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -106,6 +106,9 @@ pub const RECIPES: [(&str, &str); 104] = [
     ("dbeaver-ce", "io.dbeaver.DBeaverCommunity"),
     ("jan", "ai.jan.Jan"),
     ("lapce", "dev.lapce.lapce"),
+    ("scummvm", "org.scummvm.ScummVM"),
+    ("dosbox-staging", "io.github.dosbox-staging"),
+    ("video-downloader", "com.github.unrud.VideoDownloader"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -228,6 +231,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "dbeaver-ce" => "https://github.com/dbeaver/dbeaver",
         "jan" => "https://github.com/janhq/jan",
         "lapce" => "https://github.com/lapce/lapce",
+        "scummvm" => "https://github.com/scummvm/scummvm",
+        "dosbox-staging" => "https://github.com/dosbox-staging/dosbox-staging",
+        "video-downloader" => "https://github.com/Unrud/video-downloader",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

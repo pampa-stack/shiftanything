@@ -1,0 +1,69 @@
+
+=== 2026-11-27T10:07:13+00:00 icon-library install ===
+icon-library before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+icon-library JobFinished: Ok("Flathub app installed")
+icon-library after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 23 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.23"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-icon-library-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (552)
+f64d4f3e93d943def2953800459a3bd8f83438db21cd912fc3c3d97ca7c96cb6  /var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-icon-library-icon.svg
+org.gnome.design.IconLibrary/x86_64/stable	flathub	0f9019b3589d	user	0.0.23
+TIMING icon-library install 36421 ms
+
+=== 2026-11-27T10:07:49+00:00 icon-library prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnome.design.IconLibrary/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.design.IconLibrary/x86_64/stable	flathub	06df08ea9291	user	0.0.22
+icon-library before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 22 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157", package: Some("org.gnome.design.IconLibrary"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.22"), update_available: false, can_remove: false, can_open: true }
+icon-library JobFinished: Err("Approved action rejected: native installation state changed")
+icon-library JobFinished: Err("This Flatpak is managed outside the launcher")
+icon-library after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 22 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157", package: Some("org.gnome.design.IconLibrary"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.22"), update_available: false, can_remove: false, can_open: true })
+TIMING icon-library prior 33215 ms
+
+=== 2026-11-27T10:08:22+00:00 icon-library open ===
+dbus-daemon[2631924]: [session uid=1000 pid=2631924 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2631959 comm="/usr/bin/xfwm4 --compositor=off --display=:725" label="unconfined")
+dbus-daemon[2631924]: [session uid=1000 pid=2631924 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2631975]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2631959 comm="/usr/bin/xfwm4 --compositor=off --display=:725" label="unconfined")
+dbus-daemon[2631924]: [session uid=1000 pid=2631924 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2631959 comm="/usr/bin/xfwm4 --compositor=off --display=:725" label="unconfined")
+dbus-daemon[2631975]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2631924]: [session uid=1000 pid=2631924 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+icon-library before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 22 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.22"), update_available: true, can_remove: true, can_open: true }
+icon-library JobFinished: Ok("Launch request accepted")
+icon-library after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 22 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.22"), update_available: true, can_remove: true, can_open: true })
+TIMING icon-library open-previous 6418 ms
+
+(xfconfd:2631983): xfconfd-WARNING **: 10:08:31.053: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING icon-library open 8777 ms
+
+=== 2026-11-27T10:08:31+00:00 icon-library update-remove ===
+icon-library before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 22 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.22"), update_available: true, can_remove: true, can_open: true }
+icon-library JobFinished: Ok("Flathub app updated")
+icon-library after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 23 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.23"), update_available: false, can_remove: true, can_open: true })
+TIMING icon-library update 6234 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/.var/app/org.gnome.design.IconLibrary/shift-profile-marker: OK
+dbus-daemon[2633930]: [session uid=1000 pid=2633930 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2633992 comm="/usr/bin/xfwm4 --compositor=off --display=:734" label="unconfined")
+dbus-daemon[2633930]: [session uid=1000 pid=2633930 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2634010]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2633992 comm="/usr/bin/xfwm4 --compositor=off --display=:734" label="unconfined")
+dbus-daemon[2633930]: [session uid=1000 pid=2633930 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2633992 comm="/usr/bin/xfwm4 --compositor=off --display=:734" label="unconfined")
+dbus-daemon[2634010]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2633930]: [session uid=1000 pid=2633930 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+icon-library before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 23 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.23"), update_available: false, can_remove: true, can_open: true }
+icon-library JobFinished: Ok("Launch request accepted")
+icon-library after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 23 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.23"), update_available: false, can_remove: true, can_open: true })
+TIMING icon-library open-current 6111 ms
+
+(xfconfd:2634025): xfconfd-WARNING **: 10:08:47.089: Name org.xfce.Xfconf lost on the message dbus, exiting.
+icon-library before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 0, patch: 23 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/data/flatpak/app/org.gnome.design.IconLibrary/x86_64/stable/0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25", package: Some("org.gnome.design.IconLibrary"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.0.23"), update_available: false, can_remove: true, can_open: true }
+icon-library JobFinished: Ok("Flathub app removed")
+icon-library after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING icon-library remove 4423 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/icon-library/home/.var/app/org.gnome.design.IconLibrary/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING icon-library update-remove 19966 ms

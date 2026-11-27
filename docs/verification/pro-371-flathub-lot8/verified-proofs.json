@@ -1,0 +1,345 @@
+[
+  {
+    "id": "builder",
+    "name": "Builder",
+    "repo": "https://gitlab.gnome.org/GNOME/gnome-builder",
+    "license": "GPL-3.0+ and GPL-2.0+ and LGPL-3.0+ and LGPL-2.0+ and MIT",
+    "stars": null,
+    "flatpak": "org.gnome.Builder",
+    "flathub": "https://flathub.org/apps/org.gnome.Builder",
+    "download_size": 152934233,
+    "logo": "https://dl.flathub.org/media/org/gnome/Builder/7edb893f81412b15c8073829cb6bf1e3/icons/128x128/org.gnome.Builder.png",
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/GNOME/gnome-builder/issues",
+      "homepage": "https://apps.gnome.org/Builder",
+      "help": "https://builder.readthedocs.io",
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/gnome-builder/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/gnome-builder",
+      "contribute": "https://welcome.gnome.org/app/Builder"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "50.0",
+      "49.1"
+    ],
+    "title": "builder",
+    "current": "1aad58b38f886f74f29669c2efe515e8be42eb9ab3cb26cf6318b37f39c62330",
+    "prev": "ec7ab5aeba400b5b934870d753a94608af444067a503e5977ec98b76134a26e1",
+    "previous_version": "50.0",
+    "current_version": "50.0",
+    "times_ms": {
+      "install": 58579,
+      "prior": 6448,
+      "open-previous": 11859,
+      "open": 12911,
+      "update": 7136,
+      "open-current": 11177,
+      "remove": 5122,
+      "update-remove": 26773
+    },
+    "cycle_ms": 104825
+  },
+  {
+    "id": "digikam",
+    "name": "digiKam",
+    "repo": "https://invent.kde.org/graphics/digikam",
+    "license": "GPL-2.0+",
+    "stars": null,
+    "flatpak": "org.kde.digikam",
+    "flathub": "https://flathub.org/apps/org.kde.digikam",
+    "download_size": 371946800,
+    "logo": "https://dl.flathub.org/media/org/kde/digikam.desktop/8d00ac8f4fc4e26502d3ecf0260325dd/icons/128x128/org.kde.digikam.desktop.png",
+    "metadata_urls": {
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=digikam",
+      "homepage": "https://www.digikam.org/",
+      "help": "https://docs.digikam.org/en/index.html",
+      "donation": "https://www.digikam.org/donation"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "9.1.0",
+      "9.0.0"
+    ],
+    "title": "digikam",
+    "current": "7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd",
+    "prev": "63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e",
+    "previous_version": "9.1.0",
+    "current_version": "9.1.0",
+    "times_ms": {
+      "install": 56890,
+      "prior": 10707,
+      "open-previous": 16068,
+      "open": 21246,
+      "update": 10234,
+      "open-current": 15463,
+      "remove": 4620,
+      "update-remove": 36513
+    },
+    "cycle_ms": 125577
+  },
+  {
+    "id": "icon-library",
+    "name": "Icon Library",
+    "repo": "https://gitlab.gnome.org/World/design/icon-library",
+    "license": "GPL-3.0+",
+    "stars": null,
+    "flatpak": "org.gnome.design.IconLibrary",
+    "flathub": "https://flathub.org/apps/org.gnome.design.IconLibrary",
+    "download_size": 2585882,
+    "logo": "https://dl.flathub.org/media/org/gnome/design.IconLibrary/0fa76fdc7cfca1def589a9755bfc84b7/icons/128x128/org.gnome.design.IconLibrary.png",
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/World/design/icon-library/issues",
+      "homepage": "https://gitlab.gnome.org/World/design/icon-library",
+      "translate": "https://l10n.gnome.org/module/icon-library/",
+      "vcs_browser": "https://gitlab.gnome.org/World/design/icon-library"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "0.0.23",
+      "0.0.22"
+    ],
+    "title": "icon library|iconlibrary",
+    "current": "0f9019b3589db1ee56f7c2200ec7fa001c2327afec924fb90c1cd6b361635d25",
+    "prev": "06df08ea92916cb5657a1171a895812ed80a273cdec1ead84ac4908b1c35e157",
+    "previous_version": "0.0.22",
+    "current_version": "0.0.23",
+    "times_ms": {
+      "install": 36421,
+      "prior": 33215,
+      "open-previous": 6418,
+      "open": 8777,
+      "update": 6234,
+      "open-current": 6111,
+      "remove": 4423,
+      "update-remove": 19966
+    },
+    "cycle_ms": 98638
+  },
+  {
+    "id": "rssguard",
+    "name": "RSS Guard",
+    "repo": "https://github.com/martinrotter/rssguard",
+    "license": "GPL-3.0",
+    "stars": 2858,
+    "flatpak": "io.github.martinrotter.rssguard",
+    "flathub": "https://flathub.org/apps/io.github.martinrotter.rssguard",
+    "download_size": 155473807,
+    "logo": "https://dl.flathub.org/media/io/github/martinrotter.rssguard/7a22db96180d5d322265e297dda71616/icons/128x128/io.github.martinrotter.rssguard.png",
+    "metadata_urls": {
+      "vcs_browser": "https://github.com/martinrotter/rssguard",
+      "bugtracker": "https://github.com/martinrotter/rssguard/issues",
+      "homepage": "https://github.com/martinrotter/rssguard",
+      "help": "https://rssguard.readthedocs.io",
+      "donation": "https://github.com/sponsors/martinrotter",
+      "translate": "https://crowdin.com/project/rssguard"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "5.3.0"
+    ],
+    "title": "rss guard|rssguard",
+    "current": "69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2",
+    "prev": "198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8",
+    "previous_version": "5.3.0",
+    "current_version": "5.3.0",
+    "times_ms": {
+      "install": 48780,
+      "prior": 6070,
+      "open-previous": 8760,
+      "open": 15712,
+      "update": 5322,
+      "open-current": 7448,
+      "remove": 4218,
+      "update-remove": 21507
+    },
+    "cycle_ms": 273834
+  },
+  {
+    "id": "trilium",
+    "name": "Trilium Notes",
+    "repo": "https://github.com/TriliumNext/Trilium",
+    "license": "AGPL-3.0-or-later",
+    "stars": 39098,
+    "flatpak": "org.triliumnotes.Trilium",
+    "flathub": "https://flathub.org/apps/org.triliumnotes.Trilium",
+    "download_size": 206263288,
+    "logo": "https://dl.flathub.org/media/org/triliumnotes/Trilium/19dc1bbe0844c8b6b38a60e1221b80ad/icons/128x128/org.triliumnotes.Trilium.png",
+    "metadata_urls": {
+      "donation": "https://triliumnotes.org/support-us",
+      "translate": "https://hosted.weblate.org/engage/trilium/",
+      "vcs_browser": "https://github.com/TriliumNext/Trilium",
+      "homepage": "https://triliumnotes.org",
+      "help": "https://docs.triliumnotes.org",
+      "bugtracker": "https://github.com/TriliumNext/Trilium/issues"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "0.107.0",
+      "0.106.1"
+    ],
+    "title": "trilium",
+    "current": "3072536765c212433f7c7768f382db9cfde968d0a4ac80c265f0bfb32d517cf2",
+    "prev": "cfdea575049f1b008e6896bc8c79adb866321f1c28a464819f53abfc83e5023c",
+    "previous_version": "0.106.0",
+    "current_version": "0.107.0",
+    "times_ms": {
+      "install": 40341,
+      "prior": 24493,
+      "open-previous": 17105,
+      "open": 21535,
+      "update": 10741,
+      "open-current": 16334,
+      "remove": 4322,
+      "update-remove": 37612
+    },
+    "cycle_ms": 124032
+  },
+  {
+    "id": "zettlr",
+    "name": "Zettlr",
+    "repo": "https://github.com/Zettlr/Zettlr",
+    "license": "GPL-3.0-or-later",
+    "stars": 13965,
+    "flatpak": "com.zettlr.Zettlr",
+    "flathub": "https://flathub.org/apps/com.zettlr.Zettlr",
+    "download_size": 189852652,
+    "logo": "https://dl.flathub.org/media/com/zettlr/Zettlr/ac3f5c27f430d2c25b3bf7215aed073b/icons/128x128/com.zettlr.Zettlr.png",
+    "metadata_urls": {
+      "help": "https://docs.zettlr.com",
+      "donation": "https://www.patreon.com/zettlr",
+      "translate": "https://translate.zettlr.com/",
+      "contact": "https://zettlr.com/contact",
+      "vcs_browser": "https://github.com/Zettlr/Zettlr",
+      "bugtracker": "https://github.com/Zettlr/Zettlr/issues",
+      "homepage": "https://www.zettlr.com"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "4.10.0",
+      "4.9.0"
+    ],
+    "title": "zettlr",
+    "current": "bb96fc22a7bcbdcce677bfa96ad66f12c1c936cd6bea1ece50aef3d8f50a87b7",
+    "prev": "866875b85c109ca258c051589abb456a31ab71b92f551ed9b62225403558efdf",
+    "previous_version": "4.9.0",
+    "current_version": "4.10.0",
+    "times_ms": {
+      "install": 37785,
+      "prior": 11900,
+      "open-previous": 17169,
+      "open": 19045,
+      "update": 9841,
+      "open-current": 16996,
+      "remove": 4523,
+      "update-remove": 35017
+    },
+    "cycle_ms": 103967
+  },
+  {
+    "id": "friction",
+    "name": "Friction",
+    "repo": "https://github.com/friction2d/friction",
+    "license": "GPL-3.0-only",
+    "stars": 2122,
+    "flatpak": "graphics.friction.Friction",
+    "flathub": "https://flathub.org/apps/graphics.friction.Friction",
+    "download_size": null,
+    "logo": "https://dl.flathub.org/media/g/gr/graphics.friction.friction/6d2df42522853703a9c165d12b9b4f61/icons/128x128/graphics.friction.Friction.png",
+    "metadata_urls": {
+      "help": "https://friction.graphics/documentation/",
+      "homepage": "https://friction.graphics",
+      "faq": "https://friction.graphics/documentation/faq.html",
+      "donation": "https://friction.graphics/donate.html",
+      "vcs_browser": "https://github.com/friction2d/friction",
+      "contribute": "https://github.com/friction2d/friction/discussions",
+      "bugtracker": "https://github.com/flathub/graphics.friction.Friction/issues"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "1.0.0",
+      "1.0.0~rc.3"
+    ],
+    "title": "friction",
+    "current": "68c8a696e44a7e255ae2a3445b8824520f81cc2d571254de1a2d387d8fa8dce0",
+    "prev": "eac4e5a6b0389c377624cb83eed914b5a97298a2bade1ba02345ef2ab7039b58",
+    "previous_version": "1.0.0",
+    "current_version": "1.0.0",
+    "times_ms": {
+      "install": 39247,
+      "prior": 5283,
+      "open-previous": 11208,
+      "open": 15638,
+      "update": 5626,
+      "open-current": 10462,
+      "remove": 4827,
+      "update-remove": 27802
+    },
+    "cycle_ms": 88029
+  },
+  {
+    "id": "vokoscreenng",
+    "name": "vokoscreenNG",
+    "repo": "https://github.com/vkohaupt/vokoscreenNG",
+    "license": "GPL-2.0-only",
+    "stars": 1528,
+    "flatpak": "com.github.vkohaupt.vokoscreenNG",
+    "flathub": "https://flathub.org/apps/com.github.vkohaupt.vokoscreenNG",
+    "download_size": null,
+    "logo": "https://dl.flathub.org/media/com/github/vkohaupt.vokoscreenNG/d48f49b890fb05fed082284f5c55aeca/icons/128x128/com.github.vkohaupt.vokoscreenNG.png",
+    "metadata_urls": {
+      "translate": "https://explore.transifex.com/vkohaupt/vokoscreen/",
+      "faq": "https://github.com/vkohaupt/vokoscreenNG/issues",
+      "contact": "https://github.com/vkohaupt/vokoscreenNG/issues",
+      "vcs_browser": "https://github.com/vkohaupt/vokoscreenNG",
+      "contribute": "https://github.com/vkohaupt/vokoscreenNG",
+      "bugtracker": "https://github.com/vkohaupt/vokoscreenNG/issues",
+      "homepage": "https://linuxecke.volkoh.de/vokoscreen/vokoscreen.html",
+      "donation": "https://linuxecke.volkoh.de/vokoscreen/vokoscreen-donate.html"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "4.11.0"
+    ],
+    "title": "vokoscreen",
+    "current": "6eeef2c179e8683ec835791b4d628e54846ed47de22016ebae837987d59814c8",
+    "prev": "5e75f22cb40d4cf01c847cf5a71d2c8f130a62b96020cdbb8a0a458e3dac995c",
+    "previous_version": "4.11.1",
+    "current_version": "4.11.0",
+    "times_ms": {
+      "install": 52441,
+      "prior": 5670,
+      "open-previous": 7253,
+      "open": 11856,
+      "update": 5925,
+      "open-current": 6603,
+      "remove": 4530,
+      "update-remove": 23558
+    },
+    "cycle_ms": 93752
+  }
+]

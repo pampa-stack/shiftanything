@@ -1,0 +1,64 @@
+
+=== 2026-11-27T10:09:34+00:00 digikam install ===
+digikam before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+digikam JobFinished: Ok("Flathub app installed")
+digikam after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-digikam-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+02515cf63544d1dca0163412e9995a11edcd1ae04f5921dfc9345541d3ac9d6c  /var/tmp/shift-flatpak-desktop.eAG7lgtR/evidence/native-digikam-icon.png
+org.kde.digikam/x86_64/stable	flathub	7a1f805ba880	user	9.1.0
+TIMING digikam install 56890 ms
+
+=== 2026-11-27T10:10:31+00:00 digikam prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.kde.digikam/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.digikam/x86_64/stable	flathub	63eb4f514329	user	9.1.0
+digikam before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e", package: Some("org.kde.digikam"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: false, can_open: true }
+digikam JobFinished: Err("Approved action rejected: native installation state changed")
+digikam JobFinished: Err("This Flatpak is managed outside the launcher")
+digikam after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e", package: Some("org.kde.digikam"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: false, can_open: true })
+TIMING digikam prior 10707 ms
+
+=== 2026-11-27T10:10:42+00:00 digikam open ===
+dbus-daemon[2642662]: [session uid=1000 pid=2642662 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2642700 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2642662]: [session uid=1000 pid=2642662 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2642744]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2642700 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2642662]: [session uid=1000 pid=2642662 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2642700 comm="/usr/bin/xfwm4 --compositor=off --display=:463" label="unconfined")
+dbus-daemon[2642744]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2642662]: [session uid=1000 pid=2642662 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+digikam before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: true, can_remove: true, can_open: true }
+digikam JobFinished: Ok("Launch request accepted")
+digikam after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: true, can_remove: true, can_open: true })
+TIMING digikam open-previous 16068 ms
+
+(xfconfd:2642757): xfconfd-WARNING **: 10:11:03.711: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING digikam open 21246 ms
+
+=== 2026-11-27T10:11:03+00:00 digikam update-remove ===
+digikam before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/63eb4f5143296aa6f1a9eb00481ef747e6d39c734d72c23a0816c45cdadb9d0e", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: true, can_remove: true, can_open: true }
+digikam JobFinished: Ok("Flathub app updated")
+digikam after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: true, can_open: true })
+TIMING digikam update 10234 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/.var/app/org.kde.digikam/shift-profile-marker: OK
+dbus-daemon[2645606]: [session uid=1000 pid=2645606 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2645670 comm="/usr/bin/xfwm4 --compositor=off --display=:407" label="unconfined")
+dbus-daemon[2645606]: [session uid=1000 pid=2645606 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2645693]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2645670 comm="/usr/bin/xfwm4 --compositor=off --display=:407" label="unconfined")
+dbus-daemon[2645606]: [session uid=1000 pid=2645606 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2645670 comm="/usr/bin/xfwm4 --compositor=off --display=:407" label="unconfined")
+dbus-daemon[2645693]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2645606]: [session uid=1000 pid=2645606 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+digikam before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: true, can_open: true }
+digikam JobFinished: Ok("Launch request accepted")
+digikam after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: true, can_open: true })
+TIMING digikam open-current 15463 ms
+
+(xfconfd:2645709): xfconfd-WARNING **: 10:11:35.523: Name org.xfce.Xfconf lost on the message dbus, exiting.
+digikam before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/data/flatpak/app/org.kde.digikam/x86_64/stable/7a1f805ba8808c95f028abd6ac357d5a445bf0140bf627c1569535a153da79fd", package: Some("org.kde.digikam"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.1.0"), update_available: false, can_remove: true, can_open: true }
+digikam JobFinished: Ok("Flathub app removed")
+digikam after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING digikam remove 4620 ms
+/var/tmp/shift-flatpak-desktop.eAG7lgtR/digikam/home/.var/app/org.kde.digikam/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING digikam update-remove 36513 ms

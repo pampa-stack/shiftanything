@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 61] = [
+pub const RECIPES: [(&str, &str); 67] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -63,6 +63,12 @@ pub const RECIPES: [(&str, &str); 61] = [
     ("synfig-studio", "org.synfig.SynfigStudio"),
     ("kicad", "org.kicad.KiCad"),
     ("strawberry-music-player", "org.strawberrymusicplayer.strawberry"),
+    ("builder", "org.gnome.Builder"),
+    ("digikam", "org.kde.digikam"),
+    ("icon-library", "org.gnome.design.IconLibrary"),
+    ("trilium", "org.triliumnotes.Trilium"),
+    ("friction", "graphics.friction.Friction"),
+    ("vokoscreenng", "com.github.vkohaupt.vokoscreenNG"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -142,6 +148,12 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "synfig-studio" => "https://github.com/synfig/synfig",
         "kicad" => "https://gitlab.com/kicad/code/kicad",
         "strawberry-music-player" => "https://github.com/strawberrymusicplayer/strawberry",
+        "builder" => "https://gitlab.gnome.org/GNOME/gnome-builder",
+        "digikam" => "https://invent.kde.org/graphics/digikam",
+        "icon-library" => "https://gitlab.gnome.org/World/design/icon-library",
+        "trilium" => "https://github.com/TriliumNext/Trilium",
+        "friction" => "https://github.com/friction2d/friction",
+        "vokoscreenng" => "https://github.com/vkohaupt/vokoscreenNG",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

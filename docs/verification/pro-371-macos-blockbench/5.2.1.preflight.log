@@ -1,0 +1,76 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437113020    803588   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974788432   1567008   100%    /Volumes/T7-Backup
+2026-11-27T10:03:05Z
+checksum PASS 20fd51a18c7a757d9cb03bb0b89c99874d2d5bdbae733817a7877b15043aa78c 128702946 https://github.com/JannisX11/blockbench/releases/download/v5.2.1/Blockbench_arm64_5.2.1.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $05BB2BBF
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $5ACF4755
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $4474207F
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $B1F282BA
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $4474207F
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $E48DB942
+verificato   CRC32 $EEA51484
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.qwYHHZfS
+APP=Blockbench.app
+CFBundleIdentifier=blockbench
+CFBundleShortVersionString=5.2.1
+CFBundleVersion=5.2.1
+CFBundleExecutable=Blockbench
+LSMinimumSystemVersion=12.0
+arm64
+/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/MacOS/Blockbench (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.4
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=blockbench
+Authority=Developer ID Application: Jannis Petersen (5QMG7G7462)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=5QMG7G7462
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (GPU).app
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (GPU).app
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (Plugin).app
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (Plugin).app
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (Renderer).app
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper (Renderer).app
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper.app
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Blockbench Helper.app
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.qwYHHZfS/Blockbench.app
+The validate action worked!
+stapler_app_rc=0
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v5.2.1/Blockbench_arm64_5.2.1.dmg
+Blockbench_arm64_5.2.1.dmg does not have a ticket stapled to it.
+stapler_dmg_rc=65
+"disk8" ejected.

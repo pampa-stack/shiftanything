@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437059884    856724   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974534796   1820644   100%    /Volumes/T7-Backup
+Recipe blockbench selected Blockbench_arm64_5.2.1.dmg 128702946 bytes
+Verifying after 13.785s
+Installing after 13.785s
+PASS 5.2.1 128702946 bytes
+PASS install 23.300s
+325396	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-blockbench/Apps/Blockbench.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437067320    848268   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974860440   1495000   100%    /Volumes/T7-Backup
+Recipe blockbench selected Blockbench_arm64_5.2.2.dmg 128721695 bytes
+Verifying after 13.115s
+Installing after 13.115s
+PASS 5.2.2 128721695 bytes
+PASS update 85.129s
+325412	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-blockbench/Apps/Blockbench.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-blockbench/.Trash/Blockbench.app
+PASS remove 0.024s

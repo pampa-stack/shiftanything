@@ -1096,7 +1096,28 @@ pub const NOTEPAD_NEXT: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 42] = [
+pub const BLOCKBENCH: crate::CraftApp = crate::CraftApp {
+    id: "blockbench",
+    name: "Blockbench",
+    tagline: "Model, texture and animate low-poly 3D assets",
+    repo: "JannisX11/blockbench",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [64, 145, 225],
+    ink_light: [24, 77, 132],
+    ink_dark: [143, 202, 250],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Jannis Petersen",
+    msi_publisher: None,
+    bundle: Some("blockbench"),
+    site: Some("https://www.blockbench.net/"),
+    mac_bundle_name: None,
+    mac_team: Some("5QMG7G7462"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 43] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1129,6 +1150,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 42] = [
     VIBE,
     OPENSCREEN,
     SOLVESPACE,
+    BLOCKBENCH,
     DOSBOX_STAGING,
     PENCIL2D,
     OPENSHOT,
@@ -1320,6 +1342,32 @@ mod recipe_tests {
             }
             let prerelease = release::Release { prerelease: true, ..release.clone() };
             assert!(!release::dosbox_staging_mac_asset(&prerelease, asset));
+        }
+    }
+
+    #[test]
+    fn blockbench_selects_only_the_official_silicon_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("blockbench").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("blockbench"), Some("5QMG7G7462")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, size) in [("v5.2.1", 128_702_946), ("v5.2.2", 128_721_695)] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            assert_eq!(asset.name, format!("Blockbench_arm64_{}.dmg", &tag[1..]));
+            assert_eq!((asset.size, kind), (size, PackageKind::Dmg));
+            let intel = Platform { arch: Arch::X64, ..mac };
+            assert!(platform::pick_asset(&release, &[app.id], intel, intel.download_kinds()).is_none());
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let wrong_tag = release::Asset { url: asset.url.replace(tag, "v5.2.3"), ..asset.clone() };
+            let intel_asset = release::Asset { name: asset.name.replace("arm64", "x64"), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            for different in [different_size, wrong_tag, intel_asset, no_checksum] {
+                assert!(!release::blockbench_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::blockbench_mac_asset(&prerelease, asset));
         }
     }
 

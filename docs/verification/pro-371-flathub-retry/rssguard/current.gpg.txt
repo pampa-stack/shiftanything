@@ -1,0 +1,19 @@
+commit 69e101bb6d83941e80cfa00e00aa581bb98da20666affc6a3bb1c7dd6e2ce6b2
+Parent:  198a09f141e1ecf7a4e0df0b0d1294d672074b0bd02c27e2838ae631df9687f8
+ContentChecksum:  31723cd43b7146d9c55239b1d4493445934a764937ccbeacec3ddd9bb029a561
+Date:  2026-11-24 16:30:37 +0000
+
+    yt-dlp: Update yt-dlp.tar.gz to 2026.11.23 (323eed987e65)
+
+    Name: io.github.martinrotter.rssguard
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 24 16:34:43 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

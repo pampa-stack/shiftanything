@@ -1,0 +1,19 @@
+commit b343340104f1ab512cee166f8222c5091ea31d4b20917c0fdd18612f5359af55
+Parent:  9ff2ddcc6ecf0e53053265d7a16e7996b3b708668b5bf0c3fb66f37e6f5bef5f
+ContentChecksum:  776d5fa02ea47abd76fa5b78132a236a96df59acb7c978fc84665d5d935b4149
+Date:  2026-09-07 10:53:16 +0000
+
+    Update Exiv2 and opencv (bb877648750d)
+
+    Name: org.nomacs.ImageLounge
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Sep  7 14:29:34 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

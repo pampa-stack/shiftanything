@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 71] = [
+pub const RECIPES: [(&str, &str); 73] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -73,6 +73,8 @@ pub const RECIPES: [(&str, &str); 71] = [
     ("vscodium", "com.vscodium.codium"),
     ("librecad", "org.librecad.librecad"),
     ("gnucash", "org.gnucash.GnuCash"),
+    ("rssguard", "io.github.martinrotter.rssguard"),
+    ("nomacs", "org.nomacs.ImageLounge"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -162,6 +164,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "vscodium" => "https://github.com/VSCodium/vscodium",
         "librecad" => "https://github.com/LibreCAD/LibreCAD",
         "gnucash" => "https://github.com/Gnucash/gnucash",
+        "rssguard" => "https://github.com/martinrotter/rssguard",
+        "nomacs" => "https://github.com/nomacs/nomacs",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

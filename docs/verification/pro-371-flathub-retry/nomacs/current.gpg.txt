@@ -1,0 +1,19 @@
+commit 868178fae1e4f3180629355fd0a4765e213a0980b5b1768a781dda8b1113998f
+Parent:  b343340104f1ab512cee166f8222c5091ea31d4b20917c0fdd18612f5359af55
+ContentChecksum:  d220bddaf6d780ff200050fb9029863e3149e46434bfdd410bd79baca35f8076
+Date:  2026-10-05 19:13:04 +0000
+
+    Grant /mnt access (6ac1310d9f6e)
+
+    Name: org.nomacs.ImageLounge
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Oct  5 20:37:07 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

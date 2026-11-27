@@ -811,6 +811,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::PASEO,
         crate::curated::FREECAD,
         crate::curated::OPENMAUSBOT,
+        crate::curated::MUSESCORE,
+        crate::curated::ORCA_SLICER,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1355,12 +1357,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("OpenShot/openshot-qt", "v4.1.1") => {
             &[("OpenShot-v4.1.1-x86_64.AppImage", 258_921_664, "662d0c3cec67ddc90df6a8b0c723c0aac0d3bddf0c3c467eff562e818bb8c72f")]
         }
-        ("musescore/MuseScore", "v4.7.6") => {
-            &[("MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952, "5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6")]
-        }
-        ("musescore/MuseScore", "v4.7.7") => {
-            &[("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d")]
-        }
+        ("musescore/MuseScore", "v4.7.6") => &[
+            ("MuseScore-Studio-4.7.6.261022093.dmg", 207_171_137, "dd78357e652a4df6ec074b9bd63a79e09eedb7c1c9dd6262eb7d9304508dec9c"),
+            ("MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952, "5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6"),
+        ],
+        ("musescore/MuseScore", "v4.7.7") => &[
+            ("MuseScore-Studio-4.7.7.261109195.dmg", 206_969_738, "16a6b33bb12f4a54cd97dfe8e7bc2f21477b9897e4c503e26fa3e332e4ddf8ad"),
+            ("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d"),
+        ],
         ("mifi/lossless-cut", "v3.70.1") => &[
             ("LosslessCut-mac-arm64.dmg", 165_847_881, "82964e13ca65beeee508fbdb27fe823121701748b8b4023800bdcf701183d2ea"),
             ("LosslessCut-linux-x86_64.AppImage", 221_418_564, "04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842"),
@@ -1369,16 +1373,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("LosslessCut-mac-arm64.dmg", 165_792_537, "3c0e2b3ec25fec66cf0cef343450d9a333e4bba5d64456c34cd18e891a3f5947"),
             ("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a"),
         ],
-        ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[(
-            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage",
-            201_116_152,
-            "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb",
-        )],
-        ("OrcaSlicer/OrcaSlicer", "v2.5.2") => &[(
-            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage",
-            201_034_232,
-            "22fa88884dec3fdbd29e90cba9912fcff6fb57a60b1bdc1a6c189c61a6b0a870",
-        )],
+        ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[
+            ("OrcaSlicer_Mac_universal_V2.5.1.dmg", 364_654_009, "ddf48a7f34785a4d5b4313e4dc4d7ad01769d48bc4c8d825f809da96593e6f46"),
+            ("OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage", 201_116_152, "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb"),
+        ],
+        ("OrcaSlicer/OrcaSlicer", "v2.5.2") => &[
+            ("OrcaSlicer_Mac_universal_V2.5.2.dmg", 359_667_480, "6ea1afcdffb7e9ab011e2d6f6db665cb18463d1c4774591cd5db7ee0225479d9"),
+            ("OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage", 201_034_232, "22fa88884dec3fdbd29e90cba9912fcff6fb57a60b1bdc1a6c189c61a6b0a870"),
+        ],
         ("Zettlr/Zettlr", "v4.10.0") => {
             &[("Zettlr-4.10.0-x86_64.AppImage", 172_628_308, "bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc")]
         }
@@ -1579,17 +1581,21 @@ mod tests {
     fn desktop_recipes_use_only_reviewed_apple_silicon_packages() {
         use crate::{
             Arch, Os, PackageKind, Platform,
-            curated::{FREECAD, OPENMAUSBOT, PASEO},
+            curated::{FREECAD, MUSESCORE, OPENMAUSBOT, ORCA_SLICER, PASEO},
             platform::pick_asset,
         };
 
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (app, tags, next) in
-            [(PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"), (FREECAD, ["1.1.3", "1.1.4"], "1.1.5"), (OPENMAUSBOT, ["v0.1.182", "v0.1.184"], "v0.1.185")]
-        {
+        for (app, tags, next) in [
+            (PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"),
+            (FREECAD, ["1.1.3", "1.1.4"], "1.1.5"),
+            (OPENMAUSBOT, ["v0.1.182", "v0.1.184"], "v0.1.185"),
+            (MUSESCORE, ["v4.7.6", "v4.7.7"], "v4.7.8"),
+            (ORCA_SLICER, ["v2.5.1", "v2.5.2"], "v2.5.3"),
+        ] {
             let pick = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
             for tag in tags {
-                let expected = reviewed_assets(app.repo, tag).next().unwrap();
+                let expected = reviewed_assets(app.repo, tag).find(|asset| asset.name.ends_with(".dmg")).unwrap();
                 let api = serde_json::json!({
                     "tag_name": tag,
                     "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]

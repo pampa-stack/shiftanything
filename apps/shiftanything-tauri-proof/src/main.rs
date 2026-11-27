@@ -1,4 +1,5 @@
 //! Local desktop launcher with approved native lifecycle operations.
+#![cfg_attr(all(target_os = "windows", not(debug_assertions)), windows_subsystem = "windows")]
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
 mod catalog_links;
 mod discovery;

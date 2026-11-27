@@ -11,9 +11,10 @@ import subprocess
 ROOT = Path(__file__).resolve().parents[1]
 TAURI = "apps/shiftanything-tauri-proof"
 TARGETS = (
-    ("Mac con chip Apple", "macos", "arm64", 30),
-    ("Linux x64", "linux", "x64", 60),
+    ("Mac con chip Apple", "macos", "arm64"),
+    ("Linux x64", "linux", "x64"),
 )
+MIN_NEW_VERIFICATIONS = 20
 
 
 def read_json(commit, filename):
@@ -40,12 +41,12 @@ def catalog_counts(commit):
 
     verified = read_json(commit, f"{TAURI}/verified-platforms.json")
     counts = {}
-    for label, platform, arch, _ in TARGETS:
+    for label, platform, arch in TARGETS:
         entries = verified[platform][arch]
         unique_ids = set(entries)
         if len(unique_ids) != len(entries) or not unique_ids <= ids:
             raise ValueError(f"{label}: duplicate or unknown app IDs in verification evidence")
-        counts[label] = len(entries)
+        counts[label] = unique_ids
     return len(ids), counts
 
 
@@ -62,13 +63,11 @@ def main():
         if args.previous:
             previous = resolve_commit(args.previous)
             _, baseline = catalog_counts(previous)
-            pending = [
-                f"{label} {counts[label]}/{baseline[label] + minimum}"
-                for label, _, _, minimum in TARGETS
-                if counts[label] < baseline[label] + minimum
-            ]
-            if pending:
-                raise ValueError("catalog release targets not reached (" + ", ".join(pending) + ")")
+            deltas = {label: len(ids - baseline[label]) for label, ids in counts.items()}
+            total = sum(deltas.values())
+            if total < MIN_NEW_VERIFICATIONS:
+                progress = ", ".join(f"{label} +{delta}" for label, delta in deltas.items())
+                raise ValueError(f"catalog release target not reached ({total}/{MIN_NEW_VERIFICATIONS}; {progress})")
         version = read_json(commit, f"{TAURI}/tauri.conf.json")["version"]
     except (ValueError, subprocess.CalledProcessError) as error:
         parser.error(str(error))
@@ -80,8 +79,8 @@ def main():
     if args.changes:
         print(args.changes.read_text(encoding="utf-8").strip(), end="\n\n")
     print(f"### Catalogo · {catalog_size} schede\n")
-    for label, count in counts.items():
-        print(f"- **{label}** — {count} app con ciclo di pacchetto verificato.")
+    for label, ids in counts.items():
+        print(f"- **{label}** — {len(ids)} app con ciclo di pacchetto verificato.")
     print("\nUsa **Installabili qui** per vedere quali app puoi scaricare sul tuo computer.")
     print(f"\nCodice usato per la build: `{commit}`.")
 

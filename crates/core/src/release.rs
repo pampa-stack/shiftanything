@@ -752,6 +752,7 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     const RECIPES: &[crate::CraftApp] = &[
         crate::curated::OPENCLAW,
+        crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
         crate::curated::CLASH_VERGE_REV,
@@ -764,7 +765,10 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     !release.prerelease
-        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{version}"))
+        && release.version.as_ref().is_some_and(|version| {
+            let expected = if app.id == crate::curated::RUSTDESK.id { version.to_string() } else { format!("v{version}") };
+            version.pre.is_empty() && version.build.is_empty() && release.tag == expected
+        })
         && reviewed_assets(app.repo, &release.tag).any(|reviewed| {
             reviewed.name.ends_with(".dmg")
                 && reviewed.name == asset.name
@@ -1185,12 +1189,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("CyberTimon/RapidRAW", "v1.7.1") => {
             &[("03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage", 117_078_520, "398ca458f2f713eb60fc4b32ff5f178323217e71ff039f9246a8f4e7d1f63a71")]
         }
-        ("rustdesk/rustdesk", "1.5.1") => {
-            &[("rustdesk-1.5.1-x86_64.AppImage", 88_472_056, "bb8b7ccb3f50a201dccdc89b46385cff90f33e60b4730faeda9fa5504ac4dce6")]
-        }
-        ("rustdesk/rustdesk", "1.5.3") => {
-            &[("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506")]
-        }
+        ("rustdesk/rustdesk", "1.5.1") => &[
+            ("rustdesk-1.5.1-x86_64.AppImage", 88_472_056, "bb8b7ccb3f50a201dccdc89b46385cff90f33e60b4730faeda9fa5504ac4dce6"),
+            ("rustdesk-1.5.1-aarch64.dmg", 30_548_457, "1b94182cba2375ea29a196f2c8183f7feaa00588474ecd76c92c2303ffd70d7b"),
+        ],
+        ("rustdesk/rustdesk", "1.5.3") => &[
+            ("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506"),
+            ("rustdesk-1.5.3-aarch64.dmg", 31_464_911, "e6d30fa1633d772c48935907c208ca4e555a856fb2038af3aaa87a327c29360b"),
+        ],
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

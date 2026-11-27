@@ -1195,10 +1195,10 @@ pub const RUSTDESK: crate::CraftApp = crate::CraftApp {
     kind: crate::catalog::AppKind::Community,
     publisher: "RustDesk contributors",
     msi_publisher: None,
-    bundle: None,
+    bundle: Some("com.carriez.rustdesk"),
     site: Some("https://rustdesk.com/"),
     mac_bundle_name: None,
-    mac_team: None,
+    mac_team: Some("HZF9JMC8YN"),
 };
 
 pub const SUPER_PRODUCTIVITY: crate::CraftApp = crate::CraftApp {

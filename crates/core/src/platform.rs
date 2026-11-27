@@ -363,7 +363,9 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
     }
-    if let Some(app) = crate::release::qualified_mac_dmg_recipe(stems) {
+    if platform.os == Os::MacOs
+        && let Some(app) = crate::release::qualified_mac_dmg_recipe(stems)
+    {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
         }
@@ -665,9 +667,6 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-    if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
-        return platform == mac_arm64;
-    }
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
     if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
         .iter()
@@ -675,6 +674,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         && platform.os == Os::Linux
     {
         return platform == linux_x64;
+    }
+    if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
+        return platform == mac_arm64;
     }
     if ["nextcloud-desktop", "notepadnext", "rapidraw", "rustdesk"].iter().any(|id| stems.contains(id)) {
         return false;
@@ -795,6 +797,7 @@ mod tests {
         let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
         for (app, tags) in [
             (crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]),
+            (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),
@@ -804,7 +807,8 @@ mod tests {
         ] {
             let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
             for tag in tags {
-                let release = crate::release::release_from_sums(app.repo, tag, &[]);
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                release.assets.retain(|asset| asset.name.ends_with(".dmg"));
                 assert!(selects(&release, host));
                 assert!(!selects(&release, Platform { arch: Arch::X64, ..host }));
                 assert!(!selects(&release, Platform { os: Os::Linux, ..host }));

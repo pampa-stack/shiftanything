@@ -35,3 +35,7 @@ Resta da coprire il catalogo installabile per piattaforma e verificare la parit�
 ## Inventario delle ricette, 27 novembre alle 07:57 CET
 
 Il catalogo di 528 schede configura 38 candidati nativi su macOS ARM64, 17 su macOS x64, 18 su Windows per architettura, 18 su Linux ARM64 e 19 su Linux x64. Linux x64 include inoltre 19 ricette Flathub stabili, controllate per identità del progetto e canale di distribuzione. I candidati richiedono la risoluzione del pacchetto della piattaforma. I cicli eseguiti sono 22 su macOS ARM64 e 19 su Linux x64 via Flathub, con i canali Linux aggiuntivi documentati sopra. Riproduzione con `cargo run --offline -p artcraft-launcher-core --example recipe_matrix`. [Inventario JSON](recipe-scope-528.json) · [ActivityWatch](../pro-371-macos-activitywatch/README.md) · [Okular](../pro-371-linux-okular/README.md)
+
+## Controlli aggiuntivi sul DEB aggiornato
+
+Nella finestra del pacchetto Ubuntu da `f5005db`, il confronto Wispr Flow mostra i loghi di Handy, OpenWhispr Local e Whispering. Trova app restituisce le stesse tre app per la dettatura e un singolo risultato, NormCap, per l’OCR dello schermo. Il profilo di prova era senza rete. [Wispr Flow](linux-528-wispr-results.png) · [Dettatura](linux-528-find-dictation.png) · [OCR](linux-528-find-ocr.png)

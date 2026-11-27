@@ -2043,6 +2043,48 @@ pub const VLC: crate::CraftApp = crate::CraftApp {
     mac_team: Some("75GAHG3SZQ"),
 };
 
+pub const INKSCAPE: crate::CraftApp = crate::CraftApp {
+    id: "inks",
+    name: "Inkscape",
+    tagline: "Draw and edit vector graphics",
+    repo: "inkscape/inkscape",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [53, 54, 58],
+    ink_light: [28, 29, 32],
+    ink_dark: [225, 226, 229],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The Inkscape Community",
+    msi_publisher: None,
+    bundle: Some("org.inkscape.Inkscape"),
+    site: Some("https://inkscape.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("SW3D6BB6A6"),
+};
+
+pub const KDENLIVE: crate::CraftApp = crate::CraftApp {
+    id: "kdenlive",
+    name: "Kdenlive",
+    tagline: "Edit video across multiple tracks",
+    repo: "KDE/kdenlive",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [63, 143, 217],
+    ink_light: [32, 78, 135],
+    ink_dark: [161, 215, 252],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "KDE",
+    msi_publisher: None,
+    bundle: Some("org.kde.Kdenlive"),
+    site: Some("https://kdenlive.org/"),
+    mac_bundle_name: Some("kdenlive"),
+    mac_team: Some("5433B4KXM8"),
+};
+
 pub const NETNEWSWIRE: crate::CraftApp = crate::CraftApp {
     id: "netnewswire",
     name: "NetNewsWire",
@@ -2483,6 +2525,8 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     NETNEWSWIRE,
     KRITA,
     VLC,
+    INKSCAPE,
+    KDENLIVE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

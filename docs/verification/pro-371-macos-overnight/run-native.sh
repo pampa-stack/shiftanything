@@ -11,10 +11,11 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
+    [[ "$id" != inks ]] || log_id=inkscape
     grep -x -F "PASS PREFLIGHT $log_id $tag" "$log_id-$tag.log"
 done
 df -k "$root" | awk 'NR==2{print; exit !($4>=8388608)}'
@@ -28,13 +29,34 @@ from pathlib import Path
 import json, re, sys, time
 
 app_id, repo, old, new, cache = sys.argv[1:]
-log_id = 'open-pencil' if app_id == 'openpencil' else app_id
+log_id = {'openpencil': 'open-pencil', 'inks': 'inkscape'}.get(app_id, app_id)
 tsv = []
 releases = []
 for tag in (old, new):
     [digest, size, url] = re.search(r'^ARTIFACT ([a-f0-9]{64}) (\d+) (https://\S+)$', Path(f'{log_id}-{tag}.log').read_text(), re.M).groups()
     name = url.rsplit('/', 1)[-1]
-    if app_id == 'vlc':
+    if app_id == 'inks':
+        assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
+        assert name == f'Inkscape-{tag}_arm64.dmg'
+        assert url == f'https://media.inkscape.org/dl/resources/file/{name}'
+        checksum, published_name = Path(f'inkscape-{tag}.sha256').read_text().strip().split(maxsplit=1)
+        expected_name = 'Inkscape-1.4.3+33103_arm64.dmg' if tag == '1.4.3' else name
+        assert checksum == digest and published_name == expected_name
+        if tag == new:
+            assert Path('inkscape-stable-location.txt').read_text().strip() == f'/release/inkscape-{tag}/'
+        published_digests = {digest}
+        version = tag
+    elif app_id == 'kdenlive':
+        assert re.fullmatch(r'\d+\.\d{2}\.\d+', tag)
+        series = tag.rsplit('.', 1)[0]
+        assert name == f'kdenlive-{tag}-arm64.dmg'
+        assert url == f'https://cdn.download.kde.org/stable/kdenlive/{series}/macOS/{name}'
+        assert Path(f'kdenlive-{tag}.sha256').read_text().split()[0] == digest
+        if tag == new:
+            assert f'<item><title>Release {tag} of Kdenlive</title><link>https://apps.kde.org/kdenlive/#{tag}</link>' in Path('kdenlive-releases.xml').read_text()
+        published_digests = {digest}
+        version = '.'.join(str(int(part)) for part in tag.split('.'))
+    elif app_id == 'vlc':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         assert name == f'vlc-{tag}-arm64.dmg'
         assert url == f'https://download.videolan.org/pub/videolan/vlc/{tag}/macosx/{name}'
@@ -106,7 +128,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion
@@ -115,7 +137,7 @@ spctl --status
 for phase in install update remove; do
     env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$phase" "$app"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
-    if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc ) && "$phase" != remove ]]; then
+    if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks ) && "$phase" != remove ]]; then
         python3 - "$id" "$profile" "$phase" "$old" "$new" <<'PYLAUNCH'
 from pathlib import Path
 import re, subprocess, sys
@@ -126,6 +148,7 @@ bundle, binary, args = {
     'blender': ('Blender', 'Blender', ['--version']),
     'gimp': ('GIMP', 'gimp-3.2', ['--version']),
     'vlc': ('VLC', 'VLC', ['-I', 'dummy', '--no-plugins-cache', '--version']),
+    'inks': ('Inkscape', 'inkscape', ['--version']),
 }[app_id]
 executable = Path(profile) / f'Applications/{bundle}.app/Contents/MacOS/{binary}'
 command = ['/usr/bin/sandbox-exec', '-p', '(version 1) (allow default) (deny network*) (deny file-write*)', str(executable), *args]

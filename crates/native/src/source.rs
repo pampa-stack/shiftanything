@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, VLC, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, INKSCAPE, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, VLC, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -25,6 +25,8 @@ use crate::http::{Fetched, Http};
 
 mod blender;
 mod gimp;
+mod inkscape;
+mod kdenlive;
 mod krita;
 mod libreoffice;
 mod videolan;
@@ -77,6 +79,8 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == GIMP.repo => Source::Gimp,
             repo if repo == KRITA.repo => Source::Krita,
             repo if repo == VLC.repo => Source::VideoLan,
+            repo if repo == INKSCAPE.repo => Source::Inkscape,
+            repo if repo == KDENLIVE.repo => Source::Kdenlive,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -603,6 +607,10 @@ impl GitHubSource {
             gimp::releases(&self.http, false)?
         } else if query.repo == VLC.repo {
             videolan::releases(&self.http, false)?
+        } else if query.repo == INKSCAPE.repo {
+            inkscape::releases(&self.http, false)?
+        } else if query.repo == KDENLIVE.repo {
+            kdenlive::releases(&self.http, false)?
         } else if query.repo == KRITA.repo {
             krita::releases(&self.http, false)?
         } else if query.repo == NETNEWSWIRE.repo {
@@ -692,6 +700,8 @@ impl ReleaseSource for GitHubSource {
             repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
             repo if repo == KRITA.repo => Some((Source::Krita, krita::releases(&self.http, true))),
             repo if repo == VLC.repo => Some((Source::VideoLan, videolan::releases(&self.http, true))),
+            repo if repo == INKSCAPE.repo => Some((Source::Inkscape, inkscape::releases(&self.http, true))),
+            repo if repo == KDENLIVE.repo => Some((Source::Kdenlive, kdenlive::releases(&self.http, true))),
             repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
@@ -722,11 +732,18 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if [KRITA.repo, VLC.repo].contains(&query.repo.as_str()) {
+        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo].contains(&query.repo.as_str()) {
             return match self.cached_in(query, false) {
                 Some(LatestRelease::Found(saved)) if !saved.prerelease => {
-                    let mut release =
-                        if query.repo == KRITA.repo { release::krita_mac_release(&saved.tag)? } else { release::vlc_mac_release(&saved.tag)? };
+                    let mut release = if query.repo == KRITA.repo {
+                        release::krita_mac_release(&saved.tag)?
+                    } else if query.repo == VLC.repo {
+                        release::vlc_mac_release(&saved.tag)?
+                    } else if query.repo == INKSCAPE.repo {
+                        release::inkscape_mac_release(&saved.tag)?
+                    } else {
+                        release::kdenlive_mac_release(&saved.tag)?
+                    };
                     release.assets.retain(|asset| saved.assets.contains(asset));
                     (saved.html_url == release.html_url && saved.version == release.version).then_some(LatestRelease::Found(release))
                 }
@@ -759,7 +776,7 @@ impl ReleaseSource for GitHubSource {
         if repo == NETNEWSWIRE.repo {
             return self.latest_netnewswire().ok().map(|release| release.tag);
         }
-        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo, VLC.repo].contains(&repo) {
+        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo].contains(&repo) {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

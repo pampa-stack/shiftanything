@@ -130,6 +130,12 @@ impl CraftApp {
         if self.uses_vlc_releases() {
             return crate::release::VLC_DOWNLOADS_URL.to_string();
         }
+        if self.uses_inkscape_releases() {
+            return crate::release::INKSCAPE_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_kdenlive_releases() {
+            return crate::release::KDENLIVE_DOWNLOADS_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -145,6 +151,12 @@ impl CraftApp {
         }
         if self.uses_vlc_releases() {
             return "https://code.videolan.org/videolan/vlc".to_string();
+        }
+        if self.uses_inkscape_releases() {
+            return "https://gitlab.com/inkscape/inkscape".to_string();
+        }
+        if self.uses_kdenlive_releases() {
+            return "https://invent.kde.org/multimedia/kdenlive".to_string();
         }
         format!("https://github.com/{}", self.repo)
     }
@@ -171,6 +183,14 @@ impl CraftApp {
 
     pub fn uses_vlc_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::VLC.id, crate::curated::VLC.repo)
+    }
+
+    pub fn uses_inkscape_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::INKSCAPE.id, crate::curated::INKSCAPE.repo)
+    }
+
+    pub fn uses_kdenlive_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::KDENLIVE.id, crate::curated::KDENLIVE.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

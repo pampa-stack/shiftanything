@@ -482,6 +482,10 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, &url, 128 * 1024)
     }
 
+    pub(crate) fn get_kdenlive_releases(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::KDENLIVE_RELEASES_URL, 256 * 1024)
+    }
+
     fn get_bytes_with(agent: &ureq::Agent, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
         let mut resp = agent.get(url).call().map_err(|e| format!("{UNREACHABLE} {} ({e})", host(url)))?;
         match resp.status().as_u16() {
@@ -631,6 +635,8 @@ impl Http {
             artcraft_launcher_core::release::ZOTERO_DMG_URL,
             artcraft_launcher_core::release::BLENDER_DMG_URL,
             artcraft_launcher_core::release::VLC_DMG_URL,
+            artcraft_launcher_core::release::INKSCAPE_DMG_URL,
+            artcraft_launcher_core::release::KDENLIVE_DMG_URL,
         ]
         .iter()
         .any(|prefix| url.starts_with(prefix))

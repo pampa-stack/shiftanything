@@ -12922,9 +12922,9 @@
     },
     "logo": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/frontend/appflowy_flutter/macos/Runner/Assets.xcassets/AppIcon.appiconset/128.png",
     "screenshots": [
-      "https://github.com/user-attachments/assets/1c12d629-40a0-4f35-9451-97498cf31a25"
+      "https://dl.flathub.org/media/io/appflowy/AppFlowy/6b0f32f8732f18dae4dbe5aa3871868c/screenshots/image-1_orig.png"
     ],
-    "media_source": "https://github.com/AppFlowy-IO/AppFlowy/blob/main/README.md",
+    "media_source": "https://flathub.org/apps/io.appflowy.AppFlowy",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",

@@ -1787,6 +1787,14 @@
       "source_sha256": "c52afd52e86eebf451ca2dd39cb390c06d5260bb1c762890fe6e65d56b2498b9"
     },
     {
+      "app": "appflowy",
+      "slot": "shot-0",
+      "source": "https://dl.flathub.org/media/io/appflowy/AppFlowy/6b0f32f8732f18dae4dbe5aa3871868c/screenshots/image-1_orig.png",
+      "file": "media/appflowy-shot-0.jpg",
+      "sha256": "905eb32e67334cd313755b0af6e9587516fb5515429d40722241f6f717c96383",
+      "source_sha256": "5bb59967c485e4e5c360401c0fef307cb0d8e6d3d4d75fa0314eac50beeb7a3f"
+    },
+    {
       "app": "actual",
       "slot": "logo",
       "source": "https://raw.githubusercontent.com/actualbudget/actual/master/packages/desktop-client/public/favicon-32x32.png",

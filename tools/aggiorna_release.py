@@ -19,6 +19,10 @@ VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 GODOT_REPO = "godotengine/godot"
 GODOT_BUILDS = "godotengine/godot-builds"
 GODOT_TAG = re.compile(r"\d+\.\d+(?:\.\d+)?-stable")
+RELEASE_REPOSITORIES = {
+    ("godot-engine", GODOT_REPO): GODOT_BUILDS,
+    ("nextcloud-desktop", "nextcloud/desktop"): "nextcloud-releases/desktop",
+}
 PREVIEW = re.compile(r"\b(?:alpha|beta|nightly|preview|pre[- ]?release|rc)\d*\b", re.I)
 PREVIEW_TAG = re.compile(r"^((?:v|release-)?\d+(?:\.\d+)*)-(?:alpha|beta|nightly|preview|pre-release|prerelease|rc)\d*(?:[.-]\d+)*$", re.I)
 WINDOWS_INSTALLER = re.compile(
@@ -217,8 +221,8 @@ def release_for(app):
     if flatpak := FLATPAK.fullmatch(source):
         return flatpak_release(flatpak[1])
     repo = REPO.fullmatch(app.get("repo") or "")
-    if app.get("id") == "godot-engine" and repo and repo[1].lower() == GODOT_REPO:
-        return github_release(GODOT_BUILDS, github(GODOT_BUILDS))
+    if repo and (release_repo := RELEASE_REPOSITORIES.get((app.get("id"), repo[1].lower()))):
+        return github_release(release_repo, github(release_repo))
     if repo and (not source or source.lower().startswith(f"https://github.com/{repo[1]}/releases/".lower())):
         if published := github_release(repo[1], github(repo[1])):
             return published

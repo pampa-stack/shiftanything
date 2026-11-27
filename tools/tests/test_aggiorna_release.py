@@ -95,6 +95,24 @@ class ReleaseWatchTests(unittest.TestCase):
         self.assertEqual(self.shifter, comparison_before)
         self.assertEqual(updater.notes_baseline(notes)["gimp"]["lines"], [])
 
+    def test_nextcloud_desktop_uses_the_official_binary_repository(self):
+        repo = "nextcloud-releases/desktop"
+        tag = "v35.0.3"
+        name = "Nextcloud-35.0.3-x86_64.AppImage"
+        url = f"https://github.com/{repo}/releases"
+        release = {
+            "tag_name": tag, "html_url": f"{url}/tag/{tag}", "published_at": "2026-11-26T10:00:00Z",
+            "assets": [{"name": name, "size": 63248888, "browser_download_url": f"{url}/download/{tag}/{name}"}],
+        }
+        app = {"id": "nextcloud-desktop", "repo": "https://github.com/nextcloud/desktop",
+               "release": {"source": f"{url}/tag/v35.0.2"}}
+        with patch.object(updater, "github", return_value=release) as github:
+            current, _ = updater.release_for(app)
+            github.assert_called_once_with(repo)
+            self.assertEqual(current["version"], tag)
+            self.assertEqual(current["packages"], [{"platform": "linux", "size_min": 63248888, "size_max": 63248888}])
+            self.assertIsNone(updater.release_for({**app, "id": "other"}))
+
     def test_failed_sources_preserve_last_metadata_and_other_apps_continue(self):
         self.catalog[0]["release"] = {"version": "v0.4.1", "source": MEETILY_SOURCE}
         meetily_before = deepcopy(self.catalog[0])

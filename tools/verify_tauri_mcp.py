@@ -21,9 +21,19 @@ async def main():
     parser.add_argument("--operation", choices=["install", "update", "remove"])
     args = parser.parse_args()
     profile = args.profile.resolve(strict=True)
-    assert (profile / "native-state.json").is_file(), "Start the isolated Tauri proof first"
-    bridge = profile / "home/Library/Application Support/ShiftAnything/automation"
+    snapshot = profile / "native-state.json"
+    assert snapshot.is_file() and not snapshot.is_symlink(), "Start the isolated Tauri proof first"
+    state = json.loads(snapshot.read_text())
+    assert state.get("isolated_profile") is True, "Use an isolated Tauri profile"
+    bridge_paths = {
+        "MacOs": "home/Library/Application Support/ShiftAnything/automation",
+        "Linux": "home/data/shiftanything/automation",
+    }
+    relative = bridge_paths.get(state["platform"]["os"])
+    assert relative, "This proof supports macOS and Linux"
+    bridge = profile / relative
     assert bridge.is_dir() and not bridge.is_symlink()
+    assert bridge.resolve(strict=True) == bridge, "Use a profile without directory aliases"
     support = bridge / "mcp"
     support.mkdir(exist_ok=True)
     assert not support.is_symlink()

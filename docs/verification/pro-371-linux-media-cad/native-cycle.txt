@@ -1,0 +1,78 @@
+[handbrake]
+handbrake before install: None
+handbrake install: Ok("Flathub app installed")
+Desktop entry and icon exported: fr.handbrake.ghb
+previous Flathub revision:
+commit 52ab1ebd671627776be790f2c73702c3e62e60e58e01f0fff0b4605370e7de6a
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+current Flathub revision:
+commit 25655495223b3afd73afa4da4772ac1f3a2a7db5543a4cf907925f1ee36e8892
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+handbrake external: Err("Approved action rejected: native installation state changed")
+handbrake open: Ok("Launch request accepted")
+handbrake after open: Some(Installed { version: Some(Version { major: 1, minor: 11, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/data/flatpak/app/fr.handbrake.ghb/x86_64/stable/52ab1ebd671627776be790f2c73702c3e62e60e58e01f0fff0b4605370e7de6a", package: Some("fr.handbrake.ghb"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+handbrake update: Ok("Flathub app updated")
+handbrake after update: Some(Installed { version: Some(Version { major: 1, minor: 11, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/data/flatpak/app/fr.handbrake.ghb/x86_64/stable/25655495223b3afd73afa4da4772ac1f3a2a7db5543a4cf907925f1ee36e8892", package: Some("fr.handbrake.ghb"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/.var/app/fr.handbrake.ghb/shift-profile-marker: OK
+handbrake open: Ok("Launch request accepted")
+handbrake after open: Some(Installed { version: Some(Version { major: 1, minor: 11, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/data/flatpak/app/fr.handbrake.ghb/x86_64/stable/25655495223b3afd73afa4da4772ac1f3a2a7db5543a4cf907925f1ee36e8892", package: Some("fr.handbrake.ghb"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+handbrake remove: Ok("Flathub app removed")
+handbrake after remove: None
+/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/.var/app/fr.handbrake.ghb/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/.var/app/fr.handbrake.ghb/shift-profile-marker: OK
+/var/tmp/shift-flatpak-desktop.y7L55yer/handbrake/home/.var/app/fr.handbrake.ghb/shift-profile-marker: OK
+handbrake: app e runtime rimossi; dati sintetici conservati
+
+[shotcut]
+shotcut before install: None
+shotcut install: Ok("Flathub app installed")
+Desktop entry and icon exported: org.shotcut.Shotcut
+previous Flathub revision:
+commit f754a1275204e380fdba4d00795dcbd47e3dcf39f0ccdb64dc048385bdc54679
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+current Flathub revision:
+commit 50a27241a6f89c391172e513a370109d52df732d0847d560848fd52bf2165288
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+shotcut external: Err("Approved action rejected: native installation state changed")
+shotcut open: Ok("Launch request accepted")
+shotcut after open: Some(Installed { version: Some(Version { major: 26, minor: 9, patch: 27 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/data/flatpak/app/org.shotcut.Shotcut/x86_64/stable/f754a1275204e380fdba4d00795dcbd47e3dcf39f0ccdb64dc048385bdc54679", package: Some("org.shotcut.Shotcut"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+shotcut update: Ok("Flathub app updated")
+shotcut after update: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/data/flatpak/app/org.shotcut.Shotcut/x86_64/stable/50a27241a6f89c391172e513a370109d52df732d0847d560848fd52bf2165288", package: Some("org.shotcut.Shotcut"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/.var/app/org.shotcut.Shotcut/shift-profile-marker: OK
+shotcut open: Ok("Launch request accepted")
+shotcut after open: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 15 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/data/flatpak/app/org.shotcut.Shotcut/x86_64/stable/50a27241a6f89c391172e513a370109d52df732d0847d560848fd52bf2165288", package: Some("org.shotcut.Shotcut"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+shotcut remove: Ok("Flathub app removed")
+shotcut after remove: None
+/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/.var/app/org.shotcut.Shotcut/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/.var/app/org.shotcut.Shotcut/shift-profile-marker: OK
+/var/tmp/shift-flatpak-desktop.y7L55yer/shotcut/home/.var/app/org.shotcut.Shotcut/shift-profile-marker: OK
+shotcut: app e runtime rimossi; dati sintetici conservati
+
+[free]
+free before install: None
+free install: Ok("Flathub app installed")
+free after install: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/data/flatpak/app/org.freecad.FreeCAD/x86_64/stable/b7e0947f142c4e263d2cf950a7decb5a96f7243b0bf5adc9fda60d8e8d1eb811", package: Some("org.freecad.FreeCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+Desktop entry and icon exported: org.freecad.FreeCAD
+previous Flathub revision:
+commit 4248cce34cc18e6947e9bfc5c2a6434c1108876a1208b2ba6b7bbdf52c229816
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+current Flathub revision:
+commit b7e0947f142c4e263d2cf950a7decb5a96f7243b0bf5adc9fda60d8e8d1eb811
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+free external: Err("Approved action rejected: native installation state changed")
+free open: Ok("Launch request accepted")
+free after open: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/data/flatpak/app/org.freecad.FreeCAD/x86_64/stable/4248cce34cc18e6947e9bfc5c2a6434c1108876a1208b2ba6b7bbdf52c229816", package: Some("org.freecad.FreeCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+free update: Ok("Flathub app updated")
+free after update: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/data/flatpak/app/org.freecad.FreeCAD/x86_64/stable/b7e0947f142c4e263d2cf950a7decb5a96f7243b0bf5adc9fda60d8e8d1eb811", package: Some("org.freecad.FreeCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/.var/app/org.freecad.FreeCAD/shift-profile-marker: OK
+free open: Ok("Launch request accepted")
+free after open: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/data/flatpak/app/org.freecad.FreeCAD/x86_64/stable/b7e0947f142c4e263d2cf950a7decb5a96f7243b0bf5adc9fda60d8e8d1eb811", package: Some("org.freecad.FreeCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") })
+free remove: Ok("Flathub app removed")
+free after remove: None
+/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/.var/app/org.freecad.FreeCAD/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/.var/app/org.freecad.FreeCAD/shift-profile-marker: OK
+/var/tmp/shift-flatpak-desktop.y7L55yer/free/home/.var/app/org.freecad.FreeCAD/shift-profile-marker: OK
+free: app e runtime rimossi; dati sintetici conservati

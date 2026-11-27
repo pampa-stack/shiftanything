@@ -19,6 +19,7 @@ VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 GODOT_REPO = "godotengine/godot"
 GODOT_BUILDS = "godotengine/godot-builds"
 GODOT_TAG = re.compile(r"\d+\.\d+(?:\.\d+)?-stable")
+OPENREFINE_REPO = "openrefine/openrefine"
 OPENCODE_REPO = "anomalyco/opencode"
 OPENCODE_FEED = "https://opencode.ai/update/api/latest/desktop/opencode/"
 OPENCODE_TAG = re.compile(r"v2\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)")
@@ -132,6 +133,8 @@ def github_release(repo, data):
         platform = package_platform(name)
         if repo == GODOT_BUILDS and name == f"Godot_v{version}_macos.universal.zip":
             platform = "macos"
+        if repo.lower() == OPENREFINE_REPO and name == f"openrefine-linux-{version}.tar.gz":
+            platform = "linux"
         if repo == OPENCODE_REPO:
             if not OPENCODE_PACKAGE.fullmatch(name):
                 continue

@@ -281,6 +281,29 @@ class ReleaseWatchTests(unittest.TestCase):
             {"platform": "windows", "size_min": 147284606, "size_max": 368947560},
         ])
 
+    def test_openrefine_recognizes_only_the_official_linux_archive(self):
+        repo = "OpenRefine/OpenRefine"
+        tag = "3.10.1"
+        url = f"https://github.com/{repo}/releases"
+        release = {
+            "tag_name": tag, "html_url": f"{url}/tag/{tag}", "published_at": "2026-11-01T00:00:00Z",
+            "assets": [
+                {"name": name, "size": size, "browser_download_url": f"{url}/download/{tag}/{name}"}
+                for name, size in {
+                    f"openrefine-linux-{tag}.tar.gz": 148777227,
+                    f"openrefine-src-{tag}.tar.gz": 9000000,
+                    "openrefine-linux-3.10.0.tar.gz": 180000000,
+                }.items()
+            ],
+        }
+        result, _ = updater.github_release(repo, release)
+        self.assertEqual(result["packages"], [
+            {"platform": "linux", "size_min": 148777227, "size_max": 148777227},
+        ])
+        release["assets"][0]["browser_download_url"] = "https://example.org/openrefine.tar.gz"
+        result, _ = updater.github_release(repo, release)
+        self.assertEqual(result["packages"], [])
+
     def test_approved_evidence_requires_exact_source_and_changelog_line(self):
         rule, = updater.json_file(updater.ROOT / "tools/release-evidence.json")
         original = deepcopy(self.shifter)

@@ -8634,6 +8634,11 @@
           "platform": "windows",
           "size_min": 59788942,
           "size_max": 59788942
+        },
+        {
+          "platform": "macos",
+          "size_min": 110493957,
+          "size_max": 110493957
         }
       ]
     },
@@ -19618,7 +19623,23 @@
       "version": "3.10.1",
       "date": "2026-03-04",
       "source": "https://github.com/OpenRefine/OpenRefine/releases/tag/3.10.1",
-      "packages": []
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 148777227,
+          "size_max": 148777227
+        },
+        {
+          "platform": "macos",
+          "size_min": 180284302,
+          "size_max": 180284302
+        },
+        {
+          "platform": "windows",
+          "size_min": 173207663,
+          "size_max": 173207663
+        }
+      ]
     }
   },
   {

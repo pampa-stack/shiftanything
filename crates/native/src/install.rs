@@ -36,13 +36,17 @@ use crate::process;
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     use artcraft_launcher_core::curated::{
-        AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, SHOTCUT,
-        STATS, TRANSMISSION, WHISPERING, ZED,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO,
+        RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     match app.id {
         id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
-        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id, SHOTCUT.id, STATS.id, ZED.id, ENTE_AUTH.id].contains(&id) => Some(12),
+        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id, SHOTCUT.id, STATS.id, ZED.id, ENTE_AUTH.id, ACTIVITYWATCH.id]
+            .contains(&id) =>
+        {
+            Some(12)
+        }
         id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id, WHISPERING.id, CRYPTOMATOR.id].contains(&id) => Some(11),
         _ => None,
     }

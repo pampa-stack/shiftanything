@@ -651,7 +651,28 @@ pub const CRYPTOMATOR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("YZQJQUHA3L"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 21] = [
+pub const ACTIVITYWATCH: crate::CraftApp = crate::CraftApp {
+    id: "activitywatch",
+    name: "ActivityWatch",
+    tagline: "Track how you spend time on your computer",
+    repo: "ActivityWatch/activitywatch",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [75, 128, 201],
+    ink_light: [30, 70, 126],
+    ink_dark: [171, 209, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "ActivityWatch",
+    msi_publisher: None,
+    bundle: Some("net.activitywatch.ActivityWatch"),
+    site: Some("https://activitywatch.net/"),
+    mac_bundle_name: None,
+    mac_team: Some("XM9GC3SUL2"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 22] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -673,6 +694,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 21] = [
     WHISPERING,
     ENTE_AUTH,
     CRYPTOMATOR,
+    ACTIVITYWATCH,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -901,6 +923,13 @@ mod recipe_tests {
                 "org.cryptomator",
                 "YZQJQUHA3L",
             ),
+            (
+                super::ACTIVITYWATCH,
+                ["v0.14.2", "v0.14.3"],
+                ["activitywatch-v0.14.2-macos-arm64.dmg", "activitywatch-v0.14.3-macos-arm64.dmg"],
+                "net.activitywatch.ActivityWatch",
+                "XM9GC3SUL2",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -960,6 +989,10 @@ mod recipe_tests {
             (super::CRYPTOMATOR, "Cryptomator-1.19.7-x64.dmg"),
             (super::CRYPTOMATOR, "Cryptomator-1.19.7-beta.1-arm64.dmg"),
             (super::CRYPTOMATOR, "Cryptomator-1.19.7+other-arm64.dmg"),
+            (super::ACTIVITYWATCH, "activitywatch-v0.14.3-macos-x86_64.dmg"),
+            (super::ACTIVITYWATCH, "activitywatch-v0.14.3-beta.1-macos-arm64.dmg"),
+            (super::ACTIVITYWATCH, "activitywatch-tauri-v0.14.3-macos-arm64.dmg"),
+            (super::ACTIVITYWATCH, "activitywatch-research-v0.14.3-macos-arm64.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }

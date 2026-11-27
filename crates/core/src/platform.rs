@@ -230,19 +230,20 @@ fn community_dmg_format(stem: &str) -> Option<(&'static str, &'static str, &'sta
         id if id == crate::curated::WHISPERING.id => Some(("Whispering_", "_aarch64", "macos-aarch64")),
         id if id == crate::curated::ENTE_AUTH.id => Some(("ente-auth-v", "", "macos-universal")),
         id if id == crate::curated::CRYPTOMATOR.id => Some(("Cryptomator-", "-arm64", "macos-aarch64")),
+        id if id == crate::curated::ACTIVITYWATCH.id => Some(("activitywatch-v", "-macos-arm64", "macos-aarch64")),
         _ => None,
     }
 }
 
 fn valid_community_dmg_version(stem: &str, version: &str) -> bool {
-    use crate::curated::{AUDACITY, CRYPTOMATOR, JOPLIN, KEEPASSXC};
+    use crate::curated::{ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, JOPLIN, KEEPASSXC};
 
     crate::version::parse(version).is_some_and(|parsed| {
         parsed.to_string() == version
             && parsed.pre.is_empty()
             && match stem {
                 id if id == AUDACITY.id => parsed.major == 4,
-                id if id == CRYPTOMATOR.id => parsed.build.is_empty(),
+                id if [ACTIVITYWATCH.id, CRYPTOMATOR.id].contains(&id) => parsed.build.is_empty(),
                 id if id == KEEPASSXC.id => (parsed.major, parsed.minor, parsed.patch) >= (2, 7, 12),
                 id if id == JOPLIN.id => parsed.build.is_empty() && (parsed.major, parsed.minor, parsed.patch) >= (3, 7, 22),
                 _ => true,
@@ -329,8 +330,8 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     use crate::curated::{
-        AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII,
-        SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA,
+        RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     if !recipe_platform_verified(stems, platform) {
@@ -377,11 +378,25 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
                     && asset.size > 0
                     && asset.sha256.as_deref().is_some_and(crate::release::is_hex64);
             }
-            let official =
-                [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO, WHISPERING, CRYPTOMATOR]
-                    .iter()
-                    .find(|app| app.id == name.stem)
-                    .map(|app| app.repo);
+            let official = [
+                KOPIA,
+                TRANSMISSION,
+                IINA,
+                HANDBRAKE,
+                MEETILY,
+                RIZZO_PII,
+                AUDACITY,
+                KEEPASSXC,
+                JOPLIN,
+                SHOTCUT,
+                DRAWIO,
+                WHISPERING,
+                CRYPTOMATOR,
+                ACTIVITYWATCH,
+            ]
+            .iter()
+            .find(|app| app.id == name.stem)
+            .map(|app| app.repo);
             if !official.is_none_or(|repo| {
                 !release.prerelease && asset.url == format!("{}{}/{}", crate::release::download_prefix(repo), release.tag, asset.name)
             }) {
@@ -389,7 +404,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             }
             let tag_prefix = match name.stem.as_str() {
                 id if id == CRYPTOMATOR.id => Some(""),
-                id if [JOPLIN.id, SHOTCUT.id, DRAWIO.id, WHISPERING.id].contains(&id) => Some("v"),
+                id if [ACTIVITYWATCH.id, JOPLIN.id, SHOTCUT.id, DRAWIO.id, WHISPERING.id].contains(&id) => Some("v"),
                 _ => None,
             };
             if tag_prefix.is_some_and(|prefix| {
@@ -418,8 +433,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
-        AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO,
-        PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY,
+        OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -445,6 +460,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         WHISPERING.id,
         ENTE_AUTH.id,
         CRYPTOMATOR.id,
+        ACTIVITYWATCH.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

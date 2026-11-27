@@ -597,6 +597,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("cryptomator/cryptomator", "1.19.7") => {
             &[("Cryptomator-1.19.7-arm64.dmg", 58_716_219, "c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677")]
         }
+        ("ActivityWatch/activitywatch", "v0.14.2") => {
+            &[("activitywatch-v0.14.2-macos-arm64.dmg", 65_835_856, "8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65")]
+        }
+        ("ActivityWatch/activitywatch", "v0.14.3") => {
+            &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

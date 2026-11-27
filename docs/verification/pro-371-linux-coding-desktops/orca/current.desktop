@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Orca
+Comment=Organize coding agents and worktrees
+Exec="/home/qa/profile-orca-native-appimage-final/Applications/orca-linux.AppImage" %F
+Icon=orca-ide
+Terminal=false
+Categories=Development;IDE;
+StartupWMClass=orca
+X-ArtCraft-Launcher=true

@@ -824,6 +824,8 @@ mod tests {
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
+            (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
+            (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),

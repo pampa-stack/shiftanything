@@ -763,6 +763,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
         crate::curated::LOSSLESSCUT,
+        crate::curated::SIYUAN,
+        crate::curated::MAGPIE,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -1161,6 +1163,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
         ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
         ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
+        ("siyuan-note/siyuan", "v3.8.11") => {
+            &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
+        }
+        ("siyuan-note/siyuan", "v3.8.12") => {
+            &[("siyuan-3.8.12-mac-arm64.dmg", 288_887_820, "ad8f00c1df985d3079c6e8425c34b6eb3fff7a41f5c36fc900bc429586ea90af")]
+        }
+        ("yetone/magpie", "v0.1.4969") => {
+            &[("magpie-darwin-arm64.dmg", 49_832_017, "cb894a95cc7ad5ff4e2af32b8af1964c1c3e1e3ea83a3ba5ba8fb6fae52856a0")]
+        }
+        ("yetone/magpie", "v0.1.4971") => {
+            &[("magpie-darwin-arm64.dmg", 49_832_333, "bdab8e88f4e3c6b288b1144483b1fb3f633ff3f6cf39b6e8e028061fe9573c8c")]
+        }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

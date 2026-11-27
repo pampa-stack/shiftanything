@@ -1558,7 +1558,49 @@ pub const LOCALAI: crate::CraftApp = crate::CraftApp {
     mac_team: Some("34F3GGU9A6"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 64] = [
+pub const SIYUAN: crate::CraftApp = crate::CraftApp {
+    id: "siyuan",
+    name: "SiYuan",
+    tagline: "Organize notes and connect ideas",
+    repo: "siyuan-note/siyuan",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Yunnan Liandi Technology Co., Ltd.",
+    msi_publisher: None,
+    bundle: Some("org.b3log.siyuan"),
+    site: Some("https://b3log.org/siyuan/"),
+    mac_bundle_name: None,
+    mac_team: Some("FJT3K7XAD8"),
+};
+
+pub const MAGPIE: crate::CraftApp = crate::CraftApp {
+    id: "magpie",
+    name: "Magpie",
+    tagline: "Connect AI tools to model providers",
+    repo: "yetone/magpie",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Xipeng Guan",
+    msi_publisher: None,
+    bundle: Some("com.yetone.magpie"),
+    site: Some("https://usemagpie.ai"),
+    mac_bundle_name: Some("magpie"),
+    mac_team: Some("LY7MVTUDZG"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 66] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1623,6 +1665,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 64] = [
     BRUNO,
     JAN,
     LOCALAI,
+    SIYUAN,
+    MAGPIE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

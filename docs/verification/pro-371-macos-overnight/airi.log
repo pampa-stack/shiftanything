@@ -1,0 +1,18 @@
+PASS PREFLIGHT airi v0.15.2
+PASS PREFLIGHT airi v0.15.4
+/dev/disk3s5   239362496 175430496  22804528    89% 3247578 228045280    1%   /System/Volumes/Data
+OFFICIAL INDEX airi v0.15.2 digest=published
+OFFICIAL INDEX airi v0.15.4 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v0.15.2 Dmg https://github.com/moeru-ai/airi/releases/download/v0.15.2/AIRI-0.15.2-darwin-arm64.dmg 610350997 a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a
+PASS OFFICIAL v0.15.4 Dmg https://github.com/moeru-ai/airi/releases/download/v0.15.4/AIRI-0.15.4-darwin-arm64.dmg 610837143 d2ebfbfed06a8d1df2195520faeddbe7ffef87a2003bb00717f04228530c4617
+NATIVE ORIGIN airi GitHub
+PASS OFFICIAL v0.15.2 Dmg https://github.com/moeru-ai/airi/releases/download/v0.15.2/AIRI-0.15.2-darwin-arm64.dmg 610350997 a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a
+PASS NATIVE airi install: AIRI installed: 0.15.2; package_bytes=610350997; elapsed=93.739s
+NATIVE ORIGIN airi GitHub
+PASS OFFICIAL v0.15.4 Dmg https://github.com/moeru-ai/airi/releases/download/v0.15.4/AIRI-0.15.4-darwin-arm64.dmg 610837143 d2ebfbfed06a8d1df2195520faeddbe7ffef87a2003bb00717f04228530c4617
+PASS NATIVE airi update: AIRI updated to 0.15.4; package_bytes=610837143; elapsed=242.230s
+PASS NATIVE airi remove: AIRI was removed; package_bytes=0; elapsed=0.163s
+PASS NATIVE CYCLE airi (v0.15.2 → v0.15.4), private Trash and synthetic data preserved

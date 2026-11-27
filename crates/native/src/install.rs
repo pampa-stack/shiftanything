@@ -69,6 +69,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             &[
                 recipe::ACTIVITYWATCH.id,
                 recipe::ACTUAL_BUDGET.id,
+                recipe::AIRI.id,
                 recipe::APPFLOWY.id,
                 recipe::BLOCKBENCH.id,
                 recipe::BRUNO.id,

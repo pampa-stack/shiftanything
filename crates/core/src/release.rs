@@ -811,6 +811,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENWORK_DESKTOP,
         crate::curated::PASEO,
         crate::curated::FREECAD,
+        crate::curated::OPENMAUSBOT,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1237,6 +1238,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("FreeCAD/FreeCAD", "1.1.4") => {
             &[("FreeCAD_1.1.4-macOS-arm64-py311.dmg", 649_760_538, "071343b4abb70492b75c973f41eaf1d2528f9b9c7ea018d22a4f46ae14d27ac0")]
         }
+        ("milind-soni/OpenMausBot", "v0.1.182") => {
+            &[("OpenMausBot-0.1.182-arm64.dmg", 329_009_773, "6bd04ed658c9e56d840106947ba5dea4af60f538ec60a9661f236c52ffce46cd")]
+        }
+        ("milind-soni/OpenMausBot", "v0.1.184") => {
+            &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
         ("getpaseo/paseo", "v0.17.6") => {
             &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]
         }
@@ -1576,15 +1583,17 @@ mod tests {
     }
 
     #[test]
-    fn paseo_and_freecad_use_only_reviewed_apple_silicon_packages() {
+    fn desktop_recipes_use_only_reviewed_apple_silicon_packages() {
         use crate::{
             Arch, Os, PackageKind, Platform,
-            curated::{FREECAD, PASEO},
+            curated::{FREECAD, OPENMAUSBOT, PASEO},
             platform::pick_asset,
         };
 
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (app, tags, next) in [(PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"), (FREECAD, ["1.1.3", "1.1.4"], "1.1.5")] {
+        for (app, tags, next) in
+            [(PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"), (FREECAD, ["1.1.3", "1.1.4"], "1.1.5"), (OPENMAUSBOT, ["v0.1.182", "v0.1.184"], "v0.1.185")]
+        {
             let pick = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
             for tag in tags {
                 let expected = reviewed_assets(app.repo, tag).next().unwrap();

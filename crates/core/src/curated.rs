@@ -1894,7 +1894,28 @@ pub const FREECAD: crate::CraftApp = crate::CraftApp {
     mac_team: Some("289DJRF23X"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 80] = [
+pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
+    id: "openmausbot",
+    name: "OpenMausBot",
+    tagline: "Chat with a team of AI assistants",
+    repo: "milind-soni/OpenMausBot",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Milind Soni",
+    msi_publisher: None,
+    bundle: Some("com.openmausbot.app"),
+    site: Some("https://www.mausbot.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("993D98NH4J"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 81] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1975,6 +1996,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 80] = [
     OPENWORK_DESKTOP,
     PASEO,
     FREECAD,
+    OPENMAUSBOT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

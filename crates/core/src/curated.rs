@@ -2261,6 +2261,27 @@ pub const DUST3D: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
+pub const RAWTHERAPEE: crate::CraftApp = crate::CraftApp {
+    id: "rawtherapee",
+    name: "RawTherapee",
+    tagline: "Develop and edit RAW photos",
+    repo: "RawTherapee/RawTherapee",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [75, 128, 232],
+    ink_light: [32, 82, 177],
+    ink_dark: [163, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The RawTherapee Team",
+    msi_publisher: None,
+    bundle: Some("rawtherapee"),
+    site: Some("https://www.rawtherapee.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     id: "openpencil",
     name: "OpenPencil",
@@ -2556,6 +2577,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     PASEO,
     ULTIMAKER_CURA,
     DUST3D,
+    RAWTHERAPEE,
     OPEN_PENCIL,
     OPEN_WHISPR,
     FREECAD,

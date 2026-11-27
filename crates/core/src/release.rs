@@ -778,9 +778,10 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    use crate::curated::{DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+    use crate::curated::{DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 
-    const RECIPES: &[crate::CraftApp] = &[DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
+    const RECIPES: &[crate::CraftApp] =
+        &[DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1592,6 +1593,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("huxingyi/dust3d", "1.1.5") => &[("dust3d-1.1.5.AppImage", 36_648_128, "8575ac93f7403717cf92893471b8ea8525a1321c57cf0f5edaf134e6ff3e5844")],
         ("huxingyi/dust3d", "1.1.6") => &[("dust3d-1.1.6.AppImage", 36_680_896, "efbc1fafe9aa6cbc2679494e45a43bae6df50c7feec58e4a850e94189904fc5a")],
+        ("RawTherapee/RawTherapee", "5.12") => {
+            &[("RawTherapee_5.12_release.AppImage", 129_234_112, "95d0db7b9c6af85209af66b10b31ac47270e39d937763ac919f826586ea49f08")]
+        }
+        ("RawTherapee/RawTherapee", "5.13") => {
+            &[("RawTherapee_5.13_x86_64_release.AppImage", 130_180_288, "746a3509a234804c3a5f66649006ac29ac67f193a8559d2297357949a890b097")]
+        }
         ("anefzaoui/misterdownloadmanager", "v0.5.0") => {
             &[("MisterDownloadManager-0.5.0-linux-x86_64.AppImage", 20_625_912, "d2c7c568240a938f1010610b49b5fe591a7f37db7070a593735e11ba125a3878")]
         }

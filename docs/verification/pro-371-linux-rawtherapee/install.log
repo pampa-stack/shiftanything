@@ -1,0 +1,5 @@
+HISTORICAL METADATA supplied from release page, publish checksum and byte length
+OFFICIAL https://github.com/RawTherapee/RawTherapee/releases/download/5.12/RawTherapee_5.12_release.AppImage bytes=129234112 sha256=95d0db7b9c6af85209af66b10b31ac47270e39d937763ac919f826586ea49f08
+FILE /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/Applications/RawTherapee_5.12_release.AppImage version=5.12.0 bytes=129234112 sha256=95d0db7b9c6af85209af66b10b31ac47270e39d937763ac919f826586ea49f08
+DESKTOP /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/data/applications/rawtherapee.desktop ICON /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/data/icons/hicolor/128x128/apps/rawtherapee.png sha256=d57af9f3e6bf6475d063658dea38fcef11d4fa00ee1b7552e169f5d92d434fdf
+PASS rawtherapee install 1604 ms RawTherapee installed: 5.12.0

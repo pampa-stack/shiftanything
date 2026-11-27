@@ -1,0 +1,5 @@
+OFFICIAL https://github.com/RawTherapee/RawTherapee/releases/download/5.13/RawTherapee_5.13_x86_64_release.AppImage bytes=130180288 sha256=746a3509a234804c3a5f66649006ac29ac67f193a8559d2297357949a890b097
+DISCOVERY GitHubApi
+FILE /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/Applications/RawTherapee_5.13_x86_64_release.AppImage version=5.13.0 bytes=130180288 sha256=746a3509a234804c3a5f66649006ac29ac67f193a8559d2297357949a890b097
+DESKTOP /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/data/applications/rawtherapee.desktop ICON /home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/data/icons/hicolor/128x128/apps/rawtherapee.png sha256=d57af9f3e6bf6475d063658dea38fcef11d4fa00ee1b7552e169f5d92d434fdf
+PASS rawtherapee update 1844 ms RawTherapee updated to 5.13.0

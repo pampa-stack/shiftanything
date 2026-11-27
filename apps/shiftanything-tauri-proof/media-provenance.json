@@ -137,6 +137,118 @@
       "source": "https://dl.flathub.org/media/org/libreoffice/LibreOffice/341e8fb5e2267b0cdc5e932b3886a08e/screenshots/image-3_752x546@1.png",
       "file": "media/libreoffice-shot-2.png",
       "sha256": "5e4d3f7a39a9fff233818f81f91fe0000fc3a16cf1620d8e1b38a3e6c1852fe7"
+    },
+    {
+      "app": "backrest",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/garethgeorge/backrest/148ba12c12a7a4fef6d3c6c8e675ca2c5e7d3635/build/darwin/icon.png",
+      "file": "media/backrest-logo.png",
+      "sha256": "7d3d305aec33820e1be88dfcdfad8e478db483304281e7b2b013513f108f1220"
+    },
+    {
+      "app": "beszel",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/henrygd/beszel/9305992e7c1fde03942f1a7992c61a6011b5e812/internal/site/public/static/icon.png",
+      "file": "media/beszel-logo.png",
+      "sha256": "72f2f657de043383b4c6bc0ef2991a6d99dfc3961d5646e8d163698e71ab084d"
+    },
+    {
+      "app": "coolify",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/coollabsio/coolify/9f2c812bd4217750f3b949b678a9ecfc78ffd584/public/icon-512.png",
+      "file": "media/coolify-logo.png",
+      "sha256": "b61e9f8531590818476068f0005b9ba0c71dd63f5990546200d2b9b47c720839"
+    },
+    {
+      "app": "dozzle",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/amir20/dozzle/e168274043a2b558cfcaa5b2095b9615f020df53/public/apple-touch-icon.png",
+      "file": "media/dozzle-logo.png",
+      "sha256": "55de16a86831c953e43adb654b2929e2d9d40ccbbbcb35841d2911e92c5cb61e"
+    },
+    {
+      "app": "duplicati",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/duplicati/duplicati/0fe4eba7c017dbca80b38c1fb3c031618bad6ac8/ReleaseBuilder/Resources/Synology/PACKAGE_ICON_256.PNG",
+      "file": "media/duplicati-logo.png",
+      "sha256": "e9021311078cd0b5f53bc345df654102cb11ba08f1400d24d66b820fc03a428c"
+    },
+    {
+      "app": "excalidraw",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/excalidraw/excalidraw/dabd83c4aa6b9e42d0dd0a42be62200eb8e3cce9/public/android-chrome-192x192.png",
+      "file": "media/excalidraw-logo.png",
+      "sha256": "f80ad42c0c9cfd52ef853b32c2389520e94e8445b038726f6ed22f14ba6f023f"
+    },
+    {
+      "app": "github-desktop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/desktop/desktop/ebe7dfd1b20e0cfb957a4d287ac30fa80fcc81ca/app/static/common/logo-64x64%402x.png",
+      "file": "media/github-desktop-logo.png",
+      "sha256": "e46ed2e5d094f4393ecbe4979efe9da6c13caf47e1c5a8d1e5f5df9afd136892"
+    },
+    {
+      "app": "jellyfin",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/69a2b7b1237732a134dd501ff55b9404cf2d1601/branding/ios/icon.png",
+      "file": "media/jellyfin-logo.png",
+      "sha256": "8fc5120056595720f2e82c63a6579e233a05b4016fd7b1b07fd1c389e760277e"
+    },
+    {
+      "app": "netbox",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/netbox-community/netbox/04bdbf464c380d2b4d1dc8d4f9c96fcc26f04981/netbox/project-static/img/netbox_touch-icon-180.png",
+      "file": "media/netbox-logo.png",
+      "sha256": "a00493901add8f5d7b7ac8a2d74dd76fc85dfc911115f763f94193bd3008d280"
+    },
+    {
+      "app": "nextcloud-desktop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nextcloud/desktop/621814fc8e1cac028269376daa8f49bfc0b6a6c8/theme/colored/Nextcloud-w10starttile.png",
+      "file": "media/nextcloud-desktop-logo.png",
+      "sha256": "2eb180d3019cde4d9d2faed9b0cdb760fbb0c42db2830f6a9c16601a922fbf8c"
+    },
+    {
+      "app": "powertoys",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/microsoft/PowerToys/9ddd86d755c839302267ad55eeb35cd851f70544/installer/PowerToysSetupVNext/Images/logo150.png",
+      "file": "media/powertoys-logo.png",
+      "sha256": "5c59f98a5710a1dc44124af21e06ce4d83ecb07f18b48f300d7622895aaa8a03"
+    },
+    {
+      "app": "rustdesk",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/rustdesk/rustdesk/45e34a69239c2c2467fd02af8ee97263ff26ef23/res/icon.png",
+      "file": "media/rustdesk-logo.png",
+      "sha256": "9dc3ea42b25890c70a1b31d37e89c39a02a4f2bbc1a7d80cbbf6859a40bb4973"
+    },
+    {
+      "app": "signal-desktop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/signalapp/Signal-Desktop/01e59719454fec204b3f7902fb663d68419848c9/build/icons/png/512x512.png",
+      "file": "media/signal-desktop-logo.png",
+      "sha256": "3b1614bba636297f1cd78701bee4bc0dc618fa0b02da5c7a4c45ed1984789114"
+    },
+    {
+      "app": "syncthing",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/syncthing/syncthing/1107b3cd11dbe267a8b80bbe1f89fb86a070b5c3/assets/logo-256.png",
+      "file": "media/syncthing-logo.png",
+      "sha256": "1dc553e8b83f8583a5c3b666fa7424276cc0bb3de4f3f0dd025684e1467e3868"
+    },
+    {
+      "app": "vaultwarden",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/dbd7829ed140ae3458abc97dedec9a4421ddff42/src/static/images/vaultwarden-icon.png",
+      "file": "media/vaultwarden-logo.png",
+      "sha256": "2659ad1eb524f5f6667614dc522c31fe5c5fbe11c7952e74362c48c183be8e71"
+    },
+    {
+      "app": "yaak",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/mountain-loop/yaak/6196bf2a21ecac4f8ba3e3c8d4a2d1e7496ab452/crates-tauri/yaak-app-client/icons/release/128x128%402x.png",
+      "file": "media/yaak-logo.png",
+      "sha256": "fecdd158de13f72375156a2995052e65d76b7d50db1e91874cedbeefae869e37"
     }
   ]
 }

@@ -21179,7 +21179,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/garethgeorge/backrest/148ba12c12a7a4fef6d3c6c8e675ca2c5e7d3635/build/darwin/icon.png",
     "screenshots": [
       "https://f000.backblazeb2.com/file/gshare/screenshots/backrest-1.11.1-dashboard.png",
       "https://f000.backblazeb2.com/file/gshare/screenshots/backrest-1.11.1-browse-snapshot.png"
@@ -21547,7 +21547,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/henrygd/beszel/9305992e7c1fde03942f1a7992c61a6011b5e812/internal/site/public/static/icon.png",
     "screenshots": [
       "https://henrygd-assets.b-cdn.net/beszel/screenshot-new.png",
       "https://beszel.dev/image/dashboard.png"
@@ -21969,7 +21969,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/coollabsio/coolify/9f2c812bd4217750f3b949b678a9ecfc78ffd584/public/icon-512.png",
     "screenshots": [
       "https://raw.githubusercontent.com/coollabsio/coolify/main/.github/assets/screenshots/dashboard-light.png",
       "https://raw.githubusercontent.com/coollabsio/coolify/main/.github/assets/screenshots/dashboard-dark.png"
@@ -22206,7 +22206,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/amir20/dozzle/e168274043a2b558cfcaa5b2095b9615f020df53/public/apple-touch-icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/amir20/dozzle/main/.github/demo.gif"
     ],
@@ -22380,9 +22380,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/duplicati/duplicati/0fe4eba7c017dbca80b38c1fb3c031618bad6ac8/ReleaseBuilder/Resources/Synology/PACKAGE_ICON_256.PNG",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/duplicati/duplicati/blob/0fe4eba7c017dbca80b38c1fb3c031618bad6ac8/ReleaseBuilder/Resources/Synology/PACKAGE_ICON_256.PNG",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -22671,9 +22671,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/excalidraw/excalidraw/dabd83c4aa6b9e42d0dd0a42be62200eb8e3cce9/public/android-chrome-192x192.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/excalidraw/excalidraw/blob/dabd83c4aa6b9e42d0dd0a42be62200eb8e3cce9/public/android-chrome-192x192.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23031,9 +23031,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/desktop/desktop/ebe7dfd1b20e0cfb957a4d287ac30fa80fcc81ca/app/static/common/logo-64x64%402x.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/desktop/desktop/blob/ebe7dfd1b20e0cfb957a4d287ac30fa80fcc81ca/app/static/common/logo-64x64%402x.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23166,9 +23166,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/69a2b7b1237732a134dd501ff55b9404cf2d1601/branding/ios/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/jellyfin/jellyfin-ux/blob/69a2b7b1237732a134dd501ff55b9404cf2d1601/branding/ios/icon.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23875,7 +23875,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/microsoft/PowerToys/9ddd86d755c839302267ad55eeb35cd851f70544/installer/PowerToysSetupVNext/Images/logo150.png",
     "screenshots": [
       "https://raw.githubusercontent.com/microsoft/PowerToys/main/doc/images/readme/pt-hero.dark.png"
     ],
@@ -23976,7 +23976,7 @@
       "kind": "api",
       "source": "https://netboxlabs.com/docs/netbox/integrations/rest-api/"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/netbox-community/netbox/04bdbf464c380d2b4d1dc8d4f9c96fcc26f04981/netbox/project-static/img/netbox_touch-icon-180.png",
     "screenshots": [
       "https://raw.githubusercontent.com/netbox-community/netbox/main/docs/media/screenshots/home-light.png",
       "https://raw.githubusercontent.com/netbox-community/netbox/main/docs/media/screenshots/home-dark.png"
@@ -24022,9 +24022,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/nextcloud/desktop/621814fc8e1cac028269376daa8f49bfc0b6a6c8/theme/colored/Nextcloud-w10starttile.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/nextcloud/desktop/blob/621814fc8e1cac028269376daa8f49bfc0b6a6c8/theme/colored/Nextcloud-w10starttile.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -24871,9 +24871,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/rustdesk/rustdesk/45e34a69239c2c2467fd02af8ee97263ff26ef23/res/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/rustdesk/rustdesk/blob/45e34a69239c2c2467fd02af8ee97263ff26ef23/res/icon.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25014,9 +25014,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/signalapp/Signal-Desktop/01e59719454fec204b3f7902fb663d68419848c9/build/icons/png/512x512.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/signalapp/Signal-Desktop/blob/01e59719454fec204b3f7902fb663d68419848c9/build/icons/png/512x512.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25415,9 +25415,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/syncthing/syncthing/1107b3cd11dbe267a8b80bbe1f89fb86a070b5c3/assets/logo-256.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/syncthing/syncthing/blob/1107b3cd11dbe267a8b80bbe1f89fb86a070b5c3/assets/logo-256.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25616,9 +25616,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/dani-garcia/vaultwarden/dbd7829ed140ae3458abc97dedec9a4421ddff42/src/static/images/vaultwarden-icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/dani-garcia/vaultwarden/blob/dbd7829ed140ae3458abc97dedec9a4421ddff42/src/static/images/vaultwarden-icon.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25837,7 +25837,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/mountain-loop/yaak/6196bf2a21ecac4f8ba3e3c8d4a2d1e7496ab452/crates-tauri/yaak-app-client/icons/release/128x128%402x.png",
     "screenshots": [
       "https://yaak.app/static/screenshot.png"
     ],

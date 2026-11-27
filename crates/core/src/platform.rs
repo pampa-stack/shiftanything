@@ -227,6 +227,16 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
     ];
     let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b)))?;
     for stem in stems {
+        if *stem == crate::curated::LOCALSEND.id {
+            // The publisher uses LocalSend-<version>.dmg for its universal build.
+            if kind == PackageKind::Dmg
+                && let Some(version) = base.strip_prefix("LocalSend-")
+                && crate::version::parse(version).is_some_and(|parsed| parsed.to_string() == version && parsed.pre.is_empty())
+            {
+                return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "macos-universal".into(), kind });
+            }
+            continue;
+        }
         if let Some(rest) = strip_stem_prefix(base, stem, '-') {
             // rest = <version>-<os>-<arch>; os and arch never contain '-', versions may.
             let mut parts = rest.rsplitn(3, '-');
@@ -266,7 +276,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    let parsed: Vec<(&Asset, AssetName)> = release.assets.iter().filter_map(|a| parse_asset_name(&a.name, stems).map(|n| (a, n))).collect();
+    let parsed: Vec<(&Asset, AssetName)> = release
+        .assets
+        .iter()
+        .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
+        .filter(|(asset, name)| {
+            name.stem != crate::curated::LOCALSEND.id
+                || (release.version.as_ref().is_some_and(|version| name.version == version.to_string())
+                    && (asset.sha256.is_some() || release.sums_asset().is_some()))
+        })
+        .collect();
     for kind in kinds {
         for token in platform.tokens() {
             if let Some((asset, _)) = parsed.iter().find(|(_, n)| n.kind == *kind && n.token == *token) {
@@ -277,10 +296,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     None
 }
 
-/// Recipe validation is separate from upstream OS support. Other Handy targets remain
-/// documented and visible, but cannot enter native installation before their cycle is tested.
+/// Recipe validation is separate from upstream OS support.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
-    !stems.contains(&"handy") || platform == (Platform { os: Os::MacOs, arch: Arch::Arm64 })
+    if stems.contains(&crate::curated::HANDY.id) || stems.contains(&crate::curated::LOCALSEND.id) {
+        return platform == (Platform { os: Os::MacOs, arch: Arch::Arm64 });
+    }
+    true
 }
 
 #[cfg(test)]

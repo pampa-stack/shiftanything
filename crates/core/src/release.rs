@@ -440,12 +440,14 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
 fn reviewed_asset(repo: &str, tag: &str) -> Option<Asset> {
     // Official bytes reviewed independently; this receipt never applies to a different tag,
     // repository, architecture or asset. Native checksum and signature checks still run.
-    (repo == "cjpais/Handy" && tag == "v0.10.2").then(|| Asset {
-        name: "Handy_0.10.2_aarch64.dmg".into(),
-        size: 14_979_688,
-        url: "https://github.com/cjpais/Handy/releases/download/v0.10.2/Handy_0.10.2_aarch64.dmg".into(),
-        sha256: Some("b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca".into()),
-    })
+    let (name, size, sha256) = match (repo, tag) {
+        ("cjpais/Handy", "v0.10.2") => ("Handy_0.10.2_aarch64.dmg", 14_979_688, "b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca"),
+        ("localsend/localsend", "v1.19.0") => {
+            ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4")
+        }
+        _ => return None,
+    };
+    Some(Asset { name: name.into(), size, url: format!("{}{tag}/{name}", download_prefix(repo)), sha256: Some(sha256.into()) })
 }
 
 pub fn release_from_sums(repo: &str, tag: &str, sums: &[(String, String)]) -> Release {

@@ -17,6 +17,7 @@ from mcp.client.stdio import stdio_client
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("profile", type=Path)
+    parser.add_argument("--app", default="handy", help="Native catalog app ID used for this proof")
     parser.add_argument("--operation", choices=["install", "update", "remove"])
     args = parser.parse_args()
     profile = args.profile.resolve(strict=True)
@@ -46,28 +47,28 @@ async def main():
 
             state = await call("get_inventory")
             assert not state.get("stale", True), state
-            handy = next(app for app in state["apps"] if app["id"] == "handy")
-            assert handy["detected"] and not handy["job"], handy
-            invalid = ["install", "cancel"] if handy["installed"] else ["open", "update", "update_all", "remove", "cancel"]
-            if handy["installed"] and not handy["update_available"]:
+            app = next(app for app in state["apps"] if app["id"] == args.app)
+            assert app["detected"] and not app["job"], app
+            invalid = ["install", "cancel"] if app["installed"] else ["open", "update", "update_all", "remove", "cancel"]
+            if app["installed"] and not app["update_available"]:
                 invalid += ["update", "update_all"]
             for operation in invalid:
-                result = await call("request_action", operation=operation, app_ids=["handy"])
+                result = await call("request_action", operation=operation, app_ids=[args.app])
                 assert result.get("error") == "invalid_native_state", result
-                print(f"PASS rejected {operation} with installed={handy['installed']}", flush=True)
+                print(f"PASS rejected {operation} with installed={app['installed']}", flush=True)
             assert (await call("request_action", operation="install", app_ids=["unknown-app"]))["error"] == "unknown_native_recipe"
             assert (await call("get_request_status", request_id="unknown-task"))["error"] == "unknown_request"
             print("PASS unknown app/task rejected", flush=True)
             if not args.operation:
                 return
-            queued = await call("request_action", operation=args.operation, app_ids=["handy"])
+            queued = await call("request_action", operation=args.operation, app_ids=[args.app])
             assert "request_id" in queued and queued["completed"] is False, queued
             print(json.dumps(queued), flush=True)
             deadline = asyncio.get_running_loop().time() + 180
             while asyncio.get_running_loop().time() < deadline:
                 result = await call("get_request_status", request_id=queued["request_id"])
                 outcomes = result.get("outcomes", {})
-                outcome = outcomes.get(queued["request_id"] + ":handy", "")
+                outcome = outcomes.get(f"{queued['request_id']}:{args.app}", "")
                 if result.get("state") == "rejected":
                     print("PASS explicit desktop rejection; no native action", flush=True)
                     return

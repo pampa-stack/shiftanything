@@ -196,6 +196,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             return Err("Previous Handy preparation requires macOS".into());
         }
     }
+    if let Some(position) = args.iter().position(|argument| argument == "--seed-localsend-previous") {
+        if !lifecycle {
+            return Err("Previous release preparation requires --lifecycle".into());
+        }
+        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous LocalSend DMG")?);
+        #[cfg(target_os = "macos")]
+        verification::seed_previous_localsend(&root, previous)?;
+        #[cfg(not(target_os = "macos"))]
+        {
+            let _ = previous;
+            return Err("Previous LocalSend preparation requires macOS".into());
+        }
+    }
     let state = NativeState::new(root.clone(), lifecycle)?;
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{language}.html");

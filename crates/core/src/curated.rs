@@ -1290,6 +1290,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         NOTEPAD_NEXT,
         RAPIDRAW,
         RUSTDESK,
+        ACTIVITYWATCH,
     ]
     .iter()
     .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
@@ -1548,7 +1549,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 30);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 31);
     }
 
     #[test]

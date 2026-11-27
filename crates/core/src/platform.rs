@@ -430,11 +430,11 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     use crate::curated::RAPIDRAW;
     use crate::curated::RUSTDESK;
     if platform.os == Os::Linux
-        && ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk"]
+        && ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
             .iter()
             .any(|id| stems.contains(id))
     {
-        let app = [AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP, CRYPTOMATOR, JOPLIN, NOTEPAD_NEXT, RAPIDRAW, RUSTDESK]
+        let app = [AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP, CRYPTOMATOR, JOPLIN, NOTEPAD_NEXT, RAPIDRAW, RUSTDESK, ACTIVITYWATCH]
             .into_iter()
             .find(|app| stems.contains(&app.id))?;
         if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
@@ -445,6 +445,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             "audacity" => ("Audacity-", format!("audacity-linux-{version}-x86_64.AppImage")),
             "drawio" => ("v", format!("drawio-x86_64-{version}.AppImage")),
             "nextcloud-desktop" => ("v", format!("Nextcloud-{version}-x86_64.AppImage")),
+            "activitywatch" => ("v", "activitywatch-linux-x86_64.AppImage".to_owned()),
             "rustdesk" => ("", format!("rustdesk-{version}-x86_64.AppImage")),
             "rapidraw" => ("v", format!("03_RapidRAW_v{version}_ubuntu-22.04_amd64.AppImage")),
             "notepadnext" if version.patch == 0 => ("v", format!("NotepadNext-v{}.{}-x86_64.AppImage", version.major, version.minor)),
@@ -620,7 +621,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk"].iter().any(|id| stems.contains(id))
+    if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
+        .iter()
+        .any(|id| stems.contains(id))
         && platform.os == Os::Linux
     {
         return platform == linux_x64;
@@ -755,6 +758,8 @@ mod tests {
             ("CyberTimon/RapidRAW", "v1.7.1", "03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage", 117_078_520),
             ("rustdesk/rustdesk", "1.5.1", "rustdesk-1.5.1-x86_64.AppImage", 88_472_056),
             ("rustdesk/rustdesk", "1.5.3", "rustdesk-1.5.3-x86_64.AppImage", 88_492_536),
+            ("ActivityWatch/activitywatch", "v0.14.2", "activitywatch-linux-x86_64.AppImage", 109_992_440),
+            ("ActivityWatch/activitywatch", "v0.14.3", "activitywatch-linux-x86_64.AppImage", 110_492_152),
             ("Zettlr/Zettlr", "v4.10.0", "Zettlr-4.10.0-x86_64.AppImage", 172_628_308),
             ("Zettlr/Zettlr", "v4.11.0", "Zettlr-4.11.0-x86_64.AppImage", 172_657_896),
             ("ONLYOFFICE/DesktopEditors", "v9.4.0", "DesktopEditors-x86_64.AppImage", 625_961_464),

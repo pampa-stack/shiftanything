@@ -1,0 +1,4 @@
+e25a4895255edade2134b4248f3834b99c2d9ec19e29d4567e1721d31a23a8b1  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/activitywatch/installed-icon.png
+f7ad84e8ca7031f9531576c3e0fd30b2281aa49a4beffe41c0a820db65580200  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/activitywatch/open-menu.png
+f7ad84e8ca7031f9531576c3e0fd30b2281aa49a4beffe41c0a820db65580200  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/activitywatch/open-new.png
+f7ad84e8ca7031f9531576c3e0fd30b2281aa49a4beffe41c0a820db65580200  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/activitywatch/open-old.png

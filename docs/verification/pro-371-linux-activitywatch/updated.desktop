@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=ActivityWatch
+Comment=Track how you spend time on your computer
+Exec="/fixture/home/Applications/activitywatch-linux-x86_64.AppImage" --appimage-extract-and-run %F
+Icon=aw-qt
+Terminal=false
+Categories=Utility;
+StartupWMClass=aw-qt
+X-ArtCraft-Launcher=true

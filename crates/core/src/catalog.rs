@@ -99,6 +99,7 @@ impl CraftApp {
             ("notepadnext", "dail8859/NotepadNext") => "NotepadNext".to_owned(),
             ("rapidraw", "CyberTimon/RapidRAW") => "RapidRAW".to_owned(),
             ("rustdesk", "rustdesk/rustdesk") => "rustdesk".to_owned(),
+            ("activitywatch", "ActivityWatch/activitywatch") => "aw-qt".to_owned(),
             _ => self.bundle_id(),
         }
     }
@@ -293,6 +294,7 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         "notepadnext" => include_bytes!("../../../assets/app-icons/notepadnext.png"),
         "rapidraw" => include_bytes!("../../../assets/app-icons/rapidraw.png"),
         "rustdesk" => include_bytes!("../../../assets/app-icons/rustdesk.png"),
+        "activitywatch" => include_bytes!("../../../assets/app-icons/activitywatch.png"),
         "artcraft" => include_bytes!("../../../assets/app-icons/artcraft.png"),
         "photocraft" => include_bytes!("../../../assets/app-icons/photocraft.png"),
         "vectorcraft" => include_bytes!("../../../assets/app-icons/vectorcraft.png"),

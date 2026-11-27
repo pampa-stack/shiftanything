@@ -855,12 +855,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("cryptomator-1.19.7-x86_64.AppImage", 59_075_064, "7f0367d8b83fcda665016e1a907683a9037e61589f2493c4206ea850d55fef4e"),
             ("Cryptomator-1.19.7-arm64.dmg", 58_716_219, "c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677"),
         ],
-        ("ActivityWatch/activitywatch", "v0.14.2") => {
-            &[("activitywatch-v0.14.2-macos-arm64.dmg", 65_835_856, "8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65")]
-        }
-        ("ActivityWatch/activitywatch", "v0.14.3") => {
-            &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
-        }
+        ("ActivityWatch/activitywatch", "v0.14.2") => &[
+            ("activitywatch-v0.14.2-macos-arm64.dmg", 65_835_856, "8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65"),
+            ("activitywatch-linux-x86_64.AppImage", 109_992_440, "216575f31d47488d8865c70352f948c52711ca348e74fc2412da82e6273b3621"),
+        ],
+        ("ActivityWatch/activitywatch", "v0.14.3") => &[
+            ("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a"),
+            ("activitywatch-linux-x86_64.AppImage", 110_492_152, "875aa539e81006e26695675dc55a14496d5a14fa7730495bda6a2e08ea92e59d"),
+        ],
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
         ("getopenscreen/openscreen", "v2.3.0") => {

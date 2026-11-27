@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS = ("macos-arm64", "linux-x64")
+TARGETS = ("macos-arm64", "linux-x64", "windows-x64")
 
 
 def read_json(path):

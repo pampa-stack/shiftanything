@@ -24,7 +24,7 @@ moonlight JobFinished: Ok("Launch request accepted")
 moonlight after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/moonlight/data/flatpak/app/com.moonlight_stream.Moonlight/x86_64/stable/d46a012e142b9b5eaad94e5549c042964f3029b03d555d3d5088057cd1ba6b9f", package: Some("com.moonlight_stream.Moonlight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.2.0"), update_available: true, can_remove: true, can_open: true })
   Map State: IsViewable
 com.moonlight_stream.Moonlight
-2026-11-27T22:11:02+00:00 moonlight previous GUI WM_NAME(STRING) = 
+2026-11-27T22:11:02+00:00 moonlight previous GUI WM_NAME(STRING) =
 WM_CLASS(STRING) = "moonlight", "Moonlight"
 2026-11-27T22:11:02+00:00 moonlight AVAILABLE 24705294336
 moonlight before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/moonlight/data/flatpak/app/com.moonlight_stream.Moonlight/x86_64/stable/d46a012e142b9b5eaad94e5549c042964f3029b03d555d3d5088057cd1ba6b9f", package: Some("com.moonlight_stream.Moonlight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.2.0"), update_available: true, can_remove: true, can_open: true }
@@ -39,7 +39,7 @@ moonlight JobFinished: Ok("Launch request accepted")
 moonlight after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/moonlight/data/flatpak/app/com.moonlight_stream.Moonlight/x86_64/stable/3cb5303c4fd94ca0df3678c032dbc2c0d52f3a29970213ff6c52798d4456f402", package: Some("com.moonlight_stream.Moonlight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.2.0"), update_available: false, can_remove: true, can_open: true })
   Map State: IsViewable
 com.moonlight_stream.Moonlight
-2026-11-27T22:11:11+00:00 moonlight current GUI WM_NAME(STRING) = 
+2026-11-27T22:11:11+00:00 moonlight current GUI WM_NAME(STRING) =
 WM_CLASS(STRING) = "moonlight", "Moonlight"
 moonlight before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/moonlight/data/flatpak/app/com.moonlight_stream.Moonlight/x86_64/stable/3cb5303c4fd94ca0df3678c032dbc2c0d52f3a29970213ff6c52798d4456f402", package: Some("com.moonlight_stream.Moonlight"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.2.0"), update_available: false, can_remove: true, can_open: true }
 moonlight JobFinished: Ok("Flathub app removed")

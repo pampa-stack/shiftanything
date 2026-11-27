@@ -13356,6 +13356,17 @@
       "https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/phoneScreenshots/2_editor.png"
     ],
     "media_source": "https://github.com/saber-notes/saber/blob/main/README.md",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.adilhanney.saber",
+        "source": "https://flathub.org/apps/com.adilhanney.saber",
+        "download_size": 64303275,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.adilhanney.saber",
+        "download_size_checked": "2026-11-27"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

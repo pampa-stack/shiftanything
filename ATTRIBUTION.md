@@ -146,4 +146,6 @@ Authelia v4.39.28 favicon (converted from SVG), MeshCentral 1.3.2 favicon and Ap
 
 The Trayscale v0.21.0 app icon is unmodified and MIT-licensed by DeedleFake. The Outline VPN client logo is unmodified and identifies the original product. Outline is owned by the Outline Foundation. See the [Outline Brand User Guide](https://github.com/OutlineFoundation/outline-brand/blob/d8ddfd4891fe5def3e74f559dae970c9e026bfde/outline_brand_user_guide.pdf), `NOTICE` and the Tauri media manifest.
 
+The marks in `apps/shiftanything-tauri-proof/frontend/shifter-brands/` identify third-party products in the SH*FTER software selector and comparison. Each mark belongs to its respective owner and sits outside the launcher code licence. [Source URLs and SHA-256](docs/verification/pro-371-shifter-layout/vendor-icons.tsv) record the 48 × 48 PNG copies prepared from the publishers’ public assets on 2026-11-27.
+
 The original Tailscale Linux systray icon is distributed under the BSD 3-Clause license. See [the upstream license](https://github.com/tailscale/tailscale/blob/v1.104.7/LICENSE), `NOTICE` and the Tauri media manifest.

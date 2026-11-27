@@ -2442,6 +2442,27 @@ pub const SUBTITLE_EDIT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("MFC9L2T4RB"),
 };
 
+pub const OPENWHISPR: crate::CraftApp = crate::CraftApp {
+    id: "openwhispr",
+    name: "OpenWhispr Local",
+    tagline: "Dictate into any app with local transcription",
+    repo: "OpenWhispr/openwhispr",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [71, 134, 221],
+    ink_light: [37, 75, 136],
+    ink_dark: [169, 204, 254],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenWhispr contributors",
+    msi_publisher: None,
+    bundle: Some("com.gizmolabs.openwhispr"),
+    site: Some("https://openwhispr.com"),
+    mac_bundle_name: Some("OpenWhispr"),
+    mac_team: Some("T832773L2J"),
+};
+
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GHOST_DOWNLOADER,
     HANDY,
@@ -2549,6 +2570,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     INKSCAPE,
     KDENLIVE,
     SUBTITLE_EDIT,
+    OPENWHISPR,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

@@ -1,0 +1,77 @@
+OFFICIAL METADATA 362841873 e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13
+2026-11-28T00:36:44+0100
+ARTIFACT e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13 362841873 https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.1/OpenWhispr-1.12.1-arm64.dmg
+BUNDLE=OpenWhispr.app
+CFBundleIdentifier=com.gizmolabs.openwhispr
+CFBundleShortVersionString=1.12.1
+CFBundleVersion=1.12.1
+CFBundleExecutable=OpenWhispr
+LSMinimumSystemVersion=12.0
+<scratch>/preflight/openwhispr/v1.12.1/mount/OpenWhispr.app/Contents/MacOS/OpenWhispr: Mach-O 64-bit executable arm64
+<scratch>/preflight/openwhispr/v1.12.1/mount/OpenWhispr.app/Contents/MacOS/OpenWhispr (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=com.gizmolabs.openwhispr
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Gizmo Labs Inc. (T832773L2J)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=24 Nov 2026 at 11:33:28
+TeamIdentifier=T832773L2J
+<scratch>/preflight/openwhispr/v1.12.1/mount/OpenWhispr.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT openwhispr v1.12.1
+OFFICIAL METADATA 362952454 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea
+2026-11-28T00:37:43+0100
+ARTIFACT 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea 362952454 https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.2/OpenWhispr-1.12.2-arm64.dmg
+BUNDLE=OpenWhispr.app
+CFBundleIdentifier=com.gizmolabs.openwhispr
+CFBundleShortVersionString=1.12.2
+CFBundleVersion=1.12.2
+CFBundleExecutable=OpenWhispr
+LSMinimumSystemVersion=12.0
+<scratch>/preflight/openwhispr/v1.12.2/mount/OpenWhispr.app/Contents/MacOS/OpenWhispr: Mach-O 64-bit executable arm64
+<scratch>/preflight/openwhispr/v1.12.2/mount/OpenWhispr.app/Contents/MacOS/OpenWhispr (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=com.gizmolabs.openwhispr
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Gizmo Labs Inc. (T832773L2J)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=25 Nov 2026 at 14:30:40
+TeamIdentifier=T832773L2J
+<scratch>/preflight/openwhispr/v1.12.2/mount/OpenWhispr.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT openwhispr v1.12.2
+PASS PREFLIGHT openwhispr v1.12.1
+PASS PREFLIGHT openwhispr v1.12.2
+OFFICIAL INDEX openwhispr v1.12.1 digest=published
+OFFICIAL INDEX openwhispr v1.12.2 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v1.12.1 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.1/OpenWhispr-1.12.1-arm64.dmg 362841873 e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13
+PASS OFFICIAL v1.12.2 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.2/OpenWhispr-1.12.2-arm64.dmg 362952454 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea
+NATIVE ORIGIN openwhispr GitHub
+PASS OFFICIAL v1.12.1 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.1/OpenWhispr-1.12.1-arm64.dmg 362841873 e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13
+PASS NATIVE openwhispr install: OpenWhispr Local installed: 1.12.1; package_bytes=362841873; elapsed=56.078s
+NATIVE ORIGIN openwhispr GitHub
+PASS OFFICIAL v1.12.2 Dmg https://github.com/OpenWhispr/openwhispr/releases/download/v1.12.2/OpenWhispr-1.12.2-arm64.dmg 362952454 324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea
+PASS NATIVE openwhispr update: OpenWhispr Local updated to 1.12.2; package_bytes=362952454; elapsed=82.504s
+PASS NATIVE openwhispr remove: OpenWhispr Local was removed; package_bytes=0; elapsed=0.078s
+PASS NATIVE CYCLE openwhispr (v1.12.1 → v1.12.2), private Trash and synthetic data preserved

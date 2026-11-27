@@ -80,6 +80,43 @@ pub(crate) fn is_hex64(s: &str) -> bool {
 pub const CALIBRE_DMG_URL: &str = "https://download.calibre-ebook.com/";
 pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
 pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
+pub const ZOTERO_STABLE_URL: &str = "https://www.zotero.org/download/client/dl?channel=release&platform=mac";
+pub const ZOTERO_DMG_URL: &str = "https://download.zotero.org/client/release/";
+pub const ZOTERO_CHANGELOG: &str = "https://www.zotero.org/support/changelog";
+type DigestReceipt = (&'static str, u64, &'static str);
+const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
+    ("10.0.9", ("Zotero-10.0.9.dmg", 192_346_587, "fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387")),
+    ("10.0.8", ("Zotero-10.0.8.dmg", 192_345_844, "bf6192a0745ae67efbb7ff4e7f1953d8b78f5eed7083f4eefa12b762ecddcabe")),
+];
+
+pub fn zotero_stable_version(location: &str) -> Option<Version> {
+    let (tag, name) = location.strip_prefix(ZOTERO_DMG_URL)?.split_once('/')?;
+    let version = version::parse(tag)?;
+    (version.to_string() == tag && version.pre.is_empty() && version.build.is_empty() && name == format!("Zotero-{tag}.dmg")).then_some(version)
+}
+
+pub fn zotero_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::ZOTERO.repo, &tag).collect(),
+        name: format!("Zotero {tag}"),
+        html_url: ZOTERO_CHANGELOG.to_string(),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
+}
+
+/// The official latest version, followed by previously qualified versions still in the archive.
+pub fn zotero_release_history(latest: Release) -> Vec<Release> {
+    let latest_version = latest.version.clone();
+    let older = ZOTERO_DMG_RECEIPTS
+        .iter()
+        .filter_map(|&(tag, _)| version::parse(tag))
+        .filter(|version| Some(version) < latest_version.as_ref())
+        .map(zotero_release);
+    std::iter::once(latest).chain(older).collect()
+}
 
 pub fn libreoffice_stable_version(tag: &str) -> Option<Version> {
     let version = version::parse(tag)?;
@@ -867,6 +904,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::ORCA_SLICER,
         crate::curated::DBEAVER_CE,
         crate::curated::PRUSA_SLICER,
+        crate::curated::ZOTERO,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -886,6 +924,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
             } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
+                || app.uses_zotero_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -1527,6 +1566,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506"),
             ("rustdesk-1.5.3-aarch64.dmg", 31_464_911, "e6d30fa1633d772c48935907c208ca4e555a856fb2038af3aaa87a327c29360b"),
         ],
+        ("zotero/zotero", tag) => {
+            ZOTERO_DMG_RECEIPTS.iter().find(|&&(reviewed, _)| reviewed == tag).map_or(&[], |(_, receipt)| std::slice::from_ref(receipt))
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {
@@ -1534,6 +1576,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         size,
         url: if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else if repo == crate::curated::ZOTERO.repo {
+            format!("{ZOTERO_DMG_URL}{tag}/{name}")
         } else {
             format!("{}{tag}/{name}", download_prefix(repo))
         },
@@ -1625,6 +1669,45 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn zotero_stable_redirect_is_canonical_and_never_qualifies_new_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::ZOTERO, platform::pick_asset};
+
+        let location = "https://download.zotero.org/client/release/10.0.9/Zotero-10.0.9.dmg";
+        let stable = zotero_release(zotero_stable_version(location).unwrap());
+        let history = zotero_release_history(stable.clone());
+        assert_eq!(history.iter().map(|release| release.tag.as_str()).collect::<Vec<_>>(), ["10.0.9", "10.0.8"]);
+        assert_eq!(stable.html_url, ZOTERO.releases_url());
+        for invalid in [
+            location.replace("https://", "http://"),
+            location.replace("download.zotero.org", "download.zotero.org.example.com"),
+            location.replace("10.0.9/", "10.0.9-beta/"),
+            location.replace("10.0.9/", "10.0.09/"),
+            location.replace("Zotero-10.0.9", "Zotero-10.0.8"),
+            format!("{location}?tracking=1"),
+            format!("{location}/../"),
+        ] {
+            assert!(zotero_stable_version(&invalid).is_none(), "{invalid}");
+        }
+
+        let arm = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[ZOTERO.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        assert_eq!(pick(&stable, arm).as_ref().map(|asset| asset.url.as_str()), Some(location));
+        assert!(pick(&history[1], arm).is_some());
+        assert!(pick(&stable, Platform { arch: Arch::X64, ..arm }).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].sha256 = Some("0".repeat(64));
+        assert!(pick(&changed, arm).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].url = "https://example.org/Zotero-10.0.9.dmg".into();
+        assert!(pick(&changed, arm).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].size -= 1;
+        assert!(pick(&changed, arm).is_none());
+        assert!(pick(&zotero_release(version::parse("10.0.10").unwrap()), arm).is_none());
+        assert_eq!(zotero_release_history(history[1].clone()).len(), 1);
+    }
 
     #[test]
     fn deeptutor_uses_only_reviewed_apple_silicon_packages() {

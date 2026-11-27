@@ -60,6 +60,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::VIBE.id,
                 recipe::WHISPERING.id,
                 recipe::ZEN.id,
+                recipe::ZOTERO.id,
             ],
             (11, 0),
         ),

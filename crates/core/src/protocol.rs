@@ -240,6 +240,8 @@ pub enum Origin {
     GitHub,
     /// The LibreOffice release directory.
     TheDocumentFoundation,
+    /// Zotero's official macOS release channel.
+    Zotero,
 }
 
 impl Origin {
@@ -248,6 +250,7 @@ impl Origin {
             Self::ArtCraftApi => "ArtCraft API",
             Self::GitHub => "GitHub",
             Self::TheDocumentFoundation => "The Document Foundation",
+            Self::Zotero => "Zotero",
         }
     }
 }
@@ -264,6 +267,8 @@ pub enum Source {
     GitHubPages,
     /// The LibreOffice release directory.
     TheDocumentFoundation,
+    /// Zotero's official macOS release channel.
+    Zotero,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -275,6 +280,7 @@ impl Source {
             Self::GitHubApi => "GitHub",
             Self::GitHubPages => "GitHub (release pages)",
             Self::TheDocumentFoundation => "The Document Foundation",
+            Self::Zotero => "Zotero",
             Self::Cache => "saved results",
         }
     }

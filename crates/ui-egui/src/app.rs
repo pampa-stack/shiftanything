@@ -1282,17 +1282,19 @@ impl LauncherUi {
         let mut api = false;
         let mut github = false;
         let mut tdf = false;
+        let mut zotero = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
                     Some(Origin::ArtCraftApi) => api = true,
                     Some(Origin::GitHub) => github = true,
                     Some(Origin::TheDocumentFoundation) => tdf = true,
+                    Some(Origin::Zotero) => zotero = true,
                     None => {}
                 }
             }
         }
-        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation)]
+        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation), (zotero, Origin::Zotero)]
             .into_iter()
             .filter(|&(present, _)| present)
             .map(|(_, origin)| origin.label().to_string())

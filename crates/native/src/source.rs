@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX};
+use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -66,7 +66,11 @@ pub trait ReleaseSource: Send + Sync {
             Ok(list) => release::choose_version_for(&list, track, query.separate_nightly).map_or(LatestRelease::None, LatestRelease::Found),
             Err(why) => LatestRelease::Failed(why),
         };
-        let source = if query.repo == LIBREOFFICE.repo { Source::TheDocumentFoundation } else { Source::GitHubApi };
+        let source = match query.repo.as_str() {
+            repo if repo == LIBREOFFICE.repo => Source::TheDocumentFoundation,
+            repo if repo == ZOTERO.repo => Source::Zotero,
+            _ => Source::GitHubApi,
+        };
         Answer { latest, source }
     }
     /// The release `track` follows in the version list saved last time, however old, without
@@ -559,6 +563,16 @@ fn with_former<T>(query: &ReleaseQuery, ask: impl Fn(&ReleaseQuery) -> T, no_rel
 }
 
 impl GitHubSource {
+    fn latest_zotero(&self) -> Result<Release, String> {
+        let version = self
+            .http
+            .redirect_target(release::ZOTERO_STABLE_URL)?
+            .as_deref()
+            .and_then(release::zotero_stable_version)
+            .ok_or("Zotero did not advertise a valid macOS release")?;
+        Ok(release::zotero_release(version))
+    }
+
     fn versions_in(&self, query: &ReleaseQuery, max_age: i64) -> Result<Vec<Release>, String> {
         if let Some((at, list)) = self.cache.lock().unwrap_or_else(PoisonError::into_inner).versions.get(&query.repo)
             // A list stamped in the future (the clock set back since) isn't recent.
@@ -568,6 +582,8 @@ impl GitHubSource {
         }
         let list = if query.repo == LIBREOFFICE.repo {
             libreoffice::releases(&self.http, false)?
+        } else if query.repo == ZOTERO.repo {
+            release::zotero_release_history(self.latest_zotero()?)
         } else {
             if self.limited() {
                 return Err("GitHub's request limit was reached. Try again later.".into());
@@ -628,6 +644,15 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn latest(&self, query: &ReleaseQuery, prereleases: bool) -> Answer {
+        if query.repo == ZOTERO.repo {
+            return match self.latest_zotero() {
+                Ok(release) => {
+                    self.store(&query.repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
+                    Answer { latest: LatestRelease::Found(release), source: Source::Zotero }
+                }
+                Err(why) => Answer { latest: self.cached(query, false).unwrap_or(LatestRelease::Failed(why)), source: Source::Cache },
+            };
+        }
         if query.repo == LIBREOFFICE.repo {
             let latest = match libreoffice::releases(&self.http, true) {
                 Ok(versions) => {
@@ -643,6 +668,16 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn cached(&self, query: &ReleaseQuery, prereleases: bool) -> Option<LatestRelease> {
+        if query.repo == ZOTERO.repo {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if saved.html_url == release::ZOTERO_CHANGELOG && !saved.prerelease => saved
+                    .version
+                    .filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)
+                    .map(release::zotero_release)
+                    .map(LatestRelease::Found),
+                _ => None,
+            };
+        }
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
@@ -657,7 +692,7 @@ impl ReleaseSource for GitHubSource {
         if repo == OPENCODE.repo {
             return self.opencode_desktop_manifest().ok().map(|release| release.tag);
         }
-        if repo == LIBREOFFICE.repo {
+        if repo == LIBREOFFICE.repo || repo == ZOTERO.repo {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

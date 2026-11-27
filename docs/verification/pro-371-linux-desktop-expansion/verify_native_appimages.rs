@@ -1,7 +1,7 @@
 use std::path::Path;
 use std::time::{Duration, Instant};
 
-use artcraft_launcher_core::curated::{T3_CODE, VOICE_STUDIO};
+use artcraft_launcher_core::curated::{PASEO, T3_CODE, VOICE_STUDIO};
 use artcraft_launcher_core::platform::pick_asset;
 use artcraft_launcher_core::protocol::{Backend, Command, Event, LatestRelease, Source};
 use artcraft_launcher_core::release::{Release, ReleaseQuery, parse_github_release};
@@ -44,6 +44,21 @@ const T3_CODE_PACKAGES: [Package; 2] = [
         sha: "dac1bbe9e93c1a5fb0942332befa998597f6a086232a87766ef5d8235a44f56d",
     },
 ];
+const PASEO_PACKAGES: [Package; 2] = [
+    Package {
+        version: "0.18.0",
+        name: "Paseo-x86_64.AppImage",
+        size: 171_962_101,
+        sha: "3498024f3a3a7c55c7421a5dd6d85824745e638ddfb612c1909ec1058b03c24e",
+    },
+    Package {
+        version: "0.18.1",
+        name: "Paseo-x86_64.AppImage",
+        size: 171_958_150,
+        sha: "a17d26d6930da647c0eacad3ebcae779bfc4bb47a824236ff790a60c199d85b6",
+    },
+];
+
 fn verify_release(app: &CraftApp, release: &Release, package: &Package) -> Result<(), String> {
     let host = Platform::current().ok_or("Missing current platform")?;
     let (asset, kind) = pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).ok_or("Recipe rejected published AppImage")?;
@@ -104,6 +119,7 @@ fn main() -> Result<(), String> {
     }
     let args: Vec<String> = std::env::args().collect();
     let Some((app, packages)) = args.get(1).and_then(|id| match id.as_str() {
+        "paseo" => Some((PASEO, &PASEO_PACKAGES)),
         "voice-studio" => Some((VOICE_STUDIO, &VOICE_STUDIO_PACKAGES)),
         "t3code" => Some((T3_CODE, &T3_CODE_PACKAGES)),
         _ => None,

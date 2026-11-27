@@ -1,0 +1,35 @@
+Ubuntu 24.04 amd64, disposable AX42 QEMU guest
+libfuse2t64:amd64	2.9.9-8.1build1
+OFFICIAL https://github.com/getpaseo/paseo/releases/download/v0.18.0/Paseo-x86_64.AppImage bytes=171962101 sha256=3498024f3a3a7c55c7421a5dd6d85824745e638ddfb612c1909ec1058b03c24e
+FILE /home/qa/profile-paseo-native-appimage-graceful/Applications/Paseo-x86_64.AppImage version=0.18.0 bytes=171962101 sha256=3498024f3a3a7c55c7421a5dd6d85824745e638ddfb612c1909ec1058b03c24e
+DESKTOP /home/qa/profile-paseo-native-appimage-graceful/data/applications/Paseo.desktop ICON /home/qa/profile-paseo-native-appimage-graceful/data/icons/hicolor/128x128/apps/Paseo.png sha256=39337599fefdb3ddf0a12ae98236809f5db988f10b5d1616327fd050407a6aac
+PASS paseo install 2286 ms Paseo installed: 0.18.0
+PASS paseo open-old 0 ms Launch request accepted
+Paseo
+Window 4194307
+  Position: 36,50 (screen: 0)
+  Geometry: 1208x804
+WM_CLASS(STRING) = "paseo", "Paseo"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+OFFICIAL https://github.com/getpaseo/paseo/releases/download/v0.18.1/Paseo-x86_64.AppImage bytes=171958150 sha256=a17d26d6930da647c0eacad3ebcae779bfc4bb47a824236ff790a60c199d85b6
+DISCOVERY GitHubApi
+FILE /home/qa/profile-paseo-native-appimage-graceful/Applications/Paseo-x86_64.AppImage version=0.18.1 bytes=171958150 sha256=a17d26d6930da647c0eacad3ebcae779bfc4bb47a824236ff790a60c199d85b6
+DESKTOP /home/qa/profile-paseo-native-appimage-graceful/data/applications/Paseo.desktop ICON /home/qa/profile-paseo-native-appimage-graceful/data/icons/hicolor/128x128/apps/Paseo.png sha256=39337599fefdb3ddf0a12ae98236809f5db988f10b5d1616327fd050407a6aac
+PASS paseo update 2326 ms Paseo updated to 0.18.1
+PASS paseo open-new 0 ms Launch request accepted
+Paseo
+Window 4194307
+  Position: 36,50 (screen: 0)
+  Geometry: 1208x804
+WM_CLASS(STRING) = "paseo", "Paseo"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+PASS paseo remove 40 ms Paseo was removed
+2026-11-27T19:20:20+00:00	DISK AVAILABLE 27150622720
+2026-11-27T19:20:31+00:00	GUI OFFLINE open-old
+2026-11-27T19:20:36+00:00	PASEO DAEMON STOPPED WITH PID FILE REMOVED
+2026-11-27T19:20:47+00:00	GUI OFFLINE open-new
+2026-11-27T19:20:47+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

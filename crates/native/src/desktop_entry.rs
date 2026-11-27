@@ -97,11 +97,11 @@ pub fn render(app: &CraftApp, appimage: &Path, icon: bool) -> Option<String> {
     }
     text.push_str(" %F\n");
     if icon {
-        text.push_str(&format!("Icon={}\n", app.bundle_id()));
+        text.push_str(&format!("Icon={}\n", app.linux_desktop_id()));
     }
     text.push_str("Terminal=false\n");
     text.push_str(&format!("Categories={categories}\n"));
-    text.push_str(&format!("StartupWMClass={}\n", wm_class.map_or_else(|| app.bundle_id(), str::to_string)));
+    text.push_str(&format!("StartupWMClass={}\n", wm_class.map_or_else(|| app.linux_desktop_id(), str::to_string)));
     text.push_str(MARKER);
     text.push('\n');
     Some(text)

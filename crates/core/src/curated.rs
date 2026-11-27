@@ -233,10 +233,10 @@ pub const LOCALSEND: crate::CraftApp = crate::CraftApp {
     kind: crate::catalog::AppKind::Community,
     publisher: "Tien Do Nam",
     msi_publisher: None,
-    bundle: Some("org.localsend.localsend_app"),
+    bundle: Some("org.localsend.localsendApp"),
     site: Some("https://localsend.org/"),
-    mac_bundle_name: None,
-    mac_team: None,
+    mac_bundle_name: Some("LocalSend"),
+    mac_team: Some("3W7H4PYMCV"),
 };
 
 pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 2] = [HANDY, LOCALSEND];
@@ -303,12 +303,39 @@ mod recipe_tests {
     }
 
     #[test]
+    fn localsend_dmg_recipe_accepts_the_reviewed_mac_asset_for_apple_silicon() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("localsend").expect("compiled LocalSend recipe");
+        let tag = "v1.19.0";
+        let filename = "LocalSend-1.19.0.dmg";
+        let latest = release::release_from_sums(app.repo, tag, &[]);
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let (asset, kind) = platform::pick_asset(&latest, &[app.id], mac, mac.download_kinds()).expect("reviewed DMG");
+        assert_eq!((asset.name.as_str(), kind), (filename, PackageKind::Dmg));
+        assert_eq!(asset.sha256.as_deref(), Some("5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4"));
+        for host in [
+            Platform { os: Os::MacOs, arch: Arch::X64 },
+            Platform { os: Os::Linux, arch: Arch::Arm64 },
+            Platform { os: Os::Windows, arch: Arch::Arm64 },
+        ] {
+            assert!(platform::pick_asset(&latest, &[app.id], host, host.download_kinds()).is_none());
+        }
+        let mismatched = release::release_from_sums(app.repo, "v1.18.2", &[("a".repeat(64), filename.to_owned())]);
+        assert!(platform::pick_asset(&mismatched, &[app.id], mac, mac.download_kinds()).is_none());
+        let alternate = release::release_from_sums(app.repo, "v1.18.2", &[("a".repeat(64), "LocalSend-1.18.2-no-proxy.dmg".to_owned())]);
+        assert!(platform::pick_asset(&alternate, &[app.id], mac, mac.download_kinds()).is_none());
+        let unapproved = release::release_from_sums("other/localsend", tag, &[]);
+        assert!(platform::pick_asset(&unapproved, &[app.id], mac, mac.download_kinds()).is_none());
+    }
+
+    #[test]
     fn localsend_recipe_accepts_only_the_official_linux_x64_appimage() {
         use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
 
         let app = CraftApp::by_id("localsend").expect("compiled LocalSend recipe");
         assert_eq!(app.repo, "localsend/localsend");
-        assert_eq!(app.bundle_id(), "org.localsend.localsend_app");
+        assert_eq!(app.linux_desktop_id(), "org.localsend.localsend_app");
         let names = [
             "LocalSend-1.19.0-linux-x86-64.AppImage",
             "LocalSend-1.19.0-linux-arm-64.AppImage",
@@ -332,7 +359,10 @@ mod recipe_tests {
         for os in [Os::Linux, Os::MacOs, Os::Windows, Os::FreeBsd] {
             for arch in [Arch::Arm64, Arch::X64] {
                 let host = Platform { os, arch };
-                assert_eq!(platform::recipe_platform_verified(&[app.id], host), host == linux_x64);
+                assert_eq!(
+                    platform::recipe_platform_verified(&[app.id], host),
+                    host == linux_x64 || host == (Platform { os: Os::MacOs, arch: Arch::Arm64 }),
+                );
             }
         }
         let other = release::parse_github_release(&json, "untrusted/localsend").expect("valid response with rejected assets");

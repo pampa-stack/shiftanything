@@ -88,6 +88,15 @@ impl CraftApp {
         self.bundle.map_or_else(|| format!("ai.storyteller.{}", self.id), str::to_string)
     }
 
+    /// Some publishers use a distinct AppImage desktop identifier.
+    pub fn linux_desktop_id(&self) -> String {
+        if (self.id, self.repo) == (crate::curated::LOCALSEND.id, crate::curated::LOCALSEND.repo) {
+            "org.localsend.localsend_app".to_owned()
+        } else {
+            self.bundle_id()
+        }
+    }
+
     pub fn releases_url(&self) -> String {
         format!("https://github.com/{}/releases", self.repo)
     }

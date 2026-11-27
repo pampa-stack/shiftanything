@@ -227,7 +227,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
     ];
     let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b)))?;
     for stem in stems {
-        if stem.eq_ignore_ascii_case("localsend") {
+        if *stem == crate::curated::LOCALSEND.id {
             // LocalSend publishes a hyphenated architecture label. Recognize only this recipe's reviewed format.
             if kind == PackageKind::AppImage
                 && let Some(version) = strip_stem_prefix(base, stem, '-').and_then(|rest| rest.strip_suffix("-linux-x86-64"))
@@ -235,6 +235,13 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
                 && crate::version::parse(version).is_some()
             {
                 return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "linux-x86_64".into(), kind });
+            }
+            // The publisher uses LocalSend-<version>.dmg for its universal build.
+            if kind == PackageKind::Dmg
+                && let Some(version) = base.strip_prefix("LocalSend-")
+                && crate::version::parse(version).is_some_and(|parsed| parsed.to_string() == version && parsed.pre.is_empty())
+            {
+                return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "macos-universal".into(), kind });
             }
             continue;
         }
@@ -277,7 +284,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    let parsed: Vec<(&Asset, AssetName)> = release.assets.iter().filter_map(|a| parse_asset_name(&a.name, stems).map(|n| (a, n))).collect();
+    let parsed: Vec<(&Asset, AssetName)> = release
+        .assets
+        .iter()
+        .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
+        .filter(|(asset, name)| {
+            name.stem != crate::curated::LOCALSEND.id
+                || (release.version.as_ref().is_some_and(|version| name.version == version.to_string())
+                    && (asset.sha256.is_some() || release.sums_asset().is_some()))
+        })
+        .collect();
     for kind in kinds {
         for token in platform.tokens() {
             if let Some((asset, _)) = parsed.iter().find(|(_, n)| n.kind == *kind && n.token == *token) {
@@ -288,11 +304,17 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     None
 }
 
-/// Recipe validation is separate from upstream OS support. Other community targets remain
-/// documented and visible, but cannot enter native installation before their cycle is tested.
+/// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
-    (!stems.contains(&"handy") || platform == (Platform { os: Os::MacOs, arch: Arch::Arm64 }))
-        && (!stems.contains(&"localsend") || platform == (Platform { os: Os::Linux, arch: Arch::X64 }))
+    let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+    let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
+    if stems.contains(&crate::curated::HANDY.id) {
+        return platform == mac_arm64;
+    }
+    if stems.contains(&crate::curated::LOCALSEND.id) {
+        return platform == mac_arm64 || platform == linux_x64;
+    }
+    true
 }
 
 #[cfg(test)]

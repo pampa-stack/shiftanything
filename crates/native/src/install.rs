@@ -1811,11 +1811,11 @@ pub(crate) mod linux {
     }
 
     fn desktop_path(data: &Path, app: &CraftApp) -> PathBuf {
-        data.join("applications").join(format!("{}.desktop", app.bundle_id()))
+        data.join("applications").join(format!("{}.desktop", app.linux_desktop_id()))
     }
 
     fn icon_path(data: &Path, app: &CraftApp) -> PathBuf {
-        data.join("icons/hicolor/128x128/apps").join(format!("{}.png", app.bundle_id()))
+        data.join("icons/hicolor/128x128/apps").join(format!("{}.png", app.linux_desktop_id()))
     }
 
     /// Adds `appimage` to the desktop's menu. Best effort: a failure here never fails the

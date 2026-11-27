@@ -1,0 +1,64 @@
+
+=== 2026-11-27T09:50:49+00:00 remmina install ===
+remmina before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+remmina JobFinished: Ok("Flathub app installed")
+remmina after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/b2a4f56c9b3ee7020266692e4fee0cf600ce5bc6c66acb65307a5c3033f7efc2", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/evidence/native-remmina-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+fe0ab675af33f5d3c468b49a967c7c38b4d1fa41dca6eb665b51fc4646d5bac0  /var/tmp/shift-flatpak-desktop.FSDLi7gB/evidence/native-remmina-icon.png
+org.remmina.Remmina/x86_64/stable	flathub	b2a4f56c9b3e	user	1.4.44
+TIMING remmina install 38924 ms
+
+=== 2026-11-27T09:51:28+00:00 remmina prior ===
+Previous runtime org.gnome.Platform/x86_64/51
+Updating app/org.remmina.Remmina/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.remmina.Remmina/x86_64/stable	flathub	86904a724584	user	1.4.44
+remmina before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/86904a724584da7be77e284e6ac382710f14683519a3d961aec8845c335784ce", package: Some("org.remmina.Remmina"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: false, can_open: true }
+remmina JobFinished: Err("Approved action rejected: native installation state changed")
+remmina JobFinished: Err("This Flatpak is managed outside the launcher")
+remmina after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/86904a724584da7be77e284e6ac382710f14683519a3d961aec8845c335784ce", package: Some("org.remmina.Remmina"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: false, can_open: true })
+TIMING remmina prior 4093 ms
+
+=== 2026-11-27T09:51:32+00:00 remmina open ===
+dbus-daemon[2566984]: [session uid=1000 pid=2566984 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2567031 comm="/usr/bin/xfwm4 --compositor=off --display=:785" label="unconfined")
+dbus-daemon[2566984]: [session uid=1000 pid=2566984 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2567061]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2567031 comm="/usr/bin/xfwm4 --compositor=off --display=:785" label="unconfined")
+dbus-daemon[2566984]: [session uid=1000 pid=2566984 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2567031 comm="/usr/bin/xfwm4 --compositor=off --display=:785" label="unconfined")
+dbus-daemon[2567061]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2566984]: [session uid=1000 pid=2566984 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+remmina before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/86904a724584da7be77e284e6ac382710f14683519a3d961aec8845c335784ce", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: true, can_remove: true, can_open: true }
+remmina JobFinished: Ok("Launch request accepted")
+remmina after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/86904a724584da7be77e284e6ac382710f14683519a3d961aec8845c335784ce", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: true, can_remove: true, can_open: true })
+TIMING remmina open-previous 6014 ms
+
+(xfconfd:2567082): xfconfd-WARNING **: 09:51:39.762: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING remmina open 7535 ms
+
+=== 2026-11-27T09:51:39+00:00 remmina update-remove ===
+remmina before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/86904a724584da7be77e284e6ac382710f14683519a3d961aec8845c335784ce", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: true, can_remove: true, can_open: true }
+remmina JobFinished: Ok("Flathub app updated")
+remmina after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/b2a4f56c9b3ee7020266692e4fee0cf600ce5bc6c66acb65307a5c3033f7efc2", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: true, can_open: true })
+TIMING remmina update 4725 ms
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/.var/app/org.remmina.Remmina/shift-profile-marker: OK
+dbus-daemon[2569110]: [session uid=1000 pid=2569110 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2569133 comm="/usr/bin/xfwm4 --compositor=off --display=:411" label="unconfined")
+dbus-daemon[2569110]: [session uid=1000 pid=2569110 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2569147]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2569133 comm="/usr/bin/xfwm4 --compositor=off --display=:411" label="unconfined")
+dbus-daemon[2569110]: [session uid=1000 pid=2569110 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2569133 comm="/usr/bin/xfwm4 --compositor=off --display=:411" label="unconfined")
+dbus-daemon[2569110]: [session uid=1000 pid=2569110 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2569147]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+remmina before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/b2a4f56c9b3ee7020266692e4fee0cf600ce5bc6c66acb65307a5c3033f7efc2", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: true, can_open: true }
+remmina JobFinished: Ok("Launch request accepted")
+remmina after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/b2a4f56c9b3ee7020266692e4fee0cf600ce5bc6c66acb65307a5c3033f7efc2", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: true, can_open: true })
+TIMING remmina open-current 5828 ms
+
+(xfconfd:2569154): xfconfd-WARNING **: 09:51:53.754: Name org.xfce.Xfconf lost on the message dbus, exiting.
+remmina before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 4, patch: 44 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/data/flatpak/app/org.remmina.Remmina/x86_64/stable/b2a4f56c9b3ee7020266692e4fee0cf600ce5bc6c66acb65307a5c3033f7efc2", package: Some("org.remmina.Remmina"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.4.44"), update_available: false, can_remove: true, can_open: true }
+remmina JobFinished: Ok("Flathub app removed")
+remmina after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING remmina remove 3721 ms
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/remmina/home/.var/app/org.remmina.Remmina/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING remmina update-remove 17811 ms

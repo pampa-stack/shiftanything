@@ -1,0 +1,67 @@
+
+=== 2026-11-27T09:48:56+00:00 subtitlecomposer install ===
+subtitlecomposer before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+subtitlecomposer JobFinished: Ok("Flathub app installed")
+subtitlecomposer after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/evidence/native-subtitlecomposer-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+3c997559b5f86f58b2127084bf7e792c1ebbdf325a3c75d6f8b98f91907ca5cf  /var/tmp/shift-flatpak-desktop.FSDLi7gB/evidence/native-subtitlecomposer-icon.png
+org.kde.subtitlecomposer/x86_64/stable	flathub	1d3c7467ecdd	user	0.8.2
+TIMING subtitlecomposer install 50020 ms
+
+=== 2026-11-27T09:49:46+00:00 subtitlecomposer prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.kde.subtitlecomposer/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.subtitlecomposer/x86_64/stable	flathub	90a931ec3181	user	0.8.2
+subtitlecomposer before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7", package: Some("org.kde.subtitlecomposer"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: false, can_open: true }
+subtitlecomposer JobFinished: Err("Approved action rejected: native installation state changed")
+subtitlecomposer JobFinished: Err("This Flatpak is managed outside the launcher")
+subtitlecomposer after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7", package: Some("org.kde.subtitlecomposer"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: false, can_open: true })
+TIMING subtitlecomposer prior 30006 ms
+
+=== 2026-11-27T09:50:16+00:00 subtitlecomposer open ===
+dbus-daemon[2560474]: [session uid=1000 pid=2560474 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2560498 comm="/usr/bin/xfwm4 --compositor=off --display=:775" label="unconfined")
+dbus-daemon[2560474]: [session uid=1000 pid=2560474 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2560512]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2560498 comm="/usr/bin/xfwm4 --compositor=off --display=:775" label="unconfined")
+dbus-daemon[2560474]: [session uid=1000 pid=2560474 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2560498 comm="/usr/bin/xfwm4 --compositor=off --display=:775" label="unconfined")
+dbus-daemon[2560474]: [session uid=1000 pid=2560474 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2560512]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+subtitlecomposer before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: true, can_remove: true, can_open: true }
+subtitlecomposer JobFinished: Ok("Launch request accepted")
+subtitlecomposer after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: true, can_remove: true, can_open: true })
+TIMING subtitlecomposer open-previous 5590 ms
+
+(xfconfd:2560519): xfconfd-WARNING **: 09:50:23.459: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING subtitlecomposer open 7100 ms
+
+=== 2026-11-27T09:50:23+00:00 subtitlecomposer update-remove ===
+subtitlecomposer before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: true, can_remove: true, can_open: true }
+subtitlecomposer JobFinished: Ok("Flathub app updated")
+subtitlecomposer after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: true, can_open: true })
+TIMING subtitlecomposer update 5637 ms
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/.var/app/org.kde.subtitlecomposer/shift-profile-marker: OK
+dbus-daemon[2562736]: [session uid=1000 pid=2562736 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2562759 comm="/usr/bin/xfwm4 --compositor=off --display=:537" label="unconfined")
+dbus-daemon[2562736]: [session uid=1000 pid=2562736 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2562773]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2562759 comm="/usr/bin/xfwm4 --compositor=off --display=:537" label="unconfined")
+dbus-daemon[2562736]: [session uid=1000 pid=2562736 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2562759 comm="/usr/bin/xfwm4 --compositor=off --display=:537" label="unconfined")
+dbus-daemon[2562773]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2562736]: [session uid=1000 pid=2562736 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+subtitlecomposer before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: true, can_open: true }
+subtitlecomposer JobFinished: Ok("Launch request accepted")
+subtitlecomposer after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: true, can_open: true })
+TIMING subtitlecomposer open-current 5810 ms
+
+(xfconfd:2562780): xfconfd-WARNING **: 09:50:38.645: Name org.xfce.Xfconf lost on the message dbus, exiting.
+subtitlecomposer before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/data/flatpak/app/org.kde.subtitlecomposer/x86_64/stable/1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da", package: Some("org.kde.subtitlecomposer"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.2"), update_available: false, can_remove: true, can_open: true }
+subtitlecomposer JobFinished: Ok("Flathub app removed")
+subtitlecomposer after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING subtitlecomposer remove 4533 ms
+/var/tmp/shift-flatpak-desktop.FSDLi7gB/subtitlecomposer/home/.var/app/org.kde.subtitlecomposer/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING subtitlecomposer update-remove 19819 ms

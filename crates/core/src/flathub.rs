@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 47] = [
+pub const RECIPES: [(&str, &str); 53] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -49,6 +49,12 @@ pub const RECIPES: [(&str, &str); 47] = [
     ("gnome-clocks", "org.gnome.clocks"),
     ("apostrophe", "org.gnome.gitlab.somas.Apostrophe"),
     ("librepcb", "org.librepcb.LibrePCB"),
+    ("subtitlecomposer", "org.kde.subtitlecomposer"),
+    ("qalculate", "io.github.Qalculate"),
+    ("shotwell", "org.gnome.Shotwell"),
+    ("remmina", "org.remmina.Remmina"),
+    ("labplot", "org.kde.labplot"),
+    ("upscayl", "org.upscayl.Upscayl"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -114,6 +120,12 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "gnome-clocks" => "https://gitlab.gnome.org/GNOME/gnome-clocks",
         "apostrophe" => "https://gitlab.gnome.org/World/apostrophe",
         "librepcb" => "https://github.com/LibrePCB/LibrePCB",
+        "subtitlecomposer" => "https://invent.kde.org/multimedia/subtitlecomposer",
+        "qalculate" => "https://github.com/Qalculate/qalculate-gtk",
+        "shotwell" => "https://gitlab.gnome.org/GNOME/shotwell",
+        "remmina" => "https://gitlab.com/Remmina/Remmina",
+        "labplot" => "https://invent.kde.org/education/labplot",
+        "upscayl" => "https://github.com/upscayl/upscayl",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

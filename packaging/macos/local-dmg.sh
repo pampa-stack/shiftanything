@@ -19,20 +19,22 @@ ARCH="$(uname -m)"
 lipo "$EXE" -verify_arch "$ARCH"
 DMG="$OUTPUT/ShiftAnything-$VERSION-macos-$ARCH-$SUFFIX.dmg"
 STAGE="$OUTPUT/stage"
-MOUNT="$OUTPUT/mount"
-mkdir "$STAGE" "$MOUNT"
+mkdir "$STAGE"
 ditto "$APP" "$STAGE/Sh*ftAnything.app"
 ln -s /Applications "$STAGE/Applications"
 hdiutil create -srcfolder "$STAGE" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$DMG"
 codesign --force --sign - --timestamp=none "$DMG"
 codesign --verify --strict "$DMG"
+# The image can live on an external drive. DiskImages mounts it on the system volume.
 hdiutil verify "$DMG"
+MOUNT="$(mktemp -d /private/tmp/shiftanything-local-dmg.XXXXXXXX)"
 MOUNTED=0
 cleanup() {
-  if [[ "$MOUNTED" = 1 ]]; then hdiutil detach "$MOUNT" -quiet; fi
+  if [[ "$MOUNTED" = 1 ]]; then hdiutil detach "$MOUNT" -quiet || return; fi
+  rmdir "$MOUNT"
 }
 trap cleanup EXIT
-hdiutil attach "$DMG" -readonly -nobrowse -noautoopen -mountpoint "$MOUNT" -quiet
+hdiutil attach "$DMG" -readonly -nobrowse -noautoopen -mountpoint "$MOUNT"
 MOUNTED=1
 BUNDLE="$MOUNT/Sh*ftAnything.app"
 [[ "$(plutil -extract CFBundleIdentifier raw -o - "$BUNDLE/Contents/Info.plist")" = it.promptica.shiftanything ]]

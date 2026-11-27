@@ -346,11 +346,17 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     use crate::curated::{
         ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA,
-        RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
     if !recipe_platform_verified(stems, platform) {
         return None;
+    }
+    if stems.contains(&TERMIX.id) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::termix_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
     // These Apple Silicon-compatible images keep the same filename across releases. The stable tag in
     // the canonical URL binds the package; installation checks the signed bundle.
@@ -452,7 +458,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
         ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, GODOT, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND,
-        MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -480,6 +486,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         CRYPTOMATOR.id,
         ACTIVITYWATCH.id,
         GODOT.id,
+        TERMIX.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

@@ -174,7 +174,6 @@ mod proof {
             None,
             Some(&apps),
             None,
-            &paths,
             &install::macos::Expect { team: HANDY.mac_team, version: Some(&old) },
         )?;
         let _temporary_app = TemporaryApp(placed.clone());

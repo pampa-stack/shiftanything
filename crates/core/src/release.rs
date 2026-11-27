@@ -475,6 +475,8 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         version::parse(tag.strip_prefix("Audacity-")?)
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
+    } else if repo == crate::curated::TERMIX.repo {
+        termix_desktop_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
@@ -495,6 +497,24 @@ pub fn godot_mac_asset(release: &Release, asset: &Asset) -> bool {
         && godot_stable_version(&release.tag).as_ref().is_some_and(|version| Some(version) == release.version.as_ref())
         && asset.name == format!("Godot_v{}_macos.universal.zip", release.tag)
         && asset.url == format!("{}{}/{}", download_prefix(crate::curated::GODOT_RELEASES_REPO), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+}
+
+const TERMIX_MAC_DMG: &str = "termix_macos_arm64_dmg.dmg";
+
+fn termix_desktop_version(tag: &str) -> Option<Version> {
+    let label = tag.strip_prefix('v')?;
+    let version = Version::parse(label).ok()?;
+    (version.pre.is_empty() && version.build.is_empty()).then_some(version)
+}
+
+/// Bind Termix's unversioned filename to the stable desktop tag and standard ARM disk image.
+pub fn termix_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && termix_desktop_version(&release.tag).as_ref().is_some_and(|version| Some(version) == release.version.as_ref())
+        && asset.name == TERMIX_MAC_DMG
+        && asset.url == format!("{}{}/{TERMIX_MAC_DMG}", download_prefix(crate::curated::TERMIX.repo), release.tag)
         && asset.size > 0
         && asset.sha256.as_deref().is_some_and(is_hex64)
 }
@@ -622,6 +642,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
         }
+        ("Termix-SSH/Termix", "v26.11.2") => &[(TERMIX_MAC_DMG, 254_640_116, "c9b8eda86bf88f85ab2f2aa295e76fe1409805f65b3ab3c69a0cd7186c7cac5e")],
+        ("Termix-SSH/Termix", "v26.11.3") => &[(TERMIX_MAC_DMG, 263_900_889, "a509ba2eebd74b7562f38d5adca342c137e431fab1744af34bdbd07eb9a96f3c")],
         (crate::curated::GODOT_RELEASES_REPO, "4.7.1-stable") => {
             &[("Godot_v4.7.1-stable_macos.universal.zip", 166_939_858, "897cb7f9799796c717ae75f31446aed883dc92b1d6c3b33d893cc7843fff2fa9")]
         }

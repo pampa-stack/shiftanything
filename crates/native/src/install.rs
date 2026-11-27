@@ -37,13 +37,25 @@ use crate::process;
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     use artcraft_launcher_core::curated::{
         ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO,
-        RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
     match app.id {
         id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
-        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id, SHOTCUT.id, STATS.id, ZED.id, ENTE_AUTH.id, ACTIVITYWATCH.id]
-            .contains(&id) =>
+        id if [
+            KOPIA.id,
+            TRANSMISSION.id,
+            IINA.id,
+            KEEPASSXC.id,
+            JOPLIN.id,
+            SHOTCUT.id,
+            STATS.id,
+            ZED.id,
+            ENTE_AUTH.id,
+            ACTIVITYWATCH.id,
+            TERMIX.id,
+        ]
+        .contains(&id) =>
         {
             Some(12)
         }
@@ -404,7 +416,6 @@ fn install_at_with_profile(
             existing,
             destination.as_deref(),
             job.replace.then_some(job.approved_path).flatten(),
-            job.paths,
             &macos::Expect::release(app, release),
         )
         .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
@@ -545,6 +556,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.release_repository() == artcraft_launcher_core::curated::GODOT_RELEASES_REPO {
         return artcraft_launcher_core::release::godot_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
+        return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
     }
     let release_version = release.version.as_ref();
 
@@ -2032,16 +2046,16 @@ pub mod macos {
         existing: Option<&Installed>,
         destination: Option<&Path>,
         approved_replace: Option<&Path>,
-        paths: &Paths,
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
-        // A new, empty mount point for every install. A fixed one can still hold an image from an
-        // attach that was interrupted or timed out, and hdiutil won't mount another over it.
-        let attempt = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_nanos()).unwrap_or_default();
-        let mount = paths.cache.join(format!("mount-{}-{}-{attempt}", app.id, std::process::id()));
-        std::fs::create_dir_all(&mount).map_err(|e| format!("couldn't create a folder to open the disk image in ({e})"))?;
+        // DiskImages can read a DMG from an external cache, but may reject a mount point on
+        // that volume. Create a private, empty directory on the system volume for each attempt.
+        let mount_dir = tempfile::Builder::new()
+            .prefix("shiftanything-dmg-")
+            .tempdir_in("/private/tmp")
+            .map_err(|e| format!("couldn't create a folder to open the disk image in ({e})"))?;
+        let mount = mount_dir.path();
         let (Some(dmg_s), Some(mount_s)) = (dmg.to_str(), mount.to_str()) else {
-            let _ = std::fs::remove_dir(&mount);
             return Err("unusual characters in the cache folder's path".into());
         };
         // diskimages-helper refuses an attach while it is busy with another image ("Resource
@@ -2063,19 +2077,17 @@ pub mod macos {
                 if attached.is_ok() {
                     break;
                 }
-                let _ = detach(&mount);
+                let _ = detach(mount);
                 std::thread::sleep(Duration::from_secs(wait));
                 attached = attach();
             }
             attached
         };
         if let Err(reason) = attached {
-            let _ = std::fs::remove_dir(&mount);
             return Err(format!("couldn't open the disk image: {reason}"));
         }
-        let result = copy_app(app, &mount, existing, destination, approved_replace, expect);
-        let _ = detach(&mount);
-        let _ = std::fs::remove_dir(&mount);
+        let result = copy_app(app, mount, existing, destination, approved_replace, expect);
+        let _ = detach(mount);
         result
     }
 
@@ -4486,10 +4498,9 @@ mod tests {
             let trash = dir.path().join("Trash");
             std::fs::create_dir(&apps).unwrap();
             std::fs::create_dir(&trash).unwrap();
-            let paths = Paths::under(dir.path());
             let expect = Expect { team: None, version: None };
             let image = dmg(dir.path(), "0.6.0");
-            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &paths, &expect).unwrap();
+            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &expect).unwrap();
             let executable = placed.join("Contents/MacOS/PhotoCraft");
             // Own executable fixture: launch proof is a file in the temporary profile.
             std::fs::write(&executable, "#!/bin/sh\nprintf launched > \"$1\"\n").unwrap();
@@ -4507,7 +4518,7 @@ mod tests {
             let user_data = dir.path().join("user-document");
             std::fs::write(&user_data, "keep me").unwrap();
             let update = dmg(dir.path(), "0.7.0");
-            assert_eq!(install_dmg(photocraft(), &update, Some(&installed), Some(&apps), None, &paths, &expect).unwrap(), placed);
+            assert_eq!(install_dmg(photocraft(), &update, Some(&installed), Some(&apps), None, &expect).unwrap(), placed);
             let updated = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
             assert!(updated.version > installed.version);
             super::macos::move_to_trash_in(&placed, &trash).unwrap();
@@ -4521,10 +4532,9 @@ mod tests {
             let dir = tempfile::tempdir().unwrap();
             let apps = dir.path().join("Craft Apps");
             std::fs::create_dir(&apps).unwrap();
-            let paths = Paths::under(dir.path());
             let image = dmg(dir.path(), "0.6.0");
             let expect = Expect { team: None, version: None };
-            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &paths, &expect).unwrap();
+            let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &expect).unwrap();
             assert_eq!(placed, apps.join("PhotoCraft.app"));
             let mut manifest = crate::manifest::Manifest::default();
             manifest.apps.insert("photocraft".into(), record("0.6.0", PackageKind::Dmg, placed.clone(), vec![], false));
@@ -4536,7 +4546,7 @@ mod tests {
             let new_default = dir.path().join("Other Apps");
             std::fs::create_dir(&new_default).unwrap();
             let update = dmg(dir.path(), "0.7.0");
-            assert_eq!(install_dmg(photocraft(), &update, Some(&existing), Some(&new_default), None, &paths, &expect).unwrap(), placed);
+            assert_eq!(install_dmg(photocraft(), &update, Some(&existing), Some(&new_default), None, &expect).unwrap(), placed);
             assert!(!new_default.join("PhotoCraft.app").exists());
             let detected = crate::detect::detect(photocraft(), &manifest, &crate::detect::Snapshot::default()).unwrap();
             assert_eq!(detected.version.unwrap().to_string(), "0.7.0");
@@ -4555,23 +4565,14 @@ mod tests {
             let unrelated = std::fs::read_to_string(&plist).unwrap().replace("ai.storyteller.photocraft", "com.example.other");
             std::fs::write(&plist, &unrelated).unwrap();
             let image = dmg(dir.path(), "0.6.0");
-            let result =
-                install_dmg(photocraft(), &image, None, Some(dir.path()), None, &Paths::under(dir.path()), &Expect { team: None, version: None });
+            let result = install_dmg(photocraft(), &image, None, Some(dir.path()), None, &Expect { team: None, version: None });
             assert!(result.unwrap_err().contains("already exists"));
             assert_eq!(std::fs::read_to_string(&plist).unwrap(), unrelated);
             assert_eq!(std::fs::read(placed.join("Contents/MacOS/PhotoCraft")).unwrap(), b"0.5.0");
 
             // Approval for a different path does not authorize overwriting `placed`.
             let other = dir.path().join("Other.app");
-            let refused = install_dmg(
-                photocraft(),
-                &image,
-                None,
-                Some(dir.path()),
-                Some(&other),
-                &Paths::under(dir.path()),
-                &Expect { team: None, version: None },
-            );
+            let refused = install_dmg(photocraft(), &image, None, Some(dir.path()), Some(&other), &Expect { team: None, version: None });
             assert!(refused.unwrap_err().contains("already exists"));
             assert_eq!(std::fs::read_to_string(&plist).unwrap(), unrelated);
         }
@@ -4606,14 +4607,13 @@ mod tests {
                 origin: None,
                 installation: None,
             };
-            let paths = Paths::under(dir.path());
             let image = dmg(dir.path(), "0.6.0");
 
             for (release, ok) in [("0.6.0", true), ("0.7.0", false), ("0.6.0-rc.1", true), ("0.5.0", false)] {
                 std::fs::write(current.join("Contents/MacOS/PhotoCraft"), "0.5.0").unwrap();
                 let want = version::parse(release).unwrap();
                 let expect = Expect { team: None, version: Some(&want) };
-                let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &paths, &expect);
+                let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &expect);
                 assert_eq!(result.is_ok(), ok, "release {release}: {result:?}");
                 let now = std::fs::read_to_string(current.join("Contents/MacOS/PhotoCraft")).unwrap();
                 assert_eq!(now, if ok { "0.6.0" } else { "0.5.0" }, "release {release}");
@@ -4630,7 +4630,7 @@ mod tests {
             let rc = dmg(dir.path(), "0.8.0-rc.2");
             let want = version::parse("0.8.0-rc.1").unwrap();
             let expect = Expect { team: None, version: Some(&want) };
-            assert!(install_dmg(photocraft(), &rc, Some(&existing), None, None, &paths, &expect).is_err());
+            assert!(install_dmg(photocraft(), &rc, Some(&existing), None, None, &expect).is_err());
         }
 
         #[test]
@@ -4650,8 +4650,7 @@ mod tests {
             let image = dmg(dir.path(), "0.6.0");
             let release = Release { tag: "v0.6.0".into(), version: version::parse("0.6.0"), ..Release::default() };
 
-            let result =
-                install_dmg(photocraft(), &image, Some(&existing), None, None, &Paths::under(dir.path()), &Expect::release(photocraft(), &release));
+            let result = install_dmg(photocraft(), &image, Some(&existing), None, None, &Expect::release(photocraft(), &release));
             assert!(result.unwrap_err().contains("macOS verification did not succeed (signature integrity"));
             assert_eq!(std::fs::read_to_string(current.join("Contents/MacOS/PhotoCraft")).unwrap(), "0.5.0");
             assert_eq!(

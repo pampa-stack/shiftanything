@@ -33,14 +33,12 @@ fn scoped_mcp_egui_approval_executes_native_fixture_lifecycle() {
                     assert_eq!(apps, ["photocraft"]);
                     assert_eq!(self.installed.is_some(), installed);
                     let index = usize::from(installed);
-                    let paths = Paths::under(&self.root);
                     let placed = install_dmg(
                         photocraft(),
                         &self.images[index],
                         self.installed.as_ref(),
                         Some(&self.root.join("Applications")),
                         None,
-                        &paths,
                         &Expect { team: None, version: None },
                     )?;
                     let executable = placed.join("Contents/MacOS/PhotoCraft");

@@ -695,7 +695,28 @@ pub const GODOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6K46PWY5DM"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 23] = [
+pub const TERMIX: crate::CraftApp = crate::CraftApp {
+    id: "termix",
+    name: "Termix",
+    tagline: "Manage your SSH connections, tunnels and files",
+    repo: "Termix-SSH/Termix",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [80, 153, 198],
+    ink_light: [36, 85, 115],
+    ink_dark: [154, 211, 238],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Luke Gustafson",
+    msi_publisher: None,
+    bundle: Some("com.karmaa.termix"),
+    site: Some("https://termix.site/"),
+    mac_bundle_name: None,
+    mac_team: Some("2CPC5YZYFN"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 24] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -719,6 +740,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 23] = [
     CRYPTOMATOR,
     ACTIVITYWATCH,
     GODOT,
+    TERMIX,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -796,6 +818,29 @@ mod recipe_tests {
         let minor_release =
             release::release_from_sums(repo, "4.7-stable", &[(asset.sha256.clone().unwrap(), "Godot_v4.7-stable_macos.universal.zip".into())]);
         assert_eq!(minor_release.version_label(), "4.7.0");
+    }
+
+    #[test]
+    fn termix_recipe_accepts_only_the_signed_channel_asset_on_apple_silicon() {
+        use crate::{Arch, Os, PackageKind, Platform, platform, release};
+
+        let app = super::TERMIX;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let release = release::release_from_sums(app.repo, "v26.11.3", &[]);
+        let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).expect("official ARM64 DMG");
+        assert_eq!(kind, PackageKind::Dmg);
+        assert_eq!(release.version_label(), "26.11.3");
+        assert_eq!(asset.size, 263_900_889);
+        for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }, Platform { os: Os::Windows, ..mac }] {
+            assert!(platform::pick_asset(&release, &[app.id], host, host.download_kinds()).is_none());
+        }
+        assert!(release::release_from_sums(app.repo, "sdk-v2.11.0", &[]).version.is_none());
+        let bad_version = release::Release { version: crate::version::parse("26.11.2"), ..release.clone() };
+        assert!(!release::termix_mac_asset(&bad_version, asset));
+        let bad_artifact = release::Asset { url: asset.url.replace("v26.11.3", "v26.11.2"), ..asset.clone() };
+        assert!(!release::termix_mac_asset(&release, &bad_artifact));
+        let missing_digest = release::Asset { sha256: None, ..asset.clone() };
+        assert!(!release::termix_mac_asset(&release, &missing_digest));
     }
 
     #[test]

@@ -47,15 +47,8 @@ fn seed_previous(root: &Path, previous: &Path, app: &CraftApp, version_text: &st
         return Err("Previous-release preparation requires an unused profile".into());
     }
     let old = version::parse(version_text).ok_or("Invalid previous version")?;
-    let placed = install::macos::install_dmg(
-        app,
-        previous,
-        None,
-        Some(&apps),
-        None,
-        &paths,
-        &install::macos::Expect { team: app.mac_team, version: Some(&old) },
-    )?;
+    let placed =
+        install::macos::install_dmg(app, previous, None, Some(&apps), None, &install::macos::Expect { team: app.mac_team, version: Some(&old) })?;
     let mut manifest = manifest::Manifest::default();
     manifest.apps.insert(
         app.id.into(),

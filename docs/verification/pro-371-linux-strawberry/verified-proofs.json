@@ -1,0 +1,42 @@
+[
+  {
+    "id": "strawberry-music-player",
+    "name": "Strawberry Music Player",
+    "repo": "https://github.com/strawberrymusicplayer/strawberry",
+    "license": "GPL-3.0+",
+    "stars": 4102,
+    "flatpak": "org.strawberrymusicplayer.strawberry",
+    "flathub": "https://flathub.org/apps/org.strawberrymusicplayer.strawberry",
+    "download_size": 13271281,
+    "logo": "https://dl.flathub.org/media/org/strawberrymusicplayer/strawberry/89842dfbeda78c0ef4513ed8c232bac3/icons/128x128/org.strawberrymusicplayer.strawberry.png",
+    "metadata_urls": {
+      "homepage": "https://www.strawberrymusicplayer.org/",
+      "bugtracker": "https://github.com/strawberrymusicplayer/strawberry/issues",
+      "vcs_browser": "https://github.com/strawberrymusicplayer/strawberry"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "1.2.31",
+      "1.2.30"
+    ],
+    "current": "c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0",
+    "prev": "c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9",
+    "title": "strawberry",
+    "previous_version": "1.2.30",
+    "current_version": "1.2.31",
+    "times_ms": {
+      "install": 42740,
+      "prior": 5403,
+      "open-previous": 9558,
+      "open": 10740,
+      "update": 7236,
+      "open-current": 8146,
+      "remove": 4026,
+      "update-remove": 23442
+    },
+    "cycle_ms": 82455
+  }
+]

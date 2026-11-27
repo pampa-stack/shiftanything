@@ -1,0 +1,74 @@
+
+=== 2026-11-27T10:05:45+00:00 strawberry-music-player install ===
+strawberry-music-player before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+strawberry-music-player JobFinished: Ok("Flathub app installed")
+strawberry-music-player after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 31 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.31"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.stts1BrN/evidence/native-strawberry-music-player-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+cbfba659b1c91190c3051ad96a9901f379d569c8e9d63bb1c5ffa5085c327f9d  /var/tmp/shift-flatpak-desktop.stts1BrN/evidence/native-strawberry-music-player-icon.png
+org.strawberrymusicplayer.strawberry/x86_64/stable	flathub	c9b98b313d3e	user	1.2.31
+TIMING strawberry-music-player install 42740 ms
+
+=== 2026-11-27T10:06:28+00:00 strawberry-music-player prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.strawberrymusicplayer.strawberry/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.strawberrymusicplayer.strawberry/x86_64/stable	flathub	c164a1e465e4	user	1.2.30
+strawberry-music-player before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 30 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.30"), update_available: false, can_remove: false, can_open: true }
+strawberry-music-player JobFinished: Err("Approved action rejected: native installation state changed")
+strawberry-music-player JobFinished: Err("This Flatpak is managed outside the launcher")
+strawberry-music-player after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 30 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.30"), update_available: false, can_remove: false, can_open: true })
+TIMING strawberry-music-player prior 5403 ms
+
+=== 2026-11-27T10:06:33+00:00 strawberry-music-player open ===
+dbus-daemon[2623345]: [session uid=1000 pid=2623345 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2623370 comm="/usr/bin/xfwm4 --compositor=off --display=:646" label="unconfined")
+dbus-daemon[2623345]: [session uid=1000 pid=2623345 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2623384]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2623370 comm="/usr/bin/xfwm4 --compositor=off --display=:646" label="unconfined")
+dbus-daemon[2623345]: [session uid=1000 pid=2623345 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2623370 comm="/usr/bin/xfwm4 --compositor=off --display=:646" label="unconfined")
+dbus-daemon[2623384]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2623345]: [session uid=1000 pid=2623345 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+strawberry-music-player before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 30 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.30"), update_available: true, can_remove: true, can_open: true }
+strawberry-music-player JobFinished: Ok("Launch request accepted")
+strawberry-music-player after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 30 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.30"), update_available: true, can_remove: true, can_open: true })
+X Error: 9: Bad Drawable
+  Request Major code: 14
+  ResourceID in failed request: 0x20000b
+  Serial number of failed request: 3
+xwininfo: error: No such window with id 0x20000b.
+TIMING strawberry-music-player open-previous 9558 ms
+
+(xfconfd:2623391): xfconfd-WARNING **: 10:06:44.425: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING strawberry-music-player open 10740 ms
+
+=== 2026-11-27T10:06:44+00:00 strawberry-music-player update-remove ===
+strawberry-music-player before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 30 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c164a1e465e40286d4289c430d12c94ed8fa1f816722c0c28ebccd4e409fffd9", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.30"), update_available: true, can_remove: true, can_open: true }
+strawberry-music-player JobFinished: Ok("Flathub app updated")
+strawberry-music-player after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 31 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.31"), update_available: false, can_remove: true, can_open: true })
+TIMING strawberry-music-player update 7236 ms
+/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/.var/app/org.strawberrymusicplayer.strawberry/shift-profile-marker: OK
+dbus-daemon[2624636]: [session uid=1000 pid=2624636 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2624659 comm="/usr/bin/xfwm4 --compositor=off --display=:437" label="unconfined")
+dbus-daemon[2624636]: [session uid=1000 pid=2624636 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2624673]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2624659 comm="/usr/bin/xfwm4 --compositor=off --display=:437" label="unconfined")
+dbus-daemon[2624636]: [session uid=1000 pid=2624636 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2624659 comm="/usr/bin/xfwm4 --compositor=off --display=:437" label="unconfined")
+dbus-daemon[2624673]: Successfully activated service 'org.a11y.atspi.Registry'
+dbus-daemon[2624636]: [session uid=1000 pid=2624636 pidfd=5] Successfully activated service 'org.xfce.Xfconf'SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+strawberry-music-player before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 31 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.31"), update_available: false, can_remove: true, can_open: true }
+strawberry-music-player JobFinished: Ok("Launch request accepted")
+strawberry-music-player after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 31 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.31"), update_available: false, can_remove: true, can_open: true })
+X Error: 9: Bad Drawable
+  Request Major code: 14
+  ResourceID in failed request: 0x20000b
+  Serial number of failed request: 3
+xwininfo: error: No such window with id 0x20000b.
+TIMING strawberry-music-player open-current 8146 ms
+
+(xfconfd:2624682): xfconfd-WARNING **: 10:07:03.755: Name org.xfce.Xfconf lost on the message dbus, exiting.
+strawberry-music-player before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 31 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/data/flatpak/app/org.strawberrymusicplayer.strawberry/x86_64/stable/c9b98b313d3efd46215c3acb8c3fa9b76b9e6611157f987a24945138b54a10e0", package: Some("org.strawberrymusicplayer.strawberry"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.31"), update_available: false, can_remove: true, can_open: true }
+strawberry-music-player JobFinished: Ok("Flathub app removed")
+strawberry-music-player after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING strawberry-music-player remove 4026 ms
+/var/tmp/shift-flatpak-desktop.stts1BrN/strawberry-music-player/home/.var/app/org.strawberrymusicplayer.strawberry/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING strawberry-music-player update-remove 23442 ms

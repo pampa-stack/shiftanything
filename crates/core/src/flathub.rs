@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 60] = [
+pub const RECIPES: [(&str, &str); 61] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -62,6 +62,7 @@ pub const RECIPES: [(&str, &str); 60] = [
     ("dolphin", "org.kde.dolphin"),
     ("synfig-studio", "org.synfig.SynfigStudio"),
     ("kicad", "org.kicad.KiCad"),
+    ("strawberry-music-player", "org.strawberrymusicplayer.strawberry"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -140,6 +141,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "dolphin" => "https://invent.kde.org/system/dolphin",
         "synfig-studio" => "https://github.com/synfig/synfig",
         "kicad" => "https://gitlab.com/kicad/code/kicad",
+        "strawberry-music-player" => "https://github.com/strawberrymusicplayer/strawberry",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

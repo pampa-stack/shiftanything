@@ -1053,21 +1053,23 @@ impl NativeBackend {
                 });
             }
             let now = crate::now();
-            let queue = Mutex::new(
-                artcraft_launcher_core::hosted_catalog::apps()
-                    .iter()
-                    .filter(|a| platform.is_none_or(|p| a.runs_on(p.os)))
-                    .filter(|a| {
-                        shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
-                            || a.kind == artcraft_launcher_core::catalog::AppKind::Official
-                    })
-                    .chain(std::iter::once(&LAUNCHER))
-                    .filter(|app| {
-                        shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
-                            || platform.is_some_and(|platform| crate::nightly_profile::for_app(app, platform).is_ok())
-                    })
-                    .collect::<Vec<&CraftApp>>(),
-            );
+            let mut queue = artcraft_launcher_core::hosted_catalog::apps()
+                .iter()
+                .filter(|a| platform.is_none_or(|p| a.runs_on(p.os)))
+                .filter(|a| {
+                    shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
+                        || a.kind == artcraft_launcher_core::catalog::AppKind::Official
+                })
+                .chain(std::iter::once(&LAUNCHER))
+                .filter(|app| {
+                    shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
+                        || platform.is_some_and(|platform| crate::nightly_profile::for_app(app, platform).is_ok())
+                })
+                .collect::<Vec<&CraftApp>>();
+            if last.is_none() && shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
+                prioritize_catalog_startup(&mut queue);
+            }
+            let queue = Mutex::new(queue);
             let sources = sweep(&queue, &mirror, feed.as_ref(), fallback, &source, &shared, &paths, (platform, &options), force, now, Some(&http));
             source.save();
             {
@@ -2479,6 +2481,16 @@ fn remote_plan(pre: bool, (feed, fallback): (Option<Feed>, Fallback)) -> (Option
     if pre { (feed, Fallback { trust_feed: false, ..fallback }) } else { (feed, fallback) }
 }
 
+/// The sweep pops from the end. Resolve the self-update first, then the visible catalog in its display order.
+fn prioritize_catalog_startup(queue: &mut [&CraftApp]) {
+    let order =
+        artcraft_launcher_core::curated::apps().iter().enumerate().map(|(index, app)| (app.id.as_str(), index + 1)).collect::<HashMap<_, _>>();
+    queue.sort_by_key(|app| {
+        let priority = if app.id == LAUNCHER_ID { 0 } else { order.get(app.id).copied().unwrap_or(usize::MAX) };
+        std::cmp::Reverse(priority)
+    });
+}
+
 /// Answers the apps from a shared queue over a few workers, and returns which sources answered.
 #[allow(clippy::too_many_arguments)]
 fn sweep(
@@ -3461,6 +3473,18 @@ mod tests {
     use super::*;
 
     use crate::source::Answer;
+
+    #[test]
+    fn startup_checks_the_launcher_and_first_visible_catalog_apps_first() {
+        let photocraft = CraftApp::by_id("photocraft").unwrap();
+        let meetily = CraftApp::by_id("meetily").unwrap();
+        let mut queue = vec![photocraft, &artcraft_launcher_core::curated::KRITA, meetily, &artcraft_launcher_core::curated::HANDY, &LAUNCHER];
+
+        prioritize_catalog_startup(&mut queue);
+
+        let scheduled: Vec<_> = queue.iter().rev().map(|app| app.id).collect();
+        assert_eq!(scheduled, [LAUNCHER_ID, "photocraft", "handy", "meetily", "krita"]);
+    }
 
     #[test]
     fn calibre_keeps_its_publisher_archive_instead_of_the_generic_feed() {

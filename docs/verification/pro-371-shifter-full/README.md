@@ -65,3 +65,5 @@ Ubuntu 24.04+ amd64, DEB da `7007986` SHA-256 `5ce5b35228ea2437fd2ba7eef8d2d84b7
 Parità Rust/MCP su 20.256 selezioni. Il client stdio vede 505 app e 10 profili. Core 128 passati, Native 556, Tauri 12, con otto ignorati preesistenti fra Core e Native. Il DEB precedente alle tre nuove immagini resta l'evidenza Linux di questa sezione.
 
 Il selettore software include l'icona ufficiale Loom, pubblicata come favicon 32 × 32 nel sito Loom. Il PNG distribuito conserva i byte originali, SHA-256 `e7e3387938293b8833aaf643b8de0e3b03b2ea777007795534cbb7ce45d460dc`. [Fonte PNG](https://cdn.loom.com/assets/favicons-loom/favicon-32x32.png)
+
+Mac Apple Silicon, finestra Tauri 1440 × 900 da `af710a0`, profilo temporaneo. La ricerca Loom nel selettore e la selezione da tastiera mostrano l’icona ufficiale e le coperture documentate OpenScreen 5/6, Recordly 4/6, OBS Studio 3/6, Kooha 2/6. [Screenshot](loom-531-it.png) · [Albero accessibile](loom-531-it.txt)

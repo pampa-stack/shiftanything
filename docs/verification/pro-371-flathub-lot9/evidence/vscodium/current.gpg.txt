@@ -1,0 +1,19 @@
+commit b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab
+Parent:  bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+ContentChecksum:  1d8e42c3d0e5f030ece1331559396000eb6bfc46694c34bd7c0a7ec2bd445f4f
+Date:  2026-11-10 22:28:32 +0000
+
+    fix: :fire: Remove extension fixed version (b8504c8266f7)
+
+    Name: com.vscodium.codium
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 11 00:01:38 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

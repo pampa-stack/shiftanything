@@ -1,0 +1,19 @@
+commit b8dd418bd71860acb006d755db5b47184d7b88a6dea4f626dc52a1dc5f2dc96e
+Parent:  3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc
+ContentChecksum:  cafa1c0b347358cea2d560841428a750ff64a4d86173e5cf0b3bb4e916097f86
+Date:  2026-11-24 14:05:48 +0000
+
+    Export org.mozilla.firefox
+
+    Name: org.mozilla.firefox
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.14.10
+
+Found 1 signature:
+
+  Signature made Tue Nov 24 14:10:55 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

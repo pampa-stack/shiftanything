@@ -1,0 +1,19 @@
+commit ef3f97227486c297ce4e89b21e22122342a544ee1660d43df7625727790b7edf
+Parent:  5c79b14d9bfe437b9045a1631343b86ab61c3eae91433db2aaf5f374d9f27e77
+ContentChecksum:  1930ab10b66600d8214bb2756a86b41ae81009d94090f2895dc1ffba6dc452c4
+Date:  2026-06-28 15:46:57 +0000
+
+    Package GnuCash 5.16 (291653c2becd)
+
+    Name: org.gnucash.GnuCash
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Jun 29 00:42:40 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,64 @@
+
+=== 2026-11-27T10:18:06+00:00 librecad install ===
+librecad before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+librecad JobFinished: Ok("Flathub app installed")
+librecad after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-librecad-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+a82f29e5ef0b15d6eeb28853522c3eb37e141c3277d0ede274cb045b2896bd65  /var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-librecad-icon.png
+org.librecad.librecad/x86_64/stable	flathub	28541921d9f3	user	2.2.1.6
+TIMING librecad install 40923 ms
+
+=== 2026-11-27T10:18:47+00:00 librecad prior ===
+Previous runtime org.kde.Platform/x86_64/5.15-25.08
+Updating app/org.librecad.librecad/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.librecad.librecad/x86_64/stable	flathub	fa1853ecb789	user	2.2.1.5
+librecad before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001", package: Some("org.librecad.librecad"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.5"), update_available: false, can_remove: false, can_open: true }
+librecad JobFinished: Err("Approved action rejected: native installation state changed")
+librecad JobFinished: Err("This Flatpak is managed outside the launcher")
+librecad after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001", package: Some("org.librecad.librecad"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.5"), update_available: false, can_remove: false, can_open: true })
+TIMING librecad prior 6965 ms
+
+=== 2026-11-27T10:18:54+00:00 librecad open ===
+dbus-daemon[2673537]: [session uid=1000 pid=2673537 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2673606 comm="/usr/bin/xfwm4 --compositor=off --display=:341" label="unconfined")
+dbus-daemon[2673537]: [session uid=1000 pid=2673537 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2673635]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2673606 comm="/usr/bin/xfwm4 --compositor=off --display=:341" label="unconfined")
+dbus-daemon[2673537]: [session uid=1000 pid=2673537 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2673606 comm="/usr/bin/xfwm4 --compositor=off --display=:341" label="unconfined")
+dbus-daemon[2673537]: [session uid=1000 pid=2673537 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2673635]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+librecad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.5"), update_available: true, can_remove: true, can_open: true }
+librecad JobFinished: Ok("Launch request accepted")
+librecad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.5"), update_available: true, can_remove: true, can_open: true })
+TIMING librecad open-previous 6800 ms
+
+(xfconfd:2673654): xfconfd-WARNING **: 10:19:05.746: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING librecad open 11375 ms
+
+=== 2026-11-27T10:19:05+00:00 librecad update-remove ===
+librecad before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/fa1853ecb789acc9761826876e48f92e3bc8c75cef24d654d495a59324122001", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.5"), update_available: true, can_remove: true, can_open: true }
+librecad JobFinished: Ok("Flathub app updated")
+librecad after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.6"), update_available: false, can_remove: true, can_open: true })
+TIMING librecad update 7530 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/.var/app/org.librecad.librecad/shift-profile-marker: OK
+dbus-daemon[2676378]: [session uid=1000 pid=2676378 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2676403 comm="/usr/bin/xfwm4 --compositor=off --display=:679" label="unconfined")
+dbus-daemon[2676378]: [session uid=1000 pid=2676378 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2676417]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2676403 comm="/usr/bin/xfwm4 --compositor=off --display=:679" label="unconfined")
+dbus-daemon[2676378]: [session uid=1000 pid=2676378 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2676403 comm="/usr/bin/xfwm4 --compositor=off --display=:679" label="unconfined")
+dbus-daemon[2676417]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2676378]: [session uid=1000 pid=2676378 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+librecad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.6"), update_available: false, can_remove: true, can_open: true }
+librecad JobFinished: Ok("Launch request accepted")
+librecad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.6"), update_available: false, can_remove: true, can_open: true })
+TIMING librecad open-current 6890 ms
+
+(xfconfd:2676426): xfconfd-WARNING **: 10:19:26.670: Name org.xfce.Xfconf lost on the message dbus, exiting.
+librecad before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/data/flatpak/app/org.librecad.librecad/x86_64/stable/28541921d9f3a9293c7b7a803d3381c3874013e13555270f055412c506a92585", package: Some("org.librecad.librecad"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.2.1.6"), update_available: false, can_remove: true, can_open: true }
+librecad JobFinished: Ok("Flathub app removed")
+librecad after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING librecad remove 4927 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/librecad/home/.var/app/org.librecad.librecad/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING librecad update-remove 25954 ms

@@ -1,0 +1,69 @@
+
+=== 2026-11-27T10:21:33+00:00 vscodium install ===
+vscodium before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+vscodium JobFinished: Ok("Flathub app installed")
+vscodium after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 143, patch: 17232 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.143.17232"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-vscodium-icon.svg: SVG XML document
+e622e6bdb70b0cfec57ad9df8717ea023b87e5e215003119b5a1a4d059fcd347  /var/tmp/shift-flatpak-desktop.8NiwE1xk/evidence/native-vscodium-icon.svg
+com.vscodium.codium/x86_64/stable	flathub	b63788f25cee	user	1.143.17232
+TIMING vscodium install 54419 ms
+
+=== 2026-11-27T10:22:28+00:00 vscodium prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Sdk.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Sdk/x86_64/25.08
+Previous runtime org.freedesktop.Sdk/x86_64/25.08
+Updating app/com.vscodium.codium/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.vscodium.codium/x86_64/stable	flathub	bdf75afd9a0c	user	1.140.06880
+vscodium before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574", package: Some("com.vscodium.codium"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.140.06880"), update_available: false, can_remove: false, can_open: true }
+vscodium JobFinished: Err("Approved action rejected: native installation state changed")
+vscodium JobFinished: Err("This Flatpak is managed outside the launcher")
+vscodium after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574", package: Some("com.vscodium.codium"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.140.06880"), update_available: false, can_remove: false, can_open: true })
+TIMING vscodium prior 44244 ms
+
+=== 2026-11-27T10:23:12+00:00 vscodium open ===
+dbus-daemon[2694098]: [session uid=1000 pid=2694098 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2694137 comm="/usr/bin/xfwm4 --compositor=off --display=:399" label="unconfined")
+dbus-daemon[2694098]: [session uid=1000 pid=2694098 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2694153]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2694137 comm="/usr/bin/xfwm4 --compositor=off --display=:399" label="unconfined")
+dbus-daemon[2694098]: [session uid=1000 pid=2694098 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2694137 comm="/usr/bin/xfwm4 --compositor=off --display=:399" label="unconfined")
+dbus-daemon[2694098]: [session uid=1000 pid=2694098 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2694153]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+vscodium before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.140.06880"), update_available: true, can_remove: true, can_open: true }
+vscodium JobFinished: Ok("Launch request accepted")
+vscodium after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.140.06880"), update_available: true, can_remove: true, can_open: true })
+TIMING vscodium open-previous 18932 ms
+
+(xfconfd:2694163): xfconfd-WARNING **: 10:23:33.692: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING vscodium open 21050 ms
+
+=== 2026-11-27T10:23:33+00:00 vscodium update-remove ===
+vscodium before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.140.06880"), update_available: true, can_remove: true, can_open: true }
+vscodium JobFinished: Ok("Flathub app updated")
+vscodium after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 143, patch: 17232 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.143.17232"), update_available: false, can_remove: true, can_open: true })
+TIMING vscodium update 12836 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/.var/app/com.vscodium.codium/shift-profile-marker: OK
+dbus-daemon[2697150]: [session uid=1000 pid=2697150 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2697186 comm="/usr/bin/xfwm4 --compositor=off --display=:451" label="unconfined")
+dbus-daemon[2697150]: [session uid=1000 pid=2697150 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2697200]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2697186 comm="/usr/bin/xfwm4 --compositor=off --display=:451" label="unconfined")
+dbus-daemon[2697150]: [session uid=1000 pid=2697150 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2697186 comm="/usr/bin/xfwm4 --compositor=off --display=:451" label="unconfined")
+dbus-daemon[2697200]: Successfully activated service 'org.a11y.atspi.Registry'
+dbus-daemon[2697150]: SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+[session uid=1000 pid=2697150 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+vscodium before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 143, patch: 17232 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.143.17232"), update_available: false, can_remove: true, can_open: true }
+vscodium JobFinished: Ok("Launch request accepted")
+vscodium after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 143, patch: 17232 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.143.17232"), update_available: false, can_remove: true, can_open: true })
+TIMING vscodium open-current 19305 ms
+
+(xfconfd:2697207): xfconfd-WARNING **: 10:24:09.836: Name org.xfce.Xfconf lost on the message dbus, exiting.
+vscodium before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 143, patch: 17232 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/data/flatpak/app/com.vscodium.codium/x86_64/stable/b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab", package: Some("com.vscodium.codium"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.143.17232"), update_available: false, can_remove: true, can_open: true }
+vscodium JobFinished: Ok("Flathub app removed")
+vscodium after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING vscodium remove 5926 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/vscodium/home/.var/app/com.vscodium.codium/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING vscodium update-remove 42186 ms

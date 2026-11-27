@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 67] = [
+pub const RECIPES: [(&str, &str); 71] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -69,6 +69,10 @@ pub const RECIPES: [(&str, &str); 67] = [
     ("trilium", "org.triliumnotes.Trilium"),
     ("friction", "graphics.friction.Friction"),
     ("vokoscreenng", "com.github.vkohaupt.vokoscreenNG"),
+    ("firefox", "org.mozilla.firefox"),
+    ("vscodium", "com.vscodium.codium"),
+    ("librecad", "org.librecad.librecad"),
+    ("gnucash", "org.gnucash.GnuCash"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -154,6 +158,10 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "trilium" => "https://github.com/TriliumNext/Trilium",
         "friction" => "https://github.com/friction2d/friction",
         "vokoscreenng" => "https://github.com/vkohaupt/vokoscreenNG",
+        "firefox" => "https://github.com/mozilla-firefox/firefox",
+        "vscodium" => "https://github.com/VSCodium/vscodium",
+        "librecad" => "https://github.com/LibreCAD/LibreCAD",
+        "gnucash" => "https://github.com/Gnucash/gnucash",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

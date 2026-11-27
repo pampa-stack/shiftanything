@@ -1,0 +1,26 @@
+nuclear JobFinished: Ok("Flathub app installed")
+nuclear JobFinished: Err("Approved action rejected: native installation state changed")
+nuclear JobFinished: Err("This Flatpak is managed outside the launcher")
+nuclear JobFinished: Ok("Launch request accepted")
+nuclear JobFinished: Ok("Flathub app updated")
+nuclear JobFinished: Ok("Launch request accepted")
+nuclear JobFinished: Ok("Flathub app removed")
+2026-11-27T18:18:22+00:00 nuclear PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T18:18:27+00:00 nuclear EXIT 0 remove
+
+previous
+        Arch: x86_64
+     Version: 1.54.2
+     Runtime: org.gnome.Platform/x86_64/50
+      Commit: b4e6386b3e27acddaf99eef089e0394816869f9d085920094fff0ff6570e8a55
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+current
+        Arch: x86_64
+     Version: 1.56.4
+     Runtime: org.gnome.Platform/x86_64/50
+      Commit: d49a7851a4d99127ab12a9787582519e567c7d7b29ff56d85dbb241bd3a2fb1c
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+Synthetic data SHA256
+da6b99cf93c0403f0698709c4952c93bf4dea1591da8fb3fe5a1b0e5fcccb1e4

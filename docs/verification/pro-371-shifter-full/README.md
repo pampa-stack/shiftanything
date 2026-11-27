@@ -17,3 +17,9 @@ Build macOS Apple Silicon `4fe44dd`, estratta dal DMG locale verificato. La fine
 Il pacchetto Ubuntu 24.04+ amd64 della stessa build, estratto e aperto su VPS Strumenti (Ubuntu 26.04, Xvfb 1440 × 900 con rete isolata), riporta 479 app e mostra [gli stessi loghi in SH*FTER](photoshop-479-offline-linux.png). Il pacchetto contiene la scheda del menu e l'icona. La prova usa l'eseguibile estratto in una directory temporanea.
 
 Build Mac `34266dc`, DMG locale `9057444c2132f2ec7f8737820cee24467c36985d7fbf83c729ee5f9848ef37b0`. Il pacchetto include 359 loghi app con fonte e SHA-256. Aperto dal bundle estratto, in profilo nuovo con rete bloccata. Nella tabella [Photoshop](photoshop-359-icons-offline-it.png) sono leggibili anche AbiWord, Actual Budget, AdGuard Home, AiderDesk e AionUi. Nella tabella [Figma](figma-359-icons-offline-it.png) sono visibili Doop, Penpot, FigCraft, draw.io e Excalidraw. Le righe senza logo disponibile mostrano le iniziali.
+
+## 471 icone incluse
+
+Le prove della build `b78fa1a` usano i 471 loghi locali verificati uno per uno con SHA-256 sui 479 record. I PNG derivati da SVG sono renderizzati prima della build. Le otto schede rimanenti mostrano le iniziali finché un logo è indisponibile.
+
+Mac Apple Silicon, bundle estratto dal DMG locale `dc6e2a78de22d8787fde70a930da17078bd8357422400d05d0e2040a8871d7b8`, nuova home e rete in uscita bloccata. [Photoshop](photoshop-471-offline-it.png), [Figma](figma-471-offline-it.png) e [ricerca Wazuh](wazuh-471-offline-it.png), tutti in finestra nativa a 1440 × 900.

@@ -1,0 +1,19 @@
+commit 390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1
+Parent:  7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55
+ContentChecksum:  2883ef9944bfc810f5c425f2e07a30f1d68b9183764fa9b0342a727fec142785
+Date:  2026-11-17 10:12:43 +0000
+
+    Merge pull request #8 from flathub/update-master-4d1bca4 (1bc70a438e0e)
+
+    Name: org.kde.kbackup
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 17 11:03:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

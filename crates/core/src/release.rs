@@ -464,6 +464,20 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("kopia/kopia", "v0.23.1") => {
             &[("KopiaUI-0.23.1-arm64.dmg", 149_169_871, "f2adb1869c603c66aaeabd846affd21df426c614cc8285230f5465f9389a003c")]
         }
+        ("transmission/transmission", "4.1.3") => {
+            &[("Transmission-4.1.3.dmg", 11_186_296, "d622736c19990262f2ab12183e1acaa5b0dad5777ddc7db0a187c06e035a7e1a")]
+        }
+        ("transmission/transmission", "4.1.4") => {
+            &[("Transmission-4.1.4.dmg", 11_545_854, "495c5d21d515c8deb859b0db6692fd5606644a1613c2cac87c1d3e7672755a59")]
+        }
+        ("iina/iina", "v1.5.0") => &[("IINA.v1.5.0.dmg", 113_048_935, "8fad50479b10e09645053457cec46bd53d054ced2242cfe68f74586735a20dc7")],
+        ("iina/iina", "v1.5.1") => &[("IINA.v1.5.1.dmg", 113_092_405, "f414507ec60bcfeda3a9f539f74470253e31b619d031e7a9e9a71519da1598cd")],
+        ("HandBrake/HandBrake", "1.11.1") => {
+            &[("HandBrake-1.11.1.dmg", 47_719_592, "0973dcc4ccf53388498fbb35dbf7118b28276f2fe4ecbf08eca8596985f2c684")]
+        }
+        ("HandBrake/HandBrake", "1.11.2") => {
+            &[("HandBrake-1.11.2.dmg", 47_978_117, "4afe27aaa77a7bbb0dcda1a335d96a5f53649f2649fb84de6982ffecc35de9d7")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

@@ -37,11 +37,12 @@ use crate::process;
 pub fn recipe_system_supported(app: &CraftApp) -> bool {
     #[cfg(target_os = "macos")]
     {
-        use artcraft_launcher_core::curated::{KOPIA, OBS_STUDIO};
+        use artcraft_launcher_core::curated::{HANDBRAKE, IINA, KOPIA, OBS_STUDIO, TRANSMISSION};
 
         let minimum = match app.id {
             id if id == OBS_STUDIO.id => 13,
-            id if id == KOPIA.id => 12,
+            id if [KOPIA.id, TRANSMISSION.id, IINA.id].contains(&id) => 12,
+            id if id == HANDBRAKE.id => 11,
             _ => return true,
         };
         static MACOS_MAJOR: std::sync::OnceLock<Option<u16>> = std::sync::OnceLock::new();

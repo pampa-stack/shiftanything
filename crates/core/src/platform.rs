@@ -241,6 +241,9 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::LOCALSEND.id => Some(("LocalSend-", "", "macos-universal")),
             id if id == crate::curated::OBS_STUDIO.id => Some(("OBS-Studio-", "-macOS-Apple", "macos-aarch64")),
             id if id == crate::curated::KOPIA.id => Some(("KopiaUI-", "-arm64", "macos-aarch64")),
+            id if id == crate::curated::TRANSMISSION.id => Some(("Transmission-", "", "macos-universal")),
+            id if id == crate::curated::IINA.id => Some(("IINA.v", "", "macos-universal")),
+            id if id == crate::curated::HANDBRAKE.id => Some(("HandBrake-", "", "macos-universal")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -288,6 +291,8 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
+    use crate::curated::{HANDBRAKE, IINA, KOPIA, LOCALSEND, OBS_STUDIO, TRANSMISSION};
+
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
@@ -296,11 +301,14 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         .iter()
         .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
         .filter(|(asset, name)| {
-            name.stem != crate::curated::KOPIA.id
-                || asset.url == format!("{}{}/{}", crate::release::download_prefix(crate::curated::KOPIA.repo), release.tag, asset.name)
-        })
-        .filter(|(asset, name)| {
-            ![crate::curated::LOCALSEND.id, crate::curated::OBS_STUDIO.id, crate::curated::KOPIA.id].contains(&name.stem.as_str())
+            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE].iter().find(|app| app.id == name.stem).map(|app| app.repo);
+            if !official.is_none_or(|repo| {
+                !release.prerelease && asset.url == format!("{}{}/{}", crate::release::download_prefix(repo), release.tag, asset.name)
+            }) {
+                return false;
+            }
+            let needs_checksum = official.is_some() || [LOCALSEND.id, OBS_STUDIO.id].contains(&name.stem.as_str());
+            !needs_checksum
                 || (release.version.as_ref().is_some_and(|version| name.version == version.to_string())
                     && (asset.sha256.is_some() || release.sums_asset().is_some()))
         })
@@ -317,12 +325,14 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
+    use crate::curated::{HANDBRAKE, HANDY, IINA, KOPIA, LOCALSEND, OBS_STUDIO, TRANSMISSION};
+
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if [crate::curated::HANDY.id, crate::curated::OBS_STUDIO.id, crate::curated::KOPIA.id].iter().any(|id| stems.contains(id)) {
+    if [HANDY.id, OBS_STUDIO.id, KOPIA.id, TRANSMISSION.id, IINA.id, HANDBRAKE.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64;
     }
-    if stems.contains(&crate::curated::LOCALSEND.id) {
+    if stems.contains(&LOCALSEND.id) {
         return platform == mac_arm64 || platform == linux_x64;
     }
     true

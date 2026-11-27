@@ -291,7 +291,71 @@ pub const KOPIA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("7299Z9ZVTK"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 4] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA];
+/// Native identities from the notarized releases tested on Apple Silicon.
+pub const TRANSMISSION: crate::CraftApp = crate::CraftApp {
+    id: "transmission",
+    name: "Transmission",
+    tagline: "Download and share files over BitTorrent",
+    repo: "transmission/transmission",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [212, 115, 110],
+    ink_light: [126, 48, 44],
+    ink_dark: [250, 184, 180],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Transmission Project",
+    msi_publisher: None,
+    bundle: Some("org.m0k.transmission"),
+    site: Some("https://transmissionbt.com/"),
+    mac_bundle_name: Some("Transmission"),
+    mac_team: Some("5DPYRBHEAR"),
+};
+
+pub const IINA: crate::CraftApp = crate::CraftApp {
+    id: "iina",
+    name: "IINA",
+    tagline: "Play local videos and audio on macOS",
+    repo: "iina/iina",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [103, 148, 216],
+    ink_light: [47, 81, 137],
+    ink_dark: [168, 206, 251],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "IINA Developers",
+    msi_publisher: None,
+    bundle: Some("com.colliderli.iina"),
+    site: Some("https://iina.io/"),
+    mac_bundle_name: Some("IINA"),
+    mac_team: Some("67CQ77V27R"),
+};
+
+pub const HANDBRAKE: crate::CraftApp = crate::CraftApp {
+    id: "handbrake",
+    name: "HandBrake",
+    tagline: "Convert and compress videos",
+    repo: "HandBrake/HandBrake",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [188, 154, 78],
+    ink_light: [104, 76, 29],
+    ink_dark: [236, 207, 139],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "HandBrake Team",
+    msi_publisher: None,
+    bundle: Some("fr.handbrake.HandBrake"),
+    site: Some("https://handbrake.fr/"),
+    mac_bundle_name: Some("HandBrake"),
+    mac_team: Some("5X9DE89KYV"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 7] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -417,6 +481,52 @@ mod recipe_tests {
         }
         let mismatched = release::release_from_sums(app.repo, "v0.24.1", &[("a".repeat(64), names[0].to_owned())]);
         assert!(select(&mismatched, mac).is_none());
+    }
+
+    #[test]
+    fn community_dmg_recipes_accept_documented_apple_silicon_packages() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, tags, names, bundle, team) in [
+            (super::TRANSMISSION, ["4.1.3", "4.1.4"], ["Transmission-4.1.3.dmg", "Transmission-4.1.4.dmg"], "org.m0k.transmission", "5DPYRBHEAR"),
+            (super::IINA, ["v1.5.0", "v1.5.1"], ["IINA.v1.5.0.dmg", "IINA.v1.5.1.dmg"], "com.colliderli.iina", "67CQ77V27R"),
+            (super::HANDBRAKE, ["1.11.1", "1.11.2"], ["HandBrake-1.11.1.dmg", "HandBrake-1.11.2.dmg"], "fr.handbrake.HandBrake", "5X9DE89KYV"),
+        ] {
+            let native = CraftApp::by_id(app.id).expect("compiled recipe");
+            assert_eq!(native.bundle, Some(bundle));
+            assert_eq!(native.mac_team, Some(team));
+            let select = |release: &release::Release, host: Platform| {
+                platform::pick_asset(release, &[app.id], host, host.download_kinds()).map(|(asset, kind)| (asset.name.clone(), kind))
+            };
+            for (tag, filename) in tags.into_iter().zip(names) {
+                let official = release::release_from_sums(app.repo, tag, &[]);
+                assert_eq!(select(&official, mac), Some((filename.to_owned(), PackageKind::Dmg)));
+                assert_eq!(official.assets[0].sha256.as_ref().map(String::len), Some(64));
+                assert!(select(&official, Platform { os: Os::MacOs, arch: Arch::X64 }).is_none());
+                assert!(select(&official, Platform { os: Os::Linux, arch: Arch::X64 }).is_none());
+                assert!(select(&official, Platform { os: Os::Windows, arch: Arch::Arm64 }).is_none());
+                let mut missing_hash = official.clone();
+                missing_hash.assets.retain(|asset| asset.name == filename);
+                missing_hash.assets[0].sha256 = None;
+                assert!(select(&missing_hash, mac).is_none());
+                let mut preview = official.clone();
+                preview.prerelease = true;
+                assert!(select(&preview, mac).is_none());
+                let foreign = release::release_from_sums("mirror/community", tag, &[("a".repeat(64), filename.to_owned())]);
+                assert!(select(&foreign, mac).is_none());
+            }
+            let mut stale = release::release_from_sums(app.repo, tags[1], &[("a".repeat(64), names[0].to_owned())]);
+            stale.assets.retain(|asset| asset.name == names[0]);
+            assert!(select(&stale, mac).is_none());
+        }
+        for (app, other_asset) in [
+            (super::TRANSMISSION, "Transmission-4.1.4-intel.dmg"),
+            (super::IINA, "IINA.v1.5.1-nightly.dmg"),
+            (super::HANDBRAKE, "HandBrakeCLI-1.11.2.dmg"),
+        ] {
+            assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
+        }
     }
 
     #[test]

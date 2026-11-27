@@ -1,0 +1,19 @@
+commit 3cb5303c4fd94ca0df3678c032dbc2c0d52f3a29970213ff6c52798d4456f402
+Parent:  d46a012e142b9b5eaad94e5549c042964f3029b03d555d3d5088057cd1ba6b9f
+ContentChecksum:  6c702e5406eb733c933e0a1dd4b2ebbc86c8908840fa98706c6f72075c4f2ef3
+Date:  2026-11-06 02:43:32 +0000
+
+    Merge pull request #89 from flathub/update_deps (50797df452b4)
+
+    Name: com.moonlight_stream.Moonlight
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov  6 04:05:22 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

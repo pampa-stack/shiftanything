@@ -32298,6 +32298,14 @@
       "source": "https://github.com/moonlight-stream/moonlight-qt/stargazers",
       "date": "2026-11-27"
     },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.moonlight_stream.Moonlight",
+        "source": "https://flathub.org/apps/com.moonlight_stream.Moonlight"
+      }
+    ],
     "platform_support": {
       "macos": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
       "linux": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",

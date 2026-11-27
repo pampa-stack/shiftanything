@@ -671,5 +671,13 @@ mod tests {
         assert!(compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
         assert!(compatible_asset(designcraft, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")).is_some());
         assert!(compatible_asset(untested, platform, &image("kopia-0.23.1-linux-x86_64.AppImage")).is_none());
+        for (id, tag) in [("dust3d", "1.1.6"), ("rawtherapee", "5.13")] {
+            let app = CraftApp::by_id(id).unwrap();
+            assert!(verified_installs(Some(platform)).contains(id));
+            let mut release = artcraft_launcher_core::release::release_from_sums(app.repo, tag, &[]);
+            assert!(compatible_asset(app, platform, &release).is_some());
+            release.assets[0].sha256 = None;
+            assert!(compatible_asset(app, platform, &release).is_none());
+        }
     }
 }

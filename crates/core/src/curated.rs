@@ -2625,6 +2625,9 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
+    if crate::release::qualified_linux_appimage_recipe(&[app.id]).is_some_and(|recipe| recipe.repo == app.repo) {
+        return true;
+    }
     if [
         LOCALSEND,
         HANDY,
@@ -2913,7 +2916,12 @@ mod recipe_tests {
             assert!(super::verified_linux_appimage(app, linux));
             assert!(!super::verified_linux_appimage(app, arm));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 37);
+        for app in [super::DUST3D, super::RAWTHERAPEE] {
+            assert!(super::verified_linux_appimage(&app, linux));
+            assert!(!super::verified_linux_appimage(&app, arm));
+            assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
+        }
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 47);
     }
 
     #[test]

@@ -27,3 +27,9 @@ Mac Apple Silicon, bundle estratto dal DMG locale `dc6e2a78de22d8787fde70a930da1
 Ubuntu 24.04+ amd64, pacchetto locale `6437fee7970acadd7035201d26bae86ff5aaf36e1d241bff515d4a6ca763b28f` verificato prima e dopo il trasferimento. Il binario estratto dal pacchetto è stato aperto in Ubuntu 26.04, Xvfb 1440 × 900 e rete isolata. [Photoshop su Linux](photoshop-471-offline-linux.png). La prova Tauri misura 479 riquadri uniformi a 408,328 × 400 px e verifica viewport, barra, sidebar e media.
 
 Avviato anche l'eseguibile del pacchetto senza argomenti, come da voce di menu Ubuntu. Il log conferma il motore nativo attivo e il [confronto Photoshop](photoshop-471-default-start-linux.png) mostra i loghi anche in questo percorso, con rete isolata.
+
+## 477 icone incluse
+
+La build `f569e40` aggiunge i loghi di Authentik Community, Cardinal, Enchanted, mailcow, Stats e WireGuard for Windows da siti o repository ufficiali. Il [manifest](../../../apps/shiftanything-tauri-proof/media-provenance.json) registra URL e SHA-256 per tutti i file. Sono stati controllati i 477 hash e la decodifica delle 477 icone sul catalogo di 479 app. Whisper-WebUI e VideoX-Fun mostrano le iniziali.
+
+Mac Apple Silicon, DMG locale `e27b4e501af71343e62ef369093a63e30f99c0b43e5eb2c7e6ac1b150c4d5725`. Finestra aperta dalla copia estratta, con profilo nuovo e rete in uscita bloccata. [Confronto Photoshop](photoshop-477-offline-it.png) · [Icona di WireGuard for Windows nel confronto](wireguard-477-offline-it.png) · [Immagini ufficiali esaminate](official-logo-sources.png). Core 127 passati, uno ignorato, e Tauri 12 passati.

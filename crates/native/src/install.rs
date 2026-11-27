@@ -53,7 +53,17 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             Some((11, 0))
         }
         id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
-        id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id, artcraft_launcher_core::curated::OPENSCREEN.id].contains(&id) => Some((13, 0)),
+        id if [
+            OBS_STUDIO.id,
+            AUDACITY.id,
+            DRAWIO.id,
+            artcraft_launcher_core::curated::OPENSCREEN.id,
+            artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id,
+        ]
+        .contains(&id) =>
+        {
+            Some((13, 0))
+        }
         id if [
             KOPIA.id,
             TRANSMISSION.id,
@@ -585,6 +595,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
         return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id {
+        return (app.repo == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.repo && release::super_productivity_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }

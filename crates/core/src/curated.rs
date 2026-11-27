@@ -1201,7 +1201,28 @@ pub const RUSTDESK: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 47] = [
+pub const SUPER_PRODUCTIVITY: crate::CraftApp = crate::CraftApp {
+    id: "super-productivity",
+    name: "Super Productivity",
+    tagline: "Plan tasks, track time, and manage focus sessions",
+    repo: "super-productivity/super-productivity",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Johannes Millan",
+    msi_publisher: None,
+    bundle: Some("com.super-productivity.app"),
+    site: Some("https://super-productivity.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("363FAFK383"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 48] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1249,6 +1270,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 47] = [
     NOTEPAD_NEXT,
     RAPIDRAW,
     RUSTDESK,
+    SUPER_PRODUCTIVITY,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

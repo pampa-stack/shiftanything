@@ -365,6 +365,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::lapce_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
+    if stems.contains(&crate::curated::SUPER_PRODUCTIVITY.id) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::super_productivity_mac_asset(release, asset))
+            .map(|asset| (asset, PackageKind::Dmg));
+    }
     if stems.contains(&crate::curated::BLOCKBENCH.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -666,6 +676,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::ACTUAL_BUDGET.id,
         crate::curated::APPFLOWY.id,
         crate::curated::BLOCKBENCH.id,
+        crate::curated::SUPER_PRODUCTIVITY.id,
     ]
     .iter()
     .any(|id| stems.contains(id))
@@ -685,6 +696,32 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn super_productivity_macos_requires_stable_tag_and_official_arm64_asset() {
+        use crate::curated::SUPER_PRODUCTIVITY;
+        use crate::release::release_from_sums;
+
+        let platform = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, target| pick_asset(release, &[SUPER_PRODUCTIVITY.id], target, &[PackageKind::Dmg]).is_some();
+        for tag in ["v20.0.0", "v20.1.0"] {
+            let mut release = release_from_sums(SUPER_PRODUCTIVITY.repo, tag, &[]);
+            assert!(select(&release, platform));
+            assert!(!select(&release, Platform { arch: Arch::X64, ..platform }));
+            release.prerelease = true;
+            assert!(!select(&release, platform));
+            release.prerelease = false;
+            release.assets[0].sha256 = None;
+            assert!(!select(&release, platform));
+        }
+        let mut release = release_from_sums(SUPER_PRODUCTIVITY.repo, "v20.1.0", &[]);
+        let wrong_tag = release.assets[0].url.replace("/v20.1.0/", "/v20.0.0/");
+        let canonical_url = std::mem::replace(&mut release.assets[0].url, wrong_tag);
+        assert!(!select(&release, platform));
+        release.assets[0].url = canonical_url.replace("superProductivity-arm64.dmg", "superProductivity-x64.dmg");
+        release.assets[0].name = "superProductivity-x64.dmg".into();
+        assert!(!select(&release, platform));
+    }
 
     #[test]
     fn reviewed_linux_appimages_require_verified_stable_asset_metadata() {

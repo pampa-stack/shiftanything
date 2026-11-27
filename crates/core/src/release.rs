@@ -660,6 +660,25 @@ pub fn actual_budget_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+const SUPER_PRODUCTIVITY_MAC_DMG: &str = "superProductivity-arm64.dmg";
+
+/// Selects the stable Apple Silicon DMG. The identical filename across releases is
+/// bound to the canonical tag and a publisher digest.
+pub fn super_productivity_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release
+            .version
+            .as_ref()
+            .is_some_and(|version| version.major >= 20 && version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{version}"))
+        && asset.name == SUPER_PRODUCTIVITY_MAC_DMG
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::SUPER_PRODUCTIVITY.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::SUPER_PRODUCTIVITY.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const SOLVESPACE_MAC_DMG: &str = "SolveSpace.dmg";
 
 /// SolveSpace publishes the same DMG filename under stable tags such as v3.3.
@@ -900,6 +919,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("actualbudget/actual", "v26.11.0") => {
             &[("Actual-mac-arm64.dmg", 145_818_730, "734a96923e461f5c2741c1a531b353ca249bb2f2ef9f7cb6e9d2b23ddeaf3ba8")]
+        }
+        ("super-productivity/super-productivity", "v20.0.0") => {
+            &[(SUPER_PRODUCTIVITY_MAC_DMG, 148_678_260, "63cd4b4dcb18420b21c61e0f68d1d792653511bccb1de26b5043844ba20be1c0")]
+        }
+        ("super-productivity/super-productivity", "v20.1.0") => {
+            &[(SUPER_PRODUCTIVITY_MAC_DMG, 148_973_846, "fdfb1625603537f0935209b609ba18fba587057ab01139dfe7098968c9a9748c")]
         }
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],

@@ -29820,7 +29820,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/SoftEtherVPN/SoftEtherVPN_Stable/master/src/vpncmgr/VPN.ico",
+    "logo": "https://raw.githubusercontent.com/SoftEtherVPN/SoftEtherVPN_Stable/v4.41-9787-rtm/src/vpncmgr/VPN.ico",
     "screenshots": [
       "https://www.softether.org/@api/deki/files/524/=0-00-4-2-1.png?size=webview",
       "https://www.softether.org/@api/deki/files/532/=0-08-4-2-3.png"
@@ -30038,7 +30038,7 @@
       "kind": "api",
       "source": "https://healthchecks.io/docs/api/"
     },
-    "logo": "https://healthchecks.io/static/img/logo-rounded-ua2.svg",
+    "logo": "https://raw.githubusercontent.com/healthchecks/healthchecks/v5.0.3/static/img/favicon.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/my_checks.png",
       "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/check_details.png"
@@ -30085,7 +30085,7 @@
       "kind": "api",
       "source": "https://ghost.org/docs/admin-api/"
     },
-    "logo": "https://raw.githubusercontent.com/TryGhost/Ghost/main/apps/admin/src/settings/assets/images/ghost-favicon.png",
+    "logo": "",
     "screenshots": [
       "https://storage.ghost.io/c/69/0f/690faecc-18d1-42c5-a99a-83ce5fada384/content/images/2023/11/dynamic-cards.png"
     ],
@@ -30131,7 +30131,7 @@
       "kind": "api",
       "source": "https://github.com/electerious/Ackee#api"
     },
-    "logo": "https://ackee.electerious.com/assets/images/favicon.ico",
+    "logo": "https://raw.githubusercontent.com/electerious/Ackee/v3.7.1/dist/favicon.ico",
     "screenshots": [
       "https://ackee.electerious.com/assets/images/views.png",
       "https://ackee.electerious.com/assets/images/referrers.png"

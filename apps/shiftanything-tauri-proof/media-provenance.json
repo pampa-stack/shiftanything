@@ -4099,6 +4099,33 @@
       "source": "https://raw.githubusercontent.com/cortezaproject/corteza/2026.9.x/.github/assets/corteza_dashboard.png",
       "file": "media/corteza-shot-0.png",
       "sha256": "1d919c66de26478263ef014e89a88e30fbf50f6c57bb74ab7725af84b36883f0"
+    },
+    {
+      "app": "ackee",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/electerious/Ackee/v3.7.1/dist/favicon.ico",
+      "file": "media/ackee-logo.png",
+      "sha256": "c332e42edde4c073e91349ce29d9a16dd3ada52e67286ab4bb3bc5e9034776e8",
+      "source_sha256": "10d99e492348356212346026a8220875646e4fd6eaa8881b6ec30918e72933b2",
+      "license": "MIT"
+    },
+    {
+      "app": "healthchecks",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/healthchecks/healthchecks/v5.0.3/static/img/favicon.svg",
+      "file": "media/healthchecks-logo.png",
+      "sha256": "fc0d31121e1784c950f65e6eb1dffeb2767b448ca021fedd8d936f73cbf389ac",
+      "source_sha256": "f19ed549a08dfeb0357e58f700bb9ce14d63a93d86123c46eb6eae7ef50d99da",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "app": "softether-vpn-client",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/SoftEtherVPN/SoftEtherVPN_Stable/v4.41-9787-rtm/src/vpncmgr/VPN.ico",
+      "file": "media/softether-vpn-client-logo.png",
+      "sha256": "f3f3106cc81b2ed69cbc33b15eeb250ca27e95b3d9d62530476dbea8819d955d",
+      "source_sha256": "bb65794d79e82c097a41bb7c5ca3306129475803945b71a424b0fc85ce5ee5cb",
+      "license": "Apache-2.0"
     }
   ]
 }

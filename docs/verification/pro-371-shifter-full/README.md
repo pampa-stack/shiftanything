@@ -53,3 +53,13 @@ I pacchetti locali sono compilati da `b681f97`. Contengono 493 loghi ufficiali. 
 Mac Apple Silicon, DMG SHA-256 `e590033ad3041e2c9eed9d551fa24f47d66abab9d92ebc8d578e47d2517f3527`. Firma ad hoc verificata con codesign deep/strict. Finestra aperta dal bundle estratto, con profilo temporaneo e rete in uscita bloccata. [Confronto Photoshop](photoshop-495-offline-it.png) · [Logo Corteza](corteza-495-offline-it.png)
 
 Ubuntu 24.04+ amd64, DEB SHA-256 `cc35780d8be453a7a82b8d41f1a90b0ad13333cbda4a1c1d3e66e9bf2f65eb83`. Hash verificato sul builder, dopo il trasferimento locale e sul VPS di prova. Binario estratto, eseguito su Ubuntu 26.04 con profilo nuovo, Xvfb 1440 × 900 e rete isolata. [Confronto Photoshop](photoshop-495-offline-linux.png) · [Logo Corteza](corteza-495-offline-linux.png)
+
+## Catalogo da 505 app
+
+SH*FTER mostra il logo dell'app a sinistra del nome. I file locali coprono 496 app su 505. Verificati l'associazione alla risorsa ufficiale, gli hash, la decodifica e i riferimenti nei due template per tutti i 530 file del manifest. Le altre nove schede mostrano le iniziali offline. Il marchio Ghost richiede permesso per le icone di catalogo e la scheda usa le iniziali anche online. [Manifest](../../../apps/shiftanything-tauri-proof/media-provenance.json) · [Policy Ghost](https://ghost.org/trademark/)
+
+Mac Apple Silicon, DMG locale SHA-256 `fe3ce7317b52870c00309049c340b356f4cb5262f52f720342babe4b25906e89`. Firma ad hoc deep/strict, verifica DMG in sola lettura, versione e finestra in profilo temporaneo con rete in uscita bloccata. Screenshot letti di [Photoshop e Ackee](photoshop-505-offline-en.png), [Healthchecks](healthchecks-505-offline-en.png) e [SoftEther](softether-vpn-client-505-offline-en.png). Sono le tre nuove immagini incluse. Il [confronto Wispr Flow in italiano](wispr-flow-505-offline-it.png) proviene dal checkpoint immediatamente precedente `7007986`. Entrambe le lingue misurano 505 riquadri di 408,328 × 400 px nella griglia a 1440 × 900.
+
+Ubuntu 24.04+ amd64, DEB da `7007986` SHA-256 `5ce5b35228ea2437fd2ba7eef8d2d84b76c03d22a9f56845ee4d282965bc9e40`. Eseguibile estratto e aperto su Ubuntu 26.04, con Xvfb, profilo temporaneo e namespace di rete con il solo loopback. Screenshot letti di [Wispr Flow](wispr-flow-505-offline-linux.png) e [Photoshop](photoshop-505-offline-linux.png). Pinta, KeePassXC e Xournal++ hanno aperto il consenso nativo. Rifiuto via Esc, nessuna installazione e nessun job avviato in questa prova offline.
+
+Parità Rust/MCP su 20.256 selezioni. Il client stdio vede 505 app e 10 profili. Core 128 passati, Native 556, Tauri 12, con otto ignorati preesistenti fra Core e Native. Il DEB precedente alle tre nuove immagini resta l'evidenza Linux di questa sezione.

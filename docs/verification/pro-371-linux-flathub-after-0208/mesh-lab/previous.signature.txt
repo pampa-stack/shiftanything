@@ -1,0 +1,19 @@
+commit 7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987
+Parent:  62f3b7be60c5a0079e7c798921e80feee56d790baf0f0b9b5e76ffe39173d3dd
+ContentChecksum:  2828dc7d4af60c54b2c66b8617760bca36d40f929b71a567407f062512c626c6
+Date:  2026-05-09 13:08:48 +0000
+
+    Merge pull request #143 from flathub/update-runtime (50746cea28bd)
+
+    Name: net.meshlab.MeshLab
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat May  9 14:00:21 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

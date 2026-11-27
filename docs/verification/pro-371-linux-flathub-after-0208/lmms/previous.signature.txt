@@ -1,0 +1,19 @@
+commit b401cd933a3abede160da527991ca3341e5a503e7aee23336a05b6d1f304b9ac
+Parent:  e01f54bb5a52487339d65a5e16f8c2afc760541b8ccd1ad9df90e68385bba2eb
+ContentChecksum:  e3c6ea931b8ff4a7f64a2064c77012bf441018894f38ae137980bd4933a24e57
+Date:  2026-07-08 00:25:47 +0000
+
+    Update fluidsynth to 2.5.6 (32dbb3e8d412)
+
+    Name: io.lmms.LMMS
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Jul  8 01:00:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

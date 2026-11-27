@@ -1,0 +1,51 @@
+2026-11-27T22:32:23+00:00 mesh-lab AVAILABLE 16273752064
+mesh-lab before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+mesh-lab JobFinished: Ok("Flathub app installed")
+mesh-lab after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:32:45+00:00 mesh-lab current-install 3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca
+/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca/export/share/applications/net.meshlab.MeshLab.desktop
+/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca/export/share/icons/hicolor/512x512/apps/net.meshlab.MeshLab.png
+Updating app/net.meshlab.MeshLab/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:32:47+00:00 mesh-lab previous 7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987
+mesh-lab before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987", package: Some("net.meshlab.MeshLab"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: false, can_open: true }
+mesh-lab JobFinished: Err("Approved action rejected: native installation state changed")
+mesh-lab JobFinished: Err("This Flatpak is managed outside the launcher")
+mesh-lab after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987", package: Some("net.meshlab.MeshLab"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[40954]: [session uid=1000 pid=40954] Activating service name='org.freedesktop.Flatpak' requested by ':1.2' (uid=1000 pid=41518 comm="flatpak run --user --command=sh app/net.meshlab.Me" label="flatpak (unconfined)")
+dbus-daemon[40954]: [session uid=1000 pid=40954] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[40954]: [session uid=1000 pid=40954] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=41507 comm="xfwm4 --compositor=off --display=:91" label="unconfined")
+dbus-daemon[40954]: [session uid=1000 pid=40954] Successfully activated service 'org.xfce.Xfconf'
+mesh-lab before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: true, can_remove: true, can_open: true }
+mesh-lab JobFinished: Ok("Launch request accepted")
+mesh-lab after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.meshlab.MeshLab
+2026-11-27T22:32:58+00:00 mesh-lab previous GUI WM_NAME(STRING) = "MeshLab 2025.07 - [Project_1]"
+WM_CLASS(STRING) = "meshlab", "MeshLab_64bit_fp"
+2026-11-27T22:32:58+00:00 mesh-lab AVAILABLE 16275206144
+mesh-lab before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: true, can_remove: true, can_open: true }
+mesh-lab JobFinished: Ok("Flathub app updated")
+mesh-lab after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:33:08+00:00 mesh-lab current 3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca
+/home/qa/profiles/mesh-lab/.var/app/net.meshlab.MeshLab/fixture.txt: OK
+mesh-lab before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: true, can_open: true }
+mesh-lab JobFinished: Ok("Launch request accepted")
+mesh-lab after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.meshlab.MeshLab
+2026-11-27T22:33:19+00:00 mesh-lab current GUI WM_NAME(STRING) = "MeshLab 2025.07 - [Project_1]"
+WM_CLASS(STRING) = "meshlab", "MeshLab_64bit_fp"
+mesh-lab before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/mesh-lab/data/flatpak/app/net.meshlab.MeshLab/x86_64/stable/3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca", package: Some("net.meshlab.MeshLab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2025.07"), update_available: false, can_remove: true, can_open: true }
+mesh-lab JobFinished: Ok("Flathub app removed")
+mesh-lab after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/mesh-lab/.var/app/net.meshlab.MeshLab/fixture.txt: OK
+2026-11-27T22:33:19+00:00 mesh-lab PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:33:26+00:00 mesh-lab EXIT 0 remove
+
+(xfconfd:41541): xfconfd-WARNING **: 22:33:26.645: Name org.xfce.Xfconf lost on the message dbus, exiting.

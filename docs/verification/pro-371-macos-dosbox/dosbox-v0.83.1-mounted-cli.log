@@ -1,0 +1,21 @@
+/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.83.1/dosbox-staging-macOS-v0.83.1.dmg: OK
+atteso   CRC32 $8E31D9C4
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_APFS
+/dev/disk9          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk9s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-mac-dosbox-cli.GHGqLRV6
+/private/tmp/shift-mac-dosbox-cli.GHGqLRV6/DOSBox Staging.app: valid on disk
+/private/tmp/shift-mac-dosbox-cli.GHGqLRV6/DOSBox Staging.app: satisfies its Designated Requirement
+2026-11-27 11:03:04.810 | CONFIG: Invalid 'locale_period' setting: 'native'; using 'historic'
+2026-11-27 11:03:04.810 | LOCALE: Translation file 'auto.po' not found
+exit=0
+dosbox-staging, version 0.83.1 (8888e)
+
+Copyright (C) 2020-2026 The DOSBox Staging Team
+License: GNU GPL-2.0-or-later <https://www.gnu.org/licenses/gpl-2.0.html>
+
+This is free software, and you are welcome to change and redistribute it under
+certain conditions; please read the COPYING file thoroughly before doing so.
+There is NO WARRANTY, to the extent permitted by law.
+PASS isolated direct --version
+"disk8" ejected.

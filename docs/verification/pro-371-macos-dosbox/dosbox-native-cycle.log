@@ -1,0 +1,54 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437116888    799720   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974713764   1641676   100%    /Volumes/T7-Backup
+Recipe dosbox-staging selected dosbox-staging-macOS-v0.83.0.dmg 44531761 bytes
+Verifying after 5.390s
+Installing after 5.390s
+PASS 0.83.0 44531761 bytes
+PASS install 8.468s
+111432	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Apps/DOSBox Staging.app
+sandboxed CLI did not verify v0.83.0
+2026-11-27 11:01:57.869 | CONFIG: Can't create config directory '/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Runtime/Library/Preferences/DOSBox'
+2026-11-27 11:01:57.885 | CONFIG: Unable to create primary config file '/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Runtime/Library/Preferences/DOSBox/dosbox-staging.conf'
+exit=0
+dosbox-staging, version 0.83.0 (7b400)
+
+Copyright (C) 2020-2026 The DOSBox Staging Team
+License: GNU GPL-2.0-or-later <https://www.gnu.org/licenses/gpl-2.0.html>
+
+This is free software, and you are welcome to change and redistribute it under
+certain conditions; please read the COPYING file thoroughly before doing so.
+There is NO WARRANTY, to the extent permitted by law.
+Traceback (most recent call last):
+  File "/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/dosbox-cli.py", line 49, in <module>
+    assert f"DOSBox Staging, version {expected}" in stdout
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437114208    802400   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974824460   1530980   100%    /Volumes/T7-Backup
+Recipe dosbox-staging selected dosbox-staging-macOS-v0.83.1.dmg 44185617 bytes
+Verifying after 5.260s
+Installing after 5.260s
+PASS 0.83.1 44185617 bytes
+PASS update 7.827s
+80092	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Apps/DOSBox Staging.app
+sandboxed CLI did not verify v0.83.1
+2026-11-27 11:02:06.133 | CONFIG: Can't create config directory '/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Runtime/Library/Preferences/DOSBox'
+2026-11-27 11:02:06.135 | CONFIG: Unable to create primary config file '/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/Runtime/Library/Preferences/DOSBox/dosbox-staging.conf'
+exit=0
+dosbox-staging, version 0.83.1 (8888e)
+
+Copyright (C) 2020-2026 The DOSBox Staging Team
+License: GNU GPL-2.0-or-later <https://www.gnu.org/licenses/gpl-2.0.html>
+
+This is free software, and you are welcome to change and redistribute it under
+certain conditions; please read the COPYING file thoroughly before doing so.
+There is NO WARRANTY, to the extent permitted by law.
+Traceback (most recent call last):
+  File "/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/dosbox-cli.py", line 49, in <module>
+    assert f"DOSBox Staging, version {expected}" in stdout
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-dosbox-staging/.Trash/DOSBox Staging.app
+PASS remove 0.035s

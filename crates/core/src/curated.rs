@@ -1054,7 +1054,28 @@ pub const OPENSCREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("M4LK7C6S84"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 40] = [
+pub const DOSBOX_STAGING: crate::CraftApp = crate::CraftApp {
+    id: "dosbox-staging",
+    name: "DOSBox Staging",
+    tagline: "Run DOS software on a modern computer",
+    repo: "dosbox-staging/dosbox-staging",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [136, 148, 200],
+    ink_light: [66, 75, 137],
+    ink_dark: [185, 197, 236],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The DOSBox Staging Team",
+    msi_publisher: None,
+    bundle: Some("io.github.dosbox-staging"),
+    site: Some("https://www.dosbox-staging.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("944SS92GAH"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 41] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1087,6 +1108,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 40] = [
     VIBE,
     OPENSCREEN,
     SOLVESPACE,
+    DOSBOX_STAGING,
     PENCIL2D,
     OPENSHOT,
     MUSESCORE,
@@ -1248,6 +1270,33 @@ mod recipe_tests {
             }
             let prerelease = release::Release { prerelease: true, ..release.clone() };
             assert!(!release::openscreen_mac_asset(&prerelease, asset));
+        }
+    }
+
+    #[test]
+    fn dosbox_staging_recipe_accepts_only_the_official_stable_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("dosbox-staging").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("io.github.dosbox-staging"), Some("944SS92GAH")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, size) in [("v0.83.0", 44_531_761), ("v0.83.1", 44_185_617)] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            assert_eq!(asset.name, format!("dosbox-staging-macOS-{tag}.dmg"));
+            assert_eq!((asset.size, kind), (size, PackageKind::Dmg));
+            for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }, Platform { os: Os::Windows, ..mac }] {
+                assert!(platform::pick_asset(&release, &[app.id], host, host.download_kinds()).is_none());
+            }
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let wrong_tag = release::Asset { url: asset.url.replace(tag, "v0.83.2"), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            let wrong_repo = release::Asset { url: asset.url.replace("/dosbox-staging/", "/mirror/"), ..asset.clone() };
+            for different in [different_size, wrong_tag, no_checksum, wrong_repo] {
+                assert!(!release::dosbox_staging_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::dosbox_staging_mac_asset(&prerelease, asset));
         }
     }
 

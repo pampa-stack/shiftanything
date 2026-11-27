@@ -251,6 +251,19 @@ pub mod macos {
     }
 
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+        use artcraft_launcher_core::curated::DOSBOX_STAGING;
+
+        // Stable DOSBox Staging bundles append the five-character git commit (e.g. 0.83.1-8888e).
+        if (app.id, app.repo) == (DOSBOX_STAGING.id, DOSBOX_STAGING.repo)
+            && let Some((label, hash)) = text.rsplit_once('-')
+            && hash.len() == 5
+            && hash.bytes().all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+            && let Ok(parsed) = version::Version::parse(label)
+            && parsed.pre.is_empty()
+            && parsed.build.is_empty()
+        {
+            return Some(parsed);
+        }
         if !app.uses_tdf_releases() {
             return version::parse(text);
         }
@@ -264,6 +277,19 @@ pub mod macos {
             return None;
         }
         artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn only_dosbox_staging_removes_its_bundled_git_commit_suffix() {
+        use artcraft_launcher_core::curated::{DOSBOX_STAGING, HANDY};
+
+        for (bundle, stable) in [("0.83.0-7b400", "0.83.0"), ("0.83.1-8888e", "0.83.1")] {
+            assert_eq!(bundle_version(&DOSBOX_STAGING, bundle), version::parse(stable));
+            assert_eq!(bundle_version(&HANDY, bundle), version::parse(bundle));
+        }
+        for label in ["0.83.1-alpha", "0.83.1-8888", "0.83.1-zzzzz", "0.83.1+foo-8888e", "0.83.1-rc.1-8888e"] {
+            assert_eq!(bundle_version(&DOSBOX_STAGING, label), version::parse(label));
+        }
     }
 
     #[test]

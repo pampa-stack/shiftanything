@@ -1,0 +1,72 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437042204    874404   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974083152   2272288   100%    /Volumes/T7-Backup
+2026-11-27T09:54:20Z
+checksum PASS a016f04c25b0c27cc3dfa4165cd7242feb36d647fc9b3e4990ca83257d1012ad 44185617 https://github.com/dosbox-staging/dosbox-staging/releases/download/v0.83.1/dosbox-staging-macOS-v0.83.1.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $E22C4211
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $0ACF0325
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $CE02CC13
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_APFS : 4)…
+         disk image (Apple_APFS : 4): verificato   CRC32 $7A4E04E5
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $CE02CC13
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $F211C81D
+verificato   CRC32 $8E31D9C4
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_APFS
+/dev/disk9          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk9s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-mac-pkg-proof.PyK7rrW7
+APP=DOSBox Staging.app
+CFBundleIdentifier=io.github.dosbox-staging
+CFBundleShortVersionString=0.83.1-8888e
+CFBundleVersion=0.83.1-8888e
+CFBundleExecutable=dosbox
+LSMinimumSystemVersion=Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+x86_64 arm64
+/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/dosbox (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=io.github.dosbox-staging
+Authority=Developer ID Application: John Novak (944SS92GAH)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=944SS92GAH
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libglib-2.0.0.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libglib-2.0.0.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libintl.8.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libintl.8.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libgthread-2.0.0.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libgthread-2.0.0.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libslirp.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libslirp.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libpcre2-8.0.15.0.dylib
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/MacOS/lib/libpcre2-8.0.15.0.dylib
+--prepared:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/PlugIns/Nuked-SC55.clap
+--validated:/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app/Contents/PlugIns/Nuked-SC55.clap
+/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.PyK7rrW7/DOSBox Staging.app
+DOSBox Staging.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.83.1/dosbox-staging-macOS-v0.83.1.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

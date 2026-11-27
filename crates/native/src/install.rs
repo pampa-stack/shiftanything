@@ -41,6 +41,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     };
 
     match app.id {
+        id if id == artcraft_launcher_core::curated::PICARD.id => Some(13),
         id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
         id if [
             KOPIA.id,
@@ -560,6 +561,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
         return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::PICARD.id {
+        return (app.repo == artcraft_launcher_core::curated::PICARD.repo && release::picard_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::NEOVIDE.id {
         return (app.repo == artcraft_launcher_core::curated::NEOVIDE.repo && release::neovide_mac_asset(release, asset))
@@ -2907,6 +2913,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some(12));
         assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some(11));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some(12));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some(13));
     }
 
     #[test]

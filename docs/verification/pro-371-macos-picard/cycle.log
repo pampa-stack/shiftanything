@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436993012    922600   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975552936    802504   100%    /Volumes/T7-Backup
+Recipe musicbrainz-picard selected MusicBrainz-Picard-3.0.4-macOS-13.0-arm64.dmg 59831923 bytes
+Verifying after 6.509s
+Installing after 6.509s
+PASS 3.0.4 59831923 bytes
+PASS install 16.089s
+139296	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-musicbrainz-picard/Apps/MusicBrainz Picard.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436994356    921256   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975700468    654972   100%    /Volumes/T7-Backup
+Recipe musicbrainz-picard selected MusicBrainz-Picard-3.0.5-macOS-13.0-arm64.dmg 59600174 bytes
+Verifying after 6.869s
+Installing after 6.869s
+PASS 3.0.5 59600174 bytes
+PASS update 18.606s
+138092	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-musicbrainz-picard/Apps/MusicBrainz Picard.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-musicbrainz-picard/.Trash/MusicBrainz Picard.app
+PASS remove 0.039s

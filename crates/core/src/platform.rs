@@ -352,6 +352,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
+    if stems.contains(&crate::curated::PICARD.id) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::picard_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
+    }
     if stems.contains(&NEOVIDE.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -516,6 +522,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         GODOT.id,
         TERMIX.id,
         NEOVIDE.id,
+        crate::curated::PICARD.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

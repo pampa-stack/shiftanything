@@ -779,7 +779,28 @@ pub const OPENSHOT: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 27] = [
+pub const PICARD: crate::CraftApp = crate::CraftApp {
+    id: "musicbrainz-picard",
+    name: "MusicBrainz Picard",
+    tagline: "Tag music files using MusicBrainz",
+    repo: "metabrainz/picard",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [178, 115, 220],
+    ink_light: [99, 53, 142],
+    ink_dark: [220, 178, 248],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "MetaBrainz Foundation",
+    msi_publisher: None,
+    bundle: Some("org.musicbrainz.Picard"),
+    site: Some("https://picard.musicbrainz.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("8D89TSJ88H"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 28] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -805,6 +826,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 27] = [
     GODOT,
     TERMIX,
     NEOVIDE,
+    PICARD,
     PENCIL2D,
     OPENSHOT,
 ];
@@ -1171,6 +1193,37 @@ mod recipe_tests {
             asset.url = asset.url.replace("/1.19.7/", "/v1.19.7/");
         }
         assert!(platform::pick_asset(&wrong_tag, &[cryptomator.id], mac, mac.download_kinds()).is_none());
+    }
+
+    #[test]
+    fn picard_uses_only_the_reviewed_apple_silicon_release_packages() {
+        use crate::release::release_from_sums;
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (id, tags, kind) in [("musicbrainz-picard", ["release-3.0.4", "release-3.0.5"], PackageKind::Dmg)] {
+            let app = CraftApp::by_id(id).unwrap();
+            assert!(app.installs(kind));
+            for tag in tags {
+                let release = release_from_sums(app.repo, tag, &[]);
+                let valid = pick_asset(&release, &[id], mac, &[kind]).unwrap();
+                assert_eq!(valid.1, kind);
+                assert!(pick_asset(&release, &[id], Platform { arch: Arch::X64, ..mac }, &[kind]).is_none());
+                assert!(pick_asset(&release, &[id], mac, &[PackageKind::AppImage]).is_none());
+                let mut invalid = release.clone();
+                invalid.prerelease = true;
+                assert!(pick_asset(&invalid, &[id], mac, &[kind]).is_none());
+                let mut invalid = release.clone();
+                invalid.assets[0].sha256 = Some("0".repeat(64));
+                assert!(pick_asset(&invalid, &[id], mac, &[kind]).is_none());
+                let mut invalid = release.clone();
+                invalid.assets[0].url = invalid.assets[0].url.replace(app.repo, "third-party/mirror");
+                assert!(pick_asset(&invalid, &[id], mac, &[kind]).is_none());
+                let mut invalid = release;
+                invalid.tag = tags.into_iter().find(|other| *other != tag).unwrap().into();
+                assert!(pick_asset(&invalid, &[id], mac, &[kind]).is_none());
+            }
+        }
     }
 
     #[test]

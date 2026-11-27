@@ -484,6 +484,8 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         ente_auth_version(tag)
     } else if repo == crate::curated::TERMIX.repo {
         termix_desktop_version(tag)
+    } else if repo == crate::curated::PICARD.repo {
+        picard_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
@@ -542,6 +544,26 @@ pub fn neovide_mac_asset(release: &Release, asset: &Asset) -> bool {
         && asset.size > 0
         && asset.sha256.as_deref().is_some_and(is_hex64)
         && reviewed_assets(crate::curated::NEOVIDE.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
+fn picard_version(tag: &str) -> Option<Version> {
+    let label = tag.strip_prefix("release-")?;
+    let version = Version::parse(label).ok()?;
+    (version.to_string() == label && version.pre.is_empty() && version.build.is_empty() && version.major >= 3).then_some(version)
+}
+
+/// Use the stable Apple Silicon disk image from the official Picard release.
+pub fn picard_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && picard_version(&release.tag).as_ref().is_some_and(|version| {
+            Some(version) == release.version.as_ref() && asset.name == format!("MusicBrainz-Picard-{version}-macOS-13.0-arm64.dmg")
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::PICARD.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::PICARD.repo, &release.tag)
             .find(|reviewed| reviewed.name == asset.name)
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
@@ -668,6 +690,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
+        }
+        ("metabrainz/picard", "release-3.0.4") => {
+            &[("MusicBrainz-Picard-3.0.4-macOS-13.0-arm64.dmg", 59_831_923, "dc4bd3ab3da5df45baa7e82e0a6b49930f6f8dd72e76b74fde0d533f41850310")]
+        }
+        ("metabrainz/picard", "release-3.0.5") => {
+            &[("MusicBrainz-Picard-3.0.5-macOS-13.0-arm64.dmg", 59_600_174, "53b1f8c3a971c538421ddc89a14a7322bd5bc90521ade1f5aded51d10a64ddfe")]
         }
         ("neovide/neovide", "0.17.3") => &[(NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc")],
         ("neovide/neovide", "0.17.4") => &[(NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a")],

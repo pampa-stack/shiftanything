@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 150] = [
+pub const RECIPES: [(&str, &str); 153] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -152,6 +152,9 @@ pub const RECIPES: [(&str, &str); 150] = [
     ("mission-center", "io.missioncenter.MissionCenter"),
     ("gnome-boxes", "org.gnome.Boxes"),
     ("gnome-sound-recorder", "org.gnome.SoundRecorder"),
+    ("librewolf", "io.gitlab.librewolf-community"),
+    ("secrets", "org.gnome.World.Secrets"),
+    ("bazaar", "io.github.kolunmi.Bazaar"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -320,6 +323,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "mission-center" => "https://gitlab.com/mission-center-devs/mission-center",
         "gnome-boxes" => "https://gitlab.gnome.org/GNOME/gnome-boxes",
         "gnome-sound-recorder" => "https://gitlab.gnome.org/World/vocalis",
+        "librewolf" => "https://librewolf.dev/librewolf",
+        "secrets" => "https://gitlab.gnome.org/World/secrets",
+        "bazaar" => "https://gitlab.gnome.org/World/bazaar",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -163,6 +163,11 @@ impl Language {
         }
     }
 }
+#[tauri::command]
+fn set_language(language: Language, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
+    let state = state.lock().map_err(|error| error.to_string())?;
+    artcraft_launcher_native::paths::write_atomic(&state.diagnostics.join(startup::LANGUAGE_FILE), language.code().as_bytes())
+}
 #[derive(Deserialize, Serialize)]
 struct VisualReport {
     language: Language,
@@ -216,6 +221,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             request_native_action,
             decide_native_action,
             set_favorite,
+            set_language,
             check_native_updates,
             mcp_configuration,
             mcp_connection,

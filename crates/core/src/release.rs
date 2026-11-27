@@ -417,7 +417,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                         .to_string();
                     let sha256 = a["digest"].as_str().and_then(|d| d.strip_prefix("sha256:")).filter(|h| is_hex64(h)).map(str::to_ascii_lowercase);
                     // Reviewed package bytes, tied to this exact official repository/tag/name.
-                    let sha256 = reviewed_asset(repo, &tag).filter(|asset| asset.name == name).and_then(|asset| asset.sha256).or(sha256);
+                    let sha256 = reviewed_assets(repo, &tag).find(|asset| asset.name == name).and_then(|asset| asset.sha256).or(sha256);
                     Some(Asset { name, size: a["size"].as_u64().unwrap_or(0), url, sha256 })
                 })
                 .collect()
@@ -435,31 +435,39 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
     })
 }
 
-/// A release known only from its tag and `SHA256SUMS.txt` (the quota-free route: the
-/// `releases/latest` redirect names the tag, and the sums list every file).
-fn reviewed_asset(repo: &str, tag: &str) -> Option<Asset> {
-    // Official bytes reviewed independently; this receipt never applies to a different tag,
-    // repository, architecture or asset. Native checksum and signature checks still run.
-    let (name, size, sha256) = match (repo, tag) {
-        ("cjpais/Handy", "v0.10.2") => ("Handy_0.10.2_aarch64.dmg", 14_979_688, "b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca"),
-        ("localsend/localsend", "v1.19.0") => {
-            ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4")
+// Official package receipts apply only to the original repository, tag and exact asset.
+fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
+    let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("cjpais/Handy", "v0.10.2") => {
+            &[("Handy_0.10.2_aarch64.dmg", 14_979_688, "b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca")]
         }
-        _ => return None,
+        ("localsend/localsend", "v1.19.0") => &[
+            ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4"),
+            ("LocalSend-1.19.0-linux-x86-64.AppImage", 61_752_512, "e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3"),
+        ],
+        _ => &[],
     };
-    Some(Asset { name: name.into(), size, url: format!("{}{tag}/{name}", download_prefix(repo)), sha256: Some(sha256.into()) })
+    receipts.iter().map(move |&(name, size, sha256)| Asset {
+        name: name.into(),
+        size,
+        url: format!("{}{tag}/{name}", download_prefix(repo)),
+        sha256: Some(sha256.into()),
+    })
 }
 
+/// A release reconstructed from its tag and the published checksum manifest, when available.
 pub fn release_from_sums(repo: &str, tag: &str, sums: &[(String, String)]) -> Release {
     let prefix = download_prefix(repo);
     let mut assets: Vec<Asset> = sums
         .iter()
         .map(|(hash, name)| Asset { name: name.clone(), size: 0, url: format!("{prefix}{tag}/{name}"), sha256: Some(hash.clone()) })
         .collect();
-    if let Some(asset) = reviewed_asset(repo, tag)
-        && !assets.iter().any(|existing| existing.name == asset.name)
-    {
-        assets.push(asset);
+    for asset in reviewed_assets(repo, tag) {
+        if let Some(existing) = assets.iter_mut().find(|existing| existing.name == asset.name) {
+            *existing = asset;
+        } else {
+            assets.push(asset);
+        }
     }
     assets.push(Asset { name: "SHA256SUMS.txt".into(), size: 0, url: format!("{prefix}{tag}/SHA256SUMS.txt"), sha256: None });
     Release {
@@ -873,6 +881,14 @@ mod tests {
         }
         let intel = crate::Platform { os: crate::Os::MacOs, arch: crate::Arch::X64 };
         assert!(crate::platform::pick_asset(&release, &["handy"], intel, &[crate::PackageKind::Dmg]).is_none());
+        let localsend = release_from_sums("localsend/localsend", "v1.19.0", &[]);
+        let stems: Vec<_> = crate::curated::LOCALSEND.stems().collect();
+        let linux = crate::Platform { os: crate::Os::Linux, arch: crate::Arch::X64 };
+        let (image, _) = crate::platform::pick_asset(&localsend, &stems, linux, &[crate::PackageKind::AppImage]).unwrap();
+        assert_eq!(image.size, 61_752_512);
+        assert_eq!(image.sha256.as_deref(), Some("e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3"));
+        let (dmg, _) = crate::platform::pick_asset(&localsend, &stems, platform, &[crate::PackageKind::Dmg]).unwrap();
+        assert_eq!(dmg.size, 52_878_051);
     }
 
     #[test]

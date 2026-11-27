@@ -4,6 +4,7 @@ use std::fs::{self, File, OpenOptions, TryLockError};
 use std::io::{self, Read};
 use std::path::{Path, PathBuf};
 
+pub(crate) const LANGUAGE_FILE: &str = "language";
 const MARKER: &str = ".shiftanything-proof";
 const MARKER_CONTENTS: &[u8] = b"shiftanything-tauri-proof-v1\n";
 type StartupError = Box<dyn std::error::Error>;
@@ -49,13 +50,28 @@ fn desktop() -> Result<Option<Launch>, StartupError> {
         Err(TryLockError::WouldBlock) => return Ok(None),
         Err(TryLockError::Error(error)) => return Err(error.into()),
     }
-    let language = ["LC_ALL", "LC_MESSAGES", "LANG"]
+    let system_language = ["LC_ALL", "LC_MESSAGES", "LANG"]
         .iter()
         .find_map(|key| std::env::var(key).ok().filter(|value| !value.is_empty()))
         .map_or("it", |locale| if locale.split(['_', '-', '.']).next() == Some("en") { "en" } else { "it" });
+    let language = saved_language(&root).unwrap_or(system_language);
     // The Tauri shell does not yet implement the Windows MSI broker entry point.
     let lifecycle = cfg!(any(target_os = "macos", target_os = "linux"));
     Ok(Some(Launch { root, language, isolated: false, lifecycle, _desktop_lock: Some(lock) }))
+}
+
+fn saved_language(root: &Path) -> Option<&'static str> {
+    let path = root.join(LANGUAGE_FILE);
+    if !fs::symlink_metadata(&path).ok()?.file_type().is_file() {
+        return None;
+    }
+    let mut bytes = Vec::new();
+    File::open(path).ok()?.take(3).read_to_end(&mut bytes).ok()?;
+    match bytes.as_slice() {
+        b"it" => Some("it"),
+        b"en" => Some("en"),
+        _ => None,
+    }
 }
 
 fn private_directory(path: &Path, allow_existing: bool) -> io::Result<()> {
@@ -171,6 +187,20 @@ fn isolated_child(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
 #[cfg(all(test, unix))]
 mod tests {
     use super::*;
+
+    #[test]
+    fn desktop_language_accepts_only_known_preferences() -> Result<(), StartupError> {
+        let root = tempfile::tempdir()?;
+        assert_eq!(saved_language(root.path()), None);
+        let path = root.path().join(LANGUAGE_FILE);
+        fs::write(&path, "en")?;
+        assert_eq!(saved_language(root.path()), Some("en"));
+        fs::write(&path, "it")?;
+        assert_eq!(saved_language(root.path()), Some("it"));
+        fs::write(&path, "en-US")?;
+        assert_eq!(saved_language(root.path()), None);
+        Ok(())
+    }
 
     #[test]
     fn existing_profile_directories_and_markers_must_not_be_symlinks() -> Result<(), StartupError> {

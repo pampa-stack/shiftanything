@@ -5,7 +5,7 @@ use artcraft_launcher_core::{
     curated::verified_linux_appimage,
     platform::{pick_asset, recipe_platform_verified},
     protocol::{Backend, BackendOptions, Command, Event, InstallLocations, JobPhase, LatestRelease},
-    release::Release,
+    release::{Asset, Release},
     status::Installed,
 };
 use artcraft_launcher_native::{NativeBackend, automation};
@@ -42,15 +42,16 @@ pub struct Snapshot {
     lifecycle_enabled: bool,
     isolated_profile: bool,
     inventory: Inventory,
+    download_sizes: BTreeMap<String, u64>,
     pending: Option<Request>,
     progress: BTreeMap<String, Progress>,
     favorites: std::collections::BTreeSet<String>,
 }
 
-fn has_compatible_asset(app: &CraftApp, platform: Platform, release: &Release) -> bool {
+fn compatible_asset<'a>(app: &CraftApp, platform: Platform, release: &'a Release) -> Option<&'a Asset> {
     let allowed = if platform.os == Os::Linux {
         if !verified_linux_appimage(app, platform) {
-            return false;
+            return None;
         }
         &[PackageKind::AppImage]
     } else {
@@ -58,7 +59,10 @@ fn has_compatible_asset(app: &CraftApp, platform: Platform, release: &Release) -
     };
     let stems: Vec<_> = app.stems().collect();
     let kinds: Vec<_> = allowed.iter().copied().filter(|kind| app.installs(*kind)).collect();
-    recipe_platform_verified(&stems, platform) && pick_asset(release, &stems, platform, &kinds).is_some()
+    if !recipe_platform_verified(&stems, platform) {
+        return None;
+    }
+    pick_asset(release, &stems, platform, &kinds).map(|(asset, _)| asset)
 }
 
 impl NativeState {
@@ -170,7 +174,7 @@ impl NativeState {
                         Some(LatestRelease::Found(release)) => Some(release),
                         _ => None,
                     };
-                    let has_asset = platform.zip(release).is_some_and(|(platform, release)| has_compatible_asset(app, platform, release));
+                    let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
                     let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
                     let update_available = installable
                         && installed.zip(release).is_some_and(|(installed, release)| {
@@ -244,8 +248,18 @@ impl NativeState {
             }
             automation::publish(&self.inventory());
         }
+        let platform = self.backend.platform();
+        let download_sizes = artcraft_launcher_core::curated::NATIVE_APPS
+            .iter()
+            .filter_map(|app| {
+                let LatestRelease::Found(release) = self.latest.get(app.id)? else { return None };
+                let asset = compatible_asset(app, platform?, release)?;
+                Some((app.id.to_string(), asset.size))
+            })
+            .collect();
         Snapshot {
-            platform: self.backend.platform(),
+            platform,
+            download_sizes,
             detected: self.detected.clone(),
             lifecycle_enabled: self.enabled,
             isolated_profile: self.isolated,
@@ -330,7 +344,7 @@ fn validate_ui_request(request: &Request, inventory: &Inventory) -> Result<(), S
 #[cfg(test)]
 mod tests {
     use super::*;
-    use artcraft_launcher_core::{Arch, release::Asset};
+    use artcraft_launcher_core::Arch;
 
     #[test]
     fn linux_install_action_requires_an_appimage_for_the_tested_platform_and_recipe() {
@@ -338,10 +352,10 @@ mod tests {
         let photo = CraftApp::by_id("photocraft").unwrap();
         let obsolete = CraftApp::by_id("designcraft").unwrap();
         let image = |name: &str| Release { assets: vec![Asset { name: name.into(), ..Default::default() }], ..Default::default() };
-        assert!(has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.AppImage")));
-        assert!(!has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-aarch64.AppImage")));
-        assert!(!has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.deb")));
-        assert!(!has_compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")));
-        assert!(!has_compatible_asset(obsolete, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")));
+        assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.AppImage")).is_some());
+        assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
+        assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.deb")).is_none());
+        assert!(compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
+        assert!(compatible_asset(obsolete, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")).is_none());
     }
 }

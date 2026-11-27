@@ -88,6 +88,18 @@
   document.body.append(confirmation);
   const labels = it ? {install:'Installa',update:'Aggiorna',open:'Apri',remove:'Rimuovi',cancel:'Annulla download',update_all:'Aggiorna tutte'} : {install:'Install',update:'Update',open:'Open',remove:'Remove',cancel:'Cancel download',update_all:'Update all'};
   let pendingId;
+  const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
+  const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};
+  function renderDownloadSize(container, snapshot, appId, selector) {
+    const bytes = snapshot.download_sizes?.[appId];
+    if (!container || bytes === undefined) return;
+    const output = container.querySelector(selector);
+    if (!output) return;
+    const label = bytes > 0
+      ? `${sizeFormatter.format(bytes / 1000000)} MB · ${platformLabels[snapshot.platform.os]}`
+      : it ? 'Dimensione non disponibile' : 'Size unavailable';
+    if (output.textContent !== label) output.textContent = label;
+  }
   function primaryAction(snapshot, appId, app) {
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
@@ -114,6 +126,9 @@
       window.dispatchEvent(new CustomEvent('native-favorites',{detail:snapshot.favorites}));
     }
     const inventory = new Map(snapshot.inventory.apps.map(app => [app.id,app]));
+    for (const card of document.querySelectorAll('.catalog-grid .cell[data-app]')) {
+      renderDownloadSize(card, snapshot, card.dataset.app, '.release-meta > div:last-child > div:last-child');
+    }
     for (const button of document.querySelectorAll('[data-native-app]')) {
       const app = inventory.get(button.dataset.nativeApp);
       const operation = button.dataset.nativeOperation;
@@ -144,6 +159,7 @@
       controls.append(result); detail.append(controls);
     }
     if (detail) {
+      renderDownloadSize(detail, snapshot, primary?.dataset.nativeApp, '.detail-facts > div:nth-child(3) > div:last-child');
       const app = inventory.get(primary?.dataset.nativeApp);
       const output = detail.querySelector('.native-result');
       if (output) output.textContent = `${app?.installed_version || '—'} → ${app?.latest_version || '—'} · ${actionError || snapshot.progress[app?.id]?.phase || snapshot.inventory.results['app:'+app?.id] || ''}`;

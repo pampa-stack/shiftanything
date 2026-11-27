@@ -148,8 +148,13 @@
   }
   settings.addEventListener('click', async event => {
     const button = event.target.closest('button');
-    if (button?.dataset.language) {
-      if (button.dataset.language !== document.documentElement.lang) location.assign(`${button.dataset.language}.html`);
+    if (button?.dataset.language && button.dataset.language !== document.documentElement.lang) {
+      try {
+        await invoke('set_language', {language:button.dataset.language});
+        location.assign(`${button.dataset.language}.html`);
+      } catch (error) {
+        settings.querySelector('[role=status]').textContent = String(error);
+      }
     }
     if (button?.hasAttribute('data-check-updates')) {
       const status = settings.querySelector('[role=status]');

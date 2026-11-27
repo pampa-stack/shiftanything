@@ -4,6 +4,7 @@ mod catalog_links;
 mod discovery;
 mod favorites;
 mod session;
+mod shifter;
 #[cfg(target_os = "macos")]
 mod verification;
 use artcraft_launcher_core::automation::{Operation, Request};
@@ -224,7 +225,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             request_native_action,
             decide_native_action,
             set_favorite,
-            check_native_updates
+            check_native_updates,
+            shifter::shifter_workspace,
+            shifter::compare_shifter,
+            shifter::open_shifter_source
         ])
         .setup(move |app| {
             #[cfg(target_os = "macos")]

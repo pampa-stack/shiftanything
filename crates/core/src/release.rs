@@ -531,6 +531,21 @@ pub fn termix_mac_asset(release: &Release, asset: &Asset) -> bool {
         && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
+const NEOVIDE_MAC_DMG: &str = "Neovide-aarch64-apple-darwin.dmg";
+
+/// The filename does not encode a version. Bind the exact Apple Silicon package to the official stable tag.
+pub fn neovide_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == release.tag)
+        && asset.name == NEOVIDE_MAC_DMG
+        && asset.url == format!("{}{}/{NEOVIDE_MAC_DMG}", download_prefix(crate::curated::NEOVIDE.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::NEOVIDE.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 fn ente_auth_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("auth-v")?;
     let version = version::parse(label)?;
@@ -654,6 +669,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
         }
+        ("neovide/neovide", "0.17.3") => &[(NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc")],
+        ("neovide/neovide", "0.17.4") => &[(NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a")],
         ("Termix-SSH/Termix", "v26.11.2") => &[(TERMIX_MAC_DMG, 254_640_116, "c9b8eda86bf88f85ab2f2aa295e76fe1409805f65b3ab3c69a0cd7186c7cac5e")],
         ("Termix-SSH/Termix", "v26.11.3") => &[(TERMIX_MAC_DMG, 263_900_889, "a509ba2eebd74b7562f38d5adca342c137e431fab1744af34bdbd07eb9a96f3c")],
         (crate::curated::GODOT_RELEASES_REPO, "4.7.1-stable") => {

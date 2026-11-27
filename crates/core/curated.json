@@ -16408,8 +16408,8 @@
     "level": "base",
     "category": "sviluppo",
     "description": {
-      "it": "Interfaccia desktop per Neovim, con supporto a font, animazioni e appunti di sistema.",
-      "en": "Desktop front end for Neovim with font, animation, and system clipboard support."
+      "it": "Interfaccia desktop con font, animazioni e appunti di sistema. Richiede Neovim 0.12 o successivo, da installare separatamente.",
+      "en": "Desktop front end with font, animation, and system clipboard support. Requires a separate installation of Neovim 0.12 or later."
     },
     "alternatives": [
       "Sublime Text",
@@ -25810,67 +25810,6 @@
           "platform": "linux",
           "size_min": 17991762,
           "size_max": 102181368
-        }
-      ]
-    }
-  },
-  {
-    "id": "yaak",
-    "name": "Yaak",
-    "repo": "https://github.com/mountain-loop/yaak",
-    "author": "mountain-loop",
-    "level": "base",
-    "category": "sviluppo",
-    "description": {
-      "it": "Client grafico per richieste e collezioni API",
-      "en": "Graphical client for API requests and collections"
-    },
-    "alternatives": [
-      "Postman"
-    ],
-    "license": "MIT",
-    "license_url": "https://github.com/mountain-loop/yaak/license",
-    "website": "https://yaak.app",
-    "releases": "https://github.com/mountain-loop/yaak/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://raw.githubusercontent.com/mountain-loop/yaak/6196bf2a21ecac4f8ba3e3c8d4a2d1e7496ab452/crates-tauri/yaak-app-client/icons/release/128x128%402x.png",
-    "screenshots": [
-      "https://yaak.app/static/screenshot.png"
-    ],
-    "media_source": "https://github.com/mountain-loop/yaak#readme",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/mountain-loop/yaak#readme"
-    },
-    "stars": {
-      "count": 19555,
-      "source": "https://github.com/mountain-loop/yaak/stargazers",
-      "date": "2026-11-27"
-    },
-    "release": {
-      "version": "v2026.9.1",
-      "date": "2026-11-01",
-      "source": "https://github.com/mountain-loop/yaak/releases/tag/v2026.9.1",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 62315611,
-          "size_max": 218211040
-        },
-        {
-          "platform": "macos",
-          "size_min": 69188323,
-          "size_max": 72671466
-        },
-        {
-          "platform": "windows",
-          "size_min": 41815856,
-          "size_max": 46732096
         }
       ]
     }

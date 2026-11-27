@@ -716,7 +716,28 @@ pub const TERMIX: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2CPC5YZYFN"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 24] = [
+pub const NEOVIDE: crate::CraftApp = crate::CraftApp {
+    id: "neovide",
+    name: "Neovide",
+    tagline: "Graphical client for Neovim",
+    repo: "neovide/neovide",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [144, 121, 217],
+    ink_light: [78, 54, 143],
+    ink_dark: [190, 175, 244],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Neovide contributors",
+    msi_publisher: None,
+    bundle: Some("com.neovide.neovide"),
+    site: Some("https://neovide.dev/"),
+    mac_bundle_name: None,
+    mac_team: Some("X8CNW77992"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 25] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -741,6 +762,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 24] = [
     ACTIVITYWATCH,
     GODOT,
     TERMIX,
+    NEOVIDE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1116,6 +1138,14 @@ mod recipe_tests {
             ("pinta", ["3.1.1", "3.1.2"], "Pinta-macos-arm64.dmg", "com.ximian.pinta", "D5G6C56TBH", "Pinta-macos-x86_64.dmg"),
             ("zed", ["v1.29.3", "v1.30.2"], "Zed-aarch64.dmg", "dev.zed.Zed", "MQ55VZLNZQ", "Zed-x86_64.dmg"),
             ("stats", ["v3.1.0", "v3.1.1"], "Stats.dmg", "eu.exelban.Stats", "RP2S87B72W", "Stats-intel.dmg"),
+            (
+                "neovide",
+                ["0.17.3", "0.17.4"],
+                "Neovide-aarch64-apple-darwin.dmg",
+                "com.neovide.neovide",
+                "X8CNW77992",
+                "Neovide-x86_64-apple-darwin.dmg",
+            ),
         ] {
             let app = CraftApp::by_id(id).expect("compiled recipe");
             let installable =
@@ -1151,9 +1181,12 @@ mod recipe_tests {
                 let mut wrong = official.clone();
                 wrong.prerelease = true;
                 assert!(!installable(&wrong, mac));
-                if [super::STATS.id, super::ZED.id].contains(&id) {
+                if [super::STATS.id, super::ZED.id, super::NEOVIDE.id].contains(&id) {
                     let mut wrong = official.clone();
-                    wrong.tag = tag.trim_start_matches('v').into();
+                    wrong.tag = match tag.strip_prefix('v') {
+                        Some(bare) => bare.into(),
+                        None => format!("v{tag}"),
+                    };
                     wrong.assets[0].url = wrong.assets[0].url.replace(tag, &wrong.tag);
                     assert!(!installable(&wrong, mac));
                 }

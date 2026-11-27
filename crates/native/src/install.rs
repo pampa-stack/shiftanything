@@ -36,8 +36,8 @@ use crate::process;
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     use artcraft_launcher_core::curated::{
-        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO,
-        RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, NEOVIDE,
+        OBS_STUDIO, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
     match app.id {
@@ -54,6 +54,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
             ENTE_AUTH.id,
             ACTIVITYWATCH.id,
             TERMIX.id,
+            NEOVIDE.id,
         ]
         .contains(&id) =>
         {
@@ -559,6 +560,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
         return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::NEOVIDE.id {
+        return (app.repo == artcraft_launcher_core::curated::NEOVIDE.repo && release::neovide_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
     }
     let release_version = release.version.as_ref();
 
@@ -2900,6 +2906,25 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&WHISPERING), Some(11));
         assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some(12));
         assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some(11));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some(12));
+    }
+
+    #[test]
+    fn neovide_install_rechecks_the_unversioned_dmg_before_downloading() {
+        let app = artcraft_launcher_core::curated::NEOVIDE;
+        let release = release::release_from_sums(app.repo, "0.17.4", &[]);
+        let official = &release.assets[0];
+        assert!(bind_artifact_version(&app, &release, official).is_ok());
+        let old_package = Asset { url: official.url.replace("/0.17.4/", "/0.17.3/"), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &old_package).is_err());
+        let mirror = Asset { url: official.url.replace(app.repo, "mirror/neovide"), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &mirror).is_err());
+        let unchecked = Asset { sha256: None, ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &unchecked).is_err());
+        let bad_digest = Asset { sha256: Some("0".repeat(64)), ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &bad_digest).is_err());
+        let bad_size = Asset { size: official.size + 1, ..official.clone() };
+        assert!(bind_artifact_version(&app, &release, &bad_size).is_err());
     }
 
     /// A bare app name is never a launchable location, even when the working folder holds a

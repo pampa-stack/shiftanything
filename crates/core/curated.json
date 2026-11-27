@@ -2091,24 +2091,24 @@
       "date": "2026-11-26"
     },
     "release": {
-      "version": "v0.17.5",
-      "date": "2026-11-26",
-      "source": "https://github.com/getpaseo/paseo/releases/tag/v0.17.5",
+      "version": "v0.17.6",
+      "date": "2026-11-27",
+      "source": "https://github.com/getpaseo/paseo/releases/tag/v0.17.6",
       "packages": [
         {
           "platform": "linux",
-          "size_min": 116841985,
-          "size_max": 171818568
+          "size_min": 116881729,
+          "size_max": 171847880
         },
         {
           "platform": "macos",
-          "size_min": 190136289,
-          "size_max": 201667989
+          "size_min": 190151170,
+          "size_max": 201661861
         },
         {
           "platform": "windows",
-          "size_min": 147259288,
-          "size_max": 299552911
+          "size_min": 147284606,
+          "size_max": 299603735
         }
       ]
     }

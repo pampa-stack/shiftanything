@@ -18,7 +18,9 @@ FLATPAK = re.compile(r"https://flathub\.org/apps/([\w.-]+)")
 VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 PREVIEW = re.compile(r"\b(?:alpha|beta|nightly|preview|pre[- ]?release|rc)\d*\b", re.I)
 PREVIEW_TAG = re.compile(r"^((?:v|release-)?\d+(?:\.\d+)*)-(?:alpha|beta|nightly|preview|pre-release|prerelease|rc)\d*(?:[.-]\d+)*$", re.I)
-WINDOWS_INSTALLER = re.compile(r"(?:^|[-_])(?:setup|installer)(?:[-_]v?\d+(?:\.\d+)*)?\.exe$")
+WINDOWS_INSTALLER = re.compile(
+    r"(?:^|[-_])(?:setup|installer)(?:[-_]v?\d+(?:\.\d+)*)?(?:[-_](?:x64|x86|arm64|amd64|aarch64))?\.exe$"
+)
 FEATURE = re.compile(
     r"^(?:feat(?:\([^)]*\))?!?:|add(?:s|ed)?\b|introduc(?:e|es|ed)\b|"
     r"supports?\b|new\b|remove(?:s|d)?\b|deprecat(?:e|es|ed)\b)", re.I
@@ -224,11 +226,11 @@ def notes_baseline(document):
     return entries
 
 
-def apply_approved(shifter, approved, app_id, release, lines):
+def apply_approved(shifter, approved, app_id, observed_version, release_source, lines):
     matched = set()
     updates = []
-    for rule in approved.get((app_id, release["version"]), []):
-        if rule["release_source"] != release["source"] or rule["line"] not in lines:
+    for rule in approved.get((app_id, observed_version), []):
+        if rule["release_source"] != release_source or rule["line"] not in lines:
             continue
         profile = next((item for item in shifter["profiles"] if item["id"] == rule["profile"]), None)
         feature = rule["feature"]
@@ -247,7 +249,7 @@ def apply_approved(shifter, approved, app_id, release, lines):
         matched.add(rule["line"])
         if candidate["evidence"].get(feature) != evidence:
             candidate["evidence"][feature] = evidence
-            updates.append({"id": app_id, "version": release["version"], "profile": profile["id"],
+            updates.append({"id": app_id, "version": observed_version, "profile": profile["id"],
                             "feature": feature, "source": evidence["source"]})
     return matched, updates
 
@@ -298,10 +300,19 @@ def refresh(catalog, shifter, baseline, selected, as_of, rules=()):
         flatpak = FLATPAK.fullmatch(release["source"])
         if flatpak:
             update_flatpak_size(app, flatpak[1], as_of)
+        observed_version = release["version"]
         if same_version:
+            release["version"] = old_version
             release["date"] = before.get("date") or release["date"]
-            if not release["packages"]:
-                release["packages"] = before.get("packages", [])
+            previous_packages = before.get("packages", [])
+            if release["packages"]:
+                # Keep the curated list's platform order and preserve channels that
+                # use filenames or mirrors this source does not recognize.
+                packages = {entry["platform"]: entry for entry in previous_packages}
+                packages.update((entry["platform"], entry) for entry in release["packages"])
+                release["packages"] = list(packages.values())
+            else:
+                release["packages"] = previous_packages
         report["checked"].append(app_id)
         distribution_changed = distribution_before != (app.get("distribution") or [])
         if before != release or distribution_changed:
@@ -314,7 +325,7 @@ def refresh(catalog, shifter, baseline, selected, as_of, rules=()):
 
         source = f"https://flathub.org/api/v2/appstream/{flatpak[1]}" if flatpak else release["source"]
         lines = list(dict.fromkeys(line for line in lines if FEATURE.match(line)))
-        matched, updates = apply_approved(shifter, approved, app_id, release, lines)
+        matched, updates = apply_approved(shifter, approved, app_id, observed_version, release["source"], lines)
         if updates:
             report["shifter_updates"].extend(updates)
             shifter["checked_on"] = max(shifter.get("checked_on") or as_of, as_of)

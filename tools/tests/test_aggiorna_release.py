@@ -124,6 +124,18 @@ class ReleaseWatchTests(unittest.TestCase):
         self.assertEqual(self.catalog[0]["release"]["version"], "v0.5.0")
         self.assertEqual(self.catalog[0]["release"]["date"], "2026-11-27")
 
+    def test_same_version_keeps_curated_platform_with_unrecognized_package(self):
+        windows = {"platform": "windows", "size_min": 100, "size_max": 100}
+        self.catalog[0]["release"] = {
+            "version": "0.5.0", "date": "2026-11-14", "source": MEETILY_SOURCE, "packages": [windows],
+        }
+        self.github["assets"] = [asset for asset in self.github["assets"] if asset["name"].endswith(".dmg")]
+        report, _, _ = self.refresh()
+        release = self.catalog[0]["release"]
+        self.assertEqual(report["changes"][0]["kind"], "metadata")
+        self.assertEqual(release["version"], "0.5.0")
+        self.assertEqual(release["packages"], [windows, {"platform": "macos", "size_min": 48053942, "size_max": 48053942}])
+
     def test_installer_assets_exclude_portable_sidecars_and_symbols(self):
         repo = "laurent22/joplin"
         base = f"https://github.com/{repo}/releases"
@@ -138,6 +150,7 @@ class ReleaseWatchTests(unittest.TestCase):
                     "Joplin-3.7.24-arm64.DMG": 212067439,
                     "Joplin-3.7.24-arm64.pkg": 211736094,
                     "Joplin-Setup-3.7.24.exe": 368947560,
+                    "Joplin-Setup-3.7.24-arm64.exe": 147284606,
                     "Joplin-Setup-3.7.24.exe.blockmap": 386692,
                     "JoplinPortable.exe": 368718896,
                     "Symbols-dSYMs.tar.xz": 39300540,
@@ -148,7 +161,7 @@ class ReleaseWatchTests(unittest.TestCase):
         result, _ = updater.github_release(repo, release)
         self.assertEqual(result["packages"], [
             {"platform": "macos", "size_min": 211736094, "size_max": 212067439},
-            {"platform": "windows", "size_min": 368947560, "size_max": 368947560},
+            {"platform": "windows", "size_min": 147284606, "size_max": 368947560},
         ])
 
     def test_approved_evidence_requires_exact_source_and_changelog_line(self):

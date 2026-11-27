@@ -359,7 +359,12 @@ mod linux {
                     return Err("No verified desktop entry for this Flatpak".into());
                 }
                 let mut command = self.command();
-                command.args(["run", &scope_arg(&deployed.scope), &reference]).args(args);
+                command.args(["run", &scope_arg(&deployed.scope), &reference]);
+                // The Octave Flatpak runs the CLI by default, unlike its desktop entry.
+                if id == "org.octave.Octave" {
+                    command.arg("--gui");
+                }
+                command.args(args);
                 process::check_desktop_start(command, Duration::from_secs(1))?;
                 return Ok(None);
             }

@@ -1,0 +1,19 @@
+commit a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f
+Parent:  475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f
+ContentChecksum:  7adf4c331721c20835976ddf6f91cab9d0696e0e809c28efaacdd80b1899af07
+Date:  2026-06-09 00:14:46 +0000
+
+    Refactor the manifest to make it modular (#478) (08a74eb845ea)
+
+    Name: org.octave.Octave
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.6
+
+Found 1 signature:
+
+  Signature made Wed Jun 10 04:32:44 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

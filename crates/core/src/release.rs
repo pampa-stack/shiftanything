@@ -537,6 +537,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("laurent22/joplin", "v3.7.24") => {
             &[("Joplin-3.7.24-arm64.DMG", 212_067_439, "d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e")]
         }
+        ("mltframework/shotcut", "v26.9.27") => {
+            &[("shotcut-macos-26.9.27.dmg", 210_131_979, "629b056bfee1670c1669dd73f19f76fe48e0cdf90e184dc1aa1bdd6d09aa2548")]
+        }
+        ("mltframework/shotcut", "v26.11.15") => {
+            &[("shotcut-macos-26.11.15.dmg", 211_234_714, "664c6ea4195d58dbf3fd43f3d74ae46d59b6310f9ac628d5e70a8e2786a4f80b")]
+        }
+        ("PintaProject/Pinta", "3.1.1") => {
+            &[("Pinta-macos-arm64.dmg", 67_815_026, "84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a")]
+        }
+        ("PintaProject/Pinta", "3.1.2") => {
+            &[("Pinta-macos-arm64.dmg", 68_171_678, "daad4b3550e7d5f27928ccb9ca99392aa46a5ef71cfd54ce72c0b7a810f4f993")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

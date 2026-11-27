@@ -177,6 +177,7 @@ mod tests {
                 app.release.as_ref().is_none_or(|release| release.packages.is_empty())
                     && app.distribution.iter().any(|channel| channel.download_size.is_some())
                     && crate::CraftApp::by_id(&app.id).is_none()
+                    && !crate::flathub::approved_catalog_identity(app)
             })
             .unwrap();
         let channel = app.distribution.iter().find(|channel| channel.download_size.is_some()).unwrap();
@@ -482,8 +483,65 @@ pub const JOPLIN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("A9BXAFS6CT"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 13] =
-    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, LIBREOFFICE, JOPLIN];
+pub const SHOTCUT: crate::CraftApp = crate::CraftApp {
+    id: "shotcut",
+    name: "Shotcut",
+    tagline: "Multitrack video editing",
+    repo: "mltframework/shotcut",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [73, 166, 184],
+    ink_light: [38, 95, 110],
+    ink_dark: [146, 219, 233],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Meltytech, LLC",
+    msi_publisher: None,
+    bundle: Some("com.Meltytech.Shotcut"),
+    site: Some("https://shotcut.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("Y6RX44QG2G"),
+};
+
+pub const PINTA: crate::CraftApp = crate::CraftApp {
+    id: "pinta",
+    name: "Pinta",
+    tagline: "Drawing and image editing",
+    repo: "PintaProject/Pinta",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [101, 155, 217],
+    ink_light: [41, 80, 125],
+    ink_dark: [169, 205, 248],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Pinta Project",
+    msi_publisher: None,
+    bundle: Some("com.ximian.pinta"),
+    site: Some("https://www.pinta-project.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("D5G6C56TBH"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 15] = [
+    HANDY,
+    LOCALSEND,
+    OBS_STUDIO,
+    KOPIA,
+    TRANSMISSION,
+    IINA,
+    HANDBRAKE,
+    MEETILY,
+    RIZZO_PII,
+    AUDACITY,
+    KEEPASSXC,
+    LIBREOFFICE,
+    JOPLIN,
+    SHOTCUT,
+    PINTA,
+];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -676,6 +734,13 @@ mod recipe_tests {
                 "G2S7P7J672",
             ),
             (super::JOPLIN, ["v3.7.22", "v3.7.24"], ["Joplin-3.7.22-arm64.DMG", "Joplin-3.7.24-arm64.DMG"], "net.cozic.joplin-desktop", "A9BXAFS6CT"),
+            (
+                super::SHOTCUT,
+                ["v26.9.27", "v26.11.15"],
+                ["shotcut-macos-26.9.27.dmg", "shotcut-macos-26.11.15.dmg"],
+                "com.Meltytech.Shotcut",
+                "Y6RX44QG2G",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -721,11 +786,59 @@ mod recipe_tests {
             (super::JOPLIN, "Joplin-3.7.24-arm64.dmg.blockmap"),
             (super::JOPLIN, "Joplin-3.7.21-arm64.DMG"),
             (super::JOPLIN, "Joplin-3.7.24-beta.1-arm64.DMG"),
+            (super::SHOTCUT, "shotcut-macos-unsigned-26.11.15.dmg"),
+            (super::SHOTCUT, "shotcut-macos-26.11.15-x86_64.dmg"),
+            (super::SHOTCUT, "shotcut-macos-26.11.15-beta.1.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }
         assert_eq!(super::AUDACITY.mac_bundle_names().collect::<Vec<_>>(), ["Audacity 4"]);
         assert!(!super::AUDACITY.bundle_ids().any(|id| id == "org.audacityteam.audacity"));
+    }
+
+    #[test]
+    fn pinta_unversioned_arm64_asset_is_bound_to_the_official_stable_tag() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("pinta").expect("compiled Pinta recipe");
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let installable =
+            |release: &release::Release, host: Platform| platform::pick_asset(release, &[app.id], host, host.download_kinds()).is_some();
+        assert_eq!(app.bundle, Some("com.ximian.pinta"));
+        assert_eq!(app.mac_team, Some("D5G6C56TBH"));
+        for tag in ["3.1.1", "3.1.2"] {
+            let official = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&official, &[app.id], mac, mac.download_kinds()).expect("reviewed DMG");
+            assert_eq!((asset.name.as_str(), kind), ("Pinta-macos-arm64.dmg", PackageKind::Dmg));
+            assert!(asset.sha256.as_deref().is_some_and(release::is_hex64));
+            assert!(asset.size > 0);
+            for host in [
+                Platform { os: Os::MacOs, arch: Arch::X64 },
+                Platform { os: Os::Linux, arch: Arch::X64 },
+                Platform { os: Os::Windows, arch: Arch::Arm64 },
+            ] {
+                assert!(!installable(&official, host));
+            }
+            let mut wrong = official.clone();
+            wrong.assets[0].url = wrong.assets[0].url.replace(tag, "3.1.0");
+            assert!(!installable(&wrong, mac));
+            let mut wrong = official.clone();
+            wrong.assets[0].name = "Pinta-macos-x86_64.dmg".into();
+            wrong.assets[0].url = wrong.assets[0].url.replace("arm64", "x86_64");
+            assert!(!installable(&wrong, mac));
+            let mut wrong = official.clone();
+            wrong.assets[0].url = wrong.assets[0].url.replace(app.repo, "mirror/pinta");
+            assert!(!installable(&wrong, mac));
+            let mut wrong = official.clone();
+            wrong.assets[0].sha256 = None;
+            assert!(!installable(&wrong, mac));
+            let mut wrong = official.clone();
+            wrong.prerelease = true;
+            assert!(!installable(&wrong, mac));
+            let mut wrong = official;
+            wrong.version = crate::version::parse("8.0.0");
+            assert!(!installable(&wrong, mac));
+        }
     }
 
     #[test]

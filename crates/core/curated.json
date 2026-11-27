@@ -6487,9 +6487,9 @@
       "Adobe Premiere Pro"
     ],
     "license": "GPL-3.0-only",
-    "license_url": "https://flathub.org/apps/org.shotcut.Shotcut",
+    "license_url": "https://github.com/mltframework/shotcut/blob/v26.11.15/COPYING",
     "website": "https://www.shotcut.org/",
-    "releases": "https://flathub.org/apps/org.shotcut.Shotcut",
+    "releases": "https://github.com/mltframework/shotcut/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "unknown",
@@ -6542,7 +6542,7 @@
         {
           "platform": "macos",
           "size_min": 211234714,
-          "size_max": 299166847
+          "size_max": 211234714
         },
         {
           "platform": "windows",
@@ -9079,7 +9079,7 @@
     "license": "MIT",
     "license_url": "https://github.com/PintaProject/Pinta/blob/master/license-mit.txt",
     "website": "https://www.pinta-project.com",
-    "releases": "https://flathub.org/apps/com.github.PintaProject.Pinta",
+    "releases": "https://github.com/PintaProject/Pinta/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "unknown",
@@ -9117,7 +9117,7 @@
     },
     "release": {
       "version": "3.1.2",
-      "date": "2026-03-29",
+      "date": "2026-04-02",
       "source": "https://github.com/PintaProject/Pinta/releases/tag/3.1.2",
       "packages": [
         {
@@ -28722,5 +28722,729 @@
       "source": "https://github.com/iv-org/invidious/releases/tag/v2.20261114.0",
       "packages": []
     }
+  },
+  {
+    "id": "defectdojo-community",
+    "name": "DefectDojo Community",
+    "repo": "https://github.com/DefectDojo/django-DefectDojo",
+    "author": "DefectDojo",
+    "category": "sic",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Raccoglie segnalazioni di sicurezza, raggruppa i duplicati e mostra lo stato delle correzioni.",
+      "en": "Consolidate security findings, group duplicates and track remediation."
+    },
+    "alternatives": [
+      "Snyk AppRisk"
+    ],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/DefectDojo/django-DefectDojo/blob/master/LICENSE.md",
+    "website": "https://defectdojo.com",
+    "releases": "https://github.com/DefectDojo/django-DefectDojo/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://docs.defectdojo.com/favicon-512x512.png",
+    "screenshots": [
+      "https://docs.defectdojo.com/images/oss_dashboard.png"
+    ],
+    "media_source": "https://docs.defectdojo.com/get_started/about/defectdojo_versions/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.defectdojo.com/get_started/about/defectdojo_versions/"
+    },
+    "stars": {
+      "count": 5286,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/DefectDojo/django-DefectDojo"
+    },
+    "release": {
+      "version": "3.5.300",
+      "date": "2026-11-24",
+      "source": "https://github.com/DefectDojo/django-DefectDojo/releases/tag/3.5.300",
+      "packages": []
+    },
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "dependency-track",
+    "name": "OWASP Dependency-Track",
+    "repo": "https://github.com/DependencyTrack/dependency-track",
+    "author": "OWASP",
+    "category": "sic",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Importa SBOM CycloneDX e mostra inventario dei componenti, licenze e aggiornamenti di sicurezza.",
+      "en": "Import CycloneDX SBOMs and track components, licenses and security updates."
+    },
+    "alternatives": [
+      "Snyk Open Source"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/DependencyTrack/dependency-track/blob/main/LICENSE.txt",
+    "website": "https://dependencytrack.org",
+    "releases": "https://github.com/DependencyTrack/dependency-track/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dependencytrack.org/favicon.ico",
+    "screenshots": [
+      "https://dependencytrack.org/assets/images/screenshots/component-inventory.png"
+    ],
+    "media_source": "https://docs.dependencytrack.org/getting-started/deploy-docker/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.dependencytrack.org/getting-started/deploy-docker/"
+    },
+    "stars": {
+      "count": 4532,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/DependencyTrack/dependency-track"
+    },
+    "release": {
+      "version": "5.2.2",
+      "date": "2026-11-18",
+      "source": "https://github.com/DependencyTrack/dependency-track/releases/tag/5.2.2",
+      "packages": []
+    },
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "certimate",
+    "name": "Certimate",
+    "repo": "https://github.com/certimate-go/certimate",
+    "author": "Certimate",
+    "category": "sic",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Gestisci il rilascio e il rinnovo dei certificati TLS con flussi ACME visuali.",
+      "en": "Manage TLS certificate issuance and renewal with visual ACME workflows."
+    },
+    "alternatives": [
+      "DigiCert Trust Lifecycle Manager"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/certimate-go/certimate/blob/main/LICENSE",
+    "website": "https://docs.certimate.me/",
+    "releases": "https://github.com/certimate-go/certimate/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://docs.certimate.me/img/logo.svg",
+    "screenshots": [
+      "https://i.imgur.com/WMVbBId.jpeg",
+      "https://i.imgur.com/8wit3ZA.jpeg"
+    ],
+    "media_source": "https://github.com/certimate-go/certimate/blob/42c5aea3f7ea15e9ee719e0969d1090daad58bf0/README_EN.md#screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.certimate.me/"
+    },
+    "stars": {
+      "count": 9474,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/certimate-go/certimate"
+    },
+    "release": {
+      "version": "v0.4.38",
+      "date": "2026-11-16",
+      "source": "https://github.com/certimate-go/certimate/releases/tag/v0.4.38",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 32946934,
+          "size_max": 36510991
+        },
+        {
+          "platform": "macos",
+          "size_min": 34704450,
+          "size_max": 37322629
+        },
+        {
+          "platform": "windows",
+          "size_min": 32853429,
+          "size_max": 36955350
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/certimate-go/certimate/releases/tag/v0.4.38",
+      "linux": "https://github.com/certimate-go/certimate/releases/tag/v0.4.38",
+      "windows": "https://github.com/certimate-go/certimate/releases/tag/v0.4.38"
+    },
+    "screenshot_credits": [
+      "Dashboard from the project archive",
+      "Domains page from the project archive"
+    ]
+  },
+  {
+    "id": "tunnelblick",
+    "name": "Tunnelblick",
+    "repo": "https://github.com/Tunnelblick/Tunnelblick",
+    "author": "Tunnelblick",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Importa profili OpenVPN e gestisci le connessioni dalla barra dei menu del Mac.",
+      "en": "Import OpenVPN profiles and manage connections from the Mac menu bar."
+    },
+    "alternatives": [
+      "Viscosity",
+      "OpenVPN Connect"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/Tunnelblick/Tunnelblick/blob/main/COPYING",
+    "website": "https://tunnelblick.net/",
+    "releases": "https://github.com/Tunnelblick/Tunnelblick/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Tunnelblick/Tunnelblick/main/tunnelblick/tunnelblick.icns",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Tunnelblick/Tunnelblick/main/tunnelblick/help/images/preferences-appearance-connection-window.png"
+    ],
+    "media_source": "https://tunnelblick.net/czQuick.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://tunnelblick.net/czQuick.html"
+    },
+    "stars": {
+      "count": 3309,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/Tunnelblick/Tunnelblick"
+    },
+    "release": {
+      "version": "v10.0.3",
+      "date": "2026-11-07",
+      "source": "https://github.com/Tunnelblick/Tunnelblick/releases/tag/v10.0.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 29389258,
+          "size_max": 29389258
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/Tunnelblick/Tunnelblick/releases/tag/v10.0.3"
+    },
+    "platform_scope_complete": true,
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "amnezia-vpn",
+    "name": "AmneziaVPN",
+    "repo": "https://github.com/amnezia-vpn/amnezia-client",
+    "author": "AmneziaVPN",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Imposta una VPN sul tuo server e scegli le connessioni da un client grafico.",
+      "en": "Set up a VPN on your own server and manage connections from a desktop client."
+    },
+    "alternatives": [
+      "Tailscale"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/amnezia-vpn/amnezia-client/blob/dev/LICENSE",
+    "website": "https://amnezia.org",
+    "releases": "https://github.com/amnezia-vpn/amnezia-client/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/amnezia-vpn/amnezia-client/dev/client/images/AppIcon.icon/Assets/01-mark.svg",
+    "screenshots": [
+      "https://docs.amnezia.org/assets/images/en_app_update_new-39b68f9a5e5a838caa4eed6f7d3a4170.png"
+    ],
+    "media_source": "https://docs.amnezia.org/documentation/instructions/application-update-on-windows/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.amnezia.org/documentation/how-amnezia-works/"
+    },
+    "stars": {
+      "count": 16129,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/amnezia-vpn/amnezia-client"
+    },
+    "release": {
+      "version": "5.1.1.10",
+      "date": "2026-11-19",
+      "source": "https://github.com/amnezia-vpn/amnezia-client/releases/tag/5.1.1.10",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 98397611,
+          "size_max": 98397611
+        },
+        {
+          "platform": "macos",
+          "size_min": 116501830,
+          "size_max": 116501830
+        },
+        {
+          "platform": "windows",
+          "size_min": 116049160,
+          "size_max": 116049160
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/amnezia-vpn/amnezia-client/releases/tag/5.1.1.10",
+      "macos": "https://github.com/amnezia-vpn/amnezia-client/releases/tag/5.1.1.10",
+      "windows": "https://github.com/amnezia-vpn/amnezia-client/releases/tag/5.1.1.10"
+    },
+    "screenshot_credits": [
+      "Windows application, documented update screen"
+    ]
+  },
+  {
+    "id": "openvpn-gui",
+    "name": "OpenVPN GUI",
+    "repo": "https://github.com/OpenVPN/openvpn-gui",
+    "author": "OpenVPN",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Importa profili OpenVPN e gestisci le connessioni dal menu di Windows.",
+      "en": "Import OpenVPN profiles and manage connections from the Windows notification area."
+    },
+    "alternatives": [
+      "Viscosity",
+      "OpenVPN Connect"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/OpenVPN/openvpn-gui/blob/master/COPYRIGHT.GPL",
+    "website": "https://openvpn.net/community/",
+    "releases": "https://openvpn.net/community/",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://community.openvpn.net/Pages/OpenVPN-GUI-New/openvpn-gui-icon.png",
+    "screenshots": [
+      "https://community.openvpn.net/Pages/OpenVPN-GUI-New/setings-general.png",
+      "https://community.openvpn.net/Pages/OpenVPN-GUI-New/main-1-connect.png"
+    ],
+    "media_source": "https://community.openvpn.net/Pages/OpenVPN-GUI-New",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://community.openvpn.net/Pages/OpenVPN-GUI-New"
+    },
+    "stars": {
+      "count": 1844,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/OpenVPN/openvpn-gui"
+    },
+    "release": {
+      "version": "v11.67.0.0",
+      "date": "2026-11-05",
+      "source": "https://github.com/OpenVPN/openvpn-gui/tree/v11.67.0.0",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 5238784,
+          "size_max": 6287360
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://openvpn.net/community/"
+    },
+    "platform_scope_complete": true,
+    "screenshot_credits": [
+      "Settings",
+      "Connection menu"
+    ]
+  },
+  {
+    "id": "rescuezilla",
+    "name": "Rescuezilla",
+    "repo": "https://github.com/rescuezilla/rescuezilla",
+    "author": "Rescuezilla",
+    "category": "backup",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Crea immagini di dischi e ripristina partizioni attraverso un’interfaccia guidata, anche da USB live.",
+      "en": "Create disk images and restore partitions with a graphical wizard, including from a live USB."
+    },
+    "alternatives": [
+      "Acronis True Image",
+      "Macrium Reflect"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/rescuezilla/rescuezilla/blob/master/LICENSE",
+    "website": "https://rescuezilla.com/",
+    "releases": "https://github.com/rescuezilla/rescuezilla/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/icons/icon128px-exported-black.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/screenshots/2.png",
+      "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/screenshots/5.png"
+    ],
+    "media_source": "https://rescuezilla.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://rescuezilla.com/"
+    },
+    "stars": {
+      "count": 2855,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/rescuezilla/rescuezilla"
+    },
+    "release": {
+      "version": "2.6.2",
+      "date": "2026-05-16",
+      "source": "https://github.com/rescuezilla/rescuezilla/releases/tag/2.6.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 571846,
+          "size_max": 571846
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/rescuezilla/rescuezilla/releases/tag/2.6.2"
+    },
+    "screenshot_credits": [
+      "Backup and recovery",
+      "Disk image workflow"
+    ]
+  },
+  {
+    "id": "restic-browser",
+    "name": "Restic Browser",
+    "repo": "https://github.com/emuell/restic-browser",
+    "author": "Eduard Müller",
+    "category": "backup",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Sfoglia le istantanee di backup restic e ripristina i file da un’app desktop. Richiede restic installato.",
+      "en": "Browse restic backup snapshots and restore files from a desktop app. Requires restic."
+    },
+    "alternatives": [
+      "Arq Backup"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/emuell/restic-browser/blob/master/LICENSE",
+    "website": "https://github.com/emuell/restic-browser",
+    "releases": "https://github.com/emuell/restic-browser/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/emuell/restic-browser/master/src-tauri/icons/128x128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/emuell/restic-browser/master/screenshot.png"
+    ],
+    "media_source": "https://github.com/emuell/restic-browser#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/emuell/restic-browser#readme"
+    },
+    "stars": {
+      "count": 1330,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/emuell/restic-browser"
+    },
+    "release": {
+      "version": "v0.3.3",
+      "date": "2025-10-14",
+      "source": "https://github.com/emuell/restic-browser/releases/tag/v0.3.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 4294795,
+          "size_max": 80201028
+        },
+        {
+          "platform": "macos",
+          "size_min": 8771481,
+          "size_max": 8771481
+        },
+        {
+          "platform": "windows",
+          "size_min": 4137452,
+          "size_max": 4137452
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/emuell/restic-browser/releases/tag/v0.3.3",
+      "macos": "https://github.com/emuell/restic-browser/releases/tag/v0.3.3",
+      "windows": "https://github.com/emuell/restic-browser/releases/tag/v0.3.3"
+    },
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "caesium",
+    "name": "Caesium Image Compressor",
+    "repo": "https://github.com/Lymphatus/caesium-image-compressor",
+    "author": "SaeraSoft",
+    "category": "foto",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Comprimi e ridimensiona gruppi di immagini in locale, con anteprima prima del salvataggio.",
+      "en": "Compress and resize batches of images locally, with a preview before saving."
+    },
+    "alternatives": [
+      "TinyPNG",
+      "JPEGmini"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/Lymphatus/caesium-image-compressor/blob/main/LICENSE",
+    "website": "https://saerasoft.com/caesium",
+    "releases": "https://github.com/Lymphatus/caesium-image-compressor/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Lymphatus/caesium-image-compressor/main/resources/icons/logo.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/e5a6510a-58c5-4349-8563-f4e3ee84d5a0"
+    ],
+    "media_source": "https://github.com/Lymphatus/caesium-image-compressor#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Lymphatus/caesium-image-compressor#readme"
+    },
+    "stars": {
+      "count": 6510,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/Lymphatus/caesium-image-compressor"
+    },
+    "release": {
+      "version": "v2.8.5",
+      "date": "2025-05-17",
+      "source": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 29735451,
+          "size_max": 29735451
+        },
+        {
+          "platform": "windows",
+          "size_min": 22187863,
+          "size_max": 30106368
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
+      "windows": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
+      "linux": "https://github.com/Lymphatus/caesium-image-compressor#installation"
+    },
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "imageoptim",
+    "name": "ImageOptim",
+    "repo": "https://github.com/ImageOptim/ImageOptim",
+    "author": "Kornel Lesiński",
+    "category": "foto",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Trascina le immagini per ridurne le dimensioni ed eliminare i metadati superflui in locale sul Mac.",
+      "en": "Drag in images to shrink files and remove extra metadata locally on your Mac."
+    },
+    "alternatives": [
+      "TinyPNG",
+      "JPEGmini"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/ImageOptim/ImageOptim/blob/main/LICENSE",
+    "website": "https://imageoptim.com/mac",
+    "releases": "https://imageoptim.com/mac",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://imageoptim.com/icon.png",
+    "screenshots": [
+      "https://imageoptim.com/ImageOptim-app.png"
+    ],
+    "media_source": "https://imageoptim.com/mac",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://imageoptim.com/mac"
+    },
+    "stars": {
+      "count": 10048,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/ImageOptim/ImageOptim"
+    },
+    "release": {
+      "version": "1.9.3",
+      "date": "2023-10-29",
+      "source": "https://imageoptim.com/appcast.xml",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 3858908,
+          "size_max": 3858908
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://imageoptim.com/mac"
+    },
+    "platform_scope_complete": true,
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "photodemon",
+    "name": "PhotoDemon",
+    "repo": "https://github.com/tannerhelland/PhotoDemon",
+    "author": "Tanner Helland",
+    "category": "foto",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Modifica foto in un editor portatile per Windows con livelli, filtri e lavorazione in serie.",
+      "en": "Edit photos in a portable Windows editor with layers, filters and batch processing."
+    },
+    "alternatives": [
+      "Adobe Photoshop",
+      "Corel PaintShop Pro"
+    ],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/tannerhelland/PhotoDemon/blob/main/LICENSE.md",
+    "website": "https://photodemon.org/",
+    "releases": "https://github.com/tannerhelland/PhotoDemon/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://photodemon.org/favicon.png",
+    "screenshots": [
+      "https://photodemon.org/media/images/photodemon_9.0.png"
+    ],
+    "media_source": "https://photodemon.org/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://photodemon.org/"
+    },
+    "stars": {
+      "count": 2439,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/tannerhelland/PhotoDemon"
+    },
+    "release": {
+      "version": "v2025.12",
+      "date": "2025-12-12",
+      "source": "https://github.com/tannerhelland/PhotoDemon/releases/tag/v2025.12",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 22620829,
+          "size_max": 22620829
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://github.com/tannerhelland/PhotoDemon/releases/tag/v2025.12"
+    },
+    "platform_scope_complete": true,
+    "screenshot_credits": [
+      ""
+    ]
+  },
+  {
+    "id": "shutter-encoder",
+    "name": "Shutter Encoder",
+    "repo": "https://github.com/paulpacifico/shutter-encoder",
+    "author": "Paul Pacifico",
+    "category": "video",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Converti, taglia e ricodifica video, anche in serie, con formati come ProRes, H.264 e AV1.",
+      "en": "Convert, trim and transcode video in batches, including ProRes, H.264 and AV1."
+    },
+    "alternatives": [
+      "Adobe Media Encoder",
+      "Apple Compressor"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/paulpacifico/shutter-encoder/blob/master/LICENSE.txt",
+    "website": "https://www.shutterencoder.com/",
+    "releases": "https://www.shutterencoder.com/",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://www.shutterencoder.com/wp-content/uploads/2024/04/cropped-logo-192x192.png",
+    "screenshots": [
+      "https://www.shutterencoder.com/wp-content/uploads/2025/06/Main.png",
+      "https://www.shutterencoder.com/wp-content/uploads/2026/08/Shutter-Encoder-interface-cuts-2026.webp"
+    ],
+    "media_source": "https://www.shutterencoder.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.shutterencoder.com/"
+    },
+    "stars": {
+      "count": 2938,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/paulpacifico/shutter-encoder"
+    },
+    "release": {
+      "version": "20.5",
+      "date": "2026-11-04",
+      "source": "https://github.com/paulpacifico/shutter-encoder/releases/tag/20.5",
+      "packages": []
+    },
+    "platform_support": {
+      "macos": "https://www.shutterencoder.com/",
+      "windows": "https://www.shutterencoder.com/",
+      "linux": "https://www.shutterencoder.com/"
+    },
+    "screenshot_credits": [
+      "Main application",
+      "Cutting interface"
+    ]
   }
 ]

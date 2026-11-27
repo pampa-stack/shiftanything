@@ -1,0 +1,19 @@
+commit b1acd452acc9f3436e3cf520390c66c8a2f02ade9f879f14dfd55c402684f03e
+Parent:  dda2d119339eb0712d3c197ddcd125bf4bbad87b11b45ba9ac17bc08613484db
+ContentChecksum:  f14ba611d1b5f29e1ba419f6a53e4726fd2eb3c68ef7b1f7c8d0b50b2b3a384c
+Date:  2026-11-21 19:42:49 +0000
+
+    graphviz: Update graphviz-16.1.1.tar.gz to 16.1.2 (#789) (feee22b88af5)
+
+    Name: org.gimp.GIMP
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 21 20:01:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

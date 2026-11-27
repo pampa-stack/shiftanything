@@ -3840,6 +3840,202 @@
       "file": "media/wireguard-windows-logo.png",
       "sha256": "960646d21ed4ad844a0da678fe0daa260c88d4b5f8abe021e2078c1fd19573ee",
       "source_sha256": "9dab0901768075592cf7b51a69b6965ac128d07b9cd1b5df21f85c64eadc8a0a"
+    },
+    {
+      "app": "defectdojo-community",
+      "slot": "logo",
+      "source": "https://docs.defectdojo.com/favicon-512x512.png",
+      "file": "media/defectdojo-community-logo.png",
+      "sha256": "77b70819624977e31f374bcb952b40194024a15e31f1de3c732b903da18e774b"
+    },
+    {
+      "app": "defectdojo-community",
+      "slot": "shot-0",
+      "source": "https://docs.defectdojo.com/images/oss_dashboard.png",
+      "file": "media/defectdojo-community-shot-0.png",
+      "sha256": "19750d25e2d98ec6da6c89ef70d648bf7a20f2cd156cbcf5b7cf6cc10ceab723"
+    },
+    {
+      "app": "dependency-track",
+      "slot": "logo",
+      "source": "https://dependencytrack.org/favicon.ico",
+      "file": "media/dependency-track-logo.png",
+      "sha256": "068d4790b8dea8f5ed5b3d6ce96b7205c9be20eade70e403fcc6c9a91a07896a"
+    },
+    {
+      "app": "dependency-track",
+      "slot": "shot-0",
+      "source": "https://dependencytrack.org/assets/images/screenshots/component-inventory.png",
+      "file": "media/dependency-track-shot-0.png",
+      "sha256": "e1e7024bf25f6d957304ebbe2e41717607e0881710606ac39fa1be900da6a959"
+    },
+    {
+      "app": "certimate",
+      "slot": "logo",
+      "source": "https://docs.certimate.me/img/logo.svg",
+      "file": "media/certimate-logo.png",
+      "sha256": "d89625b7c0da9a7dc26de0128dada28b82d49058a7f8cd1271a46c83cfcfd6b2"
+    },
+    {
+      "app": "certimate",
+      "slot": "shot-0",
+      "source": "https://i.imgur.com/WMVbBId.jpeg",
+      "file": "media/certimate-shot-0.png",
+      "sha256": "3cb309f3e4b2d73c9956f8bfdbec49609f279320f17670db886b5e35009e740f"
+    },
+    {
+      "app": "certimate",
+      "slot": "shot-1",
+      "source": "https://i.imgur.com/8wit3ZA.jpeg",
+      "file": "media/certimate-shot-1.png",
+      "sha256": "d4c88b2959364a743d4ab01706eb51ba594438960d89e968835c4fff76ac5440"
+    },
+    {
+      "app": "tunnelblick",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Tunnelblick/Tunnelblick/main/tunnelblick/tunnelblick.icns",
+      "file": "media/tunnelblick-logo.png",
+      "sha256": "e0d6564fe220a05754cbfb345d9a6bc0dd24ff385c18334efa65f8b851c2613c"
+    },
+    {
+      "app": "tunnelblick",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/Tunnelblick/Tunnelblick/main/tunnelblick/help/images/preferences-appearance-connection-window.png",
+      "file": "media/tunnelblick-shot-0.png",
+      "sha256": "d50212a42eb1f389bde119823236fdfd3401274f7467a326843e15a1d5d29b92"
+    },
+    {
+      "app": "amnezia-vpn",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/amnezia-vpn/amnezia-client/dev/client/images/AppIcon.icon/Assets/01-mark.svg",
+      "file": "media/amnezia-vpn-logo.png",
+      "sha256": "c76018ec62d217ff5157fb693c07eb625f926562fd5f5200225ba6b0c3859005"
+    },
+    {
+      "app": "amnezia-vpn",
+      "slot": "shot-0",
+      "source": "https://docs.amnezia.org/assets/images/en_app_update_new-39b68f9a5e5a838caa4eed6f7d3a4170.png",
+      "file": "media/amnezia-vpn-shot-0.png",
+      "sha256": "569319d9e3055806c7abf9ab8622f24a1c2ebcdb9b9f6352d40c4cddc94c1609"
+    },
+    {
+      "app": "openvpn-gui",
+      "slot": "logo",
+      "source": "https://community.openvpn.net/Pages/OpenVPN-GUI-New/openvpn-gui-icon.png",
+      "file": "media/openvpn-gui-logo.png",
+      "sha256": "15e320cc3520c40a12e8478035ecedf4f6b11a782849668820eb4e7083f65502"
+    },
+    {
+      "app": "openvpn-gui",
+      "slot": "shot-0",
+      "source": "https://community.openvpn.net/Pages/OpenVPN-GUI-New/setings-general.png",
+      "file": "media/openvpn-gui-shot-0.png",
+      "sha256": "f5b66b800c003ea259bdc15614cdeb92908d9c8ae56253cf6721e73de511fd30"
+    },
+    {
+      "app": "openvpn-gui",
+      "slot": "shot-1",
+      "source": "https://community.openvpn.net/Pages/OpenVPN-GUI-New/main-1-connect.png",
+      "file": "media/openvpn-gui-shot-1.png",
+      "sha256": "2768802845eb8cc7d46e24caf77d81853b153b22eb72477c2e49dd6b3ad82d65"
+    },
+    {
+      "app": "rescuezilla",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/icons/icon128px-exported-black.png",
+      "file": "media/rescuezilla-logo.png",
+      "sha256": "a9c410eb3ea92d28cc9731604814c83b7f4f6d54bf3b6532aab5909472a844cc"
+    },
+    {
+      "app": "rescuezilla",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/screenshots/2.png",
+      "file": "media/rescuezilla-shot-0.png",
+      "sha256": "e3833d7409c8b8c5eb8e7463154cb31b2e02def8b311e71a4ea079a670f803db"
+    },
+    {
+      "app": "rescuezilla",
+      "slot": "shot-1",
+      "source": "https://raw.githubusercontent.com/rescuezilla/rescuezilla.github.io/master/media/screenshots/5.png",
+      "file": "media/rescuezilla-shot-1.png",
+      "sha256": "8627303e253f20b6d6937f81c276272254c49c9cd4dcc499016a347ae1e07fc5"
+    },
+    {
+      "app": "restic-browser",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/emuell/restic-browser/master/src-tauri/icons/128x128.png",
+      "file": "media/restic-browser-logo.png",
+      "sha256": "d5d6a3e41dff8b67d8af21faf16da1bc0edf2ff72498b28354fb3f0bf9973a16"
+    },
+    {
+      "app": "restic-browser",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/emuell/restic-browser/master/screenshot.png",
+      "file": "media/restic-browser-shot-0.png",
+      "sha256": "dbe4def6496af1f85b397537cce015e59f1f56ec55e4628007cb82b0c40c4626"
+    },
+    {
+      "app": "caesium",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Lymphatus/caesium-image-compressor/main/resources/icons/logo.png",
+      "file": "media/caesium-logo.png",
+      "sha256": "029ec75c82698e9299ffcdde6119f4fb0dfdeb6a06b4d75434c680821493b9b3"
+    },
+    {
+      "app": "caesium",
+      "slot": "shot-0",
+      "source": "https://github.com/user-attachments/assets/e5a6510a-58c5-4349-8563-f4e3ee84d5a0",
+      "file": "media/caesium-shot-0.png",
+      "sha256": "f68c7f196150ee6cf8e7a5d7c2eae00d62e69a30b5445e1aed54801200514457"
+    },
+    {
+      "app": "imageoptim",
+      "slot": "logo",
+      "source": "https://imageoptim.com/icon.png",
+      "file": "media/imageoptim-logo.png",
+      "sha256": "7c0b32232d8714ce00f09d86119328819072691299c68ea8b6e86f4b3ba6399d"
+    },
+    {
+      "app": "imageoptim",
+      "slot": "shot-0",
+      "source": "https://imageoptim.com/ImageOptim-app.png",
+      "file": "media/imageoptim-shot-0.png",
+      "sha256": "2588c263edb20a0c51bc4b5d1118374a6cbc1c223112ba3a5ea01d30ad68f8b6"
+    },
+    {
+      "app": "photodemon",
+      "slot": "logo",
+      "source": "https://photodemon.org/favicon.png",
+      "file": "media/photodemon-logo.png",
+      "sha256": "4f0ac39bdbe9f88c49bced358fab54d7cc8dfe955ddbb835c2973858de3e7b44"
+    },
+    {
+      "app": "photodemon",
+      "slot": "shot-0",
+      "source": "https://photodemon.org/media/images/photodemon_9.0.png",
+      "file": "media/photodemon-shot-0.png",
+      "sha256": "73e318f33ac56ea16e4cc4cf4ff50f75c0422a658988d0c0dcf3f289f4942355"
+    },
+    {
+      "app": "shutter-encoder",
+      "slot": "logo",
+      "source": "https://www.shutterencoder.com/wp-content/uploads/2024/04/cropped-logo-192x192.png",
+      "file": "media/shutter-encoder-logo.png",
+      "sha256": "424eb9596ab06c5fff3807abe4c13d4f406f1f6dfb1b8b3ab32edad8947f0e31"
+    },
+    {
+      "app": "shutter-encoder",
+      "slot": "shot-0",
+      "source": "https://www.shutterencoder.com/wp-content/uploads/2025/06/Main.png",
+      "file": "media/shutter-encoder-shot-0.png",
+      "sha256": "6a17e4c45be4cee062576b3b75017527a71e76e4041d628e3dd7e497e64bd97f"
+    },
+    {
+      "app": "shutter-encoder",
+      "slot": "shot-1",
+      "source": "https://www.shutterencoder.com/wp-content/uploads/2026/08/Shutter-Encoder-interface-cuts-2026.webp",
+      "file": "media/shutter-encoder-shot-1.png",
+      "sha256": "67f9cff279c6629284f82365445375549cc419a489451bb575335f5a45139eba"
     }
   ]
 }

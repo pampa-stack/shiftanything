@@ -255,6 +255,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::KEEPASSXC.id => Some(("KeePassXC-", "-arm64", "macos-aarch64")),
             id if id == crate::curated::LIBREOFFICE.id => Some(("LibreOffice_", "_MacOS_aarch64", "macos-aarch64")),
             id if id == crate::curated::JOPLIN.id => Some(("Joplin-", "-arm64", "macos-aarch64")),
+            id if id == crate::curated::SHOTCUT.id => Some(("shotcut-macos-", "", "macos-universal")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -311,10 +312,33 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
-    use crate::curated::{AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use crate::curated::{AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, SHOTCUT, TRANSMISSION};
 
     if !recipe_platform_verified(stems, platform) {
         return None;
+    }
+    // Pinta uses the same ARM64 filename for every release. The stable tag in the
+    // canonical URL binds the package; the signed bundle is checked again before installing.
+    if stems.contains(&crate::curated::PINTA.id) {
+        if !kinds.contains(&PackageKind::Dmg)
+            || release.prerelease
+            || !release.version.as_ref().is_some_and(|version| {
+                version.pre.is_empty() && version.build.is_empty() && crate::version::parse(&release.tag).as_ref() == Some(version)
+            })
+        {
+            return None;
+        }
+        let expected = format!("{}{}/Pinta-macos-arm64.dmg", crate::release::download_prefix(crate::curated::PINTA.repo), release.tag,);
+        return release
+            .assets
+            .iter()
+            .find(|asset| {
+                asset.name == "Pinta-macos-arm64.dmg"
+                    && asset.url == expected
+                    && asset.size > 0
+                    && asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
+            })
+            .map(|asset| (asset, PackageKind::Dmg));
     }
     let parsed: Vec<(&Asset, AssetName)> = release
         .assets
@@ -324,7 +348,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             if name.stem == crate::curated::LIBREOFFICE.id {
                 return crate::release::libreoffice_arm64_asset(release, asset);
             }
-            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN]
+            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT]
                 .iter()
                 .find(|app| app.id == name.stem)
                 .map(|app| app.repo);
@@ -333,7 +357,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             }) {
                 return false;
             }
-            if name.stem == JOPLIN.id
+            if [JOPLIN.id, SHOTCUT.id].contains(&name.stem.as_str())
                 && (release.tag.strip_prefix('v') != Some(name.version.as_str())
                     || !asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
                     || asset.size == 0)
@@ -359,7 +383,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
-        AUDACITY, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION,
+        AUDACITY, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT,
+        TRANSMISSION,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -377,6 +402,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         KEEPASSXC.id,
         LIBREOFFICE.id,
         JOPLIN.id,
+        SHOTCUT.id,
+        PINTA.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

@@ -36,12 +36,12 @@ use crate::process;
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     use artcraft_launcher_core::curated::{
-        AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION,
+        AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, SHOTCUT, TRANSMISSION,
     };
 
     match app.id {
         id if [OBS_STUDIO.id, AUDACITY.id].contains(&id) => Some(13),
-        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id].contains(&id) => Some(12),
+        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id, SHOTCUT.id].contains(&id) => Some(12),
         id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id].contains(&id) => Some(11),
         _ => None,
     }
@@ -2092,11 +2092,15 @@ pub mod macos {
         let staging = super::staging_dir(&dir)?;
         let staged = staging.path().join(&bundle);
         let (Some(src_s), Some(staged_s)) = (src.to_str(), staged.to_str()) else { return Err("unusual characters in a path".into()) };
-        // ditto keeps the code signature and symlinks intact. The disk image's volume adds Finder
-        // metadata (com.apple.FinderInfo) to the files; leave it and the extended attributes
-        // behind, or `codesign --verify --strict` rejects the bundle as carrying "detritus". A
-        // bundle's signature lives in its files, not in extended attributes.
-        process::run(DITTO, &["--norsrc", "--noextattr", "--noacl", src_s, staged_s], Duration::from_secs(600))
+        // Pinta has detached signatures in the extended attributes of its .NET libraries.
+        // Other recipes omit Finder metadata that would cause strict verification to fail.
+        // The staged copy must pass the same signature and notarization checks in both cases.
+        let args = if app.id == artcraft_launcher_core::curated::PINTA.id {
+            ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
+        } else {
+            ["--norsrc", "--noextattr", "--noacl", src_s, staged_s]
+        };
+        process::run(DITTO, &args, Duration::from_secs(600))
             .map_err(|reason| format!("couldn't copy the app: {reason}"))?;
         if !std::fs::symlink_metadata(&staged).is_ok_and(|m| m.is_dir()) {
             return Err("the copied app is not an app directory".into());
@@ -2762,11 +2766,12 @@ mod tests {
     #[cfg(target_os = "macos")]
     #[test]
     fn reviewed_daily_apps_require_their_verified_macos_versions() {
-        use artcraft_launcher_core::curated::{AUDACITY, JOPLIN, KEEPASSXC};
+        use artcraft_launcher_core::curated::{AUDACITY, JOPLIN, KEEPASSXC, SHOTCUT};
 
         assert_eq!(recipe_macos_minimum(&AUDACITY), Some(13));
         assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some(12));
         assert_eq!(recipe_macos_minimum(&JOPLIN), Some(12));
+        assert_eq!(recipe_macos_minimum(&SHOTCUT), Some(12));
     }
 
     /// A bare app name is never a launchable location, even when the working folder holds a

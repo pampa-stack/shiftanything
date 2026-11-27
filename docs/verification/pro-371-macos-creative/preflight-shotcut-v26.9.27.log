@@ -1,0 +1,39 @@
+PACKAGE v26.9.27 https://github.com/mltframework/shotcut/releases/download/v26.9.27/shotcut-macos-26.9.27.dmg 210131979 629b056bfee1670c1669dd73f19f76fe48e0cdf90e184dc1aa1bdd6d09aa2548
+/private/tmp/shift-creative-macos.CQu7hH09/payload-v26.9.27.RnHfSBwd/shotcut-macos-26.9.27.dmg: OK
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-creative-macos.CQu7hH09/payload-v26.9.27.RnHfSBwd/mount
+CFBundleIdentifier com.Meltytech.Shotcut
+CFBundleShortVersionString 26.9.27
+CFBundleExecutable Shotcut
+LSMinimumSystemVersion 12.0.0
+x86_64 arm64
+/private/tmp/shift-creative-macos.CQu7hH09/payload-v26.9.27.RnHfSBwd/mount/Shotcut.app/Contents/MacOS/Shotcut (architecture x86_64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 12.3
+   ntools 1
+     tool LD
+  version 762.0
+/private/tmp/shift-creative-macos.CQu7hH09/payload-v26.9.27.RnHfSBwd/mount/Shotcut.app/Contents/MacOS/Shotcut (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 12.3
+   ntools 1
+     tool LD
+  version 762.0
+Identifier=com.Meltytech.Shotcut
+Authority=Developer ID Application: Meltytech, LLC (Y6RX44QG2G)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=Y6RX44QG2G
+/private/tmp/shift-creative-macos.CQu7hH09/payload-v26.9.27.RnHfSBwd/mount/Shotcut.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Meltytech, LLC (Y6RX44QG2G)
+PASS v26.9.27 official hash, strict signature, notarization, Gatekeeper
+CLEANUP v26.9.27 status=0

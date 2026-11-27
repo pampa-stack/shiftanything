@@ -1,0 +1,20 @@
+PASS OFFICIAL v26.9.27 Dmg https://github.com/mltframework/shotcut/releases/download/v26.9.27/shotcut-macos-26.9.27.dmg 210131979 629b056bfee1670c1669dd73f19f76fe48e0cdf90e184dc1aa1bdd6d09aa2548
+PASS OFFICIAL v26.11.15 Dmg https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-macos-26.11.15.dmg 211234714 664c6ea4195d58dbf3fd43f3d74ae46d59b6310f9ac628d5e70a8e2786a4f80b
+PASS OFFICIAL v26.9.27 Dmg https://github.com/mltframework/shotcut/releases/download/v26.9.27/shotcut-macos-26.9.27.dmg 210131979 629b056bfee1670c1669dd73f19f76fe48e0cdf90e184dc1aa1bdd6d09aa2548
+PASS NATIVE install: Shotcut installed: 26.9.27; transferred=210131979
+/private/tmp/shift-shotcut-scratch.k9KZGBRO/home/Applications/Shotcut.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Meltytech, LLC (Y6RX44QG2G)
+PASS SIGNATURE + PROFILE MARKER install 26.9.27
+PASS OFFICIAL v26.11.15 Dmg https://github.com/mltframework/shotcut/releases/download/v26.11.15/shotcut-macos-26.11.15.dmg 211234714 664c6ea4195d58dbf3fd43f3d74ae46d59b6310f9ac628d5e70a8e2786a4f80b
+PASS NATIVE update: Shotcut updated to 26.11.15; transferred=211234714
+/private/tmp/shift-shotcut-scratch.k9KZGBRO/home/Applications/Shotcut.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Meltytech, LLC (Y6RX44QG2G)
+PASS SIGNATURE + PROFILE MARKER update 26.11.15
+PASS NATIVE remove: Shotcut was removed; transferred=0
+/private/tmp/shift-shotcut-scratch.k9KZGBRO/home/.Trash/Shotcut.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Meltytech, LLC (Y6RX44QG2G)
+PASS SIGNATURE + PROFILE MARKER remove 26.11.15
+CLEANUP /private/tmp/shift-shotcut-scratch.k9KZGBRO exit=0

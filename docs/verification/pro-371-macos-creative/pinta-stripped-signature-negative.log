@@ -1,0 +1,5 @@
+PASS OFFICIAL 3.1.1 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg 67815026 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+PASS OFFICIAL 3.1.2 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.2/Pinta-macos-arm64.dmg 68171678 daad4b3550e7d5f27928ccb9ca99392aa46a5ef71cfd54ce72c0b7a810f4f993
+PASS OFFICIAL 3.1.1 Dmg https://github.com/PintaProject/Pinta/releases/download/3.1.1/Pinta-macos-arm64.dmg 67815026 84912d381d835a912a11c092e74fef7ad5c13e8563d94dedb1f5e9ad7e9b2b3a
+Error: "macOS verification did not succeed (signature integrity: /private/tmp/shift-pinta-scratch.jP6OtUco/home/Applications/.artcraft-launcher-PI4S3a/Pinta.app: code object is not signed at all\nIn subcomponent: /private/tmp/shift-pinta-scratch.jP6OtUco/home/Applications/.artcraft-launcher-PI4S3a/Pinta.app/Contents/MacOS/Mono.Cecil.Rocks.dll), so the app wasn't installed"
+CLEANUP /private/tmp/shift-pinta-scratch.jP6OtUco exit=1

@@ -1,0 +1,27 @@
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/51
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/51
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+gimp: app e runtime rimossi; dati sintetici conservati
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/50
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/50
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+inks: app e runtime rimossi; dati sintetici conservati
+Uninstalling runtime/org.freedesktop.LinuxAudio.Plugins.CMT/x86_64/25.08
+Uninstalling runtime/org.freedesktop.LinuxAudio.Plugins.TAP/x86_64/25.08
+Uninstalling runtime/org.freedesktop.LinuxAudio.Plugins.swh/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+kdenlive: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   48G   49G  50% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.8Gi       2.5Gi        77Mi       3.5Gi       5.6Gi
+Swap:          4.0Gi       2.2Gi       1.8Gi

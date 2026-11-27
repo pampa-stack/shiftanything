@@ -11,3 +11,5 @@ Il confronto è documentale. L'installazione delle app è verificata da prove se
 Con il catalogo da 462 app, [confronto Figma in italiano online](figma-logos-462-it.png) e [dallo stesso confronto in un profilo nuovo a rete disabilitata](figma-logos-offline-it.png). I loghi di Doop, Penpot, FigCraft, draw.io ed Excalidraw sono inclusi nel pacchetto. Per le righe prive di un logo locale o scaricato la tabella mostra le iniziali.
 
 Altri 32 loghi sono inclusi per le alternative dei profili documentati. [Il confronto Photoshop, aperto nella build Mac con rete disabilitata](photoshop-logos-offline-it.png), mostra Krita, PhotoCraft, GIMP, Drawpile e Pinta con i rispettivi loghi.
+
+Build macOS Apple Silicon `4fe44dd`, estratta dal DMG locale verificato. La finestra 1440 × 900 avviata dal bundle in un profilo temporaneo con connessioni in uscita bloccate mostra 479 app. Verificati [i loghi nel confronto Photoshop](photoshop-479-offline-it.png) e [i loghi nel confronto Figma](figma-479-offline-it.png) selezionando Figma dalla tendina.

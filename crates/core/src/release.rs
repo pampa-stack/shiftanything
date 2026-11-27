@@ -561,6 +561,26 @@ pub fn vorta_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+const SOLVESPACE_MAC_DMG: &str = "SolveSpace.dmg";
+
+/// SolveSpace publishes the same DMG filename under stable tags such as v3.3.
+pub fn solvespace_mac_asset(release: &Release, asset: &Asset) -> bool {
+    let Some(version) = &release.version else { return false };
+    let canonical_tag =
+        release.tag == format!("v{version}") || (version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor));
+    !release.prerelease
+        && version.pre.is_empty()
+        && version.build.is_empty()
+        && canonical_tag
+        && asset.name == SOLVESPACE_MAC_DMG
+        && asset.url == format!("{}{}/{SOLVESPACE_MAC_DMG}", download_prefix(crate::curated::SOLVESPACE.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::SOLVESPACE.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const LAPCE_MAC_DMG: &str = "Lapce-macos.dmg";
 
 /// The universal package is unversioned; bind it to the publisher's stable tag and digest.
@@ -736,6 +756,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
+        ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
+        ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],
         ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],
         ("lapce/lapce", "v0.4.6") => &[(LAPCE_MAC_DMG, 45_483_653, "d4ba42218148446c265c6a823107a969b3b0dca5e14df834563f2859927228f5")],
         ("keycastr/keycastr", "v0.11.0") => &[(KEYCASTR_MAC_ZIP, 2_628_593, "00cc656a786012bcbdb5b203b1a56604727ad2ced5e4f5c1d189296f62881033")],

@@ -364,6 +364,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::lapce_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
+    if stems.contains(&crate::curated::SOLVESPACE.id) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::solvespace_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
+    }
     if stems.contains(&crate::curated::VORTA.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -563,6 +569,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
+        crate::curated::SOLVESPACE.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

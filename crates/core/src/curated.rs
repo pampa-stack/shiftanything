@@ -968,7 +968,28 @@ pub const VORTA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("CNMSCAXT48"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 36] = [
+pub const SOLVESPACE: crate::CraftApp = crate::CraftApp {
+    id: "solvespace",
+    name: "SolveSpace",
+    tagline: "Model parts with parametric 2D and 3D CAD",
+    repo: "solvespace/solvespace",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [225, 145, 89],
+    ink_light: [129, 67, 34],
+    ink_dark: [239, 184, 146],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "SolveSpace contributors",
+    msi_publisher: None,
+    bundle: Some("com.solvespace"),
+    site: Some("https://solvespace.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("8X77K9NDG3"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 37] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -998,6 +1019,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 36] = [
     PICARD,
     LAPCE,
     VORTA,
+    SOLVESPACE,
     PENCIL2D,
     OPENSHOT,
     MUSESCORE,
@@ -1419,6 +1441,7 @@ mod recipe_tests {
             ("zed", ["v1.29.3", "v1.30.2"], "Zed-aarch64.dmg", "dev.zed.Zed", "MQ55VZLNZQ", "Zed-x86_64.dmg"),
             ("stats", ["v3.1.0", "v3.1.1"], "Stats.dmg", "eu.exelban.Stats", "RP2S87B72W", "Stats-intel.dmg"),
             ("lapce", ["v0.4.5", "v0.4.6"], "Lapce-macos.dmg", "io.lapce", "CYSGAZFR8D", "Lapce-macos-x86_64.dmg"),
+            ("solvespace", ["v3.2", "v3.3"], "SolveSpace.dmg", "com.solvespace", "8X77K9NDG3", "SolveSpace-x86_64.dmg"),
             (
                 "neovide",
                 ["0.17.3", "0.17.4"],

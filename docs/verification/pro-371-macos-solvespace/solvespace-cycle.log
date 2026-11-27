@@ -1,0 +1,20 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436723868   1192740   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 973914624   2440816   100%    /Volumes/T7-Backup
+Recipe solvespace selected SolveSpace.dmg 13333565 bytes
+Verifying after 1.930s
+Installing after 1.930s
+PASS 3.2.0 13333565 bytes
+PASS install 3.044s
+27336	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-solvespace/Apps/SolveSpace.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436707972   1208636   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 973945888   2409552   100%    /Volumes/T7-Backup
+Recipe solvespace selected SolveSpace.dmg 13136637 bytes
+Verifying after 2.049s
+Installing after 2.049s
+PASS 3.3.0 13136637 bytes
+PASS update 3.185s
+26800	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-solvespace/Apps/SolveSpace.app
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-solvespace/.Trash/SolveSpace.app
+PASS remove 0.023s

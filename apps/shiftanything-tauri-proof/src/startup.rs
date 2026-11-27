@@ -74,13 +74,20 @@ fn desktop() -> Result<Option<Launch>, StartupError> {
         Err(TryLockError::WouldBlock) => return Ok(None),
         Err(TryLockError::Error(error)) => return Err(error.into()),
     }
-    let system_language = ["LC_ALL", "LC_MESSAGES", "LANG"]
-        .iter()
-        .find_map(|key| std::env::var(key).ok().filter(|value| !value.is_empty()))
-        .map_or("it", |locale| if locale.split(['_', '-', '.']).next() == Some("en") { "en" } else { "it" });
-    let language = saved_language(&root).unwrap_or(system_language);
+    let language = saved_language(&root).unwrap_or_else(|| preferred_language(sys_locale::get_locales()));
     let lifecycle = cfg!(any(target_os = "macos", target_os = "linux", all(windows, feature = "windows-lifecycle")));
     Ok(Some(Launch { root, language, isolated: false, lifecycle, _desktop_lock: Some(lock) }))
+}
+
+fn preferred_language(locales: impl IntoIterator<Item = impl AsRef<str>>) -> &'static str {
+    locales
+        .into_iter()
+        .find_map(|locale| match locale.as_ref().split(['_', '-', '.', '@']).next() {
+            Some(language) if language.eq_ignore_ascii_case("it") => Some("it"),
+            Some(language) if language.eq_ignore_ascii_case("en") => Some("en"),
+            _ => None,
+        })
+        .unwrap_or("it")
 }
 
 fn saved_language(root: &Path) -> Option<&'static str> {
@@ -243,6 +250,14 @@ mod windows_tests {
 #[cfg(all(test, unix))]
 mod tests {
     use super::*;
+
+    #[test]
+    fn desktop_uses_the_first_supported_system_language() {
+        assert_eq!(preferred_language(["fr-FR", "en-GB", "it-IT"]), "en");
+        assert_eq!(preferred_language(["it_IT.UTF-8", "en-US"]), "it");
+        assert_eq!(preferred_language(["EN_us", "it"]), "en");
+        assert_eq!(preferred_language(["fr", "C.UTF-8"]), "it");
+    }
 
     #[test]
     fn desktop_language_accepts_only_known_preferences() -> Result<(), StartupError> {

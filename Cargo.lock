@@ -5868,6 +5868,7 @@ dependencies = [
  "artcraft-launcher-native",
  "serde",
  "serde_json",
+ "sys-locale",
  "tauri",
  "tauri-build",
  "tempfile",

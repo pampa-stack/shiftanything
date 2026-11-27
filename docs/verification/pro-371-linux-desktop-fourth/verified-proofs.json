@@ -1,0 +1,280 @@
+[
+  {
+    "id": "kate",
+    "name": "Kate",
+    "repo": "https://invent.kde.org/utilities/kate",
+    "license": "LGPL-2.1+",
+    "stars": null,
+    "flatpak": "org.kde.kate",
+    "flathub": "https://flathub.org/apps/org.kde.kate",
+    "download_size": 10156104,
+    "logo": "https://dl.flathub.org/media/org/kde/kate.desktop/6fc5262fd9699b593ad9c9e9c2d6adc9/icons/128x128/org.kde.kate.desktop.png",
+    "title": "kate",
+    "verification": {
+      "login_name": "teams/flathub",
+      "login_provider": "kde",
+      "website": null,
+      "login_is_organization": true,
+      "verified": true,
+      "method": "login_provider",
+      "timestamp": "1726309006"
+    },
+    "display_versions": [
+      "26.08.3",
+      "26.08.2"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=kate",
+      "homepage": "https://kate-editor.org/",
+      "help": "https://docs.kde.org/?application=kate",
+      "donation": "https://www.kde.org/community/donations/?app=kate&source=appdata"
+    },
+    "current": "c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82",
+    "prev": "391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194",
+    "previous_version": "26.04.2",
+    "current_version": "26.08.3",
+    "times_ms": {
+      "install": 46492,
+      "prior": 29300,
+      "open-previous": 4670,
+      "open": 6070,
+      "update": 5534,
+      "open-current": 4596,
+      "remove": 3920,
+      "update-remove": 15942
+    },
+    "cycle_ms": 97045
+  },
+  {
+    "id": "ark",
+    "name": "Ark",
+    "repo": "https://invent.kde.org/utilities/ark",
+    "license": "GPL-2.0+",
+    "stars": null,
+    "flatpak": "org.kde.ark",
+    "flathub": "https://flathub.org/apps/org.kde.ark",
+    "download_size": 7779082,
+    "logo": "https://dl.flathub.org/media/org/kde/ark.desktop/b862a147f06426e1ebf3986c8df19787/icons/128x128/org.kde.ark.desktop.png",
+    "title": "ark",
+    "verification": {
+      "verified": true,
+      "method": "login_provider",
+      "login_is_organization": true,
+      "login_name": "teams/flathub",
+      "login_provider": "kde",
+      "website": null,
+      "timestamp": "1681471910"
+    },
+    "display_versions": [
+      "26.08.3",
+      "26.08.2"
+    ],
+    "metadata_urls": {
+      "homepage": "https://apps.kde.org/ark",
+      "help": "https://docs.kde.org/?application=ark",
+      "donation": "https://www.kde.org/community/donations/?app=ark&source=appdata",
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=ark"
+    },
+    "current": "8275aad8fadad4178df3f8939ac1f36f5e67f556cfc18455b0afc18348ddfeab",
+    "prev": "908876d27bf2ede02d536cdc5f8369a94ac7dc3a77665c6ef31260346c9e4397",
+    "previous_version": "26.08.3",
+    "current_version": "26.08.3",
+    "times_ms": {
+      "install": 43424,
+      "prior": 4935,
+      "open-previous": 4681,
+      "open": 5844,
+      "update": 4620,
+      "open-current": 4185,
+      "remove": 2905,
+      "update-remove": 13320
+    },
+    "cycle_ms": 66766
+  },
+  {
+    "id": "filelight",
+    "name": "Filelight",
+    "repo": "https://invent.kde.org/utilities/filelight",
+    "license": "GPL-2.0+",
+    "stars": null,
+    "flatpak": "org.kde.filelight",
+    "flathub": "https://flathub.org/apps/org.kde.filelight",
+    "download_size": 521724,
+    "logo": "https://dl.flathub.org/media/org/kde/filelight.desktop/697163d12e2e64afd6b6e01188f7fa24/icons/128x128/org.kde.filelight.desktop.png",
+    "title": "filelight",
+    "verification": {
+      "login_is_organization": true,
+      "verified": true,
+      "method": "login_provider",
+      "timestamp": "1681471944",
+      "login_name": "teams/flathub",
+      "login_provider": "kde",
+      "website": null
+    },
+    "display_versions": [
+      "26.08.3",
+      "26.08.2"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=filelight",
+      "homepage": "https://apps.kde.org/filelight",
+      "help": "https://docs.kde.org/?application=filelight",
+      "donation": "https://www.kde.org/community/donations/?app=filelight&source=appdata"
+    },
+    "current": "b0344bab1ac77dbbce1ca21f0c1060adadb3dc0045c3e1f4bb3d4133920b735e",
+    "prev": "939300f48e847dd39f389f6b87d3437d8f7b8ca474f959805f6184f2ece4119e",
+    "previous_version": "26.08.2",
+    "current_version": "26.08.3",
+    "times_ms": {
+      "install": 38090,
+      "prior": 4631,
+      "open-previous": 5116,
+      "open": 6126,
+      "update": 4223,
+      "open-current": 4411,
+      "remove": 3320,
+      "update-remove": 12897
+    },
+    "cycle_ms": 61934
+  },
+  {
+    "id": "glaxnimate",
+    "name": "Glaxnimate",
+    "repo": "https://invent.kde.org/graphics/glaxnimate",
+    "license": "GPL-3.0-or-later",
+    "stars": null,
+    "flatpak": "org.kde.glaxnimate",
+    "flathub": "https://flathub.org/apps/org.kde.glaxnimate",
+    "download_size": 4316786,
+    "logo": "https://dl.flathub.org/media/org/kde/glaxnimate/5ef27e7b3258a9b6f8ad9ddfe16a868e/icons/128x128/org.kde.glaxnimate.png",
+    "title": "glaxnimate",
+    "verification": {
+      "verified": true,
+      "method": "login_provider",
+      "login_is_organization": true,
+      "login_name": "teams/flathub",
+      "timestamp": "1772719980",
+      "login_provider": "kde",
+      "website": null
+    },
+    "display_versions": [
+      "0.6.0",
+      "0.5.4"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?product=glaxnimate",
+      "homepage": "https://glaxnimate.org/",
+      "help": "https://docs.glaxnimate.org/",
+      "donation": "https://www.kde.org/community/donations/?app=glaxnimate&source=appdata",
+      "vcs_browser": "https://invent.kde.org/graphics/glaxnimate"
+    },
+    "current": "8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39",
+    "prev": "ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e",
+    "previous_version": "0.6.0",
+    "current_version": "0.6.0",
+    "times_ms": {
+      "install": 39882,
+      "prior": 29907,
+      "open-previous": 7295,
+      "open": 11717,
+      "update": 4729,
+      "open-current": 6674,
+      "remove": 3617,
+      "update-remove": 20423
+    },
+    "cycle_ms": 102077
+  },
+  {
+    "id": "evolution",
+    "name": "Evolution",
+    "repo": "https://gitlab.gnome.org/GNOME/evolution",
+    "license": "GPL-2.0+ and GFDL-1.3",
+    "stars": null,
+    "flatpak": "org.gnome.Evolution",
+    "flathub": "https://flathub.org/apps/org.gnome.Evolution",
+    "download_size": 25615279,
+    "logo": "https://dl.flathub.org/media/org/gnome/Evolution.desktop/085ce74968a216fb14514c81fed577de/icons/128x128/org.gnome.Evolution.desktop.png",
+    "title": "evolution",
+    "verification": {
+      "verified": true,
+      "method": "login_provider",
+      "login_is_organization": false,
+      "login_name": "mcrha",
+      "login_provider": "gnome",
+      "website": null,
+      "timestamp": "1713771546"
+    },
+    "display_versions": [
+      "3.62.1",
+      "3.62.0"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/GNOME/evolution/-/issues/",
+      "homepage": "https://gitlab.gnome.org/GNOME/evolution/-/wikis/home",
+      "help": "https://gnome.pages.gitlab.gnome.org/evolution/help/",
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/evolution/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/evolution"
+    },
+    "current": "053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd",
+    "prev": "2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d",
+    "previous_version": "3.62.0",
+    "current_version": "3.62.1",
+    "times_ms": {
+      "install": 38324,
+      "prior": 6401,
+      "open-previous": 6798,
+      "open": 10472,
+      "update": 5018,
+      "open-current": 6183,
+      "remove": 3419,
+      "update-remove": 18570
+    },
+    "cycle_ms": 74108
+  },
+  {
+    "id": "freac",
+    "name": "fre:ac",
+    "repo": "https://github.com/enzo1982/freac",
+    "license": "GPL-2.0",
+    "stars": 2024,
+    "flatpak": "org.freac.freac",
+    "flathub": "https://flathub.org/apps/org.freac.freac",
+    "download_size": 12985640,
+    "logo": "https://dl.flathub.org/media/org/freac/freac/02d02f63d26f434e596fff225d41e511/icons/128x128/org.freac.freac.png",
+    "title": "fre:ac|freac",
+    "verification": {
+      "login_is_organization": false,
+      "login_name": null,
+      "timestamp": "1682341353",
+      "login_provider": null,
+      "website": "freac.org",
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "1.1.7",
+      "1.1.6"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://github.com/enzo1982/freac/issues",
+      "homepage": "https://www.freac.org",
+      "donation": "https://www.freac.org/donating.php"
+    },
+    "current": "2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092",
+    "prev": "25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1",
+    "previous_version": "1.1.7",
+    "current_version": "1.1.7",
+    "times_ms": {
+      "install": 28702,
+      "prior": 24617,
+      "open-previous": 5662,
+      "open": 6143,
+      "update": 5022,
+      "open-current": 5504,
+      "remove": 3319,
+      "update-remove": 15277
+    },
+    "cycle_ms": 75013
+  }
+]

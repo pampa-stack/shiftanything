@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 36] = [
+pub const RECIPES: [(&str, &str); 42] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -38,6 +38,12 @@ pub const RECIPES: [(&str, &str); 36] = [
     ("drawpile", "net.drawpile.drawpile"),
     ("kid3", "org.kde.kid3"),
     ("super-productivity", "com.super_productivity.SuperProductivity"),
+    ("kate", "org.kde.kate"),
+    ("ark", "org.kde.ark"),
+    ("filelight", "org.kde.filelight"),
+    ("glaxnimate", "org.kde.glaxnimate"),
+    ("evolution", "org.gnome.Evolution"),
+    ("freac", "org.freac.freac"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -92,6 +98,12 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "drawpile" => "https://github.com/drawpile/Drawpile",
         "kid3" => "https://invent.kde.org/multimedia/kid3",
         "super-productivity" => "https://github.com/super-productivity/super-productivity",
+        "kate" => "https://invent.kde.org/utilities/kate",
+        "ark" => "https://invent.kde.org/utilities/ark",
+        "filelight" => "https://invent.kde.org/utilities/filelight",
+        "glaxnimate" => "https://invent.kde.org/graphics/glaxnimate",
+        "evolution" => "https://gitlab.gnome.org/GNOME/evolution",
+        "freac" => "https://github.com/enzo1982/freac",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

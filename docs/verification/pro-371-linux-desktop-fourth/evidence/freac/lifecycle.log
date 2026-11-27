@@ -1,0 +1,55 @@
+
+=== 2026-11-27T09:30:44+00:00 freac install ===
+freac before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+freac JobFinished: Ok("Flathub app installed")
+freac after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-freac-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+9d6be2ea9c064f1ccf17e8d7cf3ebcc67db9f373984bb08636ee36b52c983fcb  /var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-freac-icon.png
+org.freac.freac/x86_64/stable	flathub	2851adb129f2	user	1.1.7
+TIMING freac install 28702 ms
+
+=== 2026-11-27T09:31:13+00:00 freac prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform/x86_64/25.08
+Previous runtime org.freedesktop.Platform/x86_64/25.08
+Updating app/org.freac.freac/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.freac.freac/x86_64/stable	flathub	25fe0b4974a7	user	1.1.7
+freac before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1", package: Some("org.freac.freac"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: false, can_open: true }
+freac JobFinished: Err("Approved action rejected: native installation state changed")
+freac JobFinished: Err("This Flatpak is managed outside the launcher")
+freac after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1", package: Some("org.freac.freac"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: false, can_open: true })
+TIMING freac prior 24617 ms
+
+=== 2026-11-27T09:31:38+00:00 freac open ===
+dbus-daemon[2497264]: [session uid=1000 pid=2497264 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2497311 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2497264]: [session uid=1000 pid=2497264 pidfd=5] Successfully activated service 'org.a11y.Bus'
+freac before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: true, can_remove: true, can_open: true }
+freac JobFinished: Ok("Launch request accepted")
+freac after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: true, can_remove: true, can_open: true })
+TIMING freac open-previous 5662 ms
+TIMING freac open 6143 ms
+
+=== 2026-11-27T09:31:44+00:00 freac update-remove ===
+freac before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/25fe0b4974a73e40b3e98041059710d412ec31c35874388f17fa1aca7ba233d1", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: true, can_remove: true, can_open: true }
+freac JobFinished: Ok("Flathub app updated")
+freac after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: true, can_open: true })
+TIMING freac update 5022 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/.var/app/org.freac.freac/shift-profile-marker: OK
+dbus-daemon[2498701]: [session uid=1000 pid=2498701 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2498745 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2498701]: [session uid=1000 pid=2498701 pidfd=5] Successfully activated service 'org.a11y.Bus'
+freac before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: true, can_open: true }
+freac JobFinished: Ok("Launch request accepted")
+freac after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: true, can_open: true })
+TIMING freac open-current 5504 ms
+freac before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 7 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/data/flatpak/app/org.freac.freac/x86_64/stable/2851adb129f2b31009c4d249a6dc17e4d974db8cd854e122f97af00c6e752092", package: Some("org.freac.freac"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.7"), update_available: false, can_remove: true, can_open: true }
+freac JobFinished: Ok("Flathub app removed")
+freac after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING freac remove 3319 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/freac/home/.var/app/org.freac.freac/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING freac update-remove 15277 ms

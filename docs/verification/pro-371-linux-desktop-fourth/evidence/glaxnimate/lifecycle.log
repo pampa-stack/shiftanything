@@ -1,0 +1,59 @@
+
+=== 2026-11-27T09:26:43+00:00 glaxnimate install ===
+glaxnimate before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+glaxnimate JobFinished: Ok("Flathub app installed")
+glaxnimate after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-glaxnimate-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (744)
+aa02d06f336cf60e70e95cb7c3168c6ffae08b57b18fb08dfcd69f84bbc60b00  /var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-glaxnimate-icon.svg
+org.kde.glaxnimate/x86_64/stable	flathub	8a950bade30d	user	0.6.0
+TIMING glaxnimate install 39882 ms
+
+=== 2026-11-27T09:27:23+00:00 glaxnimate prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.kde.glaxnimate/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.glaxnimate/x86_64/stable	flathub	ef03dffc433c	user	0.6.0
+glaxnimate before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e", package: Some("org.kde.glaxnimate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: false, can_open: true }
+glaxnimate JobFinished: Err("Approved action rejected: native installation state changed")
+glaxnimate JobFinished: Err("This Flatpak is managed outside the launcher")
+glaxnimate after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e", package: Some("org.kde.glaxnimate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: false, can_open: true })
+TIMING glaxnimate prior 29907 ms
+
+=== 2026-11-27T09:27:53+00:00 glaxnimate open ===
+dbus-daemon[2476013]: [session uid=1000 pid=2476013 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2476047 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2476013]: [session uid=1000 pid=2476013 pidfd=5] Successfully activated service 'org.a11y.Bus'
+glaxnimate before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true }
+glaxnimate JobFinished: Ok("Launch request accepted")
+glaxnimate after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2476115]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2476636 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2476115]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING glaxnimate open-previous 7295 ms
+TIMING glaxnimate open 11717 ms
+
+=== 2026-11-27T09:28:05+00:00 glaxnimate update-remove ===
+glaxnimate before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/ef03dffc433cd98d3223608bb29e1c33d1a01c5fbc416ee3a7ff7b457351a09e", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true }
+glaxnimate JobFinished: Ok("Flathub app updated")
+glaxnimate after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+TIMING glaxnimate update 4729 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/.var/app/org.kde.glaxnimate/shift-profile-marker: OK
+dbus-daemon[2478619]: [session uid=1000 pid=2478619 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2478675 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2478619]: [session uid=1000 pid=2478619 pidfd=5] Successfully activated service 'org.a11y.Bus'
+glaxnimate before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true }
+glaxnimate JobFinished: Ok("Launch request accepted")
+glaxnimate after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2478746]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2479420 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2478746]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING glaxnimate open-current 6674 ms
+glaxnimate before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/data/flatpak/app/org.kde.glaxnimate/x86_64/stable/8a950bade30d9e153ceafb276ee22568588b99d03f6f9cb0c03644172e9dac39", package: Some("org.kde.glaxnimate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true }
+glaxnimate JobFinished: Ok("Flathub app removed")
+glaxnimate after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING glaxnimate remove 3617 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/glaxnimate/home/.var/app/org.kde.glaxnimate/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING glaxnimate update-remove 20423 ms

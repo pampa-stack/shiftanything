@@ -1,0 +1,56 @@
+
+=== 2026-11-27T09:28:31+00:00 evolution install ===
+evolution before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+evolution JobFinished: Ok("Flathub app installed")
+evolution after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-evolution-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (3376), with no line terminators
+dcda7580deebec635ff3d560795a45dd41e62ce3e7d311a170b46b4cf2a0cbb2  /var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-evolution-icon.svg
+org.gnome.Evolution/x86_64/stable	flathub	053e6c5b7348	user	3.62.1
+TIMING evolution install 38324 ms
+
+=== 2026-11-27T09:29:09+00:00 evolution prior ===
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnome.Evolution/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.Evolution/x86_64/stable	flathub	2d34bb5810fa	user	3.62.0
+evolution before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d", package: Some("org.gnome.Evolution"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.0"), update_available: false, can_remove: false, can_open: true }
+evolution JobFinished: Err("Approved action rejected: native installation state changed")
+evolution JobFinished: Err("This Flatpak is managed outside the launcher")
+evolution after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d", package: Some("org.gnome.Evolution"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.0"), update_available: false, can_remove: false, can_open: true })
+TIMING evolution prior 6401 ms
+
+=== 2026-11-27T09:29:16+00:00 evolution open ===
+dbus-daemon[2484241]: [session uid=1000 pid=2484241 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2484282 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2484241]: [session uid=1000 pid=2484241 pidfd=5] Successfully activated service 'org.a11y.Bus'
+evolution before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.0"), update_available: true, can_remove: true, can_open: true }
+evolution JobFinished: Ok("Launch request accepted")
+evolution after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2484311]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=1000 pid=2484770 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2484311]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING evolution open-previous 6798 ms
+TIMING evolution open 10472 ms
+
+=== 2026-11-27T09:29:26+00:00 evolution update-remove ===
+evolution before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/2d34bb5810fa1b627de94125d03abb9f180755d5bae5dd9b114c26c0fb9bbf3d", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.0"), update_available: true, can_remove: true, can_open: true }
+evolution JobFinished: Ok("Flathub app updated")
+evolution after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.1"), update_available: false, can_remove: true, can_open: true })
+TIMING evolution update 5018 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/.var/app/org.gnome.Evolution/shift-profile-marker: OK
+dbus-daemon[2487264]: [session uid=1000 pid=2487264 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2487317 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2487264]: [session uid=1000 pid=2487264 pidfd=5] Successfully activated service 'org.a11y.Bus'
+evolution before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.1"), update_available: false, can_remove: true, can_open: true }
+evolution JobFinished: Ok("Launch request accepted")
+evolution after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.1"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2487332]: Activating service name='org.a11y.atspi.Registry' requested by ':1.1' (uid=1000 pid=2487757 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2487332]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING evolution open-current 6183 ms
+evolution before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 62, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/data/flatpak/app/org.gnome.Evolution/x86_64/stable/053e6c5b734895039581eb45715e846987b5b8e3828952c76bd1e53e0bc7a0fd", package: Some("org.gnome.Evolution"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.62.1"), update_available: false, can_remove: true, can_open: true }
+evolution JobFinished: Ok("Flathub app removed")
+evolution after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING evolution remove 3419 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evolution/home/.var/app/org.gnome.Evolution/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING evolution update-remove 18570 ms

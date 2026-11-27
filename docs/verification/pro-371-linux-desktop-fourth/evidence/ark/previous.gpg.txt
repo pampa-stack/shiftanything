@@ -1,0 +1,19 @@
+commit 908876d27bf2ede02d536cdc5f8369a94ac7dc3a77665c6ef31260346c9e4397
+Parent:  7b5c13f1398bdacd0ec35911b9187685aebb169a283ec030e50b54ef61187ef0
+ContentChecksum:  6eaa64140f1877759796e1919127c5205659ad03a36fdcc345f8f2fe6e3881f6
+Date:  2026-11-06 10:48:58 +0000
+
+    Update 7zip and ark modules (e638c9af8b85)
+
+    Name: org.kde.ark
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov  6 11:01:32 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,59 @@
+
+=== 2026-11-27T09:25:32+00:00 kate install ===
+kate before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+kate JobFinished: Ok("Flathub app installed")
+kate after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-kate-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+5e0db27336b47af56383b1810c03170c79aff1d40979804b249b3256ae2f39f2  /var/tmp/shift-flatpak-desktop.ck1FCGXU/evidence/native-kate-icon.png
+org.kde.kate/x86_64/stable	flathub	c697866017b8	user	26.08.3
+TIMING kate install 46492 ms
+
+=== 2026-11-27T09:26:18+00:00 kate prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.kde.kate/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.kate/x86_64/stable	flathub	391d8f4fe21f	user	26.04.2
+kate before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194", package: Some("org.kde.kate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: false, can_remove: false, can_open: true }
+kate JobFinished: Err("Approved action rejected: native installation state changed")
+kate JobFinished: Err("This Flatpak is managed outside the launcher")
+kate after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194", package: Some("org.kde.kate"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: false, can_remove: false, can_open: true })
+TIMING kate prior 29300 ms
+
+=== 2026-11-27T09:26:47+00:00 kate open ===
+dbus-daemon[2472184]: [session uid=1000 pid=2472184 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2472236 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2472184]: [session uid=1000 pid=2472184 pidfd=5] Successfully activated service 'org.a11y.Bus'
+kate before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true }
+kate JobFinished: Ok("Launch request accepted")
+kate after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2472270]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2472635 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2472270]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING kate open-previous 4670 ms
+TIMING kate open 6070 ms
+
+=== 2026-11-27T09:26:53+00:00 kate update-remove ===
+kate before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/391d8f4fe21fa08c1df1fe0011cee7a3f48e2441275f68a342ec4ac2aeef2194", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true }
+kate JobFinished: Ok("Flathub app updated")
+kate after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+TIMING kate update 5534 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/.var/app/org.kde.kate/shift-profile-marker: OK
+dbus-daemon[2473419]: [session uid=1000 pid=2473419 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.3' (uid=1000 pid=2473448 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2473419]: [session uid=1000 pid=2473419 pidfd=5] Successfully activated service 'org.a11y.Bus'
+kate before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+kate JobFinished: Ok("Launch request accepted")
+kate after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2473462]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2473825 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2473462]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING kate open-current 4596 ms
+kate before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/data/flatpak/app/org.kde.kate/x86_64/stable/c697866017b8f501dfdd29cb09971f1309dcb2b86955e495677f3a8e9008bf82", package: Some("org.kde.kate"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+kate JobFinished: Ok("Flathub app removed")
+kate after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING kate remove 3920 ms
+/var/tmp/shift-flatpak-desktop.ck1FCGXU/kate/home/.var/app/org.kde.kate/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING kate update-remove 15942 ms

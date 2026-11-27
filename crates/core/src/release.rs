@@ -93,6 +93,11 @@ pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
 pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
 pub const VLC_DMG_URL: &str = "https://download.videolan.org/pub/videolan/vlc/";
 pub const VLC_DOWNLOADS_URL: &str = "https://www.videolan.org/vlc/download-macosx.html";
+pub const INKSCAPE_DMG_URL: &str = "https://media.inkscape.org/dl/resources/file/";
+pub const INKSCAPE_DOWNLOADS_URL: &str = "https://inkscape.org/release/";
+pub const KDENLIVE_DMG_URL: &str = "https://cdn.download.kde.org/stable/kdenlive/";
+pub const KDENLIVE_DOWNLOADS_URL: &str = "https://kdenlive.org/en/download/";
+pub const KDENLIVE_RELEASES_URL: &str = "https://apps.kde.org/kdenlive/index.xml";
 pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
 pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
 pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
@@ -165,6 +170,40 @@ pub fn vlc_mac_release(tag: &str) -> Option<Release> {
         name: format!("VLC {tag}"),
         html_url: VLC_DOWNLOADS_URL.to_string(),
         version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn inkscape_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::INKSCAPE.repo, tag).collect(),
+        name: format!("Inkscape {tag}"),
+        html_url: INKSCAPE_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+/// KDE’s macOS bundle and release feed use YY.MM.PATCH with a zero-padded month.
+pub fn kdenlive_mac_version(tag: &str) -> Option<Version> {
+    let (year, remainder) = tag.split_once('.')?;
+    let (month, patch) = remainder.split_once('.')?;
+    let version = Version::new(year.parse().ok()?, month.parse().ok()?, patch.parse().ok()?);
+    ((1..=12).contains(&version.minor) && format!("{}.{:02}.{}", version.major, version.minor, version.patch) == tag).then_some(version)
+}
+
+pub fn kdenlive_mac_release(tag: &str) -> Option<Release> {
+    Some(Release {
+        assets: reviewed_assets(crate::curated::KDENLIVE.repo, tag).collect(),
+        name: format!("Kdenlive {tag}"),
+        html_url: KDENLIVE_DOWNLOADS_URL.to_string(),
+        version: Some(kdenlive_mac_version(tag)?),
         tag: tag.to_string(),
         ..Release::default()
     })
@@ -641,6 +680,8 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         version::parse_dbeaver(tag)
     } else if repo == crate::curated::PRUSA_SLICER.repo {
         prusa_slicer_version(tag.strip_prefix("version_")?)
+    } else if repo == crate::curated::KDENLIVE.repo {
+        kdenlive_mac_version(tag)
     } else if repo == crate::curated::AUDACITY.repo {
         version::parse(tag.strip_prefix("Audacity-")?)
     } else if repo == crate::curated::ENTE_AUTH.repo {
@@ -1034,6 +1075,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::GIMP,
         crate::curated::KRITA,
         crate::curated::VLC,
+        crate::curated::INKSCAPE,
+        crate::curated::KDENLIVE,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1046,6 +1089,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
             }
             let canonical_tag = if app.uses_krita_releases() {
                 krita_mac_version(&release.tag).as_ref() == Some(version)
+            } else if app.uses_kdenlive_releases() {
+                kdenlive_mac_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
                 release.tag == format!("version_{version}")
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
@@ -1061,6 +1106,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || app.uses_blender_releases()
                 || app.uses_gimp_releases()
                 || app.uses_vlc_releases()
+                || app.uses_inkscape_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -1540,6 +1586,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
         ("videolan/vlc", "3.0.23") => &[("vlc-3.0.23-arm64.dmg", 51_273_389, "fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d")],
         ("videolan/vlc", "3.0.24") => &[("vlc-3.0.24-arm64.dmg", 56_960_605, "64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7")],
+        ("inkscape/inkscape", "1.4.3") => {
+            &[("Inkscape-1.4.3_arm64.dmg", 156_533_257, "f4aa9c9b2e06db432c6f81a494ad9aa59b87cb7d9539cd7e6f6000002cb9edff")]
+        }
+        ("inkscape/inkscape", "1.4.4") => {
+            &[("Inkscape-1.4.4_arm64.dmg", 156_920_591, "eacca94ab01e59467cdd5452a2867c3734450f9a4cfb3346956cc9b07f34f3f1")]
+        }
+        ("KDE/kdenlive", "26.08.2") => {
+            &[("kdenlive-26.08.2-arm64.dmg", 144_286_250, "ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac")]
+        }
+        ("KDE/kdenlive", "26.08.3") => {
+            &[("kdenlive-26.08.3-arm64.dmg", 141_459_245, "22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e")]
+        }
         ("KDE/krita", "5.3.4.1") => &[("krita-5.3.4.1-signed.dmg", 392_023_759, "531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de")],
         ("KDE/krita", "5.3.5") => &[("krita-5.3.5-signed.dmg", 392_026_525, "273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175")],
         ("Ranchero-Software/NetNewsWire", "mac-7.3") => {
@@ -1803,6 +1861,11 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             format!("{BLENDER_DMG_URL}Blender{series}/{name}")
         } else if repo == crate::curated::VLC.repo {
             format!("{VLC_DMG_URL}{tag}/macosx/{name}")
+        } else if repo == crate::curated::INKSCAPE.repo {
+            format!("{INKSCAPE_DMG_URL}{name}")
+        } else if repo == crate::curated::KDENLIVE.repo {
+            let series = tag.rsplit_once('.').map_or(tag, |(series, _)| series);
+            format!("{KDENLIVE_DMG_URL}{series}/macOS/{name}")
         } else if repo == crate::curated::KRITA.repo {
             format!("{KRITA_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::GIMP.repo {

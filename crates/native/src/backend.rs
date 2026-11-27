@@ -2598,6 +2598,10 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::Blender
     } else if sources.contains(&Source::VideoLan) {
         Source::VideoLan
+    } else if sources.contains(&Source::Inkscape) {
+        Source::Inkscape
+    } else if sources.contains(&Source::Kdenlive) {
+        Source::Kdenlive
     } else if sources.contains(&Source::Krita) {
         Source::Krita
     } else if sources.contains(&Source::Gimp) {
@@ -2844,6 +2848,8 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_gimp_releases()
         || app.uses_krita_releases()
         || app.uses_vlc_releases()
+        || app.uses_inkscape_releases()
+        || app.uses_kdenlive_releases()
         || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
@@ -2863,6 +2869,10 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::Blender
     } else if app.uses_vlc_releases() {
         Origin::VideoLan
+    } else if app.uses_inkscape_releases() {
+        Origin::Inkscape
+    } else if app.uses_kdenlive_releases() {
+        Origin::Kdenlive
     } else if app.uses_krita_releases() {
         Origin::Krita
     } else if app.uses_gimp_releases() {
@@ -3528,6 +3538,26 @@ mod tests {
         assert_eq!(release_origin(&VLC), Origin::VideoLan);
         assert!(!routes_to_flathub(VLC.id, Some(linux), InstallChannel::Stable));
         assert!(!routes_to_flathub(VLC.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn inkscape_and_kdenlive_use_native_mac_assets_and_keep_the_linux_flatpak_route() {
+        use artcraft_launcher_core::{
+            Arch,
+            curated::{INKSCAPE, KDENLIVE},
+            nightly::InstallChannel,
+        };
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, origin) in [(INKSCAPE, Origin::Inkscape), (KDENLIVE, Origin::Kdenlive)] {
+            assert_eq!(CraftApp::by_id(app.id), Some(&app));
+            assert!(feed_for_app(Some(&feed), &app).is_none());
+            assert_eq!(release_origin(&app), origin);
+            assert!(routes_to_flathub(app.id, Some(linux), InstallChannel::Stable));
+            assert!(!routes_to_flathub(app.id, Some(mac), InstallChannel::Stable));
+        }
     }
 
     #[test]

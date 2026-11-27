@@ -251,11 +251,15 @@ pub mod macos {
         // `<App>Version` carries the full version including a pre-release suffix;
         // CFBundleShortVersionString only has the numbers. An empty value leaves CFBundleVersion authoritative.
         let full_keys: Vec<String> = app.mac_bundle_names().map(|n| format!("{n}Version")).collect();
-        let text = full_keys
-            .iter()
-            .map(String::as_str)
-            .chain(["CFBundleShortVersionString", "CFBundleVersion"])
-            .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()));
+        let text = if app.uses_kdenlive_releases() {
+            dict.get("CFBundleVersion").and_then(plist::Value::as_string)
+        } else {
+            full_keys
+                .iter()
+                .map(String::as_str)
+                .chain(["CFBundleShortVersionString", "CFBundleVersion"])
+                .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()))
+        };
         Some(Installed {
             version: text.and_then(|text| bundle_version(app, text)),
             source: InstallSource::MacApp,
@@ -270,6 +274,9 @@ pub mod macos {
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
         use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, PRUSA_SLICER};
 
+        if app.uses_kdenlive_releases() {
+            return artcraft_launcher_core::release::kdenlive_mac_version(text);
+        }
         if (app.id, app.repo) == (DBEAVER_CE.id, DBEAVER_CE.repo) {
             return version::parse_dbeaver(text);
         }

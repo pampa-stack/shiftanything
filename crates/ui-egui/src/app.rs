@@ -1287,6 +1287,8 @@ impl LauncherUi {
         let mut gimp = false;
         let mut krita = false;
         let mut videolan = false;
+        let mut inkscape = false;
+        let mut kdenlive = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1298,6 +1300,8 @@ impl LauncherUi {
                     Some(Origin::Gimp) => gimp = true,
                     Some(Origin::Krita) => krita = true,
                     Some(Origin::VideoLan) => videolan = true,
+                    Some(Origin::Inkscape) => inkscape = true,
+                    Some(Origin::Kdenlive) => kdenlive = true,
                     None => {}
                 }
             }
@@ -1311,6 +1315,8 @@ impl LauncherUi {
             (gimp, Origin::Gimp),
             (krita, Origin::Krita),
             (videolan, Origin::VideoLan),
+            (inkscape, Origin::Inkscape),
+            (kdenlive, Origin::Kdenlive),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

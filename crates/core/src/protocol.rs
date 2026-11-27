@@ -250,6 +250,10 @@ pub enum Origin {
     Krita,
     /// VideoLAN's stable macOS release directory.
     VideoLan,
+    /// Inkscape’s stable macOS download channel.
+    Inkscape,
+    /// KDE’s official Kdenlive stable release feed.
+    Kdenlive,
 }
 
 impl Origin {
@@ -263,6 +267,8 @@ impl Origin {
             Self::Gimp => "GIMP",
             Self::Krita => "Krita",
             Self::VideoLan => "VideoLAN",
+            Self::Inkscape => "Inkscape",
+            Self::Kdenlive => "KDE",
         }
     }
 }
@@ -289,6 +295,10 @@ pub enum Source {
     Krita,
     /// VideoLAN's stable macOS release directory.
     VideoLan,
+    /// Inkscape’s stable macOS download channel.
+    Inkscape,
+    /// KDE’s official Kdenlive stable release feed.
+    Kdenlive,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -305,6 +315,8 @@ impl Source {
             Self::Gimp => "GIMP",
             Self::Krita => "Krita",
             Self::VideoLan => "VideoLAN",
+            Self::Inkscape => "Inkscape",
+            Self::Kdenlive => "KDE",
             Self::Cache => "saved results",
         }
     }

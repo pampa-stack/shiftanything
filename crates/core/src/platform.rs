@@ -912,6 +912,8 @@ mod tests {
             (crate::curated::GIMP, ["3.2.6", "3.2.8"]),
             (crate::curated::KRITA, ["5.3.4.1", "5.3.5"]),
             (crate::curated::VLC, ["3.0.23", "3.0.24"]),
+            (crate::curated::INKSCAPE, ["1.4.3", "1.4.4"]),
+            (crate::curated::KDENLIVE, ["26.08.2", "26.08.3"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),

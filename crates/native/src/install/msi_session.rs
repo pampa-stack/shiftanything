@@ -71,7 +71,7 @@ pub(crate) struct Entry {
     /// The SHA-256 the package was downloaded against; the elevated side checks it again before
     /// Windows Installer touches the file.
     sha256: String,
-    /// Where the package installs, when a single install passes a folder (`INSTALLFOLDER`).
+    /// Where the package installs, when a single install passes a vendor folder property.
     destination: Option<PathBuf>,
     /// The Windows Installer context to keep; `None` takes the package's own default.
     scope: Option<MsiScope>,
@@ -530,7 +530,7 @@ fn checked_install(entry: &Entry, signed: &dyn Fn(&Path) -> Result<(), String>, 
         // open until the end of this closure is the whole job.
         let _held = super::msi_batch::hold(&msi, &entry.sha256)?;
         signed(&msi)?;
-        let line = super::msi_batch::line(&msi, entry.destination.as_deref(), entry.scope)?;
+        let line = super::msi_batch::line(&entry.app, &msi, entry.destination.as_deref(), entry.scope)?;
         log::info!("{}: installing under the shared prompt", entry.app);
         run(&line)
     })();

@@ -137,7 +137,12 @@ const PUBLISHER: &str = "Learning Machines LLC";
 /// installers have registered.
 #[cfg_attr(not(windows), allow(dead_code))]
 fn is_installer_entry(app: &CraftApp, display_name: &str, publisher: &str) -> bool {
-    publisher == app.msi_publisher.unwrap_or(PUBLISHER) && app.names().any(|n| n == display_name)
+    publisher == app.msi_publisher.unwrap_or(PUBLISHER)
+        && if app.uses_tdf_releases() {
+            display_name.strip_prefix("LibreOffice ").and_then(libreoffice_msi_version).is_some()
+        } else {
+            app.names().any(|n| n == display_name)
+        }
 }
 
 /// Where a Windows install of `app` may keep its exe, in the order to try: the entry's
@@ -148,6 +153,9 @@ fn is_installer_entry(app: &CraftApp, display_name: &str, publisher: &str) -> bo
 fn exe_candidates(app: &CraftApp, location: Option<&Path>, program_files: &[PathBuf]) -> Vec<PathBuf> {
     let in_program_files = program_files.iter().flat_map(|root| app.names().map(move |n| root.join(n)));
     let dirs = location.map(Path::to_path_buf).into_iter().chain(in_program_files);
+    if app.uses_tdf_releases() {
+        return dirs.map(|dir| dir.join("program").join("soffice.exe")).collect();
+    }
     dirs.flat_map(|d| app.stems().map(move |s| d.join(format!("{s}.exe")))).collect()
 }
 
@@ -407,6 +415,9 @@ fn newest_first(a: Option<&version::Version>, b: Option<&version::Version>) -> s
 
 #[cfg(any(windows, test))]
 fn msi_display_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+    if app.uses_tdf_releases() {
+        return libreoffice_msi_version(text);
+    }
     // The official draw.io MSI registers X.Y.Z.0 for the upstream release X.Y.Z.
     if app.id == "drawio"
         && let Some(core) = text.trim().strip_suffix(".0")
@@ -417,6 +428,17 @@ fn msi_display_version(app: &CraftApp, text: &str) -> Option<version::Version> {
         return Some(parsed);
     }
     version::parse(text)
+}
+
+#[cfg_attr(not(any(windows, test)), allow(dead_code))]
+fn libreoffice_msi_version(raw: &str) -> Option<version::Version> {
+    // The MSI registers all four numeric components. The release channel names the first three.
+    let (stable, build) = raw.rsplit_once('.')?;
+    let parsed_build = build.parse::<u32>().ok()?;
+    if parsed_build.to_string() != build {
+        return None;
+    }
+    artcraft_launcher_core::release::libreoffice_stable_version(stable)
 }
 
 #[cfg(windows)]
@@ -511,7 +533,11 @@ pub mod windows {
                 if !is_installer_entry(app, &name, &publisher) || out.iter().any(|m: &MsiInstall| m.product_code == code) {
                     continue;
                 }
-                let version = key.get_value::<String, _>("DisplayVersion").ok().and_then(|v| msi_display_version(app, &v));
+                let display_version: String = key.get_value("DisplayVersion").unwrap_or_default();
+                if app.uses_tdf_releases() && name.strip_prefix("LibreOffice ") != Some(display_version.as_str()) {
+                    continue;
+                }
+                let version = msi_display_version(app, &display_version);
                 let location: String = key.get_value("InstallLocation").unwrap_or_default();
                 let exe =
                     exe_path(app, (!location.is_empty()).then(|| PathBuf::from(location)).or_else(|| install_dir(app, hive, flags)), hive, flags);
@@ -1160,6 +1186,28 @@ mod tests {
             assert_eq!(msi_display_version(&DRAWIO, unsupported), version::parse(unsupported));
         }
         assert_eq!(msi_display_version(SUITE.iter().find(|app| app.id == "photocraft").unwrap(), "32.7.4.0"), None);
+    }
+
+    #[test]
+    fn libreoffice_requires_the_four_component_msi_identity_and_nested_executable() {
+        use artcraft_launcher_core::curated::LIBREOFFICE;
+
+        let publisher = "The Document Foundation";
+        assert!(is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.2.2", publisher));
+        assert!(is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.3.1", publisher));
+        assert!(!is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.3.1", "Other"));
+        for fake in ["26.8.3", "26.8.3.01", "26.8.3.1-dev", "26.8.3.1 Help Pack"] {
+            assert!(!is_installer_entry(&LIBREOFFICE, &format!("LibreOffice {fake}"), publisher));
+            assert_eq!(msi_display_version(&LIBREOFFICE, fake), None);
+        }
+        assert_eq!(msi_display_version(&LIBREOFFICE, "26.8.2.2"), version::parse("26.8.2"));
+        assert_eq!(msi_display_version(&LIBREOFFICE, "26.8.3.1"), version::parse("26.8.3"));
+        let program_files = PathBuf::from("Program Files");
+        let root = Path::new("Custom Office");
+        assert_eq!(
+            exe_candidates(&LIBREOFFICE, Some(root), std::slice::from_ref(&program_files)),
+            [root.join("program").join("soffice.exe"), program_files.join("LibreOffice").join("program").join("soffice.exe")],
+        );
     }
 
     /// A file without VERSIONINFO, or one that isn't there, has no version.

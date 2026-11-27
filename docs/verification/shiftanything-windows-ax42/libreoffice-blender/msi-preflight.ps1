@@ -36,7 +36,7 @@ $results = foreach ($asset in $assets) {
         }
         $summary = $db.GetType().InvokeMember('SummaryInformation', $property, $null, $db, @(0))
         $template = $summary.GetType().InvokeMember('Property', $property, $null, $summary, @(7))
-        if ($template -notmatch '^(x64|Intel64);' -or $metadata.ProductVersion -notmatch "^$([regex]::Escape($asset.version))(?:\.\d+)?$") { throw "MSI architecture or version mismatch ($template, $($metadata.ProductVersion))" }
+        if ($template -notmatch '^(x64|Intel64);' -or $metadata.ProductVersion -cne $asset.msi_version) { throw "MSI architecture or version mismatch ($template, $($metadata.ProductVersion))" }
         Write-Host "MSI_PREFLIGHT_PASS $($asset.name) | $publisher | $($metadata.ProductName) | $($metadata.Manufacturer) | $($metadata.ProductVersion) | $template | scope $($metadata.ALLUSERS)"
         [PSCustomObject]@{ Name=$asset.name; Version=$metadata.ProductVersion; ProductCode=$metadata.ProductCode; Manufacturer=$metadata.Manufacturer; ProductName=$metadata.ProductName; Template=$template; Publisher=$publisher; SHA256=$asset.sha256; Status='PASS' }
     } catch {

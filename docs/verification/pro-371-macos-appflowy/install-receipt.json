@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "appflowy": {
+      "version": "0.15.0",
+      "kind": "Dmg",
+      "path": "/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-appflowy/Apps/AppFlowy.app",
+      "installed_at": 1795774579,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

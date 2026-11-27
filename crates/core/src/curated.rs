@@ -1138,7 +1138,28 @@ pub const RAPIDRAW: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 44] = [
+pub const APPFLOWY: crate::CraftApp = crate::CraftApp {
+    id: "appflowy",
+    name: "AppFlowy",
+    tagline: "Write and organize documents, notes and boards locally",
+    repo: "AppFlowy-IO/AppFlowy",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [114, 104, 244],
+    ink_light: [62, 54, 155],
+    ink_dark: [192, 187, 252],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "AppFlowy Pte. Ltd.",
+    msi_publisher: None,
+    bundle: Some("com.appflowy.appflowy.flutter"),
+    site: Some("https://appflowy.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("VHB67HRSZG"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 45] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1171,6 +1192,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 44] = [
     VIBE,
     OPENSCREEN,
     SOLVESPACE,
+    APPFLOWY,
     BLOCKBENCH,
     DOSBOX_STAGING,
     PENCIL2D,
@@ -1391,6 +1413,32 @@ mod recipe_tests {
             }
             let prerelease = release::Release { prerelease: true, ..release.clone() };
             assert!(!release::blockbench_mac_asset(&prerelease, asset));
+        }
+    }
+
+    #[test]
+    fn appflowy_selects_only_the_official_silicon_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("appflowy").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("com.appflowy.appflowy.flutter"), Some("VHB67HRSZG")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, size) in [("0.15.0", 119_452_957), ("0.15.1", 119_286_434)] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            assert_eq!(asset.name, format!("AppFlowy-{tag}-macos-arm64.dmg"));
+            assert_eq!((asset.size, kind), (size, PackageKind::Dmg));
+            let intel = Platform { arch: Arch::X64, ..mac };
+            assert!(platform::pick_asset(&release, &[app.id], intel, intel.download_kinds()).is_none());
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let wrong_tag = release::Asset { url: asset.url.replace(tag, "0.15.2"), ..asset.clone() };
+            let intel_asset = release::Asset { name: asset.name.replace("arm64", "x86_64"), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            for different in [different_size, wrong_tag, intel_asset, no_checksum] {
+                assert!(!release::appflowy_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::appflowy_mac_asset(&prerelease, asset));
         }
     }
 

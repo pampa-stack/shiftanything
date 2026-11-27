@@ -1,0 +1,190 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 437136788    778796   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974414720   1940720   100%    /Volumes/T7-Backup
+2026-11-27T10:10:13Z
+checksum PASS f431bf8fb995cb9b8fb2dd7701ace55707793ef8ae9a8024e820802ad5fe8ef0 119452957 https://github.com/AppFlowy-IO/AppFlowy/releases/download/0.15.0/AppFlowy-0.15.0-macos-arm64.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $9FFEC430
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $1B18E371
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $F2B40C0B
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $333928B4
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $F2B40C0B
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $0802792A
+verificato   CRC32 $F0AFCA05
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.qhT4I5OB
+APP=AppFlowy.app
+CFBundleIdentifier=com.appflowy.appflowy.flutter
+CFBundleShortVersionString=0.15.0
+CFBundleVersion=0.15.0
+CFBundleExecutable=AppFlowy
+LSMinimumSystemVersion=12.0
+arm64
+/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/MacOS/AppFlowy (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=com.appflowy.appflowy.flutter
+Authority=Developer ID Application: APPFLOWY PTE. LTD (VHB67HRSZG)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=VHB67HRSZG
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/App.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/App.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/app_links.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/app_links.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/appflowy_native_update.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/appflowy_native_update.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Ass.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Ass.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/audioplayers_darwin.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/audioplayers_darwin.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avcodec.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avcodec.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avfilter.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avfilter.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avformat.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avformat.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avutil.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Avutil.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/bitsdojo_window_macos.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/bitsdojo_window_macos.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/connectivity_plus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/connectivity_plus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Dav1d.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Dav1d.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/desktop_drop.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/desktop_drop.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/device_info_plus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/device_info_plus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FBLPromises.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FBLPromises.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/file_saver.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/file_saver.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/file_selector_macos.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/file_selector_macos.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseCore.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseCore.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseCoreInternal.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseCoreInternal.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseInstallations.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseInstallations.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseMessaging.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FirebaseMessaging.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/flowy_infra_ui.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/flowy_infra_ui.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/flutter_local_notifications.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/flutter_local_notifications.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FlutterMacOS.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/FlutterMacOS.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Freetype.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Freetype.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Fribidi.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Fribidi.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/GoogleDataTransport.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/GoogleDataTransport.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/GoogleUtilities.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/GoogleUtilities.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Harfbuzz.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Harfbuzz.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/HotKey.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/HotKey.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/hotkey_manager.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/hotkey_manager.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/irondash_engine_context.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/irondash_engine_context.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedcrypto.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedcrypto.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedtls.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedtls.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedx509.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mbedx509.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/media_kit_libs_macos_video.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/media_kit_libs_macos_video.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/media_kit_video.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/media_kit_video.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/meeting_detector.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/meeting_detector.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mpv.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Mpv.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/nanopb.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/nanopb.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/package_info_plus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/package_info_plus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/path_provider_foundation.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/path_provider_foundation.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/PDFium.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/PDFium.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/pdfium_dart.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/pdfium_dart.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/pdfium_flutter.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/pdfium_flutter.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Png16.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Png16.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Reachability.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Reachability.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/screen_retriever_macos.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/screen_retriever_macos.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/share_plus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/share_plus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/shared_preferences_foundation.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/shared_preferences_foundation.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Autoupdate
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/Updater.app
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Downloader.xpc
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/XPCServices/Installer.xpc
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/sqflite_darwin.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/sqflite_darwin.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/super_native_extensions.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/super_native_extensions.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Swresample.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Swresample.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Swscale.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Swscale.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/system_audio_capture.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/system_audio_capture.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Uchardet.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Uchardet.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/url_launcher_macos.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/url_launcher_macos.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/wakelock_plus.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/wakelock_plus.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/webview_flutter_wkwebview.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/webview_flutter_wkwebview.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/window_manager.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/window_manager.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Xml2.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app/Contents/Frameworks/Xml2.framework/Versions/Current/.
+/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.qhT4I5OB/AppFlowy.app
+AppFlowy.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/0.15.0/AppFlowy-0.15.0-macos-arm64.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

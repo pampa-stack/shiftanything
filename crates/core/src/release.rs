@@ -629,6 +629,23 @@ pub fn blockbench_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Selects the official stable Apple Silicon package, never the Intel build or an updater archive.
+pub fn appflowy_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.pre.is_empty()
+                && version.build.is_empty()
+                && release.tag == version.to_string()
+                && asset.name == format!("AppFlowy-{version}-macos-arm64.dmg")
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::APPFLOWY.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::APPFLOWY.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const SOLVESPACE_MAC_DMG: &str = "SolveSpace.dmg";
 
 /// SolveSpace publishes the same DMG filename under stable tags such as v3.3.
@@ -855,6 +872,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("JannisX11/blockbench", "v5.2.2") => {
             &[("Blockbench_arm64_5.2.2.dmg", 128_721_695, "0d072bf863ee3e0bcaecbd0de67a5ffd29dfbf6ee2e8fe5eeb872a14331c5c03")]
+        }
+        ("AppFlowy-IO/AppFlowy", "0.15.0") => {
+            &[("AppFlowy-0.15.0-macos-arm64.dmg", 119_452_957, "f431bf8fb995cb9b8fb2dd7701ace55707793ef8ae9a8024e820802ad5fe8ef0")]
+        }
+        ("AppFlowy-IO/AppFlowy", "0.15.1") => {
+            &[("AppFlowy-0.15.1-macos-arm64.dmg", 119_286_434, "132641eb6c28c0399137b058e93cdc748f4416a7b1e012f6a3073850a8786070")]
         }
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],

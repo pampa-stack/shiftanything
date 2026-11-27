@@ -1,0 +1,16 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436931172    984412   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974600784   1754656   100%    /Volumes/T7-Backup
+Recipe appflowy selected AppFlowy-0.15.0-macos-arm64.dmg 119452957 bytes
+Verifying after 17.679s
+Installing after 17.680s
+PASS 0.15.0 119452957 bytes
+PASS install 64.082s
+306068	/Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-appflowy/Apps/AppFlowy.app
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436792780   1122804   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974799308   1556132   100%    /Volumes/T7-Backup
+Recipe appflowy selected AppFlowy-0.15.1-macos-arm64.dmg 119286434 bytes
+Verifying after 12.572s
+Installing after 12.572s
+Error: "macOS verification did not succeed (macOS policy: /usr/sbin/spctl didn't finish within 60 seconds), so the app wasn't installed"

@@ -1,0 +1,7 @@
+Recipe appflowy selected AppFlowy-0.15.1-macos-arm64.dmg 119286434 bytes
+Verifying after 0.578s
+Installing after 0.578s
+PASS 0.15.1 119286434 bytes
+PASS update 90.128s
+PASS private Trash /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/home-appflowy/.Trash/AppFlowy.app
+PASS remove 0.042s

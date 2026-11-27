@@ -1,0 +1,19 @@
+commit 749936f8d1f2092876bb89ecb18b8e14e220a30d42fb26940ca8abdbe6ad01ba
+Parent:  d3e524eae6321cfe9ae97eb41f066397187008bd9358a4071fe63b074cd22686
+ContentChecksum:  b1f0a2087db0e601b92122120ab221577accc2b842168e87d8dc59a05b39248a
+Date:  2026-11-04 01:56:25 +0000
+
+    Merge pull request #241 from flathub/update-master-bb2641d (acbec9ec3c92)
+
+    Name: io.appflowy.AppFlowy
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov  4 03:01:16 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

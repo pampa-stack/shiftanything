@@ -1,0 +1,6 @@
+appflowy before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/data/flatpak/app/io.appflowy.AppFlowy/x86_64/stable/1f0281272643b47ff7534f91d87b8dbd75a895d57e58e90e9c393f91f75c42c3", package: Some("io.appflowy.AppFlowy"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true }
+appflowy JobFinished: Ok("Flathub app removed")
+appflowy after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-appflowy-flathub.Ls7l7m0R/native/home/.var/app/io.appflowy.AppFlowy/shift-profile-marker: OK
+PASS Flatpak package and launcher ownership removed, private profile preserved
+TIMING appflowy remove 6257 ms

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 81] = [
+pub const RECIPES: [(&str, &str); 82] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -83,6 +83,7 @@ pub const RECIPES: [(&str, &str); 81] = [
     ("gnome-maps", "org.gnome.Maps"),
     ("logseq", "com.logseq.Logseq"),
     ("leocad", "org.leocad.LeoCAD"),
+    ("appflowy", "io.appflowy.AppFlowy"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -182,6 +183,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "gnome-maps" => "https://gitlab.gnome.org/GNOME/gnome-maps",
         "logseq" => "https://github.com/logseq/logseq",
         "leocad" => "https://github.com/leozide/leocad",
+        "appflowy" => "https://github.com/AppFlowy-IO/AppFlowy",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

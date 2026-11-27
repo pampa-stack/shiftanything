@@ -1,0 +1,2 @@
+same_workspace_after_native_upgrade=true
+private_profile_preserved_after_native_uninstall=true

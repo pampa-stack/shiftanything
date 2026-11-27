@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 141] = [
+pub const RECIPES: [(&str, &str); 143] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -143,6 +143,8 @@ pub const RECIPES: [(&str, &str); 141] = [
     ("moonlight", "com.moonlight_stream.Moonlight"),
     ("transmission", "com.transmissionbt.Transmission"),
     ("libresprite", "com.github.libresprite.LibreSprite"),
+    ("mesh-lab", "net.meshlab.MeshLab"),
+    ("lmms", "io.lmms.LMMS"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -302,6 +304,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "moonlight" => "https://github.com/moonlight-stream/moonlight-qt",
         "transmission" => "https://github.com/transmission/transmission",
         "libresprite" => "https://github.com/LibreSprite/LibreSprite",
+        "mesh-lab" => "https://github.com/cnr-isti-vclab/meshlab",
+        "lmms" => "https://github.com/LMMS/lmms",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

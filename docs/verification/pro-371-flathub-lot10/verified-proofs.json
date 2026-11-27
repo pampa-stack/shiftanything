@@ -1,5 +1,50 @@
 [
   {
+    "id": "evince",
+    "name": "Evince",
+    "repo": "https://gitlab.gnome.org/GNOME/evince",
+    "license": "GPL-2.0-or-later",
+    "stars": null,
+    "flatpak": "org.gnome.Evince",
+    "flathub": "https://flathub.org/apps/org.gnome.Evince",
+    "download_size": 13258331,
+    "logo": "https://dl.flathub.org/media/org/gnome/Evince/804f810bbc2c10656dc91d59d4524510/icons/128x128/org.gnome.Evince.png",
+    "metadata_urls": {
+      "translate": "https://l10n.gnome.org/module/evince/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/evince/",
+      "contribute": "https://welcome.gnome.org/app/Evince",
+      "bugtracker": "https://gitlab.gnome.org/GNOME/evince/-/issues/",
+      "homepage": "https://apps.gnome.org/Evince",
+      "donation": "https://www.gnome.org/donate/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "48.5",
+      "48.4"
+    ],
+    "title": "document viewer|evince",
+    "current_commit": "03718c051588a30f2bd07769c0545e44c04ee708d4129ce6524dbf0ed4d082ac",
+    "previous_commit": "dc553d3b8e4d7e32cc674ebc184a49ba2609fbec24539e71dcf16e80367c6931",
+    "prev": "dc553d3b8e4d7e32cc674ebc184a49ba2609fbec24539e71dcf16e80367c6931",
+    "current": "03718c051588a30f2bd07769c0545e44c04ee708d4129ce6524dbf0ed4d082ac",
+    "previous_version": "48.4",
+    "current_version": "48.5",
+    "times_ms": {
+      "install": 40790,
+      "prior": 33744,
+      "open-previous": 9985,
+      "open": 14892,
+      "update": 6727,
+      "open-current": 9743,
+      "remove": 5731,
+      "update-remove": 29864
+    },
+    "cycle_ms": 119342
+  },
+  {
     "id": "flatseal",
     "name": "Flatseal",
     "repo": "https://github.com/tchx84/Flatseal",
@@ -38,6 +83,51 @@
       "update-remove": 23197
     },
     "cycle_ms": 98395
+  },
+  {
+    "id": "qgis",
+    "name": "QGIS",
+    "repo": "https://github.com/qgis/QGIS",
+    "license": "GPL-2.0+",
+    "stars": 14895,
+    "flatpak": "org.qgis.qgis",
+    "flathub": "https://flathub.org/apps/org.qgis.qgis",
+    "download_size": 618964253,
+    "logo": "https://dl.flathub.org/media/org/qgis/qgis/bf273de928837960d028ef411154ec9d/icons/128x128/org.qgis.qgis.png",
+    "metadata_urls": {
+      "bugtracker": "https://github.com/qgis/QGIS/issues",
+      "homepage": "https://qgis.org",
+      "help": "https://qgis.org/resources/hub/#documentation",
+      "donation": "https://qgis.org/funding/donate/",
+      "faq": "https://qgis.org/resources/support/faq/",
+      "vcs_browser": "https://github.com/qgis/QGIS/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "4.4.0",
+      "4.2.0"
+    ],
+    "title": "qgis",
+    "current_commit": "c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e",
+    "previous_commit": "0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d",
+    "prev": "0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d",
+    "current": "c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e",
+    "previous_version": "4.4.0",
+    "current_version": "4.4.0",
+    "times_ms": {
+      "install": 61119,
+      "prior": 8020,
+      "open-previous": 24832,
+      "open": 26487,
+      "update": 8434,
+      "open-current": 24518,
+      "remove": 6639,
+      "update-remove": 43744
+    },
+    "cycle_ms": 139428
   },
   {
     "id": "anki",

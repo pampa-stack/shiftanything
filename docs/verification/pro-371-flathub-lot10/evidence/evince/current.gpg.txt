@@ -1,0 +1,19 @@
+commit 03718c051588a30f2bd07769c0545e44c04ee708d4129ce6524dbf0ed4d082ac
+Parent:  dc553d3b8e4d7e32cc674ebc184a49ba2609fbec24539e71dcf16e80367c6931
+ContentChecksum:  bb19711131db79e93e85559a413653d1ecd0315f7ca04d91ba614bfba337ea99
+Date:  2026-11-16 16:37:56 +0000
+
+    Bump version to 48.5 and runtime to 51 (2c37740e028a)
+
+    Name: org.gnome.Evince
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 16 17:02:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 76] = [
+pub const RECIPES: [(&str, &str); 78] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -78,6 +78,8 @@ pub const RECIPES: [(&str, &str); 76] = [
     ("seamly", "io.seamly.seamly2d"),
     ("flatseal", "com.github.tchx84.Flatseal"),
     ("anki", "net.ankiweb.Anki"),
+    ("evince", "org.gnome.Evince"),
+    ("qgis", "org.qgis.qgis"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -172,6 +174,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "seamly" => "https://github.com/FashionFreedom/Seamly2D",
         "flatseal" => "https://github.com/tchx84/Flatseal",
         "anki" => "https://github.com/ankitects/anki",
+        "evince" => "https://gitlab.gnome.org/GNOME/evince",
+        "qgis" => "https://github.com/qgis/QGIS",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

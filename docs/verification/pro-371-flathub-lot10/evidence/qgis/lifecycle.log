@@ -1,0 +1,63 @@
+=== 2026-11-27T10:30:53+00:00 qgis install ===
+qgis before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+qgis JobFinished: Ok("Flathub app installed")
+qgis after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-qgis-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+312dce33c44b514879f86fcaac2042beedd06d4ce95197f271d087aa3499ab37  /var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-qgis-icon.png
+org.qgis.qgis/x86_64/stable	flathub	c64f2df502de	user	4.4.0
+TIMING qgis install 61119 ms
+
+=== 2026-11-27T10:31:54+00:00 qgis prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.qgis.qgis/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.qgis.qgis/x86_64/stable	flathub	0c09ba71e4f0	user	4.4.0
+qgis before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d", package: Some("org.qgis.qgis"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: false, can_open: true }
+qgis JobFinished: Err("Approved action rejected: native installation state changed")
+qgis JobFinished: Err("This Flatpak is managed outside the launcher")
+qgis after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d", package: Some("org.qgis.qgis"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: false, can_open: true })
+TIMING qgis prior 8020 ms
+
+=== 2026-11-27T10:32:02+00:00 qgis open ===
+dbus-daemon[2735152]: [session uid=1000 pid=2735152 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2735184 comm="/usr/bin/xfwm4 --compositor=off --display=:453" label="unconfined")
+dbus-daemon[2735152]: [session uid=1000 pid=2735152 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2735208]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2735184 comm="/usr/bin/xfwm4 --compositor=off --display=:453" label="unconfined")
+dbus-daemon[2735152]: [session uid=1000 pid=2735152 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2735184 comm="/usr/bin/xfwm4 --compositor=off --display=:453" label="unconfined")
+dbus-daemon[2735208]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2735152]: [session uid=1000 pid=2735152 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+qgis before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: true, can_remove: true, can_open: true }
+qgis JobFinished: Ok("Launch request accepted")
+qgis after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: true, can_remove: true, can_open: true })
+TIMING qgis open-previous 24832 ms
+
+(xfconfd:2735215): xfconfd-WARNING **: 10:32:29.461: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING qgis open 26487 ms
+
+=== 2026-11-27T10:32:29+00:00 qgis update-remove ===
+qgis before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: true, can_remove: true, can_open: true }
+qgis JobFinished: Ok("Flathub app updated")
+qgis after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: true, can_open: true })
+TIMING qgis update 8434 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/.var/app/org.qgis.qgis/shift-profile-marker: OK
+dbus-daemon[2739358]: [session uid=1000 pid=2739358 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2739382 comm="/usr/bin/xfwm4 --compositor=off --display=:659" label="unconfined")
+dbus-daemon[2739358]: [session uid=1000 pid=2739358 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2739398]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2739382 comm="/usr/bin/xfwm4 --compositor=off --display=:659" label="unconfined")
+dbus-daemon[2739358]: [session uid=1000 pid=2739358 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2739382 comm="/usr/bin/xfwm4 --compositor=off --display=:659" label="unconfined")
+dbus-daemon[2739358]: [session uid=1000 pid=2739358 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2739398]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+qgis before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: true, can_open: true }
+qgis JobFinished: Ok("Launch request accepted")
+qgis after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: true, can_open: true })
+TIMING qgis open-current 24518 ms
+
+(xfconfd:2739410): xfconfd-WARNING **: 10:33:06.453: Name org.xfce.Xfconf lost on the message dbus, exiting.
+qgis before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 4, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/data/flatpak/app/org.qgis.qgis/x86_64/stable/c64f2df502de93319219a34675e82157d979718a8da4ddeb6d47bda87e7a2c4e", package: Some("org.qgis.qgis"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.4.0"), update_available: false, can_remove: true, can_open: true }
+qgis JobFinished: Ok("Flathub app removed")
+qgis after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING qgis remove 6639 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/qgis/home/.var/app/org.qgis.qgis/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING qgis update-remove 43744 ms

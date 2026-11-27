@@ -1,0 +1,19 @@
+commit 0c09ba71e4f0eeafe5fb996eec9a5302269b29f302185ca989a5e2b57de9923d
+Parent:  ccffe5cf5654465865c9d57b788b4d9c7f5074fa50ed51ee366dfeebe6d2b47e
+ContentChecksum:  596162962b3ed92e27575712eac4f0e312d9ef9e843f351e0db8d026767166d2
+Date:  2026-11-26 08:06:10 +0000
+
+    Point to the appdata file (92cc394f5783)
+
+    Name: org.qgis.qgis
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 26 08:08:37 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

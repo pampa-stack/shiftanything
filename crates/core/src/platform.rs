@@ -797,6 +797,8 @@ mod tests {
             (crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
+            (crate::curated::CLASH_VERGE_REV, ["v2.5.9", "v2.5.10"]),
+            (crate::curated::ORCA, ["v1.4.279", "v1.4.280"]),
         ] {
             let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
             for tag in tags {

@@ -1327,7 +1327,49 @@ pub const OLLAMA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MU9H2V9Y9"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 53] = [
+pub const CLASH_VERGE_REV: crate::CraftApp = crate::CraftApp {
+    id: "clash-verge-rev",
+    name: "Clash Verge Rev",
+    tagline: "Manage proxy settings from a desktop interface",
+    repo: "clash-verge-rev/clash-verge-rev",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "won fen",
+    msi_publisher: None,
+    bundle: Some("io.github.clash-verge-rev.clash-verge-rev"),
+    site: Some("https://www.clashverge.dev/"),
+    mac_bundle_name: Some("Clash Verge"),
+    mac_team: Some("JPH3Z7PPBB"),
+};
+
+pub const ORCA: crate::CraftApp = crate::CraftApp {
+    id: "orca",
+    name: "Orca",
+    tagline: "Organize coding agents and worktrees",
+    repo: "stablyai/orca",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Lovecast LLC",
+    msi_publisher: None,
+    bundle: Some("com.stablyai.orca"),
+    site: Some("https://orca.dev/"),
+    mac_bundle_name: None,
+    mac_team: Some("6CX3WHS9HZ"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 55] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1381,6 +1423,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 53] = [
     OPENCLAW,
     OPENCODE,
     OLLAMA,
+    CLASH_VERGE_REV,
+    ORCA,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

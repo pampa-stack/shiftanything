@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 88] = [
+pub const RECIPES: [(&str, &str); 92] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -90,6 +90,10 @@ pub const RECIPES: [(&str, &str); 88] = [
     ("stellarium", "org.stellarium.Stellarium"),
     ("qbittorrent", "org.qbittorrent.qBittorrent"),
     ("copyq", "com.github.hluk.copyq"),
+    ("floorp", "one.ablaze.floorp"),
+    ("prusaslicer", "com.prusa3d.PrusaSlicer"),
+    ("bottles", "com.usebottles.bottles"),
+    ("mumble", "info.mumble.Mumble"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -196,6 +200,10 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "stellarium" => "https://github.com/Stellarium/stellarium",
         "qbittorrent" => "https://github.com/qbittorrent/qBittorrent",
         "copyq" => "https://github.com/hluk/CopyQ",
+        "floorp" => "https://github.com/Floorp-Projects/Floorp",
+        "prusaslicer" => "https://github.com/prusa3d/PrusaSlicer",
+        "bottles" => "https://github.com/bottlesdevs/Bottles",
+        "mumble" => "https://github.com/mumble-voip/mumble",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -750,7 +750,8 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 
 /// Desktop bundle recipes restricted to exact packages qualified on Apple Silicon.
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW, crate::curated::OPENCODE, crate::curated::OLLAMA];
+    const RECIPES: &[crate::CraftApp] =
+        &[crate::curated::OPENCLAW, crate::curated::OPENCODE, crate::curated::OLLAMA, crate::curated::CLASH_VERGE_REV, crate::curated::ORCA];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1065,6 +1066,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ollama/ollama", "v0.40.17") => &[("Ollama.dmg", 231_575_873, "cc5eb8fa68f2f15ea6dbc79a705092a1b1e666102c54ed535c91bbbeccab8c78")],
         ("ollama/ollama", "v0.40.18") => &[("Ollama.dmg", 232_758_599, "78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed")],
+        ("clash-verge-rev/clash-verge-rev", "v2.5.9") => {
+            &[("Clash.Verge_2.5.9_aarch64.dmg", 80_746_554, "3c487df30546bcbee58363edda2df0c22f9900a7c04807fb8c3945a8d77d1436")]
+        }
+        ("clash-verge-rev/clash-verge-rev", "v2.5.10") => {
+            &[("Clash.Verge_2.5.10_aarch64.dmg", 80_769_307, "40d4a7da4543d75f573a5cfcc31543b0b4bf7e02caa122a9ca50654859585839")]
+        }
+        ("stablyai/orca", "v1.4.279") => &[("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb")],
+        ("stablyai/orca", "v1.4.280") => &[("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528")],
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

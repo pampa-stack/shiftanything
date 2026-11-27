@@ -560,24 +560,24 @@
       "date": "2026-11-26"
     },
     "release": {
-      "version": "v1.4.278",
-      "date": "2026-11-26",
-      "source": "https://github.com/stablyai/orca/releases/tag/v1.4.278",
+      "version": "v1.4.280",
+      "date": "2026-11-27",
+      "source": "https://github.com/stablyai/orca/releases/tag/v1.4.280",
       "packages": [
         {
           "platform": "linux",
-          "size_min": 70065018,
-          "size_max": 287042649
+          "size_min": 182129013,
+          "size_max": 285631432
         },
         {
           "platform": "macos",
-          "size_min": 305319336,
-          "size_max": 314023835
+          "size_min": 306833918,
+          "size_max": 313884778
         },
         {
           "platform": "windows",
-          "size_min": 245511040,
-          "size_max": 245511040
+          "size_min": 255551632,
+          "size_max": 255551632
         }
       ]
     }

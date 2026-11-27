@@ -40,4 +40,8 @@ Ubuntu x64, DEB locale `ad6525c2bc3b3bf00ed8f84a5851bcc86907225601c1a81833913410
 
 Mac Apple Silicon, build `d010df5`, DMG locale `2afd4338bc0c38f99d8144a02df9104291aabf1844cffdd06a2c0d0a76a136a0`. Dal bundle estratto e verificato è stata aperta una finestra nativa a 1440 × 900, con profilo temporaneo e rete in uscita bloccata. I loghi appaiono a sinistra del nome dell'app nel [confronto Photoshop](photoshop-491-offline-it.png) e filtrando una delle nuove schede, [PhotoDemon](photodemon-491-offline-it.png). Sono stati controllati gli hash e la decodifica delle 489 icone locali nel [manifest](../../../apps/shiftanything-tauri-proof/media-provenance.json).
 
+Ubuntu 24.04+ amd64, DEB locale dalla stessa sorgente, SHA-256 `ca4164ed2e36d19a27258ce4d57ede6d33860a819d90809780999053d0bd1b73`. Verificato dopo il trasferimento ed eseguito dal pacchetto estratto su Ubuntu 26.04, in una finestra da 1440 × 900 con profilo temporaneo e rete isolata. [Confronto Photoshop](photoshop-491-offline-linux.png) · [Ricerca PhotoDemon](photodemon-491-offline-linux.png)
+
+Stdio MCP passato con 491 app e 9 profili. Il test di parità tra Rust e MCP passa per 20.175 combinazioni di funzioni selezionate e indispensabili.
+
 Per Whisper-WebUI e VideoX-Fun restano le iniziali. I repository e i pacchetti ufficiali esaminati non contengono un loro logo. Le favicon delle demo sono identiche al marchio di Gradio. [Whisper-WebUI](https://github.com/jhj0517/Whisper-WebUI) · [VideoX-Fun](https://github.com/aigc-apps/VideoX-Fun) · [Favicon di Gradio](https://raw.githubusercontent.com/gradio-app/gradio/main/js/core/public/static/img/logo.svg)

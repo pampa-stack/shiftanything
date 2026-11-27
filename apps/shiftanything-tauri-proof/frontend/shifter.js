@@ -72,6 +72,7 @@
         <div class="sh-picker" data-software-picker>
           <label for="sh-software" class="mono">${labels.software}</label>
           <div class="sh-picker-field">
+            <span class="sh-picker-brand" data-software-brand aria-hidden="true" hidden></span>
             <input id="sh-software" class="inp" maxlength="100" autocomplete="off"
               placeholder="${labels.search}" role="combobox" aria-autocomplete="list" aria-expanded="false"
               aria-controls="sh-software-options" data-software-name required>
@@ -151,6 +152,50 @@
   const collator = new Intl.Collator(lang, { sensitivity: 'base' });
   const { format } = new Intl.NumberFormat(lang);
   const normalize = value => value.replace(/[™®℠]/g, '').normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '').toLowerCase();
+  const brands = new Map(Object.entries({
+    '1password': ['1Password'],
+    adobe: ['Adobe Acrobat Pro', 'Adobe After Effects', 'Adobe Audition', 'Adobe Illustrator', 'Adobe InDesign',
+      'Adobe Lightroom Classic', 'Adobe Media Encoder', 'Adobe Photoshop', 'Adobe Premiere Pro'],
+    affinity: ['Affinity Publisher'],
+    anthropic: ['Claude Code'],
+    arq: ['Arq Backup'],
+    asana: ['Asana'],
+    atlassian: ['Confluence', 'Jira', 'Trello'],
+    autodesk: ['AutoCAD', 'Autodesk Inventor', 'Revit'],
+    avid: ['Avid Pro Tools'],
+    backblaze: ['Backblaze Computer Backup'],
+    'capture-one': ['Capture One'],
+    clickup: ['ClickUp'],
+    cursor: ['Cursor'],
+    dassault: ['SolidWorks'],
+    devon: ['DEVONthink'],
+    doist: ['Todoist'],
+    esri: ['ArcGIS Pro'],
+    evernote: ['Evernote'],
+    figma: ['Figma'],
+    fireflies: ['Fireflies.ai'],
+    freshbooks: ['FreshBooks'],
+    goodnotes: ['Goodnotes'],
+    google: ['Google Antigravity'],
+    granola: ['Granola'],
+    hubspot: ['HubSpot CRM'],
+    'image-line': ['FL Studio'],
+    linear: ['Linear'],
+    maxon: ['Cinema 4D'],
+    microsoft: ['Microsoft 365', 'Microsoft Excel', 'Microsoft OneNote', 'Microsoft Outlook', 'Microsoft PowerPoint',
+      'Microsoft Project', 'Microsoft Teams', 'Microsoft Visio', 'Microsoft Word'],
+    notion: ['Notion'],
+    obdev: ['Little Snitch'],
+    obsidian: ['Obsidian'],
+    otter: ['Otter.ai'],
+    salesforce: ['Salesforce'],
+    shopify: ['Shopify'],
+    sketch: ['Sketch'],
+    slack: ['Slack'],
+    trimble: ['SketchUp'],
+    wispr: ['Wispr Flow'],
+    zoom: ['Zoom'],
+  }).flatMap(([brand, names]) => names.map(name => [normalize(name), brand])));
   const activeTab = () => !root.hidden;
   const known = new Map();
   const evidenceByApp = new Map();
@@ -175,6 +220,33 @@
     if (text !== undefined) element.textContent = text;
     if (className) element.className = className;
     return element;
+  }
+
+  function softwareBrand(name) {
+    const mark = node('span', undefined, 'sh-brand');
+    mark.setAttribute('aria-hidden', 'true');
+    const brand = brands.get(normalize(name));
+    const initials = () => {
+      mark.classList.add('sh-brand-initials');
+      mark.textContent = [...name].slice(0, 2).join('').toUpperCase();
+    };
+    if (brand) {
+      const logo = node('img');
+      logo.alt = '';
+      mark.dataset.brand = brand;
+      logo.addEventListener('error', initials, { once: true });
+      logo.src = 'shifter-brands/' + brand + '.png';
+      mark.append(logo);
+    } else {
+      initials();
+    }
+    return mark;
+  }
+
+  function updatePickerBrand() {
+    const mark = find('software-brand');
+    mark.hidden = !startingName || search.value !== startingName;
+    mark.replaceChildren(...(mark.hidden ? [] : [softwareBrand(startingName)]));
   }
 
   function button(label, click, className = 'btn') {
@@ -208,6 +280,7 @@
     activeProfile = profiles.find(profile => [profile.name, ...profile.aliases].some(alias => normalize(alias) === term));
     startingName = activeProfile?.name ?? name.trim();
     search.value = startingName;
+    updatePickerBrand();
     features = (activeProfile?.features ?? []).map(feature => ({
       ...feature, key: activeProfile.id + ':' + feature.id, selected: true, essential: false,
     }));
@@ -384,7 +457,11 @@
     const selected = features.filter(feature => feature.selected);
     const manual = Boolean(startingName && !activeProfile);
     find('feature-count').textContent = features.length ? selected.length + ' / ' + features.length : '';
-    find('comparison-name').textContent = startingName ? startingName + (manual ? ' · ' + labels.manual : '') : '';
+    const comparisonName = find('comparison-name');
+    comparisonName.replaceChildren();
+    if (startingName) {
+      comparisonName.append(softwareBrand(startingName), node('span', startingName + (manual ? ' · ' + labels.manual : '')));
+    }
     find('manual').hidden = !manual;
     drawFeatures();
     comparisonResult = undefined;
@@ -431,7 +508,8 @@
     highlighted = -1;
     search.removeAttribute('aria-activedescendant');
     options.replaceChildren(...matches.map(({ name }, index) => {
-      const option = node('div', name, 'sh-option');
+      const option = node('div', undefined, 'sh-option');
+      option.append(softwareBrand(name), node('span', name));
       option.id = 'sh-software-option-' + index;
       option.setAttribute('role', 'option');
       option.setAttribute('aria-selected', 'false');
@@ -466,7 +544,10 @@
     search.focus({ preventScroll: true });
   });
   search.addEventListener('click', () => { if (popup.hidden) openOptions(); });
-  search.addEventListener('input', () => showOptions(search.value));
+  search.addEventListener('input', () => {
+    updatePickerBrand();
+    showOptions(search.value);
+  });
   picker.addEventListener('focusout', event => { if (!picker.contains(event.relatedTarget)) setPopup(false); });
   search.addEventListener('keydown', event => {
     if (event.isComposing) return;

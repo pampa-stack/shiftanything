@@ -20,3 +20,9 @@ Il DMG locale `ShiftAnything-0.20.3-macos-arm64-tauri-local.dmg` ha SHA-256 `07d
 ## Prova dal DEB del 27 novembre
 
 Il DEB Ubuntu x86-64 `shiftanything_0.20.3_amd64-local.deb` da `f5005db` ha SHA-256 `46fcc5c42e3808bc918153930f6ad7a895539641c07c31b4d639987f3747441a`. La finestra avviata dall'archivio estratto ha mostrato i loghi a sinistra dei nomi nel confronto Photoshop. Il pulsante Fonti di PhotoCraft ha aperto le quattro funzioni documentate, con riempimento generativo segnato come parziale. [Icone in SH*FTER](package-linux-icons-it.png) · [Fonti PhotoCraft](package-linux-sources-it.png)
+
+## Marchi del software di partenza
+
+Il selettore A–Z, il campo di ricerca dopo la selezione e l'intestazione del confronto mostrano il marchio del produttore. I 40 asset locali coprono 60 voci su 61, riusando il marchio per i software della stessa casa. QuickBooks e i nomi aggiunti a mano mostrano le iniziali. I nomi restano leggibili dai lettori di schermo. [Fonti e SHA-256](vendor-icons.tsv)
+
+Verificati tutti i 60 caricamenti in Chromium, con rete bloccata fuori dal server locale e risposte del bridge di fixture. La prova in IT e EN ha esercitato l'alias Figma Design, Freccia, Invio ed Esc. Nella finestra Tauri macOS Apple Silicon a 1440 × 900, il confronto Photoshop ha usato il catalogo Rust reale da 528 app. [Confronto](vendor-comparison-macos-it.png) · [Tendina](vendor-dropdown-macos-it.png)

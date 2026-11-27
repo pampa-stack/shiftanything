@@ -392,9 +392,9 @@ fn install_at_with_profile(
         None => {
             bind_artifact_version(app, release, asset)?;
             #[cfg(windows)]
-            if app.id == "photocraft" {
+            if release::reviewed_windows_msi_repo(app.id).is_some() {
                 if kind != PackageKind::Msi {
-                    return Err("Only the verified PhotoCraft Windows x64 MSI is supported.".into());
+                    return Err(format!("Only the verified {} Windows x64 MSI is supported.", app.name));
                 }
                 if let Some(Downgrade::Reinstall { previous, asset }) = job.downgrade {
                     bind_artifact_version(app, previous, asset)?;
@@ -644,8 +644,8 @@ fn install_at_with_profile(
 pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &Asset) -> Result<(), String> {
     let mismatch = || format!("{}'s download does not match the advertised version {}.", app.name, release.version_label());
     #[cfg(windows)]
-    if app.id == "photocraft" {
-        return (cfg!(target_arch = "x86_64") && app.repo == "storytold/photocraft" && release::photocraft_windows_msi_asset(release, asset))
+    if let Some(repo) = release::reviewed_windows_msi_repo(app.id) {
+        return (cfg!(target_arch = "x86_64") && app.repo == repo && release::reviewed_windows_msi_asset(repo, release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -3897,9 +3897,9 @@ mod tests {
     #[test]
     fn a_downgrade_that_keeps_the_old_copy_goes_ahead_without_a_package_to_put_back() {
         use crate::http::tests::{Reply, body, serve};
-        let app = CraftApp::by_id("wordcraft").unwrap();
+        let app = CraftApp::by_id("texturecraft").unwrap();
         let dir = tempfile::tempdir().unwrap();
-        let old_appimage = dir.path().join("wordcraft-0.4.0-linux-x86_64.AppImage");
+        let old_appimage = dir.path().join("texturecraft-0.4.0-linux-x86_64.AppImage");
         let record = Record {
             version: "0.4.0".into(),
             kind: PackageKind::AppImage,
@@ -3911,15 +3911,15 @@ mod tests {
         let cases = [
             (
                 PackageKind::Dmg,
-                "wordcraft-0.3.0-macos-universal.dmg",
+                "texturecraft-0.3.0-macos-universal.dmg",
                 InstallSource::MacApp,
-                dir.path().join("WordCraft.app"),
+                dir.path().join("TextureCraft.app"),
                 None,
                 cfg!(target_os = "macos"),
             ),
             (
                 PackageKind::AppImage,
-                "wordcraft-0.3.0-linux-x86_64.AppImage",
+                "texturecraft-0.3.0-linux-x86_64.AppImage",
                 InstallSource::Launcher,
                 old_appimage,
                 Some(&record),
@@ -3976,10 +3976,10 @@ mod tests {
     #[test]
     fn a_failed_install_keeps_the_download_for_the_next_try() {
         use crate::http::tests::{Reply, body, serve};
-        let app = CraftApp::by_id("wordcraft").unwrap();
+        let app = CraftApp::by_id("texturecraft").unwrap();
         let (body, sha) = body();
         let (url, requests) = serve(body.clone(), vec![Reply::Full, Reply::Full]);
-        let asset = Asset { name: "wordcraft-0.3.0-test.pkg".into(), size: body.len() as u64, url, sha256: Some(sha) };
+        let asset = Asset { name: "texturecraft-0.3.0-test.pkg".into(), size: body.len() as u64, url, sha256: Some(sha) };
         let release = Release { assets: vec![asset.clone()], ..Release::default() };
         let dir = tempfile::tempdir().unwrap();
         let paths = Paths::under(dir.path());
@@ -4048,11 +4048,11 @@ mod tests {
     #[test]
     fn a_release_without_a_checksum_is_refused_before_anything_is_fetched() {
         use crate::http::tests::{Reply, body, serve};
-        let app = CraftApp::by_id("wordcraft").unwrap();
+        let app = CraftApp::by_id("texturecraft").unwrap();
         let (body, _) = body();
         let (url, requests) = serve(body.clone(), vec![Reply::Full]);
         // Neither a per-file digest nor a SHA256SUMS.txt in the release.
-        let asset = Asset { name: "wordcraft-0.3.1-test.pkg".into(), size: body.len() as u64, url, sha256: None };
+        let asset = Asset { name: "texturecraft-0.3.1-test.pkg".into(), size: body.len() as u64, url, sha256: None };
         let release = Release { assets: vec![asset.clone()], ..Release::default() };
         let dir = tempfile::tempdir().unwrap();
         let paths = Paths::under(dir.path());
@@ -4774,13 +4774,13 @@ mod tests {
         let http = Http::new().unwrap();
         let phase = &mut |_| ();
         let locations = InstallLocations::default();
-        let app = CraftApp::by_id("wordcraft").unwrap();
+        let app = CraftApp::by_id("texturecraft").unwrap();
         let release = Release { version: version::parse("0.4.0"), tag: "v0.4.0".into(), ..Release::default() };
-        let asset = Asset { name: "wordcraft-0.4.0-linux-x86_64.AppImage".into(), ..Asset::default() };
+        let asset = Asset { name: "texturecraft-0.4.0-linux-x86_64.AppImage".into(), ..Asset::default() };
         let installed = Installed {
             version: version::parse("0.5.0"),
             source: InstallSource::Launcher,
-            location: dir.path().join("WordCraft.AppImage").display().to_string(),
+            location: dir.path().join("TextureCraft.AppImage").display().to_string(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4814,11 +4814,11 @@ mod tests {
         let http = Http::new().unwrap();
         let phase = &mut |_| ();
         let locations = InstallLocations::default();
-        let app = CraftApp::by_id("wordcraft").unwrap();
+        let app = CraftApp::by_id("texturecraft").unwrap();
         let release = Release { version: version::parse("99.0.0"), tag: "v99.0.0".into(), ..Release::default() };
         let asset = Asset {
-            name: "wordcraft-0.4.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/wordcraft/releases/download/v0.4.0/wordcraft-0.4.0-linux-x86_64.AppImage".into(),
+            name: "texturecraft-0.4.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/texturecraft/releases/download/v0.4.0/texturecraft-0.4.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         let stop = Stop::default();
@@ -4841,24 +4841,24 @@ mod tests {
 
         // A matching artifact passes the guard (it fails later for unrelated reasons, not the bind).
         let good = Asset {
-            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/wordcraft/releases/download/v99.0.0/wordcraft-99.0.0-linux-x86_64.AppImage".into(),
+            name: "texturecraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/texturecraft/releases/download/v99.0.0/texturecraft-99.0.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &good).is_ok());
 
         // URL filename mismatch is rejected (CWE-494).
         let bad_url_name = Asset {
-            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/wordcraft/releases/download/v99.0.0/other.AppImage".into(),
+            name: "texturecraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/texturecraft/releases/download/v99.0.0/other.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &bad_url_name).is_err());
 
         // URL tag mismatch is rejected.
         let bad_tag = Asset {
-            name: "wordcraft-99.0.0-linux-x86_64.AppImage".into(),
-            url: "https://github.com/storytold/wordcraft/releases/download/unparsed_tag/wordcraft-99.0.0-linux-x86_64.AppImage".into(),
+            name: "texturecraft-99.0.0-linux-x86_64.AppImage".into(),
+            url: "https://github.com/storytold/texturecraft/releases/download/unparsed_tag/texturecraft-99.0.0-linux-x86_64.AppImage".into(),
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &bad_tag).is_err());

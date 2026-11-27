@@ -364,14 +364,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    if platform.os == Os::Windows && stems.contains(&"photocraft") {
+    if platform.os == Os::Windows
+        && let Some(repo) = stems.iter().find_map(|id| crate::release::reviewed_windows_msi_repo(id))
+    {
         if !kinds.contains(&PackageKind::Msi) {
             return None;
         }
         return release
             .assets
             .iter()
-            .find(|asset| crate::release::photocraft_windows_msi_asset(release, asset))
+            .find(|asset| crate::release::reviewed_windows_msi_asset(repo, release, asset))
             .map(|asset| (asset, PackageKind::Msi));
     }
     if platform.os == Os::Linux
@@ -697,7 +699,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if platform.os == Os::Windows && stems.contains(&"photocraft") {
+    if platform.os == Os::Windows && stems.iter().any(|id| crate::release::reviewed_windows_msi_repo(id).is_some()) {
         return platform.arch == Arch::X64;
     }
     if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
@@ -789,43 +791,51 @@ mod tests {
     use super::*;
 
     #[test]
-    fn photocraft_selects_only_the_two_reviewed_x64_msis_on_windows() {
+    fn windows_x64_selects_only_reviewed_msi_receipts() {
         use crate::release::release_from_sums;
 
-        let repo = "storytold/photocraft";
         let windows = Platform { os: Os::Windows, arch: Arch::X64 };
-        let select = |release: &Release, platform, kinds: &[PackageKind]| {
-            pick_asset(release, &["photocraft"], platform, kinds).map(|(asset, kind)| (asset.clone(), kind))
-        };
-        for tag in ["v0.23.0", "v0.23.1"] {
-            let mut release = release_from_sums(repo, tag, &[]);
-            let (verified, kind) = select(&release, windows, &[PackageKind::PortableZip, PackageKind::Msi]).unwrap();
-            assert_eq!(kind, PackageKind::Msi);
-            assert!(verified.name.ends_with("-windows-x64.msi"));
-            for arch in [Arch::X86, Arch::Arm64] {
-                assert!(select(&release, Platform { arch, ..windows }, &[PackageKind::Msi]).is_none());
+        for (id, releases) in [
+            ("photocraft", [("v0.23.0", "photocraft-0.23.0-windows-x64.msi"), ("v0.23.1", "photocraft-0.23.1-windows-x64.msi")]),
+            ("wordcraft", [("v0.18.0", "wordcraft-0.18.0-windows-x64.msi"), ("v0.19.1", "wordcraft-0.19.1-windows-x64.msi")]),
+            ("keepassxc", [("2.7.12", "KeePassXC-2.7.12-Win64.msi"), ("2.8.0", "KeePassXC-2.8.0-x64.msi")]),
+            ("drawio", [("v31.5.2", "draw.io-31.5.2.msi"), ("v32.7.4", "draw.io-32.7.4.msi")]),
+        ] {
+            let repo = crate::release::reviewed_windows_msi_repo(id).unwrap();
+            let select = |release: &Release, platform, kinds: &[PackageKind]| {
+                pick_asset(release, &[id], platform, kinds).map(|(asset, kind)| (asset.clone(), kind))
+            };
+            for (tag, name) in releases {
+                let mut release = release_from_sums(repo, tag, &[]);
+                let (verified, kind) = select(&release, windows, &[PackageKind::PortableZip, PackageKind::Msi]).unwrap();
+                assert_eq!(kind, PackageKind::Msi);
+                assert_eq!(verified.name, name);
+                assert!(verified.sha256.as_deref().is_some_and(crate::release::is_hex64));
+                for arch in [Arch::X86, Arch::Arm64] {
+                    assert!(select(&release, Platform { arch, ..windows }, &[PackageKind::Msi]).is_none());
+                }
+                assert!(select(&release, windows, &[PackageKind::PortableZip]).is_none());
+                for substituted in [
+                    Asset { sha256: None, ..verified.clone() },
+                    Asset { sha256: Some("a".repeat(64)), ..verified.clone() },
+                    Asset { size: verified.size + 1, ..verified.clone() },
+                    Asset { url: verified.url.replace(repo, "other/installer"), ..verified.clone() },
+                    Asset { name: verified.name.replace(".msi", "-x86.msi"), ..verified.clone() },
+                    Asset { name: verified.name.replace(".msi", "-portable.zip"), ..verified.clone() },
+                ] {
+                    release.assets = vec![substituted];
+                    assert!(select(&release, windows, &[PackageKind::Msi, PackageKind::PortableZip]).is_none());
+                }
+                release.assets = vec![verified];
+                release.prerelease = true;
+                assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+                release.prerelease = false;
+                release.version = crate::version::parse("99.0.0");
+                assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
             }
-            assert!(select(&release, windows, &[PackageKind::PortableZip]).is_none());
-            for substituted in [
-                Asset { sha256: None, ..verified.clone() },
-                Asset { sha256: Some("a".repeat(64)), ..verified.clone() },
-                Asset { size: verified.size + 1, ..verified.clone() },
-                Asset { url: verified.url.replace(repo, "other/photocraft"), ..verified.clone() },
-                Asset { name: verified.name.replace("-x64.msi", "-x86.msi"), ..verified.clone() },
-                Asset { name: verified.name.replace("-x64.msi", "-x64-portable.zip"), ..verified.clone() },
-            ] {
-                release.assets = vec![substituted];
-                assert!(select(&release, windows, &[PackageKind::Msi, PackageKind::PortableZip]).is_none());
-            }
-            release.assets = vec![verified];
-            release.prerelease = true;
-            assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
-            release.prerelease = false;
-            release.version = crate::version::parse("0.23.2");
-            assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+            let future = release_from_sums(repo, "v99.0.0", &[("a".repeat(64), format!("{id}-99.0.0-windows-x64.msi"))]);
+            assert!(select(&future, windows, &[PackageKind::Msi]).is_none());
         }
-        let future = release_from_sums(repo, "v0.23.2", &[("a".repeat(64), "photocraft-0.23.2-windows-x64.msi".into())]);
-        assert!(select(&future, windows, &[PackageKind::Msi]).is_none());
     }
 
     #[test]

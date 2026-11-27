@@ -464,6 +464,166 @@
       ]
     },
     {
+      "id": "audition",
+      "name": "Adobe Audition",
+      "aliases": [
+        "Audition",
+        "Adobe Audition CC"
+      ],
+      "features": [
+        {
+          "id": "audio_multitrack",
+          "name": {
+            "it": "Montare audio su più tracce",
+            "en": "Edit audio on multiple tracks"
+          },
+          "source": "https://helpx.adobe.com/audition/desktop/workspace-and-setup/viewing-zooming-navigating-audio.html"
+        },
+        {
+          "id": "audio_spectrogram",
+          "name": {
+            "it": "Visualizzare lo spettrogramma",
+            "en": "View a spectrogram"
+          },
+          "source": "https://helpx.adobe.com/audition/desktop/editing-audio-files/displaying-audio-waveform-editor.html"
+        },
+        {
+          "id": "audio_noise_profile",
+          "name": {
+            "it": "Ridurre il rumore da un campione",
+            "en": "Reduce noise using a noise profile"
+          },
+          "source": "https://helpx.adobe.com/audition/desktop/effects-reference/noise-reduction-restoration-effects.html"
+        },
+        {
+          "id": "audio_batch_effects",
+          "name": {
+            "it": "Applicare la stessa catena di effetti a più file",
+            "en": "Apply the same effects chain to multiple files"
+          },
+          "source": "https://helpx.adobe.com/audition/desktop/introduction/fixed-issues.html"
+        },
+        {
+          "id": "audio_mixdown",
+          "name": {
+            "it": "Esportare il mix in un file audio",
+            "en": "Export a mix to an audio file"
+          },
+          "source": "https://helpx.adobe.com/audition/desktop/saving-and-exporting/saving-exporting-files1.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "audacity",
+          "evidence": {
+            "audio_multitrack": {
+              "state": "supported",
+              "source": "https://www.audacityteam.org/changelog/4.0.0/",
+              "note": {
+                "it": "La versione 4 consente di tagliare, raggruppare e spostare clip fra tracce.",
+                "en": "Version 4 supports trimming, grouping and moving clips between tracks."
+              }
+            },
+            "audio_spectrogram": {
+              "state": "supported",
+              "source": "https://www.audacityteam.org/manual/toolbar/tools/#toggle-spectral-view",
+              "note": {
+                "it": "La vista spettrale mostra le frequenze lungo la timeline.",
+                "en": "Spectral view displays frequencies across the timeline."
+              }
+            },
+            "audio_noise_profile": {
+              "state": "supported",
+              "source": "https://www.audacityteam.org/manual/effects/noise-removal-and-repair/noise-reduction/",
+              "note": {
+                "it": "L’effetto apprende il profilo del rumore da una selezione prima di applicare la riduzione.",
+                "en": "The effect learns a noise profile from a selection before applying reduction."
+              }
+            },
+            "audio_batch_effects": {
+              "state": "unsupported",
+              "source": "https://www.audacityteam.org/changelog/4.0.0/#compatibility-notes",
+              "note": {
+                "it": "Il Gestore macro della versione 3 manca nella serie 4.0, inclusa la 4.0.2 del catalogo.",
+                "en": "The version 3 Macro Manager is absent from the 4.0 series, including catalog version 4.0.2."
+              }
+            },
+            "audio_mixdown": {
+              "state": "supported",
+              "source": "https://www.audacityteam.org/manual/getting-started/export-your-audio/",
+              "note": {
+                "it": "L’esportazione dell’intero progetto combina le tracce in un file.",
+                "en": "Full-project export combines the tracks in one file."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "soundcraft",
+          "evidence": {
+            "audio_multitrack": {
+              "state": "supported",
+              "source": "https://github.com/storytold/soundcraft#what-it-does",
+              "note": {
+                "it": "La finestra Edit consente il montaggio multitraccia e la finestra Mix gestisce il missaggio.",
+                "en": "The Edit window supports multitrack editing and the Mix window handles mixing."
+              }
+            },
+            "audio_mixdown": {
+              "state": "supported",
+              "source": "https://github.com/storytold/soundcraft#what-it-does",
+              "note": {
+                "it": "Il bounce esporta il mix in WAV, AIFF o FLAC.",
+                "en": "Bounce exports the mix to WAV, AIFF or FLAC."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "tenacity",
+          "evidence": {
+            "audio_multitrack": {
+              "state": "supported",
+              "source": "https://tenacityaudio.org/docs/index.html",
+              "note": {
+                "it": "Il manuale documenta una timeline multitraccia.",
+                "en": "The manual documents a multitrack timeline."
+              }
+            },
+            "audio_spectrogram": {
+              "state": "supported",
+              "source": "https://tenacityaudio.org/docs/_content/Preferences.html",
+              "note": {
+                "it": "La traccia può mostrare lo spettrogramma anche insieme alla forma d’onda.",
+                "en": "Tracks can show a spectrogram alongside the waveform."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "qtractor",
+          "evidence": {
+            "audio_multitrack": {
+              "state": "supported",
+              "source": "https://www.qtractor.org/doc/Qtractor%20User%20Manual.html",
+              "note": {
+                "it": "Le tracce audio consentono di montare clip in una timeline.",
+                "en": "Audio tracks support clip editing on a timeline."
+              }
+            },
+            "audio_mixdown": {
+              "state": "supported",
+              "source": "https://www.qtractor.org/doc/Manual%20-%204%20Qtractor--An%20Overview.html",
+              "note": {
+                "it": "L’esportazione rende la sessione o una selezione come file audio.",
+                "en": "Export renders the session or a selection as an audio file."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "granola",
       "name": "Granola",
       "aliases": [

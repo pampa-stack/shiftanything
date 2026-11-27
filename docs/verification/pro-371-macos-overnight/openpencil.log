@@ -1,0 +1,18 @@
+PASS PREFLIGHT open-pencil v0.16.0
+PASS PREFLIGHT open-pencil v0.17.0
+/dev/disk3s5   239362496 176538696  21696328    90% 3247524 216963280    1%   /System/Volumes/Data
+OFFICIAL INDEX openpencil v0.16.0 digest=published
+OFFICIAL INDEX openpencil v0.17.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v0.16.0 Dmg https://github.com/open-pencil/open-pencil/releases/download/v0.16.0/OpenPencil_0.16.0_aarch64.dmg 16213804 000976fa54233d324f38842203d87976331733f5de68480c66d7fbcf0a877d09
+PASS OFFICIAL v0.17.0 Dmg https://github.com/open-pencil/open-pencil/releases/download/v0.17.0/OpenPencil_0.17.0_aarch64.dmg 19490106 72c1332fe713ed97b52cc5f45811f55dc350ec4bd02dbdd8e8db4d54196018ba
+NATIVE ORIGIN openpencil GitHub
+PASS OFFICIAL v0.16.0 Dmg https://github.com/open-pencil/open-pencil/releases/download/v0.16.0/OpenPencil_0.16.0_aarch64.dmg 16213804 000976fa54233d324f38842203d87976331733f5de68480c66d7fbcf0a877d09
+PASS NATIVE openpencil install: OpenPencil installed: 0.16.0; package_bytes=16213804; elapsed=13.266s
+NATIVE ORIGIN openpencil GitHub
+PASS OFFICIAL v0.17.0 Dmg https://github.com/open-pencil/open-pencil/releases/download/v0.17.0/OpenPencil_0.17.0_aarch64.dmg 19490106 72c1332fe713ed97b52cc5f45811f55dc350ec4bd02dbdd8e8db4d54196018ba
+PASS NATIVE openpencil update: OpenPencil updated to 0.17.0; package_bytes=19490106; elapsed=5.923s
+PASS NATIVE openpencil remove: OpenPencil was removed; package_bytes=0; elapsed=0.112s
+PASS NATIVE CYCLE openpencil (v0.16.0 → v0.17.0), private Trash and synthetic data preserved

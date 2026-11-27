@@ -35,3 +35,9 @@ La build `f569e40` aggiunge i loghi di Authentik Community, Cardinal, Enchanted,
 Mac Apple Silicon, DMG locale `e27b4e501af71343e62ef369093a63e30f99c0b43e5eb2c7e6ac1b150c4d5725`. Finestra aperta dalla copia estratta, con profilo nuovo e rete in uscita bloccata. [Confronto Photoshop](photoshop-477-offline-it.png) · [Icona di WireGuard for Windows nel confronto](wireguard-477-offline-it.png) · [Immagini ufficiali esaminate](official-logo-sources.png). Core 127 passati, uno ignorato, e Tauri 12 passati.
 
 Ubuntu x64, DEB locale `ad6525c2bc3b3bf00ed8f84a5851bcc86907225601c1a81833913410cc04ee09`. Verificato via SHA-256, estratto ed eseguito senza argomenti con profilo nuovo e rete isolata su Ubuntu 26.04. Le prove mostrano [il confronto Photoshop](photoshop-477-offline-linux.png) e [il logo aggiunto di WireGuard](wireguard-477-offline-linux.png). La finestra ha avviato il motore nativo e il pacchetto contiene la voce di menu e l’icona Linux.
+
+## 489 icone incluse
+
+Mac Apple Silicon, build `d010df5`, DMG locale `2afd4338bc0c38f99d8144a02df9104291aabf1844cffdd06a2c0d0a76a136a0`. Dal bundle estratto e verificato è stata aperta una finestra nativa a 1440 × 900, con profilo temporaneo e rete in uscita bloccata. I loghi appaiono a sinistra del nome dell'app nel [confronto Photoshop](photoshop-491-offline-it.png) e filtrando una delle nuove schede, [PhotoDemon](photodemon-491-offline-it.png). Sono stati controllati gli hash e la decodifica delle 489 icone locali nel [manifest](../../../apps/shiftanything-tauri-proof/media-provenance.json).
+
+Per Whisper-WebUI e VideoX-Fun restano le iniziali. I repository e i pacchetti ufficiali esaminati non contengono un loro logo. Le favicon delle demo sono identiche al marchio di Gradio. [Whisper-WebUI](https://github.com/jhj0517/Whisper-WebUI) · [VideoX-Fun](https://github.com/aigc-apps/VideoX-Fun) · [Favicon di Gradio](https://raw.githubusercontent.com/gradio-app/gradio/main/js/core/public/static/img/logo.svg)

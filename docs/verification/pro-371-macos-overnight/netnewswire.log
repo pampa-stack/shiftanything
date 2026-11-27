@@ -1,0 +1,75 @@
+ARTIFACT 9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1 10478881 https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3/NetNewsWire7.3.zip
+ZIP APPLEDOUBLE __MACOSX/._NetNewsWire.app
+ZIP 472 24188689 framework_links=51
+CFBundleIdentifier=com.ranchero.NetNewsWire-Evergreen
+CFBundleShortVersionString=7.3
+CFBundleVersion=7239
+CFBundleExecutable=NetNewsWire
+LSMinimumSystemVersion=15.0
+SUFeedURL=https://ranchero.com/downloads/netnewswire-release.xml
+<scratch>/preflight-netnewswire.rzIYcUXg/unpacked/NetNewsWire.app/Contents/MacOS/NetNewsWire (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Identifier=com.ranchero.NetNewsWire-Evergreen
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Brent Simmons (M8L2WTLA8W)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=18 Nov 2026 at 05:51:35
+TeamIdentifier=M8L2WTLA8W
+<scratch>/preflight-netnewswire.rzIYcUXg/unpacked/NetNewsWire.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT netnewswire mac-7.3
+ARTIFACT 280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9 10473901 https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3.1/NetNewsWire7.3.1.zip
+ZIP APPLEDOUBLE __MACOSX/._NetNewsWire.app
+ZIP 472 24174504 framework_links=51
+CFBundleIdentifier=com.ranchero.NetNewsWire-Evergreen
+CFBundleShortVersionString=7.3.1
+CFBundleVersion=7242
+CFBundleExecutable=NetNewsWire
+LSMinimumSystemVersion=15.0
+SUFeedURL=https://ranchero.com/downloads/netnewswire-release.xml
+<scratch>/preflight-netnewswire.wA5AQst7/unpacked/NetNewsWire.app/Contents/MacOS/NetNewsWire (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Identifier=com.ranchero.NetNewsWire-Evergreen
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Brent Simmons (M8L2WTLA8W)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=19 Nov 2026 at 19:26:55
+TeamIdentifier=M8L2WTLA8W
+<scratch>/preflight-netnewswire.wA5AQst7/unpacked/NetNewsWire.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT netnewswire mac-7.3.1
+PASS PREFLIGHT netnewswire mac-7.3
+PASS PREFLIGHT netnewswire mac-7.3.1
+OFFICIAL INDEX netnewswire mac-7.3 digest=published
+OFFICIAL INDEX netnewswire mac-7.3.1 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL mac-7.3 MacZip https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3/NetNewsWire7.3.zip 10478881 9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1
+PASS OFFICIAL mac-7.3.1 MacZip https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3.1/NetNewsWire7.3.1.zip 10473901 280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9
+NATIVE ORIGIN netnewswire GitHub
+PASS OFFICIAL mac-7.3 MacZip https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3/NetNewsWire7.3.zip 10478881 9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1
+PASS NATIVE netnewswire install: NetNewsWire installed: 7.3.0; package_bytes=10478881; elapsed=4.901s
+NATIVE ORIGIN netnewswire GitHub
+PASS OFFICIAL mac-7.3.1 MacZip https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3.1/NetNewsWire7.3.1.zip 10473901 280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9
+PASS NATIVE netnewswire update: NetNewsWire updated to 7.3.1; package_bytes=10473901; elapsed=4.932s
+PASS NATIVE netnewswire remove: NetNewsWire was removed; package_bytes=0; elapsed=0.109s
+PASS NATIVE CYCLE netnewswire (mac-7.3 → mac-7.3.1), private Trash and synthetic data preserved

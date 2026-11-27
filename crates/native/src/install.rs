@@ -136,6 +136,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
+        (&[recipe::NETNEWSWIRE.id], (15, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
     MINIMUMS.iter().find_map(|(ids, minimum)| ids.contains(&app.id).then_some(*minimum))
@@ -674,6 +675,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::MACCY.id {
         return (app.repo == artcraft_launcher_core::curated::MACCY.repo && release::maccy_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::NETNEWSWIRE.id {
+        return (app.repo == artcraft_launcher_core::curated::NETNEWSWIRE.repo && release::netnewswire_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -2323,9 +2329,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{KEYCASTR, MACCY};
+        use artcraft_launcher_core::curated::{KEYCASTR, MACCY, NETNEWSWIRE};
 
-        let framework_links = [KEYCASTR.id, MACCY.id].contains(&app.id);
+        let framework_links = [KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2436,12 +2442,13 @@ pub mod macos {
             // in the signed bundle: materializing them breaks macOS resource sealing.
             let legacy_keycastr_sidecar =
                 framework_links && bundle == "KeyCastr.app" && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
+            let netnewswire_sidecar = framework_links && bundle == "NetNewsWire.app" && name == "__MACOSX/._NetNewsWire.app";
             let appledouble = framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._"));
             let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
             if name.contains(['\\', ':'])
                 || name.chars().any(char::is_control)
                 || name.split('/').any(|part| part == "." || part == "..")
-                || (components.next() != Some(Component::Normal(bundle.as_ref())) && !legacy_keycastr_sidecar)
+                || (components.next() != Some(Component::Normal(bundle.as_ref())) && !legacy_keycastr_sidecar && !netnewswire_sidecar)
                 || (appledouble && (file_type != 0o100000 || entry.is_dir()))
                 || (!matches!(file_type, 0 | 0o100000 | 0o040000) && framework.is_none())
                 || (file_type == 0o040000 && !entry.is_dir())

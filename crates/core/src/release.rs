@@ -91,6 +91,7 @@ pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
 pub const GIMP_DMG_URL: &str = "https://download.gimp.org/gimp/";
 pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
 pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
+pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
     ("10.0.9", ("Zotero-10.0.9.dmg", 192_346_587, "fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387")),
@@ -148,6 +149,44 @@ pub fn gimp_release(version: Version) -> Release {
         tag,
         ..Release::default()
     }
+}
+
+fn netnewswire_mac_version(tag: &str) -> Option<Version> {
+    let raw = tag.strip_prefix("mac-")?;
+    let version = version::parse(raw)?;
+    (version.to_string() == raw || (version.patch == 0 && raw == format!("{}.{}", version.major, version.minor)))
+        .then_some(version)
+        .filter(|version| version.pre.is_empty() && version.build.is_empty())
+}
+
+fn netnewswire_release(tag: &str, version: Version) -> Release {
+    let repo = crate::curated::NETNEWSWIRE.repo;
+    Release {
+        assets: reviewed_assets(repo, tag).collect(),
+        name: format!("NetNewsWire {}", tag.trim_start_matches("mac-")),
+        html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    }
+}
+
+/// The publisher's Mac download link is separate from the shared GitHub latest release.
+pub fn netnewswire_mac_release_from_download(location: &str) -> Option<Release> {
+    let prefix = download_prefix(crate::curated::NETNEWSWIRE.repo);
+    let (tag, file) = location.strip_prefix(&prefix)?.split_once('/')?;
+    let version = netnewswire_mac_version(tag)?;
+    (file == format!("NetNewsWire{}.zip", tag.strip_prefix("mac-")?)).then(|| netnewswire_release(tag, version))
+}
+
+pub fn netnewswire_mac_release_history(latest: Release) -> Vec<Release> {
+    let latest_version = latest.version.clone();
+    let older = ["mac-7.3.1", "mac-7.3"]
+        .into_iter()
+        .filter_map(|tag| Some((tag, netnewswire_mac_version(tag)?)))
+        .filter(|(_, version)| Some(version) < latest_version.as_ref())
+        .map(|(tag, version)| netnewswire_release(tag, version));
+    std::iter::once(latest).chain(older).collect()
 }
 
 pub fn libreoffice_stable_version(tag: &str) -> Option<Version> {
@@ -568,6 +607,8 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         termix_desktop_version(tag)
     } else if repo == crate::curated::OPENCODE.repo {
         opencode_desktop_version(tag)
+    } else if repo == crate::curated::NETNEWSWIRE.repo {
+        netnewswire_mac_version(tag)
     } else if repo == crate::curated::PICARD.repo {
         picard_version(tag)
     } else if repo == crate::curated::ANKI.repo {
@@ -1056,6 +1097,12 @@ pub fn maccy_mac_asset(release: &Release, asset: &Asset) -> bool {
         })
 }
 
+pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && netnewswire_mac_version(&release.tag).as_ref() == release.version.as_ref()
+        && reviewed_assets(crate::curated::NETNEWSWIRE.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
 fn picard_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("release-")?;
     let version = Version::parse(label).ok()?;
@@ -1472,6 +1519,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("GNOME/gimp", "3.2.6") => &[("gimp-3.2.6-arm64.dmg", 185_680_887, "854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294")],
         ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
+        ("Ranchero-Software/NetNewsWire", "mac-7.3") => {
+            &[("NetNewsWire7.3.zip", 10_478_881, "9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1")]
+        }
+        ("Ranchero-Software/NetNewsWire", "mac-7.3.1") => {
+            &[("NetNewsWire7.3.1.zip", 10_473_901, "280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9")]
+        }
         ("moeru-ai/airi", "v0.15.2") => {
             &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
         }
@@ -1822,6 +1875,21 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn netnewswire_mac_pointer_rejects_ios_prereleases_and_mismatched_assets() {
+        let address = "https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3.1/NetNewsWire7.3.1.zip";
+        let current = netnewswire_mac_release_from_download(address).unwrap();
+        assert!(netnewswire_mac_asset(&current, &current.assets[0]));
+        assert!(!netnewswire_mac_asset(&current, &Asset { size: 1, ..current.assets[0].clone() }));
+        let history = netnewswire_mac_release_history(current);
+        assert_eq!(history.iter().map(|release| release.tag.as_str()).collect::<Vec<_>>(), ["mac-7.3.1", "mac-7.3"]);
+        assert_eq!(history[1].version_label(), "7.3.0");
+        assert!(netnewswire_mac_release_from_download(&address.replace("mac-", "iOS-")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("7.3.1", "7.3.1b1")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("NetNewsWire7.3.1.zip", "NetNewsWire7.3.2.zip")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("github.com", "example.org")).is_none());
+    }
 
     #[test]
     fn zotero_stable_redirect_is_canonical_and_never_qualifies_new_packages() {

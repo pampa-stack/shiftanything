@@ -1810,7 +1810,28 @@ pub const ZEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("9V5K9TP787"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 76] = [
+pub const DEEPTUTOR: crate::CraftApp = crate::CraftApp {
+    id: "deeptutor",
+    name: "DeepTutor",
+    tagline: "Study documents and build learning paths",
+    repo: "HKUDS/DeepTutor",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "HKUDS contributors",
+    msi_publisher: None,
+    bundle: Some("org.deeptutor.open-desktop"),
+    site: Some("https://github.com/HKUDS/DeepTutor"),
+    mac_bundle_name: Some("Open DeepTutor"),
+    mac_team: Some("ZP59KG8ABY"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 77] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1887,6 +1908,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 76] = [
     OSAURUS,
     HEADLAMP,
     ZEN,
+    DEEPTUTOR,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

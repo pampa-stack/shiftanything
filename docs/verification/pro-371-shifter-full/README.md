@@ -45,3 +45,11 @@ Ubuntu 24.04+ amd64, DEB locale dalla stessa sorgente, SHA-256 `ca4164ed2e36d19a
 Stdio MCP passato con 491 app e 9 profili. Il test di parità tra Rust e MCP passa per 20.175 combinazioni di funzioni selezionate e indispensabili.
 
 Per Whisper-WebUI e VideoX-Fun restano le iniziali. I repository e i pacchetti ufficiali esaminati non contengono un loro logo. Le favicon delle demo sono identiche al marchio di Gradio. [Whisper-WebUI](https://github.com/jhj0517/Whisper-WebUI) · [VideoX-Fun](https://github.com/aigc-apps/VideoX-Fun) · [Favicon di Gradio](https://raw.githubusercontent.com/gradio-app/gradio/main/js/core/public/static/img/logo.svg)
+
+## Catalogo da 495 app
+
+I pacchetti locali sono compilati da `b681f97`. Contengono 493 loghi ufficiali. Whisper-WebUI e VideoX-Fun mostrano le iniziali. Gli hash e la decodifica sono stati controllati per tutti i 527 asset locali del manifest.
+
+Mac Apple Silicon, DMG SHA-256 `e590033ad3041e2c9eed9d551fa24f47d66abab9d92ebc8d578e47d2517f3527`. Firma ad hoc verificata con codesign deep/strict. Finestra aperta dal bundle estratto, con profilo temporaneo e rete in uscita bloccata. [Confronto Photoshop](photoshop-495-offline-it.png) · [Logo Corteza](corteza-495-offline-it.png)
+
+Ubuntu 24.04+ amd64, DEB SHA-256 `cc35780d8be453a7a82b8d41f1a90b0ad13333cbda4a1c1d3e66e9bf2f65eb83`. Hash verificato sul builder, dopo il trasferimento locale e sul VPS di prova. Binario estratto, eseguito su Ubuntu 26.04 con profilo nuovo, Xvfb 1440 × 900 e rete isolata. [Confronto Photoshop](photoshop-495-offline-linux.png) · [Logo Corteza](corteza-495-offline-linux.png)

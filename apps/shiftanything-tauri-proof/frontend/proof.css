@@ -33,16 +33,28 @@ html:not([data-native-started]) .btn[data-native-app]:disabled {
   background:var(--surf3);
   border-color:var(--acc);
 }
-.btn[data-native-app]:is([data-native-open],[data-native-operation="open"]):enabled {
+.btn:is([data-native-primary-operation="open"],
+  .more-actions:not(:has([data-native-operation="update"]:enabled)) > [data-native-operation="open"]):enabled {
   background:#0017fd; /* The dominant blue from brand/icon.png. */
   border-color:#5064ff;
   color:#fff;
   font-weight:700;
 }
-.btn[data-native-app]:is([data-native-open],[data-native-operation="open"]):enabled:hover {
+.btn:is([data-native-primary-operation="open"],
+  .more-actions:not(:has([data-native-operation="update"]:enabled)) > [data-native-operation="open"]):enabled:hover {
   background:#082ffb;
 }
-.btn[data-native-app]:focus-visible {
+.btn:is([data-native-primary-operation="update"],[data-native-operation="update"],[data-native-bulk]):enabled {
+  background:#ff9c48;
+  border-color:#ff9c48;
+  color:var(--bg);
+  font-weight:700;
+}
+.btn:is([data-native-primary-operation="update"],[data-native-operation="update"],[data-native-bulk]):enabled:hover {
+  background:#ffb474;
+  border-color:#ffb474;
+}
+.btn:is([data-native-app],[data-native-bulk]):focus-visible {
   outline:2px solid #e9ff74;
   outline-offset:2px;
 }
@@ -68,7 +80,7 @@ html:not([data-native-started]) .btn[data-native-app]:disabled {
 /* Management uses the approved Doop groups with live native rows and actions. */
 .body[hidden],.native-apps[hidden] {display:none;}
 .native-apps {overflow:auto;flex:1;min-height:0;}
-.native-apps .table-row {grid-template-columns:minmax(155px,1.5fr) minmax(83px,.7fr) minmax(80px,.7fr) minmax(100px,.8fr) minmax(105px,1fr) minmax(225px,1.5fr);}
+.native-apps .table-row {grid-template-columns:minmax(155px,1.5fr) minmax(83px,.7fr) minmax(80px,.7fr) minmax(100px,.8fr) minmax(105px,1fr) minmax(225px,1.9fr);}
 .native-apps .nm {display:flex;align-items:center;gap:12px;}
 .native-apps .nm .product-icon {width:32px;height:32px;}
 .native-apps .more-actions {align-items:center;justify-content:flex-end;flex-wrap:wrap;}

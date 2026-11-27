@@ -1938,6 +1938,27 @@ pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("45U78722YL"),
 };
 
+pub const BLENDER: crate::CraftApp = crate::CraftApp {
+    id: "blender",
+    name: "Blender",
+    tagline: "Model, animate and render in 3D",
+    repo: "blender/blender",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [216, 112, 35],
+    ink_light: [137, 60, 9],
+    ink_dark: [252, 186, 122],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Blender Foundation",
+    msi_publisher: None,
+    bundle: Some("org.blenderfoundation.blender"),
+    site: Some("https://www.blender.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("68UA947AUU"),
+};
+
 pub const MACCY: crate::CraftApp = crate::CraftApp {
     id: "maccy",
     name: "Maccy",
@@ -2211,7 +2232,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 95] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 96] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2307,6 +2328,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 95] = [
     RECTANGLE,
     CODEEDIT,
     MACCY,
+    BLENDER,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

@@ -117,10 +117,16 @@ impl CraftApp {
         if self.uses_zotero_releases() {
             return crate::release::ZOTERO_CHANGELOG.to_string();
         }
+        if self.uses_blender_releases() {
+            return crate::release::BLENDER_RELEASES_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
     pub fn repo_url(&self) -> String {
+        if self.uses_blender_releases() {
+            return "https://projects.blender.org/blender/blender".to_string();
+        }
         format!("https://github.com/{}", self.repo)
     }
 
@@ -130,6 +136,10 @@ impl CraftApp {
 
     pub fn uses_zotero_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::ZOTERO.id, crate::curated::ZOTERO.repo)
+    }
+
+    pub fn uses_blender_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::BLENDER.id, crate::curated::BLENDER.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

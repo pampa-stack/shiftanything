@@ -901,6 +901,7 @@ mod tests {
             (crate::curated::OPENTTD, ["15.2", "15.3"]),
             (crate::curated::RECTANGLE, ["v2.0.4", "v2.0.5"]),
             (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),
+            (crate::curated::BLENDER, ["5.2.5", "5.3.0"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),

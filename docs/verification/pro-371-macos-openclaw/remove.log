@@ -1,0 +1,3 @@
+PASS PREFLIGHT openclaw v2026.11.10
+PHASE openclaw remove /private/tmp/shift-mac-ranked.avdZtp8L/profile-openclaw.Rb6cR9xX
+PASS NATIVE openclaw remove: OpenClaw was removed; package_bytes=0; elapsed=0.117s

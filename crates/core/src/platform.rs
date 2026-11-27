@@ -363,6 +363,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
     }
+    if let Some(app) = crate::release::qualified_mac_dmg_recipe(stems) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::qualified_mac_dmg_asset(app, release, asset))
+            .map(|asset| (asset, PackageKind::Dmg));
+    }
     if stems.contains(&crate::curated::NAPS2.id) {
         if !kinds.contains(&PackageKind::MacPkg) {
             return None;
@@ -655,6 +665,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+    if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
+        return platform == mac_arm64;
+    }
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
     if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
         .iter()
@@ -775,6 +788,36 @@ mod tests {
         latest.version = crate::version::parse("3.13.0");
         latest.tag = "v3.13.0".into();
         assert!(!select(&latest, platform));
+    }
+
+    #[test]
+    fn qualified_mac_dmg_matches_only_the_exact_reviewed_apple_silicon_artifact() {
+        let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, tags) in [(crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"])] {
+            let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
+            for tag in tags {
+                let release = crate::release::release_from_sums(app.repo, tag, &[]);
+                assert!(selects(&release, host));
+                assert!(!selects(&release, Platform { arch: Arch::X64, ..host }));
+                assert!(!selects(&release, Platform { os: Os::Linux, ..host }));
+
+                let mut untrusted = release.clone();
+                untrusted.prerelease = true;
+                assert!(!selects(&untrusted, host));
+                untrusted = release.clone();
+                untrusted.assets[0].url = untrusted.assets[0].url.replace(tag, "v0.0.1");
+                assert!(!selects(&untrusted, host));
+                untrusted = release.clone();
+                untrusted.assets[0].sha256 = None;
+                assert!(!selects(&untrusted, host));
+                untrusted = release.clone();
+                untrusted.assets[0].size += 1;
+                assert!(!selects(&untrusted, host));
+                untrusted = release;
+                untrusted.assets[0].name = "foreign.dmg".into();
+                assert!(!selects(&untrusted, host));
+            }
+        }
     }
 
     #[test]

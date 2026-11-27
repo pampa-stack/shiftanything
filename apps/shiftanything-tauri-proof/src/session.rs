@@ -75,9 +75,8 @@ fn verified_installs(platform: Option<Platform>) -> &'static BTreeSet<String> {
     static EVIDENCE: OnceLock<Evidence> = OnceLock::new();
     static NONE: BTreeSet<String> = BTreeSet::new();
     let Some(platform) = platform else { return &NONE };
-    let evidence = EVIDENCE.get_or_init(|| {
-        serde_json::from_str(include_str!("../verified-platforms.json")).expect("valid package verification evidence")
-    });
+    let evidence =
+        EVIDENCE.get_or_init(|| serde_json::from_str(include_str!("../verified-platforms.json")).expect("valid package verification evidence"));
     evidence
         .get(&platform.os.label().to_ascii_lowercase())
         .and_then(|architectures| architectures.get(&platform.arch.label().to_ascii_lowercase()))
@@ -251,7 +250,8 @@ impl NativeState {
                     _ => None,
                 };
                 let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
-                let installable = self.enabled && verified.contains(app.id) && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
+                let installable =
+                    self.enabled && verified.contains(app.id) && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
                 let update_available = installable
                     && installed.zip(release).is_some_and(|(installed, release)| {
                         !installed.externally_managed

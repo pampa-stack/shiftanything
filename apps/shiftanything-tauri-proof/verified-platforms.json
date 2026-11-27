@@ -28,6 +28,7 @@
       "naps2",
       "neovide",
       "obs",
+      "openclaw",
       "openscreen",
       "pinta",
       "rizzo-pii",
@@ -119,6 +120,7 @@
       "obs",
       "okular",
       "onlyoffice",
+      "openra",
       "openshot-video-editor",
       "orca-slicer",
       "papers",
@@ -161,6 +163,7 @@
       "vscodium",
       "wordcraft",
       "xournal",
+      "zen",
       "zettlr"
     ]
   }

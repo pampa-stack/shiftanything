@@ -1264,7 +1264,28 @@ pub const NAPS2: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2P9Q2K3XM9"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 50] = [
+pub const OPENCLAW: crate::CraftApp = crate::CraftApp {
+    id: "openclaw",
+    name: "OpenClaw",
+    tagline: "Connect to the OpenClaw gateway from macOS",
+    repo: "openclaw/openclaw",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenClaw Foundation",
+    msi_publisher: None,
+    bundle: Some("ai.openclaw.mac"),
+    site: Some("https://openclaw.ai/"),
+    mac_bundle_name: None,
+    mac_team: Some("FWJYW4S8P8"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 51] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1315,6 +1336,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 50] = [
     SUPER_PRODUCTIVITY,
     DB_BROWSER_SQLITE,
     NAPS2,
+    OPENCLAW,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

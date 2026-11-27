@@ -55,6 +55,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         }
         id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::NAPS2.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::OPENCLAW.id => Some((26, 2)),
         id if [
             OBS_STUDIO.id,
             AUDACITY.id,
@@ -616,6 +617,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         return (app.repo == artcraft_launcher_core::curated::DB_BROWSER_SQLITE.repo && release::db_browser_sqlite_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
+    }
+    if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id]) {
+        return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::NAPS2.id {
         return (app.repo == artcraft_launcher_core::curated::NAPS2.repo && release::naps2_mac_asset(release, asset))

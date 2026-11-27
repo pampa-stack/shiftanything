@@ -701,6 +701,24 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Desktop bundle recipes restricted to exact packages qualified on Apple Silicon.
+pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
+    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW];
+    RECIPES.iter().find(|app| stems.contains(&app.id))
+}
+
+pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{version}"))
+        && reviewed_assets(app.repo, &release.tag).any(|reviewed| {
+            reviewed.name.ends_with(".dmg")
+                && reviewed.name == asset.name
+                && reviewed.url == asset.url
+                && reviewed.size == asset.size
+                && reviewed.sha256 == asset.sha256
+        })
+}
+
 /// A PKG is extracted only after qualification of that exact release and layout.
 pub fn naps2_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
@@ -985,6 +1003,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
+        }
+        ("openclaw/openclaw", "v2026.11.9") => {
+            &[("OpenClaw-2026.11.9-arm64.dmg", 256_294_306, "b8583ed29e820ff9482839a73744d433c0530ba54019440c7faa6ff733f4f56f")]
+        }
+        ("openclaw/openclaw", "v2026.11.10") => {
+            &[("OpenClaw-2026.11.10-arm64.dmg", 248_813_181, "e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

@@ -1369,7 +1369,28 @@ pub const ORCA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6CX3WHS9HZ"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 55] = [
+pub const VOICE_STUDIO: crate::CraftApp = crate::CraftApp {
+    id: "voice-studio",
+    name: "VoiceStudio",
+    tagline: "Edit and produce audio from the desktop",
+    repo: "debpalash/VoiceStudio",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "YUPCHA SOFTWARES PRIVATE LIMITED",
+    msi_publisher: None,
+    bundle: Some("com.voicestudio.desktop"),
+    site: Some("https://voicestudio.sh/"),
+    mac_bundle_name: None,
+    mac_team: Some("CR8M2NTH2K"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 56] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1425,6 +1446,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 55] = [
     OLLAMA,
     CLASH_VERGE_REV,
     ORCA,
+    VOICE_STUDIO,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

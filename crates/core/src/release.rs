@@ -750,8 +750,14 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 
 /// Desktop bundle recipes restricted to exact packages qualified on Apple Silicon.
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    const RECIPES: &[crate::CraftApp] =
-        &[crate::curated::OPENCLAW, crate::curated::OPENCODE, crate::curated::OLLAMA, crate::curated::CLASH_VERGE_REV, crate::curated::ORCA];
+    const RECIPES: &[crate::CraftApp] = &[
+        crate::curated::OPENCLAW,
+        crate::curated::OPENCODE,
+        crate::curated::OLLAMA,
+        crate::curated::CLASH_VERGE_REV,
+        crate::curated::ORCA,
+        crate::curated::VOICE_STUDIO,
+    ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1074,6 +1080,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("stablyai/orca", "v1.4.279") => &[("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb")],
         ("stablyai/orca", "v1.4.280") => &[("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528")],
+        ("debpalash/VoiceStudio", "v0.5.7") => {
+            &[("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0")]
+        }
+        ("debpalash/VoiceStudio", "v0.5.8") => {
+            &[("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e")]
+        }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

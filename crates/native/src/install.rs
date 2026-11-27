@@ -58,6 +58,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::OPENCLAW.id => Some((26, 2)),
         id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
+        id if id == artcraft_launcher_core::curated::VOICE_STUDIO.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::CLASH_VERGE_REV.id => Some((11, 0)),
         id if id == artcraft_launcher_core::curated::ORCA.id => Some((13, 4)),
         id if [

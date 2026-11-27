@@ -78,3 +78,16 @@ On 27 November 2026, the native Apple Silicon installer installed the official [
 | 0.1.184 | `OpenMausBot-0.1.184-arm64.dmg` | 329203649 | `6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44` |
 
 The recipe accepts the two versioned, reviewed DMGs. The desktop window, model connections, and agent functionality were outside the test.
+
+## OrcaSlicer and MuseScore Studio
+
+On 27 November 2026, both free desktop apps completed install, update, and removal through the real `NativeBackend` in separate temporary Apple Silicon profiles. OrcaSlicer ran on the MacBook Air with macOS 26.6.2 and MuseScore Studio ran on the MacBook Pro with macOS 26.4. Gatekeeper was enabled on both machines. The exact official DMGs passed the size and SHA-256 checks, deep signature verification, and notarization assessment. The OrcaSlicer bundle identified as `com.orcaslicer.OrcaSlicer` with Developer ID team `XQK7C38HH5`. The MuseScore Studio bundle identified as `org.musescore.MuseScore` with team `6EPAF2X3PR`. Each contained an ARM64 slice. [OrcaSlicer AGPL-3.0 license](https://github.com/OrcaSlicer/OrcaSlicer/blob/v2.5.2/LICENSE.txt) · [MuseScore Studio GPL and system requirements](https://musescore.org/en/download)
+
+| App and version | Official asset | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| OrcaSlicer 2.5.1 | [OrcaSlicer_Mac_universal_V2.5.1.dmg](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.1) | 364654009 | `ddf48a7f34785a4d5b4313e4dc4d7ad01769d48bc4c8d825f809da96593e6f46` |
+| OrcaSlicer 2.5.2 | [OrcaSlicer_Mac_universal_V2.5.2.dmg](https://github.com/OrcaSlicer/OrcaSlicer/releases/tag/v2.5.2) | 359667480 | `6ea1afcdffb7e9ab011e2d6f6db665cb18463d1c4774591cd5db7ee0225479d9` |
+| MuseScore Studio 4.7.6 | [MuseScore-Studio-4.7.6.261022093.dmg](https://github.com/musescore/MuseScore/releases/tag/v4.7.6) | 207171137 | `dd78357e652a4df6ec074b9bd63a79e09eedb7c1c9dd6262eb7d9304508dec9c` |
+| MuseScore Studio 4.7.7 | [MuseScore-Studio-4.7.7.261109195.dmg](https://github.com/musescore/MuseScore/releases/tag/v4.7.7) | 206969738 | `16a6b33bb12f4a54cd97dfe8e7bc2f21477b9897e4c503e26fa3e332e4ddf8ad` |
+
+The backend selected the older version with `ListVersions` and `InstallChosen`, then found the stable update with `CheckForUpdates` and applied it with `InstallExpected`. Each run verified its own download byte count, installed version, application path, and manifest. The first removal attempts exposed a missing `.Trash` directory in the disposable homes. After initializing that directory, `Uninstall` moved each bundle into the private Trash, removed its manifest entry, and preserved its profile marker. The Air also ran the installed OrcaSlicer 2.5.2 ARM64 executable with `--help` and a dedicated `--datadir`. Desktop window launch and interaction were outside these tests. The existing Linux AppImage recipes keep their previously verified paths and package identities. [OrcaSlicer CLI options](https://github.com/OrcaSlicer/OrcaSlicer/wiki/cli_misc)

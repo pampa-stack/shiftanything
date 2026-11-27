@@ -52,6 +52,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::LAPCE.id,
                 recipe::LIBREOFFICE.id,
                 recipe::MEETILY.id,
+                recipe::MUSESCORE.id,
                 recipe::RIZZO_PII.id,
                 recipe::SOLVESPACE.id,
                 recipe::VIBE.id,
@@ -3295,6 +3296,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MUSESCORE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::VIBE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::ACTUAL_BUDGET), Some((12, 0)));

@@ -829,7 +829,7 @@ pub const MUSESCORE: crate::CraftApp = crate::CraftApp {
     former_repo: None,
     former_ids: &[],
     former_names: &[],
-    former_bundles: &[],
+    former_bundles: &["org.musescore.MuseScore"],
     color: [120, 183, 240],
     ink_light: [37, 82, 146],
     ink_dark: [130, 189, 248],
@@ -838,8 +838,8 @@ pub const MUSESCORE: crate::CraftApp = crate::CraftApp {
     msi_publisher: None,
     bundle: Some("org.musescore.MuseScore4portable"),
     site: Some("https://musescore.org/"),
-    mac_bundle_name: None,
-    mac_team: None,
+    mac_bundle_name: Some("MuseScore 4"),
+    mac_team: Some("6EPAF2X3PR"),
 };
 
 pub const ORCA_SLICER: crate::CraftApp = crate::CraftApp {
@@ -860,7 +860,7 @@ pub const ORCA_SLICER: crate::CraftApp = crate::CraftApp {
     bundle: Some("com.orcaslicer.OrcaSlicer"),
     site: Some("https://www.orcaslicer.com/"),
     mac_bundle_name: None,
-    mac_team: None,
+    mac_team: Some("XQK7C38HH5"),
 };
 
 pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {

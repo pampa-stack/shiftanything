@@ -269,4 +269,26 @@ mod tests {
         assert!(profiles.iter().any(|profile| profile.matches("PHÓTOSHÓP®")));
         assert!(!profiles.iter().any(|profile| profile.matches("a product with no profile")));
     }
+
+    #[test]
+    fn figma_alternatives_agree_across_comparison_kits_and_rankings() {
+        let comparison = data().unwrap().software("Figma Design").into_iter().find_map(|suggestion| suggestion.profile).unwrap();
+        let migration = vec!["migration".into()];
+        let scores = comparison.compare(&migration, &migration).unwrap();
+        let candidates: BTreeSet<_> = scores.iter().map(|score| score.app_id.as_str()).collect();
+        assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "penpot"]));
+        assert!(scores.iter().all(|score| score.missing_required == migration));
+        let doop = scores.iter().find(|score| score.app_id == "doop").unwrap();
+        assert_eq!(doop.unsupported, 1);
+        assert!(scores.iter().filter(|score| score.app_id != "doop").all(|score| score.partial == 1));
+
+        let kits = crate::kits::data().unwrap();
+        let step = kits.kits.iter().flat_map(|kit| &kit.steps).find(|step| step.paid.iter().any(|name| name == "Figma")).unwrap();
+        assert_eq!(step.compare.as_deref(), Some(comparison.id.as_str()));
+        assert_eq!(step.options.iter().map(|option| option.app.as_str()).collect::<BTreeSet<_>>(), candidates);
+        for entry in kits.rankings.iter().flat_map(|ranking| &ranking.entries).filter(|entry| entry.paid == "Figma") {
+            assert_eq!(entry.compare.as_deref(), Some(comparison.id.as_str()));
+            assert_eq!(entry.apps.iter().map(String::as_str).collect::<BTreeSet<_>>(), candidates);
+        }
+    }
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_on": "2026-11-26",
+  "checked_on": "2026-11-27",
   "suggested_software": [
     "1Password",
     "Adobe After Effects",
@@ -1319,6 +1319,288 @@
               "note": {
                 "it": "La documentazione remota non indica una configurazione per S3 Object Lock.",
                 "en": "The remote repository documentation does not show an S3 Object Lock setup."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "aliases": [
+        "Figma Design"
+      ],
+      "features": [
+        {
+          "id": "canvas",
+          "name": {
+            "it": "Canvas, livelli e forme",
+            "en": "Canvas, layers and shapes"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma-Design"
+        },
+        {
+          "id": "auto_layout",
+          "name": {
+            "it": "Layout automatico",
+            "en": "Automatic layout"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/5731482952599-Toggle-on-auto-layout-in-designs"
+        },
+        {
+          "id": "components",
+          "name": {
+            "it": "Componenti, istanze e varianti",
+            "en": "Components, instances and variants"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/39636737843735-Components-collection-Variants-and-component-set-fundamentals"
+        },
+        {
+          "id": "tokens",
+          "name": {
+            "it": "Variabili e temi",
+            "en": "Variables and themes"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/15339657135383-Guide-to-variables-in-Figma"
+        },
+        {
+          "id": "prototypes",
+          "name": {
+            "it": "Prototipi interattivi",
+            "en": "Interactive prototypes"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma"
+        },
+        {
+          "id": "collaboration",
+          "name": {
+            "it": "Collaborazione in team",
+            "en": "Team collaboration"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/1500007609322-Guide-to-sharing-and-permissions"
+        },
+        {
+          "id": "handoff",
+          "name": {
+            "it": "Specifiche e codice per lo sviluppo",
+            "en": "Developer specifications and code"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode-in-Figma"
+        },
+        {
+          "id": "migration",
+          "name": {
+            "it": "Migrazione dei file Figma",
+            "en": "Migration of existing Figma files"
+          },
+          "source": "https://help.figma.com/hc/en-us/articles/8403626871063-Save-a-local-copy-of-files"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "figcraft",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Frame, livelli, testo e strumenti vettoriali nell’editor desktop, anche offline.",
+                "en": "Frames, layers, text and vector tools in the desktop editor, including offline."
+              }
+            },
+            "auto_layout": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Auto layout in riga e colonna con wrap e griglie.",
+                "en": "Row and column auto layout with wrap and grids."
+              }
+            },
+            "components": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Istanze con override, proprietà e set di varianti.",
+                "en": "Instances with overrides, properties and variant sets."
+              }
+            },
+            "tokens": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Stili e variabili con modalità come chiaro e scuro.",
+                "en": "Styles and variables with modes such as light and dark."
+              }
+            },
+            "prototypes": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Connessioni, trigger, transizioni e modalità di presentazione.",
+                "en": "Connections, triggers, transitions and presentation mode."
+              }
+            },
+            "collaboration": {
+              "state": "partial",
+              "source": "https://github.com/storytold/figcraft#readme",
+              "note": {
+                "it": "Sessioni live ospitate dall’app o da un server proprio. La documentazione le presenta come anteprima senza team e account cloud.",
+                "en": "Live sessions hosted by the app or your own server. The documentation describes a preview without cloud teams or accounts."
+              }
+            },
+            "handoff": {
+              "state": "supported",
+              "source": "https://getartcraft.com/apps/figcraft",
+              "note": {
+                "it": "Dev Mode con misure, annotazioni ed esempi di codice CSS, HTML e React.",
+                "en": "Dev Mode with measurements, annotations and CSS, HTML and React code samples."
+              }
+            },
+            "migration": {
+              "state": "partial",
+              "source": "https://github.com/storytold/figcraft#readme",
+              "note": {
+                "it": "Apre file .fig con compatibilità parziale. Prova un file rappresentativo prima di migrare.",
+                "en": "Opens .fig files on a best-effort basis. Try a representative file before moving."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "doop",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://github.com/doop-design/doop#the-canvas-editor",
+              "note": {
+                "it": "Editor visuale di frame HTML, testo, forme e tracciati.",
+                "en": "Visual editor for HTML frames, text, shapes and paths."
+              }
+            },
+            "auto_layout": {
+              "state": "supported",
+              "source": "https://github.com/doop-design/doop#the-canvas-editor",
+              "note": {
+                "it": "Il pannello Design modifica direzione, spaziatura, wrap e allineamento del layout Flexbox.",
+                "en": "The Design panel edits Flexbox direction, spacing, wrap and alignment."
+              }
+            },
+            "components": {
+              "state": "supported",
+              "source": "https://doop.design/components",
+              "note": {
+                "it": "Componenti HTML riutilizzabili con varianti, override e librerie condivise.",
+                "en": "Reusable HTML components with variants, overrides and shared libraries."
+              }
+            },
+            "tokens": {
+              "state": "supported",
+              "source": "https://doop.design/docs/tokens",
+              "note": {
+                "it": "Token collegati al design, valori per tema ed esportazione CSS.",
+                "en": "Design-bound tokens, values per theme and CSS export."
+              }
+            },
+            "prototypes": {
+              "state": "supported",
+              "source": "https://doop.design/docs/prototypes",
+              "note": {
+                "it": "Connessioni tra frame, overlay, eventi, transizioni e anteprima condivisibile.",
+                "en": "Links between frames, overlays, events, transitions and shareable previews."
+              }
+            },
+            "collaboration": {
+              "state": "supported",
+              "source": "https://doop.design/docs/",
+              "note": {
+                "it": "Canvas con più editor, ruoli e commenti. Gli agenti possono partecipare tramite MCP.",
+                "en": "Multi-editor canvases, roles and comments. Agents can join via MCP."
+              }
+            },
+            "handoff": {
+              "state": "supported",
+              "source": "https://doop.design/docs/handoff",
+              "note": {
+                "it": "Approvazione per lo sviluppo ed esportazione del frame in HTML.",
+                "en": "Development approval and frame export as HTML."
+              }
+            },
+            "migration": {
+              "state": "unsupported",
+              "source": "https://doop.design/docs/import#figma-import",
+              "note": {
+                "it": "Il self-hosted non importa né esporta Figma. Doop Cloud converte i frame tramite collegamento all’account Figma.",
+                "en": "Self-hosted Doop cannot import or export Figma. Doop Cloud converts frames through a connected Figma account."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "penpot",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/first-steps/the-interface/",
+              "note": {
+                "it": "Canvas, tavole, livelli e strumenti di disegno vettoriale.",
+                "en": "Canvas, boards, layers and vector drawing tools."
+              }
+            },
+            "auto_layout": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/designing/flexible-layouts/",
+              "note": {
+                "it": "I layout Flex e Grid gestiscono dimensioni, spaziatura e riallineamento.",
+                "en": "Flex and Grid layouts handle sizing, spacing and reflow."
+              }
+            },
+            "components": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/design-systems/variants/",
+              "note": {
+                "it": "Componenti con proprietà, varianti, istanze e override.",
+                "en": "Components with properties, variants, instances and overrides."
+              }
+            },
+            "tokens": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/design-systems/design-tokens/",
+              "note": {
+                "it": "Token per colori, spaziatura e tipografia con set e temi condivisibili.",
+                "en": "Color, spacing and typography tokens with shareable sets and themes."
+              }
+            },
+            "prototypes": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/prototyping-testing/prototyping/",
+              "note": {
+                "it": "Collegamenti tra tavole, overlay e interazioni in anteprima.",
+                "en": "Links between boards, overlays and interactions in preview."
+              }
+            },
+            "collaboration": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/first-steps/the-interface/",
+              "note": {
+                "it": "Spazi di team con inviti, presenza nel file e commenti.",
+                "en": "Team workspaces with invitations, file presence and comments."
+              }
+            },
+            "handoff": {
+              "state": "supported",
+              "source": "https://help.penpot.app/user-guide/prototyping-testing/testing-view-mode/",
+              "note": {
+                "it": "Modalità Inspect con specifiche e frammenti di codice.",
+                "en": "Inspect mode with specifications and code snippets."
+              }
+            },
+            "migration": {
+              "state": "partial",
+              "source": "https://help.penpot.app/user-guide/first-steps/migration-guide/",
+              "note": {
+                "it": "Il plugin esporta da Figma verso Penpot. La guida indica di verificare layout e librerie dopo il trasferimento.",
+                "en": "The plugin exports from Figma to Penpot. The guide recommends checking layouts and libraries after transfer."
               }
             }
           }

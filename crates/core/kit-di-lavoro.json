@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-11-26",
+  "checked_on": "2026-11-27",
   "kits": [
     {
       "id": "designer",
@@ -16,7 +16,9 @@
         {"id":"layout","name":{"it":"Impaginazione","en":"Publishing"},"paid":["Adobe InDesign"],"options":[
           {"app":"scribus","use":{"it":"Documenti multipagina e PDF/X per la stampa.","en":"Multipage documents and print-ready PDF/X."},"source":"https://github.com/scribusproject/scribus/blob/master/doc/en/readme.html"},
           {"app":"designcraft","use":{"it":"Impaginazione con testo e immagini. È un’app di ArtCraft.","en":"Page layout with text and images. Part of the ArtCraft suite."},"source":"https://github.com/storytold/designcraft#readme"}]},
-        {"id":"prototype","name":{"it":"Prototipi di interfacce","en":"Interface prototyping"},"paid":["Figma"],"options":[
+        {"id":"prototype","name":{"it":"Prototipi di interfacce","en":"Interface prototyping"},"paid":["Figma"],"compare":"figma","options":[
+          {"app":"figcraft","use":{"it":"Design e prototipi offline. Apre file .fig con compatibilità parziale.","en":"Offline design and prototyping. Opens .fig files on a best-effort basis."},"source":"https://github.com/storytold/figcraft#readme"},
+          {"app":"doop","use":{"it":"Prototipi HTML condivisi ed editing tramite MCP. La migrazione da Figma è disponibile su Doop Cloud.","en":"Shared HTML prototypes and MCP editing. Figma migration is available on Doop Cloud."},"source":"https://doop.design/docs"},
           {"app":"penpot","use":{"it":"Collega tavole e crea prototipi navigabili. Disponibile in self-hosting.","en":"Connect boards into interactive prototypes. Available for self-hosting."},"source":"https://help.penpot.app/user-guide/prototyping-testing/prototyping/"}]}
       ]
     },
@@ -46,7 +48,7 @@
       "source":"https://xdapolidesign.com/wp-content/uploads/2026/09/Stato-UX-Italia-2026-Experience-Design-Academy.pdf#page=39",
       "publisher":"POLI.design · Experience Design Academy",
       "entries":[
-        {"paid":"Figma","value":91,"apps":["penpot"]},
+        {"paid":"Figma","value":91,"apps":["figcraft","doop","penpot"],"compare":"figma"},
         {"paid":"Adobe Illustrator","value":29,"apps":["inks","vectorcraft"],"compare":"illustrator"},
         {"paid":"Adobe Photoshop","value":25,"apps":["gimp","photocraft","krita"],"compare":"photoshop"},
         {"paid":"Adobe InDesign","value":6,"apps":["scribus","designcraft"]}
@@ -76,7 +78,7 @@
       "publisher":"Moss",
       "entries":[
         {"paid":"Adobe · suite","value":68.4,"apps":["gimp","photocraft","inks","vectorcraft","scribus","designcraft"]},
-        {"paid":"Figma","value":35.7,"apps":["penpot"]}
+        {"paid":"Figma","value":35.7,"apps":["figcraft","doop","penpot"],"compare":"figma"}
       ]
     }
   ]

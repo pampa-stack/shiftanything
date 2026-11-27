@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
 # Build an ad-hoc local Sh*ftAnything test DMG from the existing debug binary.
-# Usage: local-dmg.sh NEW_OUTPUT_DIRECTORY. Never installs, opens GUI or publishes.
+# Usage: local-dmg.sh [--tauri] NEW_OUTPUT_DIRECTORY. Never installs, opens GUI or publishes.
 set -euo pipefail
 umask 077
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-[[ $# = 1 ]] || { echo 'supply a new output directory' >&2; exit 2; }
-OUTPUT="$1"
+SUFFIX=local
+case "$#:${1:-}" in
+  1:*) OUTPUT="$1" ;;
+  2:--tauri) OUTPUT="$2"; SUFFIX=tauri-local ;;
+  *) echo 'usage: local-dmg.sh [--tauri] NEW_OUTPUT_DIRECTORY' >&2; exit 2 ;;
+esac
 # local-app.sh creates OUTPUT exclusively and refuses to overwrite any existing folder.
-"$ROOT/packaging/macos/local-app.sh" "$OUTPUT"
+"$ROOT/packaging/macos/local-app.sh" "$@"
 APP="$OUTPUT/Sh*ftAnything.app"
 EXE="$APP/Contents/MacOS/ShiftAnything"
 VERSION="$(plutil -extract CFBundleShortVersionString raw -o - "$APP/Contents/Info.plist")"
 ARCH="$(uname -m)"
 lipo "$EXE" -verify_arch "$ARCH"
-DMG="$OUTPUT/ShiftAnything-$VERSION-macos-$ARCH-local.dmg"
+DMG="$OUTPUT/ShiftAnything-$VERSION-macos-$ARCH-$SUFFIX.dmg"
 STAGE="$OUTPUT/stage"
 MOUNT="$OUTPUT/mount"
 mkdir "$STAGE" "$MOUNT"
@@ -42,7 +46,9 @@ for file in LICENSE-MIT LICENSE-APACHE NOTICE ATTRIBUTION.md; do
 done
 ditto "$BUNDLE" "$OUTPUT/verified-copy/Sh*ftAnything.app"
 codesign --verify --deep --strict "$OUTPUT/verified-copy/Sh*ftAnything.app"
-"$OUTPUT/verified-copy/Sh*ftAnything.app/Contents/MacOS/ShiftAnything" --version
+ACTUAL_VERSION="$("$OUTPUT/verified-copy/Sh*ftAnything.app/Contents/MacOS/ShiftAnything" --version)"
+[[ "$ACTUAL_VERSION" = "shiftanything $VERSION" ]] || { printf 'Unexpected launcher version: %s\n' "$ACTUAL_VERSION" >&2; exit 1; }
+printf '%s\n' "$ACTUAL_VERSION"
 hdiutil detach "$MOUNT" -quiet
 MOUNTED=0
 shasum -a 256 "$DMG" > "$OUTPUT/SHA256SUMS.txt"

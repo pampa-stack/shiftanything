@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 # Assemble an isolated, ad-hoc signed test bundle. Never installs or launches it.
-# Usage: local-app.sh NEW_OUTPUT_DIRECTORY
+# Usage: local-app.sh [--tauri] NEW_OUTPUT_DIRECTORY
 set -euo pipefail
+umask 077
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-[[ $# = 1 ]] || { echo 'supply a new output directory' >&2; exit 2; }
+PKG=artcraft-launcher
+if [[ "${1:-}" = --tauri ]]; then
+  PKG=shiftanything-tauri-proof
+  shift
+fi
+[[ $# = 1 ]] || { echo 'usage: local-app.sh [--tauri] NEW_OUTPUT_DIRECTORY' >&2; exit 2; }
 OUTPUT="$1"
-mkdir "$OUTPUT"
-BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/debug/artcraft-launcher"
-[[ -x "$BINARY" ]] || { echo 'build the desktop binary first' >&2; exit 1; }
+BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/debug/$PKG"
+[[ -x "$BINARY" ]] || { printf 'Build the selected binary first: cargo build -p %s\n' "$PKG" >&2; exit 1; }
+mkdir -- "$OUTPUT"
 APP="$OUTPUT/Sh*ftAnything.app"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$OUTPUT/icon.iconset"
 cp "$BINARY" "$APP/Contents/MacOS/ShiftAnything"
@@ -33,6 +39,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 <key>CFBundleExecutable</key><string>ShiftAnything</string>
 <key>CFBundleIconFile</key><string>ShiftAnything</string>
 <key>CFBundlePackageType</key><string>APPL</string>
+<key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
 <key>CFBundleShortVersionString</key><string>$VERSION</string>
 <key>CFBundleVersion</key><string>$VERSION</string>
 <key>LSMinimumSystemVersion</key><string>11.0</string>
@@ -43,5 +50,7 @@ PLIST
 plutil -lint "$APP/Contents/Info.plist"
 codesign --force --sign - --timestamp=none "$APP"
 codesign --verify --deep --strict "$APP"
-"$APP/Contents/MacOS/ShiftAnything" --version
+ACTUAL_VERSION="$("$APP/Contents/MacOS/ShiftAnything" --version)"
+[[ "$ACTUAL_VERSION" = "shiftanything $VERSION" ]] || { printf 'Unexpected launcher version: %s\n' "$ACTUAL_VERSION" >&2; exit 1; }
+printf '%s\n' "$ACTUAL_VERSION"
 printf 'PASS local bundle: %s\nAd-hoc test only; not notarized or installed.\n' "$APP"

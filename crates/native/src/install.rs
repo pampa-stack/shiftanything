@@ -69,6 +69,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::BRUNO.id,
                 recipe::DOSBOX_STAGING.id,
                 recipe::ENTE_AUTH.id,
+                recipe::FREECAD.id,
                 recipe::HEADLAMP.id,
                 recipe::IINA.id,
                 recipe::JOPLIN.id,
@@ -2580,7 +2581,11 @@ pub mod macos {
         // Calibre's frozen Python library carries a detached Developer ID signature.
         let calibre = artcraft_launcher_core::curated::CALIBRE;
         let calibre_detached_signature = (app.id, app.repo, app.bundle, expect.team) == (calibre.id, calibre.repo, calibre.bundle, calibre.mac_team);
-        let args = if app.id == artcraft_launcher_core::curated::PINTA.id || sqlite_legacy || calibre_detached_signature {
+        let args = if app.id == artcraft_launcher_core::curated::PINTA.id
+            || sqlite_legacy
+            || calibre_detached_signature
+            || freecad_detached_signature(app, expect)
+        {
             ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
         } else {
             ["--norsrc", "--noextattr", "--noacl", src_s, staged_s]
@@ -2592,6 +2597,28 @@ pub mod macos {
         let found = crate::detect::macos::read_bundle(app, &staged).ok_or("the copied app is incomplete")?;
         check_and_swap(app, &staged, &dest, &found, expect, process::run_with_output)?;
         Ok(dest)
+    }
+
+    // The reviewed FreeCAD builds sign Contents/packages.txt through extended attributes.
+    fn freecad_detached_signature(app: &CraftApp, expect: &Expect<'_>) -> bool {
+        let freecad = artcraft_launcher_core::curated::FREECAD;
+        (app.id, app.repo, app.bundle, expect.team) == (freecad.id, freecad.repo, freecad.bundle, freecad.mac_team)
+            && expect.version.is_some_and(|version| [Version::new(1, 1, 3), Version::new(1, 1, 4)].contains(version))
+    }
+
+    #[test]
+    fn freecad_only_preserves_detached_signatures_for_reviewed_builds() {
+        use artcraft_launcher_core::curated::FREECAD;
+
+        for version in [Version::new(1, 1, 3), Version::new(1, 1, 4)] {
+            let expect = Expect { team: FREECAD.mac_team, version: Some(&version) };
+            assert!(freecad_detached_signature(&FREECAD, &expect));
+            assert!(!freecad_detached_signature(&CraftApp { repo: "example/freecad", ..FREECAD }, &expect));
+            assert!(!freecad_detached_signature(&CraftApp { bundle: Some("org.example.freecad"), ..FREECAD }, &expect));
+            assert!(!freecad_detached_signature(&FREECAD, &Expect { team: Some("0000000000"), version: Some(&version) }));
+        }
+        assert!(!freecad_detached_signature(&FREECAD, &Expect { team: FREECAD.mac_team, version: Some(&Version::new(1, 1, 5)) }));
+        assert!(!freecad_detached_signature(&FREECAD, &Expect { team: FREECAD.mac_team, version: None }));
     }
 
     /// Unsigned fixtures are allowed only in test builds, never in production installs.

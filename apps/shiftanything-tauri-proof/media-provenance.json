@@ -249,6 +249,34 @@
       "source": "https://raw.githubusercontent.com/mountain-loop/yaak/6196bf2a21ecac4f8ba3e3c8d4a2d1e7496ab452/crates-tauri/yaak-app-client/icons/release/128x128%402x.png",
       "file": "media/yaak-logo.png",
       "sha256": "fecdd158de13f72375156a2995052e65d76b7d50db1e91874cedbeefae869e37"
+    },
+    {
+      "app": "doop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/doop-design/doop/main/public/favicon.png",
+      "file": "media/doop-logo.png",
+      "sha256": "308b7cd94b3b6de0e78a64712f861a30a5872c2999ad54b152c1cd8030e0f195"
+    },
+    {
+      "app": "drawio",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/build/icon.png",
+      "file": "media/drawio-logo.png",
+      "sha256": "3dc3c95a09909bb9aef660bb33555ab7ff02db8ca258eb4b9292140c0aa8a8d5"
+    },
+    {
+      "app": "figcraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/figcraft-13d5236adb30c2bd4ff3eb7bcb7bb5a70d8de2ef36a81a5ffaf43ea171c7f51b.png",
+      "file": "media/figcraft-logo.png",
+      "sha256": "13d5236adb30c2bd4ff3eb7bcb7bb5a70d8de2ef36a81a5ffaf43ea171c7f51b"
+    },
+    {
+      "app": "penpot",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/penpot/penpot/develop/frontend/resources/images/assets/penpot-logo-icon.svg",
+      "file": "media/penpot-logo.png",
+      "sha256": "a1ce66bb590dac9d40cc9035885b309a8918702e292850ecdc5c416d31179de2"
     }
   ]
 }

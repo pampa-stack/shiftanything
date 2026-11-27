@@ -7,3 +7,5 @@ La prova browser locale, con risposta nativa di fixture, ha percorso tutte le 35
 Il confronto è documentale. L'installazione delle app è verificata da prove separate.
 
 [Finestra macOS con i loghi di Doop, Penpot e FigCraft](figma-logos-en.png). SH*FTER usa il caricamento nativo del catalogo per le righe in vista. Un riquadro chiaro rende leggibile il logo scuro di Penpot.
+
+Con il catalogo da 462 app, [confronto Figma in italiano online](figma-logos-462-it.png) e [dallo stesso confronto in un profilo nuovo a rete disabilitata](figma-logos-offline-it.png). I loghi di Doop, Penpot, FigCraft, draw.io ed Excalidraw sono inclusi nel pacchetto. Per le righe prive di un logo locale o scaricato la tabella mostra le iniziali.

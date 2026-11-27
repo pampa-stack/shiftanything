@@ -91,6 +91,8 @@ pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
 pub const GIMP_DMG_URL: &str = "https://download.gimp.org/gimp/";
 pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
 pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
+pub const VLC_DMG_URL: &str = "https://download.videolan.org/pub/videolan/vlc/";
+pub const VLC_DOWNLOADS_URL: &str = "https://www.videolan.org/vlc/download-macosx.html";
 pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
 pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
 pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
@@ -151,6 +153,21 @@ pub fn gimp_release(version: Version) -> Release {
         tag,
         ..Release::default()
     }
+}
+
+pub fn vlc_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::VLC.repo, tag).collect(),
+        name: format!("VLC {tag}"),
+        html_url: VLC_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
 }
 
 fn krita_mac_version(tag: &str) -> Option<Version> {
@@ -1016,6 +1033,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::BLENDER,
         crate::curated::GIMP,
         crate::curated::KRITA,
+        crate::curated::VLC,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1042,6 +1060,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || app.uses_zotero_releases()
                 || app.uses_blender_releases()
                 || app.uses_gimp_releases()
+                || app.uses_vlc_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -1519,6 +1538,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("GNOME/gimp", "3.2.6") => &[("gimp-3.2.6-arm64.dmg", 185_680_887, "854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294")],
         ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
+        ("videolan/vlc", "3.0.23") => &[("vlc-3.0.23-arm64.dmg", 51_273_389, "fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d")],
+        ("videolan/vlc", "3.0.24") => &[("vlc-3.0.24-arm64.dmg", 56_960_605, "64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7")],
         ("KDE/krita", "5.3.4.1") => &[("krita-5.3.4.1-signed.dmg", 392_023_759, "531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de")],
         ("KDE/krita", "5.3.5") => &[("krita-5.3.5-signed.dmg", 392_026_525, "273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175")],
         ("Ranchero-Software/NetNewsWire", "mac-7.3") => {
@@ -1780,6 +1801,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             // These tags are the canonical stable versions in the receipts above.
             let (series, _) = tag.rsplit_once('.').expect("reviewed Blender version");
             format!("{BLENDER_DMG_URL}Blender{series}/{name}")
+        } else if repo == crate::curated::VLC.repo {
+            format!("{VLC_DMG_URL}{tag}/macosx/{name}")
         } else if repo == crate::curated::KRITA.repo {
             format!("{KRITA_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::GIMP.repo {

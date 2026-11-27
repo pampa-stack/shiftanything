@@ -2001,6 +2001,27 @@ pub const KRITA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("DL93766A3G"),
 };
 
+pub const VLC: crate::CraftApp = crate::CraftApp {
+    id: "vlc",
+    name: "VLC",
+    tagline: "Play video, music and streams",
+    repo: "videolan/vlc",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [209, 104, 19],
+    ink_light: [134, 62, 16],
+    ink_dark: [254, 184, 116],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "VideoLAN",
+    msi_publisher: None,
+    bundle: Some("org.videolan.vlc"),
+    site: Some("https://www.videolan.org/vlc/"),
+    mac_bundle_name: None,
+    mac_team: Some("75GAHG3SZQ"),
+};
+
 pub const NETNEWSWIRE: crate::CraftApp = crate::CraftApp {
     id: "netnewswire",
     name: "NetNewsWire",
@@ -2295,7 +2316,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 99] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 100] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2395,6 +2416,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 99] = [
     GIMP,
     NETNEWSWIRE,
     KRITA,
+    VLC,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

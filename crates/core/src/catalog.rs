@@ -126,6 +126,9 @@ impl CraftApp {
         if self.uses_krita_releases() {
             return crate::release::KRITA_DOWNLOADS_URL.to_string();
         }
+        if self.uses_vlc_releases() {
+            return crate::release::VLC_DOWNLOADS_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -138,6 +141,9 @@ impl CraftApp {
         }
         if self.uses_krita_releases() {
             return "https://invent.kde.org/graphics/krita".to_string();
+        }
+        if self.uses_vlc_releases() {
+            return "https://code.videolan.org/videolan/vlc".to_string();
         }
         format!("https://github.com/{}", self.repo)
     }
@@ -160,6 +166,10 @@ impl CraftApp {
 
     pub fn uses_krita_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::KRITA.id, crate::curated::KRITA.repo)
+    }
+
+    pub fn uses_vlc_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::VLC.id, crate::curated::VLC.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

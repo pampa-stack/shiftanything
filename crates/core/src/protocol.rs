@@ -248,6 +248,8 @@ pub enum Origin {
     Gimp,
     /// Krita's official downloads page.
     Krita,
+    /// VideoLAN's stable macOS release directory.
+    VideoLan,
 }
 
 impl Origin {
@@ -260,6 +262,7 @@ impl Origin {
             Self::Blender => "Blender Foundation",
             Self::Gimp => "GIMP",
             Self::Krita => "Krita",
+            Self::VideoLan => "VideoLAN",
         }
     }
 }
@@ -284,6 +287,8 @@ pub enum Source {
     Gimp,
     /// Krita's official downloads page.
     Krita,
+    /// VideoLAN's stable macOS release directory.
+    VideoLan,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -299,6 +304,7 @@ impl Source {
             Self::Blender => "Blender Foundation",
             Self::Gimp => "GIMP",
             Self::Krita => "Krita",
+            Self::VideoLan => "VideoLAN",
             Self::Cache => "saved results",
         }
     }

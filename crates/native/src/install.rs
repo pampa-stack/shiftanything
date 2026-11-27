@@ -136,7 +136,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
-        (&[recipe::KRITA.id], (11, 0)),
+        (&[recipe::KRITA.id, recipe::VLC.id], (11, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
     MINIMUMS.iter().find_map(|(ids, minimum)| ids.contains(&app.id).then_some(*minimum))
@@ -2645,6 +2645,7 @@ pub mod macos {
             || sqlite_legacy
             || calibre_detached_signature
             || freecad_detached_signature(app, expect)
+            || vlc_detached_signature(app, expect)
         {
             ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
         } else {
@@ -2679,6 +2680,31 @@ pub mod macos {
         }
         assert!(!freecad_detached_signature(&FREECAD, &Expect { team: FREECAD.mac_team, version: Some(&Version::new(1, 1, 5)) }));
         assert!(!freecad_detached_signature(&FREECAD, &Expect { team: FREECAD.mac_team, version: None }));
+    }
+
+    // The reviewed VideoLAN builds sign plugins.dat through extended attributes.
+    fn vlc_detached_signature(app: &CraftApp, expect: &Expect<'_>) -> bool {
+        let vlc = artcraft_launcher_core::curated::VLC;
+        cfg!(target_arch = "aarch64")
+            && (app.id, app.repo, app.bundle, app.mac_bundle_name(), expect.team)
+                == (vlc.id, vlc.repo, vlc.bundle, vlc.mac_bundle_name(), vlc.mac_team)
+            && expect.version.is_some_and(|version| [Version::new(3, 0, 23), Version::new(3, 0, 24)].contains(version))
+    }
+
+    #[test]
+    fn vlc_only_preserves_detached_signatures_for_reviewed_builds() {
+        use artcraft_launcher_core::curated::VLC;
+
+        for version in [Version::new(3, 0, 23), Version::new(3, 0, 24)] {
+            let expect = Expect { team: VLC.mac_team, version: Some(&version) };
+            assert_eq!(vlc_detached_signature(&VLC, &expect), cfg!(target_arch = "aarch64"));
+            assert!(!vlc_detached_signature(&CraftApp { mac_bundle_name: Some("Renamed"), ..VLC }, &expect));
+            assert!(!vlc_detached_signature(&CraftApp { repo: "example/vlc", ..VLC }, &expect));
+            assert!(!vlc_detached_signature(&CraftApp { bundle: Some("org.example.vlc"), ..VLC }, &expect));
+            assert!(!vlc_detached_signature(&VLC, &Expect { team: None, version: Some(&version) }));
+        }
+        assert!(!vlc_detached_signature(&VLC, &Expect { team: VLC.mac_team, version: Some(&Version::new(3, 0, 25)) }));
+        assert!(!vlc_detached_signature(&VLC, &Expect { team: VLC.mac_team, version: None }));
     }
 
     /// Unsigned fixtures are allowed only in test builds, never in production installs.

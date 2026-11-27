@@ -1,0 +1,19 @@
+commit a02cc7f1241d650d816db12853527043a2542471d2bd5d7c5e28b5049dc46a6d
+Parent:  c3110993f45de72735bea42838653772abc561295e447333ff2025b0825e8837
+ContentChecksum:  15e2c7eb8e931dcffa98a5dbe6608cb76c7b4ebdc0fcb39d907b65053e7b0d61
+Date:  2026-10-29 15:23:28 +0000
+
+    Merge pull request #400 from x1sc0/master (77b96df9c20e)
+
+    Name: org.libreoffice.LibreOffice
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct 29 16:02:56 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -60,3 +60,11 @@ Gli altri media sono riferimenti a immagini del progetto. Nessun permesso di rid
 - Trayscale 1.094 stelle, MIT. Interfaccia Linux per il demone Tailscale, utilizzabile anche con un account registrato con Headscale. [Release v0.21.0](https://github.com/DeedleFake/trayscale/releases/tag/v0.21.0) · [Flatpak](https://flathub.org/apps/dev.deedles.Trayscale) · [Stelle GitHub](https://api.github.com/repos/DeedleFake/trayscale)
 
 Otto asset ufficiali scaricati e letti fra icone e schermate. Trayscale e Outline aggiungono due loghi al pacchetto in base alle loro licenze. I canali di installazione riportati sono documentali.
+
+## Secondo gruppo VPN e rete, 528 schede
+
+- Tailscale per Linux, 39.685 stelle, BSD-3-Clause. Client con menu grafico beta, utilizzabile con un server Headscale. Il logo originale è incluso nel pacchetto con la licenza BSD. [Documentazione del menu](https://tailscale.com/docs/features/client/linux-systray) · [Release 1.104.7](https://github.com/tailscale/tailscale/releases/tag/v1.104.7)
+- GUI.for.SingBox, 8.238 stelle, GPL-3.0. Interfaccia desktop per Linux, macOS e Windows. [Documentazione](https://gui-for-cores.github.io/guide/gfs/) · [Release 1.29.0](https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/tag/v1.29.0)
+- v2rayA, 15.912 stelle, AGPL-3.0. Pannello locale di rete per Linux, macOS e Windows. [Screenshot e sorgenti](https://github.com/v2rayA/v2rayA/tree/v2.5.16#readme) · [Release 2.5.16](https://github.com/v2rayA/v2rayA/releases/tag/v2.5.16)
+
+Verifiche di documentazione, licenze e asset. TrustTunnel resta fuori mentre il repo del suo client desktop ha 214 stelle, sotto soglia. HackerTube è il sito a tema YouTube di Karpathy. L'autore rende disponibili i dati del sito. La ricerca non ha trovato il sorgente ufficiale dell'app o la sua licenza. [Client TrustTunnel](https://github.com/TrustTunnel/TrustTunnelFlutterClient) · [Annuncio HackerTube](https://karpathy.bearblog.dev/hacker-tube/)

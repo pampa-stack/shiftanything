@@ -145,3 +145,5 @@ Casdoor logo `static/img/casdoor.png` is the unmodified square icon from the Apa
 Authelia v4.39.28 favicon (converted from SVG), MeshCentral 1.3.2 favicon and Apache Guacamole 1.6.0 app icon are from the original Apache-2.0 projects and identify those apps. URLs and checksums are in the Tauri media manifest. See also `NOTICE` and `LICENSE-APACHE`.
 
 The Trayscale v0.21.0 app icon is unmodified and MIT-licensed by DeedleFake. The Outline VPN client logo is unmodified and identifies the original product. Outline is owned by the Outline Foundation. See the [Outline Brand User Guide](https://github.com/OutlineFoundation/outline-brand/blob/d8ddfd4891fe5def3e74f559dae970c9e026bfde/outline_brand_user_guide.pdf), `NOTICE` and the Tauri media manifest.
+
+The original Tailscale Linux systray icon is distributed under the BSD 3-Clause license. See [the upstream license](https://github.com/tailscale/tailscale/blob/v1.104.7/LICENSE), `NOTICE` and the Tauri media manifest.

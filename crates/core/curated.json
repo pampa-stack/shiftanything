@@ -31244,5 +31244,198 @@
     "platform_support": {
       "linux": "https://flathub.org/apps/dev.deedles.Trayscale"
     }
+  },
+  {
+    "id": "tailscale-linux",
+    "name": "Tailscale per Linux",
+    "repo": "https://github.com/tailscale/tailscale",
+    "author": "Tailscale Inc.",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Collega dispositivi a una rete privata WireGuard. Su Linux il menu di sistema gestisce la connessione e i nodi di uscita.",
+      "en": "Connect devices in a private WireGuard network. The Linux tray menu manages connections and exit nodes."
+    },
+    "alternatives": [
+      "ZeroTier"
+    ],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/tailscale/tailscale/blob/v1.104.7/LICENSE",
+    "website": "https://tailscale.com/",
+    "releases": "https://pkgs.tailscale.com/stable/",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/tailscale/tailscale/v1.104.7/client/systray/tailscale.png",
+    "screenshots": [
+      "https://tailscale.com/_next/static/media/systray-gnome.7685d09a.png"
+    ],
+    "media_source": "https://tailscale.com/docs/features/client/linux-systray",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://tailscale.com/docs/features/client/linux-systray"
+    },
+    "stars": {
+      "count": 39685,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/tailscale/tailscale"
+    },
+    "release": {
+      "version": "v1.104.7",
+      "date": "2026-11-12",
+      "source": "https://github.com/tailscale/tailscale/releases/tag/v1.104.7",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://tailscale.com/docs/features/client/linux-systray"
+    },
+    "screenshot_credits": [
+      "Official Tailscale Linux system tray, GNOME documentation"
+    ]
+  },
+  {
+    "id": "gui-for-singbox",
+    "name": "GUI.for.SingBox",
+    "repo": "https://github.com/GUI-for-Cores/GUI.for.SingBox",
+    "author": "GUI for Cores",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Configura tunnel e proxy di sistema con sing-box e monitora profili, regole di instradamento e traffico da un’app desktop.",
+      "en": "Configure sing-box tunnels and system proxies, and monitor profiles, routing rules and traffic from a desktop app."
+    },
+    "alternatives": [
+      "Clash Verge Rev"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/GUI-for-Cores/GUI.for.SingBox/blob/v1.29.0/LICENSE",
+    "website": "https://gui-for-cores.github.io/",
+    "releases": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/GUI-for-Cores/GUI.for.SingBox/v1.29.0/build/appicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/GUI-for-Cores/GUI.for.SingBox/v1.29.0/docs/imgs/dark.png",
+      "https://raw.githubusercontent.com/GUI-for-Cores/GUI.for.SingBox/v1.29.0/docs/imgs/light.png"
+    ],
+    "media_source": "https://github.com/GUI-for-Cores/GUI.for.SingBox/tree/v1.29.0#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://gui-for-cores.github.io/guide/gfs/"
+    },
+    "stars": {
+      "count": 8238,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/GUI-for-Cores/GUI.for.SingBox"
+    },
+    "release": {
+      "version": "v1.29.0",
+      "date": "2026-11-10",
+      "source": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/tag/v1.29.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 5568133,
+          "size_max": 6131948
+        },
+        {
+          "platform": "linux",
+          "size_min": 5587238,
+          "size_max": 6106061
+        },
+        {
+          "platform": "windows",
+          "size_min": 5921239,
+          "size_max": 6499416
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/tag/v1.29.0",
+      "macos": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/tag/v1.29.0",
+      "windows": "https://github.com/GUI-for-Cores/GUI.for.SingBox/releases/tag/v1.29.0"
+    },
+    "screenshot_credits": [
+      "GUI.for.SingBox v1.8.8, official project README",
+      "GUI.for.SingBox v1.8.8, official project README"
+    ]
+  },
+  {
+    "id": "v2raya",
+    "name": "v2rayA",
+    "repo": "https://github.com/v2rayA/v2rayA",
+    "author": "v2rayA Project",
+    "category": "rete",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Gestisci proxy, instradamento del traffico e log di connessione da un pannello web eseguito in locale o sul tuo server.",
+      "en": "Manage proxies, traffic routing and connection logs from a web dashboard running locally or on your server."
+    },
+    "alternatives": [
+      "Clash Verge Rev"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/v2rayA/v2rayA/blob/v2.5.16/LICENSE",
+    "website": "https://v2raya.org/",
+    "releases": "https://github.com/v2rayA/v2rayA/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/v2rayA/v2rayA/v2.5.16/gui/public/static/v2raya-icon.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/v2rayA/v2rayA/v2.5.16/docs/images/screenshot.png",
+      "https://raw.githubusercontent.com/v2rayA/v2rayA/v2.5.16/docs/images/routinga.png"
+    ],
+    "media_source": "https://github.com/v2rayA/v2rayA/tree/v2.5.16#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/v2rayA/v2rayA/tree/v2.5.16#readme"
+    },
+    "stars": {
+      "count": 15912,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/v2rayA/v2rayA"
+    },
+    "release": {
+      "version": "v2.5.16",
+      "date": "2026-11-18",
+      "source": "https://github.com/v2rayA/v2rayA/releases/tag/v2.5.16",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 27577666,
+          "size_max": 29059776
+        },
+        {
+          "platform": "linux",
+          "size_min": 30623304,
+          "size_max": 32948782
+        },
+        {
+          "platform": "windows",
+          "size_min": 24321888,
+          "size_max": 26421739
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/v2rayA/v2rayA/releases/tag/v2.5.16",
+      "macos": "https://github.com/v2rayA/v2rayA/releases/tag/v2.5.16",
+      "windows": "https://github.com/v2rayA/v2rayA/releases/tag/v2.5.16"
+    },
+    "screenshot_credits": [
+      "v2rayA v2.4.24, official project README",
+      "Official v2rayA RoutingA editor"
+    ]
   }
 ]

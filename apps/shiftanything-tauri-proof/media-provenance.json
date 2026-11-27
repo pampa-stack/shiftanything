@@ -4216,6 +4216,15 @@
       "sha256": "137235b609a79f1fbd3a8cfa4f21e3e3c862c2b84166bb3ebce06d4d9b64ec0f",
       "source_sha256": "137235b609a79f1fbd3a8cfa4f21e3e3c862c2b84166bb3ebce06d4d9b64ec0f",
       "license": "Outline Brand User Guide"
+    },
+    {
+      "app": "tailscale-linux",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/tailscale/tailscale/v1.104.7/client/systray/tailscale.png",
+      "file": "media/tailscale-linux-logo.png",
+      "sha256": "8c8b4e231dc9e0e584b11fa90e3bfb27a306937e6eb12ff5a15d5c27d19ffa0e",
+      "source_sha256": "8c8b4e231dc9e0e584b11fa90e3bfb27a306937e6eb12ff5a15d5c27d19ffa0e",
+      "license": "BSD-3-Clause"
     }
   ]
 }

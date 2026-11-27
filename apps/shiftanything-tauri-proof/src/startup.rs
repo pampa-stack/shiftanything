@@ -22,6 +22,10 @@ pub(crate) fn start(args: Vec<OsString>) -> Result<Option<Launch>, StartupError>
         println!("shiftanything {}", env!("CARGO_PKG_VERSION"));
         return Ok(None);
     }
+    #[cfg(windows)]
+    if !args.is_empty() {
+        return windows_arguments(&args);
+    }
     if args.is_empty() || finder_launch(&args) {
         return desktop();
     }
@@ -30,6 +34,26 @@ pub(crate) fn start(args: Vec<OsString>) -> Result<Option<Launch>, StartupError>
     }
     spawn_isolated(&args)?;
     Ok(None)
+}
+
+#[cfg(windows)]
+fn windows_arguments(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
+    let manifest = match args {
+        [flag, manifest] if flag == "--install-msis" => Path::new(manifest),
+        [flag, ..] if flag == "--install-msis" => return Err("Expected --install-msis <manifest>".into()),
+        _ => return Err("Isolated verification profiles require macOS or Linux. Use a disposable Windows VM for verification.".into()),
+    };
+    #[cfg(feature = "windows-lifecycle")]
+    {
+        // The elevated process does its work before creating a webview or acquiring the desktop instance lock.
+        artcraft_launcher_native::install::msi_session::run_elevated(manifest)?;
+        Ok(None)
+    }
+    #[cfg(not(feature = "windows-lifecycle"))]
+    {
+        let _ = manifest;
+        Err("Windows MSI installation is disabled in this build".into())
+    }
 }
 
 fn finder_launch(args: &[OsString]) -> bool {
@@ -55,8 +79,7 @@ fn desktop() -> Result<Option<Launch>, StartupError> {
         .find_map(|key| std::env::var(key).ok().filter(|value| !value.is_empty()))
         .map_or("it", |locale| if locale.split(['_', '-', '.']).next() == Some("en") { "en" } else { "it" });
     let language = saved_language(&root).unwrap_or(system_language);
-    // The Tauri shell does not yet implement the Windows MSI broker entry point.
-    let lifecycle = cfg!(any(target_os = "macos", target_os = "linux"));
+    let lifecycle = cfg!(any(target_os = "macos", target_os = "linux", all(windows, feature = "windows-lifecycle")));
     Ok(Some(Launch { root, language, isolated: false, lifecycle, _desktop_lock: Some(lock) }))
 }
 
@@ -169,6 +192,52 @@ fn isolated_child(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
         return Err("Previous DMG preparation requires macOS".into());
     }
     Ok(Some(Launch { root, language, isolated: true, lifecycle, _desktop_lock: None }))
+}
+
+#[cfg(all(test, windows))]
+mod windows_tests {
+    use super::*;
+
+    #[test]
+    fn isolated_profile_arguments_are_rejected_before_creating_files() -> Result<(), StartupError> {
+        let sandbox = tempfile::tempdir()?;
+        let profile = sandbox.path().join("verification-profile");
+        let profile_arg = profile.as_os_str().to_owned();
+        for args in [vec![profile_arg.clone(), "it".into(), "--lifecycle".into()], vec!["--child".into(), profile_arg, "it".into()]] {
+            assert!(matches!(start(args), Err(error) if error.to_string().contains("disposable Windows VM")));
+            assert!(!profile.exists());
+        }
+        Ok(())
+    }
+
+    #[test]
+    fn msi_broker_requires_exact_arguments() -> Result<(), StartupError> {
+        let sandbox = tempfile::tempdir()?;
+        let manifest = sandbox.path().join("batch manifest.json");
+        let manifest_arg = manifest.as_os_str().to_owned();
+        for args in [vec!["--install-msis".into()], vec!["--install-msis".into(), manifest_arg.clone(), "--extra".into()]] {
+            assert!(matches!(start(args), Err(error) if error.to_string().contains("Expected --install-msis <manifest>")));
+        }
+        let result = start(vec!["--install-msis".into(), manifest_arg]);
+        #[cfg(feature = "windows-lifecycle")]
+        assert!(matches!(result, Err(error) if error.to_string().contains("couldn't read the batch manifest")));
+        #[cfg(not(feature = "windows-lifecycle"))]
+        assert!(matches!(result, Err(error) if error.to_string().contains("disabled in this build")));
+        assert_eq!(sandbox.path().read_dir()?.count(), 0);
+        Ok(())
+    }
+
+    #[cfg(feature = "windows-lifecycle")]
+    #[test]
+    fn msi_broker_completes_without_a_desktop_launch() -> Result<(), StartupError> {
+        let sandbox = tempfile::tempdir()?;
+        let manifest = sandbox.path().join("batch manifest.json");
+        fs::write(&manifest, r#"{"token":"test-session","msis":[]}"#)?;
+        assert!(start(vec!["--install-msis".into(), manifest.as_os_str().to_owned()])?.is_none());
+        assert_eq!(fs::read_to_string(manifest.with_extension("results"))?, "test-session");
+        assert!(!manifest.with_extension("pid").exists());
+        Ok(())
+    }
 }
 
 #[cfg(all(test, unix))]

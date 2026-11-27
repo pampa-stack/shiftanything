@@ -366,12 +366,13 @@ impl GitHubSource {
             // confident "Coming soon" on every card, so let the saved answer stand in instead.
             return Err("the latest-release redirect went somewhere that isn't github.com's".into());
         };
+        let manifest = release::checksum_manifest_name(repo);
         if let Some(e) = self.entry(query, false)
-            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag && r.assets.iter().any(|asset| asset.name != "SHA256SUMS.txt"))
+            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag && r.assets.iter().any(|asset| asset.name != manifest))
         {
             return Ok(Answer { latest: LatestRelease::Found(r.clone()), source: Source::GitHubPages });
         }
-        let sums_url = format!("{}{tag}/SHA256SUMS.txt", release::download_prefix(repo));
+        let sums_url = format!("{}{tag}/{manifest}", release::download_prefix(repo));
         // Not `note_pages_error`: this one redirects to GitHub's asset CDN, so its failure says
         // nothing about whether github.com itself can be reached for the next app.
         let sums = self.http.get_text(&sums_url)?.map(|t| release::parse_sha256sums(&t)).unwrap_or_default();

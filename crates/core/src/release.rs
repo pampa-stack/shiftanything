@@ -1,4 +1,4 @@
-//! GitHub releases: reading the API's answer and `SHA256SUMS.txt`.
+//! GitHub releases: reading the API's answer and the publisher's checksum manifest.
 //!
 //! Everything here is untrusted input. Sizes are bounded by the caller, download links must point
 //! at the app's own release downloads, and checksums must look like checksums.
@@ -15,7 +15,7 @@ pub struct Asset {
     pub size: u64,
     /// `https://github.com/<repo>/releases/download/<tag>/<name>`.
     pub url: String,
-    /// Lowercase hex SHA-256, when GitHub or `SHA256SUMS.txt` told us.
+    /// Lowercase hex SHA-256, when GitHub or the publisher's checksum manifest reported it.
     pub sha256: Option<String>,
 }
 
@@ -40,7 +40,7 @@ impl Release {
         self.version.as_ref().map_or_else(|| self.tag.clone(), ToString::to_string)
     }
 
-    /// Fills in checksums from a `SHA256SUMS.txt` for assets that don't have one.
+    /// Fills in checksums from a publisher manifest for assets that don't have one.
     pub fn apply_sums(&mut self, sums: &[(String, String)]) {
         for asset in &mut self.assets {
             if asset.sha256.is_none() {
@@ -50,8 +50,18 @@ impl Release {
     }
 
     pub fn sums_asset(&self) -> Option<&Asset> {
-        self.assets.iter().find(|a| a.name == "SHA256SUMS.txt")
+        let kopia_repo = crate::curated::KOPIA.repo;
+        let kopia_manifest = checksum_manifest_name(kopia_repo);
+        self.assets.iter().find(|a| {
+            a.name == "SHA256SUMS.txt"
+                || (a.name == kopia_manifest && a.url == format!("{}{}/{}", download_prefix(kopia_repo), self.tag, kopia_manifest))
+        })
     }
+}
+
+/// The checksum manifest published under a release's download path.
+pub fn checksum_manifest_name(repo: &str) -> &'static str {
+    if repo == crate::curated::KOPIA.repo { "checksums.txt" } else { "SHA256SUMS.txt" }
 }
 
 const MAX_NOTES: usize = 64 * 1024;
@@ -448,6 +458,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("obsproject/obs-studio", "33.0.3") => {
             &[("OBS-Studio-33.0.3-macOS-Apple.dmg", 209_590_030, "92212873b6f84c54285203cac3f846590ac00dfad76b312cf266100ff5edf0c8")]
         }
+        ("kopia/kopia", "v0.23.0") => {
+            &[("KopiaUI-0.23.0-arm64.dmg", 147_215_056, "387ca1530829fc95667b23e88b644f9f0cf9f49a2abfeffeed22e3fc261f6e29")]
+        }
+        ("kopia/kopia", "v0.23.1") => {
+            &[("KopiaUI-0.23.1-arm64.dmg", 149_169_871, "f2adb1869c603c66aaeabd846affd21df426c614cc8285230f5465f9389a003c")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {
@@ -472,7 +488,8 @@ pub fn release_from_sums(repo: &str, tag: &str, sums: &[(String, String)]) -> Re
             assets.push(asset);
         }
     }
-    assets.push(Asset { name: "SHA256SUMS.txt".into(), size: 0, url: format!("{prefix}{tag}/SHA256SUMS.txt"), sha256: None });
+    let manifest = checksum_manifest_name(repo);
+    assets.push(Asset { name: manifest.into(), size: 0, url: format!("{prefix}{tag}/{manifest}"), sha256: None });
     Release {
         tag: tag.to_string(),
         version: version::parse(tag),

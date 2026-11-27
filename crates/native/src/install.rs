@@ -33,25 +33,36 @@ use crate::manifest::Record;
 use crate::paths::Paths;
 use crate::process;
 
-/// OBS's reviewed Apple Silicon packages require macOS Ventura or later.
+/// Some reviewed Apple Silicon packages require a minimum macOS version.
 pub fn recipe_system_supported(app: &CraftApp) -> bool {
     #[cfg(target_os = "macos")]
-    if app.id == artcraft_launcher_core::curated::OBS_STUDIO.id {
-        static SUPPORTED: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
-        return *SUPPORTED.get_or_init(|| {
-            std::process::Command::new("/usr/bin/sw_vers")
-                .arg("-productVersion")
-                .env_remove("SYSTEM_VERSION_COMPAT")
-                .output()
-                .ok()
-                .filter(|output| output.status.success())
-                .and_then(|output| String::from_utf8(output.stdout).ok())
-                .and_then(|version| version.trim().split('.').next()?.parse::<u16>().ok())
-                .is_some_and(|major| major >= 13)
-        });
+    {
+        use artcraft_launcher_core::curated::{KOPIA, OBS_STUDIO};
+
+        let minimum = match app.id {
+            id if id == OBS_STUDIO.id => 13,
+            id if id == KOPIA.id => 12,
+            _ => return true,
+        };
+        static MACOS_MAJOR: std::sync::OnceLock<Option<u16>> = std::sync::OnceLock::new();
+        MACOS_MAJOR
+            .get_or_init(|| {
+                std::process::Command::new("/usr/bin/sw_vers")
+                    .arg("-productVersion")
+                    .env_remove("SYSTEM_VERSION_COMPAT")
+                    .output()
+                    .ok()
+                    .filter(|output| output.status.success())
+                    .and_then(|output| String::from_utf8(output.stdout).ok())
+                    .and_then(|version| version.trim().split('.').next()?.parse().ok())
+            })
+            .is_some_and(|major| major >= minimum)
     }
-    let _ = app;
-    true
+    #[cfg(not(target_os = "macos"))]
+    {
+        let _ = app;
+        true
+    }
 }
 
 /// What an install needs from the backend.
@@ -883,7 +894,7 @@ fn download_turn(app: &CraftApp, asset: &Asset, job: &mut Job<'_>) -> Result<Opt
 }
 
 /// Fetches `asset` into the download folder, checked against its published SHA-256: the feed's
-/// or GitHub's per-file digest, else the release's `SHA256SUMS.txt`. A release with neither is
+/// or GitHub's per-file digest, else the release's checksum manifest. A release with neither is
 /// refused before anything is fetched: a file nothing vouches for is never installed (#90).
 /// Returns the file and the checksum it was checked against.
 pub(crate) fn download(release: &Release, asset: &Asset, job: &mut Job<'_>) -> Result<(PathBuf, String), String> {
@@ -910,7 +921,7 @@ pub(crate) fn download(release: &Release, asset: &Asset, job: &mut Job<'_>) -> R
     Ok((dest, sha))
 }
 
-/// The file's line in the release's `SHA256SUMS.txt`. `Ok(None)` only when the release really
+/// The file's line in the release's checksum manifest. `Ok(None)` only when the release really
 /// publishes no checksum for it; a list that exists but can't be fetched is an error, so a
 /// network hiccup never downgrades the check.
 fn published_checksum(release: &Release, asset: &Asset, http: &Http) -> Result<Option<String>, String> {

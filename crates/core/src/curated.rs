@@ -261,7 +261,29 @@ pub const OBS_STUDIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2MMRE5MTB8"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 3] = [HANDY, LOCALSEND, OBS_STUDIO];
+/// Native identity from the notarized KopiaUI DMGs for Apple Silicon.
+pub const KOPIA: crate::CraftApp = crate::CraftApp {
+    id: "kopia",
+    name: "Kopia",
+    tagline: "Encrypt and restore file backups",
+    repo: "kopia/kopia",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [102, 143, 210],
+    ink_light: [36, 73, 137],
+    ink_dark: [171, 200, 246],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Kopia LLC",
+    msi_publisher: None,
+    bundle: Some("io.kopia.ui"),
+    site: Some("https://kopia.io/"),
+    mac_bundle_name: Some("KopiaUI"),
+    mac_team: Some("7299Z9ZVTK"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 4] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -343,6 +365,50 @@ mod recipe_tests {
             let different = release::release_from_sums(app.repo, "33.0.2", &[("a".repeat(64), name.to_owned())]);
             assert!(platform::pick_asset(&different, &[app.id], mac, mac.download_kinds()).is_none());
         }
+    }
+
+    #[test]
+    fn kopia_recipe_uses_only_its_verified_mac_format_and_official_checksum_source() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("kopia").expect("compiled Kopia recipe");
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &release::Release, host: Platform| {
+            platform::pick_asset(release, &[app.id], host, host.download_kinds()).map(|(asset, kind)| (asset.name.clone(), kind))
+        };
+        for (tag, dmg) in [("v0.23.0", "KopiaUI-0.23.0-arm64.dmg"), ("v0.23.1", "KopiaUI-0.23.1-arm64.dmg")] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some((dmg.to_owned(), PackageKind::Dmg)));
+            assert!(release.assets.iter().find(|asset| asset.name == dmg).unwrap().sha256.is_some());
+            for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }, Platform { os: Os::Windows, ..mac }] {
+                assert!(select(&release, host).is_none());
+            }
+        }
+
+        // A new stable version can use the upstream manifest when the API omits per-file hashes.
+        let names = ["KopiaUI-0.24.0-arm64.dmg", "checksums.txt"];
+        let json = |repo| {
+            serde_json::json!({"tag_name":"v0.24.0", "assets": names.map(|name| serde_json::json!({
+                "name":name, "browser_download_url":format!("https://github.com/{repo}/releases/download/v0.24.0/{name}")
+            }))})
+            .to_string()
+        };
+        let upstream = release::parse_github_release(&json(app.repo), app.repo).unwrap();
+        assert_eq!(select(&upstream, mac), Some((names[0].to_owned(), PackageKind::Dmg)));
+        assert_eq!(upstream.sums_asset().map(|asset| asset.name.as_str()), Some(names[1]));
+
+        let mut no_manifest = upstream.clone();
+        no_manifest.assets.retain(|asset| asset.name != names[1]);
+        assert!(select(&no_manifest, mac).is_none());
+        let other = release::parse_github_release(&json("mirror/kopia"), "mirror/kopia").unwrap();
+        assert!(other.sums_asset().is_none());
+        assert!(select(&other, mac).is_none());
+
+        for wrong in ["KopiaUI-0.24.0.dmg", "KopiaUI-0.24.0-x64.dmg", "KopiaUI-0.24.0.AppImage", "kopia-0.24.0-macos-arm64.dmg"] {
+            assert!(platform::parse_asset_name(wrong, &[app.id]).is_none());
+        }
+        let mismatched = release::release_from_sums(app.repo, "v0.24.1", &[("a".repeat(64), names[0].to_owned())]);
+        assert!(select(&mismatched, mac).is_none());
     }
 
     #[test]

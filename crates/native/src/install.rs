@@ -56,6 +56,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::NAPS2.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::OPENCLAW.id => Some((26, 2)),
+        id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
         id if [
             OBS_STUDIO.id,
             AUDACITY.id,

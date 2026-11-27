@@ -793,7 +793,7 @@ mod tests {
     #[test]
     fn qualified_mac_dmg_matches_only_the_exact_reviewed_apple_silicon_artifact() {
         let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (app, tags) in [(crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"])] {
+        for (app, tags) in [(crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]), (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"])] {
             let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
             for tag in tags {
                 let release = crate::release::release_from_sums(app.repo, tag, &[]);

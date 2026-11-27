@@ -1,0 +1,5 @@
+PASS PREFLIGHT ollama v0.40.18
+PHASE ollama update /private/tmp/shift-mac-ranked.avdZtp8L/profile-ollama.ElXU4X3B
+CACHE Ollama.dmg from official download. NativeBackend rechecks SHA-256
+PASS OFFICIAL v0.40.18 Dmg https://github.com/ollama/ollama/releases/download/v0.40.18/Ollama.dmg 232758599 78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed
+PASS NATIVE ollama update: Ollama updated to 0.40.18; package_bytes=232758599; elapsed=10.490s

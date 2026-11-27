@@ -703,7 +703,7 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 
 /// Desktop bundle recipes restricted to exact packages qualified on Apple Silicon.
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW];
+    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW, crate::curated::OLLAMA];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1010,6 +1010,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("openclaw/openclaw", "v2026.11.10") => {
             &[("OpenClaw-2026.11.10-arm64.dmg", 248_813_181, "e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a")]
         }
+        ("ollama/ollama", "v0.40.17") => &[("Ollama.dmg", 231_575_873, "cc5eb8fa68f2f15ea6dbc79a705092a1b1e666102c54ed535c91bbbeccab8c78")],
+        ("ollama/ollama", "v0.40.18") => &[("Ollama.dmg", 232_758_599, "78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed")],
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

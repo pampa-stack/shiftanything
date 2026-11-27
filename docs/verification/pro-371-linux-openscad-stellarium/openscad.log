@@ -1,0 +1,108 @@
+
+=== 2026-11-27T12:12:01+00:00 openscad install ===
+openscad before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+openscad JobFinished: Ok("Flathub app installed")
+openscad after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/evidence/native-openscad-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+55bf86977f08bfd8232be686129a4dcba7c7dbc47ea3ddf98d43d13b14f97890  /var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/evidence/native-openscad-icon.png
+
+OpenSCAD - The Programmers Solid 3D CAD Modeller
+
+          ID: org.openscad.OpenSCAD
+         Ref: app/org.openscad.OpenSCAD/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2021.01
+     License: GPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 30.9 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2
+      Parent: fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9
+     Subject: Merge pull request #67 from flathub/5.15-25.08 (65c127589e5c)
+        Date: 2026-05-02 23:45:17 +0000
+org.openscad.OpenSCAD/x86_64/stable	flathub	9685ab5d7887	user	2021.01
+TIMING openscad install 2802 ms
+
+=== 2026-11-27T12:12:04+00:00 openscad prior ===
+Previous runtime org.kde.Platform/x86_64/5.15-24.08
+Info: org.kde.Platform is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.kde.Platform.Locale is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/org.openscad.OpenSCAD/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+OpenSCAD - The Programmers Solid 3D CAD Modeller
+
+          ID: org.openscad.OpenSCAD
+         Ref: app/org.openscad.OpenSCAD/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2021.01
+     License: GPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 30.0 MB
+     Runtime: org.kde.Platform/x86_64/5.15-24.08
+         Sdk: org.kde.Sdk/x86_64/5.15-24.08
+
+      Commit: fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9
+      Parent: f07bca1d6b37f0036ee84cdd055079d49419fff8ea67c83cf6abab603e8adacd
+     Subject: Merge pull request #58 from flathub/update-readme (a3ede036ccda)
+        Date: 2025-08-14 21:43:54 +0000
+org.openscad.OpenSCAD/x86_64/stable	flathub	fff28a5853ee	user	2021.01
+openscad before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9", package: Some("org.openscad.OpenSCAD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: false, can_open: true }
+openscad JobFinished: Err("Approved action rejected: native installation state changed")
+openscad JobFinished: Err("This Flatpak is managed outside the launcher")
+openscad after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9", package: Some("org.openscad.OpenSCAD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: false, can_open: true })
+TIMING openscad prior 3834 ms
+
+=== 2026-11-27T12:12:08+00:00 openscad open ===
+dbus-daemon[2834758]: [session uid=1000 pid=2834758 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2834783 comm="/usr/bin/xfwm4 --compositor=off --display=:559" label="unconfined")
+dbus-daemon[2834758]: [session uid=1000 pid=2834758 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2834798]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2834783 comm="/usr/bin/xfwm4 --compositor=off --display=:559" label="unconfined")
+dbus-daemon[2834758]: [session uid=1000 pid=2834758 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2834783 comm="/usr/bin/xfwm4 --compositor=off --display=:559" label="unconfined")
+dbus-daemon[2834798]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2834758]: [session uid=1000 pid=2834758 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+openscad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: true, can_remove: true, can_open: true }
+openscad JobFinished: Ok("Launch request accepted")
+openscad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: true, can_remove: true, can_open: true })
+TIMING openscad open-previous 6289 ms
+
+(xfconfd:2834808): xfconfd-WARNING **: 12:12:20.107: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING openscad open 11605 ms
+
+=== 2026-11-27T12:12:20+00:00 openscad update-remove ===
+openscad before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/fff28a5853ee49dcfefd709e81c3753110893aa774d35c8ed89831d9a50a11e9", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: true, can_remove: true, can_open: true }
+openscad JobFinished: Ok("Flathub app updated")
+openscad after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: true, can_open: true })
+TIMING openscad update 4765 ms
+/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/.var/app/org.openscad.OpenSCAD/shift-profile-marker: OK
+dbus-daemon[2835386]: [session uid=1000 pid=2835386 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2835410 comm="/usr/bin/xfwm4 --compositor=off --display=:687" label="unconfined")
+dbus-daemon[2835386]: [session uid=1000 pid=2835386 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2835440]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2835410 comm="/usr/bin/xfwm4 --compositor=off --display=:687" label="unconfined")
+dbus-daemon[2835386]: [session uid=1000 pid=2835386 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2835410 comm="/usr/bin/xfwm4 --compositor=off --display=:687" label="unconfined")
+dbus-daemon[2835440]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2835386]: [session uid=1000 pid=2835386 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+openscad before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: true, can_open: true }
+openscad JobFinished: Ok("Launch request accepted")
+openscad after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: true, can_open: true })
+TIMING openscad open-current 6094 ms
+
+(xfconfd:2835450): xfconfd-WARNING **: 12:12:38.181: Name org.xfce.Xfconf lost on the message dbus, exiting.
+openscad before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/data/flatpak/app/org.openscad.OpenSCAD/x86_64/stable/9685ab5d78875d3f5fea116dbcb118fb39a0fcbeeb2cf2fb718698807f5ca2a2", package: Some("org.openscad.OpenSCAD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2021.01"), update_available: false, can_remove: true, can_open: true }
+openscad JobFinished: Ok("Flathub app removed")
+openscad after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING openscad remove 2016 ms
+/var/tmp/shift-flatpak-desktop.batch.N7jgxzpl/openscad/home/.var/app/org.openscad.OpenSCAD/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING openscad update-remove 20191 ms

@@ -1285,7 +1285,28 @@ pub const OPENCLAW: crate::CraftApp = crate::CraftApp {
     mac_team: Some("FWJYW4S8P8"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 51] = [
+pub const OLLAMA: crate::CraftApp = crate::CraftApp {
+    id: "ollama",
+    name: "Ollama",
+    tagline: "Run and interact with language models locally",
+    repo: "ollama/ollama",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Infra Technologies, Inc",
+    msi_publisher: None,
+    bundle: Some("com.electron.ollama"),
+    site: Some("https://ollama.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("3MU9H2V9Y9"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 52] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1337,6 +1358,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 51] = [
     DB_BROWSER_SQLITE,
     NAPS2,
     OPENCLAW,
+    OLLAMA,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

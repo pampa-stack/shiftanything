@@ -1,0 +1,22 @@
+2026-11-27T23:31:08+00:00	DISK AVAILABLE 25970597888
+600
+HISTORICAL METADATA supplied from release page, publish checksum and byte length
+OFFICIAL https://github.com/huxingyi/dust3d/releases/download/1.1.5/dust3d-1.1.5.AppImage bytes=36648128 sha256=8575ac93f7403717cf92893471b8ea8525a1321c57cf0f5edaf134e6ff3e5844
+FILE /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/Applications/dust3d-1.1.5.AppImage version=1.1.5 bytes=36648128 sha256=8575ac93f7403717cf92893471b8ea8525a1321c57cf0f5edaf134e6ff3e5844
+DESKTOP /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/data/applications/dust3d.desktop ICON /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/data/icons/hicolor/128x128/apps/dust3d.png sha256=14edc047ae00498e17625a1c6a275085f6dd6ee563703d981ccf5472f3903cb8
+PASS dust3d install 801 ms Dust3D installed: 1.1.5
+PASS dust3d open-old 0 ms Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.xfce.Xfconf' requested by ':1.2' (uid=1000 pid=25 comm="xfwm4 --compositor=off --display=:207" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.xfce.Xfconf'
+2026-11-27T23:31:18+00:00	GUI OFFLINE open-old
+OFFICIAL https://github.com/huxingyi/dust3d/releases/download/1.1.6/dust3d-1.1.6.AppImage bytes=36680896 sha256=efbc1fafe9aa6cbc2679494e45a43bae6df50c7feec58e4a850e94189904fc5a
+DISCOVERY GitHubApi
+FILE /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/Applications/dust3d-1.1.6.AppImage version=1.1.6 bytes=36680896 sha256=efbc1fafe9aa6cbc2679494e45a43bae6df50c7feec58e4a850e94189904fc5a
+DESKTOP /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/data/applications/dust3d.desktop ICON /home/qa/profile-dust3d-native-dust3d-cycle-final-qa/data/icons/hicolor/128x128/apps/dust3d.png sha256=14edc047ae00498e17625a1c6a275085f6dd6ee563703d981ccf5472f3903cb8
+PASS dust3d update 801 ms Dust3D updated to 1.1.6
+PASS dust3d open-new 0 ms Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.xfce.Xfconf' requested by ':1.2' (uid=1000 pid=25 comm="xfwm4 --compositor=off --display=:210" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.xfce.Xfconf'
+2026-11-27T23:31:28+00:00	GUI OFFLINE open-new
+PASS dust3d remove 40 ms Dust3D was removed
+2026-11-27T23:31:28+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

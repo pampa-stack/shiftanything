@@ -1086,11 +1086,12 @@ mod tests {
 
     #[test]
     fn qualified_appimages_match_reviewed_bytes_and_platform() {
-        use crate::curated::{MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+        use crate::curated::{DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         for (app, tags) in [
             (MISTER_DOWNLOAD_MANAGER, ["v0.5.0", "v0.5.2"]),
+            (DUST3D, ["1.1.5", "1.1.6"]),
             (OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (PASEO, ["v0.18.0", "v0.18.1"]),
             (T3_CODE, ["v0.1.12", "v0.1.13"]),

@@ -18,7 +18,47 @@
 .discovery-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%, 315px),1fr)); gap:14px; }
 .discovery-tile { border:1px solid var(--bd2); border-radius:8px; padding:16px; min-width:0; }
 .discovery-browser { margin-top:22px; }
-.discovery-rankings { display:grid; gap:14px; margin:28px 0; }
-.kit-choice { display:flex; align-items:center; flex-wrap:wrap; gap:8px; border-top:1px solid var(--bd2); padding:10px 0; margin-top:8px; }
-.kit-choice label { display:flex; gap:6px; align-items:center; }
-.kit-choice p { margin:0; flex-basis:100%; }
+.kits-panel { padding:23px 26px 35px; }
+.kits-panel h1 { margin:0 0 7px; }
+.kits-panel h2 { margin:0; font-size:17px; }
+.kits-panel .kit-intro { margin:0 0 13px; }
+.kits-panel .discovery-feedback { margin:0 0 10px; }
+.kits-panel .discovery-feedback:empty { margin:0; }
+.kit-tabs { display:flex; gap:6px; flex-wrap:wrap; margin:18px 0 15px; }
+.kit-tabs .btn[aria-pressed="true"] { background:#e9ff74; border-color:#e9ff74; color:#101209; }
+.kit-heading, .kit-plan { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.kit-heading { justify-content:space-between; margin-bottom:15px; }
+.kit-plan span { color:var(--dim); }
+.kit-table-wrap { overflow-x:auto; }
+.kit-table {
+  width:100%; min-width:630px; border:1px solid var(--bd2); border-radius:6px;
+  border-spacing:0; background:var(--surf); text-align:left;
+}
+.kit-table th, .kit-table td { padding:11px 14px; vertical-align:top; border-bottom:1px solid var(--bd); }
+.kit-table thead th { color:var(--dim); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.kit-table tbody tr:last-child > * { border-bottom:0; }
+.kit-table tbody th { width:17%; }
+.kit-table td:nth-child(2) { width:22%; }
+.kit-table th > .btn, .kit-table td > .btn { display:block; margin-top:8px; }
+.kit-apps { display:grid; gap:7px; }
+.kit-app { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:9px; align-items:center; }
+.kit-app-main, .kit-app-identity, .kit-app-actions, .kit-rank-apps, .kit-rank-apps > span { display:flex; align-items:center; gap:7px; }
+.kit-app-main { min-width:0; }
+.kit-app-identity { gap:5px; white-space:nowrap; }
+.kit-use { color:var(--dim); font-size:11px; }
+.kit-popularity { color:#e5c68b; font-variant-numeric:tabular-nums; }
+.kit-logo { width:19px; height:19px; flex:none; border-radius:4px; object-fit:contain; }
+.kit-initials { display:grid; place-items:center; background:var(--surf3); color:var(--dim); font:8px var(--mono); }
+.kit-app-actions { flex-wrap:wrap; justify-content:flex-end; }
+.kit-app-actions input { accent-color:#e9ff74; }
+.kit-app-actions .bdg { white-space:nowrap; }
+.kit-app-actions a { text-decoration:none; }
+.kit-rank-apps { flex-wrap:wrap; gap:10px; }
+.kit-metric { font-variant-numeric:tabular-nums; }
+@media (max-width:1100px) {
+  .kit-app { grid-template-columns:1fr; }
+  .kit-app-actions { justify-content:flex-start; }
+}
+@media (max-width:740px) {
+  .kits-panel { padding:15px; }
+}

@@ -38,6 +38,11 @@
     return result;
   }
 
+  function supportsPlatform(app, os) {
+    return app.platform_support?.[os] || app.release?.packages?.some(pkg => pkg.platform === os)
+      || app.distribution?.some(channel => channel.platform === os);
+  }
+
   function panel(title) {
     const result = node('main', '', 'main discovery-panel');
     result.hidden = true;
@@ -87,7 +92,9 @@
       system.value = platform;
       renderFind();
     }
-    if (JSON.stringify(previous?.inventory.apps) !== JSON.stringify(snapshot.inventory.apps) || Boolean(previous?.pending) !== Boolean(snapshot.pending)) {
+    if (JSON.stringify(previous?.inventory.apps) !== JSON.stringify(snapshot.inventory.apps)
+      || JSON.stringify(previous?.install_checks_pending) !== JSON.stringify(snapshot.install_checks_pending)
+      || Boolean(previous?.pending) !== Boolean(snapshot.pending)) {
       renderKits?.updateSelection();
     }
   });
@@ -133,8 +140,7 @@
         const os = system.value;
         if (!app || seen.has(app.id)) continue;
         const browser = app.delivery === 'self-hosted' || app.delivery === 'web';
-        if (!browser && os !== 'all' && !app.platform_support?.[os] && !app.release?.packages?.some(pkg => pkg.platform === os)
-          && !app.distribution?.some(channel => channel.platform === os)) continue;
+        if (!browser && os !== 'all' && !supportsPlatform(app, os)) continue;
         seen.add(app.id);
         const row = node('article', '', 'discovery-tile');
         const actions = node('div', '', 'discovery-actions');
@@ -161,25 +167,28 @@
   }
 
   function buildKits(work, catalog) {
-    const select = node('select');
-    select.id = 'work-kit-role';
-    const role = node('label', it ? 'Ruolo' : 'Role');
-    role.htmlFor = select.id;
-    for (const kit of work.kits) {
-      const option = node('option', label(kit.name));
-      option.value = kit.id;
-      select.append(option);
-    }
-    const description = node('p');
-    const steps = node('div', '', 'discovery-results');
+    const phaseHeading = it ? 'Fase' : 'Stage';
+    const paidHeading = it ? 'Software con piani a pagamento' : 'Software with paid plans';
+    const freeHeading = it ? 'Alternative open source' : 'Open-source alternatives';
+    const rankingHeading = it ? 'Classifica' : 'Rankings';
+    const compact = new Intl.NumberFormat(language, {notation:'compact', maximumFractionDigits:1});
+    const percentage = new Intl.NumberFormat(language, {style:'percent', maximumFractionDigits:1});
+    const detailLabel = it ? 'Scheda' : 'App details';
+    kits.classList.add('kits-panel');
+    const heading = node('h2');
+    const description = node('p', '', 'kit-intro');
+    const steps = node('div', '', 'kit-table-wrap');
     const feedback = node('p', '', 'discovery-feedback');
     feedback.setAttribute('role', 'status');
-    const compare = id => button(it?'Confronta':'Compare', () => window.dispatchEvent(new CustomEvent('shiftanything:compare', {detail:id})));
-    let checked = [];
+    const picked = node('span');
+    picked.setAttribute('aria-live', 'polite');
+    const compare = id => button(it?'Confronta in SH*FTER':'Compare in SH*FTER', () => window.dispatchEvent(new CustomEvent('shiftanything:compare', {detail:id})));
+    let choices = [];
+    let currentKit;
     let requesting = false;
-    const request = button(it?'Installa selezione':'Install selected', async () => {
+    const request = button(it?'Rivedi installazione':'Review install', async () => {
       if (request.disabled || requesting) return;
-      const apps = [...new Set(checked.filter(input => input.checked && !input.disabled).map(input => input.value))];
+      const apps = selectedApps();
       requesting = true;
       updateSelection();
       try {
@@ -188,64 +197,160 @@
       } catch (error) { feedback.textContent = String(error); }
       finally { requesting = false; updateSelection(); }
     }, 'btn solid');
-    const controls = node('div', '', 'discovery-controls');
-    controls.append(role, select, request);
-    const ranking = node('section', '', 'discovery-rankings');
-    ranking.append(node('h2', it?'Classifica':'Rankings'));
+    const plan = node('div', '', 'kit-plan');
+    plan.append(picked, request);
+    const header = node('div', '', 'kit-heading');
+    header.append(heading, plan);
+    const rolePanel = node('section');
+    rolePanel.append(header, description, feedback, steps);
+    const rankings = node('section');
+    const studies = node('div', '', 'kit-tabs');
+    const rankingTable = node('div', '', 'kit-table-wrap');
+    rankings.append(studies, rankingTable);
+
+    function selectedApps() {
+      return [...new Set(choices.map(choice => choice.toggle).filter(toggle => toggle.checked && !toggle.disabled).map(toggle => toggle.value))];
+    }
     function updateSelection() {
       const inventory = new Map(snapshot?.inventory.apps.map(app => [app.id, app]) || []);
-      for (const input of checked) {
-        const app = inventory.get(input.value);
-        input.disabled = !(snapshot?.lifecycle_enabled && app?.detected && app.compatible && app.installable && !app.installed && !app.job);
+      const platform = snapshot?.platform?.os?.toLowerCase();
+      for (const {app, toggle, status} of choices) {
+        const native = inventory.get(app.id);
+        const available = Boolean(snapshot?.lifecycle_enabled && native?.detected && native.compatible && native.installable && !native.installed && !native.job);
+        toggle.disabled = toggle.hidden = !available;
+        if (!available) toggle.checked = false;
+        status.classList.toggle('acc', available);
+        if (native?.job) status.textContent = it ? 'Operazione in corso' : 'In progress';
+        else if (native?.installed) status.textContent = it ? 'Installata' : 'Installed';
+        else if (available) status.textContent = it ? 'Installabile' : 'Ready to install';
+        else if (app.delivery === 'self-hosted') status.textContent = 'Self-hosted';
+        else if (app.delivery === 'web') status.textContent = it ? 'Via browser' : 'In browser';
+        else if (platform && app.platform_scope_complete && !supportsPlatform(app, platform)) status.textContent = it ? '🔒 Non supportata' : '🔒 Unsupported';
+        else if (snapshot?.install_checks_pending?.includes(app.id)) status.textContent = it ? 'Controllo pacchetto' : 'Checking package';
+        else status.textContent = it ? 'Download dalla fonte' : 'Download from source';
       }
-      request.disabled = requesting || Boolean(snapshot?.pending) || !checked.some(input => input.checked && !input.disabled);
+      const count = selectedApps().length;
+      picked.textContent = `${it ? 'App selezionate' : 'Selected apps'} (${count})`;
+      request.disabled = requesting || Boolean(snapshot?.pending) || !count;
     }
-    function render() {
-      const kit = work.kits.find(kit => kit.id === select.value);
-      if (!kit) return;
-      checked = [];
+
+    function table(headers, rows) {
+      const element = node('table', '', 'kit-table');
+      const headerRow = element.createTHead().insertRow();
+      for (const text of headers) {
+        const title = node('th', text);
+        title.scope = 'col';
+        headerRow.append(title);
+      }
+      const body = element.createTBody();
+      for (const cells of rows) {
+        const row = body.insertRow();
+        row.append(...cells);
+      }
+      return element;
+    }
+    function summary(app) {
+      const identity = node('span', '', 'kit-app-identity');
+      const logo = node('span', [...app.name].slice(0, 2).join('').toUpperCase(), 'kit-logo kit-initials');
+      logo.setAttribute('aria-hidden', 'true');
+      logo.dataset.kitLogo = app.id;
+      identity.append(logo, node('strong', app.name));
+      if (app.stars?.count) identity.append(node('span', `★ ${compact.format(app.stars.count)}`, 'kit-popularity'));
+      else if (app.popularity?.kind === 'flathub_installs') identity.append(node('span', `${compact.format(app.popularity.count)} Flathub`, 'kit-popularity'));
+      return identity;
+    }
+    function appDetails(app) {
+      const detail = details(app.id, detailLabel);
+      detail.setAttribute('aria-label', `${detailLabel} · ${app.name}`);
+      return detail;
+    }
+    function optionRow(app, option) {
+      const row = node('div', '', 'kit-app');
+      const main = node('div', '', 'kit-app-main');
+      main.append(summary(app), node('span', label(option.use), 'kit-use'));
+      const status = node('span', '', 'bdg');
+      const toggle = node('input');
+      toggle.type = 'checkbox';
+      toggle.value = app.id;
+      toggle.setAttribute('aria-label', `${it?'Seleziona per installazione':'Select for installation'} · ${app.name}`);
+      toggle.addEventListener('change', updateSelection);
+      choices.push({app, toggle, status});
+      const actions = node('div', '', 'kit-app-actions');
+      const proof = source(it?'Funzioni documentate':'Documented features', app.id, option.source);
+      proof.className = 'btn';
+      proof.setAttribute('aria-label', `${proof.textContent} · ${app.name}`);
+      actions.append(status, toggle, proof, appDetails(app));
+      row.append(main, actions);
+      return row;
+    }
+
+    function renderKit(kit) {
+      if (currentKit === kit.id) return;
+      currentKit = kit.id;
+      choices = [];
+      heading.textContent = label(kit.name);
       description.textContent = label(kit.description);
       feedback.textContent = '';
-      steps.replaceChildren(...kit.steps.map(step => {
-        const card = node('article', '', 'discovery-tile');
-        card.append(node('h2', label(step.name)), node('p', (it?'A pagamento · ':'Paid · ') + step.paid.join(', ')));
-        if (step.compare) card.append(compare(step.compare));
+      const rows = kit.steps.map(step => {
+        const phase = node('th', label(step.name));
+        phase.scope = 'row';
+        const paid = node('td', step.paid.join(' · '));
+        if (step.compare) paid.append(compare(step.compare));
+        const alternatives = node('td');
+        const options = node('div', '', 'kit-apps');
         for (const option of step.options) {
           const app = catalog.get(option.app);
-          if (!app) continue;
-          const row = node('div', '', 'kit-choice');
-          const toggle = node('input'); toggle.type = 'checkbox'; toggle.value = app.id;
-          const name = node('label');
-          name.append(toggle, node('strong', app.name));
-          toggle.setAttribute('aria-label', (it?'Seleziona per installazione · ':'Select for installation · ') + app.name);
-          checked.push(toggle);
-          toggle.addEventListener('change', updateSelection);
-          row.append(name, node('p', label(option.use)), details(app.id), source(it?'Fonte':'Source', app.id, option.source));
-          card.append(row);
+          if (app) options.append(optionRow(app, option));
         }
-        return card;
-      }));
+        alternatives.append(options);
+        return [phase, paid, alternatives];
+      });
+      steps.replaceChildren(table([phaseHeading, paidHeading, freeHeading], rows));
       updateSelection();
+      steps.dispatchEvent(new CustomEvent('kit-logos-rendered', {bubbles:true}));
     }
-    for (const sample of work.rankings) {
-      const card = node('article', '', 'discovery-tile');
-      card.append(node('h3', label(sample.name)), node('p', `${label(sample.metric)} · ${label(sample.scope)}`), source(sample.publisher, 'survey:'+sample.id, sample.source));
-      for (const entry of sample.entries) {
-        const row = node('div', '', 'kit-choice');
-        row.append(node('strong', entry.paid), node('span', entry.value.toLocaleString(language)));
-        for (const id of entry.apps) if (catalog.has(id)) {
+    function renderRanking(sample) {
+      const intro = node('p', label(sample.scope), 'kit-intro');
+      intro.append(' ', source(sample.publisher, 'survey:'+sample.id, sample.source));
+      const rows = sample.entries.map(entry => {
+        const paid = node('th', entry.paid);
+        paid.scope = 'row';
+        if (entry.compare) paid.append(compare(entry.compare));
+        const value = node('td', percentage.format(entry.value / 100), 'kit-metric');
+        const alternatives = node('td');
+        const options = node('div', '', 'kit-rank-apps');
+        for (const id of entry.apps) {
           const app = catalog.get(id);
-          const stars = app.stars?.count;
-          row.append(details(id, app.name + (stars ? ' · ★ '+stars.toLocaleString(language) : '')));
+          if (!app) continue;
+          const item = node('span');
+          item.append(summary(app), appDetails(app));
+          options.append(item);
         }
-        if (entry.compare) row.append(compare(entry.compare));
-        card.append(row);
-      }
-      ranking.append(card);
+        alternatives.append(options);
+        return [paid, value, alternatives];
+      });
+      rankingTable.replaceChildren(intro, table([paidHeading, label(sample.metric), freeHeading], rows));
+      rankingTable.dispatchEvent(new CustomEvent('kit-logos-rendered', {bubbles:true}));
     }
-    select.addEventListener('change', render);
-    kits.append(controls, description, feedback, steps, ranking);
-    render();
+    function addTab(group, name, activate) {
+      const tab = button(name, () => {
+        for (const item of group.children) item.setAttribute('aria-pressed', String(item === tab));
+        activate();
+      });
+      tab.setAttribute('aria-pressed', 'false');
+      group.append(tab);
+    }
+    const roles = node('div', '', 'kit-tabs');
+    for (const kit of work.kits) addTab(roles, label(kit.name), () => {
+      rankings.hidden = true;
+      rolePanel.hidden = false;
+      renderKit(kit);
+    });
+    addTab(roles, rankingHeading, () => { rolePanel.hidden = true; rankings.hidden = false; });
+    for (const sample of work.rankings) addTab(studies, label(sample.name), () => renderRanking(sample));
+    kits.append(node('p', it?'Scegli un ruolo e trova un’app per ogni fase.':'Choose a role and find an app for each stage.', 'kit-intro'), roles, rolePanel, rankings);
+    roles.firstElementChild.click();
+    studies.firstElementChild?.click();
     renderKits = {updateSelection};
   }
 

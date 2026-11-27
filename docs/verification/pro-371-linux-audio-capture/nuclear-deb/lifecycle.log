@@ -1,0 +1,6 @@
+2026-11-27T18:16:31+00:00	nuclear	stable-previous APT 1.56.0 f1e3e38aedd428918934d233f7e1d52b749b47259fb0d7e94872ac480f4d68a4 https://github.com/nukeop/nuclear/releases/download/player%401.56.0/Nuclear_1.56.0_amd64.deb
+2026-11-27T18:16:37+00:00	nuclear	previous GUI
+2026-11-27T18:16:55+00:00	nuclear	stable-current APT 1.56.4 d3194979dcdc7d530341dabde0451a10036c3216995a6e84fe58f47fa911d61a https://github.com/nukeop/nuclear/releases/download/player%401.56.4/Nuclear_1.56.4_amd64.deb
+2026-11-27T18:17:01+00:00	nuclear	current GUI
+2026-11-27T18:17:20+00:00	nuclear	REMOVE DATA PRESERVED
+2026-11-27T18:17:20+00:00	nuclear	PASS OS PACKAGE AND GUI CYCLE

@@ -23539,7 +23539,18 @@
           "size_max": 15753216
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.ksnip.ksnip",
+        "source": "https://flathub.org/apps/org.ksnip.ksnip",
+        "download_size": 10919186,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.ksnip.ksnip",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "langflow",
@@ -24277,7 +24288,18 @@
           "size_max": 157530616
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.nuclearplayer.Nuclear",
+        "source": "https://flathub.org/apps/com.nuclearplayer.Nuclear",
+        "download_size": 26264187,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.nuclearplayer.Nuclear",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "open-brush",

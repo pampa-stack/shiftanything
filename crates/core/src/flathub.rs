@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 134] = [
+pub const RECIPES: [(&str, &str); 137] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -136,6 +136,9 @@ pub const RECIPES: [(&str, &str); 134] = [
     ("darktable", "org.darktable.Darktable"),
     ("element", "im.riot.Riot"),
     ("saber", "com.adilhanney.saber"),
+    ("live-captions", "net.sapples.LiveCaptions"),
+    ("nuclear", "com.nuclearplayer.Nuclear"),
+    ("ksnip", "org.ksnip.ksnip"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -288,6 +291,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "darktable" => "https://github.com/darktable-org/darktable",
         "element" => "https://github.com/element-hq/element-web",
         "saber" => "https://github.com/saber-notes/saber",
+        "live-captions" => "https://github.com/abb128/LiveCaptions",
+        "nuclear" => "https://github.com/nukeop/nuclear",
+        "ksnip" => "https://github.com/ksnip/ksnip",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

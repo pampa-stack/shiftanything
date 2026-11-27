@@ -1,0 +1,26 @@
+live-captions JobFinished: Ok("Flathub app installed")
+live-captions JobFinished: Err("Approved action rejected: native installation state changed")
+live-captions JobFinished: Err("This Flatpak is managed outside the launcher")
+live-captions JobFinished: Ok("Launch request accepted")
+live-captions JobFinished: Ok("Flathub app updated")
+live-captions JobFinished: Ok("Launch request accepted")
+live-captions JobFinished: Ok("Flathub app removed")
+2026-11-27T18:18:23+00:00 live-captions PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T18:18:27+00:00 live-captions EXIT 0 remove
+
+previous
+        Arch: x86_64
+     Version: 0.4.1
+     Runtime: org.gnome.Platform/x86_64/48
+      Commit: 9ef61ae4b22b4f0dc8498be8166da86a4aabed214662d7f19d22f079be68eea7
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+current
+        Arch: x86_64
+     Version: 0.4.2
+     Runtime: org.gnome.Platform/x86_64/50
+      Commit: a2cda682d09098af8ed51dd9d454bb9681eb370c6db81467bf92b645620a7205
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+Synthetic data SHA256
+535a2529b2e511f73fdf138c3b0ec3e8945aba8706adde395fa4cf99371b9287

@@ -1,0 +1,26 @@
+ksnip JobFinished: Ok("Flathub app installed")
+ksnip JobFinished: Err("Approved action rejected: native installation state changed")
+ksnip JobFinished: Err("This Flatpak is managed outside the launcher")
+ksnip JobFinished: Ok("Launch request accepted")
+ksnip JobFinished: Ok("Flathub app updated")
+ksnip JobFinished: Ok("Launch request accepted")
+ksnip JobFinished: Ok("Flathub app removed")
+2026-11-27T18:20:27+00:00 ksnip PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T18:20:32+00:00 ksnip EXIT 0 remove
+
+previous
+        Arch: x86_64
+     Version: 1.10.1
+     Runtime: org.kde.Platform/x86_64/5.15-24.08
+      Commit: 941932994776513ad5c7c2e83a5da976f58ae197176d6b65e6de076bfa9bcc79
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+current
+        Arch: x86_64
+     Version: 1.10.1
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+      Commit: 091fb428c768ee68c9d949bfea85821c071c360f71819cf36cd6d631b787fd1a
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+Synthetic data SHA256
+70c223ed3550b9b83e67a10d0c4a34ff63588de9087fed1f515faa74d89b9162

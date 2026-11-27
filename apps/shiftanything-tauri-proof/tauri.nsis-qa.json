@@ -1,0 +1,8 @@
+{
+  "productName": "ShiftAnything",
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "windows": { "nsis": { "installMode": "currentUser" } }
+  }
+}

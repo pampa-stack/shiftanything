@@ -287,6 +287,8 @@
   },
   "windows": {
     "x64": [
+      "drawio",
+      "keepassxc",
       "photocraft",
       "wordcraft"
     ]

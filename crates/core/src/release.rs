@@ -1078,6 +1078,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::INKSCAPE,
         crate::curated::KDENLIVE,
         crate::curated::SUBTITLE_EDIT,
+        crate::curated::OPENWHISPR,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1618,6 +1619,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("SunshineStream/Sunshine", "v2026.914.233613") => {
             &[("Sunshine-macOS-arm64.dmg", 40_375_035, "795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c")]
+        }
+        ("OpenWhispr/openwhispr", "v1.12.1") => {
+            &[("OpenWhispr-1.12.1-arm64.dmg", 362_841_873, "e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13")]
+        }
+        ("OpenWhispr/openwhispr", "v1.12.2") => {
+            &[("OpenWhispr-1.12.2-arm64.dmg", 362_952_454, "324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea")]
         }
         ("SubtitleEdit/subtitleedit", "v5.3.0") => {
             &[("SubtitleEdit-macOS-ARM64.dmg", 135_167_783, "8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b")]

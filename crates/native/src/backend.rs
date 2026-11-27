@@ -83,7 +83,7 @@ struct ProcessLifecycle {
 #[derive(Clone)]
 enum HostDetection {
     System,
-    /// Explicit macOS verification profile: never adopt a copy discovered outside its records.
+    /// Explicit verification profile: never adopt a copy discovered outside its records.
     Profile(std::path::PathBuf),
     #[cfg(test)]
     Stub(HostStub),
@@ -472,13 +472,65 @@ impl NativeBackend {
         if !crate::paths::resolve_existing(&paths.data).starts_with(&home) || !crate::paths::resolve_existing(&paths.cache).starts_with(&home) {
             return Err("Native storage escaped the verification profile".into());
         }
-        Ok(Self::with_scope(
+        Ok(Self::with_profile(waker, paths, home))
+    }
+
+    /// Verification context for Linux. Installs use the profile's Applications directory and
+    /// the desktop integration uses the profile's XDG directories.
+    #[cfg(target_os = "linux")]
+    pub fn new_isolated_linux_profile(home: &std::path::Path, waker: impl Fn() + Send + Sync + 'static) -> Result<Self, String> {
+        if process::in_sandbox() {
+            return Err("The Linux verification profile cannot delegate to a Flatpak host".into());
+        }
+        let physical = home.canonicalize().map_err(|e| e.to_string())?;
+        let settings = [
+            ("HOME", home.to_path_buf()),
+            ("XDG_CONFIG_HOME", home.join("config")),
+            ("XDG_DATA_HOME", home.join("data")),
+            ("XDG_CACHE_HOME", home.join("cache")),
+            ("XDG_STATE_HOME", home.join("state")),
+        ];
+        if physical != home
+            || !home.is_dir()
+            || settings.iter().any(|(key, path)| {
+                std::env::var_os(key).as_deref() != Some(path.as_os_str())
+                    || path.canonicalize().ok().as_deref() != Some(path.as_path())
+                    || !path.is_dir()
+            })
+        {
+            return Err("HOME and XDG storage must use real directories in the Linux verification profile".into());
+        }
+        let paths = Paths::new()?;
+        let data = home.join("data");
+        let cache = home.join("cache");
+        if !paths.data.starts_with(&data)
+            || !paths.cache.starts_with(&cache)
+            || [
+                paths.data.clone(),
+                paths.cache.clone(),
+                paths.manifest(),
+                paths.release_cache(),
+                paths.downloads(),
+                home.join("Applications"),
+                data.join("applications"),
+                data.join("icons/hicolor/128x128/apps"),
+            ]
+            .iter()
+            .any(|path| crate::paths::resolve_existing(path) != *path)
+        {
+            return Err("Native storage escaped the verification profile".into());
+        }
+        Ok(Self::with_profile(waker, paths, physical))
+    }
+
+    fn with_profile(waker: impl Fn() + Send + Sync + 'static, paths: Paths, home: std::path::PathBuf) -> Self {
+        Self::with_scope(
             artcraft_launcher_core::nightly::InstallChannel::Stable,
             waker,
             paths,
             Arc::new(ProcessLifecycle::default()),
             HostDetection::Profile(home),
-        ))
+        )
     }
 
     /// `waker` is called (from any thread) whenever events are waiting; it should repaint the UI.

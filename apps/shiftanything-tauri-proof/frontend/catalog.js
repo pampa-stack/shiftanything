@@ -91,6 +91,7 @@
   const count = catalog.querySelector('[data-result-count]');
   const empty = catalog.querySelector('[data-empty]');
   const emptyFilters = empty.textContent;
+  const resetFilters = catalog.querySelector('[data-reset-filters]');
   const title = catalog.querySelector('[data-catalog-title]');
   const catalogTitle = title.textContent;
   const favoritesButton = document.querySelector('[data-favorites-only]');
@@ -101,6 +102,15 @@
     container, elements: [...container.children],
   }));
   const language = document.documentElement.lang;
+  const installFilter = document.createElement('button');
+  installFilter.type = 'button';
+  installFilter.className = 'btn install-filter';
+  installFilter.textContent = language === 'it' ? 'Installabili qui' : 'Installable here';
+  installFilter.setAttribute('aria-pressed', 'false');
+  installFilter.disabled = true;
+  resetFilters.before(installFilter);
+  let installable = new Set();
+  let installOnly = false;
   const compareText = new Intl.Collator(language, { sensitivity: 'base', numeric: true });
   const normalize = text => text.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
   const categories = new Map([...category.options].map(option => [option.value, option.textContent]));
@@ -130,6 +140,7 @@
       const data = item.dataset;
       return (level === 'all_apps' || data.level === level)
         && (!favoritesOnly || favorites.has(data.app))
+        && (!installOnly || installable.has(data.app))
         && (!provider.value || data.provider === provider.value)
         && q.every(word => searchById.get(data.app).includes(word));
     };
@@ -178,9 +189,27 @@
     loadVisibleMedia();
   }
 
+  function setInstallOnly(active) {
+    installOnly = active;
+    installFilter.setAttribute('aria-pressed', String(active));
+  }
+
+  window.addEventListener('native-installable', ({detail}) => {
+    installFilter.disabled = !detail.available;
+    const next = new Set(detail.ids);
+    const changed = next.size !== installable.size || [...next].some(id => !installable.has(id));
+    installable = next;
+    if (installOnly && changed) render();
+  });
+  installFilter.addEventListener('click', () => {
+    setInstallOnly(!installOnly);
+    render();
+  });
+
   function switchView(showFavorites) {
     if (favoritesOnly === showFavorites) return;
     favoritesOnly = showFavorites;
+    setInstallOnly(false);
     search.value = provider.value = '';
     category.value = favoritesOnly ? '' : initialCategory;
     level = favoritesOnly ? 'all_apps' : initialLevel;
@@ -216,10 +245,11 @@
     category.value = button.dataset.catalogCategory;
     render();
   });
-  catalog.querySelector('[data-reset-filters]').addEventListener('click', () => {
+  resetFilters.addEventListener('click', () => {
     search.value = provider.value = category.value = '';
     sort.value = 'featured';
     level = favoritesOnly ? 'all_apps' : initialLevel;
+    setInstallOnly(false);
     render({ reorder: true });
   });
 

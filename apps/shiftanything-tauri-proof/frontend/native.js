@@ -199,7 +199,7 @@
       && !entry.distribution?.some(channel => channel.platform === platform)) {
       return {label:it?'🔒 Non supportata':'🔒 Unsupported', enabled:false};
     }
-    if (app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled};
+    if (app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled, operation:'install'};
     if (entry?.delivery === 'self-hosted' && projectGuide(entry)) {
       return {label:it?'Apri guida':'Open project guide', enabled:true, guide:true};
     }
@@ -223,6 +223,11 @@
       window.dispatchEvent(new CustomEvent('native-favorites',{detail:snapshot.favorites}));
     }
     const inventory = new Map(snapshot.inventory.apps.map(app => [app.id,app]));
+    const installableIds = snapshot.inventory.apps.filter(app => {
+      const action = primaryAction(snapshot, app.id, app);
+      return action.enabled && action.operation === 'install';
+    }).map(app => app.id);
+    window.dispatchEvent(new CustomEvent('native-installable', {detail:{available:snapshot.lifecycle_enabled, ids:installableIds}}));
     const detail = document.querySelector('.catalog-detail[open] [data-app-content]');
     const primary = detail?.querySelector('[data-native-app]');
     if (primary && !detail.querySelector('.native-management')) {

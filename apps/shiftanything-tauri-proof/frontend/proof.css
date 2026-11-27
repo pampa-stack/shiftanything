@@ -16,6 +16,7 @@
 @media(max-width:760px) { .catalog-grid {grid-template-columns:1fr;} }
 
 .catalog-filters select { appearance:none; height:29px; box-sizing:border-box; }
+.catalog-filters .install-filter[aria-pressed="true"] { background:var(--tx); color:#090a0b; }
 
 .catalog-filters select { padding-right:25px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%23d5d7da' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 8px center; }
 

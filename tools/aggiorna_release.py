@@ -18,6 +18,7 @@ FLATPAK = re.compile(r"https://flathub\.org/apps/([\w.-]+)")
 VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 PREVIEW = re.compile(r"\b(?:alpha|beta|nightly|preview|pre[- ]?release|rc)\d*\b", re.I)
 PREVIEW_TAG = re.compile(r"^((?:v|release-)?\d+(?:\.\d+)*)-(?:alpha|beta|nightly|preview|pre-release|prerelease|rc)\d*(?:[.-]\d+)*$", re.I)
+WINDOWS_INSTALLER = re.compile(r"(?:^|[-_])(?:setup|installer)(?:[-_]v?\d+(?:\.\d+)*)?\.exe$")
 FEATURE = re.compile(
     r"^(?:feat(?:\([^)]*\))?!?:|add(?:s|ed)?\b|introduc(?:e|es|ed)\b|"
     r"supports?\b|new\b|remove(?:s|d)?\b|deprecat(?:e|es|ed)\b)", re.I
@@ -55,9 +56,9 @@ def github(repo):
 
 def package_platform(name):
     lower = name.lower()
-    if lower.endswith(".dmg"):
+    if lower.endswith((".dmg", ".pkg")):
         return "macos"
-    if lower.endswith((".msi", "-setup.exe", "_setup.exe", "installer.exe")):
+    if lower.endswith((".msi", "installer.exe")) or WINDOWS_INSTALLER.search(lower):
         return "windows"
     if lower.endswith((".appimage", ".deb", ".rpm", ".flatpak", ".pkg.tar.zst")) or re.search(
         r"-artifact-appimage-(?:x86_64|aarch64)\.zip$", lower

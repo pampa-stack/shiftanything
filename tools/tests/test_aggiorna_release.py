@@ -123,6 +123,33 @@ class ReleaseWatchTests(unittest.TestCase):
         self.assertEqual(self.catalog[0]["release"]["version"], "v0.5.0")
         self.assertEqual(self.catalog[0]["release"]["date"], "2026-11-27")
 
+    def test_installer_assets_exclude_portable_sidecars_and_symbols(self):
+        repo = "laurent22/joplin"
+        base = f"https://github.com/{repo}/releases"
+        version = "v3.7.24"
+        release = {
+            "tag_name": version,
+            "html_url": f"{base}/tag/{version}",
+            "published_at": "2026-11-19T10:00:00Z",
+            "assets": [
+                {"name": name, "size": size, "browser_download_url": f"{base}/download/{version}/{name}"}
+                for name, size in {
+                    "Joplin-3.7.24-arm64.DMG": 212067439,
+                    "Joplin-3.7.24-arm64.pkg": 211736094,
+                    "Joplin-Setup-3.7.24.exe": 368947560,
+                    "Joplin-Setup-3.7.24.exe.blockmap": 386692,
+                    "JoplinPortable.exe": 368718896,
+                    "Symbols-dSYMs.tar.xz": 39300540,
+                    "Joplin-3.7.24.ddeb": 263879,
+                }.items()
+            ],
+        }
+        result, _ = updater.github_release(repo, release)
+        self.assertEqual(result["packages"], [
+            {"platform": "macos", "size_min": 211736094, "size_max": 212067439},
+            {"platform": "windows", "size_min": 368947560, "size_max": 368947560},
+        ])
+
     def test_cli_dry_run_and_new_snapshot_leave_inputs_untouched(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

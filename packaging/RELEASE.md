@@ -2,8 +2,7 @@
 
 Le release del catalogo raccolgono almeno 30 nuove verifiche su Mac Apple Silicon e 60 su Linux x64 rispetto alla beta pubblicata, insieme alle funzioni completate. I due lotti di verifica avanzano in parallelo. Le correzioni urgenti a download, installazione o aggiornamenti del launcher si pubblicano appena superano il collaudo.
 
-1. Scegli un commit, con la stessa versione in Cargo e Tauri. Usa quel commit per il DMG notarizzato, il DEB e le note di rilascio.
+1. Scegli un commit, con la stessa versione in Cargo e Tauri. Per una release del catalogo usa `python3 packaging/release-notes.py "$commit" --previous "$ultima_release_pubblica" --changes novita.md > release-notes.md`. Se manca una soglia, lo script restituisce il conteggio e termina prima della compilazione. Usa lo stesso commit per il DMG notarizzato e il DEB. Per una correzione urgente al launcher ometti `--previous`.
 2. Verifica i pacchetti su Mac Apple Silicon e Ubuntu x64. Esegui [il packaging Mac](macos/README.md) e `package-tauri-updater.sh` per firmare anche gli aggiornamenti e generare `latest.json`.
-3. Scrivi le novità in Markdown e genera le note con `python3 packaging/release-notes.py "$commit" --changes novita.md > release-notes.md`. Lo script ricalcola schede e verifiche per piattaforma dal commit usato per compilare e rifiuta verifiche per schede assenti.
-4. Carica il DMG, gli aggiornamenti firmati, il manifest e i checksum in una bozza GitHub con `--target "$commit"` e `--notes-file release-notes.md`. Controlla che i file caricati corrispondano ai checksum prima di pubblicare come release più recente.
-5. Verifica il download anonimo dalla landing e l’aggiornamento dalla beta precedente su entrambi i sistemi. La landing legge versione, peso e download da GitHub. Il README rimanda alle note per i conteggi.
+3. Carica il DMG, gli aggiornamenti firmati, il manifest e i checksum in una bozza GitHub con `--target "$commit"` e `--notes-file release-notes.md`. Controlla che i file caricati corrispondano ai checksum prima di pubblicare come release più recente.
+4. Verifica il download anonimo dalla landing e l’aggiornamento dalla beta precedente su entrambi i sistemi. La landing legge versione, peso e download da GitHub. Il README rimanda alle note per i conteggi.

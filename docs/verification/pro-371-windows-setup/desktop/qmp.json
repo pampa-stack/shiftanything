@@ -1,0 +1,184 @@
+{
+  "query-status": {
+    "status": "running",
+    "singlestep": false,
+    "running": true
+  },
+  "query-kvm": {
+    "enabled": true,
+    "present": true
+  },
+  "query-tpm": [
+    {
+      "model": "tpm-crb",
+      "options": {
+        "type": "emulator",
+        "data": {
+          "chardev": "tpmch"
+        }
+      },
+      "id": "tpm0"
+    }
+  ],
+  "query-memory-size-summary": {
+    "base-memory": 4294967296,
+    "plugged-memory": 0
+  },
+  "query-block": [
+    {
+      "device": "pflash0",
+      "locked": false,
+      "removable": false,
+      "inserted": {
+        "iops_rd": 0,
+        "detect_zeroes": "off",
+        "image": {
+          "virtual-size": 3653632,
+          "filename": "/home/ubuntu/pro-371-winvm.OZgAUE1d/runtime/usr/share/OVMF/OVMF_CODE_4M.secboot.fd",
+          "format": "raw",
+          "actual-size": 3657728,
+          "dirty-flag": false
+        },
+        "iops_wr": 0,
+        "ro": true,
+        "node-name": "#block106",
+        "backing_file_depth": 0,
+        "drv": "raw",
+        "iops": 0,
+        "bps_wr": 0,
+        "write_threshold": 0,
+        "encrypted": false,
+        "bps": 0,
+        "bps_rd": 0,
+        "cache": {
+          "no-flush": false,
+          "direct": false,
+          "writeback": true
+        },
+        "file": "/home/ubuntu/pro-371-winvm.OZgAUE1d/runtime/usr/share/OVMF/OVMF_CODE_4M.secboot.fd"
+      },
+      "qdev": "/machine/system.flash0",
+      "type": "unknown"
+    },
+    {
+      "device": "pflash1",
+      "locked": false,
+      "removable": false,
+      "inserted": {
+        "iops_rd": 0,
+        "detect_zeroes": "off",
+        "image": {
+          "virtual-size": 540672,
+          "filename": "/home/ubuntu/pro-371-winvm.OZgAUE1d/compact.4Q7xsKcp/OVMF_VARS.fd",
+          "format": "raw",
+          "actual-size": 540672,
+          "dirty-flag": false
+        },
+        "iops_wr": 0,
+        "ro": false,
+        "node-name": "#block373",
+        "backing_file_depth": 0,
+        "drv": "raw",
+        "iops": 0,
+        "bps_wr": 0,
+        "write_threshold": 0,
+        "encrypted": false,
+        "bps": 0,
+        "bps_rd": 0,
+        "cache": {
+          "no-flush": false,
+          "direct": false,
+          "writeback": true
+        },
+        "file": "/home/ubuntu/pro-371-winvm.OZgAUE1d/compact.4Q7xsKcp/OVMF_VARS.fd"
+      },
+      "qdev": "/machine/system.flash1",
+      "type": "unknown"
+    },
+    {
+      "io-status": "ok",
+      "device": "installer",
+      "locked": false,
+      "removable": true,
+      "inserted": {
+        "iops_rd": 0,
+        "detect_zeroes": "off",
+        "image": {
+          "virtual-size": 8225329152,
+          "filename": "/home/ubuntu/pro-371-winvm.OZgAUE1d/windows-11-enterprise-eval-26h2-en-us-x64.iso",
+          "format": "raw",
+          "actual-size": 8225443840,
+          "dirty-flag": false
+        },
+        "iops_wr": 0,
+        "ro": true,
+        "node-name": "#block594",
+        "backing_file_depth": 0,
+        "drv": "raw",
+        "iops": 0,
+        "bps_wr": 0,
+        "write_threshold": 0,
+        "encrypted": false,
+        "bps": 0,
+        "bps_rd": 0,
+        "cache": {
+          "no-flush": false,
+          "direct": false,
+          "writeback": true
+        },
+        "file": "/home/ubuntu/pro-371-winvm.OZgAUE1d/windows-11-enterprise-eval-26h2-en-us-x64.iso"
+      },
+      "qdev": "/machine/peripheral-anon/device[4]",
+      "tray_open": false,
+      "type": "unknown"
+    },
+    {
+      "io-status": "ok",
+      "device": "",
+      "locked": false,
+      "removable": false,
+      "inserted": {
+        "iops_rd": 0,
+        "detect_zeroes": "off",
+        "image": {
+          "virtual-size": 68719476736,
+          "filename": "/home/ubuntu/pro-371-winvm.OZgAUE1d/compact.4Q7xsKcp/windows.qcow2",
+          "cluster-size": 65536,
+          "format": "qcow2",
+          "actual-size": 209334272,
+          "format-specific": {
+            "type": "qcow2",
+            "data": {
+              "compat": "1.1",
+              "compression-type": "zlib",
+              "lazy-refcounts": false,
+              "refcount-bits": 16,
+              "corrupt": false,
+              "extended-l2": false
+            }
+          },
+          "dirty-flag": false
+        },
+        "iops_wr": 0,
+        "ro": false,
+        "node-name": "guest-qcow",
+        "backing_file_depth": 0,
+        "drv": "qcow2",
+        "iops": 0,
+        "bps_wr": 0,
+        "write_threshold": 0,
+        "encrypted": false,
+        "bps": 0,
+        "bps_rd": 0,
+        "cache": {
+          "no-flush": false,
+          "direct": false,
+          "writeback": true
+        },
+        "file": "/home/ubuntu/pro-371-winvm.OZgAUE1d/compact.4Q7xsKcp/windows.qcow2"
+      },
+      "qdev": "/machine/peripheral-anon/device[5]",
+      "type": "unknown"
+    }
+  ]
+}

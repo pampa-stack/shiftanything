@@ -1,0 +1,26 @@
+{
+  "pflash0": {
+    "rd_bytes": 0,
+    "wr_bytes": 0,
+    "failed_wr_operations": 0,
+    "wr_operations": 0
+  },
+  "pflash1": {
+    "rd_bytes": 0,
+    "wr_bytes": 0,
+    "failed_wr_operations": 0,
+    "wr_operations": 0
+  },
+  "installer": {
+    "rd_bytes": 9024167936,
+    "wr_bytes": 0,
+    "failed_wr_operations": 0,
+    "wr_operations": 0
+  },
+  "/machine/peripheral-anon/device[5]": {
+    "rd_bytes": 2942584832,
+    "wr_bytes": 21142506496,
+    "failed_wr_operations": 0,
+    "wr_operations": 313204
+  }
+}

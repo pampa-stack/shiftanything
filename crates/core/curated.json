@@ -28611,5 +28611,116 @@
       "source": "https://github.com/PlakarKorp/plakar/releases/tag/v1.1.8",
       "packages": []
     }
+  },
+  {
+    "id": "freetube",
+    "name": "FreeTube",
+    "repo": "https://github.com/FreeTubeApp/FreeTube",
+    "author": "FreeTube",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Client desktop per YouTube con iscrizioni e cronologia salvate in locale, senza account Google. I pacchetti ufficiali sono in beta.",
+      "en": "Desktop YouTube client with local subscriptions and history, without a Google account. Official packages are in beta."
+    },
+    "alternatives": [
+      "YouTube"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/FreeTubeApp/FreeTube/blob/development/LICENSE",
+    "website": "https://freetubeapp.io/",
+    "releases": "https://github.com/FreeTubeApp/FreeTube/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/io/freetubeapp/FreeTube/44427f4afbdbb67b6755211d265943f3/icons/128x128/io.freetubeapp.FreeTube.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/io/freetubeapp/FreeTube/44427f4afbdbb67b6755211d265943f3/screenshots/image-1_752x525@1.png"
+    ],
+    "media_source": "https://flathub.org/apps/io.freetubeapp.FreeTube",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://freetubeapp.io/"
+    },
+    "stars": {
+      "count": 22577,
+      "source": "https://github.com/FreeTubeApp/FreeTube/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v0.26.0-beta",
+      "date": "2026-11-02",
+      "source": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 118979002,
+          "size_max": 119121840
+        },
+        {
+          "platform": "macos",
+          "size_min": 131556841,
+          "size_max": 138116307
+        },
+        {
+          "platform": "windows",
+          "size_min": 117178405,
+          "size_max": 122447634
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
+      "macos": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
+      "windows": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta"
+    }
+  },
+  {
+    "id": "invidious",
+    "name": "Invidious",
+    "repo": "https://github.com/iv-org/invidious",
+    "author": "Invidious",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Interfaccia web self-hosted per guardare video di YouTube e seguire canali con un account locale.",
+      "en": "Self-hosted web interface for watching YouTube videos and following channels with a local account."
+    },
+    "alternatives": [
+      "YouTube"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/iv-org/invidious/blob/master/LICENSE",
+    "website": "https://invidious.io/",
+    "releases": "https://github.com/iv-org/invidious/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.invidious.io/api/"
+    },
+    "logo": "https://avatars.githubusercontent.com/u/68407447?v=4&s=128",
+    "screenshots": [
+      "https://raw.githubusercontent.com/iv-org/invidious/0f5e4945b3c762e5cdd49b61c8ce11b48fe483d7/screenshots/01_player.png"
+    ],
+    "media_source": "https://github.com/iv-org/invidious",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.invidious.io/installation/"
+    },
+    "stars": {
+      "count": 26169,
+      "source": "https://github.com/iv-org/invidious/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.20261114.0",
+      "date": "2026-11-14",
+      "source": "https://github.com/iv-org/invidious/releases/tag/v2.20261114.0",
+      "packages": []
+    }
   }
 ]

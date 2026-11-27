@@ -578,6 +578,20 @@
       "source": "https://raw.githubusercontent.com/zabbix/zabbix/cf6299cae458c1177cf09da34de3969258431922/ui/assets/img/touch-icon-192x192.png",
       "file": "media/zabbix-logo.png",
       "sha256": "44459b74459c10cf910f4bcaa3083911de696e6fbd33c3ce273620050d336741"
+    },
+    {
+      "app": "freetube",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/io/freetubeapp/FreeTube/44427f4afbdbb67b6755211d265943f3/icons/128x128/io.freetubeapp.FreeTube.png",
+      "file": "media/freetube-logo.png",
+      "sha256": "d1d72049619fe365b2511077fd0b5759ef85ca464e5401a91824558f0d0f0278"
+    },
+    {
+      "app": "invidious",
+      "slot": "logo",
+      "source": "https://avatars.githubusercontent.com/u/68407447?v=4&s=128",
+      "file": "media/invidious-logo.png",
+      "sha256": "2f067fcd7205b180a41e3d9c1931be1534504a6713a5ec34b7e6393bee55d7a4"
     }
   ]
 }

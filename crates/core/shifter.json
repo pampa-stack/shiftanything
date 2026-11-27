@@ -52,7 +52,6 @@
     "SolidWorks",
     "Todoist",
     "Trello",
-    "Wispr Flow",
     "Zoom"
   ],
   "profiles": [
@@ -2186,6 +2185,155 @@
               "note": {
                 "it": "La versione web libera permette di modificare insieme la stessa lavagna e condividere un link in sola lettura.",
                 "en": "The free web app supports live co-editing on the same board and read-only sharing links."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "wispr-flow",
+      "name": "Wispr Flow",
+      "aliases": [
+        "WisprFlow",
+        "Wispr",
+        "Dettatura",
+        "Voice dictation"
+      ],
+      "features": [
+        {
+          "id": "insert_at_cursor",
+          "name": {
+            "it": "Dettare nel campo di testo attivo",
+            "en": "Dictate into the active text field"
+          },
+          "source": "https://docs.wisprflow.ai/articles/6409258247-starting-your-first-dictation"
+        },
+        {
+          "id": "languages",
+          "name": {
+            "it": "Dettare in più lingue",
+            "en": "Dictate in multiple languages"
+          },
+          "source": "https://docs.wisprflow.ai/articles/3191899797-use-flow-with-multiple-languages"
+        },
+        {
+          "id": "dictionary",
+          "name": {
+            "it": "Aggiungere parole al dizionario personale",
+            "en": "Add words to a personal dictionary"
+          },
+          "source": "https://docs.wisprflow.ai/articles/9639977157-view-shared-dictionary-words-and-snippets-in-the-admin-portal"
+        },
+        {
+          "id": "history",
+          "name": {
+            "it": "Consultare lo storico delle dettature",
+            "en": "Review dictation history"
+          },
+          "source": "https://docs.wisprflow.ai/articles/5096240724-navigating-the-wispr-flow-app-desktop-ios-and-android"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "handy",
+          "evidence": {
+            "insert_at_cursor": {
+              "state": "supported",
+              "source": "https://handy.computer/docs/paste-methods",
+              "note": {
+                "it": "La scorciatoia registra e incolla nell’app attiva. Su macOS serve Accessibilità. Su Linux il metodo dipende dalla sessione.",
+                "en": "The shortcut records and pastes into the active app. On macOS grant Accessibility. On Linux the paste method depends on the session."
+              }
+            },
+            "languages": {
+              "state": "supported",
+              "source": "https://handy.computer/docs/models",
+              "note": {
+                "it": "I modelli Whisper multilingue si scaricano e funzionano sul dispositivo.",
+                "en": "Multilingual Whisper models are downloaded and run on the device."
+              }
+            },
+            "dictionary": {
+              "state": "supported",
+              "source": "https://handy.computer/docs/advanced#custom-words",
+              "note": {
+                "it": "Aggiungi nomi e gergo personale e regola la soglia della correzione.",
+                "en": "Add names and specialist terms and adjust the correction threshold."
+              }
+            },
+            "history": {
+              "state": "supported",
+              "source": "https://handy.computer/docs/history",
+              "note": {
+                "it": "Lo storico consente di ritrovare e copiare le trascrizioni. La conservazione si può impostare.",
+                "en": "History lets you find and copy transcripts. Retention is configurable."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "openwhispr",
+          "evidence": {
+            "insert_at_cursor": {
+              "state": "supported",
+              "source": "https://docs.openwhispr.com/help/dictation/auto-paste-and-clipboard",
+              "note": {
+                "it": "La scorciatoia globale incolla al cursore. Il comportamento dipende dai permessi e dal sistema.",
+                "en": "A global shortcut pastes at the cursor. Behaviour depends on permissions and the operating system."
+              }
+            },
+            "languages": {
+              "state": "supported",
+              "source": "https://docs.openwhispr.com/guides/local-models",
+              "note": {
+                "it": "Puoi scegliere un modello multilingue locale e dettare offline dopo il download.",
+                "en": "Choose a multilingual local model and dictate offline after downloading it."
+              }
+            },
+            "dictionary": {
+              "state": "supported",
+              "source": "https://docs.openwhispr.com/help/customise/custom-dictionary",
+              "note": {
+                "it": "L’editor del dizionario aggiunge nomi e termini. L’efficacia varia con il modello.",
+                "en": "The dictionary editor adds names and terms. Accuracy varies with the model."
+              }
+            },
+            "history": {
+              "state": "supported",
+              "source": "https://docs.openwhispr.com/platform/where-your-files-live",
+              "note": {
+                "it": "Lo storico delle dettature è conservato sul dispositivo.",
+                "en": "Dictation history is stored on the device."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "epicenter-whispering",
+          "evidence": {
+            "insert_at_cursor": {
+              "state": "supported",
+              "source": "https://github.com/EpicenterHQ/epicenter/blob/v7.11.0/apps/whispering/README.md",
+              "note": {
+                "it": "La versione 7.11 documenta la scorciatoia globale e l’incolla al cursore.",
+                "en": "Version 7.11 documents the global shortcut and paste at the cursor."
+              }
+            },
+            "languages": {
+              "state": "partial",
+              "source": "https://github.com/EpicenterHQ/epicenter/releases/tag/v7.11.0",
+              "note": {
+                "it": "La versione 7.11 include Whisper multilingue su macOS e Linux. L’opzione locale Windows di questa versione è solo inglese.",
+                "en": "Version 7.11 includes multilingual Whisper on macOS and Linux. Its Windows local option is English-only."
+              }
+            },
+            "dictionary": {
+              "state": "partial",
+              "source": "https://github.com/EpicenterHQ/epicenter/releases/tag/v7.11.0#initial-prompt-support",
+              "note": {
+                "it": "Puoi indicare termini specialistici nel prompt di modelli compatibili.",
+                "en": "You can hint specialist terms in the prompt for compatible models."
               }
             }
           }

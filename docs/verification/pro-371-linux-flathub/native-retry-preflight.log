@@ -1,0 +1,9 @@
+First deployment official digest 00516a24d410ad62ed3e955fa5deb5af221ab6b181ed5549103f3670d10d2fca
+org.gnome.Calculator/x86_64/stable	flathub	00516a24d410	user	51.1
+Preparing re-run in /var/tmp/shift-flatpak-native.Fr6utRYM/cycle-home
+Uninstalling app/org.gnome.Calculator/x86_64/stable
+Uninstalling runtime/org.gnome.Calculator.Locale/x86_64/stable
+org.freedesktop.Platform.GL.default/x86_64/26.08
+org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+org.gnome.Platform/x86_64/51

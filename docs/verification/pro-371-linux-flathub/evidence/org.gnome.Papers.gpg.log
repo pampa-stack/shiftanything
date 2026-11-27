@@ -1,0 +1,19 @@
+commit c2ae1082343f6c4221fdcc515101c1dafabce5303b1ec066761c308014b152ef
+Parent:  dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c
+ContentChecksum:  49878c70fc54b4e43edd2138d6c770c9aec890b9d809edd4096b674e8d3dd66b
+Date:  2026-10-15 23:11:52 +0000
+
+    Update poppler and papers modules (c9ea9ea0f7a3)
+
+    Name: org.gnome.Papers
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct 16 00:00:32 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

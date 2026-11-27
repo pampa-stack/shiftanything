@@ -1,0 +1,14 @@
+flathub	https://dl.flathub.org/repo/
+Key: 6E5C05D979C76DAF93C081354184DD4D907A7CAE
+  Created: Fri Jun 16 13:18:56 2017
+  Expires: Mon Jun 14 13:18:56 2027
+  UID: Flathub Repo Signing Key <flathub@flathub.org>
+  Advanced update URL: https://openpgpkey.flathub.org/.well-known/openpgpkey/flathub.org/hu/cgco1b3fmmw9nf1bmdbrcziy7afbtpsz?l=flathub
+  Direct update URL: https://flathub.org/.well-known/openpgpkey/hu/cgco1b3fmmw9nf1bmdbrcziy7afbtpsz?l=flathub
+  Subkey: 54A6CDDD8919FB204200D8AC562702E9E3ED7EE8
+    Created: Fri Jun 16 13:19:40 2017
+    Expires: Mon Jun 14 13:19:40 2027
+Installed app refs remaining: 0
+Temporary package data, profile and sysroot removed (2.5G before cleanup). Evidence alone: 11M	/var/tmp/shift-flatpak-proof.14S91krL
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   42G   55G  43% /

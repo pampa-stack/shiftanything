@@ -1,0 +1,16 @@
+PASS SHA256 26.8.2 299236406 9f24fe83ab1ed5c95eb3df580119f32932f713e577feeac02bf619fb00749b55 https://download.documentfoundation.org/libreoffice/stable/26.8.2/mac/aarch64/LibreOffice_26.8.2_MacOS_aarch64.dmg
+Authority=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+/private/tmp/shift-macos-daily.ULGZSHIk/profiles/libreoffice/mount/LibreOffice.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+PASS SIGNATURE 26.8.2 publisher=7P5S3ZLCN7 bundle=org.libreoffice.script architectures=arm64 minimum_macos=11.0.0
+PASS INSTALL 26.8.2.2 /private/tmp/shift-macos-daily.ULGZSHIk/profiles/libreoffice/Applications/LibreOffice.app
+PASS SHA256 26.8.3 299927705 de943203795e5057785f65515063e2db5eb60b0bb6d8e2534fec59e5cc5fb988 https://download.documentfoundation.org/libreoffice/stable/26.8.3/mac/aarch64/LibreOffice_26.8.3_MacOS_aarch64.dmg
+Authority=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+/private/tmp/shift-macos-daily.ULGZSHIk/profiles/libreoffice/mount/LibreOffice.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+PASS SIGNATURE 26.8.3 publisher=7P5S3ZLCN7 bundle=org.libreoffice.script architectures=arm64 minimum_macos=11.0.0
+PASS UPDATE 26.8.2.2 -> 26.8.3.1 with preserved config marker
+PASS REMOVE 26.8.3.1 to isolated Trash with preserved config marker
+NO EXECUTION signed bundles inspected and moved; GUI/APIs not launched

@@ -1,0 +1,14 @@
+# Cicli Flatpak su VPS Strumenti
+
+Prova del 27 novembre 2026 su Ubuntu 26.04 LTS Linux x86_64. Flatpak 1.16.6, OSTree 2025.7 e Xvfb ricavati dai pacchetti ufficiali Ubuntu in un sysroot privato. Installazione Flatpak per utente in HOME/XDG temporanei. Remote pubblico Flathub con GPG attivo su commit e summary. Applicazioni avviate dentro Flatpak con rete esterna, filesystem host e session bus host esclusi. Un Xvfb privato consente di verificare e fotografare le finestre.
+
+| App nel catalogo | Ref verificato | Versioni lette da Flatpak | SHA-256 OSTree iniziale → finale |
+|---|---|---|---|
+| Calculator | `app/org.gnome.Calculator/x86_64/stable` | 51.0 → 51.1 | `0032886e3396c2e0cb107d453d600301c8090241d3fef31ca3f688510dba0e43` → `00516a24d410ad62ed3e955fa5deb5af221ab6b181ed5549103f3670d10d2fca` |
+| Text Editor | `app/org.gnome.TextEditor/x86_64/stable` | 51.0 → 51.0, nuovo build | `76ecd1d6e9ecfa26f6939c54eec4e9db3491fce949c8808bdee9fb55758a1a91` → `8effd3457368016ed2bcb2a7b7c5058938c7ad949050d282c4337951a91941a4` |
+| Image Viewer (Loupe) | `app/org.gnome.Loupe/x86_64/stable` | 51.rc → 51.2, manifest storico denominato 51.0 | `d4a7e52f6dc4f0314ca7f5a18daa861c40bd55a08d8b9698f582aa6b28dfc5f6` → `31e4c878cb1b6b937f528c29b68bf044176aeaf908828632a0ee9bdc9bf6be04` |
+| Document Viewer (Papers) | `app/org.gnome.Papers/x86_64/stable` | 51.0 → 51.1 | `dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c` → `c2ae1082343f6c4221fdcc515101c1dafabce5303b1ec066761c308014b152ef` |
+
+Tutte e quattro hanno completato installazione iniziale dal canale stable, selezione del commit storico ufficiale, apertura grafica del commit storico, aggiornamento senza commit esplicito, apertura grafica del nuovo commit e rimozione del ref. Un marker di profilo sintetico rimane dopo aggiornamento e disinstallazione. Le otto schermate provengono da finestre X11 mappate e sono state lette. Il commit Papers finale ha anche una verifica OSTree GPG individuale e l'export .desktop corrispondente. [PNG](evidence/gui-contact-sheet.png) · [Firma Papers](evidence/org.gnome.Papers.gpg.log) · [Desktop entry](evidence/org.gnome.Papers.desktop-ref.txt) · [Log pulizia](cleanup.log)
+
+L'esecuzione usa Flatpak CLI su x86_64. I cicli nella build del launcher sono documentati nel [referto del motore](README.md). Le quattro pagine ufficiali Flathub dichiarano anche aarch64. Il test copre l'avvio grafico, senza i dialoghi di file forniti dai portali desktop o il funzionamento delle singole funzioni. [Calculator](https://flathub.org/apps/org.gnome.Calculator) · [Text Editor](https://flathub.org/apps/org.gnome.TextEditor) · [Loupe](https://flathub.org/apps/org.gnome.Loupe) · [Papers](https://flathub.org/apps/org.gnome.Papers) · [Manifest storico Loupe](https://github.com/flathub/org.gnome.Loupe/commit/6c7396c7e328)

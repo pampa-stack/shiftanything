@@ -1,0 +1,4 @@
+gnome-calculator before untrusted: Status { installable: false, installed: None, update_available: false, can_remove: false, can_open: false }
+gnome-calculator JobFinished: Err("The user Flathub remote needs the official URL and both GPG verification settings")
+gnome-calculator after untrusted: Some(Status { installable: false, installed: None, update_available: false, can_remove: false, can_open: false })
+PASS unsigned configured alias left unchanged and no app deployed

@@ -1,0 +1,2 @@
+1d61facca56c651e6a82c144f4a6f99603ba575f718fd079a3445e5dfc145410  config/craft-anything/desktop.log
+e449bbb378682abbdc2b9730012016b6b978b975e4f6913f4b29d31636fdca03  config/profile-fingerprint.txt

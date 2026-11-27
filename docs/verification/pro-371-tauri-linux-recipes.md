@@ -28,3 +28,8 @@ Gli output originali dei tre lotti Storytold sono nello scratch VPS `/mnt/dati/l
 
 La verifica dell'adattatore `session.rs` su VPS1 ha eseguito Apri e Rimuovi, passando da richiesta e approvazione a `NativeBackend`. Una fixture eseguibile ha scritto un marker dopo aver letto HOME, XDG e l'opzione di apertura senza FUSE. Il test ha anche respinto un collegamento della cartella `Applications` e un record di installazione esterno al profilo. Il log è in `/mnt/dati/lavori/shiftanything/shift-tauri-linux-integration.WeQPpEhy/proof-fixture.log`. La prova ha usato il sorgente Rust condiviso con Tauri, senza una WebView Linux. Su macOS è passato il controllo del crate Tauri con `cargo check --tests`.
 
+## Prove successive
+
+Quattro ricette già presenti hanno completato il ciclo con finestre Xvfb: Craft Anything, DesignCraft, MailCraft e SolidCraft. A seguire Pencil2D e OpenShot sono state integrate dopo i cicli con apertura e collegamenti di menu. [Quattro cicli ArtCraft](pro-371-linux-appimage-four/README.md) · [Pencil2D e OpenShot](pro-371-linux-pencil-openshot/README.md).
+
+La finestra Tauri Ubuntu e i clic dalla build estratta dal DEB sono stati verificati in prove separate. [Pacchetto e clic HandBrake](pro-371-linux-media-cad/README.md).

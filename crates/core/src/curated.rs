@@ -2001,7 +2001,28 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 85] = [
+pub const ZOTERO: crate::CraftApp = crate::CraftApp {
+    id: "zotero",
+    name: "Zotero",
+    tagline: "Collect, organize, annotate and cite research",
+    repo: "zotero/zotero",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [199, 52, 60],
+    ink_light: [155, 30, 41],
+    ink_dark: [255, 169, 173],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Corporation for Digital Scholarship",
+    msi_publisher: None,
+    bundle: Some("org.zotero.zotero"),
+    site: Some("https://www.zotero.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("8LAYR367YV"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 86] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2087,6 +2108,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 85] = [
     ULTIMAKER_CURA,
     FREECAD,
     OPENMAUSBOT,
+    ZOTERO,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

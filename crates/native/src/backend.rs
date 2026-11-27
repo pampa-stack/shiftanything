@@ -2592,6 +2592,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::GitHubApi
     } else if sources.contains(&Source::TheDocumentFoundation) {
         Source::TheDocumentFoundation
+    } else if sources.contains(&Source::Zotero) {
+        Source::Zotero
     } else {
         Source::Feed
     }
@@ -2827,12 +2829,26 @@ fn feed_repo(feed: Option<&Feed>, app: &CraftApp) -> String {
 
 fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> {
     let calibre = artcraft_launcher_core::curated::CALIBRE;
-    // The generic feed references GitHub assets; Calibre uses the publisher's retained archive.
-    if app.uses_tdf_releases() || app.release_repository() != app.repo || (app.id, app.repo) == (calibre.id, calibre.repo) { None } else { feed }
+    // Some publishers serve their qualified packages outside the generic GitHub feed.
+    if app.uses_tdf_releases()
+        || app.uses_zotero_releases()
+        || app.release_repository() != app.repo
+        || (app.id, app.repo) == (calibre.id, calibre.repo)
+    {
+        None
+    } else {
+        feed
+    }
 }
 
 fn release_origin(app: &CraftApp) -> Origin {
-    if app.uses_tdf_releases() { Origin::TheDocumentFoundation } else { Origin::GitHub }
+    if app.uses_tdf_releases() {
+        Origin::TheDocumentFoundation
+    } else if app.uses_zotero_releases() {
+        Origin::Zotero
+    } else {
+        Origin::GitHub
+    }
 }
 
 /// What to ask GitHub about `app`: the feed may rename its repo, but the separate-channel policy
@@ -3433,6 +3449,21 @@ mod tests {
         assert!(feed_for_app(Some(&feed), &calibre).is_none());
         assert_eq!(release_query(Some(&feed), &calibre).repo, calibre.repo);
         assert_eq!(feed_for_app(Some(&feed), &handy), Some(&feed));
+    }
+
+    #[test]
+    fn zotero_uses_publisher_releases_on_macos_and_flathub_on_linux() {
+        use artcraft_launcher_core::{Arch, curated::ZOTERO, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(ZOTERO.id), Some(&ZOTERO));
+        assert!(feed_for_app(Some(&feed), &ZOTERO).is_none());
+        assert_eq!(release_origin(&ZOTERO), Origin::Zotero);
+        assert_eq!(release_query(Some(&feed), &ZOTERO).repo, ZOTERO.repo);
+        assert!(routes_to_flathub(ZOTERO.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(ZOTERO.id, Some(mac), InstallChannel::Stable));
     }
 
     #[test]

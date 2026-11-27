@@ -113,6 +113,9 @@ impl CraftApp {
         if self.uses_tdf_releases() {
             return crate::release::LIBREOFFICE_STABLE_URL.to_string();
         }
+        if self.uses_zotero_releases() {
+            return crate::release::ZOTERO_CHANGELOG.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -122,6 +125,10 @@ impl CraftApp {
 
     pub fn uses_tdf_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::LIBREOFFICE.id, crate::curated::LIBREOFFICE.repo)
+    }
+
+    pub fn uses_zotero_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ZOTERO.id, crate::curated::ZOTERO.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

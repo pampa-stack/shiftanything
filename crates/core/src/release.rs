@@ -52,7 +52,7 @@ impl Release {
     pub fn sums_asset(&self) -> Option<&Asset> {
         self.assets.iter().find(|asset| {
             asset.name == "SHA256SUMS.txt"
-                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].iter().any(|repo| {
+                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo].iter().any(|repo| {
                     let manifest = checksum_manifest_name(repo);
                     asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
                 })
@@ -64,7 +64,7 @@ impl Release {
 pub fn checksum_manifest_name(repo: &str) -> &'static str {
     if repo == crate::curated::KOPIA.repo {
         "checksums.txt"
-    } else if [crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].contains(&repo) {
+    } else if [crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo].contains(&repo) {
         "SHA256SUMS"
     } else {
         "SHA256SUMS.txt"
@@ -583,9 +583,9 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    use crate::curated::{OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+    use crate::curated::{OPEN_PENCIL, OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 
-    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
+    const RECIPES: &[crate::CraftApp] = &[OPEN_PENCIL, OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1317,6 +1317,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
+        ("open-pencil/open-pencil", "v0.16.0") => {
+            &[("OpenPencil_0.16.0_amd64.AppImage", 96_438_776, "a7d893ac35367c8ea000b00890136ce5861a13bf2574b44760f77849cfdf77a2")]
+        }
+        ("open-pencil/open-pencil", "v0.17.0") => {
+            &[("OpenPencil_0.17.0_amd64.AppImage", 99_834_360, "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc")]
         }
         ("Ultimaker/Cura", "5.13.0") => {
             &[("UltiMaker-Cura-5.13.0-linux-X64.AppImage", 334_154_232, "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40")]

@@ -849,6 +849,11 @@ fn destination(
         let exe = Path::new(&inst.location);
         return Ok(match kind {
             PackageKind::AppImage => previous.filter(|r| r.kind == kind).and_then(|r| r.path.parent()).map(Path::to_path_buf),
+            PackageKind::Msi if app.uses_tdf_releases() && exe.is_absolute() => exe
+                .parent()
+                .filter(|dir| dir.file_name().is_some_and(|name| name.eq_ignore_ascii_case("program")))
+                .and_then(Path::parent)
+                .map(Path::to_path_buf),
             PackageKind::Msi => exe.parent().filter(|_| exe.is_absolute()).map(Path::to_path_buf),
             _ => None,
         });
@@ -950,12 +955,13 @@ fn mac_applications_dir(system: &Path, home: Option<&Path>) -> Option<PathBuf> {
 }
 
 #[cfg(any(windows, test))]
-fn msi_folder_argument(path: &Path) -> Result<String, String> {
+fn msi_folder_argument(app_id: &str, path: &Path) -> Result<String, String> {
     let value = path.to_str().ok_or("unusual characters in a path")?;
     if value.chars().any(|c| c == '"' || c.is_control()) {
         return Err(format!("couldn't use install folder {value}: the path contains invalid characters"));
     }
-    Ok(format!("INSTALLFOLDER=\"{value}\""))
+    let property = if app_id == artcraft_launcher_core::curated::LIBREOFFICE.id { "INSTALLLOCATION" } else { "INSTALLFOLDER" };
+    Ok(format!("{property}=\"{value}\""))
 }
 
 /// The Windows Installer context an update must keep. A per-machine install elevates and writes
@@ -3068,7 +3074,7 @@ pub mod windows {
             // once, so the per-machine members don't wait for it.
             gather.leave();
         }
-        in_turn(stop, phase, JobPhase::Installing, || run_direct(package.file, destination, scope))
+        in_turn(stop, phase, JobPhase::Installing, || run_direct(app, package.file, destination, scope))
     }
 
     /// One app's install, as the batch session runs it.
@@ -3091,7 +3097,7 @@ pub mod windows {
             Err(e) => {
                 log::warn!("{}: {e}; installing it by itself", app.name);
                 gather.leave();
-                return in_turn(stop, phase, JobPhase::Installing, || run_direct(package.file, destination, scope));
+                return in_turn(stop, phase, JobPhase::Installing, || run_direct(app, package.file, destination, scope));
             }
         };
         let outcome = INSTALLER.batched_when(
@@ -3104,18 +3110,18 @@ pub mod windows {
         );
         if outcome.as_ref().err().is_some_and(|e| e == msi_session::NO_SESSION) {
             log::warn!("{}: the batch session could not start; installing it by itself", app.name);
-            return in_turn(stop, phase, JobPhase::Installing, || run_direct(package.file, destination, scope));
+            return in_turn(stop, phase, JobPhase::Installing, || run_direct(app, package.file, destination, scope));
         }
         outcome
     }
 
     /// Runs one MSI by itself: `msiexec` asks for permission itself, and the prompt names the package's
     /// publisher.
-    fn run_direct(msi: &Path, destination: Option<&Path>, scope: Option<MsiScope>) -> Result<(), String> {
+    fn run_direct(app: &CraftApp, msi: &Path, destination: Option<&Path>, scope: Option<MsiScope>) -> Result<(), String> {
         use std::os::windows::process::CommandExt;
         let mut command = msi_command(&msiexec(), msi)?;
         if let Some(dir) = destination {
-            command.raw_arg(msi_folder_argument(dir)?);
+            command.raw_arg(msi_folder_argument(app.id, dir)?);
         }
         for argument in msi_scope_arguments(scope) {
             command.raw_arg(argument);
@@ -3195,8 +3201,8 @@ pub mod windows {
                 chosen: chosen.version,
                 previous: previous.version,
                 remove: &mut || remove_listed(app, &installs),
-                install_chosen: &mut || run_direct(chosen.file, destination, scope),
-                reinstall_previous: &mut || run_direct(previous.file, destination, scope),
+                install_chosen: &mut || run_direct(app, chosen.file, destination, scope),
+                reinstall_previous: &mut || run_direct(app, previous.file, destination, scope),
             })
             .map_err(|stopped| {
                 let message = stopped.error.clone();
@@ -3245,8 +3251,8 @@ pub mod windows {
         let script = msi_downgrade::script(
             msi_batch::text(&msiexec())?,
             &removals,
-            &msi_batch::line(chosen.file, destination, scope)?,
-            &msi_batch::line(previous.file, destination, scope)?,
+            &msi_batch::line(app.id, chosen.file, destination, scope)?,
+            &msi_batch::line(app.id, previous.file, destination, scope)?,
         );
         let root =
             std::env::var_os("SystemRoot").map(PathBuf::from).filter(|root| root.is_absolute()).ok_or("SystemRoot is not set to an absolute path")?;
@@ -3407,6 +3413,23 @@ mod tests {
         assert_eq!(keep_if_in_scope(folder.clone(), true), folder);
         assert_eq!(keep_if_in_scope(folder, false), None);
         assert_eq!(keep_if_in_scope(None, true), None);
+    }
+
+    #[cfg(windows)]
+    #[test]
+    fn libreoffice_update_preserves_the_install_root_above_the_executable() {
+        let app = artcraft_launcher_core::curated::LIBREOFFICE;
+        let installed = Installed {
+            version: version::parse("26.8.2"),
+            source: InstallSource::Msi,
+            location: r"D:\Tools\LibreOffice\program\soffice.exe".into(),
+            package: None,
+            externally_managed: false,
+            origin: None,
+            installation: None,
+        };
+        let target = destination(&app, PackageKind::Msi, Some(&installed), None, &InstallLocations::default()).unwrap();
+        assert_eq!(target, Some(PathBuf::from(r"D:\Tools\LibreOffice")));
     }
 
     /// The default folder shown in the UI is the one a fresh install really uses.
@@ -3601,10 +3624,10 @@ mod tests {
             (r"\\server\apps\绘画", r#"INSTALLFOLDER="\\server\apps\绘画""#),
             (r"D:\Craft Apps\", r#"INSTALLFOLDER="D:\Craft Apps\""#),
         ] {
-            assert_eq!(msi_folder_argument(Path::new(value)).unwrap(), argument);
+            assert_eq!(msi_folder_argument("photocraft", Path::new(value)).unwrap(), argument);
         }
-        assert!(msi_folder_argument(Path::new("D:\\bad\" TRANSFORMS=evil")).is_err());
-        assert!(msi_folder_argument(Path::new("D:\\bad\nfolder")).is_err());
+        assert!(msi_folder_argument("photocraft", Path::new("D:\\bad\" TRANSFORMS=evil")).is_err());
+        assert!(msi_folder_argument("photocraft", Path::new("D:\\bad\nfolder")).is_err());
     }
 
     #[test]

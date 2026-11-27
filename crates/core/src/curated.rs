@@ -455,7 +455,7 @@ pub const LIBREOFFICE: crate::CraftApp = crate::CraftApp {
     ink_dark: [157, 224, 166],
     kind: crate::catalog::AppKind::Community,
     publisher: "The Document Foundation",
-    msi_publisher: None,
+    msi_publisher: Some("The Document Foundation"),
     bundle: Some("org.libreoffice.script"),
     site: Some("https://www.libreoffice.org/"),
     mac_bundle_name: None,

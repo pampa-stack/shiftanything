@@ -839,6 +839,39 @@ mod tests {
     }
 
     #[test]
+    fn libreoffice_windows_x64_uses_only_pinned_vendor_msis() {
+        use crate::{curated::LIBREOFFICE, release};
+
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        let select = |release: &Release, platform| pick_asset(release, &[LIBREOFFICE.id], platform, &[PackageKind::Msi]).is_some();
+        for tag in ["26.8.2", "26.8.3"] {
+            let version = release::libreoffice_stable_version(tag).unwrap();
+            let exact = release::libreoffice_windows_msi(&version).unwrap();
+            let mut release = Release { version: Some(version), tag: tag.to_string(), assets: vec![exact.clone()], ..Release::default() };
+            assert!(select(&release, windows));
+            assert!(!select(&release, Platform { arch: Arch::Arm64, ..windows }));
+            assert!(!select(&release, Platform { arch: Arch::X86, ..windows }));
+            for substituted in [
+                Asset { name: exact.name.replace("x86-64", "x86"), ..exact.clone() },
+                Asset { url: exact.url.replace("download.documentfoundation.org", "other.example"), ..exact.clone() },
+                Asset { sha256: None, ..exact.clone() },
+                Asset { sha256: Some("a".repeat(64)), ..exact.clone() },
+                Asset { size: exact.size + 1, ..exact.clone() },
+            ] {
+                release.assets = vec![substituted];
+                assert!(!select(&release, windows));
+            }
+            release.assets = vec![exact];
+            release.prerelease = true;
+            assert!(!select(&release, windows));
+            release.prerelease = false;
+            release.tag = format!("v{tag}");
+            assert!(!select(&release, windows));
+        }
+        assert!(release::libreoffice_windows_msi(&crate::version::Version::new(26, 8, 4)).is_none());
+    }
+
+    #[test]
     fn super_productivity_macos_requires_stable_tag_and_official_arm64_asset() {
         use crate::curated::SUPER_PRODUCTIVITY;
         use crate::release::release_from_sums;

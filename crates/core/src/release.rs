@@ -142,6 +142,18 @@ pub fn libreoffice_arm64_asset(release: &Release, asset: &Asset) -> bool {
         && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
+/// Windows Installer packages reviewed on the official TDF stable channel, limited to x64.
+pub fn libreoffice_windows_msi(version: &Version) -> Option<Asset> {
+    let (size, sha256) = match version.to_string().as_str() {
+        "26.8.2" => (375_934_976, "ff4b911403b67ee9e6249f820f9782c44bb32c94fdaa45b0da53a8e419e5307a"),
+        "26.8.3" => (376_311_808, "0e6918c273eabbdbbd800ee0dacbbf130a14c13c2e4cec861b06dd59e015bf94"),
+        _ => return None,
+    };
+    let name = format!("LibreOffice_{version}_Win_x86-64.msi");
+    let url = format!("{LIBREOFFICE_STABLE_URL}{version}/win/x86_64/{name}");
+    Some(Asset { name, url, size, sha256: Some(sha256.to_string()) })
+}
+
 /// Whether `url` is safe to hand to the system browser from untrusted text (release notes):
 /// `https` only, a host, no user-info, no spaces or control characters, and no shell metacharacters.
 ///
@@ -1084,12 +1096,18 @@ pub fn reviewed_windows_msi_repo(id: &str) -> Option<&'static str> {
         "wordcraft" => Some("storytold/wordcraft"),
         "keepassxc" => Some(crate::curated::KEEPASSXC.repo),
         "drawio" => Some(crate::curated::DRAWIO.repo),
+        "libreoffice" => Some(crate::curated::LIBREOFFICE.repo),
         _ => None,
     }
 }
 
 /// Admit only the exact official x64 MSI whose signed package was reviewed.
 pub fn reviewed_windows_msi_asset(repo: &str, release: &Release, asset: &Asset) -> bool {
+    if repo == crate::curated::LIBREOFFICE.repo {
+        return !release.prerelease
+            && libreoffice_stable_version(&release.tag).as_ref() == release.version.as_ref()
+            && release.version.as_ref().and_then(libreoffice_windows_msi).as_ref() == Some(asset);
+    }
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag.strip_prefix('v').unwrap_or(&release.tag) == version.to_string())
         && asset.name.ends_with(".msi")

@@ -1,0 +1,19 @@
+commit 7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe
+Parent:  23db12674b0db669c6d3b584bb33d55be8343aaccb85df5f3a49952fc773ad1e
+ContentChecksum:  14d1e5fd359a31bc81ffc8a900fd0a5cdde1df09648de8ac9eaa00caf2aee7cc
+Date:  2026-03-20 21:17:09 +0000
+
+    Merge pull request #63 from flathub/improve-cleanup (6f47d6975248)
+
+    Name: org.gnome.Snapshot
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Mar 20 22:01:56 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

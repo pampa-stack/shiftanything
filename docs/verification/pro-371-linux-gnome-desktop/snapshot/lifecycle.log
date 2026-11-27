@@ -1,0 +1,56 @@
+2026-11-27T22:40:29+00:00 snapshot AVAILABLE 17349378048
+snapshot before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+snapshot JobFinished: Ok("Flathub app installed")
+snapshot after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:41:22+00:00 snapshot current-install 8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301
+/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301/export/share/applications/org.gnome.Snapshot.desktop
+/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301/export/share/icons/hicolor/scalable/apps/org.gnome.Snapshot.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Updating app/org.gnome.Snapshot/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:41:47+00:00 snapshot previous 7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe
+snapshot before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe", package: Some("org.gnome.Snapshot"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true }
+snapshot JobFinished: Err("Approved action rejected: native installation state changed")
+snapshot JobFinished: Err("This Flatpak is managed outside the launcher")
+snapshot after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe", package: Some("org.gnome.Snapshot"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[46033]: [session uid=1000 pid=46033] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=47945 comm="xfwm4 --compositor=off --display=:95" label="unconfined")
+dbus-daemon[46033]: [session uid=1000 pid=46033] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[46033]: [session uid=1000 pid=46033] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=47956 comm="flatpak run --user --command=sh app/org.gnome.Snap" label="flatpak (unconfined)")
+dbus-daemon[46033]: [session uid=1000 pid=46033] Successfully activated service 'org.freedesktop.Flatpak'
+snapshot before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+snapshot JobFinished: Ok("Launch request accepted")
+snapshot after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Snapshot
+2026-11-27T22:41:58+00:00 snapshot previous GUI WM_NAME(STRING) = "Camera"
+WM_CLASS(STRING) = "snapshot", "snapshot"
+2026-11-27T22:41:58+00:00 snapshot AVAILABLE 13117997056
+snapshot before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+snapshot JobFinished: Ok("Flathub app updated")
+snapshot after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:42:00+00:00 snapshot current 8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301
+/home/qa/profiles/snapshot/.var/app/org.gnome.Snapshot/fixture.txt: OK
+snapshot before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+snapshot JobFinished: Ok("Launch request accepted")
+snapshot after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Snapshot
+2026-11-27T22:42:10+00:00 snapshot current GUI WM_NAME(STRING) = "Camera"
+WM_CLASS(STRING) = "snapshot", "snapshot"
+snapshot before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/snapshot/data/flatpak/app/org.gnome.Snapshot/x86_64/stable/8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301", package: Some("org.gnome.Snapshot"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+snapshot JobFinished: Ok("Flathub app removed")
+snapshot after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/snapshot/.var/app/org.gnome.Snapshot/fixture.txt: OK
+2026-11-27T22:42:11+00:00 snapshot PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:42:12+00:00 snapshot EXIT 0 remove
+
+(xfconfd:47968): xfconfd-WARNING **: 22:42:12.390: Name org.xfce.Xfconf lost on the message dbus, exiting.

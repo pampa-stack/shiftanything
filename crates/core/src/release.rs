@@ -911,6 +911,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MOONLIGHT,
         crate::curated::OPEN_PENCIL,
         crate::curated::SUNSHINE,
+        crate::curated::AIRI,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1372,6 +1373,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
+        ("moeru-ai/airi", "v0.15.2") => {
+            &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
+        }
+        ("moeru-ai/airi", "v0.15.4") => {
+            &[("AIRI-0.15.4-darwin-arm64.dmg", 610_837_143, "d2ebfbfed06a8d1df2195520faeddbe7ffef87a2003bb00717f04228530c4617")]
         }
         ("SunshineStream/Sunshine", "v2026.906.222525") => {
             &[("Sunshine-macOS-arm64.dmg", 40_287_527, "b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a")]

@@ -1938,6 +1938,27 @@ pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("45U78722YL"),
 };
 
+pub const AIRI: crate::CraftApp = crate::CraftApp {
+    id: "airi",
+    name: "AIRI",
+    tagline: "An interactive voice companion that can run locally",
+    repo: "moeru-ai/airi",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [174, 77, 123],
+    ink_light: [129, 42, 89],
+    ink_dark: [241, 173, 208],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "MOERU AI LTD",
+    msi_publisher: None,
+    bundle: Some("ai.moeru.airi"),
+    site: Some("https://airi.moeru.ai/"),
+    mac_bundle_name: Some("airi"),
+    mac_team: Some("433DLLA855"),
+};
+
 pub const SUNSHINE: crate::CraftApp = crate::CraftApp {
     id: "sunshine",
     name: "Sunshine",
@@ -2106,7 +2127,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 91] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2197,6 +2218,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
     DESKREEN,
     MOONLIGHT,
     SUNSHINE,
+    AIRI,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

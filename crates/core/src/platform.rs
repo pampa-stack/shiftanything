@@ -290,6 +290,13 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
         });
     }
     for stem in stems {
+        if *stem == crate::curated::GHOST_DOWNLOADER.id
+            && kind == PackageKind::AppImage
+            && let Some(version) = base.strip_prefix("Ghost-Downloader-v").and_then(|rest| rest.strip_suffix("-Linux-x86_64"))
+            && crate::version::parse(version).is_some_and(|parsed| parsed.to_string() == version && parsed.pre.is_empty() && parsed.build.is_empty())
+        {
+            return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "linux-x86_64".into(), kind });
+        }
         if *stem == crate::curated::LOCALSEND.id {
             // LocalSend publishes a hyphenated architecture label. Recognize only this recipe's reviewed format.
             if kind == PackageKind::AppImage
@@ -356,6 +363,14 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 
     if !recipe_platform_verified(stems, platform) {
         return None;
+    }
+    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
+        kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::ghost_downloader_linux_asset(release, asset))
+            .map(|asset| (asset, PackageKind::AppImage));
     }
     if platform.os == Os::Linux && stems.contains(&crate::curated::HANDY.id) {
         if !kinds.contains(&PackageKind::AppImage) {
@@ -649,6 +664,10 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
                     && (asset.sha256.is_some() || release.sums_asset().is_some()))
         })
         .collect();
+    first_compatible_asset(&parsed, platform, kinds)
+}
+
+fn first_compatible_asset<'a>(parsed: &[(&'a Asset, AssetName)], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     for kind in kinds {
         let compatible = platform.tokens().iter().find_map(|token| parsed.iter().find(|(_, name)| name.kind == *kind && name.token == *token));
         if let Some((asset, _)) = compatible {
@@ -672,6 +691,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         .any(|id| stems.contains(id))
         && platform.os == Os::Linux
     {
+        return platform == linux_x64;
+    }
+    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
         return platform == linux_x64;
     }
     if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
@@ -799,6 +821,7 @@ mod tests {
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
+            (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::CHERRY_STUDIO, ["v2.2.2", "v2.2.3"]),
             (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),

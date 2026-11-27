@@ -60,6 +60,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::RUSTDESK.id => Some((12, 3)),
         id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
+        id if id == artcraft_launcher_core::curated::UPSCAYL.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::CHERRY_STUDIO.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::ANYTHING_LLM.id => Some((11, 0)),
         id if id == artcraft_launcher_core::curated::T3_CODE.id => Some((13, 0)),
@@ -678,6 +679,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::LAPCE.id {
         return (app.repo == artcraft_launcher_core::curated::LAPCE.repo && release::lapce_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::GHOST_DOWNLOADER.id {
+        return (app.repo == artcraft_launcher_core::curated::GHOST_DOWNLOADER.repo && release::ghost_downloader_linux_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }

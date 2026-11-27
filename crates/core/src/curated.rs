@@ -1453,7 +1453,50 @@ pub const CHERRY_STUDIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("87242QY66T"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 59] = [
+pub const UPSCAYL: crate::CraftApp = crate::CraftApp {
+    id: "upscayl",
+    name: "Upscayl",
+    tagline: "Upscale images locally with AI",
+    repo: "upscayl/upscayl",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Mayank Sharma",
+    msi_publisher: None,
+    bundle: Some("org.upscayl.Upscayl"),
+    site: Some("https://upscayl.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("W2T4W74X87"),
+};
+
+pub const GHOST_DOWNLOADER: crate::CraftApp = crate::CraftApp {
+    id: "ghost-downloader-3",
+    name: "Ghost Downloader 3",
+    tagline: "Manage downloads from a desktop queue",
+    repo: "XiaoYouChR/Ghost-Downloader-3",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "XiaoYouChR",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://gd.xychr.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 61] = [
+    GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1513,6 +1556,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 59] = [
     T3_CODE,
     ANYTHING_LLM,
     CHERRY_STUDIO,
+    UPSCAYL,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1556,6 +1600,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         RAPIDRAW,
         RUSTDESK,
         ACTIVITYWATCH,
+        GHOST_DOWNLOADER,
     ]
     .iter()
     .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
@@ -1824,7 +1869,7 @@ mod recipe_tests {
             assert!(super::verified_linux_appimage(app, linux));
             assert!(!super::verified_linux_appimage(app, arm));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 36);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 37);
     }
 
     #[test]

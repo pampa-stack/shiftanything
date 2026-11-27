@@ -95,8 +95,8 @@ fn value(s: &str) -> String {
 /// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
     use artcraft_launcher_core::curated::{
-        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, HANDY, JOPLIN, LOCALSEND, LOSSLESSCUT, MUSESCORE, NEXTCLOUD_DESKTOP, NOTEPAD_NEXT, ONLYOFFICE,
-        OPENSHOT, ORCA_SLICER, PENCIL2D, RAPIDRAW, RUSTDESK, ZETTLR,
+        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, GHOST_DOWNLOADER, HANDY, JOPLIN, LOCALSEND, LOSSLESSCUT, MUSESCORE, NEXTCLOUD_DESKTOP,
+        NOTEPAD_NEXT, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, RAPIDRAW, RUSTDESK, ZETTLR,
     };
     (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
         && [
@@ -118,6 +118,7 @@ pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'sta
             RAPIDRAW,
             RUSTDESK,
             ACTIVITYWATCH,
+            GHOST_DOWNLOADER,
         ]
         .iter()
         .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))

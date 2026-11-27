@@ -16810,6 +16810,14 @@
       "https://dl.flathub.org/media/io/gpt4all/gpt4all/1ee7ca0d1b164d3843c20316bf440a88/screenshots/image-2_1248x807@1.png"
     ],
     "media_source": "https://flathub.org/apps/io.gpt4all.gpt4all",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.gpt4all.gpt4all",
+        "source": "https://flathub.org/apps/io.gpt4all.gpt4all"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

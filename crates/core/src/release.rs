@@ -761,6 +761,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::T3_CODE,
         crate::curated::ANYTHING_LLM,
         crate::curated::CHERRY_STUDIO,
+        crate::curated::UPSCAYL,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -877,6 +878,24 @@ pub fn handy_linux_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Only the official stable Ghost Downloader 3 AppImage for Linux x86_64 is managed.
+pub fn ghost_downloader_linux_asset(release: &Release, asset: &Asset) -> bool {
+    let repo = crate::curated::GHOST_DOWNLOADER.repo;
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.pre.is_empty()
+                && version.build.is_empty()
+                && release.tag == format!("v{version}")
+                && asset.name == format!("Ghost-Downloader-v{version}-Linux-x86_64.AppImage")
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 fn ente_auth_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("auth-v")?;
     let version = version::parse(label)?;
@@ -898,6 +917,12 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => {
+            &[("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956")]
+        }
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.6.1") => {
+            &[("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb")]
+        }
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
@@ -1116,6 +1141,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("CherryHQ/cherry-studio", "v2.2.3") => {
             &[("Cherry-Studio-2.2.3-mac-arm64.dmg", 291_610_226, "afa9c479997a3c28b5a8a79d5dff71bd38f0d2d662dce6093aee642ccbaafae3")]
+        }
+        ("upscayl/upscayl", "v2.11.5") => {
+            &[("upscayl-2.11.5-mac.dmg", 351_772_230, "abf7b625641560cfa180dd1b2b0864138559d29f2a3d0f9951e5034496ce8dac")]
+        }
+        ("upscayl/upscayl", "v2.15.0") => {
+            &[("upscayl-2.15.0-mac.dmg", 385_264_901, "0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

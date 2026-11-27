@@ -1,0 +1,19 @@
+commit cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23
+Parent:  fde6507ee17c00fadd8d764bc1e3fd98ae2c460a0c0c1417cc64c52d4247c510
+ContentChecksum:  ab8114c2e91ba67e0d88b2a458144c6b7aa8d791b783cd80d78f77019f1de318
+Date:  2026-10-25 11:24:47 +0000
+
+    Merge pull request #111 from flathub/update-version (92b9e1b64d33)
+
+    Name: com.transmissionbt.Transmission
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Oct 25 12:00:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

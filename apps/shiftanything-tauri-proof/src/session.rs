@@ -337,6 +337,7 @@ impl NativeState {
             return Err("Native lifecycle is disabled in this profile".into());
         }
         self.last_update_check = Instant::now();
+        self.backend.send(Command::Detect);
         self.backend.send(Command::CheckForUpdates { force: true });
         Ok(())
     }

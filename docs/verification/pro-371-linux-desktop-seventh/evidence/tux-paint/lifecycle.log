@@ -1,0 +1,90 @@
+
+=== 2026-11-27T09:58:15+00:00 tux-paint install ===
+tux-paint before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+tux-paint JobFinished: Ok("Flathub app installed")
+tux-paint after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-tux-paint-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+e27b47372458377e2d4a13e4a80730c1f35258d5f9fc94e031ee89fb3bdc4037  /var/tmp/shift-flatpak-desktop.7wq9n1Z9/evidence/native-tux-paint-icon.png
+org.tuxpaint.Tuxpaint/x86_64/stable	flathub	84493b93145f	user	0.9.35
+TIMING tux-paint install 42478 ms
+
+=== 2026-11-27T09:58:58+00:00 tux-paint prior ===
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.freedesktop.Platform/x86_64/24.08
+Previous runtime org.freedesktop.Platform/x86_64/24.08
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/org.tuxpaint.Tuxpaint/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.tuxpaint.Tuxpaint/x86_64/stable	flathub	c33d44809196	user	0.9.35
+tux-paint before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: false, can_open: true }
+tux-paint JobFinished: Err("Approved action rejected: native installation state changed")
+tux-paint JobFinished: Err("This Flatpak is managed outside the launcher")
+tux-paint after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: false, can_open: true })
+TIMING tux-paint prior 42511 ms
+
+=== 2026-11-27T09:59:40+00:00 tux-paint open ===
+dbus-daemon[2596766]: [session uid=1000 pid=2596766 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2596811 comm="/usr/bin/xfwm4 --compositor=off --display=:570" label="unconfined")
+dbus-daemon[2596766]: [session uid=1000 pid=2596766 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2596830]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2596811 comm="/usr/bin/xfwm4 --compositor=off --display=:570" label="unconfined")
+dbus-daemon[2596766]: [session uid=1000 pid=2596766 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2596811 comm="/usr/bin/xfwm4 --compositor=off --display=:570" label="unconfined")
+dbus-daemon[2596830]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2596766]: [session uid=1000 pid=2596766 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+tux-paint before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: true, can_remove: true, can_open: true }
+tux-paint JobFinished: Ok("Launch request accepted")
+tux-paint after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: true, can_remove: true, can_open: true })
+TIMING tux-paint open-previous 10912 ms
+
+(xfconfd:2596837): xfconfd-WARNING **: 09:59:55.957: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING tux-paint open 15300 ms
+
+=== 2026-11-27T09:59:55+00:00 tux-paint update-remove ===
+tux-paint before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/c33d448091967bcdc444abfdf13674991297729489e74694ba80cdcaedfd797c", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: true, can_remove: true, can_open: true }
+tux-paint JobFinished: Ok("Flathub app updated")
+tux-paint after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true })
+TIMING tux-paint update 7158 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/.var/app/org.tuxpaint.Tuxpaint/shift-profile-marker: OK
+dbus-daemon[2599511]: [session uid=1000 pid=2599511 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2599580 comm="/usr/bin/xfwm4 --compositor=off --display=:314" label="unconfined")
+dbus-daemon[2599511]: [session uid=1000 pid=2599511 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2599619]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2599580 comm="/usr/bin/xfwm4 --compositor=off --display=:314" label="unconfined")
+dbus-daemon[2599511]: [session uid=1000 pid=2599511 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2599580 comm="/usr/bin/xfwm4 --compositor=off --display=:314" label="unconfined")
+dbus-daemon[2599619]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2599511]: [session uid=1000 pid=2599511 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+tux-paint before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true }
+tux-paint JobFinished: Ok("Launch request accepted")
+tux-paint after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true })
+
+(xfconfd:2599635): xfconfd-WARNING **: 10:01:44.721: Name org.xfce.Xfconf lost on the message dbus, exiting.
+=== tux-paint native recovery after documented 30s lock cooldown ===
+dbus-daemon[2606717]: [session uid=1000 pid=2606717 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2606742 comm="/usr/bin/xfwm4 --compositor=off --display=:518" label="unconfined")
+dbus-daemon[2606717]: [session uid=1000 pid=2606717 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2606756]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2606742 comm="/usr/bin/xfwm4 --compositor=off --display=:518" label="unconfined")
+dbus-daemon[2606717]: [session uid=1000 pid=2606717 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2606742 comm="/usr/bin/xfwm4 --compositor=off --display=:518" label="unconfined")
+dbus-daemon[2606756]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2606717]: [session uid=1000 pid=2606717 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+tux-paint before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true }
+tux-paint JobFinished: Ok("Launch request accepted")
+tux-paint after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true })
+TIMING tux-paint open-current 10966 ms
+
+(xfconfd:2606763): xfconfd-WARNING **: 10:02:19.744: Name org.xfce.Xfconf lost on the message dbus, exiting.
+tux-paint before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 35 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/data/flatpak/app/org.tuxpaint.Tuxpaint/x86_64/stable/84493b93145fbcf30baa2974a12530d5b41c82c3820f76bcc253dda4c78b3571", package: Some("org.tuxpaint.Tuxpaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.35"), update_available: false, can_remove: true, can_open: true }
+tux-paint JobFinished: Ok("Flathub app removed")
+tux-paint after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING tux-paint remove 5533 ms
+/var/tmp/shift-flatpak-desktop.7wq9n1Z9/tux-paint/home/.var/app/org.tuxpaint.Tuxpaint/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING tux-paint update-remove 20960 ms (reopen and remove after lock; update separately timed)

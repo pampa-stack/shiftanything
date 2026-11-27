@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 53] = [
+pub const RECIPES: [(&str, &str); 60] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -55,6 +55,13 @@ pub const RECIPES: [(&str, &str); 53] = [
     ("remmina", "org.remmina.Remmina"),
     ("labplot", "org.kde.labplot"),
     ("upscayl", "org.upscayl.Upscayl"),
+    ("db-browser-for-sqlite", "org.sqlitebrowser.sqlitebrowser"),
+    ("showtime", "org.gnome.Showtime"),
+    ("ruffle", "rs.ruffle.Ruffle"),
+    ("tux-paint", "org.tuxpaint.Tuxpaint"),
+    ("dolphin", "org.kde.dolphin"),
+    ("synfig-studio", "org.synfig.SynfigStudio"),
+    ("kicad", "org.kicad.KiCad"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -126,6 +133,13 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "remmina" => "https://gitlab.com/Remmina/Remmina",
         "labplot" => "https://invent.kde.org/education/labplot",
         "upscayl" => "https://github.com/upscayl/upscayl",
+        "db-browser-for-sqlite" => "https://github.com/sqlitebrowser/sqlitebrowser",
+        "showtime" => "https://gitlab.gnome.org/GNOME/showtime",
+        "ruffle" => "https://github.com/ruffle-rs/ruffle",
+        "tux-paint" => "https://sourceforge.net/p/tuxpaint/tuxpaint/ci/master/tree",
+        "dolphin" => "https://invent.kde.org/system/dolphin",
+        "synfig-studio" => "https://github.com/synfig/synfig",
+        "kicad" => "https://gitlab.com/kicad/code/kicad",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

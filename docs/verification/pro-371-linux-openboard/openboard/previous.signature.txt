@@ -1,0 +1,19 @@
+commit 74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f
+Parent:  6b68bf09a7e733c26ee891ee76105ee3d5edfbde8115097332565e8e37949c5f
+ContentChecksum:  947f204589fa193293c2399c82b4bc1fe1df46332f247b3e614f430e368d836c
+Date:  2026-09-15 21:00:24 +0000
+
+    Update runtime to 6.11 (#135) (e7599e9f1396)
+
+    Name: ch.openboard.OpenBoard
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Sep 15 22:04:23 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

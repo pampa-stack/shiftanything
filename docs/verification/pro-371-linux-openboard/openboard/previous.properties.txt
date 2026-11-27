@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "OpenBoard"
+WM_CLASS(STRING) = "openboard", "OpenBoard"

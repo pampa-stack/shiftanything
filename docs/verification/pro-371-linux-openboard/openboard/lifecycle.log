@@ -1,0 +1,76 @@
+2026-11-27T23:39:02+00:00 openboard AVAILABLE 23306010624
+openboard before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+openboard JobFinished: Ok("Flathub app installed")
+openboard after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:39:54+00:00 openboard current-install 021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d
+/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d/export/share/applications/ch.openboard.OpenBoard.desktop
+/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d/export/share/icons/hicolor/scalable/apps/ch.openboard.OpenBoard.svg
+Updating app/ch.openboard.OpenBoard/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:40:01+00:00 openboard previous 74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f
+openboard before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f", package: Some("ch.openboard.OpenBoard"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: false, can_open: true }
+openboard JobFinished: Err("Approved action rejected: native installation state changed")
+openboard JobFinished: Err("This Flatpak is managed outside the launcher")
+openboard after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f", package: Some("ch.openboard.OpenBoard"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=92227 comm="xfwm4 --compositor=off --display=:74" label="unconfined")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=92240 comm="flatpak run --user --command=sh app/ch.openboard.O" label="flatpak (unconfined)")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=92240 comm="flatpak run --user --command=sh app/ch.openboard.O" label="flatpak (unconfined)")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=92266 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+openboard before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=92365 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=92374 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:92380): dbind-WARNING **: 23:40:03.938: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:92374): xdg-desktop-portal-WARNING **: 23:40:03.986: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:92374): xdg-desktop-portal-WARNING **: 23:40:03.986: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:92374): xdg-desktop-portal-WARNING **: 23:40:03.987: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][05649.224549] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05649.225026] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:92374): xdg-desktop-portal-WARNING **: 23:40:03.997: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[91351]: [session uid=1000 pid=91351] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=92365 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[91351]: [session uid=1000 pid=91351] Successfully activated service 'org.freedesktop.portal.Flatpak'
+openboard JobFinished: Ok("Launch request accepted")
+openboard after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+ch.openboard.OpenBoard
+ch.openboard.OpenBoard
+2026-11-27T23:40:15+00:00 openboard previous GUI WM_NAME(STRING) = "OpenBoard"
+WM_CLASS(STRING) = "openboard", "OpenBoard"
+2026-11-27T23:40:15+00:00 openboard AVAILABLE 15724961792
+openboard before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: true, can_remove: true, can_open: true }
+openboard JobFinished: Ok("Flathub app updated")
+openboard after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:40:22+00:00 openboard current 021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d
+/home/qa/profiles/openboard-canonical/.var/app/ch.openboard.OpenBoard/fixture.txt: OK
+openboard before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: true, can_open: true }
+openboard JobFinished: Ok("Launch request accepted")
+openboard after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+ch.openboard.OpenBoard
+ch.openboard.OpenBoard
+2026-11-27T23:40:34+00:00 openboard current GUI WM_NAME(STRING) = "OpenBoard"
+WM_CLASS(STRING) = "openboard", "OpenBoard"
+openboard before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d", package: Some("ch.openboard.OpenBoard"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.7"), update_available: false, can_remove: true, can_open: true }
+openboard JobFinished: Ok("Flathub app removed")
+openboard after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/openboard-canonical/.var/app/ch.openboard.OpenBoard/fixture.txt: OK
+2026-11-27T23:40:35+00:00 openboard PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:40:38+00:00 openboard EXIT 0 remove
+
+(xfconfd:92252): xfconfd-WARNING **: 23:40:38.383: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -591,6 +591,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ente/ente", "auth-v4.4.26") => &[("ente-auth-v4.4.26.dmg", 46_193_389, "f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada")],
         ("ente/ente", "auth-v4.4.27") => &[("ente-auth-v4.4.27.dmg", 58_891_715, "9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718")],
+        ("cryptomator/cryptomator", "1.19.6") => {
+            &[("Cryptomator-1.19.6-arm64.dmg", 58_714_109, "fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02")]
+        }
+        ("cryptomator/cryptomator", "1.19.7") => {
+            &[("Cryptomator-1.19.7-arm64.dmg", 58_716_219, "c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

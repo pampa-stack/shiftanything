@@ -630,7 +630,28 @@ pub const ENTE_AUTH: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6Z68YJY9Q2"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 20] = [
+pub const CRYPTOMATOR: crate::CraftApp = crate::CraftApp {
+    id: "cryptomator",
+    name: "Cryptomator",
+    tagline: "Encrypt files in local and cloud folders",
+    repo: "cryptomator/cryptomator",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [86, 177, 123],
+    ink_light: [40, 88, 58],
+    ink_dark: [151, 218, 174],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Skymatic GmbH",
+    msi_publisher: None,
+    bundle: Some("org.cryptomator"),
+    site: Some("https://cryptomator.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("YZQJQUHA3L"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 21] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -651,6 +672,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 20] = [
     STATS,
     WHISPERING,
     ENTE_AUTH,
+    CRYPTOMATOR,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -872,6 +894,13 @@ mod recipe_tests {
                 "io.ente.auth.mac",
                 "6Z68YJY9Q2",
             ),
+            (
+                super::CRYPTOMATOR,
+                ["1.19.6", "1.19.7"],
+                ["Cryptomator-1.19.6-arm64.dmg", "Cryptomator-1.19.7-arm64.dmg"],
+                "org.cryptomator",
+                "YZQJQUHA3L",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -928,11 +957,21 @@ mod recipe_tests {
             (super::WHISPERING, "Epicenter_7.11.0_aarch64.dmg"),
             (super::ENTE_AUTH, "ente-auth-v4.4.27-beta.1.dmg"),
             (super::ENTE_AUTH, "ente-v4.4.27.dmg"),
+            (super::CRYPTOMATOR, "Cryptomator-1.19.7-x64.dmg"),
+            (super::CRYPTOMATOR, "Cryptomator-1.19.7-beta.1-arm64.dmg"),
+            (super::CRYPTOMATOR, "Cryptomator-1.19.7+other-arm64.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }
         assert_eq!(super::AUDACITY.mac_bundle_names().collect::<Vec<_>>(), ["Audacity 4"]);
         assert!(!super::AUDACITY.bundle_ids().any(|id| id == "org.audacityteam.audacity"));
+        let cryptomator = super::CRYPTOMATOR;
+        let mut wrong_tag = release::release_from_sums(cryptomator.repo, "1.19.7", &[]);
+        wrong_tag.tag.insert(0, 'v');
+        for asset in &mut wrong_tag.assets {
+            asset.url = asset.url.replace("/1.19.7/", "/v1.19.7/");
+        }
+        assert!(platform::pick_asset(&wrong_tag, &[cryptomator.id], mac, mac.download_kinds()).is_none());
     }
 
     #[test]

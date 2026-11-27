@@ -211,6 +211,45 @@ fn strip_stem_prefix<'a>(base: &'a str, stem: &str, sep: char) -> Option<&'a str
     }
 }
 
+fn community_dmg_format(stem: &str) -> Option<(&'static str, &'static str, &'static str)> {
+    match stem {
+        id if id == crate::curated::LOCALSEND.id => Some(("LocalSend-", "", "macos-universal")),
+        id if id == crate::curated::OBS_STUDIO.id => Some(("OBS-Studio-", "-macOS-Apple", "macos-aarch64")),
+        id if id == crate::curated::KOPIA.id => Some(("KopiaUI-", "-arm64", "macos-aarch64")),
+        id if id == crate::curated::TRANSMISSION.id => Some(("Transmission-", "", "macos-universal")),
+        id if id == crate::curated::IINA.id => Some(("IINA.v", "", "macos-universal")),
+        id if id == crate::curated::HANDBRAKE.id => Some(("HandBrake-", "", "macos-universal")),
+        id if id == crate::curated::MEETILY.id => Some(("meetily_", "_aarch64", "macos-aarch64")),
+        id if id == crate::curated::RIZZO_PII.id => Some(("Rizzo-PII-", "-macOS-arm64", "macos-aarch64")),
+        id if id == crate::curated::AUDACITY.id => Some(("audacity-macOS-", "-arm64", "macos-aarch64")),
+        id if id == crate::curated::KEEPASSXC.id => Some(("KeePassXC-", "-arm64", "macos-aarch64")),
+        id if id == crate::curated::LIBREOFFICE.id => Some(("LibreOffice_", "_MacOS_aarch64", "macos-aarch64")),
+        id if id == crate::curated::JOPLIN.id => Some(("Joplin-", "-arm64", "macos-aarch64")),
+        id if id == crate::curated::SHOTCUT.id => Some(("shotcut-macos-", "", "macos-universal")),
+        id if id == crate::curated::DRAWIO.id => Some(("draw.io-arm64-", "", "macos-aarch64")),
+        id if id == crate::curated::WHISPERING.id => Some(("Whispering_", "_aarch64", "macos-aarch64")),
+        id if id == crate::curated::ENTE_AUTH.id => Some(("ente-auth-v", "", "macos-universal")),
+        id if id == crate::curated::CRYPTOMATOR.id => Some(("Cryptomator-", "-arm64", "macos-aarch64")),
+        _ => None,
+    }
+}
+
+fn valid_community_dmg_version(stem: &str, version: &str) -> bool {
+    use crate::curated::{AUDACITY, CRYPTOMATOR, JOPLIN, KEEPASSXC};
+
+    crate::version::parse(version).is_some_and(|parsed| {
+        parsed.to_string() == version
+            && parsed.pre.is_empty()
+            && match stem {
+                id if id == AUDACITY.id => parsed.major == 4,
+                id if id == CRYPTOMATOR.id => parsed.build.is_empty(),
+                id if id == KEEPASSXC.id => (parsed.major, parsed.minor, parsed.patch) >= (2, 7, 12),
+                id if id == JOPLIN.id => parsed.build.is_empty() && (parsed.major, parsed.minor, parsed.patch) >= (3, 7, 22),
+                _ => true,
+            }
+    })
+}
+
 /// Reads `<stem>-<version>-<os>-<arch>[-portable].<ext>` or Studio's `<Stem>_<version>_<arch>[_<locale>].<ext>`;
 /// `None` for checksums, zsync files, CLI and web bundles, or anything else.
 pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
@@ -242,38 +281,12 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
                 return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "linux-x86_64".into(), kind });
             }
         }
-        let community_dmg = match *stem {
-            id if id == crate::curated::LOCALSEND.id => Some(("LocalSend-", "", "macos-universal")),
-            id if id == crate::curated::OBS_STUDIO.id => Some(("OBS-Studio-", "-macOS-Apple", "macos-aarch64")),
-            id if id == crate::curated::KOPIA.id => Some(("KopiaUI-", "-arm64", "macos-aarch64")),
-            id if id == crate::curated::TRANSMISSION.id => Some(("Transmission-", "", "macos-universal")),
-            id if id == crate::curated::IINA.id => Some(("IINA.v", "", "macos-universal")),
-            id if id == crate::curated::HANDBRAKE.id => Some(("HandBrake-", "", "macos-universal")),
-            id if id == crate::curated::MEETILY.id => Some(("meetily_", "_aarch64", "macos-aarch64")),
-            id if id == crate::curated::RIZZO_PII.id => Some(("Rizzo-PII-", "-macOS-arm64", "macos-aarch64")),
-            id if id == crate::curated::AUDACITY.id => Some(("audacity-macOS-", "-arm64", "macos-aarch64")),
-            id if id == crate::curated::KEEPASSXC.id => Some(("KeePassXC-", "-arm64", "macos-aarch64")),
-            id if id == crate::curated::LIBREOFFICE.id => Some(("LibreOffice_", "_MacOS_aarch64", "macos-aarch64")),
-            id if id == crate::curated::JOPLIN.id => Some(("Joplin-", "-arm64", "macos-aarch64")),
-            id if id == crate::curated::SHOTCUT.id => Some(("shotcut-macos-", "", "macos-universal")),
-            id if id == crate::curated::DRAWIO.id => Some(("draw.io-arm64-", "", "macos-aarch64")),
-            id if id == crate::curated::WHISPERING.id => Some(("Whispering_", "_aarch64", "macos-aarch64")),
-            id if id == crate::curated::ENTE_AUTH.id => Some(("ente-auth-v", "", "macos-universal")),
-            _ => None,
-        };
-        if let Some((prefix, suffix, token)) = community_dmg {
+        if let Some((prefix, suffix, token)) = community_dmg_format(stem) {
             // The publisher replaced its original 2.8.0 DMG with the -1 build under the same tag.
             let suffix = if *stem == crate::curated::KEEPASSXC.id && base.starts_with("KeePassXC-2.8.0-") { "-1-arm64" } else { suffix };
             if kind == PackageKind::Dmg
                 && let Some(version) = base.strip_prefix(prefix).and_then(|rest| rest.strip_suffix(suffix))
-                && crate::version::parse(version).is_some_and(|parsed| {
-                    parsed.to_string() == version
-                        && parsed.pre.is_empty()
-                        && (*stem != crate::curated::AUDACITY.id || parsed.major == 4)
-                        && (*stem != crate::curated::KEEPASSXC.id || (parsed.major, parsed.minor, parsed.patch) >= (2, 7, 12))
-                        && (*stem != crate::curated::JOPLIN.id
-                            || (parsed.build.is_empty() && (parsed.major, parsed.minor, parsed.patch) >= (3, 7, 22)))
-                })
+                && valid_community_dmg_version(stem, version)
             {
                 return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: token.into(), kind });
             }
@@ -316,8 +329,8 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     use crate::curated::{
-        AUDACITY, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS,
-        TRANSMISSION, WHISPERING, ZED,
+        AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII,
+        SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     if !recipe_platform_verified(stems, platform) {
@@ -364,20 +377,26 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
                     && asset.size > 0
                     && asset.sha256.as_deref().is_some_and(crate::release::is_hex64);
             }
-            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO, WHISPERING]
-                .iter()
-                .find(|app| app.id == name.stem)
-                .map(|app| app.repo);
+            let official =
+                [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO, WHISPERING, CRYPTOMATOR]
+                    .iter()
+                    .find(|app| app.id == name.stem)
+                    .map(|app| app.repo);
             if !official.is_none_or(|repo| {
                 !release.prerelease && asset.url == format!("{}{}/{}", crate::release::download_prefix(repo), release.tag, asset.name)
             }) {
                 return false;
             }
-            if [JOPLIN.id, SHOTCUT.id, DRAWIO.id, WHISPERING.id].contains(&name.stem.as_str())
-                && (release.tag.strip_prefix('v') != Some(name.version.as_str())
+            let tag_prefix = match name.stem.as_str() {
+                id if id == CRYPTOMATOR.id => Some(""),
+                id if [JOPLIN.id, SHOTCUT.id, DRAWIO.id, WHISPERING.id].contains(&id) => Some("v"),
+                _ => None,
+            };
+            if tag_prefix.is_some_and(|prefix| {
+                release.tag.strip_prefix(prefix) != Some(name.version.as_str())
                     || !asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
-                    || asset.size == 0)
-            {
+                    || asset.size == 0
+            }) {
                 return false;
             }
             let needs_checksum = official.is_some() || [LOCALSEND.id, OBS_STUDIO.id].contains(&name.stem.as_str());
@@ -399,8 +418,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
-        AUDACITY, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII,
-        SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
+        AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO,
+        PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -425,6 +444,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         STATS.id,
         WHISPERING.id,
         ENTE_AUTH.id,
+        CRYPTOMATOR.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

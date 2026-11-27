@@ -52,10 +52,12 @@ impl Release {
     pub fn sums_asset(&self) -> Option<&Asset> {
         self.assets.iter().find(|asset| {
             asset.name == "SHA256SUMS.txt"
-                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo].iter().any(|repo| {
-                    let manifest = checksum_manifest_name(repo);
-                    asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
-                })
+                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo]
+                    .iter()
+                    .any(|repo| {
+                        let manifest = checksum_manifest_name(repo);
+                        asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
+                    })
         })
     }
 }

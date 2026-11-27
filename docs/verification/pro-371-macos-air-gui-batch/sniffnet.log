@@ -1,0 +1,38 @@
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   166Gi    23Gi    88%    3.2M  239M    1%   /System/Volumes/Data
+sniffnet 1.5.1 bytes=19585013 sha256=49f9169f8720d35f08133273d47b2cb983ad9b77636aa837301bbfb1a0a03774
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount
+BUNDLE=Sniffnet.app
+CFBundleIdentifier=io.github.gyulyvgc.sniffnet
+CFBundleShortVersionString=1.5.1
+CFBundleVersion=ca0eab5
+LSMinimumSystemVersion=
+fatal error: /Library/Developer/CommandLineTools/usr/bin/lipo: can't figure out the architecture type of: /private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app/Contents/MacOS/wrapper.sh
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   167Gi    23Gi    89%    3.2M  236M    1%   /System/Volumes/Data
+sniffnet 1.6.0 bytes=16382814 sha256=abb83f9c186e1f40e30e1760534af6329ec226fd8a4b8b6b9cce12de11a53626
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount
+BUNDLE=Sniffnet.app
+CFBundleIdentifier=io.github.gyulyvgc.sniffnet
+CFBundleShortVersionString=1.6.0
+CFBundleVersion=69b7c8b
+LSMinimumSystemVersion=
+fatal error: /Library/Developer/CommandLineTools/usr/bin/lipo: can't figure out the architecture type of: /private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app/Contents/MacOS/wrapper.sh
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app/Contents/MacOS/sniffnet: Mach-O 64-bit executable arm64
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app/Contents/MacOS/wrapper.sh: a /usr/bin/env zsh script text executable, ASCII text
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app: code object is not signed at all
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app: code object is not signed at all
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.5.1/mount/Sniffnet.app: rejected
+source=no usable signature
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app/Contents/MacOS/sniffnet: Mach-O 64-bit executable arm64
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app/Contents/MacOS/wrapper.sh: a /usr/bin/env zsh script text executable, ASCII text
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app: code object is not signed at all
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app: code object is not signed at all
+/private/tmp/shift-mac-air-batch.abBQbN1k/sniffnet/1.6.0/mount/Sniffnet.app: rejected
+source=no usable signature

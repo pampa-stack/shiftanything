@@ -1,0 +1,35 @@
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   166Gi    23Gi    88%    3.2M  239M    1%   /System/Volumes/Data
+flameshot 14.0.0 bytes=40337524 sha256=bb0cccb2223ce0f4bfea00d90658e85fb5dc17aa7773bf2b22c70ffdb23d7221
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/flameshot/14.0.0/mount
+BUNDLE=Flameshot.app
+CFBundleIdentifier=org.flameshot.Flameshot
+CFBundleShortVersionString=14.0.0
+CFBundleVersion=14.0.0
+LSMinimumSystemVersion=
+arm64
+    minos 15.0
+Identifier=org.flameshot.Flameshot
+Signature=adhoc
+TeamIdentifier=not set
+/private/tmp/shift-mac-air-batch.abBQbN1k/flameshot/14.0.0/mount/Flameshot.app: rejected
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   167Gi    22Gi    89%    3.2M  235M    1%   /System/Volumes/Data
+curl: (56) The requested URL returned error: 404
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   167Gi    22Gi    89%    3.2M  228M    1%   /System/Volumes/Data
+flameshot 15.0.0 bytes=38997972 sha256=ff2f63fb630992385a8738f45fb819051dd6a30ff87909a8e98bfbf21170df3d
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/flameshot/15.0.0/mount
+BUNDLE=Flameshot.app
+CFBundleIdentifier=org.flameshot.Flameshot
+CFBundleShortVersionString=15.0.0
+CFBundleVersion=15.0.0
+LSMinimumSystemVersion=14.0
+arm64
+    minos 14.0
+Identifier=org.flameshot.Flameshot
+Signature=adhoc
+TeamIdentifier=not set
+/private/tmp/shift-mac-air-batch.abBQbN1k/flameshot/15.0.0/mount/Flameshot.app: rejected

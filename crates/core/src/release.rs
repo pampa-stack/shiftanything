@@ -848,6 +848,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::ZEN,
         crate::curated::HEADLAMP,
         crate::curated::KAP,
+        crate::curated::SIMPLEX_CHAT,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -1279,6 +1280,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
         ("wulkano/Kap", "v3.5.5") => &[("Kap-3.5.5-arm64.dmg", 124_649_861, "b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420")],
         ("wulkano/Kap", "v3.6.0") => &[("Kap-3.6.0-arm64.dmg", 124_651_995, "0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3")],
+        ("simplex-chat/simplex-chat", "v7.1.3") => {
+            &[("simplex-desktop-macos-aarch64.dmg", 281_471_349, "9642c6fc18ba0ea07b83afab92f77a76fb069fd85695313ce3c35496fa0d0644")]
+        }
+        ("simplex-chat/simplex-chat", "v7.1.4") => {
+            &[("simplex-desktop-macos-aarch64.dmg", 281_579_270, "d6aae0906b8adf9c18299cb795d7bd5ef79dd007d40ace37912cfb61d3617f7e")]
+        }
         ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
         ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
         ("HKUDS/DeepTutor", "v1.7.3") => {

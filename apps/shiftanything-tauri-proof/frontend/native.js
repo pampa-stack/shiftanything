@@ -47,7 +47,7 @@
     return {x:r.x,y:r.y,width:r.width,height:r.height};
   };
   async function metrics() {
-    if (!current?.isolated_profile || document.querySelector('.body').hidden) return;
+    if (!current?.isolated_profile || !document.querySelector('.body').getClientRects().length) return;
     const cards = [...document.querySelectorAll('.catalog-grid .cell:not([hidden])')];
     const report = {
       language: document.documentElement.lang,
@@ -235,7 +235,12 @@
     }
     if (app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled, operation:'install'};
     if (entry?.delivery === 'self-hosted' && projectGuide(entry)) {
-      return {label:it?'Apri guida':'Open project guide', enabled:true, guide:true};
+      return {
+        label:it?'Guida per il server':'Server setup guide',
+        title:it?'Apre il sito o la documentazione per configurare l’app sul tuo server':'Opens the project site or documentation for setting up the app on your server',
+        enabled:true,
+        guide:true,
+      };
     }
     if (snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
     return {label:it?'Pacchetto non disponibile':'Package unavailable', enabled:false};
@@ -262,7 +267,7 @@
       return action.enabled && action.operation === 'install';
     }).map(app => app.id);
     window.dispatchEvent(new CustomEvent('native-installable', {detail:{available:snapshot.lifecycle_enabled, ids:installableIds}}));
-    const detail = document.querySelector('.catalog-detail[open] [data-app-content]');
+    const detail = document.querySelector('.catalog-detail:not([hidden]) [data-app-content]');
     const primary = detail?.querySelector('[data-native-app]');
     if (primary && !detail.querySelector('.native-management')) {
       const controls = document.createElement('div');
@@ -298,7 +303,7 @@
         const action = primaryAction(snapshot, button.dataset.nativeApp, app);
         if (button.textContent !== action.label) button.textContent = action.label;
         button.disabled = !action.enabled;
-        button.title = progressLabel(snapshot.progress[app?.id]) || action.label;
+        button.title = progressLabel(snapshot.progress[app?.id]) || action.title || action.label;
         button.classList.toggle('solid', action.enabled && action.operation === 'install');
         button.toggleAttribute('data-project-guide', action.guide === true);
         continue;

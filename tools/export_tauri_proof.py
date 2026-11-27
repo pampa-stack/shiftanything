@@ -94,7 +94,7 @@ if catalog_only:
         begin = '<div class="body">'
         end = '<dialog class="catalog-detail"'
         existing_start = page.index(begin)
-        existing_end = page.index(end, existing_start)
+        existing_end = page.index("\n<!-- app-detail-templates-end -->", existing_start)
         rendered = design.listing(language, 'all_apps')
         rendered_start = rendered.index(begin)
         fragment = decorate_names(rendered[rendered_start:rendered.index(end, rendered_start)])

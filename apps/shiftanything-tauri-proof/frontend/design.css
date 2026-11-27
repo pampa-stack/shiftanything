@@ -296,7 +296,6 @@ main.main{overflow-y:auto;display:block}
 .table-row .nm{display:flex;align-items:center;gap:10px}
 .table-row .btn{justify-self:end}
 .table-labels{background:#0a0b0d;color:var(--dim);position:sticky;top:0}
-.detail-wrap{height:100%;overflow-y:auto}
 .detail-head{display:flex;align-items:center;gap:16px;padding:21px 26px;background:var(--surf);border-bottom:1px solid var(--bd)}
 .detail-head h1{font-size:29px;line-height:1.2}
 .detail-head .badges{margin-left:auto}
@@ -362,8 +361,11 @@ main.main{overflow-y:auto;display:block}
 .cell .c-mid{min-height:64px}
 .cell .c-acts .btn{white-space:nowrap}
 .preview-shot{display:block;width:100%;padding:0;cursor:pointer}
-.catalog-detail{color:var(--tx);background:var(--bg);border:1px solid var(--bd2);border-radius:8px;width:min(93vw,1110px);max-height:90vh;overflow:auto;padding:0;margin:auto}
-.catalog-detail::backdrop{background:#060709d9}
+.catalog-detail{min-height:0;min-width:0;overflow:auto}
+.app[data-detail-active] > :is(.body,.native-apps,.discovery-panel,.shifter),
+.app[data-detail-active] > .bar :is([data-catalog-search],.catalog-tools){display:none}
+.catalog-detail h1:focus-visible,.bar [data-close-detail]:focus-visible{outline:2px solid #e9ff74;outline-offset:2px}
+@media(max-width:760px){.catalog-detail .detail-body{grid-template-columns:minmax(0,1fr)}}
 .detail-toolbar{display:flex;justify-content:flex-end;padding:9px 14px;border-bottom:1px solid var(--bd)}
 .detail-description{font-size:12px}
 .detail-grid-meta{display:grid;grid-template-columns:1fr 1fr;gap:6px}

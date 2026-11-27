@@ -10,7 +10,6 @@
   panel.hidden = true;
   panel.innerHTML = `<div class="mhead"><h1 tabindex="-1">${it?'Le mie app':'My apps'}</h1><div class="manage-tools"><button class="btn" data-native-check>${it?'Cerca aggiornamenti':'Check for updates'}</button><button class="btn solid" data-native-bulk>${it?'Aggiorna tutte':'Update all'}</button></div></div><p class="manage-status" role="status" aria-live="polite"></p><div class="manage-group" data-native-pending-group hidden><h2>${it?'Installazioni in corso':'Installations in progress'} · <span data-native-pending-count>0</span></h2><div data-native-installs></div></div><div class="manage-group"><h2>${it?'Aggiornamenti':'Updates'} · <span data-native-update-count>0</span></h2><div data-native-updates></div></div><div class="manage-group"><h2>${it?'Installate senza aggiornamenti':'Installed without updates'} · <span data-native-installed-count>0</span></h2><div data-native-installed></div></div>`;
   catalogBody.after(panel);
-  document.body.append(document.querySelector('.catalog-detail'));
   let snapshot;
   let catalog;
   let key;

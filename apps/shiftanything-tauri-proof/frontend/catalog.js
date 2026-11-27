@@ -37,21 +37,57 @@
   }, true);
   updateHearts();
   if (detail) {
+    const app = detail.closest('.app');
+    const toolbar = app.querySelector('.bar');
+    const back = toolbar.querySelector('[data-close-detail]');
+    let origin;
+
+    function closeDetail(restoreFocus) {
+      if (detail.hidden) return;
+      detail.hidden = back.hidden = true;
+      app.removeAttribute('data-detail-active');
+      detailContent.replaceChildren();
+
+      const {button, surface, scrollTop} = origin;
+      origin = undefined;
+      if (surface) surface.scrollTop = scrollTop;
+      if (restoreFocus) {
+        const replacement = !button.isConnected
+          ? surface?.querySelector(`[data-app-detail="${CSS.escape(button.dataset.appDetail)}"]`) : button;
+        const target = replacement?.getClientRects().length && !replacement.disabled
+          ? replacement : toolbar.querySelector('.seg [aria-pressed="true"]');
+        target?.focus({preventScroll:true});
+      }
+    }
+
+    back.addEventListener('click', () => closeDetail(true));
+    toolbar.addEventListener('click', event => {
+      if (event.target.closest('.seg > button, [data-view="manage"]')) closeDetail(false);
+    }, true);
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || event.defaultPrevented || detail.hidden
+        || document.querySelector('dialog[open]')) return;
+      event.preventDefault();
+      closeDetail(true);
+    });
     document.addEventListener('click', event => {
       const button = event.target.closest('[data-app-detail]');
       if (!button) return;
       const template = document.getElementById(`app-detail-${button.dataset.appDetail}`);
       if (!template) return;
+      const surface = button.closest('main');
+      origin = {button, surface, scrollTop:surface?.scrollTop ?? 0};
       detailContent.replaceChildren(template.content.cloneNode(true));
       updateHearts();
-      detail.showModal();
+      detail.hidden = back.hidden = false;
+      app.setAttribute('data-detail-active', '');
+      detail.scrollTop = 0;
+      const title = detailContent.querySelector('h1');
+      title.tabIndex = -1;
+      title.focus({preventScroll:true});
       document.dispatchEvent(new Event('app-detail-open'));
     });
     detail.addEventListener('click', event => {
-      if (event.target.closest('[data-close-detail]')) {
-        detail.close();
-        return;
-      }
       const shot = event.target.closest('[data-shot]');
       if (!shot) return;
       const preview = detailContent.querySelector('.detail-shot');
@@ -62,7 +98,6 @@
       img.src = shot.dataset.shot;
       for (const item of detailContent.querySelectorAll('[data-shot]')) item.setAttribute('aria-pressed', item === shot);
     });
-    detail.addEventListener('close', () => detailContent.replaceChildren());
   }
   document.addEventListener('click', event => {
     const heart = event.target.closest('[data-favorite-app]');

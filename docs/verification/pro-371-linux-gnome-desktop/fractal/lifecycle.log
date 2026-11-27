@@ -1,0 +1,61 @@
+2026-11-27T22:48:16+00:00 fractal AVAILABLE 14687461376
+fractal before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+fractal JobFinished: Ok("Flathub app installed")
+fractal after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:48:40+00:00 fractal current-install 08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb
+/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb/export/share/applications/org.gnome.Fractal.desktop
+/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb/export/share/icons/hicolor/scalable/apps/org.gnome.Fractal.svg
+Updating app/org.gnome.Fractal/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:48:41+00:00 fractal previous 079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42
+fractal before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 14, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42", package: Some("org.gnome.Fractal"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.2"), update_available: false, can_remove: false, can_open: true }
+fractal JobFinished: Err("Approved action rejected: native installation state changed")
+fractal JobFinished: Err("This Flatpak is managed outside the launcher")
+fractal after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 14, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42", package: Some("org.gnome.Fractal"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.2"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[54797]: [session uid=1000 pid=54797] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=55319 comm="/usr/libexec/xdg-desktop-portal -v" label="unconfined")
+dbus-daemon[54797]: [session uid=1000 pid=54797] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=55329 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[54797]: [session uid=1000 pid=54797] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[54797]: [session uid=1000 pid=54797] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+dbus-daemon[54797]: [session uid=1000 pid=54797] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.7' (uid=1000 pid=55319 comm="/usr/libexec/xdg-desktop-portal -v" label="unconfined")
+dbus-daemon[54797]: [session uid=1000 pid=54797] Activating service name='org.xfce.Xfconf' requested by ':1.10' (uid=1000 pid=55304 comm="xfwm4 --compositor=off --display=:88" label="unconfined")
+dbus-daemon[54797]: [session uid=1000 pid=54797] Successfully activated service 'org.xfce.Xfconf'
+
+(xdg-desktop-portal-gtk:55350): dbind-WARNING **: 22:48:42.451: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[54797]: [session uid=1000 pid=54797] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+  interface org.freedesktop.portal.Secret {
+dbus-daemon[54797]: [session uid=1000 pid=54797] Activating service name='org.freedesktop.Flatpak' requested by ':1.15' (uid=1000 pid=55377 comm="flatpak run --user --command=sh app/org.gnome.Frac" label="flatpak (unconfined)")
+dbus-daemon[54797]: [session uid=1000 pid=54797] Successfully activated service 'org.freedesktop.Flatpak'
+fractal before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.2"), update_available: true, can_remove: true, can_open: true }
+fractal JobFinished: Ok("Launch request accepted")
+fractal after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.2"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Fractal
+2026-11-27T22:48:52+00:00 fractal previous GUI WM_NAME(STRING) = "Fractal"
+WM_CLASS(STRING) = "fractal", "fractal"
+2026-11-27T22:48:52+00:00 fractal AVAILABLE 13975326720
+fractal before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.2"), update_available: true, can_remove: true, can_open: true }
+fractal JobFinished: Ok("Flathub app updated")
+fractal after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:48:55+00:00 fractal current 08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb
+/home/qa/profiles/fractal-88/.var/app/org.gnome.Fractal/fixture.txt: OK
+fractal before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.3"), update_available: false, can_remove: true, can_open: true }
+fractal JobFinished: Ok("Launch request accepted")
+fractal after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Fractal
+2026-11-27T22:49:05+00:00 fractal current GUI WM_NAME(STRING) = "Fractal"
+WM_CLASS(STRING) = "fractal", "fractal"
+fractal before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 14, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/fractal-88/data/flatpak/app/org.gnome.Fractal/x86_64/stable/08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb", package: Some("org.gnome.Fractal"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("14.3"), update_available: false, can_remove: true, can_open: true }
+fractal JobFinished: Ok("Flathub app removed")
+fractal after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/fractal-88/.var/app/org.gnome.Fractal/fixture.txt: OK
+2026-11-27T22:49:05+00:00 fractal PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:49:07+00:00 fractal EXIT 0 remove
+
+(xfconfd:55352): xfconfd-WARNING **: 22:49:07.943: Name org.xfce.Xfconf lost on the message dbus, exiting.

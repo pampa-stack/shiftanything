@@ -1,0 +1,40 @@
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   168Gi    21Gi    89%    3.2M  225M    1%   /System/Volumes/Data
+simplex 7.1.3 bytes=281471349 sha256=9642c6fc18ba0ea07b83afab92f77a76fb069fd85695313ce3c35496fa0d0644
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/simplex/7.1.3/mount
+BUNDLE=SimpleX.app
+CFBundleIdentifier=chat.simplex.app
+CFBundleShortVersionString=7.1.3
+CFBundleVersion=7.1.3
+LSMinimumSystemVersion=10.13
+arm64
+    minos 11.0
+Identifier=chat.simplex.app
+Authority=Developer ID Application: SimpleX Chat Ltd (5NN7GUYB6T)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=5NN7GUYB6T
+PASS PREFLIGHT simplex 7.1.3
+/private/tmp/shift-mac-air-batch.abBQbN1k/simplex/7.1.3/mount/SimpleX.app: accepted
+source=Notarized Developer ID
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   168Gi    21Gi    89%    3.2M  221M    1%   /System/Volumes/Data
+simplex 7.1.4 bytes=281579270 sha256=d6aae0906b8adf9c18299cb795d7bd5ef79dd007d40ace37912cfb61d3617f7e
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/simplex/7.1.4/mount
+BUNDLE=SimpleX.app
+CFBundleIdentifier=chat.simplex.app
+CFBundleShortVersionString=7.1.4
+CFBundleVersion=7.1.4
+LSMinimumSystemVersion=10.13
+arm64
+    minos 11.0
+Identifier=chat.simplex.app
+Authority=Developer ID Application: SimpleX Chat Ltd (5NN7GUYB6T)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=5NN7GUYB6T
+PASS PREFLIGHT simplex 7.1.4
+/private/tmp/shift-mac-air-batch.abBQbN1k/simplex/7.1.4/mount/SimpleX.app: accepted
+source=Notarized Developer ID

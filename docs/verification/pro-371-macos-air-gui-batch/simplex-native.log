@@ -1,0 +1,10 @@
+Host arm64 macOS 26.6.2; profile /private/tmp/shift-mac-air-batch.abBQbN1k/profile-simplex-chat.cfPLUHda
+PASS OFFICIAL v7.1.3 Dmg https://github.com/simplex-chat/simplex-chat/releases/download/v7.1.3/simplex-desktop-macos-aarch64.dmg 281471349 9642c6fc18ba0ea07b83afab92f77a76fb069fd85695313ce3c35496fa0d0644
+PASS OFFICIAL v7.1.4 Dmg https://github.com/simplex-chat/simplex-chat/releases/download/v7.1.4/simplex-desktop-macos-aarch64.dmg 281579270 d6aae0906b8adf9c18299cb795d7bd5ef79dd007d40ace37912cfb61d3617f7e
+NATIVE ORIGIN simplex-chat GitHub
+PASS OFFICIAL v7.1.3 Dmg https://github.com/simplex-chat/simplex-chat/releases/download/v7.1.3/simplex-desktop-macos-aarch64.dmg 281471349 9642c6fc18ba0ea07b83afab92f77a76fb069fd85695313ce3c35496fa0d0644
+PASS NATIVE simplex-chat install: SimpleX Chat installed: 7.1.3; package_bytes=281471349; elapsed=39.739s
+NATIVE ORIGIN simplex-chat GitHub
+PASS OFFICIAL v7.1.4 Dmg https://github.com/simplex-chat/simplex-chat/releases/download/v7.1.4/simplex-desktop-macos-aarch64.dmg 281579270 d6aae0906b8adf9c18299cb795d7bd5ef79dd007d40ace37912cfb61d3617f7e
+PASS NATIVE simplex-chat update: SimpleX Chat updated to 7.1.4; package_bytes=281579270; elapsed=37.998s
+PASS NATIVE simplex-chat remove: SimpleX Chat was removed; package_bytes=0; elapsed=0.118s

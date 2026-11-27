@@ -848,6 +848,7 @@ mod tests {
             (crate::curated::ZEN, ["1.24.2b", "1.24.3b"]),
             (crate::curated::HEADLAMP, ["v0.45.0", "v0.46.0"]),
             (crate::curated::KAP, ["v3.5.5", "v3.6.0"]),
+            (crate::curated::SIMPLEX_CHAT, ["v7.1.3", "v7.1.4"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),

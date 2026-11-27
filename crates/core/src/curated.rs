@@ -1602,6 +1602,27 @@ pub const KAP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2KEEHXF6R6"),
 };
 
+pub const SIMPLEX_CHAT: crate::CraftApp = crate::CraftApp {
+    id: "simplex-chat",
+    name: "SimpleX Chat",
+    tagline: "Chat privately across mobile and desktop",
+    repo: "simplex-chat/simplex-chat",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "SimpleX Chat Ltd",
+    msi_publisher: None,
+    bundle: Some("chat.simplex.app"),
+    site: Some("https://simplex.chat/"),
+    mac_bundle_name: Some("SimpleX"),
+    mac_team: Some("5NN7GUYB6T"),
+};
+
 pub const SIYUAN: crate::CraftApp = crate::CraftApp {
     id: "siyuan",
     name: "SiYuan",
@@ -1959,7 +1980,7 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 83] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 84] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2026,6 +2047,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 83] = [
     JAN,
     LOCALAI,
     KAP,
+    SIMPLEX_CHAT,
     SIYUAN,
     MAGPIE,
     TRILIUM,

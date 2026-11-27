@@ -779,6 +779,27 @@ pub const OPENSHOT: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
+pub const KEYCASTR: crate::CraftApp = crate::CraftApp {
+    id: "keycastr",
+    name: "KeyCastr",
+    tagline: "Visualize keystrokes during a presentation",
+    repo: "keycastr/keycastr",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [129, 150, 218],
+    ink_light: [64, 81, 135],
+    ink_dark: [185, 196, 238],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "KeyCastr contributors",
+    msi_publisher: None,
+    bundle: Some("io.github.keycastr"),
+    site: Some("https://github.com/keycastr/keycastr"),
+    mac_bundle_name: None,
+    mac_team: Some("68TUCLNAPS"),
+};
+
 pub const PICARD: crate::CraftApp = crate::CraftApp {
     id: "musicbrainz-picard",
     name: "MusicBrainz Picard",
@@ -842,7 +863,7 @@ pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 30] = [
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 31] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -868,6 +889,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 30] = [
     GODOT,
     TERMIX,
     NEOVIDE,
+    KEYCASTR,
     PICARD,
     PENCIL2D,
     OPENSHOT,
@@ -1240,12 +1262,14 @@ mod recipe_tests {
     }
 
     #[test]
-    fn picard_uses_only_the_reviewed_apple_silicon_release_packages() {
+    fn keycastr_and_picard_use_only_the_reviewed_apple_silicon_release_packages() {
         use crate::release::release_from_sums;
         use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform::pick_asset};
 
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (id, tags, kind) in [("musicbrainz-picard", ["release-3.0.4", "release-3.0.5"], PackageKind::Dmg)] {
+        for (id, tags, kind) in
+            [("keycastr", ["v0.11.0", "v0.11.1"], PackageKind::MacZip), ("musicbrainz-picard", ["release-3.0.4", "release-3.0.5"], PackageKind::Dmg)]
+        {
             let app = CraftApp::by_id(id).unwrap();
             assert!(app.installs(kind));
             for tag in tags {

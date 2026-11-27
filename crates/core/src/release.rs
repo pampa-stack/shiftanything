@@ -548,6 +548,21 @@ pub fn neovide_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+const KEYCASTR_MAC_ZIP: &str = "KeyCastr.app.zip";
+
+/// KeyCastr uses one unversioned ZIP name. The official stable tag and checksum identify its bytes.
+pub fn keycastr_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && format!("v{version}") == release.tag)
+        && asset.name == KEYCASTR_MAC_ZIP
+        && asset.url == format!("{}{}/{KEYCASTR_MAC_ZIP}", download_prefix(crate::curated::KEYCASTR.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::KEYCASTR.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 fn picard_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("release-")?;
     let version = Version::parse(label).ok()?;
@@ -691,6 +706,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
         }
+        ("keycastr/keycastr", "v0.11.0") => &[(KEYCASTR_MAC_ZIP, 2_628_593, "00cc656a786012bcbdb5b203b1a56604727ad2ced5e4f5c1d189296f62881033")],
+        ("keycastr/keycastr", "v0.11.1") => &[(KEYCASTR_MAC_ZIP, 2_714_588, "71fb7dd90a9bb96de2990499da280ce03e13cbd559a77477515191864977a65c")],
         ("metabrainz/picard", "release-3.0.4") => {
             &[("MusicBrainz-Picard-3.0.4-macOS-13.0-arm64.dmg", 59_831_923, "dc4bd3ab3da5df45baa7e82e0a6b49930f6f8dd72e76b74fde0d533f41850310")]
         }

@@ -118,7 +118,11 @@ impl CraftApp {
 
     /// A MAC application can be distributed as a disk image or an approved ZIP.
     pub fn mac_package_kind(&self) -> crate::PackageKind {
-        if self.release_repository() == crate::curated::GODOT_RELEASES_REPO { crate::PackageKind::MacZip } else { crate::PackageKind::Dmg }
+        if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
+            crate::PackageKind::MacZip
+        } else {
+            crate::PackageKind::Dmg
+        }
     }
 
     /// The app's website: its page on getartcraft.com, or a community app's own site.

@@ -41,6 +41,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     };
 
     match app.id {
+        id if id == artcraft_launcher_core::curated::KEYCASTR.id => Some(11),
         id if id == artcraft_launcher_core::curated::PICARD.id => Some(13),
         id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
         id if [
@@ -561,6 +562,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
         return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
+        return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::PICARD.id {
         return (app.repo == artcraft_launcher_core::curated::PICARD.repo && release::picard_mac_asset(release, asset))
@@ -2113,11 +2119,12 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()))?;
+        let framework_links = app.id == artcraft_launcher_core::curated::KEYCASTR.id;
+        extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
 
-    fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str) -> Result<(), String> {
+    fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str, framework_links: bool) -> Result<(), String> {
         use std::io::Read;
         use std::os::unix::fs::PermissionsExt;
         use std::path::Component;
@@ -2134,6 +2141,7 @@ pub mod macos {
         }
         let mut total = 0u64;
         let mut entries = std::collections::BTreeSet::new();
+        let mut links = Vec::new();
         for index in 0..zip.len() {
             let mut entry = zip.by_index(index).map_err(|e| e.to_string())?;
             let name = entry.name().map_err(|e| e.to_string())?;
@@ -2141,11 +2149,18 @@ pub mod macos {
             let mut components = relative.components();
             let mode = entry.unix_mode().unwrap_or(0);
             let file_type = mode & 0o170000;
+            // The older ZIP has this one Finder sidecar outside its bundle. The current ZIP
+            // includes AppleDouble records directly beside app files. They are metadata, not files
+            // in the signed bundle: materializing them breaks macOS resource sealing.
+            let legacy_keycastr_sidecar = framework_links && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
+            let appledouble = framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._"));
+            let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
             if name.contains(['\\', ':'])
                 || name.chars().any(char::is_control)
                 || name.split('/').any(|part| part == "." || part == "..")
-                || components.next() != Some(Component::Normal(bundle.as_ref()))
-                || !matches!(file_type, 0 | 0o100000 | 0o040000)
+                || (components.next() != Some(Component::Normal(bundle.as_ref())) && !legacy_keycastr_sidecar)
+                || (appledouble && (file_type != 0o100000 || entry.is_dir()))
+                || (!matches!(file_type, 0 | 0o100000 | 0o040000) && framework.is_none())
                 || (file_type == 0o040000 && !entry.is_dir())
                 || (relative == Path::new(bundle) && !entry.is_dir())
                 || !entries.insert(relative.to_string_lossy().to_lowercase())
@@ -2159,15 +2174,62 @@ pub mod macos {
             }
             let size = entry.size();
             total = total.checked_add(size).filter(|n| *n <= MAX_BYTES).ok_or("The unpacked app ZIP is too large.")?;
+            if appledouble {
+                let mut header = [0u8; 8];
+                const APPLEDOUBLE_V2: [u8; 8] = [0, 5, 0x16, 7, 0, 2, 0, 0];
+                if size < 26 || entry.read_exact(&mut header).is_err() || header != APPLEDOUBLE_V2 {
+                    return Err("The app ZIP contains an invalid AppleDouble sidecar.".into());
+                }
+                continue;
+            }
             let parent = output.parent().ok_or("The app ZIP has no bundle folder.")?;
             std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+            if let Some(framework) = framework {
+                // Write the ordinary files and prepare every parent directory before making any links.
+                // Nothing from this or a later archive entry can be written through a link.
+                let mut target = String::new();
+                if size == 0
+                    || size > 1024
+                    || (&mut entry).take(size + 1).read_to_string(&mut target).map_err(|e| e.to_string())? as u64 != size
+                    || target.contains(['\\', ':'])
+                    || target.chars().any(char::is_control)
+                    || target.split('/').any(|part| part.is_empty() || part == "." || part == "..")
+                    || !Path::new(&target).components().all(|part| matches!(part, Component::Normal(_)))
+                {
+                    return Err("The app ZIP contains an invalid framework link target.".into());
+                }
+                links.push((output, target, unpacked.join(framework)));
+                continue;
+            }
             let mut file = std::fs::OpenOptions::new().write(true).create_new(true).open(output).map_err(|e| e.to_string())?;
             if std::io::copy(&mut (&mut entry).take(size.saturating_add(1)), &mut file).map_err(|e| e.to_string())? != size {
                 return Err("The app ZIP has an unexpected unpacked size.".into());
             }
             file.set_permissions(std::fs::Permissions::from_mode(if mode & 0o111 != 0 { 0o755 } else { 0o644 })).map_err(|e| e.to_string())?;
         }
+        for (link, target, _) in &links {
+            std::os::unix::fs::symlink(target, link).map_err(|e| e.to_string())?;
+        }
+        for (link, _, framework) in links {
+            let resolved = std::fs::canonicalize(link).map_err(|e| format!("The app ZIP contains an unresolved framework link ({e})."))?;
+            let framework = std::fs::canonicalize(framework).map_err(|e| e.to_string())?;
+            if !resolved.starts_with(framework) {
+                return Err("The app ZIP contains a link outside its framework.".into());
+            }
+        }
         Ok(())
+    }
+
+    fn framework_root(bundle: &str, relative: &Path) -> Option<PathBuf> {
+        use std::path::Component;
+
+        let roots = Path::new(bundle).join("Contents").join("Frameworks");
+        let mut parts = relative.strip_prefix(&roots).ok()?.components();
+        let Component::Normal(framework) = parts.next()? else { return None };
+        if Path::new(framework).extension()? != "framework" || parts.next().is_none() {
+            return None;
+        }
+        Some(roots.join(framework))
     }
 
     #[cfg(test)]
@@ -2183,14 +2245,57 @@ pub mod macos {
             let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
             writer.start_file(name, SimpleFileOptions::default()).unwrap();
             writer.finish().unwrap();
-            assert!(extract_app_zip(&archive, &output, "Godot.app").is_err(), "{name}");
+            assert!(extract_app_zip(&archive, &output, "Godot.app", false).is_err(), "{name}");
         }
         let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
         writer.add_symlink("Godot.app/Contents/link", "../../outside", SimpleFileOptions::default()).unwrap();
         writer.finish().unwrap();
-        assert!(extract_app_zip(&archive, &output, "Godot.app").is_err());
+        assert!(extract_app_zip(&archive, &output, "Godot.app", false).is_err());
         assert!(!root.path().join("outside").exists());
         assert_eq!(std::fs::read_dir(output).unwrap().count(), 0);
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn keycastr_zip_confines_framework_links_and_ignores_the_known_finder_metadata() {
+        use std::io::Write;
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("app.zip");
+        const FRAMEWORK: &str = "KeyCastr.app/Contents/Frameworks/X.framework";
+        let options = SimpleFileOptions::default().unix_permissions(0o644);
+        let sidecar_header = [0, 5, 0x16, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let cases = [
+            ("Versions/Current/Binary", false, true),
+            ("../Elsewhere", false, false),
+            ("/etc/passwd", false, false),
+            ("Versions/Current/Missing", false, false),
+            ("Versions/Current/Binary", true, false),
+        ];
+        for (index, (target, child_through_link, expected)) in cases.into_iter().enumerate() {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            writer.add_symlink(format!("{FRAMEWORK}/Binary"), target, options).unwrap();
+            writer.add_symlink(format!("{FRAMEWORK}/Versions/Current"), "A", options).unwrap();
+            writer.start_file(format!("{FRAMEWORK}/Versions/A/Binary"), options).unwrap();
+            writer.write_all(b"fixture").unwrap();
+            writer.start_file("__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png", options).unwrap();
+            writer.write_all(&sidecar_header).unwrap();
+            writer.start_file(format!("{FRAMEWORK}/Versions/A/._Binary"), options).unwrap();
+            writer.write_all(&sidecar_header).unwrap();
+            if child_through_link {
+                writer.start_file(format!("{FRAMEWORK}/Versions/Current/external-data"), options).unwrap();
+            }
+            writer.finish().unwrap();
+            assert_eq!(extract_app_zip(&archive, &output, "KeyCastr.app", true).is_ok(), expected, "{target}");
+            assert!(!output.join("__MACOSX").exists());
+            assert!(!output.join(FRAMEWORK).join("Versions/A/._Binary").exists());
+            if expected {
+                assert_eq!(std::fs::read(output.join(FRAMEWORK).join("Binary")).unwrap(), b"fixture");
+            }
+        }
     }
 
     /// Copies the `.app` from a mounted or extracted package, verifies it and swaps it into Applications.
@@ -2913,6 +3018,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some(12));
         assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some(11));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some(12));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some(11));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some(13));
     }
 

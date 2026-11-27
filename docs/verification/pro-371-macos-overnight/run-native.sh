@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -34,7 +34,17 @@ releases = []
 for tag in (old, new):
     [digest, size, url] = re.search(r'^ARTIFACT ([a-f0-9]{64}) (\d+) (https://\S+)$', Path(f'{log_id}-{tag}.log').read_text(), re.M).groups()
     name = url.rsplit('/', 1)[-1]
-    if app_id == 'blender':
+    if app_id == 'gimp':
+        assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
+        series = tag.rsplit('.', 1)[0]
+        assert name == f'gimp-{tag}-arm64.dmg'
+        assert url == f'https://download.gimp.org/gimp/v{series}/macos/{name}'
+        [release] = [item for item in json.loads(Path('gimp-versions.json').read_text())['STABLE'] if item['version'] == tag]
+        [asset] = [item for item in release['macos'] if item['filename'] == name]
+        published_digests = {asset['sha256']}
+        assert published_digests == {digest}, published_digests
+        version = tag
+    elif app_id == 'blender':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         series = tag.rsplit('.', 1)[0]
         assert name == f'blender-{tag}-macos-arm64.dmg'
@@ -68,7 +78,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id != 'blender':
+if app_id not in ('blender', 'gimp'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion
@@ -77,18 +87,18 @@ spctl --status
 for phase in install update remove; do
     env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$phase" "$app"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
-    if [[ ( "$id" == openttd || "$id" == blender ) && "$phase" != remove ]]; then
+    if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp ) && "$phase" != remove ]]; then
         python3 - "$id" "$profile" "$phase" "$old" "$new" <<'PYLAUNCH'
 from pathlib import Path
-import subprocess, sys
+import re, subprocess, sys
 app_id, profile, phase, old, new = sys.argv[1:]
 version = old if phase == 'install' else new
-bundle, binary, flag = {'openttd': ('OpenTTD', 'openttd', '-h'), 'blender': ('Blender', 'Blender', '--version')}[app_id]
+bundle, binary, flag = {'openttd': ('OpenTTD', 'openttd', '-h'), 'blender': ('Blender', 'Blender', '--version'), 'gimp': ('GIMP', 'gimp-3.2', '--version')}[app_id]
 executable = Path(profile) / f'Applications/{bundle}.app/Contents/MacOS/{binary}'
 command = ['/usr/bin/sandbox-exec', '-p', '(version 1) (allow default) (deny network*) (deny file-write*)', str(executable), flag]
 env = {'HOME': profile, 'CFFIXED_USER_HOME': profile, 'TMPDIR': f'{profile}/tmp', 'PATH': '/usr/bin:/bin'}
 output = subprocess.run(command, env=env, check=True, capture_output=True, text=True, timeout=15).stdout
-assert output.startswith(f'{bundle} {version}'), output[:160]
+assert re.search(rf'\b{re.escape(version)}\b', output.splitlines()[0]), output[:160]
 print(f'PASS CLI {binary} {flag}: {output.splitlines()[0]}')
 PYLAUNCH
     fi

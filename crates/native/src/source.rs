@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -24,6 +24,7 @@ use serde::{Deserialize, Serialize};
 use crate::http::{Fetched, Http};
 
 mod blender;
+mod gimp;
 mod libreoffice;
 
 /// One answer from a source.
@@ -71,6 +72,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == LIBREOFFICE.repo => Source::TheDocumentFoundation,
             repo if repo == ZOTERO.repo => Source::Zotero,
             repo if repo == BLENDER.repo => Source::Blender,
+            repo if repo == GIMP.repo => Source::Gimp,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -588,6 +590,8 @@ impl GitHubSource {
             release::zotero_release_history(self.latest_zotero()?)
         } else if query.repo == BLENDER.repo {
             blender::releases(&self.http, false)?
+        } else if query.repo == GIMP.repo {
+            gimp::releases(&self.http, false)?
         } else {
             if self.limited() {
                 return Err("GitHub's request limit was reached. Try again later.".into());
@@ -668,12 +672,17 @@ impl ReleaseSource for GitHubSource {
             };
             return Answer { latest, source: Source::TheDocumentFoundation };
         }
-        if query.repo == BLENDER.repo {
-            return match blender::releases(&self.http, true) {
+        let publisher = match query.repo.as_str() {
+            repo if repo == BLENDER.repo => Some((Source::Blender, blender::releases(&self.http, true))),
+            repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
+            _ => None,
+        };
+        if let Some((source, releases)) = publisher {
+            return match releases {
                 Ok(releases) => {
                     let release = releases.into_iter().next();
                     self.store(&query.repo, Entry { etag: None, release: release.clone(), prereleases: false, fetched_at: crate::now() });
-                    Answer { latest: release.map_or(LatestRelease::None, LatestRelease::Found), source: Source::Blender }
+                    Answer { latest: release.map_or(LatestRelease::None, LatestRelease::Found), source }
                 }
                 Err(why) => Answer { latest: self.cached(query, false).unwrap_or(LatestRelease::Failed(why)), source: Source::Cache },
             };
@@ -695,13 +704,15 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if query.repo == BLENDER.repo {
+        if [BLENDER.repo, GIMP.repo].contains(&query.repo.as_str()) {
             return match self.cached_in(query, false) {
-                Some(LatestRelease::Found(saved)) if saved.html_url == release::BLENDER_RELEASES_URL && !saved.prerelease => saved
-                    .version
-                    .filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)
-                    .map(release::blender_release)
-                    .map(LatestRelease::Found),
+                Some(LatestRelease::Found(saved)) if !saved.prerelease => {
+                    let version =
+                        saved.version.filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)?;
+                    let mut release = if query.repo == BLENDER.repo { release::blender_release(version) } else { release::gimp_release(version) };
+                    release.assets.retain(|asset| saved.assets.contains(asset));
+                    (saved.html_url == release.html_url).then_some(LatestRelease::Found(release))
+                }
                 _ => None,
             };
         }
@@ -716,7 +727,7 @@ impl ReleaseSource for GitHubSource {
         if repo == OPENCODE.repo {
             return self.opencode_desktop_manifest().ok().map(|release| release.tag);
         }
-        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo].contains(&repo) {
+        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo].contains(&repo) {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

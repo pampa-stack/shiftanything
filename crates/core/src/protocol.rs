@@ -244,6 +244,8 @@ pub enum Origin {
     Zotero,
     /// Blender Foundation's release archive.
     Blender,
+    /// GIMP's official stable version index.
+    Gimp,
 }
 
 impl Origin {
@@ -254,6 +256,7 @@ impl Origin {
             Self::TheDocumentFoundation => "The Document Foundation",
             Self::Zotero => "Zotero",
             Self::Blender => "Blender Foundation",
+            Self::Gimp => "GIMP",
         }
     }
 }
@@ -274,6 +277,8 @@ pub enum Source {
     Zotero,
     /// Blender Foundation's release archive.
     Blender,
+    /// GIMP's official stable version index.
+    Gimp,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -287,6 +292,7 @@ impl Source {
             Self::TheDocumentFoundation => "The Document Foundation",
             Self::Zotero => "Zotero",
             Self::Blender => "Blender Foundation",
+            Self::Gimp => "GIMP",
             Self::Cache => "saved results",
         }
     }

@@ -276,7 +276,7 @@
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
     if (app?.job) return {label:it?'In corso…':'Working…', enabled:false};
-    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false)};
+    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false), operation:'open'};
     if (platform && entry?.platform_scope_complete && !entry.platform_support?.[platform]
       && !entry.release?.packages?.some(pkg => pkg.platform === platform)
       && !entry.distribution?.some(channel => channel.platform === platform)) {
@@ -310,7 +310,7 @@
         badge.className = 'install-indicator';
         heart.before(badge);
       }
-      const ready = verified && (action.operation === 'install' || action.label === labels.open && action.enabled);
+      const ready = verified && action.enabled && (action.operation === 'install' || action.operation === 'open');
       const label = ready ? (it?'Installazione verificata':'Installation verified')
         : verified ? (it?'Installazione provata. Controlla lo stato del pacchetto.':'Installation tested. Check package status.')
           : (it?'Installazione non ancora verificata':'Installation not yet verified');
@@ -396,6 +396,7 @@
         button.disabled = !(action.enabled || action.target);
         button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
         button.classList.toggle('solid', action.operation === 'install' && action.enabled === true);
+        button.toggleAttribute('data-native-open', action.operation === 'open');
         if (action.busy) button.setAttribute('aria-busy', 'true');
         else button.removeAttribute('aria-busy');
         if (action.target) button.dataset.externalTarget = action.target;
@@ -407,7 +408,7 @@
       const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed && app.can_open !== false,remove:app.installed && app.can_remove !== false,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
       const cancelling = operation === 'cancel' && snapshot.progress[app?.id]?.phase === 'cancelling';
       button.disabled = !snapshot.lifecycle_enabled || !allowed || cancelling;
-      button.hidden = !snapshot.lifecycle_enabled || !allowed;
+      button.hidden = !snapshot.lifecycle_enabled || !(operation === 'open' ? app?.installed : allowed);
       button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }
     document.documentElement.dataset.nativeStarted = '';

@@ -15,12 +15,12 @@ html:not([data-native-started]) .btn[data-native-app]:disabled {
   color:transparent;
   background:linear-gradient(var(--bd2),var(--bd2)) center / 42% 5px no-repeat;
 }
-.btn[data-native-app].solid:enabled {
+.btn[data-native-app].solid:enabled:not([data-native-operation]) {
   background:#fff;
   border-color:#fff;
   color:var(--bg);
 }
-.btn[data-native-app].solid:enabled:hover {
+.btn[data-native-app].solid:enabled:not([data-native-operation]):hover {
   background:var(--tx);
   border-color:var(--tx);
 }
@@ -32,6 +32,15 @@ html:not([data-native-started]) .btn[data-native-app]:disabled {
 .btn[data-native-app][data-external-target]:enabled:hover {
   background:var(--surf3);
   border-color:var(--acc);
+}
+.btn[data-native-app]:is([data-native-open],[data-native-operation="open"]):enabled {
+  background:#0017fd; /* The dominant blue from brand/icon.png. */
+  border-color:#5064ff;
+  color:#fff;
+  font-weight:700;
+}
+.btn[data-native-app]:is([data-native-open],[data-native-operation="open"]):enabled:hover {
+  background:#082ffb;
 }
 .btn[data-native-app]:focus-visible {
   outline:2px solid #e9ff74;

@@ -112,7 +112,7 @@
     }
     if (app.installed) {
       const open = action(app, 'open', it?'Apri':'Open');
-      open.disabled ||= app.can_open === false;
+      open.disabled ||= !app.detected || app.can_open === false;
       actions.append(open);
     }
     const details = text('button', it?'Scheda':'Details', 'btn');

@@ -246,6 +246,8 @@ pub enum Origin {
     Blender,
     /// GIMP's official stable version index.
     Gimp,
+    /// Krita's official downloads page.
+    Krita,
 }
 
 impl Origin {
@@ -257,6 +259,7 @@ impl Origin {
             Self::Zotero => "Zotero",
             Self::Blender => "Blender Foundation",
             Self::Gimp => "GIMP",
+            Self::Krita => "Krita",
         }
     }
 }
@@ -279,6 +282,8 @@ pub enum Source {
     Blender,
     /// GIMP's official stable version index.
     Gimp,
+    /// Krita's official downloads page.
+    Krita,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -293,6 +298,7 @@ impl Source {
             Self::Zotero => "Zotero",
             Self::Blender => "Blender Foundation",
             Self::Gimp => "GIMP",
+            Self::Krita => "Krita",
             Self::Cache => "saved results",
         }
     }

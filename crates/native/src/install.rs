@@ -137,6 +137,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
+        (&[recipe::KRITA.id], (11, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
     MINIMUMS.iter().find_map(|(ids, minimum)| ids.contains(&app.id).then_some(*minimum))

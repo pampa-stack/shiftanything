@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -25,6 +25,7 @@ use crate::http::{Fetched, Http};
 
 mod blender;
 mod gimp;
+mod krita;
 mod libreoffice;
 
 /// One answer from a source.
@@ -73,6 +74,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == ZOTERO.repo => Source::Zotero,
             repo if repo == BLENDER.repo => Source::Blender,
             repo if repo == GIMP.repo => Source::Gimp,
+            repo if repo == KRITA.repo => Source::Krita,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -597,6 +599,8 @@ impl GitHubSource {
             blender::releases(&self.http, false)?
         } else if query.repo == GIMP.repo {
             gimp::releases(&self.http, false)?
+        } else if query.repo == KRITA.repo {
+            krita::releases(&self.http, false)?
         } else if query.repo == NETNEWSWIRE.repo {
             release::netnewswire_mac_release_history(self.latest_netnewswire()?)
         } else {
@@ -682,6 +686,7 @@ impl ReleaseSource for GitHubSource {
         let publisher = match query.repo.as_str() {
             repo if repo == BLENDER.repo => Some((Source::Blender, blender::releases(&self.http, true))),
             repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
+            repo if repo == KRITA.repo => Some((Source::Krita, krita::releases(&self.http, true))),
             repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
@@ -712,6 +717,16 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
+        if query.repo == KRITA.repo {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if !saved.prerelease => {
+                    let mut release = release::krita_mac_release(&saved.tag)?;
+                    release.assets.retain(|asset| saved.assets.contains(asset));
+                    (saved.html_url == release.html_url && saved.version == release.version).then_some(LatestRelease::Found(release))
+                }
+                _ => None,
+            };
+        }
         if [BLENDER.repo, GIMP.repo].contains(&query.repo.as_str()) {
             return match self.cached_in(query, false) {
                 Some(LatestRelease::Found(saved)) if !saved.prerelease => {
@@ -738,7 +753,7 @@ impl ReleaseSource for GitHubSource {
         if repo == NETNEWSWIRE.repo {
             return self.latest_netnewswire().ok().map(|release| release.tag);
         }
-        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo].contains(&repo) {
+        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo].contains(&repo) {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

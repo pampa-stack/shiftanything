@@ -2001,6 +2001,27 @@ pub const GIMP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("T25BQ8HSJF"),
 };
 
+pub const KRITA: crate::CraftApp = crate::CraftApp {
+    id: "krita",
+    name: "Krita",
+    tagline: "Paint and animate digitally",
+    repo: "KDE/krita",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [95, 144, 206],
+    ink_light: [33, 76, 139],
+    ink_dark: [159, 199, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Krita Foundation",
+    msi_publisher: None,
+    bundle: Some("org.krita"),
+    site: Some("https://krita.org/"),
+    mac_bundle_name: Some("krita"),
+    mac_team: Some("DL93766A3G"),
+};
+
 pub const NETNEWSWIRE: crate::CraftApp = crate::CraftApp {
     id: "netnewswire",
     name: "NetNewsWire",
@@ -2417,6 +2438,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     BLENDER,
     GIMP,
     NETNEWSWIRE,
+    KRITA,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

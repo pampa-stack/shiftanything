@@ -2596,6 +2596,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::Zotero
     } else if sources.contains(&Source::Blender) {
         Source::Blender
+    } else if sources.contains(&Source::Krita) {
+        Source::Krita
     } else if sources.contains(&Source::Gimp) {
         Source::Gimp
     } else {
@@ -2838,6 +2840,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_zotero_releases()
         || app.uses_blender_releases()
         || app.uses_gimp_releases()
+        || app.uses_krita_releases()
         || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
@@ -2855,6 +2858,8 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::Zotero
     } else if app.uses_blender_releases() {
         Origin::Blender
+    } else if app.uses_krita_releases() {
+        Origin::Krita
     } else if app.uses_gimp_releases() {
         Origin::Gimp
     } else {
@@ -3490,6 +3495,20 @@ mod tests {
         assert_eq!(release_query(Some(&feed), &GIMP).repo, GIMP.repo);
         assert!(routes_to_flathub(GIMP.id, Some(linux), InstallChannel::Stable));
         assert!(!routes_to_flathub(GIMP.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn krita_uses_official_mac_download_and_preserves_its_linux_flathub_route() {
+        use artcraft_launcher_core::{Arch, curated::KRITA, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(KRITA.id), Some(&KRITA));
+        assert!(feed_for_app(Some(&feed), &KRITA).is_none());
+        assert_eq!(release_origin(&KRITA), Origin::Krita);
+        assert!(routes_to_flathub(KRITA.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(KRITA.id, Some(mac), InstallChannel::Stable));
     }
 
     #[test]

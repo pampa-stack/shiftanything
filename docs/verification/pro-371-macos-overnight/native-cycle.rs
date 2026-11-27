@@ -20,7 +20,8 @@ impl<'a> Package<'a> {
     }
 
     fn version(&self) -> String {
-        artcraft_launcher_core::version::parse(self.tag.trim_start_matches("mac-")).expect("canonical package tag").to_string()
+        let label = if self.tag == "5.3.4.1" { "5.3.4" } else { self.tag.trim_start_matches("mac-") };
+        artcraft_launcher_core::version::parse(label).expect("canonical package tag").to_string()
     }
 
     fn assert_release(&self, app: &CraftApp, release: &Release) -> Result<(), String> {
@@ -56,7 +57,7 @@ fn native_release(backend: &mut NativeBackend, id: &str) -> Result<Release, Stri
     let latest = wait_for(backend, |event| match event {
         Event::Latest { app, latest, from } if app == id => {
             println!("NATIVE ORIGIN {id} {from:?}");
-            matches!(from, Origin::GitHub | Origin::ArtCraftApi | Origin::Blender | Origin::Gimp).then_some(latest)
+            matches!(from, Origin::GitHub | Origin::ArtCraftApi | Origin::Blender | Origin::Gimp | Origin::Krita).then_some(latest)
         }
         _ => None,
     })?;
@@ -83,7 +84,7 @@ fn main() -> Result<(), String> {
         || !parent.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("shift-air-overnight."))
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
-        || !["moonlight", "openpencil", "airi", "sunshine", "openttd", "rectangle", "codeedit", "maccy", "blender", "gimp", "netnewswire"]
+        || !["moonlight", "openpencil", "airi", "sunshine", "openttd", "rectangle", "codeedit", "maccy", "blender", "gimp", "netnewswire", "krita"]
             .contains(&app.id)
         || app.mac_team.is_none()
         || app.mac_bundle_name.unwrap_or(app.name) != app_name

@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "lapce": {
+      "version": "0.4.6",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-lapce/Apps/Lapce.app",
+      "installed_at": 1795771854,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

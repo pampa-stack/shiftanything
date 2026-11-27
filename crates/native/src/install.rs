@@ -41,7 +41,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
     };
 
     match app.id {
-        id if id == artcraft_launcher_core::curated::KEYCASTR.id => Some(11),
+        id if [artcraft_launcher_core::curated::KEYCASTR.id, artcraft_launcher_core::curated::LAPCE.id].contains(&id) => Some(11),
         id if id == artcraft_launcher_core::curated::PICARD.id => Some(13),
         id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
         id if [
@@ -565,6 +565,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
         return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::LAPCE.id {
+        return (app.repo == artcraft_launcher_core::curated::LAPCE.repo && release::lapce_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -3020,6 +3025,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some(12));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some(11));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some(13));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some(11));
     }
 
     #[test]

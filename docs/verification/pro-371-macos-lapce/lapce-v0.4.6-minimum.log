@@ -1,0 +1,42 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436581716   1334892   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975740312    615128   100%    /Volumes/T7-Backup
+2026-11-27T09:25:19Z
+checksum PASS d4ba42218148446c265c6a823107a969b3b0dca5e14df834563f2859927228f5 45483653 https://github.com/lapce/lapce/releases/download/v0.4.6/Lapce-macos.dmg
+atteso   CRC32 $573661E5
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.sXZflPSh
+APP=Lapce.app
+CFBundleIdentifier=io.lapce
+CFBundleShortVersionString=0.4.6
+CFBundleVersion=1
+CFBundleExecutable=lapce
+LSMinimumSystemVersion=Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+x86_64 arm64
+/private/tmp/shift-mac-pkg-proof.sXZflPSh/Lapce.app/Contents/MacOS/lapce (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.5
+   ntools 1
+     tool LD
+  version 1053.12
+Identifier=io.lapce
+Authority=Developer ID Application: Dongdong Zhou (CYSGAZFR8D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=CYSGAZFR8D
+/private/tmp/shift-mac-pkg-proof.sXZflPSh/Lapce.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.sXZflPSh/Lapce.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.sXZflPSh/Lapce.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.sXZflPSh/Lapce.app
+Lapce.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.4.6/Lapce-macos.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

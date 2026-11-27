@@ -548,6 +548,21 @@ pub fn neovide_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+const LAPCE_MAC_DMG: &str = "Lapce-macos.dmg";
+
+/// The universal package is unversioned; bind it to the publisher's stable tag and digest.
+pub fn lapce_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && format!("v{version}") == release.tag)
+        && asset.name == LAPCE_MAC_DMG
+        && asset.url == format!("{}{}/{LAPCE_MAC_DMG}", download_prefix(crate::curated::LAPCE.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::LAPCE.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const KEYCASTR_MAC_ZIP: &str = "KeyCastr.app.zip";
 
 /// KeyCastr uses one unversioned ZIP name. The official stable tag and checksum identify its bytes.
@@ -706,6 +721,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
         }
+        ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],
+        ("lapce/lapce", "v0.4.6") => &[(LAPCE_MAC_DMG, 45_483_653, "d4ba42218148446c265c6a823107a969b3b0dca5e14df834563f2859927228f5")],
         ("keycastr/keycastr", "v0.11.0") => &[(KEYCASTR_MAC_ZIP, 2_628_593, "00cc656a786012bcbdb5b203b1a56604727ad2ced5e4f5c1d189296f62881033")],
         ("keycastr/keycastr", "v0.11.1") => &[(KEYCASTR_MAC_ZIP, 2_714_588, "71fb7dd90a9bb96de2990499da280ce03e13cbd559a77477515191864977a65c")],
         ("metabrainz/picard", "release-3.0.4") => {

@@ -1,0 +1,58 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436570500   1346108   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 975740324    615116   100%    /Volumes/T7-Backup
+2026-11-27T09:25:22Z
+checksum PASS 354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8 46084234 https://github.com/lapce/lapce/releases/download/v0.4.5/Lapce-macos.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $EB2BC9B6
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $CD84A1E1
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $52E03E80
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $924E5826
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $52E03E80
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $3B0B912B
+verificato   CRC32 $B2A4AC4A
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.fQ1riXi3
+APP=Lapce.app
+CFBundleIdentifier=io.lapce
+CFBundleShortVersionString=0.4.5
+CFBundleVersion=1
+CFBundleExecutable=lapce
+LSMinimumSystemVersion=Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+x86_64 arm64
+/private/tmp/shift-mac-pkg-proof.fQ1riXi3/Lapce.app/Contents/MacOS/lapce (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.5
+   ntools 1
+     tool LD
+  version 1053.12
+Identifier=io.lapce
+Authority=Developer ID Application: Dongdong Zhou (CYSGAZFR8D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=CYSGAZFR8D
+/private/tmp/shift-mac-pkg-proof.fQ1riXi3/Lapce.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.fQ1riXi3/Lapce.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.fQ1riXi3/Lapce.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.fQ1riXi3/Lapce.app
+Lapce.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v0.4.5/Lapce-macos.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

@@ -926,7 +926,28 @@ pub const ONLYOFFICE: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 34] = [
+pub const LAPCE: crate::CraftApp = crate::CraftApp {
+    id: "lapce",
+    name: "Lapce",
+    tagline: "Edit code with a native interface",
+    repo: "lapce/lapce",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [94, 148, 215],
+    ink_light: [41, 81, 130],
+    ink_dark: [167, 204, 244],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Lapce contributors",
+    msi_publisher: None,
+    bundle: Some("io.lapce"),
+    site: Some("https://lapce.dev/"),
+    mac_bundle_name: None,
+    mac_team: Some("CYSGAZFR8D"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 35] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -954,6 +975,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 34] = [
     NEOVIDE,
     KEYCASTR,
     PICARD,
+    LAPCE,
     PENCIL2D,
     OPENSHOT,
     MUSESCORE,
@@ -1372,6 +1394,7 @@ mod recipe_tests {
             ("pinta", ["3.1.1", "3.1.2"], "Pinta-macos-arm64.dmg", "com.ximian.pinta", "D5G6C56TBH", "Pinta-macos-x86_64.dmg"),
             ("zed", ["v1.29.3", "v1.30.2"], "Zed-aarch64.dmg", "dev.zed.Zed", "MQ55VZLNZQ", "Zed-x86_64.dmg"),
             ("stats", ["v3.1.0", "v3.1.1"], "Stats.dmg", "eu.exelban.Stats", "RP2S87B72W", "Stats-intel.dmg"),
+            ("lapce", ["v0.4.5", "v0.4.6"], "Lapce-macos.dmg", "io.lapce", "CYSGAZFR8D", "Lapce-macos-x86_64.dmg"),
             (
                 "neovide",
                 ["0.17.3", "0.17.4"],

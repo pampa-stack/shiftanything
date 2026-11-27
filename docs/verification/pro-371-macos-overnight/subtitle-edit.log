@@ -1,0 +1,75 @@
+2026-11-28T00:29:08+0100
+ARTIFACT 8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b 135167783 https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.3.0/SubtitleEdit-macOS-ARM64.dmg
+BUNDLE=Subtitle Edit.app
+CFBundleIdentifier=dk.nikse.subtitleedit
+CFBundleShortVersionString=5.3.0
+CFBundleVersion=530
+CFBundleExecutable=SubtitleEdit
+LSMinimumSystemVersion=12.0
+<scratch>/preflight/subtitle-edit/v5.3.0/mount/Subtitle Edit.app/Contents/MacOS/SubtitleEdit: Mach-O 64-bit executable arm64
+<scratch>/preflight/subtitle-edit/v5.3.0/mount/Subtitle Edit.app/Contents/MacOS/SubtitleEdit (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=dk.nikse.subtitleedit
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Nikolaj Olsson (MFC9L2T4RB)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=14 Oct 2026 at 09:06:13
+TeamIdentifier=MFC9L2T4RB
+<scratch>/preflight/subtitle-edit/v5.3.0/mount/Subtitle Edit.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT subtitle-edit v5.3.0
+2026-11-28T00:29:09+0100
+ARTIFACT 23ff6eb5afd79c4448cced84979b3c428bbab6f2de0de9c01a5f3370f91042e6 138297144 https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.4.0/SubtitleEdit-macOS-ARM64.dmg
+BUNDLE=Subtitle Edit.app
+CFBundleIdentifier=dk.nikse.subtitleedit
+CFBundleShortVersionString=5.4.0
+CFBundleVersion=540
+CFBundleExecutable=SubtitleEdit
+LSMinimumSystemVersion=12.0
+<scratch>/preflight/subtitle-edit/v5.4.0/mount/Subtitle Edit.app/Contents/MacOS/SubtitleEdit: Mach-O 64-bit executable arm64
+<scratch>/preflight/subtitle-edit/v5.4.0/mount/Subtitle Edit.app/Contents/MacOS/SubtitleEdit (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=dk.nikse.subtitleedit
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Nikolaj Olsson (MFC9L2T4RB)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=6 Nov 2026 at 05:44:22
+TeamIdentifier=MFC9L2T4RB
+<scratch>/preflight/subtitle-edit/v5.4.0/mount/Subtitle Edit.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT subtitle-edit v5.4.0
+PASS PREFLIGHT subtitle-edit v5.3.0
+PASS PREFLIGHT subtitle-edit v5.4.0
+OFFICIAL INDEX subtitle-edit v5.3.0 digest=published
+OFFICIAL INDEX subtitle-edit v5.4.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v5.3.0 Dmg https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.3.0/SubtitleEdit-macOS-ARM64.dmg 135167783 8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b
+PASS OFFICIAL v5.4.0 Dmg https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.4.0/SubtitleEdit-macOS-ARM64.dmg 138297144 23ff6eb5afd79c4448cced84979b3c428bbab6f2de0de9c01a5f3370f91042e6
+NATIVE ORIGIN subtitle-edit GitHub
+PASS OFFICIAL v5.3.0 Dmg https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.3.0/SubtitleEdit-macOS-ARM64.dmg 135167783 8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b
+PASS NATIVE subtitle-edit install: Subtitle Edit installed: 5.3.0; package_bytes=135167783; elapsed=34.782s
+NATIVE ORIGIN subtitle-edit GitHub
+PASS OFFICIAL v5.4.0 Dmg https://github.com/SubtitleEdit/subtitleedit/releases/download/v5.4.0/SubtitleEdit-macOS-ARM64.dmg 138297144 23ff6eb5afd79c4448cced84979b3c428bbab6f2de0de9c01a5f3370f91042e6
+PASS NATIVE subtitle-edit update: Subtitle Edit updated to 5.4.0; package_bytes=138297144; elapsed=32.030s
+PASS NATIVE subtitle-edit remove: Subtitle Edit was removed; package_bytes=0; elapsed=0.075s
+PASS NATIVE CYCLE subtitle-edit (v5.3.0 → v5.4.0), private Trash and synthetic data preserved

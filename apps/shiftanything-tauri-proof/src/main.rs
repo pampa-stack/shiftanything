@@ -3,6 +3,7 @@
 mod catalog_links;
 mod discovery;
 mod favorites;
+mod github_stats;
 mod launcher_update;
 mod media;
 mod session;
@@ -26,6 +27,8 @@ enum SocialLink {
     Reddit,
     X,
     Discord,
+    Github,
+    Releases,
 }
 impl SocialLink {
     fn url(&self) -> &'static str {
@@ -36,6 +39,8 @@ impl SocialLink {
             Self::Reddit => "https://www.reddit.com/user/Comfortable_Ice_4281/",
             Self::X => "https://x.com/Pampaeyes",
             Self::Discord => "https://discord.gg/Xrg2kksz2m",
+            Self::Github => "https://github.com/pampa-stack/shiftanything",
+            Self::Releases => "https://github.com/pampa-stack/shiftanything/releases",
         }
     }
 }
@@ -217,6 +222,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let lifecycle = launch.lifecycle;
     let state = NativeState::new(launch.root.clone(), lifecycle, isolated)?;
     let catalog_media = media::Media::new(state.catalog_media());
+    let project_stats = github_stats::Store::new(&launch.root);
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{}.html", launch.language);
     let webview_directory = launch.root.join("webview");
@@ -228,11 +234,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     builder
         .manage(Mutex::new(state))
         .manage(catalog_media)
+        .manage(project_stats)
         .manage(launcher_updater)
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
             media::fetch_catalog_media,
             discovery_data,
+            github_stats::project_stats,
             open_social_link,
             open_catalog_link,
             native_snapshot,

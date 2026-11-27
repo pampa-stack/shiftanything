@@ -574,6 +574,47 @@
     if (update.status === 'idle') await runUpdate('launcher_update_check');
   }
 
+  function startProjectStats() {
+    const region = document.createElement('div');
+    region.className = 'project-stats';
+    region.setAttribute('role', 'group');
+    region.setAttribute('aria-label', it ? 'Statistiche Sh*ftAnything su GitHub' : 'Sh*ftAnything stats on GitHub');
+    // Unmodified Invertocat White PNG from https://brand.github.com/foundations/logo
+    region.innerHTML = '<button class="btn project-stat" type="button" data-project-page="github"><img src="brand/github.png" alt="" width="12" height="12"><span>—</span></button>'
+      + '<button class="btn project-stat" type="button" data-project-page="releases"><i class="project-download" aria-hidden="true"></i><span>—</span></button>'
+      + '<span class="project-stats-note" hidden></span>';
+    document.querySelector('.header-actions').prepend(region);
+    const formatter = new Intl.NumberFormat(document.documentElement.lang, {useGrouping:true});
+    const buttons = [...region.querySelectorAll('[data-project-page]')];
+    const note = region.querySelector('.project-stats-note');
+    let previous = {};
+    function paint(snapshot) {
+      previous = snapshot;
+      const labels = it ? ['Stelle GitHub', 'Download GitHub, aggiornamenti inclusi'] : ['GitHub stars', 'GitHub downloads, including updates'];
+      const counts = [snapshot.counts?.stars, snapshot.counts?.downloads];
+      note.hidden = !snapshot.stale || !snapshot.counts;
+      note.textContent = it ? 'Cache' : 'Cached';
+      buttons.forEach((button, index) => {
+        const count = counts[index] == null ? null : formatter.format(counts[index]);
+        const freshness = snapshot.stale ? (it ? ' · ultimo dato salvato' : ' · last saved count') : '';
+        const label = count == null ? (it ? 'dato non disponibile' : 'count unavailable') : count + freshness;
+        button.querySelector('span').textContent = count ?? '—';
+        button.setAttribute('aria-label', `${labels[index]} · ${label}`);
+        button.title = `${labels[index]} · ${label}`;
+      });
+    }
+    buttons.forEach(button => button.addEventListener('click', () => {
+      invoke('open_social_link', {link:button.dataset.projectPage}).catch(error => {status.textContent=String(error);});
+    }));
+    async function refresh() {
+      try { paint(await invoke('project_stats', {refresh:true})); }
+      catch { paint({...previous, stale:true}); }
+      setTimeout(refresh, 15 * 60 * 1000);
+    }
+    paint({});
+    invoke('project_stats', {refresh:false}).then(paint).catch(() => {}).finally(refresh);
+  }
+
   const catalogData = window.shiftCatalogData = invoke('catalog_snapshot');
   // Begin local IPC now, then paint after the other deferred modules have registered their listeners.
   const listenersReady = new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, {once:true}));
@@ -604,5 +645,6 @@
     poll(firstSnapshot);
   }
   startLauncherUpdater().catch(error => console.warn('Launcher update unavailable', error));
+  startProjectStats();
   start().catch(error => { status.textContent=String(error); });
 })();

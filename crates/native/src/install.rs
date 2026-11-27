@@ -33,6 +33,27 @@ use crate::manifest::Record;
 use crate::paths::Paths;
 use crate::process;
 
+/// OBS's reviewed Apple Silicon packages require macOS Ventura or later.
+pub fn recipe_system_supported(app: &CraftApp) -> bool {
+    #[cfg(target_os = "macos")]
+    if app.id == artcraft_launcher_core::curated::OBS_STUDIO.id {
+        static SUPPORTED: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
+        return *SUPPORTED.get_or_init(|| {
+            std::process::Command::new("/usr/bin/sw_vers")
+                .arg("-productVersion")
+                .env_remove("SYSTEM_VERSION_COMPAT")
+                .output()
+                .ok()
+                .filter(|output| output.status.success())
+                .and_then(|output| String::from_utf8(output.stdout).ok())
+                .and_then(|version| version.trim().split('.').next()?.parse::<u16>().ok())
+                .is_some_and(|major| major >= 13)
+        });
+    }
+    let _ = app;
+    true
+}
+
 /// What an install needs from the backend.
 pub struct Job<'a> {
     pub http: &'a Http,

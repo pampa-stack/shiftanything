@@ -2075,6 +2075,9 @@ fn planned_asset_on(
     (existing, record): (Option<&Installed>, Option<&crate::manifest::Record>),
     system: Option<&install::SystemKinds>,
 ) -> Option<(Asset, PackageKind)> {
+    if !install::recipe_system_supported(app) {
+        return None;
+    }
     let stems: Vec<&str> = app.stems().collect();
     let custom_linux = platform.os == artcraft_launcher_core::Os::Linux
         && !process::in_sandbox()

@@ -183,31 +183,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !matches!(language, "it" | "en") {
         return Err("Use it or en".into());
     }
-    if let Some(position) = args.iter().position(|argument| argument == "--seed-handy-previous") {
-        if !lifecycle {
-            return Err("Previous release preparation requires --lifecycle".into());
-        }
-        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous Handy DMG")?);
-        #[cfg(target_os = "macos")]
-        verification::seed_previous_handy(&root, previous)?;
-        #[cfg(not(target_os = "macos"))]
-        {
-            let _ = previous;
-            return Err("Previous Handy preparation requires macOS".into());
-        }
-    }
-    if let Some(position) = args.iter().position(|argument| argument == "--seed-localsend-previous") {
-        if !lifecycle {
-            return Err("Previous release preparation requires --lifecycle".into());
-        }
-        let previous = std::path::Path::new(args.get(position + 1).ok_or("Missing previous LocalSend DMG")?);
-        #[cfg(target_os = "macos")]
-        verification::seed_previous_localsend(&root, previous)?;
-        #[cfg(not(target_os = "macos"))]
-        {
-            let _ = previous;
-            return Err("Previous LocalSend preparation requires macOS".into());
-        }
+    #[cfg(target_os = "macos")]
+    verification::seed_previous_from_args(&root, &args[3..], lifecycle)?;
+    #[cfg(not(target_os = "macos"))]
+    if args[3..].iter().any(|arg| arg.to_str().is_some_and(|arg| arg.starts_with("--seed-") && arg.ends_with("-previous"))) {
+        return Err("Previous DMG preparation requires macOS".into());
     }
     let state = NativeState::new(root.clone(), lifecycle)?;
     println!("DESKTOP_PID={}", std::process::id());

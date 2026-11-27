@@ -142,7 +142,9 @@ impl NativeState {
                     let has_asset = platform.zip(release).is_some_and(|(platform, release)| {
                         let stems: Vec<_> = app.stems().collect();
                         let kinds: Vec<_> = platform.download_kinds().iter().copied().filter(|kind| app.installs(*kind)).collect();
-                        recipe_platform_verified(&stems, platform) && pick_asset(release, &stems, platform, &kinds).is_some()
+                        artcraft_launcher_native::install::recipe_system_supported(app)
+                            && recipe_platform_verified(&stems, platform)
+                            && pick_asset(release, &stems, platform, &kinds).is_some()
                     });
                     let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
                     let update_available = installable

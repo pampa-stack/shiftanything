@@ -445,6 +445,9 @@ fn reviewed_asset(repo: &str, tag: &str) -> Option<Asset> {
         ("localsend/localsend", "v1.19.0") => {
             ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4")
         }
+        ("obsproject/obs-studio", "33.0.3") => {
+            ("OBS-Studio-33.0.3-macOS-Apple.dmg", 209_590_030, "92212873b6f84c54285203cac3f846590ac00dfad76b312cf266100ff5edf0c8")
+        }
         _ => return None,
     };
     Some(Asset { name: name.into(), size, url: format!("{}{tag}/{name}", download_prefix(repo)), sha256: Some(sha256.into()) })

@@ -42,6 +42,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
 
     match app.id {
         id if id == artcraft_launcher_core::curated::VORTA.id => Some((14, 4)),
+        "photocraft" if cfg!(target_arch = "aarch64") => Some((11, 0)),
         id if [
             artcraft_launcher_core::curated::KEYCASTR.id,
             artcraft_launcher_core::curated::LAPCE.id,

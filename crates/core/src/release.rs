@@ -1063,6 +1063,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
         }
+        ("storytold/photocraft", "v0.23.0") => {
+            &[("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d")]
+        }
+        ("storytold/photocraft", "v0.23.1") => {
+            &[("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d")]
+        }
         ("openclaw/openclaw", "v2026.11.9") => {
             &[("OpenClaw-2026.11.9-arm64.dmg", 256_294_306, "b8583ed29e820ff9482839a73744d433c0530ba54019440c7faa6ff733f4f56f")]
         }

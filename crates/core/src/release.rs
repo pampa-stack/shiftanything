@@ -471,7 +471,31 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
 }
 
 fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
-    if repo == crate::curated::AUDACITY.repo { version::parse(tag.strip_prefix("Audacity-")?) } else { version::parse(tag) }
+    if repo == crate::curated::AUDACITY.repo {
+        version::parse(tag.strip_prefix("Audacity-")?)
+    } else if repo == crate::curated::ENTE_AUTH.repo {
+        ente_auth_version(tag)
+    } else {
+        version::parse(tag)
+    }
+}
+
+fn ente_auth_version(tag: &str) -> Option<Version> {
+    let label = tag.strip_prefix("auth-v")?;
+    let version = version::parse(label)?;
+    (version.pre.is_empty()
+        && version.build.is_empty()
+        && version.to_string() == label
+        && (version.major, version.minor, version.patch) >= (4, 4, 26))
+        .then_some(version)
+}
+
+/// Only the Ente Auth desktop DMG on the official GitHub release can name the stable channel.
+pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
+    let prefix = download_prefix(crate::curated::ENTE_AUTH.repo);
+    let (tag, name) = location.strip_prefix(&prefix)?.split_once('/')?;
+    let _ = ente_auth_version(tag)?;
+    (name == format!("ente-{tag}.dmg")).then(|| tag.to_string())
 }
 
 // Official package receipts apply only to the original repository, tag and exact asset.
@@ -565,6 +589,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("EpicenterHQ/epicenter", "v7.11.0") => {
             &[("Whispering_7.11.0_aarch64.dmg", 15_606_745, "7c15883a5562e594633e2636db5abbc8197b8ae93c4714711bf802b531eaf2d0")]
         }
+        ("ente/ente", "auth-v4.4.26") => &[("ente-auth-v4.4.26.dmg", 46_193_389, "f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada")],
+        ("ente/ente", "auth-v4.4.27") => &[("ente-auth-v4.4.27.dmg", 58_891_715, "9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718")],
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

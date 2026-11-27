@@ -609,7 +609,28 @@ pub const WHISPERING: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3C7J97QA5Z"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 19] = [
+pub const ENTE_AUTH: crate::CraftApp = crate::CraftApp {
+    id: "ente-auth",
+    name: "Ente Auth",
+    tagline: "Two-factor authentication codes",
+    repo: "ente/ente",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [103, 181, 124],
+    ink_light: [37, 90, 49],
+    ink_dark: [158, 220, 172],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ente Technologies, Inc.",
+    msi_publisher: None,
+    bundle: Some("io.ente.auth.mac"),
+    site: Some("https://ente.com/auth/"),
+    mac_bundle_name: None,
+    mac_team: Some("6Z68YJY9Q2"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 20] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -629,6 +650,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 19] = [
     DRAWIO,
     STATS,
     WHISPERING,
+    ENTE_AUTH,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -843,6 +865,13 @@ mod recipe_tests {
                 "com.bradenwong.whispering",
                 "3C7J97QA5Z",
             ),
+            (
+                super::ENTE_AUTH,
+                ["auth-v4.4.26", "auth-v4.4.27"],
+                ["ente-auth-v4.4.26.dmg", "ente-auth-v4.4.27.dmg"],
+                "io.ente.auth.mac",
+                "6Z68YJY9Q2",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -897,6 +926,8 @@ mod recipe_tests {
             (super::WHISPERING, "Whispering_7.10.0_x64.dmg"),
             (super::WHISPERING, "Whispering_7.11.0-beta.1_aarch64.dmg"),
             (super::WHISPERING, "Epicenter_7.11.0_aarch64.dmg"),
+            (super::ENTE_AUTH, "ente-auth-v4.4.27-beta.1.dmg"),
+            (super::ENTE_AUTH, "ente-v4.4.27.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }

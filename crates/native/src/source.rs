@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::LIBREOFFICE;
+use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -209,8 +209,10 @@ impl GitHubSource {
         mut fetch: impl FnMut(&str, Option<&str>) -> Result<Fetched, String>,
     ) -> Result<Option<Answer>, String> {
         let (repo, separate) = (query.repo.as_str(), query.separate_nightly);
-        let per_page = if separate { VERSIONS_PAGE } else { LIST_PAGE };
-        let url = if prereleases {
+        let ente_auth = repo == ENTE_AUTH.repo;
+        let per_page = if separate || ente_auth { VERSIONS_PAGE } else { LIST_PAGE };
+        let from_list = prereleases || ente_auth;
+        let url = if from_list {
             format!("https://api.github.com/repos/{repo}/releases?per_page={per_page}")
         } else {
             format!("https://api.github.com/repos/{repo}/releases/latest")
@@ -221,8 +223,8 @@ impl GitHubSource {
         match fetch(&url, saved.as_ref().and_then(|e| e.etag.as_deref()))? {
             Fetched::Body { text, etag } => {
                 let mut multi_page = false;
-                let release = if prereleases {
-                    let mut release = release::parse_github_release_list(&text, repo, true)?;
+                let release = if from_list {
+                    let mut release = release::parse_github_release_list(&text, repo, prereleases)?;
                     // A Nightly is never an ordinary release for any app, so a page full of them
                     // proves nothing: look further, and report an incomplete answer rather than
                     // caching "no release" when the bounded search ends early.
@@ -234,13 +236,16 @@ impl GitHubSource {
                         let mut page = 2;
                         while release.is_none() && full {
                             if page > ORDINARY_PAGES {
+                                if ente_auth {
+                                    return Err(format!("No Ente Auth release found in the first {ORDINARY_PAGES} release pages."));
+                                }
                                 return Err(format!(
                                     "Nightly builds fill the first {ORDINARY_PAGES} release pages; the newest ordinary release is unknown and nothing was cached."
                                 ));
                             }
                             match fetch(&format!("{url}&page={page}"), None)? {
                                 Fetched::Body { text, .. } => {
-                                    release = release::parse_github_release_list(&text, repo, true)?;
+                                    release = release::parse_github_release_list(&text, repo, prereleases)?;
                                     full = page_len(&text)? >= per_page;
                                 }
                                 Fetched::RateLimited { reset } => {
@@ -353,10 +358,12 @@ impl GitHubSource {
     /// The quota-free route through github.com (stable releases only).
     fn ask_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
         let repo = query.repo.as_str();
-        if self.pages_quiet() {
+        let github_page = repo != ENTE_AUTH.repo;
+        if github_page && self.pages_quiet() {
             return Err("github.com couldn't be reached a moment ago".into());
         }
-        let location = self.http.redirect_target(&format!("https://github.com/{repo}/releases/latest")).map_err(|e| self.note_pages_error(e))?;
+        let location =
+            self.http.redirect_target(&latest_page(repo)).map_err(|error| if github_page { self.note_pages_error(error) } else { error })?;
         let no_release = || Ok(Answer { latest: LatestRelease::None, source: Source::GitHubPages });
         // A repo that isn't there answers 404, which `redirect_target` reports as no target at all.
         let Some(target) = location.as_deref() else { return no_release() };
@@ -364,7 +371,7 @@ impl GitHubSource {
         if is_release_list(target, repo) {
             return no_release();
         }
-        let Some(tag) = release::tag_from_redirect(target, repo) else {
+        let Some(tag) = latest_redirect_tag(target, repo) else {
             // Somewhere that isn't github.com's: a captive portal's sign-in page, a filtering
             // proxy's notice. Reading that as "no release yet" would turn a blocked network into a
             // confident "Coming soon" on every card, so let the saved answer stand in instead.
@@ -402,6 +409,19 @@ fn retry_at(reset: Option<i64>, now: i64) -> i64 {
 fn is_release_list(location: &str, repo: &str) -> bool {
     let list = format!("https://github.com/{repo}/releases");
     location == list || location.strip_suffix('/') == Some(list.as_str())
+}
+
+fn latest_page(repo: &str) -> String {
+    if repo == ENTE_AUTH.repo {
+        // GitHub's /latest redirect targets a different app in Ente's shared repository.
+        "https://ente.com/download/auth/dmg".into()
+    } else {
+        format!("https://github.com/{repo}/releases/latest")
+    }
+}
+
+fn latest_redirect_tag(location: &str, repo: &str) -> Option<String> {
+    if repo == ENTE_AUTH.repo { release::ente_auth_tag_from_download(location) } else { release::tag_from_redirect(location, repo) }
 }
 
 /// Which route one lookup takes, with the three ways of asking handed in so the policy can be
@@ -569,8 +589,8 @@ impl ReleaseSource for GitHubSource {
         if repo == LIBREOFFICE.repo {
             return None;
         }
-        match self.http.redirect_target(&format!("https://github.com/{repo}/releases/latest")) {
-            Ok(location) => location.as_deref().and_then(|l| release::tag_from_redirect(l, repo)),
+        match self.http.redirect_target(&latest_page(repo)) {
+            Ok(location) => location.as_deref().and_then(|l| latest_redirect_tag(l, repo)),
             Err(e) => {
                 log::debug!("{repo}: couldn't read the latest-release redirect: {e}");
                 None
@@ -725,6 +745,43 @@ mod tests {
             "http://portal.example/login?continue=github.com",
         ] {
             assert!(!is_release_list(elsewhere, REPO), "{elsewhere}");
+        }
+    }
+
+    #[test]
+    fn ente_auth_stable_discovery_excludes_other_products_and_unreviewed_packages() {
+        let dir = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), dir.path().join("releases.json"));
+        let repo = ENTE_AUTH.repo;
+        let result = source
+            .ask_api_with(&q(repo), false, |url, _| {
+                assert_eq!(url, "https://api.github.com/repos/ente/ente/releases?per_page=100");
+                Ok(Fetched::Body {
+                    text: r#"[
+                        {"tag_name":"v5.2.0"},
+                        {"tag_name":"ente-cli-v0.4.6"},
+                        {"tag_name":"auth-v4.4.29", "draft":true},
+                        {"tag_name":"auth-v4.4.28", "prerelease":true},
+                        {"tag_name":"auth-v4.4.27"}
+                    ]"#
+                    .into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert!(matches!(result.latest, LatestRelease::Found(release) if release.tag == "auth-v4.4.27"));
+        assert_eq!(latest_page(repo), "https://ente.com/download/auth/dmg");
+        let prefix = release::download_prefix(repo);
+        assert_eq!(latest_redirect_tag(&format!("{prefix}auth-v4.4.27/ente-auth-v4.4.27.dmg"), repo).as_deref(), Some("auth-v4.4.27"));
+        for path in [
+            "auth-v4.4.25/ente-auth-v4.4.25.dmg",
+            "auth-v4.4.27/ente-auth-v4.4.26.dmg",
+            "auth-v4.4.27/ente-auth-v4.4.27.dmg?download",
+            "ente-cli-v0.4.6/ente-cli-v0.4.6.dmg",
+            "v5.2.0/ente-5.2.0.dmg",
+        ] {
+            assert_eq!(latest_redirect_tag(&format!("{prefix}{path}"), repo), None, "{path}");
         }
     }
 

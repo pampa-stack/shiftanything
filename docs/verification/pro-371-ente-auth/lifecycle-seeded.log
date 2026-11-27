@@ -1,0 +1,28 @@
+/private/tmp root
+PROOF ente-auth HOME=/private/tmp/shift-ente-auth-scratch.pnyX3ggs/home before=4.4.26 after=4.4.27
+AVAILABLE_KIB 3592164
+PASS OFFICIAL auth-v4.4.26 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.26/ente-auth-v4.4.26.dmg 46193389 f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada
+PASS OFFICIAL auth-v4.4.27 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.27/ente-auth-v4.4.27.dmg 58891715 9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718
+SEEDED official REST version list only, latest still online
+PASS OFFICIAL auth-v4.4.26 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.26/ente-auth-v4.4.26.dmg 46193389 f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada
+PASS OFFICIAL auth-v4.4.27 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.27/ente-auth-v4.4.27.dmg 58891715 9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718
+PASS OFFICIAL auth-v4.4.26 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.26/ente-auth-v4.4.26.dmg 46193389 f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada
+PASS NATIVE ente-auth install: Ente Auth installed: 4.4.26; transferred=46193389
+/private/tmp/shift-ente-auth-scratch.pnyX3ggs/home/Applications/Ente Auth.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Ente Technologies, Inc. (6Z68YJY9Q2)
+PASS SIGNATURE + PROFILE MARKER ente-auth install 4.4.26
+AVAILABLE_KIB 3478260
+PASS OFFICIAL auth-v4.4.27 Dmg https://github.com/ente/ente/releases/download/auth-v4.4.27/ente-auth-v4.4.27.dmg 58891715 9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718
+PASS NATIVE ente-auth update: Ente Auth updated to 4.4.27; transferred=58891715
+/private/tmp/shift-ente-auth-scratch.pnyX3ggs/home/Applications/Ente Auth.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Ente Technologies, Inc. (6Z68YJY9Q2)
+PASS SIGNATURE + PROFILE MARKER ente-auth update 4.4.27
+AVAILABLE_KIB 3439276
+PASS NATIVE ente-auth remove: Ente Auth was removed; transferred=0
+/private/tmp/shift-ente-auth-scratch.pnyX3ggs/home/.Trash/Ente Auth.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Ente Technologies, Inc. (6Z68YJY9Q2)
+PASS SIGNATURE + PROFILE MARKER ente-auth remove 4.4.27
+CLEANUP /private/tmp/shift-ente-auth-scratch.pnyX3ggs exit=0

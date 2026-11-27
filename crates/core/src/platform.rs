@@ -258,6 +258,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::SHOTCUT.id => Some(("shotcut-macos-", "", "macos-universal")),
             id if id == crate::curated::DRAWIO.id => Some(("draw.io-arm64-", "", "macos-aarch64")),
             id if id == crate::curated::WHISPERING.id => Some(("Whispering_", "_aarch64", "macos-aarch64")),
+            id if id == crate::curated::ENTE_AUTH.id => Some(("ente-auth-v", "", "macos-universal")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -315,8 +316,8 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     use crate::curated::{
-        AUDACITY, DRAWIO, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION,
-        WHISPERING, ZED,
+        AUDACITY, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS,
+        TRANSMISSION, WHISPERING, ZED,
     };
 
     if !recipe_platform_verified(stems, platform) {
@@ -355,6 +356,14 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             if name.stem == crate::curated::LIBREOFFICE.id {
                 return crate::release::libreoffice_arm64_asset(release, asset);
             }
+            if name.stem == ENTE_AUTH.id {
+                return !release.prerelease
+                    && crate::release::ente_auth_tag_from_download(&asset.url).as_deref() == Some(release.tag.as_str())
+                    && release.tag.strip_prefix("auth-v") == Some(name.version.as_str())
+                    && release.version.as_ref().is_some_and(|version| version.to_string() == name.version)
+                    && asset.size > 0
+                    && asset.sha256.as_deref().is_some_and(crate::release::is_hex64);
+            }
             let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO, WHISPERING]
                 .iter()
                 .find(|app| app.id == name.stem)
@@ -390,8 +399,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
-        AUDACITY, DRAWIO, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT,
-        STATS, TRANSMISSION, WHISPERING, ZED,
+        AUDACITY, DRAWIO, ENTE_AUTH, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII,
+        SHOTCUT, STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -415,6 +424,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         DRAWIO.id,
         STATS.id,
         WHISPERING.id,
+        ENTE_AUTH.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

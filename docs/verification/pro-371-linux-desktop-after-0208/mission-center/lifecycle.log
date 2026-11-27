@@ -1,0 +1,78 @@
+2026-11-27T22:55:01+00:00 mission-center AVAILABLE 26785476608
+mission-center before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+mission-center JobFinished: Ok("Flathub app installed")
+mission-center after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:05+00:00 mission-center current-install 98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb
+/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb/export/share/applications/io.missioncenter.MissionCenter.desktop
+/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb/export/share/icons/hicolor/scalable/apps/io.missioncenter.MissionCenter.svg
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Updating app/io.missioncenter.MissionCenter/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:37+00:00 mission-center previous a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36
+mission-center before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36", package: Some("io.missioncenter.MissionCenter"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.0"), update_available: false, can_remove: false, can_open: true }
+mission-center JobFinished: Err("Approved action rejected: native installation state changed")
+mission-center JobFinished: Err("This Flatpak is managed outside the launcher")
+mission-center after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36", package: Some("io.missioncenter.MissionCenter"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=61855 comm="xfwm4 --compositor=off --display=:95" label="unconfined")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=61868 comm="flatpak run --user --command=sh app/io.missioncent" label="flatpak (unconfined)")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=61868 comm="flatpak run --user --command=sh app/io.missioncent" label="flatpak (unconfined)")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=61958 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+mission-center before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=62152 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=62198 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:62204): dbind-WARNING **: 22:56:42.174: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:62198): xdg-desktop-portal-WARNING **: 22:56:42.207: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62198): xdg-desktop-portal-WARNING **: 22:56:42.207: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62198): xdg-desktop-portal-WARNING **: 22:56:42.207: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03047.473606] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03047.473928] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:62198): xdg-desktop-portal-WARNING **: 22:56:42.212: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[60176]: [session uid=1000 pid=60176] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.systemd1' requested by ':1.21' (uid=1000 pid=62247 comm="/home/qa/profiles/mission-center/data/flatpak/app/" label="unconfined")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activated service 'org.freedesktop.systemd1' failed: Process org.freedesktop.systemd1 exited with status 1
+mission-center JobFinished: Ok("Launch request accepted")
+mission-center after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.missioncenter.MissionCenter
+2026-11-27T22:56:52+00:00 mission-center previous GUI WM_NAME(STRING) = "Mission Center"
+WM_CLASS(STRING) = "missioncenter", "missioncenter"
+2026-11-27T22:56:52+00:00 mission-center AVAILABLE 16021676032
+mission-center before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1.0"), update_available: true, can_remove: true, can_open: true }
+mission-center JobFinished: Ok("Flathub app updated")
+mission-center after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:54+00:00 mission-center current 98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb
+/home/qa/profiles/mission-center/.var/app/io.missioncenter.MissionCenter/fixture.txt: OK
+mission-center before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activating service name='org.freedesktop.systemd1' requested by ':1.33' (uid=1000 pid=63773 comm="/home/qa/profiles/mission-center/data/flatpak/app/" label="unconfined")
+dbus-daemon[60176]: [session uid=1000 pid=60176] Activated service 'org.freedesktop.systemd1' failed: Process org.freedesktop.systemd1 exited with status 1
+mission-center JobFinished: Ok("Launch request accepted")
+mission-center after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.missioncenter.MissionCenter
+2026-11-27T22:57:05+00:00 mission-center current GUI WM_NAME(STRING) = "Mission Center"
+WM_CLASS(STRING) = "missioncenter", "missioncenter"
+mission-center before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 2, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mission-center/data/flatpak/app/io.missioncenter.MissionCenter/x86_64/stable/98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb", package: Some("io.missioncenter.MissionCenter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.2.0"), update_available: false, can_remove: true, can_open: true }
+mission-center JobFinished: Ok("Flathub app removed")
+mission-center after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/mission-center/.var/app/io.missioncenter.MissionCenter/fixture.txt: OK
+2026-11-27T22:57:05+00:00 mission-center PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:57:06+00:00 mission-center EXIT 0 remove
+
+(xfconfd:61933): xfconfd-WARNING **: 22:57:06.801: Name org.xfce.Xfconf lost on the message dbus, exiting.

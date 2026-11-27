@@ -1,0 +1,74 @@
+2026-11-27T22:55:01+00:00 gnome-sound-recorder AVAILABLE 26785476608
+gnome-sound-recorder before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnome-sound-recorder JobFinished: Ok("Flathub app installed")
+gnome-sound-recorder after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:07+00:00 gnome-sound-recorder current-install 3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca
+/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca/export/share/applications/org.gnome.SoundRecorder.desktop
+/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca/export/share/icons/hicolor/scalable/apps/org.gnome.SoundRecorder.svg
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Updating app/org.gnome.SoundRecorder/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:37+00:00 gnome-sound-recorder previous ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d
+gnome-sound-recorder before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d", package: Some("org.gnome.SoundRecorder"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: false, can_open: true }
+gnome-sound-recorder JobFinished: Err("Approved action rejected: native installation state changed")
+gnome-sound-recorder JobFinished: Err("This Flatpak is managed outside the launcher")
+gnome-sound-recorder after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d", package: Some("org.gnome.SoundRecorder"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=61821 comm="xfwm4 --compositor=off --display=:97" label="unconfined")
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=61834 comm="flatpak run --user --command=sh app/org.gnome.Soun" label="flatpak (unconfined)")
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=61834 comm="flatpak run --user --command=sh app/org.gnome.Soun" label="flatpak (unconfined)")
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=61961 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+gnome-sound-recorder before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=62165 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[60178]: [session uid=1000 pid=60178] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=62188 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:62197): dbind-WARNING **: 22:56:42.162: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:62188): xdg-desktop-portal-WARNING **: 22:56:42.193: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62188): xdg-desktop-portal-WARNING **: 22:56:42.193: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62188): xdg-desktop-portal-WARNING **: 22:56:42.194: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03047.461846] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03047.462835] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:62188): xdg-desktop-portal-WARNING **: 22:56:42.201: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[60178]: [session uid=1000 pid=60178] Successfully activated service 'org.freedesktop.portal.Desktop'
+gnome-sound-recorder JobFinished: Ok("Launch request accepted")
+gnome-sound-recorder after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.SoundRecorder
+2026-11-27T22:56:52+00:00 gnome-sound-recorder previous GUI WM_NAME(STRING) = "Sound Recorder"
+WM_CLASS(STRING) = "org.gnome.SoundRecorder", "org.gnome.SoundRecorder"
+2026-11-27T22:56:52+00:00 gnome-sound-recorder AVAILABLE 16021676032
+gnome-sound-recorder before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: true, can_remove: true, can_open: true }
+gnome-sound-recorder JobFinished: Ok("Flathub app updated")
+gnome-sound-recorder after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:54+00:00 gnome-sound-recorder current 3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca
+/home/qa/profiles/gnome-sound-recorder/.var/app/org.gnome.SoundRecorder/fixture.txt: OK
+gnome-sound-recorder before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: true, can_open: true }
+gnome-sound-recorder JobFinished: Ok("Launch request accepted")
+gnome-sound-recorder after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.SoundRecorder
+2026-11-27T22:57:04+00:00 gnome-sound-recorder current GUI WM_NAME(STRING) = "Sound Recorder"
+WM_CLASS(STRING) = "org.gnome.SoundRecorder", "org.gnome.SoundRecorder"
+gnome-sound-recorder before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 42, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-sound-recorder/data/flatpak/app/org.gnome.SoundRecorder/x86_64/stable/3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca", package: Some("org.gnome.SoundRecorder"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("42.0"), update_available: false, can_remove: true, can_open: true }
+gnome-sound-recorder JobFinished: Ok("Flathub app removed")
+gnome-sound-recorder after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/gnome-sound-recorder/.var/app/org.gnome.SoundRecorder/fixture.txt: OK
+2026-11-27T22:57:05+00:00 gnome-sound-recorder PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:57:06+00:00 gnome-sound-recorder EXIT 0 remove
+
+(xfconfd:61846): xfconfd-WARNING **: 22:57:06.457: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,0 +1,19 @@
+commit 98dd962a3249d6d51682698040ef88f60bf415f497acee625c836be35c5158eb
+Parent:  a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36
+ContentChecksum:  a4ecde96fdb7460d0170ef82fa003f3f3dba39dceb3b0b8ba9362a2bff8332f0
+Date:  2026-07-26 05:48:31 +0000
+
+    Update to 1.2.0 (#49) (b8e92ea742e6)
+
+    Name: io.missioncenter.MissionCenter
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Jul 26 06:00:26 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

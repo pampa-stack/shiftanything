@@ -1,0 +1,20 @@
+
+Sound Recorder - A simple, modern sound recorder for GNOME
+
+          ID: org.gnome.SoundRecorder
+         Ref: app/org.gnome.SoundRecorder/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 42.0
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 442.4 kB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 3800cfb927ef666da099097d76df00945c1474051d533d9ff421ea0be74532ca
+      Parent: ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d
+     Subject: Merge pull request #21 from flathub/update-runtime (d84e395510b1)
+        Date: 2026-04-10 22:38:30 +0000

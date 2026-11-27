@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Dust3D
+Comment=Model low-poly objects from profiles
+Exec="/home/qa/profile-dust3d-native-dust3d-cycle-final-qa/Applications/dust3d-1.1.5.AppImage" %F
+Icon=dust3d
+Terminal=false
+Categories=Graphics;
+StartupWMClass=Dust3D
+X-ArtCraft-Launcher=true

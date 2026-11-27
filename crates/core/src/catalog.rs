@@ -299,6 +299,7 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
     Some(match id {
         "opencode" => include_bytes!("../../../assets/app-icons/opencode.png"),
         "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
+        "dust3d" => include_bytes!("../../../assets/app-icons/dust3d.png"),
         "mister-download-manager" => include_bytes!("../../../assets/app-icons/mister-download-manager.png"),
         "openpencil" => include_bytes!("../../../assets/app-icons/openpencil.png"),
         "ultimaker-cura" => include_bytes!("../../../assets/app-icons/ultimaker-cura.png"),

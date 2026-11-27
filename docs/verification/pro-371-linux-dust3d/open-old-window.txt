@@ -1,0 +1,5 @@
+Dust3D 1.1.5
+Window 4194310
+  Position: 0,48 (screen: 0)
+  Geometry: 1280x876
+WM_CLASS(STRING) = "dust3d-1.1.5.AppImage", "Dust3D"

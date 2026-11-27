@@ -1938,6 +1938,27 @@ pub const MISTER_DOWNLOAD_MANAGER: crate::CraftApp = crate::CraftApp {
     mac_team: None,
 };
 
+pub const DUST3D: crate::CraftApp = crate::CraftApp {
+    id: "dust3d",
+    name: "Dust3D",
+    tagline: "Model low-poly objects from profiles",
+    repo: "huxingyi/dust3d",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [75, 128, 232],
+    ink_light: [32, 82, 177],
+    ink_dark: [163, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Jeremy Hu and contributors",
+    msi_publisher: None,
+    bundle: Some("dust3d"),
+    site: Some("https://dust3d.org/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     id: "openpencil",
     name: "OpenPencil",
@@ -2085,7 +2106,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2170,6 +2191,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
     PASEO,
     ULTIMAKER_CURA,
     MISTER_DOWNLOAD_MANAGER,
+    DUST3D,
     OPEN_PENCIL,
     FREECAD,
     OPENMAUSBOT,

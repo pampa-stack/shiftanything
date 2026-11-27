@@ -1,0 +1,25 @@
+2026-11-27T22:29:12+00:00	DISK AVAILABLE 15056101376
+600
+HISTORICAL METADATA supplied from release page, publish checksum and byte length
+OFFICIAL https://github.com/anefzaoui/misterdownloadmanager/releases/download/v0.5.0/MisterDownloadManager-0.5.0-linux-x86_64.AppImage bytes=20625912 sha256=d2c7c568240a938f1010610b49b5fe591a7f37db7070a593735e11ba125a3878
+FILE /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/Applications/MisterDownloadManager-0.5.0-linux-x86_64.AppImage version=0.5.0 bytes=20625912 sha256=d2c7c568240a938f1010610b49b5fe591a7f37db7070a593735e11ba125a3878
+DESKTOP /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/data/applications/misterdownloadmanager.desktop ICON /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/data/icons/hicolor/128x128/apps/misterdownloadmanager.png sha256=847b527f9eef10defc0448a0f1d1bd55b160f8fdcf1526549172d94ef171bf52
+PASS mister-download-manager install 963 ms Mister Download Manager installed: 0.5.0
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.secrets' requested by ':1.1' (uid=1000 pid=35 comm="gdbus call --session --dest org.freedesktop.secret" label="unconfined")
+SSH_AUTH_SOCK=/home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/runtime/keyring/ssh
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.secrets'
+discover_other_daemon: 1PASS mister-download-manager open-old 2 ms Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.xfce.Xfconf' requested by ':1.6' (uid=1000 pid=50 comm="xfwm4 --compositor=off --display=:141" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.xfce.Xfconf'
+2026-11-27T22:29:27+00:00	GUI OFFLINE open-old
+OFFICIAL https://github.com/anefzaoui/misterdownloadmanager/releases/download/v0.5.2/MisterDownloadManager-0.5.2-linux-x86_64.AppImage bytes=20777464 sha256=70bcad9677b754dfffd118cea1e9f0bcb4b7f28f8f70bd3128fbc1b3ad6a74f4
+DISCOVERY GitHubApi
+FILE /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/Applications/MisterDownloadManager-0.5.2-linux-x86_64.AppImage version=0.5.2 bytes=20777464 sha256=70bcad9677b754dfffd118cea1e9f0bcb4b7f28f8f70bd3128fbc1b3ad6a74f4
+DESKTOP /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/data/applications/misterdownloadmanager.desktop ICON /home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/data/icons/hicolor/128x128/apps/misterdownloadmanager.png sha256=847b527f9eef10defc0448a0f1d1bd55b160f8fdcf1526549172d94ef171bf52
+PASS mister-download-manager update 4660 ms Mister Download Manager updated to 0.5.2
+PASS mister-download-manager open-new 5 ms Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=43 comm="xfwm4 --compositor=off --display=:144" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.xfce.Xfconf'
+2026-11-27T22:29:54+00:00	GUI OFFLINE open-new
+PASS mister-download-manager remove 81 ms Mister Download Manager was removed
+2026-11-27T22:29:54+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

@@ -1284,6 +1284,7 @@ impl LauncherUi {
         let mut tdf = false;
         let mut zotero = false;
         let mut blender = false;
+        let mut gimp = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1292,6 +1293,7 @@ impl LauncherUi {
                     Some(Origin::TheDocumentFoundation) => tdf = true,
                     Some(Origin::Zotero) => zotero = true,
                     Some(Origin::Blender) => blender = true,
+                    Some(Origin::Gimp) => gimp = true,
                     None => {}
                 }
             }
@@ -1302,6 +1304,7 @@ impl LauncherUi {
             (tdf, Origin::TheDocumentFoundation),
             (zotero, Origin::Zotero),
             (blender, Origin::Blender),
+            (gimp, Origin::Gimp),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

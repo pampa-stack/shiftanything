@@ -121,12 +121,18 @@ impl CraftApp {
         if self.uses_blender_releases() {
             return crate::release::BLENDER_RELEASES_URL.to_string();
         }
+        if self.uses_gimp_releases() {
+            return crate::release::GIMP_DOWNLOADS_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
     pub fn repo_url(&self) -> String {
         if self.uses_blender_releases() {
             return "https://projects.blender.org/blender/blender".to_string();
+        }
+        if self.uses_gimp_releases() {
+            return "https://gitlab.gnome.org/GNOME/gimp".to_string();
         }
         format!("https://github.com/{}", self.repo)
     }
@@ -141,6 +147,10 @@ impl CraftApp {
 
     pub fn uses_blender_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::BLENDER.id, crate::curated::BLENDER.repo)
+    }
+
+    pub fn uses_gimp_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::GIMP.id, crate::curated::GIMP.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

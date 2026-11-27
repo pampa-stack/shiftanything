@@ -1,0 +1,77 @@
+2026-11-27T23:36:27+0100
+ARTIFACT 854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294 185680887 https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.6-arm64.dmg
+BUNDLE=GIMP.app
+CFBundleIdentifier=org.gimp.gimp
+CFBundleShortVersionString=3.2.6
+CFBundleVersion=3.2.6
+CFBundleExecutable=gimp-3.2
+LSMinimumSystemVersion=11.0
+<scratch>/preflight/gimp/3.2.6/mount/GIMP.app/Contents/MacOS/gimp-3.2: Mach-O 64-bit executable arm64
+<scratch>/preflight/gimp/3.2.6/mount/GIMP.app/Contents/MacOS/gimp-3.2 (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.gimp.gimp
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: GNOME Foundation (T25BQ8HSJF)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=10 Sep 2026 at 17:11:42
+TeamIdentifier=T25BQ8HSJF
+<scratch>/preflight/gimp/3.2.6/mount/GIMP.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT gimp 3.2.6
+2026-11-27T23:38:02+0100
+ARTIFACT 06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395 185827254 https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.8-arm64.dmg
+BUNDLE=GIMP.app
+CFBundleIdentifier=org.gimp.gimp
+CFBundleShortVersionString=3.2.8
+CFBundleVersion=3.2.8
+CFBundleExecutable=gimp-3.2
+LSMinimumSystemVersion=11.0
+<scratch>/preflight/gimp/3.2.8/mount/GIMP.app/Contents/MacOS/gimp-3.2: Mach-O 64-bit executable arm64
+<scratch>/preflight/gimp/3.2.8/mount/GIMP.app/Contents/MacOS/gimp-3.2 (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.gimp.gimp
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: GNOME Foundation (T25BQ8HSJF)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=2 Nov 2026 at 21:50:21
+TeamIdentifier=T25BQ8HSJF
+<scratch>/preflight/gimp/3.2.8/mount/GIMP.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT gimp 3.2.8
+PASS PREFLIGHT gimp 3.2.6
+PASS PREFLIGHT gimp 3.2.8
+OFFICIAL INDEX gimp 3.2.6 digest=published
+OFFICIAL INDEX gimp 3.2.8 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 3.2.6 Dmg https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.6-arm64.dmg 185680887 854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294
+PASS OFFICIAL 3.2.8 Dmg https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.8-arm64.dmg 185827254 06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395
+NATIVE ORIGIN gimp Gimp
+PASS OFFICIAL 3.2.6 Dmg https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.6-arm64.dmg 185680887 854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294
+PASS NATIVE gimp install: GIMP installed: 3.2.6; package_bytes=185680887; elapsed=31.887s
+PASS CLI gimp-3.2 --version: GNU Image Manipulation Program versione 3.2.6
+NATIVE ORIGIN gimp Gimp
+PASS OFFICIAL 3.2.8 Dmg https://download.gimp.org/gimp/v3.2/macos/gimp-3.2.8-arm64.dmg 185827254 06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395
+PASS NATIVE gimp update: GIMP updated to 3.2.8; package_bytes=185827254; elapsed=34.030s
+PASS CLI gimp-3.2 --version: GNU Image Manipulation Program versione 3.2.8
+PASS NATIVE gimp remove: GIMP was removed; package_bytes=0; elapsed=0.118s
+PASS NATIVE CYCLE gimp (3.2.6 → 3.2.8), private Trash and synthetic data preserved

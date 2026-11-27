@@ -88,6 +88,9 @@ pub const ZOTERO_DMG_URL: &str = "https://download.zotero.org/client/release/";
 pub const ZOTERO_CHANGELOG: &str = "https://www.zotero.org/support/changelog";
 pub const BLENDER_DMG_URL: &str = "https://download.blender.org/release/";
 pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
+pub const GIMP_DMG_URL: &str = "https://download.gimp.org/gimp/";
+pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
+pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
     ("10.0.9", ("Zotero-10.0.9.dmg", 192_346_587, "fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387")),
@@ -129,6 +132,18 @@ pub fn blender_release(version: Version) -> Release {
         assets: reviewed_assets(crate::curated::BLENDER.repo, &tag).collect(),
         name: format!("Blender {tag}"),
         html_url: BLENDER_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
+}
+
+pub fn gimp_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::GIMP.repo, &tag).collect(),
+        name: format!("GIMP {tag}"),
+        html_url: format!("https://www.gimp.org/release/{tag}/"),
         version: Some(version),
         tag,
         ..Release::default()
@@ -932,6 +947,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::RECTANGLE,
         crate::curated::CODEEDIT,
         crate::curated::BLENDER,
+        crate::curated::GIMP,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -955,6 +971,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
                 || app.uses_zotero_releases()
                 || app.uses_blender_releases()
+                || app.uses_gimp_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -1453,6 +1470,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("blender/blender", "5.3.0") => {
             &[("blender-5.3.0-macos-arm64.dmg", 359_893_873, "2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720")]
         }
+        ("GNOME/gimp", "3.2.6") => &[("gimp-3.2.6-arm64.dmg", 185_680_887, "854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294")],
+        ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
         ("moeru-ai/airi", "v0.15.2") => {
             &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
         }
@@ -1712,6 +1731,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             // These tags are the canonical stable versions in the receipts above.
             let (series, _) = tag.rsplit_once('.').expect("reviewed Blender version");
             format!("{BLENDER_DMG_URL}Blender{series}/{name}")
+        } else if repo == crate::curated::GIMP.repo {
+            let (series, _) = tag.rsplit_once('.').expect("reviewed GIMP version");
+            format!("{GIMP_DMG_URL}v{series}/macos/{name}")
         } else {
             format!("{}{tag}/{name}", download_prefix(repo))
         },

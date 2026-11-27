@@ -1980,6 +1980,27 @@ pub const BLENDER: crate::CraftApp = crate::CraftApp {
     mac_team: Some("68UA947AUU"),
 };
 
+pub const GIMP: crate::CraftApp = crate::CraftApp {
+    id: "gimp",
+    name: "GIMP",
+    tagline: "Edit images and create graphics",
+    repo: "GNOME/gimp",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [120, 114, 90],
+    ink_light: [83, 64, 42],
+    ink_dark: [225, 206, 175],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "GIMP Team",
+    msi_publisher: None,
+    bundle: Some("org.gimp.gimp"),
+    site: Some("https://www.gimp.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("T25BQ8HSJF"),
+};
+
 pub const MACCY: crate::CraftApp = crate::CraftApp {
     id: "maccy",
     name: "Maccy",
@@ -2373,6 +2394,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     CODEEDIT,
     MACCY,
     BLENDER,
+    GIMP,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

@@ -2339,6 +2339,162 @@
           }
         }
       ]
+    },
+    {
+      "id": "little-snitch",
+      "name": "Little Snitch",
+      "aliases": [
+        "Little Snitch 7",
+        "Little Snitch for Mac",
+        "Little Snitch macOS"
+      ],
+      "features": [
+        {
+          "id": "outbound_alert",
+          "name": {
+            "it": "Avvisi sulle connessioni in uscita",
+            "en": "Outbound connection prompts"
+          },
+          "source": "https://help.obdev.at/littlesnitch7/alert-overview"
+        },
+        {
+          "id": "per_app_rules",
+          "name": {
+            "it": "Regole per applicazione",
+            "en": "Per-application rules"
+          },
+          "source": "https://help.obdev.at/littlesnitch7/concepts-rules"
+        },
+        {
+          "id": "connection_monitor",
+          "name": {
+            "it": "Monitor delle connessioni per app",
+            "en": "Per-app connection monitor"
+          },
+          "source": "https://help.obdev.at/littlesnitch7/monitor-connection-list"
+        },
+        {
+          "id": "remote_blocklists",
+          "name": {
+            "it": "Liste di blocco da URL con aggiornamenti",
+            "en": "Remote blocklists with updates"
+          },
+          "source": "https://help.obdev.at/littlesnitch7/rules-blocklists"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "lulu",
+          "evidence": {
+            "outbound_alert": {
+              "state": "supported",
+              "source": "https://objective-see.org/products/lulu.html",
+              "note": {
+                "it": "Su macOS chiede se consentire o bloccare una connessione in uscita sconosciuta.",
+                "en": "On macOS, prompts to allow or deny an unknown outbound connection."
+              }
+            },
+            "per_app_rules": {
+              "state": "supported",
+              "source": "https://objective-see.org/products/lulu.html",
+              "note": {
+                "it": "Gestisce regole per processo e permette di creare profili con regole separate.",
+                "en": "Manages per-process rules and can keep separate rules in profiles."
+              }
+            },
+            "connection_monitor": {
+              "state": "partial",
+              "source": "https://objective-see.org/products/lulu.html",
+              "note": {
+                "it": "Apre Netiquette, il monitor incluso per le connessioni correnti.",
+                "en": "Opens the included Netiquette monitor to view current connections."
+              }
+            },
+            "remote_blocklists": {
+              "state": "supported",
+              "source": "https://objective-see.org/products/lulu.html",
+              "note": {
+                "it": "Ricarica le liste da URL ogni giorno. Il filtro per hostname dipende da come l’app apre la connessione.",
+                "en": "Refreshes URL-based lists daily. Hostname filtering depends on how each app connects."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "opensnitch",
+          "evidence": {
+            "outbound_alert": {
+              "state": "supported",
+              "source": "https://github.com/evilsocket/opensnitch/wiki/Rules",
+              "note": {
+                "it": "Su Linux mostra una richiesta quando nessuna regola corrisponde.",
+                "en": "On Linux, displays a prompt when no rule matches."
+              }
+            },
+            "per_app_rules": {
+              "state": "supported",
+              "source": "https://github.com/evilsocket/opensnitch/wiki/Rules",
+              "note": {
+                "it": "Può consentire o bloccare connessioni per eseguibile, destinazione e altre condizioni.",
+                "en": "Can allow or deny connections by executable, destination and other conditions."
+              }
+            },
+            "connection_monitor": {
+              "state": "supported",
+              "source": "https://github.com/evilsocket/opensnitch/wiki/The-Events-window",
+              "note": {
+                "it": "Mostra gli eventi per applicazione e permette di filtrare le connessioni intercettate.",
+                "en": "Shows per-application events and filters intercepted connections."
+              }
+            },
+            "remote_blocklists": {
+              "state": "partial",
+              "source": "https://github.com/evilsocket/opensnitch/wiki/Block-lists",
+              "note": {
+                "it": "Ricarica liste locali modificate. Per scaricare aggiornamenti da URL serve un processo esterno.",
+                "en": "Reloads modified local lists. Downloading list updates from URLs requires an external process."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "portmaster",
+          "evidence": {
+            "outbound_alert": {
+              "state": "supported",
+              "source": "https://docs.safing.io/portmaster/settings#filter/defaultAction",
+              "note": {
+                "it": "Su Linux e Windows, l’azione Prompt chiede una decisione quando nessuna regola si applica.",
+                "en": "On Linux and Windows, the Prompt action asks what to do when no rule applies."
+              }
+            },
+            "per_app_rules": {
+              "state": "supported",
+              "source": "https://docs.safing.io/portmaster/settings#filter/endpoints",
+              "note": {
+                "it": "Le regole di connessione possono essere impostate per singola applicazione.",
+                "en": "Connection rules can be set per application."
+              }
+            },
+            "connection_monitor": {
+              "state": "supported",
+              "source": "https://safing.io/",
+              "note": {
+                "it": "Il monitor della versione gratuita mostra l’attività di rete per applicazione.",
+                "en": "The free version's monitor shows network activity by application."
+              }
+            },
+            "remote_blocklists": {
+              "state": "partial",
+              "source": "https://docs.safing.io/portmaster/settings#filter/customListFile",
+              "note": {
+                "it": "Rilegge un file locale personalizzato; la documentazione non indica una sorgente URL per quel file.",
+                "en": "Reloads a custom local file. The documentation lists no URL source for that file."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

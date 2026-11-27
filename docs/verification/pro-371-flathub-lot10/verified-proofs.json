@@ -260,5 +260,46 @@
       "update-remove": 37665
     },
     "cycle_ms": 119675
+  },
+  {
+    "id": "leocad",
+    "name": "LeoCAD",
+    "repo": "https://github.com/leozide/leocad",
+    "license": "GPL-2.0",
+    "stars": 2943,
+    "flatpak": "org.leocad.LeoCAD",
+    "flathub": "https://flathub.org/apps/org.leocad.LeoCAD",
+    "download_size": 159474450,
+    "logo": "https://dl.flathub.org/media/org/leocad/LeoCAD/3705b8fd80cd060de9e5ad3edf358779/icons/128x128/org.leocad.LeoCAD.png",
+    "metadata_urls": {
+      "bugtracker": "https://github.com/leozide/leocad/issues",
+      "homepage": "https://www.leocad.org/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "26.09",
+      "25.09"
+    ],
+    "title": "leocad",
+    "current_commit": "c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60",
+    "previous_commit": "99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45",
+    "prev": "99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45",
+    "current": "c8e9f0aeba03cbbd615a8bb274b8cc4bbe8cf92bd6161f1001c79f8c5a03ee60",
+    "previous_version": "25.09",
+    "current_version": "26.09",
+    "times_ms": {
+      "install": 47845,
+      "prior": 53662,
+      "open-previous": 11447,
+      "open": 15276,
+      "update": 9545,
+      "open-current": 10330,
+      "remove": 6023,
+      "update-remove": 33358
+    },
+    "cycle_ms": 149331
   }
 ]

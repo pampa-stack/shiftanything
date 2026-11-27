@@ -1,0 +1,19 @@
+commit 99a8416a25e08bfebb78b2486f48b8523b067b7276df8d505a5304125ad5fb45
+Parent:  53a2c4cf3f9dab807cb6ae25ea341d01619ed49f6bd1e1d6d5b46dce740f9340
+ContentChecksum:  4d55c9d7177c3417a02e175c43382a7876ec406f59c8756d749ddf7990515516
+Date:  2025-11-04 01:35:35 +0000
+
+    Update runtime to 5.15-25.08 (9efb55c4220a)
+
+    Name: org.leocad.LeoCAD
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Tue Nov  4 02:00:22 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

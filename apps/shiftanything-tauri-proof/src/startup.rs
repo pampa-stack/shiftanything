@@ -162,24 +162,11 @@ fn isolated_child(args: &[OsString]) -> Result<Option<Launch>, StartupError> {
     }
     let language = proof_language(Some(args.get(2).ok_or("Missing verification language")?))?;
     let lifecycle = args.iter().skip(3).any(|arg| arg == "--lifecycle");
-    for flag in ["--seed-handy-previous", "--seed-localsend-previous"] {
-        if let Some(position) = args.iter().skip(3).position(|argument| argument == flag) {
-            if !lifecycle {
-                return Err("Previous release preparation requires --lifecycle".into());
-            }
-            let previous = Path::new(args.get(position + 4).ok_or("Missing previous DMG")?);
-            #[cfg(target_os = "macos")]
-            if flag == "--seed-handy-previous" {
-                crate::verification::seed_previous_handy(&root, previous)?;
-            } else {
-                crate::verification::seed_previous_localsend(&root, previous)?;
-            }
-            #[cfg(not(target_os = "macos"))]
-            {
-                let _ = previous;
-                return Err("Previous release preparation requires macOS".into());
-            }
-        }
+    #[cfg(target_os = "macos")]
+    crate::verification::seed_previous_from_args(&root, &args[3..], lifecycle)?;
+    #[cfg(not(target_os = "macos"))]
+    if args[3..].iter().any(|arg| arg.to_str().is_some_and(|arg| arg.starts_with("--seed-") && arg.ends_with("-previous"))) {
+        return Err("Previous DMG preparation requires macOS".into());
     }
     Ok(Some(Launch { root, language, isolated: true, lifecycle, _desktop_lock: None }))
 }

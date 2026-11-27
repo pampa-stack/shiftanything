@@ -239,7 +239,29 @@ pub const LOCALSEND: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3W7H4PYMCV"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 2] = [HANDY, LOCALSEND];
+/// Native OBS Studio identity from the notarized Apple Silicon DMG.
+pub const OBS_STUDIO: crate::CraftApp = crate::CraftApp {
+    id: "obs",
+    name: "OBS Studio",
+    tagline: "Record and stream video",
+    repo: "obsproject/obs-studio",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [113, 122, 138],
+    ink_light: [52, 63, 83],
+    ink_dark: [197, 206, 224],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OBS Project",
+    msi_publisher: None,
+    bundle: Some("com.obsproject.obs-studio"),
+    site: Some("https://obsproject.com/"),
+    mac_bundle_name: Some("OBS"),
+    mac_team: Some("2MMRE5MTB8"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 3] = [HANDY, LOCALSEND, OBS_STUDIO];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -300,6 +322,27 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
         assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 15);
+    }
+
+    #[test]
+    fn obs_recipe_selects_only_the_apple_silicon_dmg_for_the_exact_release() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("obs").expect("compiled OBS recipe");
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let latest = release::release_from_sums(app.repo, "33.0.3", &[]);
+        let (asset, kind) = platform::pick_asset(&latest, &[app.id], mac, mac.download_kinds()).expect("reviewed DMG");
+        assert_eq!((asset.name.as_str(), kind), ("OBS-Studio-33.0.3-macOS-Apple.dmg", PackageKind::Dmg));
+        assert_eq!(asset.sha256.as_deref(), Some("92212873b6f84c54285203cac3f846590ac00dfad76b312cf266100ff5edf0c8"));
+        let intel = Platform { os: Os::MacOs, arch: Arch::X64 };
+        let windows = Platform { os: Os::Windows, arch: Arch::Arm64 };
+        for host in [intel, windows] {
+            assert!(platform::pick_asset(&latest, &[app.id], host, host.download_kinds()).is_none());
+        }
+        for name in ["OBS-Studio-33.0.2-macOS-Intel.dmg", "OBS-Studio-33.0.3-macOS-Apple.dmg", "obs-33.0.2-macos-aarch64.dmg"] {
+            let different = release::release_from_sums(app.repo, "33.0.2", &[("a".repeat(64), name.to_owned())]);
+            assert!(platform::pick_asset(&different, &[app.id], mac, mac.download_kinds()).is_none());
+        }
     }
 
     #[test]

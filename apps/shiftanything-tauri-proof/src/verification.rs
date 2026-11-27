@@ -1,18 +1,30 @@
 //! Opt-in preparation of the reviewed previous official release, never a webview command.
 use artcraft_launcher_core::{
     CraftApp, PackageKind,
-    curated::{HANDY, LOCALSEND},
+    curated::{HANDY, LOCALSEND, OBS_STUDIO},
     version,
 };
 use artcraft_launcher_native::{http, install, manifest, paths::Paths};
 use std::path::Path;
 
-pub fn seed_previous_handy(root: &Path, previous: &Path) -> Result<(), String> {
-    seed_previous(root, previous, &HANDY, "0.10.1", "7cdef5de7d1bfcea70813320b897540cbead2190f5280db6d9760a59e5995463")
-}
-
-pub fn seed_previous_localsend(root: &Path, previous: &Path) -> Result<(), String> {
-    seed_previous(root, previous, &LOCALSEND, "1.18.2", "126860d56f6f49b11845f601aac51de27a49b16d2b48102415da91e0e37e5155")
+pub fn seed_previous_from_args(root: &Path, args: &[std::ffi::OsString], lifecycle: bool) -> Result<(), String> {
+    let mut selected = [
+        ("--seed-handy-previous", &HANDY, "0.10.1", "7cdef5de7d1bfcea70813320b897540cbead2190f5280db6d9760a59e5995463"),
+        ("--seed-localsend-previous", &LOCALSEND, "1.18.2", "126860d56f6f49b11845f601aac51de27a49b16d2b48102415da91e0e37e5155"),
+        ("--seed-obs-previous", &OBS_STUDIO, "33.0.2", "f9cd96511c5efdd3ffd9a0068e3bbc276c61fc451d1004e3eea5658a9cb70488"),
+    ]
+    .into_iter()
+    .filter_map(|(flag, app, version, sha256)| {
+        args.iter().position(|arg| arg == flag).map(|position| (args.get(position + 1), app, version, sha256))
+    });
+    let Some((previous, app, version, sha256)) = selected.next() else {
+        return Ok(());
+    };
+    if !lifecycle || selected.next().is_some() {
+        return Err("Previous-release preparation requires --lifecycle and one seed".into());
+    }
+    let previous = Path::new(previous.ok_or("Missing previous DMG")?);
+    seed_previous(root, previous, app, version, sha256)
 }
 
 fn seed_previous(root: &Path, previous: &Path, app: &CraftApp, version_text: &str, sha256: &str) -> Result<(), String> {

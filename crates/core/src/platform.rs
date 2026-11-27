@@ -236,12 +236,18 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             {
                 return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "linux-x86_64".into(), kind });
             }
-            // The publisher uses LocalSend-<version>.dmg for its universal build.
+        }
+        let community_dmg = match *stem {
+            id if id == crate::curated::LOCALSEND.id => Some(("LocalSend-", "", "macos-universal")),
+            id if id == crate::curated::OBS_STUDIO.id => Some(("OBS-Studio-", "-macOS-Apple", "macos-aarch64")),
+            _ => None,
+        };
+        if let Some((prefix, suffix, token)) = community_dmg {
             if kind == PackageKind::Dmg
-                && let Some(version) = base.strip_prefix("LocalSend-")
+                && let Some(version) = base.strip_prefix(prefix).and_then(|rest| rest.strip_suffix(suffix))
                 && crate::version::parse(version).is_some_and(|parsed| parsed.to_string() == version && parsed.pre.is_empty())
             {
-                return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "macos-universal".into(), kind });
+                return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: token.into(), kind });
             }
             continue;
         }
@@ -289,7 +295,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         .iter()
         .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
         .filter(|(asset, name)| {
-            name.stem != crate::curated::LOCALSEND.id
+            ![crate::curated::LOCALSEND.id, crate::curated::OBS_STUDIO.id].contains(&name.stem.as_str())
                 || (release.version.as_ref().is_some_and(|version| name.version == version.to_string())
                     && (asset.sha256.is_some() || release.sums_asset().is_some()))
         })
@@ -308,7 +314,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if stems.contains(&crate::curated::HANDY.id) {
+    if stems.contains(&crate::curated::HANDY.id) || stems.contains(&crate::curated::OBS_STUDIO.id) {
         return platform == mac_arm64;
     }
     if stems.contains(&crate::curated::LOCALSEND.id) {

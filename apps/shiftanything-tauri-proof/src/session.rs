@@ -59,7 +59,7 @@ fn compatible_asset<'a>(app: &CraftApp, platform: Platform, release: &'a Release
     };
     let stems: Vec<_> = app.stems().collect();
     let kinds: Vec<_> = allowed.iter().copied().filter(|kind| app.installs(*kind)).collect();
-    if !recipe_platform_verified(&stems, platform) {
+    if !artcraft_launcher_native::install::recipe_system_supported(app) || !recipe_platform_verified(&stems, platform) {
         return None;
     }
     pick_asset(release, &stems, platform, &kinds).map(|(asset, _)| asset)

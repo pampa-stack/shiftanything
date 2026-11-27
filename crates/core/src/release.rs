@@ -445,6 +445,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4"),
             ("LocalSend-1.19.0-linux-x86-64.AppImage", 61_752_512, "e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3"),
         ],
+        ("obsproject/obs-studio", "33.0.3") => {
+            &[("OBS-Studio-33.0.3-macOS-Apple.dmg", 209_590_030, "92212873b6f84c54285203cac3f846590ac00dfad76b312cf266100ff5edf0c8")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

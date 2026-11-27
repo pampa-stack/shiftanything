@@ -381,9 +381,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if platform.os == Os::Linux
         && let Some(app) = [crate::curated::OPENCODE, crate::curated::ORCA].iter().find(|app| stems.contains(&app.id))
     {
-        if !kinds.contains(&PackageKind::AppImage) {
-            return None;
-        }
+        kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
             .assets
             .iter()

@@ -1,0 +1,82 @@
+2026-11-27T23:31:43+0100
+/dev/disk3s5   239362496 176212240  22022784    89% 3260480 220227840    1%   /System/Volumes/Data
+ARTIFACT bd143db6a4d3e85b6e9cd0126dbfa8e3186f57904e893d144acc3cf2b3c065f2 35095199 https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.5/CodeEdit.dmg
+BUNDLE=CodeEdit.app
+CFBundleIdentifier=app.codeedit.CodeEdit
+CFBundleShortVersionString=0.3.5
+CFBundleVersion=46
+CFBundleExecutable=CodeEdit
+LSMinimumSystemVersion=13.0
+<scratch>/preflight/codeedit/v0.3.5/mount/CodeEdit.app/Contents/MacOS/CodeEdit: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/codeedit/v0.3.5/mount/CodeEdit.app/Contents/MacOS/CodeEdit (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/codeedit/v0.3.5/mount/CodeEdit.app/Contents/MacOS/CodeEdit (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/codeedit/v0.3.5/mount/CodeEdit.app/Contents/MacOS/CodeEdit (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=app.codeedit.CodeEdit
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Austin Condiff (9VS2VKC5LQ)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=9 Jul 2025 at 17:49:19
+TeamIdentifier=9VS2VKC5LQ
+<scratch>/preflight/codeedit/v0.3.5/mount/CodeEdit.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT codeedit v0.3.5
+2026-11-27T23:31:55+0100
+/dev/disk3s5   239362496 176242804  21992220    89% 3260553 219922200    1%   /System/Volumes/Data
+ARTIFACT fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9 35962501 https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.6/CodeEdit.dmg
+BUNDLE=CodeEdit.app
+CFBundleIdentifier=app.codeedit.CodeEdit
+CFBundleShortVersionString=0.3.6
+CFBundleVersion=47
+CFBundleExecutable=CodeEdit
+LSMinimumSystemVersion=13.0
+<scratch>/preflight/codeedit/v0.3.6/mount/CodeEdit.app/Contents/MacOS/CodeEdit: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/codeedit/v0.3.6/mount/CodeEdit.app/Contents/MacOS/CodeEdit (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/codeedit/v0.3.6/mount/CodeEdit.app/Contents/MacOS/CodeEdit (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/codeedit/v0.3.6/mount/CodeEdit.app/Contents/MacOS/CodeEdit (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=app.codeedit.CodeEdit
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Austin Condiff (9VS2VKC5LQ)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=26 Aug 2025 at 20:22:14
+TeamIdentifier=9VS2VKC5LQ
+<scratch>/preflight/codeedit/v0.3.6/mount/CodeEdit.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT codeedit v0.3.6
+PASS PREFLIGHT codeedit v0.3.5
+PASS PREFLIGHT codeedit v0.3.6
+/dev/disk3s5   239362496 176417444  22866200    89% 3263867 228662000    1%   /System/Volumes/Data
+OFFICIAL INDEX codeedit v0.3.5 digest=published
+OFFICIAL INDEX codeedit v0.3.6 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v0.3.5 Dmg https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.5/CodeEdit.dmg 35095199 bd143db6a4d3e85b6e9cd0126dbfa8e3186f57904e893d144acc3cf2b3c065f2
+PASS OFFICIAL v0.3.6 Dmg https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.6/CodeEdit.dmg 35962501 fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9
+NATIVE ORIGIN codeedit GitHub
+PASS OFFICIAL v0.3.5 Dmg https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.5/CodeEdit.dmg 35095199 bd143db6a4d3e85b6e9cd0126dbfa8e3186f57904e893d144acc3cf2b3c065f2
+PASS NATIVE codeedit install: CodeEdit installed: 0.3.5; package_bytes=35095199; elapsed=14.738s
+NATIVE ORIGIN codeedit GitHub
+PASS OFFICIAL v0.3.6 Dmg https://github.com/CodeEditApp/CodeEdit/releases/download/v0.3.6/CodeEdit.dmg 35962501 fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9
+PASS NATIVE codeedit update: CodeEdit updated to 0.3.6; package_bytes=35962501; elapsed=13.823s
+PASS NATIVE codeedit remove: CodeEdit was removed; package_bytes=0; elapsed=0.104s
+PASS NATIVE CYCLE codeedit (v0.3.5 → v0.3.6), private Trash and synthetic data preserved

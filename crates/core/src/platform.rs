@@ -413,6 +413,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::keycastr_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
     }
+    if stems.contains(&crate::curated::MACCY.id) {
+        if !kinds.contains(&PackageKind::MacZip) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::maccy_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
+    }
     if stems.contains(&crate::curated::LAPCE.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -755,6 +761,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         TERMIX.id,
         NEOVIDE.id,
         crate::curated::KEYCASTR.id,
+        crate::curated::MACCY.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
@@ -892,6 +899,8 @@ mod tests {
             (crate::curated::SUNSHINE, ["v2026.906.222525", "v2026.914.233613"]),
             (crate::curated::AIRI, ["v0.15.2", "v0.15.4"]),
             (crate::curated::OPENTTD, ["15.2", "15.3"]),
+            (crate::curated::RECTANGLE, ["v2.0.4", "v2.0.5"]),
+            (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
@@ -943,6 +952,33 @@ mod tests {
                 untrusted.assets[0].name = "foreign.dmg".into();
                 assert!(!selects(&untrusted, host));
             }
+        }
+    }
+
+    #[test]
+    fn maccy_uses_only_the_reviewed_stable_apple_silicon_zip() {
+        let app = crate::curated::MACCY;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+        for tag in ["2.7.1", "2.8.0"] {
+            let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+            release.assets.retain(|asset| asset.name.ends_with(".zip"));
+            assert_eq!(release.assets.len(), 1);
+            assert!(accepts(&release, mac));
+            assert!(!accepts(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!accepts(&release, Platform { os: Os::Linux, ..mac }));
+            assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
+            release.prerelease = true;
+            assert!(!accepts(&release, mac));
+            release.prerelease = false;
+            release.assets[0].size += 1;
+            assert!(!accepts(&release, mac));
+            release.assets[0].size -= 1;
+            release.assets[0].url = release.assets[0].url.replace("p0deje", "elsewhere");
+            assert!(!accepts(&release, mac));
+            release.assets[0].url = release.assets[0].url.replace("elsewhere", "p0deje");
+            release.assets[0].sha256 = None;
+            assert!(!accepts(&release, mac));
         }
     }
 

@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -45,7 +45,7 @@ for tag in (old, new):
             published_digests = {digest}
         version = f'{tag}.0'
     else:
-        assert re.fullmatch(r'v\d+\.\d+\.\d+', tag)
+        assert re.fullmatch(r'\d+\.\d+\.\d+' if app_id == 'maccy' else r'v\d+\.\d+\.\d+', tag)
         assert url == f'https://github.com/{repo}/releases/download/{tag}/{name}'
         html = Path(f'{app_id}-{tag}-assets.html').read_text()
         [block] = [item for item in html.split('</li>') if f'href="/{repo}/releases/download/{tag}/{name}"' in item]

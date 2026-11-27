@@ -1959,6 +1959,69 @@ pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("45U78722YL"),
 };
 
+pub const MACCY: crate::CraftApp = crate::CraftApp {
+    id: "maccy",
+    name: "Maccy",
+    tagline: "Find and reuse items from your clipboard history",
+    repo: "p0deje/Maccy",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Alexey Rodionov",
+    msi_publisher: None,
+    bundle: Some("org.p0deje.Maccy"),
+    site: Some("https://maccy.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("MN3X4648SC"),
+};
+
+pub const RECTANGLE: crate::CraftApp = crate::CraftApp {
+    id: "rectangle",
+    name: "Rectangle",
+    tagline: "Arrange windows with shortcuts and snap areas",
+    repo: "rxhanson/Rectangle",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ryan Hanson",
+    msi_publisher: None,
+    bundle: Some("com.knollsoft.Rectangle"),
+    site: Some("https://rectangleapp.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("XSYZ3E4B7D"),
+};
+
+pub const CODEEDIT: crate::CraftApp = crate::CraftApp {
+    id: "codeedit",
+    name: "CodeEdit",
+    tagline: "Edit code in a native macOS workspace",
+    repo: "CodeEditApp/CodeEdit",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Austin Condiff and CodeEdit contributors",
+    msi_publisher: None,
+    bundle: Some("app.codeedit.CodeEdit"),
+    site: Some("https://codeedit.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("9VS2VKC5LQ"),
+};
+
 pub const OPENTTD: crate::CraftApp = crate::CraftApp {
     id: "openttd",
     name: "OpenTTD",
@@ -2285,6 +2348,9 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SUNSHINE,
     AIRI,
     OPENTTD,
+    RECTANGLE,
+    CODEEDIT,
+    MACCY,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

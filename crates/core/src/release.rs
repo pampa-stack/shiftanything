@@ -915,6 +915,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::SUNSHINE,
         crate::curated::AIRI,
         crate::curated::OPENTTD,
+        crate::curated::RECTANGLE,
+        crate::curated::CODEEDIT,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1010,6 +1012,15 @@ pub fn keycastr_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::KEYCASTR.repo, &release.tag)
             .find(|reviewed| reviewed.name == asset.name)
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
+/// The official Maccy ZIP has one name across versions, so qualify each exact archive.
+pub fn maccy_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && release.tag == version.to_string())
+        && reviewed_assets(crate::curated::MACCY.repo, &release.tag).any(|reviewed| {
+            reviewed.name == asset.name && reviewed.url == asset.url && reviewed.size == asset.size && reviewed.sha256 == asset.sha256
+        })
 }
 
 fn picard_version(tag: &str) -> Option<Version> {
@@ -1391,6 +1402,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("OpenTTD/OpenTTD", "15.3") => {
             &[("openttd-15.3-macos-universal.dmg", 14_459_846, "7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614")]
         }
+        ("rxhanson/Rectangle", "v2.0.4") => &[("Rectangle2.0.4.dmg", 4_960_820, "9f820a2e56bd2c27cdda4fb4556de3cbcfcbac052d9eeb2179d49e2dae277abc")],
+        ("rxhanson/Rectangle", "v2.0.5") => &[("Rectangle2.0.5.dmg", 4_940_143, "4dec773a2f550d64147d88e07d987ce8119bdff045f1c6993a9a5eeb9f68496c")],
+        ("CodeEditApp/CodeEdit", "v0.3.5") => &[("CodeEdit.dmg", 35_095_199, "bd143db6a4d3e85b6e9cd0126dbfa8e3186f57904e893d144acc3cf2b3c065f2")],
+        ("CodeEditApp/CodeEdit", "v0.3.6") => &[("CodeEdit.dmg", 35_962_501, "fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9")],
+        ("p0deje/Maccy", "2.7.1") => &[("Maccy.app.zip", 4_709_233, "f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077")],
+        ("p0deje/Maccy", "2.8.0") => &[("Maccy.app.zip", 5_288_775, "e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0")],
         ("moeru-ai/airi", "v0.15.2") => {
             &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
         }

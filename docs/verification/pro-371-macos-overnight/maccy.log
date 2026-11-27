@@ -1,0 +1,84 @@
+ARTIFACT f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077 4709233 https://github.com/p0deje/Maccy/releases/download/2.7.1/Maccy.app.zip
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Resources → Versions/Current/Resources
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Versions/Current → B
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Autoupdate → Versions/Current/Autoupdate
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Updater.app → Versions/Current/Updater.app
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/XPCServices → Versions/Current/XPCServices
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Sparkle → Versions/Current/Sparkle
+ZIP 622 9319662 Counter({'Maccy.app': 622})
+CFBundleIdentifier=org.p0deje.Maccy
+CFBundleShortVersionString=2.7.1
+CFBundleVersion=62
+CFBundleExecutable=Maccy
+LSMinimumSystemVersion=14.0
+<scratch>/preflight/maccy/2.7.1/Maccy.app/Contents/MacOS/Maccy (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.p0deje.Maccy
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Alexey Rodionov (MN3X4648SC)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=10 Aug 2026 at 16:30:32
+TeamIdentifier=MN3X4648SC
+<scratch>/preflight/maccy/2.7.1/Maccy.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT maccy 2.7.1
+ARTIFACT e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0 5288775 https://github.com/p0deje/Maccy/releases/download/2.8.0/Maccy.app.zip
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Resources → Versions/Current/Resources
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Versions/Current → B
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Autoupdate → Versions/Current/Autoupdate
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Updater.app → Versions/Current/Updater.app
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/XPCServices → Versions/Current/XPCServices
+ZIP LINK Maccy.app/Contents/Frameworks/Sparkle.framework/Sparkle → Versions/Current/Sparkle
+ZIP 556 10550452 Counter({'Maccy.app': 556})
+CFBundleIdentifier=org.p0deje.Maccy
+CFBundleShortVersionString=2.8.0
+CFBundleVersion=63
+CFBundleExecutable=Maccy
+LSMinimumSystemVersion=14.0
+<scratch>/preflight/maccy/2.8.0/Maccy.app/Contents/MacOS/Maccy (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=org.p0deje.Maccy
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Alexey Rodionov (MN3X4648SC)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=26 Oct 2026 at 16:18:17
+TeamIdentifier=MN3X4648SC
+<scratch>/preflight/maccy/2.8.0/Maccy.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT maccy 2.8.0
+PASS PREFLIGHT maccy 2.7.1
+PASS PREFLIGHT maccy 2.8.0
+/dev/disk3s5   239362496 176419116  22864528    89% 3263880 228645280    1%   /System/Volumes/Data
+OFFICIAL INDEX maccy 2.7.1 digest=published
+OFFICIAL INDEX maccy 2.8.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 2.7.1 MacZip https://github.com/p0deje/Maccy/releases/download/2.7.1/Maccy.app.zip 4709233 f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077
+PASS OFFICIAL 2.8.0 MacZip https://github.com/p0deje/Maccy/releases/download/2.8.0/Maccy.app.zip 5288775 e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0
+NATIVE ORIGIN maccy GitHub
+PASS OFFICIAL 2.7.1 MacZip https://github.com/p0deje/Maccy/releases/download/2.7.1/Maccy.app.zip 4709233 f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077
+PASS NATIVE maccy install: Maccy installed: 2.7.1; package_bytes=4709233; elapsed=2.958s
+NATIVE ORIGIN maccy GitHub
+PASS OFFICIAL 2.8.0 MacZip https://github.com/p0deje/Maccy/releases/download/2.8.0/Maccy.app.zip 5288775 e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0
+PASS NATIVE maccy update: Maccy updated to 2.8.0; package_bytes=5288775; elapsed=3.319s
+PASS NATIVE maccy remove: Maccy was removed; package_bytes=0; elapsed=0.070s
+PASS NATIVE CYCLE maccy (2.7.1 → 2.8.0), private Trash and synthetic data preserved

@@ -1,6 +1,6 @@
 use artcraft_launcher_core::platform::pick_asset;
 use artcraft_launcher_core::protocol::{Backend, BackendOptions, Command, Event, InstallLocations, JobPhase, LatestRelease, Origin, VersionTrack};
-use artcraft_launcher_core::{Arch, CraftApp, Os, PackageKind, Platform, release::Release};
+use artcraft_launcher_core::{Arch, CraftApp, Os, Platform, release::Release};
 use artcraft_launcher_native::{NativeBackend, manifest::Manifest, paths};
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
@@ -23,9 +23,9 @@ impl<'a> Package<'a> {
         artcraft_launcher_core::version::parse(self.tag).expect("canonical package tag").to_string()
     }
 
-    fn assert_release(&self, id: &str, release: &Release) -> Result<(), String> {
+    fn assert_release(&self, app: &CraftApp, release: &Release) -> Result<(), String> {
         let platform = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        let (asset, kind) = pick_asset(release, &[id], platform, &[PackageKind::Dmg])
+        let (asset, kind) = pick_asset(release, &[app.id], platform, &[app.mac_package_kind()])
             .ok_or_else(|| format!("missing official ARM package for {:?} ({:?}), expected {}", release.tag, release.version, self.tag))?;
         if release.tag != self.tag
             || release.version_label() != self.version()
@@ -83,7 +83,7 @@ fn main() -> Result<(), String> {
         || !parent.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("shift-air-overnight."))
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
-        || !["moonlight", "openpencil", "airi", "sunshine", "openttd"].contains(&app.id)
+        || !["moonlight", "openpencil", "airi", "sunshine", "openttd", "rectangle", "codeedit", "maccy"].contains(&app.id)
         || app.mac_team.is_none()
         || app.mac_bundle_name.unwrap_or(app.name) != app_name
     {
@@ -123,7 +123,7 @@ fn main() -> Result<(), String> {
             for expected in [&before, &after] {
                 let release =
                     versions.iter().find(|release| release.tag == expected.tag).ok_or_else(|| format!("Official tag {} missing", expected.tag))?;
-                expected.assert_release(id, release)?;
+                expected.assert_release(app, release)?;
             }
             backend.send(Command::Configure(BackendOptions {
                 install_locations: InstallLocations { root: Some(applications.display().to_string()), ..Default::default() },
@@ -131,13 +131,13 @@ fn main() -> Result<(), String> {
                 simultaneous_downloads: 1,
                 ..Default::default()
             }));
-            before.assert_release(id, &native_release(&mut backend, id)?)?;
+            before.assert_release(app, &native_release(&mut backend, id)?)?;
             backend.send(Command::InstallChosen { app: id.clone(), tag: before.tag.into(), fallback: None });
             Some(before)
         }
         ("update", Some(tag)) if tag == before.version() => {
             backend.send(Command::CheckForUpdates { force: true });
-            after.assert_release(id, &native_release(&mut backend, id)?)?;
+            after.assert_release(app, &native_release(&mut backend, id)?)?;
             backend.send(Command::InstallExpected { apps: vec![id.clone()], installed: true });
             Some(after)
         }
@@ -161,7 +161,7 @@ fn main() -> Result<(), String> {
         let record = manifest.apps.get(id).ok_or("missing native receipt")?;
         if verified_package_bytes != package.size
             || record.version != package.version()
-            || record.kind != PackageKind::Dmg
+            || record.kind != app.mac_package_kind()
             || record.path != bundle
             || !bundle.is_dir()
         {

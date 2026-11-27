@@ -1581,6 +1581,27 @@ pub const LOCALAI: crate::CraftApp = crate::CraftApp {
     mac_team: Some("34F3GGU9A6"),
 };
 
+pub const KAP: crate::CraftApp = crate::CraftApp {
+    id: "kap",
+    name: "Kap",
+    tagline: "Record screen clips and export them to common formats",
+    repo: "wulkano/Kap",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Wulkano AS",
+    msi_publisher: None,
+    bundle: Some("com.wulkano.kap"),
+    site: Some("https://getkap.co/"),
+    mac_bundle_name: None,
+    mac_team: Some("2KEEHXF6R6"),
+};
+
 pub const SIYUAN: crate::CraftApp = crate::CraftApp {
     id: "siyuan",
     name: "SiYuan",
@@ -1938,7 +1959,7 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 82] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 83] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2004,6 +2025,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 82] = [
     BRUNO,
     JAN,
     LOCALAI,
+    KAP,
     SIYUAN,
     MAGPIE,
     TRILIUM,

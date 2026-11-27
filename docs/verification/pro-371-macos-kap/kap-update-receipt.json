@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "kap": {
+      "version": "3.6.0",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-mac-air-batch.abBQbN1k/profile-kap.r3AI4ea3/Applications/Kap.app",
+      "installed_at": 1795807297,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

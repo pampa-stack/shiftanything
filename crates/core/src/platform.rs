@@ -911,6 +911,7 @@ mod tests {
             (crate::curated::BLENDER, ["5.2.5", "5.3.0"]),
             (crate::curated::GIMP, ["3.2.6", "3.2.8"]),
             (crate::curated::KRITA, ["5.3.4.1", "5.3.5"]),
+            (crate::curated::VLC, ["3.0.23", "3.0.24"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),

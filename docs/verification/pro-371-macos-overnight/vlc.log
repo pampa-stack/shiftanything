@@ -1,0 +1,95 @@
+OFFICIAL METADATA 51273389 fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+2026-11-28T00:06:33+0100
+ARTIFACT fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d 51273389 https://download.videolan.org/pub/videolan/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg
+BUNDLE=VLC.app
+CFBundleIdentifier=org.videolan.vlc
+CFBundleShortVersionString=3.0.23
+CFBundleVersion=3.0.23
+CFBundleExecutable=VLC
+LSMinimumSystemVersion=10.7.5
+<scratch>/preflight/vlc/3.0.23/mount/VLC.app/Contents/MacOS/VLC: Mach-O 64-bit executable arm64
+<scratch>/preflight/vlc/3.0.23/mount/VLC.app/Contents/MacOS/VLC (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 11.1
+   ntools 1
+     tool LD
+  version 609.8
+Identifier=org.videolan.vlc
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: VideoLAN (75GAHG3SZQ)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=18 Dec 2025 at 06:34:44
+TeamIdentifier=75GAHG3SZQ
+<scratch>/preflight/vlc/3.0.23/mount/VLC.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT vlc 3.0.23
+OFFICIAL METADATA 56960605 64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7
+2026-11-28T00:06:33+0100
+ARTIFACT 64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7 56960605 https://download.videolan.org/pub/videolan/vlc/3.0.24/macosx/vlc-3.0.24-arm64.dmg
+BUNDLE=VLC.app
+CFBundleIdentifier=org.videolan.vlc
+CFBundleShortVersionString=3.0.24
+CFBundleVersion=3.0.24
+CFBundleExecutable=VLC
+LSMinimumSystemVersion=10.7.5
+<scratch>/preflight/vlc/3.0.24/mount/VLC.app/Contents/MacOS/VLC: Mach-O 64-bit executable arm64
+<scratch>/preflight/vlc/3.0.24/mount/VLC.app/Contents/MacOS/VLC (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 11.1
+   ntools 1
+     tool LD
+  version 609.8
+Identifier=org.videolan.vlc
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: VideoLAN (75GAHG3SZQ)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=17 Sep 2026 at 17:35:43
+TeamIdentifier=75GAHG3SZQ
+<scratch>/preflight/vlc/3.0.24/mount/VLC.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT vlc 3.0.24
+
+NEGATIVE CONTROL: attributes stripped before strict verification
+PASS PREFLIGHT vlc 3.0.23
+PASS PREFLIGHT vlc 3.0.24
+OFFICIAL INDEX vlc 3.0.23 digest=published
+OFFICIAL INDEX vlc 3.0.24 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 3.0.23 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg 51273389 fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+PASS OFFICIAL 3.0.24 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.24/macosx/vlc-3.0.24-arm64.dmg 56960605 64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7
+NATIVE ORIGIN vlc VideoLan
+PASS OFFICIAL 3.0.23 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg 51273389 fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+Error: "macOS verification did not succeed (signature integrity: <scratch>/profile-vlc.OsE4UuM4/Applications/.artcraft-launcher-e9WeiL/VLC.app: code object is not signed at all\nIn subcomponent: <scratch>/profile-vlc.OsE4UuM4/Applications/.artcraft-launcher-e9WeiL/VLC.app/Contents/MacOS/plugins/plugins.dat), so the app wasn't installed"
+
+FINAL: scoped preservation, strict signature and Gatekeeper after staging
+PASS PREFLIGHT vlc 3.0.23
+PASS PREFLIGHT vlc 3.0.24
+OFFICIAL INDEX vlc 3.0.23 digest=published
+OFFICIAL INDEX vlc 3.0.24 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 3.0.23 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg 51273389 fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+PASS OFFICIAL 3.0.24 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.24/macosx/vlc-3.0.24-arm64.dmg 56960605 64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7
+NATIVE ORIGIN vlc VideoLan
+PASS OFFICIAL 3.0.23 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.23/macosx/vlc-3.0.23-arm64.dmg 51273389 fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d
+PASS NATIVE vlc install: VLC installed: 3.0.23; package_bytes=51273389; elapsed=26.713s
+PASS CLI VLC -I dummy --no-plugins-cache --version: VLC versione 3.0.23 Vetinari (3.0.23-0-g3697ebcb27)
+NATIVE ORIGIN vlc VideoLan
+PASS OFFICIAL 3.0.24 Dmg https://download.videolan.org/pub/videolan/vlc/3.0.24/macosx/vlc-3.0.24-arm64.dmg 56960605 64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7
+PASS NATIVE vlc update: VLC updated to 3.0.24; package_bytes=56960605; elapsed=31.731s
+PASS CLI VLC -I dummy --no-plugins-cache --version: VLC versione 3.0.24 Vetinari (3.0.24-rc1-0-g6de05adcba)
+PASS NATIVE vlc remove: VLC was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE vlc (3.0.23 → 3.0.24), private Trash and synthetic data preserved

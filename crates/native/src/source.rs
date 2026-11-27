@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, VLC, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -27,6 +27,7 @@ mod blender;
 mod gimp;
 mod krita;
 mod libreoffice;
+mod videolan;
 
 /// One answer from a source.
 #[derive(Clone, Debug)]
@@ -75,6 +76,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == BLENDER.repo => Source::Blender,
             repo if repo == GIMP.repo => Source::Gimp,
             repo if repo == KRITA.repo => Source::Krita,
+            repo if repo == VLC.repo => Source::VideoLan,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -599,6 +601,8 @@ impl GitHubSource {
             blender::releases(&self.http, false)?
         } else if query.repo == GIMP.repo {
             gimp::releases(&self.http, false)?
+        } else if query.repo == VLC.repo {
+            videolan::releases(&self.http, false)?
         } else if query.repo == KRITA.repo {
             krita::releases(&self.http, false)?
         } else if query.repo == NETNEWSWIRE.repo {
@@ -687,6 +691,7 @@ impl ReleaseSource for GitHubSource {
             repo if repo == BLENDER.repo => Some((Source::Blender, blender::releases(&self.http, true))),
             repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
             repo if repo == KRITA.repo => Some((Source::Krita, krita::releases(&self.http, true))),
+            repo if repo == VLC.repo => Some((Source::VideoLan, videolan::releases(&self.http, true))),
             repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
@@ -717,10 +722,11 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if query.repo == KRITA.repo {
+        if [KRITA.repo, VLC.repo].contains(&query.repo.as_str()) {
             return match self.cached_in(query, false) {
                 Some(LatestRelease::Found(saved)) if !saved.prerelease => {
-                    let mut release = release::krita_mac_release(&saved.tag)?;
+                    let mut release =
+                        if query.repo == KRITA.repo { release::krita_mac_release(&saved.tag)? } else { release::vlc_mac_release(&saved.tag)? };
                     release.assets.retain(|asset| saved.assets.contains(asset));
                     (saved.html_url == release.html_url && saved.version == release.version).then_some(LatestRelease::Found(release))
                 }
@@ -753,7 +759,7 @@ impl ReleaseSource for GitHubSource {
         if repo == NETNEWSWIRE.repo {
             return self.latest_netnewswire().ok().map(|release| release.tag);
         }
-        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo].contains(&repo) {
+        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo, VLC.repo].contains(&repo) {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

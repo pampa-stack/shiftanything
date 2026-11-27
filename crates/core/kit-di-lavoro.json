@@ -37,6 +37,27 @@
         {"id":"maps","name":{"it":"Analisi del sito e mappe","en":"Site analysis and maps"},"paid":["ArcGIS Pro"],"options":[
           {"app":"qgis","use":{"it":"Dati geografici, mappe e tavole.","en":"Geographic data, maps and layouts."},"source":"https://docs.qgis.org/4.4/en/docs/about/features.html"}]}
       ]
+    },
+    {
+      "id": "video-production",
+      "name": {"it":"Produzione video","en":"Video production"},
+      "description": {"it":"Dalla registrazione di un tutorial al montaggio, ai sottotitoli e al file pronto da condividere.","en":"Record a tutorial, edit it, add subtitles and export a file ready to share."},
+      "steps": [
+        {"id":"capture","name":{"it":"Registrazione schermo","en":"Screen recording"},"paid":["Loom"],"compare":"loom","options":[
+          {"app":"obs","use":{"it":"Registra schermo, webcam e microfono nella stessa scena.","en":"Record screen, webcam and microphone in the same scene."},"source":"https://obsproject.com/kb/quick-start-guide"},
+          {"app":"kooha","use":{"it":"Registra uno schermo o un’area su Linux, con microfono e audio di sistema.","en":"Record a screen or region on Linux with microphone and desktop audio."},"source":"https://github.com/SeaDve/Kooha#readme"}]},
+        {"id":"dialogue","name":{"it":"Montaggio audio","en":"Audio editing"},"paid":["Adobe Audition"],"compare":"audition","options":[
+          {"app":"audacity","use":{"it":"Mixa le tracce e regola effetti, volume e dinamica della voce.","en":"Mix tracks and adjust effects, volume and voice dynamics."},"source":"https://support.audacityteam.org/audio-editing"}]},
+        {"id":"editing","name":{"it":"Montaggio video","en":"Video editing"},"paid":["Adobe Premiere Pro","Final Cut Pro"],"compare":"premiere","options":[
+          {"app":"kdenlive","use":{"it":"Monta clip e audio su più tracce con transizioni ed effetti.","en":"Edit video and audio across multiple tracks with transitions and effects."},"source":"https://docs.kdenlive.org/en/getting_started/quickstart.html"},
+          {"app":"filmcraft","use":{"it":"Monta su più tracce e passa ai pannelli per colore ed effetti.","en":"Edit across multiple tracks and switch to color and effects workspaces."},"source":"https://github.com/storytold/filmcraft#edit"},
+          {"app":"shotcut","use":{"it":"Monta in timeline clip con risoluzioni e frequenze di fotogrammi diverse.","en":"Edit clips with different resolutions and frame rates on the same timeline."},"source":"https://www.shotcut.org/features/"}]},
+        {"id":"captions","name":{"it":"Sottotitoli","en":"Subtitles"},"paid":["Adobe Premiere Pro"],"options":[
+          {"app":"subtitle-edit","use":{"it":"Modifica testo, durata e sincronizzazione dei sottotitoli.","en":"Edit subtitle text, duration and timing."},"source":"https://subtitleedit.github.io/subtitleedit/"},
+          {"app":"shotcut","use":{"it":"Importa e prepara sottotitoli direttamente nel progetto video.","en":"Import and prepare subtitles directly in the video project."},"source":"https://www.shotcut.org/features/"}]},
+        {"id":"encoding","name":{"it":"Esportazione e compressione","en":"Export and compression"},"paid":["Apple Compressor"],"options":[
+          {"app":"handbrake","use":{"it":"Converti il master con preimpostazioni per dispositivi e controlli di qualità.","en":"Convert the master with device presets and quality controls."},"source":"https://handbrake.fr/docs/en/latest/introduction/about.html"}]}
+      ]
     }
   ],
   "rankings": [

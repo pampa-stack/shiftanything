@@ -342,6 +342,131 @@
       ]
     },
     {
+      "id": "screen-recording",
+      "example": {
+        "it": "Registra lo schermo e il microfono",
+        "en": "Record my screen and microphone"
+      },
+      "match": [["regist", "scherm"], ["record", "screen"], ["cattur", "scherm", "video"]],
+      "exclude": ["webcam", "fotocamera", "camera overlay", "facecam", "screenshot"],
+      "apps": [{
+        "id": "obs",
+        "reason": {
+          "it": "Registra il desktop e gestisce separatamente le sorgenti audio.",
+          "en": "Records the desktop and lets you manage audio sources separately."
+        },
+        "source": "https://obsproject.com/kb/quick-start-guide"
+      }, {
+        "id": "kooha",
+        "reason": {
+          "it": "Su Linux registra un monitor o un’area, con audio del sistema e microfono.",
+          "en": "On Linux, record a monitor or region with desktop audio and microphone input."
+        },
+        "source": "https://github.com/SeaDve/Kooha#readme"
+      }]
+    },
+    {
+      "id": "screen-and-camera",
+      "example": {
+        "it": "Registra lo schermo con la webcam in un angolo",
+        "en": "Record my screen with a webcam overlay"
+      },
+      "match": [["scherm", "webcam"], ["scherm", "fotocamera"], ["screen", "webcam"], ["screen", "camera overlay"], ["screen", "facecam"]],
+      "apps": [{
+        "id": "obs",
+        "reason": {
+          "it": "Combina la webcam e la cattura dello schermo nella stessa scena.",
+          "en": "Combines webcam and screen capture in the same scene."
+        },
+        "source": "https://obsproject.com/kb/quick-start-guide"
+      }]
+    },
+    {
+      "id": "video-editing",
+      "example": {
+        "it": "Monta più clip video e aggiungi transizioni",
+        "en": "Edit multiple video clips and add transitions"
+      },
+      "match": [["monta", "clip"], ["montar", "video"], ["montagg", "video"], ["edit", "video", "clip"], ["edit", "video", "transition"], ["video", "timeline"]],
+      "apps": [{
+        "id": "kdenlive",
+        "reason": {
+          "it": "Monta clip su più tracce e aggiunge transizioni ed effetti.",
+          "en": "Edits clips on multiple tracks with transitions and effects."
+        },
+        "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html"
+      }, {
+        "id": "filmcraft",
+        "reason": {
+          "it": "Offre una timeline multitraccia e pannelli per montaggio, effetti, colore e audio.",
+          "en": "Offers a multitrack timeline and workspaces for editing, effects, color and audio."
+        },
+        "source": "https://github.com/storytold/filmcraft#edit"
+      }, {
+        "id": "shotcut",
+        "reason": {
+          "it": "Monta direttamente in timeline file con formati e risoluzioni diversi.",
+          "en": "Edits files of different formats and resolutions directly on the timeline."
+        },
+        "source": "https://www.shotcut.org/features/"
+      }]
+    },
+    {
+      "id": "lossless-video-trim",
+      "example": {
+        "it": "Taglia un video senza ricodificarlo",
+        "en": "Trim a video without re-encoding it"
+      },
+      "match": [["tagli", "video", "ricodific"], ["tagli", "video", "senza perdere qualita"], ["trim", "video", "without re encod"], ["cut", "video", "without re encod"], ["lossless", "video", "cut"]],
+      "apps": [{
+        "id": "losslesscut",
+        "reason": {
+          "it": "Taglia senza ricodifica nei formati supportati. Il punto di taglio può dipendere dai fotogrammi chiave.",
+          "en": "Cuts supported formats without re-encoding. Cut points can depend on keyframes."
+        },
+        "source": "https://github.com/mifi/lossless-cut#readme"
+      }]
+    },
+    {
+      "id": "video-subtitles",
+      "example": {
+        "it": "Crea e sincronizza i sottotitoli di un video",
+        "en": "Create and sync subtitles for a video"
+      },
+      "match": [["sottotitol", "video"], ["crea", "sottotitol"], ["edit", "subtitle"], ["creat", "subtitle"], ["caption", "video"]],
+      "apps": [{
+        "id": "subtitle-edit",
+        "reason": {
+          "it": "Modifica il testo e corregge tempi, durata e sincronizzazione dei sottotitoli.",
+          "en": "Edits subtitle text and adjusts timing, duration and synchronization."
+        },
+        "source": "https://subtitleedit.github.io/subtitleedit/"
+      }, {
+        "id": "shotcut",
+        "reason": {
+          "it": "Crea, importa ed esporta sottotitoli direttamente dal progetto video.",
+          "en": "Creates, imports and exports subtitles directly from the video project."
+        },
+        "source": "https://www.shotcut.org/features/"
+      }]
+    },
+    {
+      "id": "video-compression",
+      "example": {
+        "it": "Comprimi un video per inviarlo",
+        "en": "Compress a video so I can send it"
+      },
+      "match": [["comprim", "video"], ["ridurr", "pes", "video"], ["compress", "video"], ["video", "smaller"], ["video", "less space"]],
+      "apps": [{
+        "id": "handbrake",
+        "reason": {
+          "it": "Ricodifica il video con preimpostazioni e controlli per qualità e dimensione.",
+          "en": "Re-encodes video with presets and controls for quality and file size."
+        },
+        "source": "https://handbrake.fr/docs/en/latest/introduction/about.html"
+      }]
+    },
+    {
       "id": "ai-video",
       "example": {
         "it": "Genera video con AI sul mio computer",

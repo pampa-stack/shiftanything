@@ -25710,6 +25710,11 @@
       "date": "2026-03-26",
       "source": "https://github.com/TigerVNC/tigervnc/releases/tag/v1.16.2",
       "packages": []
+    },
+    "platform_support": {
+      "macos": "https://tigervnc.org/#downloads",
+      "linux": "https://tigervnc.org/#downloads",
+      "windows": "https://tigervnc.org/#downloads"
     }
   },
   {

@@ -612,6 +612,14 @@
           "source": "https://remmina.org/"
         },
         {
+          "id": "gnome-connections",
+          "reason": {
+            "it": "Client Linux per desktop e macchine virtuali con VNC o RDP.",
+            "en": "Linux client for desktops and virtual machines with VNC or RDP."
+          },
+          "source": "https://apps.gnome.org/Connections/"
+        },
+        {
           "id": "ultravnc",
           "reason": {
             "it": "Client e server VNC per Windows.",
@@ -626,6 +634,14 @@
             "en": "VNC client in a browser. It requires a VNC server reachable via WebSocket."
           },
           "source": "https://github.com/novnc/noVNC#readme"
+        },
+        {
+          "id": "meshcentral",
+          "reason": {
+            "it": "Dashboard da ospitare per accedere dal browser ai computer che amministri.",
+            "en": "Self-hosted dashboard for browser access to computers you manage."
+          },
+          "source": "https://github.com/Ylianst/MeshCentral#readme"
         },
         {
           "id": "guacamole",

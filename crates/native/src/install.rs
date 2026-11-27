@@ -80,6 +80,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::MAGPIE.id,
                 recipe::NAPS2.id,
                 recipe::NEOVIDE.id,
+                recipe::OPENMAUSBOT.id,
                 recipe::OPENWORK_DESKTOP.id,
                 recipe::RECORDLY.id,
                 recipe::SHOTCUT.id,

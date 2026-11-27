@@ -67,3 +67,14 @@ On 27 November 2026, the Apple Silicon package cycle passed on a MacBook Air run
 | 1.1.4 | `FreeCAD_1.1.4-macOS-arm64-py311.dmg` | 649760538 | `071343b4abb70492b75c973f41eaf1d2528f9b9c7ea018d22a4f46ae14d27ac0` |
 
 The standard copy dropped the detached signature on `Contents/packages.txt`. The installer now preserves the signing attributes while staging these two exact FreeCAD builds, then runs the existing signature and Gatekeeper checks under a 180-second bound. Both inspected bundles leave `CFBundleShortVersionString` empty and report their exact release in `CFBundleVersion`. Detection skips an empty version field and retains the precedence of a populated field. The existing Linux Flatpak route is independent of this recipe. The test covers the package lifecycle. Opening FreeCAD or a CAD file was outside the test.
+
+## OpenMausBot desktop
+
+On 27 November 2026, the native Apple Silicon installer installed the official [Apache-2.0 desktop edition](https://github.com/milind-soni/OpenMausBot/blob/v0.1.184/LICENSE) at 0.1.182 on macOS 26.4 with Gatekeeper enabled. It downloaded 0.1.184 over HTTPS and verified both assets' lengths and SHA-256, Developer ID team `993D98NH4J`, bundle ID `com.openmausbot.app`, exact versions, and notarization. Both bundles declare macOS 12.0 as the minimum. The new ARM64 bundle replaced the first in the same temporary Applications directory. Removal moved it into the temporary Trash and preserved a synthetic profile file. The temporary profile and DMGs were deleted. [0.1.182 release](https://github.com/milind-soni/OpenMausBot/releases/tag/v0.1.182) · [0.1.184 release](https://github.com/milind-soni/OpenMausBot/releases/tag/v0.1.184)
+
+| Release | Official asset | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| 0.1.182 | `OpenMausBot-0.1.182-arm64.dmg` | 329009773 | `6bd04ed658c9e56d840106947ba5dea4af60f538ec60a9661f236c52ffce46cd` |
+| 0.1.184 | `OpenMausBot-0.1.184-arm64.dmg` | 329203649 | `6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44` |
+
+The recipe accepts the two versioned, reviewed DMGs. The desktop window, model connections, and agent functionality were outside the test.

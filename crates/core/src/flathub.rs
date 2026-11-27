@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 86] = [
+pub const RECIPES: [(&str, &str); 88] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -88,6 +88,8 @@ pub const RECIPES: [(&str, &str); 86] = [
     ("openra", "net.openra.OpenRA"),
     ("openscad", "org.openscad.OpenSCAD"),
     ("stellarium", "org.stellarium.Stellarium"),
+    ("qbittorrent", "org.qbittorrent.qBittorrent"),
+    ("copyq", "com.github.hluk.copyq"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -192,6 +194,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "openra" => "https://github.com/OpenRA/OpenRA",
         "openscad" => "https://github.com/openscad/openscad",
         "stellarium" => "https://github.com/Stellarium/stellarium",
+        "qbittorrent" => "https://github.com/qbittorrent/qBittorrent",
+        "copyq" => "https://github.com/hluk/CopyQ",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

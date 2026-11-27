@@ -125,11 +125,11 @@
               }
             },
             "genfill": {
-              "state": "unsupported",
-              "source": "https://github.com/storytold/photocraft#readme",
+              "state": "partial",
+              "source": "https://github.com/beckettharriman/openfill/blob/main/docs/install.md#openfill-for-photocraft",
               "note": {
-                "it": "L’upstream indica le funzioni generative tra le lacune dell’alpha.",
-                "en": "Upstream lists generative features among the alpha’s gaps."
+                "it": "OpenFill aggiunge il riempimento da un pannello separato e usa ComfyUI in locale.",
+                "en": "OpenFill adds generative fill in a separate panel and uses local ComfyUI."
               }
             }
           }
@@ -160,6 +160,14 @@
                 "it": "Import ed export PSD a livelli, con limiti sugli elementi specifici di Photoshop.",
                 "en": "Layered PSD import and export, with limits on Photoshop-specific elements."
               }
+            },
+            "genfill": {
+              "state": "partial",
+              "source": "https://github.com/beckettharriman/openfill/blob/main/docs/install.md#openfill-for-gimp-3",
+              "note": {
+                "it": "OpenFill aggiunge il riempimento a GIMP 3.2 come plugin in beta con ComfyUI in locale.",
+                "en": "The OpenFill beta plugin adds generative fill to GIMP 3.2 with local ComfyUI."
+              }
             }
           }
         },
@@ -188,6 +196,14 @@
               "note": {
                 "it": "Lettura e scrittura dei livelli raster. Compatibilità del file dipendente dai suoi elementi.",
                 "en": "Reads and writes raster layers. Compatibility depends on the document’s features."
+              }
+            },
+            "genfill": {
+              "state": "partial",
+              "source": "https://github.com/Acly/krita-ai-diffusion#readme",
+              "note": {
+                "it": "Il plugin Krita AI Diffusion aggiunge il riempimento nell’editor con un motore locale configurabile.",
+                "en": "The Krita AI Diffusion plugin adds generative fill within the editor with an optional local engine."
               }
             }
           }

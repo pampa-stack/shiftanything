@@ -1,0 +1,27 @@
+App=shiftanything-tauri-proof-final (pid 78251)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof-final.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1490 container Krita · Fonti
+				1491 button CHIUDI
+				1492 heading Krita · Fonti
+				1493 text Livelli e maschere · Supportata
+				1494 text Livelli, gruppi, filtri e maschere da disegno.
+				1495 button Fonte del software di partenza
+				1496 button Fonte dell’alternativa
+				1497 text Regolazioni non distruttive · Supportata
+				1498 text I livelli filtro applicano modifiche reversibili.
+				1499 button Fonte del software di partenza
+				1500 button Fonte dell’alternativa
+				1501 text Aprire e salvare PSD con livelli · Supportata
+				1502 text Lettura e scrittura dei livelli raster. Compatibilità del file dipendente dai suoi elementi.
+				1503 button Fonte del software di partenza
+				1504 button Fonte dell’alternativa
+				1505 text Riempimento generativo integrato · Parziale
+				1506 text Il plugin Krita AI Diffusion aggiunge il riempimento nell’editor con un motore locale configurabile.
+				1507 button Fonte del software di partenza
+				1508 button Fonte dell’alternativa
+
+No UI element is currently focused.

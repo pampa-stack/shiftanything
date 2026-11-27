@@ -20,11 +20,9 @@
 .sh-wing{border:1px solid var(--bd);min-width:0;background:var(--surf);border-radius:6px}
 .sh-wing > header{padding:14px 16px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;gap:8px}
 .sh-results-heading{align-items:center;flex-wrap:wrap}
-.sh-results-heading strong{color:var(--tx);font-size:12px}
-.sh-results-summary{display:grid;gap:3px;text-align:right}
-.sh-results-summary span{font-size:11px}
 .sh-result-tools{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;padding:9px 13px;border-bottom:1px solid var(--bd)}
 .sh-result-tools .inp{flex:1 0 min(170px,100%);width:auto;min-width:0}
+.sh-result-tools > strong{color:var(--tx);font-size:10px;white-space:nowrap}
 .sh-pagination{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sh-pagination .btn{min-height:30px}
 .sh-pagination [data-result-range]{min-width:10ch;text-align:center;color:var(--dim)}
@@ -45,6 +43,10 @@
 .sh-scroll{overflow:auto}
 .shifter table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}
 .shifter th,.shifter td{padding:10px 13px;border-bottom:1px solid var(--bd);vertical-align:middle}
+.shifter th:nth-child(2){width:34%}
+.shifter table[data-has-essentials] th:nth-child(2),
+.shifter table[data-has-essentials] th:nth-child(3){width:25%}
+.shifter th:last-child{width:24%;min-width:146px}
 .shifter tbody tr:first-child{background:var(--surf2)}
 .shifter tbody tr:last-child td{border-bottom:0}
 .sh-identity{display:flex;align-items:center;gap:8px}
@@ -58,7 +60,7 @@
 .sh-rate strong{font-family:var(--mono);font-size:17px;color:var(--ok);margin-right:5px}
 .sh-gap{color:var(--warn)}
 .sh-empty{margin:0;padding:16px;color:var(--dim)}
-.sh-note{padding:10px 16px;border-top:1px solid var(--bd);color:var(--dim)}
+.sh-note{padding:10px 16px;border-top:1px solid var(--bd);color:var(--dim);display:flex;justify-content:space-between;gap:6px 14px;flex-wrap:wrap}
 .shifter a,.shifter-dialog a{color:#79dfff;text-decoration:underline}
 .shifter :focus-visible,.shifter-dialog :focus-visible{outline:2px solid #e9ff74;outline-offset:2px}
 .shifter :disabled{opacity:.45;cursor:default}
@@ -68,6 +70,9 @@
 .sh-dialog-body{display:grid;gap:8px}
 .sh-proof{border-top:1px solid var(--bd);padding:8px 0;display:grid;gap:4px}
 .sh-proof-actions{display:flex;gap:12px;flex-wrap:wrap}
+.sh-result-actions{display:grid;grid-template-columns:max-content max-content;justify-content:start;column-gap:12px}
+.sh-result-actions [data-app-detail]{grid-column:2}
+.sh-result-actions button:only-child{grid-column:1}
 .shifter-dialog .detail-toolbar{padding:0 0 10px}
 @media(max-width:900px){.sh-layout{grid-template-columns:1fr}.shifter > header{align-items:start;flex-direction:column}.sh-search{width:100%}}
 

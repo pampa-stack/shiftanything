@@ -96,6 +96,12 @@ mod tests {
         let photocraft = scores.iter().find(|score| score.app_id == "photocraft").ok_or("PhotoCraft missing")?;
         assert_eq!(photocraft.coverage, Some(75));
         assert_eq!(photocraft.missing_required, ["genfill"]);
+        for (id, fraction) in [("krita", 75), ("gimp", 50)] {
+            let alternative = scores.iter().find(|score| score.app_id == id).ok_or("Photo editor is missing")?;
+            assert_eq!(alternative.coverage, Some(fraction));
+            assert_eq!(alternative.missing_required, ["genfill"]);
+            assert_eq!(alternative.unverified, 0);
+        }
 
         let manual = Comparison::Manual { app_ids: vec!["photocraft".into()] };
         let selected = vec!["photoshop:layers".into(), "custom:0".into()];

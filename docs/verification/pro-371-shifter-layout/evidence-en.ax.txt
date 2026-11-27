@@ -1,0 +1,27 @@
+App=shiftanything-tauri-proof-final (pid 79659)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof-final.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			1490 container Krita · Sources
+				1491 button CLOSE
+				1492 heading Krita · Sources
+				1493 text Layers and masks · Supported
+				1494 text Painting layers, groups, filters, and masks.
+				1495 button Source for original software
+				1496 button Alternative source
+				1497 text Non-destructive adjustments · Supported
+				1498 text Filter layers apply reversible adjustments.
+				1499 button Source for original software
+				1500 button Alternative source
+				1501 text Open and save layered PSD · Supported
+				1502 text Reads and writes raster layers. Compatibility depends on the document’s features.
+				1503 button Source for original software
+				1504 button Alternative source
+				1505 text Built-in Generative Fill · Partial
+				1506 text The Krita AI Diffusion plugin adds generative fill within the editor with an optional local engine.
+				1507 button Source for original software
+				1508 button Alternative source
+
+No UI element is currently focused.

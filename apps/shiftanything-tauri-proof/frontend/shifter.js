@@ -15,9 +15,9 @@
     candidate: ['Applicazione', 'App'],
     coverage: ['Copertura documentata', 'Documented coverage'],
     essentials: ['Indispensabili', 'Essentials'],
-    clearGaps: ['Indispensabili coperti', 'Essentials covered'],
-    missingEssential: ['indispensabile scoperto', 'essential uncovered'],
-    missingEssentials: ['indispensabili scoperti', 'essentials uncovered'],
+    clearGaps: ['Tutti coperti', 'All covered'],
+    missingEssential: ['funzione da coprire', 'feature to cover'],
+    missingEssentials: ['funzioni da coprire', 'features to cover'],
     unverified: ['Non verificato', 'Unverified'],
     supported: ['Supportata', 'Supported'],
     partial: ['Parziale', 'Partial'],
@@ -98,13 +98,12 @@
       </section>
       <section class="sh-wing" aria-labelledby="sh-results-title">
         <header class="sh-results-heading">
-          <div><h2 id="sh-results-title">${labels.results}</h2><span data-comparison-name class="dim"></span></div>
-          <div class="sh-results-summary"><strong data-result-total class="mono"></strong>
-            <span data-coverage-note class="dim" hidden>${labels.needsSources}</span></div>
+          <h2 id="sh-results-title">${labels.results}</h2><span data-comparison-name class="dim"></span>
         </header>
         <div class="sh-result-tools" data-result-tools hidden>
           <input type="search" class="inp" data-app-search aria-label="${labels.findApp}"
             placeholder="${labels.findApp}" aria-controls="sh-results-table">
+          <strong data-result-total class="mono"></strong>
           <div class="sh-pagination" data-result-pager role="group" aria-label="${labels.resultPages}">
             <button type="button" class="btn" data-result-previous aria-controls="sh-results-table">${labels.previousPage}</button>
             <span class="mono" data-result-range></span>
@@ -116,13 +115,16 @@
           <table id="sh-results-table" data-results hidden>
             <thead class="mono"><tr>
               <th scope="col">${labels.candidate}</th><th scope="col" data-coverage-column>${labels.coverage}</th>
-              <th scope="col" data-essentials-column hidden>${labels.essentials}</th><th scope="col">${labels.app} / ${labels.proofs}</th>
+              <th scope="col" data-essentials-column hidden>${labels.essentials}</th><th scope="col">${labels.proofs} / ${labels.app}</th>
             </tr></thead>
             <tbody data-candidates></tbody>
           </table>
         </div>
         <p class="sh-announce" data-sh-announce role="status"></p>
-        <p class="sh-note" data-sh-note hidden>${labels.about} <time></time>.</p>
+        <footer class="sh-note" data-sh-note hidden>
+          <span>${labels.about} <time></time>.</span>
+          <span data-coverage-note hidden>${labels.needsSources}</span>
+        </footer>
       </section>
     </div>`;
   catalog.after(root);
@@ -324,17 +326,17 @@
         row.append(gap);
       }
 
-      const actions = node('div', undefined, 'sh-proof-actions');
+      const actions = node('div', undefined, 'sh-result-actions');
       const appDetail = button(labels.app);
       appDetail.dataset.appDetail = app.id;
       appDetail.setAttribute('aria-label', labels.app + ' · ' + app.name);
       appDetail.disabled = !document.getElementById('app-detail-' + app.id);
-      actions.append(appDetail);
       if (selected.some(feature => source?.has(feature.key))) {
         const proofs = button(labels.proofs, event => showProofs(app, selected, event.currentTarget));
         proofs.setAttribute('aria-label', labels.proofs + ' · ' + app.name);
         actions.append(proofs);
       }
+      actions.append(appDetail);
       const actionCell = node('td');
       actionCell.append(actions);
       row.append(actionCell);
@@ -361,6 +363,7 @@
     find('coverage-note').hidden = !selected.length || !matched.some(score => score.coverage === null);
     find('coverage-column').hidden = selected.length === 0;
     find('essentials-column').hidden = required.length === 0;
+    results.toggleAttribute('data-has-essentials', required.length > 0);
     find('result-tools').hidden = scores.length === 0;
     find('result-pager').hidden = matched.length === 0;
     find('result-range').textContent = range;

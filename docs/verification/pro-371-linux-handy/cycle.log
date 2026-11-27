@@ -1,0 +1,47 @@
+START 2026-11-27T11:39:17Z Ubuntu Linux x86_64 NativeBackend Handy fixture
+OFFICIAL https://github.com/cjpais/Handy/releases/download/v0.10.1/Handy_0.10.1_amd64.AppImage bytes=123988472 sha256=f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f
+RECORDED /fixture/home/Applications/Handy_0.10.1_amd64.AppImage sha256=f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f
+PASS install: Handy installed: 0.10.1
+Signature and comment signature verified
+Trusted comment: timestamp:1794645601	file:Handy_0.10.1_amd64.AppImage
+f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f  /mnt/dati/lavori/shift-handy-linux.01dmulrt/profile/home/Applications/Handy_0.10.1_amd64.AppImage
+bwrap: execvp /usr/bin/dbus-run-session: No such file or directory
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[123]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[123]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+_: line 35: xprop: command not found
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[123]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[123]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+Handy
+73
+Window 2097155
+  Position: 60,40 (screen: 0)
+  Geometry: 720x600
+PASS launch-old: Launch request accepted
+GUI Handy launch-old 7394 ms window=2097155
+OFFICIAL https://github.com/cjpais/Handy/releases/download/v0.10.2/Handy_0.10.2_amd64.AppImage bytes=124029432 sha256=17c5f1a4a33f9c4c5c234a084cc0aaf766f3a5b62662e02d70e51161800ace17
+RECORDED /fixture/home/Applications/Handy_0.10.2_amd64.AppImage sha256=17c5f1a4a33f9c4c5c234a084cc0aaf766f3a5b62662e02d70e51161800ace17
+PASS update: Handy updated to 0.10.2
+Signature and comment signature verified
+Trusted comment: timestamp:1795492684	file:Handy_0.10.2_amd64.AppImage
+17c5f1a4a33f9c4c5c234a084cc0aaf766f3a5b62662e02d70e51161800ace17  /mnt/dati/lavori/shift-handy-linux.01dmulrt/profile/home/Applications/Handy_0.10.2_amd64.AppImage
+/mnt/dati/lavori/shift-handy-linux.01dmulrt/profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[123]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=73 comm="handy" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[123]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+Handy
+73
+Window 2097155
+  Position: 60,40 (screen: 0)
+  Geometry: 720x600
+PASS launch: Launch request accepted
+GUI Handy launch 7376 ms window=2097155
+PASS uninstall: Handy was removed
+/mnt/dati/lavori/shift-handy-linux.01dmulrt/profile/home/verification-user-data.txt: OK

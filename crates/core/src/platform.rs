@@ -357,6 +357,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
+    if platform.os == Os::Linux && stems.contains(&crate::curated::HANDY.id) {
+        if !kinds.contains(&PackageKind::AppImage) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
+    }
     if stems.contains(&crate::curated::NAPS2.id) {
         if !kinds.contains(&PackageKind::MacPkg) {
             return None;
@@ -661,7 +667,6 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         return false;
     }
     if [
-        HANDY.id,
         OBS_STUDIO.id,
         KOPIA.id,
         TRANSMISSION.id,
@@ -709,7 +714,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
-    if stems.contains(&LOCALSEND.id) {
+    if stems.contains(&LOCALSEND.id) || stems.contains(&HANDY.id) {
         return platform == mac_arm64 || platform == linux_x64;
     }
     true

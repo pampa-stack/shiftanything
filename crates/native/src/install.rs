@@ -667,6 +667,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .then_some(())
             .ok_or_else(mismatch);
     }
+    if app.id == artcraft_launcher_core::curated::HANDY.id && asset.name.ends_with(".AppImage") {
+        return (app.repo == artcraft_launcher_core::curated::HANDY.repo && release::handy_linux_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
     if app.id == artcraft_launcher_core::curated::PICARD.id {
         return (app.repo == artcraft_launcher_core::curated::PICARD.repo && release::picard_mac_asset(release, asset))
             .then_some(())

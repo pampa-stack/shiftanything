@@ -780,6 +780,24 @@ pub fn picard_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Only the official stable Handy AppImage for Linux x86_64 is managed.
+pub fn handy_linux_asset(release: &Release, asset: &Asset) -> bool {
+    let repo = crate::curated::HANDY.repo;
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.pre.is_empty()
+                && version.build.is_empty()
+                && release.tag == format!("v{version}")
+                && asset.name == format!("Handy_{version}_amd64.AppImage")
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 fn ente_auth_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("auth-v")?;
     let version = version::parse(label)?;
@@ -801,9 +819,13 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
-        ("cjpais/Handy", "v0.10.2") => {
-            &[("Handy_0.10.2_aarch64.dmg", 14_979_688, "b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca")]
+        ("cjpais/Handy", "v0.10.1") => {
+            &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
+        ("cjpais/Handy", "v0.10.2") => &[
+            ("Handy_0.10.2_aarch64.dmg", 14_979_688, "b8b893fbf9e8262abb0e363cb0ac6715cc69eac2fd6ffd8c0785278083a0e3ca"),
+            ("Handy_0.10.2_amd64.AppImage", 124_029_432, "17c5f1a4a33f9c4c5c234a084cc0aaf766f3a5b62662e02d70e51161800ace17"),
+        ],
         ("localsend/localsend", "v1.19.0") => &[
             ("LocalSend-1.19.0.dmg", 52_878_051, "5645789cc976298b893267c025f0945d8673baed3bb302a201eb8b96991e43d4"),
             ("LocalSend-1.19.0-linux-x86-64.AppImage", 61_752_512, "e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3"),

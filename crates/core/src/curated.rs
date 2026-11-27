@@ -1341,6 +1341,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     }
     if [
         LOCALSEND,
+        HANDY,
         PENCIL2D,
         OPENSHOT,
         MUSESCORE,
@@ -1614,8 +1615,9 @@ mod recipe_tests {
         assert!(super::verified_linux_appimage(&photo, linux));
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
-        assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 31);
+        assert!(super::verified_linux_appimage(&super::HANDY, linux));
+        assert!(!super::verified_linux_appimage(&super::HANDY, arm));
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 32);
     }
 
     #[test]
@@ -2045,7 +2047,13 @@ mod recipe_tests {
 
     #[test]
     fn upstream_handy_targets_stay_supported_without_enabling_unverified_recipes() {
-        let assets = ["Handy_0.10.2_aarch64.dmg", "Handy_0.10.2_x64.dmg", "Handy_0.10.2_x64_en-US.msi"];
+        let assets = [
+            "Handy_0.10.2_aarch64.dmg",
+            "Handy_0.10.2_x64.dmg",
+            "Handy_0.10.2_x64_en-US.msi",
+            "Handy_0.10.2_amd64.AppImage",
+            "Handy_0.10.2_aarch64.AppImage",
+        ];
         let json = serde_json::json!({"tag_name":"v0.10.2", "assets":assets.map(|name| serde_json::json!({
             "name":name, "browser_download_url":format!("https://github.com/cjpais/Handy/releases/download/v0.10.2/{name}")
         }))})
@@ -2064,6 +2072,15 @@ mod recipe_tests {
                     intel_only.assets.retain(|asset| asset.name == "Handy_0.10.2_x64.dmg");
                     assert_eq!(intel_only.assets.len(), 1);
                     assert!(crate::platform::pick_asset(&intel_only, &["handy"], platform, platform.download_kinds()).is_none());
+                } else if os == crate::Os::Linux && arch == crate::Arch::X64 {
+                    let (asset, kind) = chosen.expect("official Linux x86_64 disk image");
+                    assert_eq!(asset.name, "Handy_0.10.2_amd64.AppImage");
+                    assert_eq!(kind, crate::PackageKind::AppImage);
+                    assert_eq!(asset.size, 124_029_432);
+                    assert!(asset.sha256.is_some());
+                    let mut wrong_checksum = release.clone();
+                    wrong_checksum.assets.iter_mut().find(|asset| asset.name == "Handy_0.10.2_amd64.AppImage").unwrap().sha256 = Some("0".repeat(64));
+                    assert!(crate::platform::pick_asset(&wrong_checksum, &["handy"], platform, platform.download_kinds()).is_none());
                 } else {
                     assert!(chosen.is_none());
                 }

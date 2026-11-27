@@ -832,38 +832,30 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
-        ("getopenscreen/openscreen", "v2.3.0") => &[(
-            "Openscreen-macOS-Apple-Silicon-2.3.0.dmg",
-            141_157_755,
-            "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82",
-        )],
-        ("getopenscreen/openscreen", "v2.4.0") => &[(
-            "Openscreen-macOS-Apple-Silicon-2.4.0.dmg",
-            141_308_945,
-            "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51",
-        )],
-        ("thewh1teagle/vibe", "v3.3.5") => &[("vibe_3.3.5_aarch64.dmg", 38_715_249, "efaf965175cf9d6b7c6782e38eb42b50800a4645c06771584fcbd46c74d75807")],
-        ("thewh1teagle/vibe", "v3.3.8") => &[("vibe_3.3.8_aarch64.dmg", 38_640_733, "48dd4ffd5b4fc6a9466fc2b68ee04d398e794404758577e46f27163614138a39")],
-        ("dosbox-staging/dosbox-staging", "v0.83.0") => &[(
-            "dosbox-staging-macOS-v0.83.0.dmg",
-            44_531_761,
-            "d8a771adfb8010fa6b5f7fb5351abfba659273ad01c89f03675a92bdbdae8167",
-        )],
-        ("dosbox-staging/dosbox-staging", "v0.83.1") => &[(
-            "dosbox-staging-macOS-v0.83.1.dmg",
-            44_185_617,
-            "a016f04c25b0c27cc3dfa4165cd7242feb36d647fc9b3e4990ca83257d1012ad",
-        )],
-        ("JannisX11/blockbench", "v5.2.1") => &[(
-            "Blockbench_arm64_5.2.1.dmg",
-            128_702_946,
-            "20fd51a18c7a757d9cb03bb0b89c99874d2d5bdbae733817a7877b15043aa78c",
-        )],
-        ("JannisX11/blockbench", "v5.2.2") => &[(
-            "Blockbench_arm64_5.2.2.dmg",
-            128_721_695,
-            "0d072bf863ee3e0bcaecbd0de67a5ffd29dfbf6ee2e8fe5eeb872a14331c5c03",
-        )],
+        ("getopenscreen/openscreen", "v2.3.0") => {
+            &[("Openscreen-macOS-Apple-Silicon-2.3.0.dmg", 141_157_755, "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82")]
+        }
+        ("getopenscreen/openscreen", "v2.4.0") => {
+            &[("Openscreen-macOS-Apple-Silicon-2.4.0.dmg", 141_308_945, "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51")]
+        }
+        ("thewh1teagle/vibe", "v3.3.5") => {
+            &[("vibe_3.3.5_aarch64.dmg", 38_715_249, "efaf965175cf9d6b7c6782e38eb42b50800a4645c06771584fcbd46c74d75807")]
+        }
+        ("thewh1teagle/vibe", "v3.3.8") => {
+            &[("vibe_3.3.8_aarch64.dmg", 38_640_733, "48dd4ffd5b4fc6a9466fc2b68ee04d398e794404758577e46f27163614138a39")]
+        }
+        ("dosbox-staging/dosbox-staging", "v0.83.0") => {
+            &[("dosbox-staging-macOS-v0.83.0.dmg", 44_531_761, "d8a771adfb8010fa6b5f7fb5351abfba659273ad01c89f03675a92bdbdae8167")]
+        }
+        ("dosbox-staging/dosbox-staging", "v0.83.1") => {
+            &[("dosbox-staging-macOS-v0.83.1.dmg", 44_185_617, "a016f04c25b0c27cc3dfa4165cd7242feb36d647fc9b3e4990ca83257d1012ad")]
+        }
+        ("JannisX11/blockbench", "v5.2.1") => {
+            &[("Blockbench_arm64_5.2.1.dmg", 128_702_946, "20fd51a18c7a757d9cb03bb0b89c99874d2d5bdbae733817a7877b15043aa78c")]
+        }
+        ("JannisX11/blockbench", "v5.2.2") => {
+            &[("Blockbench_arm64_5.2.2.dmg", 128_721_695, "0d072bf863ee3e0bcaecbd0de67a5ffd29dfbf6ee2e8fe5eeb872a14331c5c03")]
+        }
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],
         ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],
@@ -943,6 +935,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("dail8859/NotepadNext", "v0.15") => {
             &[("NotepadNext-v0.15-x86_64.AppImage", 36_092_408, "33e092fb52fb4f8bdbe57c63ac14104a5e092ce5c614040a1dd322eebc44aa87")]
+        }
+        ("CyberTimon/RapidRAW", "v1.7.0") => {
+            &[("03_RapidRAW_v1.7.0_ubuntu-22.04_amd64.AppImage", 114_608_632, "1d5c359f76786f3e2a5e2ae466bf99a6cc0e5e35d63159562f79db50cee4981a")]
+        }
+        ("CyberTimon/RapidRAW", "v1.7.1") => {
+            &[("03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage", 117_078_520, "398ca458f2f713eb60fc4b32ff5f178323217e71ff039f9246a8f4e7d1f63a71")]
         }
         _ => &[],
     };

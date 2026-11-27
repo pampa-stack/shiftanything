@@ -1117,7 +1117,28 @@ pub const BLOCKBENCH: crate::CraftApp = crate::CraftApp {
     mac_team: Some("5QMG7G7462"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 43] = [
+pub const RAPIDRAW: crate::CraftApp = crate::CraftApp {
+    id: "rapidraw",
+    name: "RapidRAW",
+    tagline: "Edit RAW photos with non-destructive controls",
+    repo: "CyberTimon/RapidRAW",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [126, 105, 210],
+    ink_light: [60, 45, 126],
+    ink_dark: [198, 179, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "RapidRAW contributors",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://github.com/CyberTimon/RapidRAW"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 44] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1161,6 +1182,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 43] = [
     ONLYOFFICE,
     NEXTCLOUD_DESKTOP,
     NOTEPAD_NEXT,
+    RAPIDRAW,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1200,6 +1222,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         CRYPTOMATOR,
         JOPLIN,
         NOTEPAD_NEXT,
+        RAPIDRAW,
     ]
     .iter()
     .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
@@ -1406,7 +1429,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 28);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 29);
     }
 
     #[test]

@@ -1,0 +1,60 @@
+START 2026-11-27T10:10:37Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/CyberTimon/RapidRAW/releases/download/v1.7.0/03_RapidRAW_v1.7.0_ubuntu-22.04_amd64.AppImage bytes=114608632 sha256=1d5c359f76786f3e2a5e2ae466bf99a6cc0e5e35d63159562f79db50cee4981a
+FILE /fixture/home/Applications/03_RapidRAW_v1.7.0_ubuntu-22.04_amd64.AppImage version=1.7.0 bytes=114608632 sha256=1d5c359f76786f3e2a5e2ae466bf99a6cc0e5e35d63159562f79db50cee4981a
+DESKTOP /fixture/home/data/applications/RapidRAW.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/RapidRAW.png sha256=24488961e3e71db6a04d0d550dd6eacfd8a8c54b2b3c2662d229bfa3b9856f4d
+PASS rapidraw install 24644 ms RapidRAW installed: 1.7.0
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=92 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[140]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=92 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[140]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = RapidRAW RapidRAW
+Window 2097167
+  Position: 0,0 (screen: 0)
+  Geometry: 1440x900
+RapidRAW
+PASS rapidraw open-old 0 ms Launch request accepted
+GUI rapidraw open-old 9590 ms window=2097167
+OFFICIAL https://github.com/CyberTimon/RapidRAW/releases/download/v1.7.1/03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage bytes=117078520 sha256=398ca458f2f713eb60fc4b32ff5f178323217e71ff039f9246a8f4e7d1f63a71
+FILE /fixture/home/Applications/03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage version=1.7.1 bytes=117078520 sha256=398ca458f2f713eb60fc4b32ff5f178323217e71ff039f9246a8f4e7d1f63a71
+DESKTOP /fixture/home/data/applications/RapidRAW.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/RapidRAW.png sha256=24488961e3e71db6a04d0d550dd6eacfd8a8c54b2b3c2662d229bfa3b9856f4d
+PASS rapidraw update 6670 ms RapidRAW updated to 1.7.1
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/rapidraw-main-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=92 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[140]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=92 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[140]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = RapidRAW RapidRAW
+Window 2097167
+  Position: 0,0 (screen: 0)
+  Geometry: 1440x900
+RapidRAW
+PASS rapidraw open-new 0 ms Launch request accepted
+GUI rapidraw open-new 12033 ms window=2097167
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=45 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[93]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=45 comm="RapidRAW" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[93]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = RapidRAW RapidRAW
+Window 2097167
+  Position: 0,0 (screen: 0)
+  Geometry: 1440x900
+RapidRAW
+Set ORT_DYLIB_PATH to: /tmp/appimage_extracted_57f4b06680c66b5dc09be9a858051258/usr/lib/RapidRAW/resources/libonnxruntime.so
+2026-11-27 10:11:41 [INFO] Logger initialized successfully. Log file at: "/fixture/home/data/io.github.CyberTimon.RapidRAW/logs/app.log"
+2026-11-27 10:11:41 [INFO] Applied processing backend: gl
+2026-11-27 10:11:41 [INFO] WebKitGTK 2.50.4, buffer transport: Unchanged
+2026-11-27 10:11:41 [INFO] Wayland Nvidia quirk status: NotAffected { reason: NotWayland }
+2026-11-27 10:12:14 [INFO] Using GPU adapter: llvmpipe (LLVM 20.1.2, 256 bits) (Gl, Cpu, driver:  4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4)
+2026-11-27 10:12:17 [ERROR] Clerk: Failed to load environment from API: error in reqwest: error sending request for url (https://clerk.getrapidraw.com/v1/environment?_is_native=1)
+2026-11-27 10:12:17 [ERROR] Clerk: Failed to load client from API: error in reqwest: error sending request for url (https://clerk.getrapidraw.com/v1/client?_is_native=1)
+Clerk: Failed to load client from API: error in reqwest: error sending request for url (https://clerk.getrapidraw.com/v1/client?_is_native=1)
+2026-11-27 10:12:18 [ERROR] [frontend] Clerk init failed: Failed to load Clerk environment
+2026-11-27 10:12:18 [ERROR] [frontend] Error checking for updates: {"name":"TypeError","message":"Load failed"}
+2026-11-27 10:12:18 [ERROR] [frontend] [vite:error] Load failed
+GUI rapidraw open-menu 50061 ms window=2097167
+PASS rapidraw remove 80 ms RapidRAW was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot7/rapidraw-main-interface-profile/home/verification-user-data.txt: OK

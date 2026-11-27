@@ -42,6 +42,9 @@ pub struct Manifest {
     /// For copies the system's installer keeps the record of (`apps` has none for them).
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
     pub releases: BTreeMap<String, InstalledRelease>,
+    /// Exact user deployments the launcher installed from the signed Flathub remote.
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) flathub: BTreeMap<String, crate::flatpak::Owned>,
 }
 
 impl Manifest {

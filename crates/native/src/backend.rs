@@ -159,6 +159,10 @@ struct Shared {
     nightly_detection_observer: Mutex<Option<ReviewDetectionHook>>,
     download_sizes: Mutex<HashMap<String, DownloadSize>>,
     installed: Mutex<HashMap<String, Installed>>,
+    #[cfg(target_os = "linux")]
+    flatpak: Mutex<HashMap<String, crate::flatpak::Status>>,
+    #[cfg(target_os = "linux")]
+    flatpak_operation: Mutex<()>,
     jobs: Mutex<HashMap<String, Arc<Stop>>>,
     /// Process lifetime is shared; per-channel installed state and job views are not.
     lifecycle: Arc<ProcessLifecycle>,
@@ -613,6 +617,10 @@ impl NativeBackend {
             }),
             download_sizes: Mutex::new(HashMap::new()),
             installed: Mutex::new(HashMap::new()),
+            #[cfg(target_os = "linux")]
+            flatpak: Mutex::new(HashMap::new()),
+            #[cfg(target_os = "linux")]
+            flatpak_operation: Mutex::new(()),
             jobs: Mutex::new(HashMap::new()),
             lifecycle,
             manifest: Mutex::new(Manifest::load(&paths.manifest())),
@@ -792,6 +800,8 @@ impl NativeBackend {
         let platform = self.platform;
         std::thread::spawn(move || {
             let busy = busy;
+            #[cfg(target_os = "linux")]
+            refresh_flathub(&shared, platform);
             // Leftovers from interrupted installs or older versions of the launcher. A paused
             // download stays a month; a finished one kept after a failed install, a week.
             http::clean_downloads(&paths.downloads(), Duration::from_secs(30 * 86_400), Duration::from_secs(7 * 86_400));
@@ -981,6 +991,11 @@ impl NativeBackend {
         if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Nightly {
             self.check_nightly(force);
             return;
+        }
+        #[cfg(target_os = "linux")]
+        {
+            let (shared, platform) = (self.shared.clone(), self.platform);
+            std::thread::spawn(move || refresh_flathub(&shared, platform));
         }
         let (Some(source), Some(http)) = (self.source.clone(), self.http.clone()) else {
             if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
@@ -1269,6 +1284,10 @@ impl NativeBackend {
     /// downloads before the system installer is asked once. Apps unknown or already running a
     /// job are left out; a batch of one installs the same as a single [`Command::Install`].
     fn install_all(&self, apps: &[String]) {
+        self.install_all_expected(apps, None);
+    }
+
+    fn install_all_expected(&self, apps: &[String], expected: Option<bool>) {
         if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Nightly {
             let mut seen = std::collections::HashSet::new();
             let prepared: Vec<_> = apps
@@ -1283,7 +1302,14 @@ impl NativeBackend {
         }
         let running = self.shared.jobs.lock().unwrap_or_else(PoisonError::into_inner);
         let mut ids: Vec<&str> = Vec::new();
+        let mut repository = Vec::new();
         for id in apps {
+            if crate::flatpak::IDS.contains(&id.as_str()) {
+                if !running.contains_key(id) && !repository.contains(&id) {
+                    repository.push(id);
+                }
+                continue;
+            }
             let Some(app) = CraftApp::by_id(id) else {
                 continue;
             };
@@ -1293,6 +1319,9 @@ impl NativeBackend {
             ids.push(app.id);
         }
         drop(running);
+        for id in repository {
+            self.start_flatpak(id, Work::Install(None), expected);
+        }
         #[cfg(any(target_os = "linux", windows))]
         let batch = (!ids.is_empty()).then(|| {
             #[cfg(test)]
@@ -1397,6 +1426,137 @@ impl NativeBackend {
     fn installed(&self, app: &str) -> Option<Installed> {
         self.shared.installed.lock().unwrap_or_else(PoisonError::into_inner).get(app).cloned()
     }
+
+    /// The last observed state of a reviewed Flathub recipe. Reading it never starts Flatpak.
+    pub fn flatpak_status(&self, app: &str) -> Option<crate::flatpak::Status> {
+        #[cfg(target_os = "linux")]
+        {
+            if self.platform.is_some_and(|platform| crate::flatpak::supported(app, platform))
+                && self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
+            {
+                return Some(self.shared.flatpak.lock().unwrap_or_else(PoisonError::into_inner).get(app).cloned().unwrap_or_default());
+            }
+        }
+        let _ = app;
+        None
+    }
+
+    fn start_flatpak(&self, app: &str, work: Work, expected: Option<bool>) {
+        #[cfg(target_os = "linux")]
+        if let Some(status) = self.flatpak_status(app) {
+            let work = match work {
+                Work::Install(_) => FlatpakWork::InstallOrUpdate(expected.unwrap_or(status.installed.is_some())),
+                Work::Launch(args) => FlatpakWork::Open(args),
+                Work::Uninstall => FlatpakWork::Remove,
+                Work::Replace(_) | Work::Chosen(_) => {
+                    self.shared.emit(Event::JobFinished { app: app.into(), result: Err("Flathub supports the reviewed stable branch".into()) });
+                    return;
+                }
+            };
+            let stop = Arc::new(Stop::default());
+            match self.shared.reserve_job(app, stop.clone()) {
+                Admission::AlreadyActive => return,
+                Admission::Restarting => {
+                    self.shared.emit(Event::JobFinished { app: app.into(), result: Err("The launcher is restarting".into()) });
+                    return;
+                }
+                Admission::Reserved => {}
+            }
+            let shared = self.shared.clone();
+            let paths = self.paths.clone();
+            let app = app.to_owned();
+            let job = JobGuard { shared: shared.clone(), app_id: app.clone() };
+            (self.spawn)(Box::new(move || {
+                let _operation = shared.flatpak_operation.lock().unwrap_or_else(PoisonError::into_inner);
+                let result = run_flathub(&shared, &paths, &app, work, &stop);
+                if let Ok(flatpak) = flathub_client(&shared.host) {
+                    refresh_flathub_app(&shared, &flatpak, &app);
+                }
+                drop(job);
+                shared.emit(Event::JobFinished { app, result });
+            }));
+            return;
+        }
+        let _ = (work, expected);
+        self.shared.emit(Event::JobFinished { app: app.into(), result: Err("This platform does not have a reviewed Flathub recipe".into()) });
+    }
+}
+
+#[cfg(target_os = "linux")]
+enum FlatpakWork {
+    InstallOrUpdate(bool),
+    Remove,
+    Open(Vec<String>),
+}
+
+#[cfg(target_os = "linux")]
+fn flathub_client(host: &HostDetection) -> Result<crate::flatpak::UserFlatpak, String> {
+    match host {
+        HostDetection::System => crate::flatpak::UserFlatpak::new(None),
+        HostDetection::Profile(home) => crate::flatpak::UserFlatpak::new(Some(home)),
+        #[cfg(test)]
+        HostDetection::Stub(_) => Err("No Flatpak commands run in a backend fixture".into()),
+    }
+}
+
+#[cfg(target_os = "linux")]
+fn refresh_flathub(shared: &Shared, platform: Option<Platform>) {
+    if !platform.is_some_and(|p| crate::flatpak::supported(crate::flatpak::IDS[0], p)) {
+        return;
+    }
+    let Ok(flatpak) = flathub_client(&shared.host) else { return };
+    let Ok(_operation) = shared.flatpak_operation.try_lock() else { return };
+    for id in crate::flatpak::IDS {
+        refresh_flathub_app(shared, &flatpak, id);
+    }
+}
+
+#[cfg(target_os = "linux")]
+fn refresh_flathub_app(shared: &Shared, flatpak: &crate::flatpak::UserFlatpak, app: &str) {
+    let record = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner).flathub.get(app).cloned();
+    let status = flatpak.status(app, record.as_ref(), true).unwrap_or_else(|error| {
+        log::debug!("{app}: Flatpak detection failed: {error}");
+        crate::flatpak::Status::default()
+    });
+    let mut states = shared.flatpak.lock().unwrap_or_else(PoisonError::into_inner);
+    if states.get(app) != Some(&status) {
+        shared.store_detected(app, status.installed.as_ref());
+        states.insert(app.into(), status.clone());
+        drop(states);
+        shared.emit_all([
+            Event::Installable { app: app.into(), installable: status.installable },
+            Event::Detected { app: app.into(), installed: status.installed.clone() },
+        ]);
+    }
+}
+
+#[cfg(target_os = "linux")]
+fn run_flathub(shared: &Shared, paths: &Paths, app: &str, work: FlatpakWork, stop: &Stop) -> Result<String, String> {
+    use crate::flatpak::Action;
+    let flatpak = flathub_client(&shared.host)?;
+    let record = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner).flathub.get(app).cloned();
+    let (action, phase, message) = match &work {
+        FlatpakWork::InstallOrUpdate(false) => (Action::Install, Some(JobPhase::Installing), "Flathub app installed"),
+        FlatpakWork::InstallOrUpdate(true) => (Action::Update, Some(JobPhase::Installing), "Flathub app is up to date"),
+        FlatpakWork::Remove => (Action::Remove, Some(JobPhase::Removing), "Flathub app removed"),
+        FlatpakWork::Open(args) => (Action::Open(args), None, "Launch request accepted"),
+    };
+    if let Some(phase) = phase {
+        shared.emit(Event::Progress { app: app.into(), phase });
+    }
+    let result = flatpak.execute(app, record.as_ref(), action, stop)?;
+    if !matches!(work, FlatpakWork::Open(_)) {
+        let mut manifest = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner);
+        let mut next = manifest.clone();
+        if let Some(record) = result {
+            next.flathub.insert(app.into(), record);
+        } else {
+            next.flathub.remove(app);
+        }
+        next.save(&paths.manifest())?;
+        *manifest = next;
+    }
+    Ok(message.into())
 }
 
 #[derive(Clone, PartialEq, Eq)]
@@ -2933,18 +3093,27 @@ impl Backend for NativeBackend {
                 });
             }
             Command::Install { app } => {
-                self.start_job(&app, Work::Install(None));
+                if crate::flatpak::IDS.contains(&app.as_str()) {
+                    self.start_flatpak(&app, Work::Install(None), None);
+                } else {
+                    self.start_job(&app, Work::Install(None));
+                }
             }
             Command::InstallAll { apps } => self.install_all(&apps),
             Command::InstallExpected { apps, installed } => {
                 // This command never turns an Update into an Install or vice versa.
                 let valid = !apps.is_empty()
                     && apps.iter().all(|id| {
-                        CraftApp::by_id(id).is_some_and(|app| self.platform.is_some_and(|p| app.runs_on(p.os)))
-                            && self.installed(id).is_some() == installed
+                        self.flatpak_status(id).map_or_else(
+                            || {
+                                CraftApp::by_id(id).is_some_and(|app| self.platform.is_some_and(|p| app.runs_on(p.os)))
+                                    && self.installed(id).is_some() == installed
+                            },
+                            |status| status.installable && status.installed.is_some() == installed,
+                        )
                     });
                 if valid {
-                    self.install_all(&apps);
+                    self.install_all_expected(&apps, Some(installed));
                 } else {
                     for app in apps {
                         self.shared
@@ -2959,7 +3128,11 @@ impl Backend for NativeBackend {
                 self.start_job(&app, Work::Chosen(Chosen { tag, fallback }));
             }
             Command::Uninstall { app } => {
-                self.start_job(&app, Work::Uninstall);
+                if crate::flatpak::IDS.contains(&app.as_str()) {
+                    self.start_flatpak(&app, Work::Uninstall, None);
+                } else {
+                    self.start_job(&app, Work::Uninstall);
+                }
             }
             Command::Pause { app } => {
                 if let Some(stop) = self.shared.jobs.lock().unwrap_or_else(PoisonError::into_inner).get(&app) {
@@ -2983,6 +3156,10 @@ impl Backend for NativeBackend {
                 }
             }
             Command::Launch { app, args } => {
+                if crate::flatpak::IDS.contains(&app.as_str()) {
+                    self.start_flatpak(&app, Work::Launch(args), None);
+                    return;
+                }
                 let Some(def) = CraftApp::by_id(&app) else {
                     return;
                 };
@@ -3694,6 +3871,10 @@ mod tests {
             nightly_state: Mutex::new(crate::nightly_lookup::State::default()),
             download_sizes: Mutex::new(HashMap::new()),
             installed: Mutex::new(HashMap::new()),
+            #[cfg(target_os = "linux")]
+            flatpak: Mutex::new(HashMap::new()),
+            #[cfg(target_os = "linux")]
+            flatpak_operation: Mutex::new(()),
             jobs: Mutex::new(HashMap::new()),
             lifecycle: Arc::new(ProcessLifecycle::default()),
             manifest: Mutex::new(Manifest::default()),

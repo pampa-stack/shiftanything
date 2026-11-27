@@ -127,6 +127,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::ORCA.id], (13, 4)),
         (&[recipe::JAN.id], (13, 6)),
         (&[recipe::CALIBRE.id, recipe::OLLAMA.id], (14, 0)),
+        (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::OPENCLAW.id], (26, 2)),

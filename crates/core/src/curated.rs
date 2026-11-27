@@ -1938,6 +1938,27 @@ pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("45U78722YL"),
 };
 
+pub const SUNSHINE: crate::CraftApp = crate::CraftApp {
+    id: "sunshine",
+    name: "Sunshine",
+    tagline: "Host game streams from your own computer",
+    repo: "SunshineStream/Sunshine",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [211, 117, 52],
+    ink_light: [144, 67, 24],
+    ink_dark: [255, 177, 121],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "LizardByte LLC",
+    msi_publisher: None,
+    bundle: Some("dev.lizardbyte.app.Sunshine"),
+    site: Some("https://app.lizardbyte.dev/Sunshine/"),
+    mac_bundle_name: None,
+    mac_team: Some("F8XQ7XCN2R"),
+};
+
 pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     id: "openpencil",
     name: "OpenPencil",
@@ -2085,7 +2106,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 90] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2175,6 +2196,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
     ZOTERO,
     DESKREEN,
     MOONLIGHT,
+    SUNSHINE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

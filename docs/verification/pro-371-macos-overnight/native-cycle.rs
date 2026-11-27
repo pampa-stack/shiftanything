@@ -83,7 +83,7 @@ fn main() -> Result<(), String> {
         || !parent.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("shift-air-overnight."))
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
-        || !["moonlight", "openpencil", "airi"].contains(&app.id)
+        || !["moonlight", "openpencil", "airi", "sunshine"].contains(&app.id)
         || app.mac_team.is_none()
         || app.mac_bundle_name.unwrap_or(app.name) != app_name
     {

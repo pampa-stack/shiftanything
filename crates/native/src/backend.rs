@@ -1545,6 +1545,8 @@ fn run_flathub(shared: &Shared, paths: &Paths, app: &str, work: FlatpakWork, sto
         shared.emit(Event::Progress { app: app.into(), phase });
     }
     let result = flatpak.execute(app, record.as_ref(), action, stop)?;
+    let message =
+        if matches!(work, FlatpakWork::InstallOrUpdate(true)) && result.as_ref() != record.as_ref() { "Flathub app updated" } else { message };
     if !matches!(work, FlatpakWork::Open(_)) {
         let mut manifest = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner);
         let mut next = manifest.clone();

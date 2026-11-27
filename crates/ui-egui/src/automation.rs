@@ -174,6 +174,8 @@ impl LauncherUi {
                     installed_version: entry.installed.as_ref().and_then(|installed| installed.version.as_ref().map(ToString::to_string)),
                     latest_version: entry.release().and_then(|release| release.version.as_ref().map(ToString::to_string)),
                     job: entry.job.map(|phase| format!("{phase:?}")),
+                    can_open: None,
+                    can_remove: None,
                 })
                 .collect(),
             results: self.automation_results.clone(),

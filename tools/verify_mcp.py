@@ -99,8 +99,15 @@ async def main():
                 assert (await call("request_action", operation="install", app_ids=["handy"]))["error"] == "invalid_native_state"
                 app["compatible"] = True
                 app["installed"] = True
+                app["can_remove"] = False
+                app["can_open"] = False
                 publish()
                 assert (await call("request_action", operation="install", app_ids=["handy"]))["error"] == "invalid_native_state"
+                for op in ["open", "remove"]:
+                    assert (await call("request_action", operation=op, app_ids=["handy"]))["error"] == "invalid_native_state"
+                    assert not (bridge / "request.json").exists()
+                del app["can_open"]
+                del app["can_remove"]
                 app["update_available"] = True
                 publish()
                 queued = await call("request_action", operation="update_all", app_ids=["handy"])

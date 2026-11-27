@@ -1,0 +1,18 @@
+OFFICIAL https://github.com/Rizzo-AI-Academy/rizzo-pii/releases/download/v2.1.0/Rizzo-PII-2.1.0-macOS-arm64.dmg: size=132561673 sha256=Some("f94fd21db84e9e355b9bd873c50686ead334e38bebed39ae6daf7f54c336dfe7")
+PASS NATIVE rizzo-pii install: Rizzo PII installed: 2.1.0; transferred=132561673
+/private/tmp/shift-daily-native-scratch.1tk50Ndc/home/Applications/Rizzo PII.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Simone Rizzo (5J76G3383Y)
+PASS SIGNATURE + PROFILE MARKER rizzo install 2.1.0
+OFFICIAL https://github.com/Rizzo-AI-Academy/rizzo-pii/releases/download/v2.2.0/Rizzo-PII-2.2.0-macOS-arm64.dmg: size=197183674 sha256=Some("eb732c316dc5a60c84afe5a921162c7abb52575b3fb6e0aaf0c7902642c0e808")
+PASS NATIVE rizzo-pii update: Rizzo PII updated to 2.2.0; transferred=197183674
+/private/tmp/shift-daily-native-scratch.1tk50Ndc/home/Applications/Rizzo PII.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Simone Rizzo (5J76G3383Y)
+PASS SIGNATURE + PROFILE MARKER rizzo update 2.2.0
+PASS NATIVE rizzo-pii remove: Rizzo PII was removed; transferred=0
+/private/tmp/shift-daily-native-scratch.1tk50Ndc/home/.Trash/Rizzo PII.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Simone Rizzo (5J76G3383Y)
+PASS SIGNATURE + PROFILE MARKER rizzo remove 2.2.0
+CLEANUP rizzo exit=0

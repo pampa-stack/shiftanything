@@ -47,7 +47,7 @@
     return {x:r.x,y:r.y,width:r.width,height:r.height};
   };
   async function metrics() {
-    if (document.querySelector('.body').hidden) return;
+    if (!current?.isolated_profile || document.querySelector('.body').hidden) return;
     const cards = [...document.querySelectorAll('.catalog-grid .cell:not([hidden])')];
     const report = {
       language: document.documentElement.lang,
@@ -60,8 +60,16 @@
     };
     await invoke('record_visual_metrics', {report});
   }
+  let current;
   let debounce;
-  function measureSoon() { clearTimeout(debounce); debounce=setTimeout(() => metrics().catch(error => {actionError=String(error);status.textContent=actionError;}),300); }
+  function measureSoon() {
+    if (!current?.isolated_profile) return;
+    clearTimeout(debounce);
+    debounce = setTimeout(() => metrics().catch(error => {
+      actionError = String(error);
+      status.textContent = actionError;
+    }), 300);
+  }
   document.addEventListener('load', measureSoon, true);
   document.addEventListener('scroll', measureSoon, true);
   document.addEventListener('input', measureSoon);
@@ -80,7 +88,8 @@
       window.dispatchEvent(new CustomEvent('native-favorites',{detail:ids}));
     } catch(error) {actionError=String(error);status.textContent=actionError;}
   });
-  let current;
+  window.nativeAppActivity = appActivity;
+  let paintKey;
   let requesting = false;
   const confirmation = document.createElement('dialog');
   confirmation.className = 'native-confirmation';
@@ -93,21 +102,80 @@
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
   const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};
   const projectGuide = entry => [entry?.review?.source, entry?.website].find(url => url?.startsWith('https://'));
-  function renderDownloadSize(container, snapshot, appId, selector) {
-    const bytes = snapshot.download_sizes?.[appId];
-    if (!container || bytes === undefined) return;
-    const output = container.querySelector(selector);
-    if (!output) return;
-    const label = bytes > 0
-      ? `${sizeFormatter.format(bytes / 1000000)} MB · ${platformLabels[snapshot.platform.os]}`
+  const dateFormatter = new Intl.DateTimeFormat(document.documentElement.lang, {
+    year:'numeric', month:'short', day:'numeric', timeZone:'UTC'
+  });
+  const unavailableDate = it ? 'Data non disponibile' : 'Date unavailable';
+  const phases = it ? {
+    downloading:'Download in corso', reconnecting:'Connessione in ripristino', verifying:'Verifica del pacchetto',
+    queued:'Download in coda', waiting:'In attesa dell’installatore', installing:'Installazione in corso', removing:'Rimozione in corso',
+  } : {
+    downloading:'Downloading', reconnecting:'Reconnecting', verifying:'Verifying package',
+    queued:'Download queued', waiting:'Waiting for installer', installing:'Installing', removing:'Removing',
+  };
+  const versionKey = value => (value || '').replace(/^[vV](?=\d)/, '');
+  const setText = (element, value) => { if (element && element.textContent !== value) element.textContent = value; };
+  function releasePresentation(snapshot, appId) {
+    const live = snapshot.release_assets?.[appId];
+    if (!live) return;
+    const documented = catalogById.get(appId)?.release;
+    const sameRelease = [live.tag, live.version].some(value => versionKey(value) === versionKey(documented?.version));
+    const timestamp = live.published_at === null ? null : new Date(live.published_at * 1000);
+    const date = timestamp || (sameRelease && documented?.date ? new Date(documented.date + 'T00:00:00Z') : null);
+    const day = date && Number.isFinite(date.getTime()) ? date.toISOString().slice(0,10) : '';
+    const size = live.bytes > 0
+      ? `${sizeFormatter.format(live.bytes / 1000000)} MB · ${platformLabels[snapshot.platform.os]}`
       : it ? 'Dimensione non disponibile' : 'Size unavailable';
-    if (output.textContent !== label) output.textContent = label;
+    return {version:live.version, day, dateLabel:day ? dateFormatter.format(date) : unavailableDate, size};
+  }
+  function applyReleaseDate(output, release) {
+    if (!output) return;
+    const previous = output.querySelector('time');
+    if (!release.day) { setText(output, release.dateLabel); return; }
+    if (previous?.dateTime === release.day) return;
+    const time = document.createElement('time');
+    time.dateTime = release.day;
+    time.textContent = release.dateLabel;
+    output.replaceChildren(time);
+  }
+  function progressLabel(progress) {
+    if (!progress) return '';
+    const label = phases[progress.phase] || '';
+    if (!(progress.total > 0)) return label;
+    const percent = Math.max(0, Math.min(100, Math.floor(progress.done * 100 / progress.total)));
+    return `${label} · ${percent}%`;
+  }
+  function appActivity(snapshot, id) {
+    const live = progressLabel(snapshot.progress[id]);
+    if (live) return {label:live};
+    const detail = snapshot.inventory.results['app:'+id];
+    if (!detail) return {};
+    let label;
+    if (detail.startsWith('installed; could not open:')) label = it?'Installata. Apertura non riuscita.':'Installed. Could not open.';
+    else if (detail.startsWith('completed:')) label = it?'Operazione completata':'Action completed';
+    else if (detail.startsWith('rejected:')) label = it?'Operazione rifiutata':'Action rejected';
+    else label = it?'Operazione non riuscita':'Action failed';
+    return {label,detail};
+  }
+  function updateCatalogReleases(snapshot) {
+    let datesChanged = false;
+    for (const node of document.querySelectorAll('.catalog-grid .cell[data-app], .catalog-row[data-app]')) {
+      const entry = releasePresentation(snapshot, node.dataset.app);
+      if (!entry) continue;
+      if (node.dataset.release !== entry.day) {
+        node.dataset.release = entry.day;
+        datesChanged = true;
+      }
+      applyReleaseDate(node.querySelector('.release-meta > div:first-child > div:last-child'), entry);
+      setText(node.querySelector('.release-meta > div:last-child > div:last-child'), entry.size);
+    }
+    if (datesChanged) document.querySelector('[data-catalog]').dispatchEvent(new Event('releases-changed'));
   }
   function primaryAction(snapshot, appId, app) {
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
     if (app?.job) return {label:it?'In corso…':'Working…', enabled:false};
-    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled)};
+    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false)};
     if (platform && entry?.platform_scope_complete && !entry.platform_support?.[platform]
       && !entry.release?.packages?.some(pkg => pkg.platform === platform)
       && !entry.distribution?.some(channel => channel.platform === platform)) {
@@ -120,34 +188,23 @@
     if (snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
     return {label:it?'Pacchetto non disponibile':'Package unavailable', enabled:false};
   }
-  function render(snapshot) {
+  function render(snapshot, {force = false} = {}) {
+    const firstPaint = !current;
+    const {updated_at: _, ...inventoryState} = snapshot.inventory;
+    const nextKey = JSON.stringify([snapshot.lifecycle_enabled, snapshot.platform, inventoryState, snapshot.release_assets,
+      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites]);
     current = snapshot;
+    if (!force && paintKey === nextKey) return;
+    paintKey = nextKey;
+    if (firstPaint) measureSoon();
     window.dispatchEvent(new CustomEvent('native-snapshot',{detail:snapshot}));
+    updateCatalogReleases(snapshot);
     const key=JSON.stringify(snapshot.favorites);
     if (key!==favoritesKey) {
       favoritesKey=key;
       window.dispatchEvent(new CustomEvent('native-favorites',{detail:snapshot.favorites}));
     }
     const inventory = new Map(snapshot.inventory.apps.map(app => [app.id,app]));
-    for (const card of document.querySelectorAll('.catalog-grid .cell[data-app]')) {
-      renderDownloadSize(card, snapshot, card.dataset.app, '.release-meta > div:last-child > div:last-child');
-    }
-    for (const button of document.querySelectorAll('[data-native-app]')) {
-      const app = inventory.get(button.dataset.nativeApp);
-      const operation = button.dataset.nativeOperation;
-      if (!operation) {
-        const action = primaryAction(snapshot, button.dataset.nativeApp, app);
-        if (button.textContent !== action.label) button.textContent = action.label;
-        button.disabled = !action.enabled;
-        button.title = app?.job || action.label;
-        button.toggleAttribute('data-project-guide', action.guide === true);
-        continue;
-      }
-      button.textContent = labels[operation];
-      const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed,remove:app.installed,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
-      button.disabled = !snapshot.lifecycle_enabled || !allowed;
-      button.title = app?.job || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
-    }
     const detail = document.querySelector('.catalog-detail[open] [data-app-content]');
     const primary = detail?.querySelector('[data-native-app]');
     if (primary && !detail.querySelector('.native-management')) {
@@ -162,11 +219,40 @@
       controls.append(result); detail.append(controls);
     }
     if (detail) {
-      renderDownloadSize(detail, snapshot, primary?.dataset.nativeApp, '.detail-facts > div:nth-child(3) > div:last-child');
-      const app = inventory.get(primary?.dataset.nativeApp);
+      const appId = primary?.dataset.nativeApp;
+      const release = releasePresentation(snapshot, appId);
+      if (release) {
+        setText(detail.querySelector('.detail-facts > div:first-child > div:last-child'), release.version);
+        applyReleaseDate(detail.querySelector('.detail-facts > div:nth-child(2) > div:last-child'), release);
+        setText(detail.querySelector('.detail-facts > div:nth-child(3) > div:last-child'), release.size);
+      }
       const output = detail.querySelector('.native-result');
-      if (output) output.textContent = `${app?.installed_version || '—'} → ${app?.latest_version || '—'} · ${actionError || snapshot.progress[app?.id]?.phase || snapshot.inventory.results['app:'+app?.id] || ''}`;
+      if (output) {
+        const activity = appActivity(snapshot, appId);
+        output.title = activity.detail || '';
+        setText(output, activity.label || '');
+        output.hidden = !activity.label;
+      }
     }
+    for (const button of document.querySelectorAll('[data-native-app]')) {
+      const app = inventory.get(button.dataset.nativeApp);
+      const operation = button.dataset.nativeOperation;
+      if (!operation) {
+        const action = primaryAction(snapshot, button.dataset.nativeApp, app);
+        if (button.textContent !== action.label) button.textContent = action.label;
+        button.disabled = !action.enabled;
+        button.title = progressLabel(snapshot.progress[app?.id]) || action.label;
+        button.toggleAttribute('data-project-guide', action.guide === true);
+        continue;
+      }
+      button.textContent = labels[operation];
+      const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed && app.can_open !== false,remove:app.installed && app.can_remove !== false,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
+      button.disabled = !snapshot.lifecycle_enabled || !allowed;
+      button.hidden = !snapshot.lifecycle_enabled || !allowed;
+      button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
+    }
+    const controls = detail?.querySelector('.native-management');
+    if (controls) controls.hidden = [...controls.children].every(child => child.hidden);
     if (snapshot.pending) {
       if (pendingId !== snapshot.pending.id) launchCheckbox.checked = Boolean(snapshot.offer_open_after_install);
       firstOpen.hidden = !snapshot.offer_open_after_install;
@@ -179,6 +265,7 @@
       if (!confirmation.open) confirmation.showModal();
     } else { pendingId=undefined; if (confirmation.open) confirmation.close(); }
   }
+  document.addEventListener('app-detail-open', () => { if (current) render(current, {force:true}); });
   async function decide(approve) {
     if (!pendingId || requesting) return;
     requesting=true;
@@ -220,8 +307,15 @@
     async function poll() {
     const snapshot = await invoke('native_snapshot');
     render(snapshot);
-    const profile = snapshot.isolated_profile ? (snapshot.lifecycle_enabled ? (it ? 'Profilo temporaneo' : 'Temporary profile') : note) : 'Sh*ftAnything';
-    status.textContent = `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'} · ${actionError || Object.entries(snapshot.progress).map(([id,p])=>id+': '+p.phase).join(' · ') || Object.entries(snapshot.inventory.results).filter(([id])=>id.startsWith('app:')).map(([id,result])=>id.slice(4)+': '+result).slice(-1).join('')}`;
+    const progress = Object.entries(snapshot.progress).map(([id, job]) =>
+      `${catalogById.get(id)?.name || id} · ${progressLabel(job)}`).join(' · ');
+    if (snapshot.isolated_profile) {
+      const profile = snapshot.lifecycle_enabled ? (it?'Profilo temporaneo':'Temporary profile') : note;
+      setText(status, `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'}${progress ? ' · ' + progress : ''}`);
+    } else {
+      setText(status, progress || (actionError && (it?'Azione non riuscita':'Action failed')) || (it?'Pronto':'Ready'));
+    }
+    status.title = actionError;
     setTimeout(() => poll().catch(error => {status.textContent=String(error);}),1000);
     }
     await poll();

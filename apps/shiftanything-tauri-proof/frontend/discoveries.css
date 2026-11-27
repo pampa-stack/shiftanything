@@ -17,6 +17,7 @@
 .discovery-examples { margin-top:16px; }
 .discovery-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%, 315px),1fr)); gap:14px; }
 .discovery-tile { border:1px solid var(--bd2); border-radius:8px; padding:16px; min-width:0; }
+.discovery-browser { margin-top:22px; }
 .discovery-rankings { display:grid; gap:14px; margin:28px 0; }
 .kit-choice { display:flex; align-items:center; flex-wrap:wrap; gap:8px; border-top:1px solid var(--bd2); padding:10px 0; margin-top:8px; }
 .kit-choice label { display:flex; gap:6px; align-items:center; }

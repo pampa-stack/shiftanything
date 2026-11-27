@@ -64,8 +64,10 @@
     const logo = original?.querySelector('.product-icon');
     if (logo) identity.append(logo.cloneNode(true));
     identity.append(text('strong', entry?.name || app.id));
-    row.append(identity, text('span', app.installed_version || '—'), text('span', app.update_available ? app.latest_version : '—'));
-    const state = text('span', snapshot.progress[app.id]?.phase || snapshot.inventory.results['app:'+app.id] || (it?'Installata':'Installed'));
+    row.append(identity, text('span', app.installed_version || '—'), text('span', app.update_available ? (app.latest_version || (it?'Nuova revisione':'New revision')) : '—'));
+    const activity = window.nativeAppActivity(snapshot, app.id);
+    const state = text('span', activity.label || (it?'Installata':'Installed'));
+    state.title = activity.detail || '';
     state.className = 'native-app-result';
     row.append(state);
     const actions = document.createElement('div');
@@ -75,11 +77,15 @@
       update.disabled ||= !app.installable || !app.compatible;
       actions.append(update);
     }
-    actions.append(action(app, 'open', it?'Apri':'Open'));
+    const open = action(app, 'open', it?'Apri':'Open');
+    open.disabled ||= app.can_open === false;
+    actions.append(open);
     const details = text('button', it?'Scheda':'Details', 'btn');
     details.type = 'button';
     details.dataset.appDetail = app.id;
-    actions.append(details, action(app, 'remove', it?'Rimuovi':'Remove'));
+    const remove = action(app, 'remove', it?'Rimuovi':'Remove');
+    remove.disabled ||= app.can_remove === false;
+    actions.append(details, remove);
     if (app.job) actions.append(action(app, 'cancel', it?'Annulla download':'Cancel download'));
     row.append(actions);
     return row;

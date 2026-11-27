@@ -11,6 +11,7 @@ pub mod catalog;
 pub mod details;
 pub mod distro;
 pub mod feed;
+pub mod flathub;
 pub mod hosted_catalog;
 pub mod mcp_config;
 pub mod nightly;

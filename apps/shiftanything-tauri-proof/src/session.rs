@@ -13,7 +13,10 @@ use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
     path::{Path, PathBuf},
+    time::{Duration, Instant},
 };
+
+const UPDATE_CHECK_INTERVAL: Duration = Duration::from_secs(15 * 60);
 
 pub struct NativeState {
     backend: NativeBackend,
@@ -27,6 +30,7 @@ pub struct NativeState {
     pending_from_ui: bool,
     open_after_install: BTreeSet<String>,
     next_request: u64,
+    last_update_check: Instant,
     enabled: bool,
     isolated: bool,
     pub diagnostics: PathBuf,
@@ -41,13 +45,21 @@ pub struct Progress {
 }
 
 #[derive(Serialize)]
+struct ReleaseAsset {
+    tag: String,
+    version: String,
+    published_at: Option<i64>,
+    bytes: u64,
+}
+
+#[derive(Serialize)]
 pub struct Snapshot {
     platform: Option<Platform>,
     detected: BTreeMap<String, Option<Installed>>,
     lifecycle_enabled: bool,
     isolated_profile: bool,
     inventory: Inventory,
-    download_sizes: BTreeMap<String, u64>,
+    release_assets: BTreeMap<String, ReleaseAsset>,
     pending: Option<Request>,
     offer_open_after_install: bool,
     progress: BTreeMap<String, Progress>,
@@ -78,6 +90,10 @@ impl NativeState {
 
     pub fn lifecycle_enabled(&self) -> bool {
         self.enabled
+    }
+
+    pub fn isolated_profile(&self) -> bool {
+        self.isolated
     }
 
     pub fn new(root: PathBuf, enabled: bool, isolated: bool) -> Result<Self, String> {
@@ -123,6 +139,7 @@ impl NativeState {
             pending_from_ui: false,
             open_after_install: BTreeSet::new(),
             next_request: 0,
+            last_update_check: Instant::now(),
             enabled,
             isolated,
             favorites: crate::favorites::Favorites::load(&root)?,
@@ -200,42 +217,57 @@ impl NativeState {
 
     fn inventory(&self) -> Inventory {
         let platform = self.backend.platform();
-        Inventory {
-            updated_at: self.backend.now(),
-            apps: artcraft_launcher_core::curated::NATIVE_APPS
-                .iter()
-                .map(|app| {
-                    let installed = self.detected.get(app.id).and_then(Option::as_ref);
-                    let release = match self.latest.get(app.id) {
-                        Some(LatestRelease::Found(release)) => Some(release),
-                        _ => None,
-                    };
-                    let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
-                    let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
-                    let update_available = installable
-                        && installed.zip(release).is_some_and(|(installed, release)| {
-                            !installed.externally_managed
-                                && installed
-                                    .version
-                                    .as_ref()
-                                    .zip(release.version.as_ref())
-                                    .is_some_and(|(old, new)| artcraft_launcher_core::version::is_update(new, old))
-                        });
-                    InventoryEntry {
-                        id: app.id.into(),
-                        detected: self.detected.contains_key(app.id),
-                        installed: installed.is_some(),
-                        compatible: has_asset,
-                        installable,
-                        update_available,
-                        installed_version: installed.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
-                        latest_version: release.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
-                        job: self.jobs.get(app.id).map(|phase| format!("{phase:?}")),
-                    }
-                })
-                .collect(),
-            results: self.results.clone(),
-        }
+        let mut apps: Vec<_> = artcraft_launcher_core::curated::NATIVE_APPS
+            .iter()
+            .map(|app| {
+                let installed = self.detected.get(app.id).and_then(Option::as_ref);
+                let release = match self.latest.get(app.id) {
+                    Some(LatestRelease::Found(release)) => Some(release),
+                    _ => None,
+                };
+                let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
+                let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
+                let update_available = installable
+                    && installed.zip(release).is_some_and(|(installed, release)| {
+                        !installed.externally_managed
+                            && installed
+                                .version
+                                .as_ref()
+                                .zip(release.version.as_ref())
+                                .is_some_and(|(old, new)| artcraft_launcher_core::version::is_update(new, old))
+                    });
+                InventoryEntry {
+                    id: app.id.into(),
+                    detected: self.detected.contains_key(app.id),
+                    installed: installed.is_some(),
+                    compatible: has_asset,
+                    installable,
+                    update_available,
+                    can_open: None,
+                    can_remove: None,
+                    installed_version: installed.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
+                    latest_version: release.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
+                    job: self.jobs.get(app.id).map(|phase| format!("{phase:?}")),
+                }
+            })
+            .collect();
+        apps.extend(artcraft_launcher_core::flathub::IDS.into_iter().filter_map(|id| {
+            let state = self.backend.flatpak_status(id)?;
+            Some(InventoryEntry {
+                id: id.into(),
+                detected: self.detected.contains_key(id),
+                installed: state.installed.is_some(),
+                compatible: true,
+                installable: self.enabled && state.installable,
+                update_available: self.enabled && state.update_available,
+                can_open: Some(state.can_open),
+                can_remove: Some(state.can_remove),
+                installed_version: state.installed.and_then(|entry| entry.version).map(|version| version.to_string()),
+                latest_version: None,
+                job: self.jobs.get(id).map(|phase| format!("{phase:?}")),
+            })
+        }));
+        Inventory { updated_at: self.backend.now(), apps, results: self.results.clone() }
     }
 
     fn validate(&self, request: &Request) -> Result<(), String> {
@@ -257,6 +289,7 @@ impl NativeState {
         if !self.enabled {
             return Err("Native lifecycle is disabled in this profile".into());
         }
+        self.last_update_check = Instant::now();
         self.backend.send(Command::CheckForUpdates { force: true });
         Ok(())
     }
@@ -264,6 +297,10 @@ impl NativeState {
     pub fn snapshot(&mut self) -> Snapshot {
         self.poll();
         if self.enabled {
+            if self.pending.is_none() && self.jobs.is_empty() && self.last_update_check.elapsed() >= UPDATE_CHECK_INTERVAL {
+                self.last_update_check = Instant::now();
+                self.backend.send(Command::CheckForUpdates { force: false });
+            }
             if self.pending.is_none()
                 && let Some(request) = automation::take_request()
             {
@@ -286,17 +323,23 @@ impl NativeState {
             automation::publish(&self.inventory());
         }
         let platform = self.backend.platform();
-        let download_sizes = artcraft_launcher_core::curated::NATIVE_APPS
+        let release_assets = artcraft_launcher_core::curated::NATIVE_APPS
             .iter()
             .filter_map(|app| {
                 let LatestRelease::Found(release) = self.latest.get(app.id)? else { return None };
                 let asset = compatible_asset(app, platform?, release)?;
-                Some((app.id.to_string(), asset.size))
+                let metadata = ReleaseAsset {
+                    tag: release.tag.clone(),
+                    version: release.version_label(),
+                    published_at: release.published_at,
+                    bytes: asset.size,
+                };
+                Some((app.id.to_string(), metadata))
             })
             .collect();
         Snapshot {
             platform,
-            download_sizes,
+            release_assets,
             detected: self.detected.clone(),
             lifecycle_enabled: self.enabled,
             isolated_profile: self.isolated,
@@ -308,11 +351,16 @@ impl NativeState {
                 .jobs
                 .iter()
                 .map(|(id, phase)| {
-                    let (done, total) = match phase {
-                        JobPhase::Downloading { done, total } | JobPhase::Reconnecting { done, total } => (Some(*done), Some(*total)),
-                        _ => (None, None),
+                    let (phase, done, total) = match phase {
+                        JobPhase::Downloading { done, total } => ("downloading", Some(*done), Some(*total)),
+                        JobPhase::Reconnecting { done, total } => ("reconnecting", Some(*done), Some(*total)),
+                        JobPhase::Verifying => ("verifying", None, None),
+                        JobPhase::Queued => ("queued", None, None),
+                        JobPhase::Waiting => ("waiting", None, None),
+                        JobPhase::Installing => ("installing", None, None),
+                        JobPhase::Removing => ("removing", None, None),
                     };
-                    (id.clone(), Progress { phase: format!("{phase:?}"), done, total })
+                    (id.clone(), Progress { phase: phase.to_string(), done, total })
                 })
                 .collect(),
         }

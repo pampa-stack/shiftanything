@@ -45,6 +45,7 @@
       detailContent.replaceChildren(template.content.cloneNode(true));
       updateHearts();
       detail.showModal();
+      document.dispatchEvent(new Event('app-detail-open'));
     });
     detail.addEventListener('click', event => {
       if (event.target.closest('[data-close-detail]')) {
@@ -191,6 +192,9 @@
     render();
   });
   sort.addEventListener('change', () => render({ reorder: true }));
+  catalog.addEventListener('releases-changed', () => {
+    if (sort.value === 'latest') render({ reorder: true });
+  });
 
   for (const button of levelButtons) button.addEventListener('click', () => {
     level = button.dataset.catalogLevel;

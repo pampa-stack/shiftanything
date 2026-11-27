@@ -101,7 +101,7 @@
     query.placeholder = label(intents[0]?.example);
     prompt.htmlFor = query.id;
     const controls = node('div', '', 'discovery-controls');
-    const osLabel = node('label', it ? 'Sistema' : 'System');
+    const osLabel = node('label', it ? 'Sistema per app desktop' : 'Desktop operating system');
     system = node('select');
     system.id = 'find-app-system';
     osLabel.htmlFor = system.id;
@@ -114,30 +114,43 @@
     controls.append(prompt, query, osLabel, system);
     const examples = node('div', '', 'discovery-examples');
     const results = node('div', '', 'discovery-results');
+    const browserResults = node('div', '', 'discovery-results');
+    const browserSection = node('section', '', 'discovery-browser');
+    browserSection.hidden = true;
+    browserSection.append(node('h2', it?'Utilizzabili via browser':'Available in a browser'), browserResults);
     const feedback = node('p', '', 'discovery-feedback');
     feedback.setAttribute('role', 'status');
-    find.append(controls, examples, feedback, results);
+    find.append(controls, examples, feedback, results, browserSection);
     renderFind = () => {
       const phrase = normalize(query.value);
       const includes = term => (' ' + phrase).includes(' ' + term);
       const matched = phrase ? intents.filter(intent => !intent.exclude?.some(includes) && intent.match.some(group => group.every(includes))) : [];
       const seen = new Set();
       const rows = [];
+      const browserRows = [];
       for (const intent of matched) for (const result of intent.apps) {
         const app = catalog.get(result.id);
         const os = system.value;
         if (!app || seen.has(app.id)) continue;
-        if (os !== 'all' && !app.platform_support?.[os] && !app.release?.packages?.some(pkg => pkg.platform === os)
+        const browser = app.delivery === 'self-hosted' || app.delivery === 'web';
+        if (!browser && os !== 'all' && !app.platform_support?.[os] && !app.release?.packages?.some(pkg => pkg.platform === os)
           && !app.distribution?.some(channel => channel.platform === os)) continue;
         seen.add(app.id);
         const row = node('article', '', 'discovery-tile');
         const actions = node('div', '', 'discovery-actions');
         actions.append(details(app.id), source(it?'Fonte':'Source', app.id, result.source));
-        row.append(node('h2', app.name), node('p', label(result.reason)), actions);
-        rows.push(row);
+        row.append(node('h2', app.name), node('p', label(result.reason)));
+        if (app.delivery === 'self-hosted') {
+          row.append(node('p', it ? 'Da configurare sul proprio computer o server' : 'Set up on your own computer or server'));
+        }
+        row.append(actions);
+        (browser ? browserRows : rows).push(row);
       }
       results.replaceChildren(...rows);
-      feedback.textContent = !phrase ? '' : rows.length ? `${rows.length} ${it?'risultati':'results'}` : matched.length
+      browserResults.replaceChildren(...browserRows);
+      browserSection.hidden = !browserRows.length;
+      const count = rows.length + browserRows.length;
+      feedback.textContent = !phrase ? '' : count ? `${count} ${it?'risultati':'results'}` : matched.length
         ? (it?'Nessun risultato documentato per questo sistema.':'No documented result for this system.')
         : (it?'Nessuna corrispondenza. Prova con un problema più specifico.':'No matches. Try a more specific problem.');
     };

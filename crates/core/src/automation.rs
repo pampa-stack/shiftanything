@@ -28,8 +28,10 @@ impl Request {
         let mut ids = std::collections::HashSet::new();
         for id in &self.apps {
             let entry = crate::curated::apps().iter().find(|a| &a.id == id).ok_or("unknown curated app")?;
-            let native = crate::CraftApp::by_id(id).ok_or("no native recipe")?;
-            if !ids.insert(id) || entry.repo.trim_end_matches('/') != format!("https://github.com/{}", native.repo) {
+            let has_recipe = crate::CraftApp::by_id(id)
+                .is_some_and(|native| entry.repo.trim_end_matches('/') == format!("https://github.com/{}", native.repo))
+                || crate::flathub::approved_catalog_identity(entry);
+            if !ids.insert(id) || !has_recipe {
                 return Err("unapproved recipe identity".into());
             }
         }
@@ -44,6 +46,10 @@ pub struct InventoryEntry {
     pub compatible: bool,
     pub installable: bool,
     pub update_available: bool,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub can_open: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub can_remove: Option<bool>,
     pub installed_version: Option<String>,
     pub latest_version: Option<String>,
     pub job: Option<String>,
@@ -59,7 +65,8 @@ impl Request {
             let allowed = match self.operation {
                 Operation::Install => !app.installed && app.compatible && app.installable,
                 Operation::Update | Operation::UpdateAll => app.installed && app.compatible && app.installable && app.update_available,
-                Operation::Open | Operation::Remove => app.installed,
+                Operation::Open => app.installed && app.can_open.unwrap_or(true),
+                Operation::Remove => app.installed && app.can_remove.unwrap_or(true),
                 Operation::Cancel => app.job.is_some(),
             };
             if !allowed {
@@ -88,6 +95,28 @@ mod tests {
         Snapshot {
             apps: vec![InventoryEntry { id: "handy".into(), detected: true, compatible: true, installable: true, ..Default::default() }],
             ..Default::default()
+        }
+    }
+    #[test]
+    fn flathub_copies_can_open_without_ownership_but_cannot_be_removed() {
+        for id in crate::flathub::IDS {
+            let open = Request { id: "web-test".into(), operation: Operation::Open, apps: vec![id.into()] };
+            let remove = Request { operation: Operation::Remove, ..open.clone() };
+            let mut snapshot = Snapshot {
+                apps: vec![InventoryEntry {
+                    id: id.into(),
+                    detected: true,
+                    installed: true,
+                    can_open: Some(true),
+                    can_remove: Some(false),
+                    ..Default::default()
+                }],
+                ..Default::default()
+            };
+            assert!(open.validate_state(&snapshot).is_ok());
+            assert!(remove.validate_state(&snapshot).is_err());
+            snapshot.apps[0].can_remove = Some(true);
+            assert!(remove.validate_state(&snapshot).is_ok());
         }
     }
     #[test]

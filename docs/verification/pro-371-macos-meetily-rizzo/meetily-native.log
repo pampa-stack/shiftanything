@@ -1,0 +1,18 @@
+OFFICIAL https://github.com/Zackriya-Solutions/meetily/releases/download/v0.4.1/meetily_0.4.1_aarch64.dmg: size=47951342 sha256=Some("16f84b1769619ba3da93bc43e9c1fa3320ce2b00cc9e99225a3d21302770eaf5")
+PASS NATIVE meetily install: Meetily installed: 0.4.1; transferred=47951342
+/private/tmp/shift-daily-native-scratch.yY8uW9SL/home/Applications/meetily.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: ZACKRIYA SOLUTIONS (554AZZ38TB)
+PASS SIGNATURE + PROFILE MARKER meetily install 0.4.1
+OFFICIAL https://github.com/Zackriya-Solutions/meetily/releases/download/v0.5.0/meetily_0.5.0_aarch64.dmg: size=48053942 sha256=Some("c7ac63bf80c4085d95388e6c569c95f9a7bcb1b539f3fe964f4522c63eac2ef3")
+PASS NATIVE meetily update: Meetily updated to 0.5.0; transferred=48053942
+/private/tmp/shift-daily-native-scratch.yY8uW9SL/home/Applications/meetily.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: ZACKRIYA SOLUTIONS (554AZZ38TB)
+PASS SIGNATURE + PROFILE MARKER meetily update 0.5.0
+PASS NATIVE meetily remove: Meetily was removed; transferred=0
+/private/tmp/shift-daily-native-scratch.yY8uW9SL/home/.Trash/meetily.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: ZACKRIYA SOLUTIONS (554AZZ38TB)
+PASS SIGNATURE + PROFILE MARKER meetily remove 0.5.0
+CLEANUP meetily exit=0

@@ -113,10 +113,12 @@ fn open_mcp_docs(client: McpClient) -> Result<(), String> {
 fn native_snapshot(state: tauri::State<'_, Mutex<NativeState>>) -> Result<session::Snapshot, String> {
     let mut state = state.lock().map_err(|e| e.to_string())?;
     let snapshot = state.snapshot();
-    artcraft_launcher_native::paths::write_atomic(
-        &state.diagnostics.join("native-state.json"),
-        &serde_json::to_vec_pretty(&snapshot).map_err(|e| e.to_string())?,
-    )?;
+    if state.isolated_profile() {
+        artcraft_launcher_native::paths::write_atomic(
+            &state.diagnostics.join("native-state.json"),
+            &serde_json::to_vec_pretty(&snapshot).map_err(|e| e.to_string())?,
+        )?;
+    }
     Ok(snapshot)
 }
 #[tauri::command]
@@ -195,6 +197,9 @@ fn record_visual_metrics(report: VisualReport, state: tauri::State<'_, Mutex<Nat
         return Err("Invalid visual report".into());
     }
     let state = state.lock().map_err(|e| e.to_string())?;
+    if !state.isolated_profile() {
+        return Err("Visual metrics require a verification profile".into());
+    }
     let path = state.diagnostics.join(format!("visual-{}.json", report.language.code()));
     artcraft_launcher_native::paths::write_atomic(&path, &serde_json::to_vec_pretty(&report).map_err(|e| e.to_string())?)
 }

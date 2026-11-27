@@ -25,6 +25,8 @@
 .native-first-open[hidden] {display:none;}
 .native-decision,.native-management {display:flex;gap:12px;flex-wrap:wrap;}
 .native-confirmation button {padding:10px 24px;background:#30343b;color:#fff;border:1px solid #777;cursor:pointer;}
+.native-management {padding:0 26px 18px;}
+.native-management[hidden],.native-management [hidden] {display:none;}
 .native-result {width:100%;overflow-wrap:anywhere;}
 
 /* Management uses the approved Doop groups with live native rows and actions. */

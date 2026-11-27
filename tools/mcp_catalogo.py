@@ -272,7 +272,7 @@ def configure_bridge(root: Path):
             elif operation in ("update", "update_all"):
                 allowed = allowed and app.get("installed") and app.get("compatible") and app.get("installable") and app.get("update_available")
             elif operation in ("open", "remove"):
-                allowed = allowed and app.get("installed")
+                allowed = allowed and app.get("installed") and app.get("can_" + operation, True)
             elif operation == "cancel":
                 allowed = allowed and busy
             if not allowed:

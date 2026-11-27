@@ -62,6 +62,7 @@ output="$(cd "$output" && pwd -P)"
 work="$(mktemp -d "$output/.work.XXXXXXXX")"
 mount=
 mounted=0
+retain_submission=0
 cleanup() {
   local result=$?
   if [[ "$mounted" = 1 ]] && ! hdiutil detach "$mount" -quiet; then
@@ -69,7 +70,11 @@ cleanup() {
     exit 1
   fi
   [[ -z "$mount" ]] || rmdir -- "$mount"
-  rm -rf -- "$work"
+  if [[ "$retain_submission" = 1 ]]; then
+    printf 'Apple submission files retained at %s\n' "$work" >&2
+  else
+    rm -rf -- "$work"
+  fi
   exit "$result"
 }
 trap cleanup EXIT
@@ -88,16 +93,22 @@ staple_app() (
 
 notarize() {
   local artifact="$1" label="$2" id status tool_result=0
+  local submission="$output/notary-$label-submission.json"
   local receipt="$output/notary-$label.json"
   local profile=(--keychain-profile "$MACOS_NOTARY_PROFILE" ${notary_keychain[@]+"${notary_keychain[@]}"})
-  xcrun notarytool submit "$artifact" "${profile[@]}" --wait --timeout 45m --output-format json > "$receipt" || tool_result=$?
-  id="$(plutil -extract id raw -o - "$receipt" 2>/dev/null)" || id=
+  retain_submission=1
+  xcrun notarytool submit "$artifact" "${profile[@]}" --output-format json > "$submission" \
+    || fail "Cannot confirm submission for $label. See $submission."
+  id="$(plutil -extract id raw -o - "$submission" 2>/dev/null)" || id=
+  [[ "$id" =~ ^[[:xdigit:]]{8}(-[[:xdigit:]]{4}){3}-[[:xdigit:]]{12}$ ]] || fail "Invalid or missing notarization ID for $label. See $submission."
+  printf 'Submitted %s to Apple as %s\n' "$label" "$id"
+  xcrun notarytool wait "$id" "${profile[@]}" --timeout 45m --output-format json > "$receipt" || tool_result=$?
   status="$(plutil -extract status raw -o - "$receipt" 2>/dev/null)" || status=
-  [[ "$id" =~ ^[[:xdigit:]]{8}(-[[:xdigit:]]{4}){3}-[[:xdigit:]]{12}$ ]] || fail "Invalid or missing notarization ID for $label. See $receipt."
   if [[ "$tool_result" != 0 || "$status" != Accepted ]]; then
     xcrun notarytool log "$id" "${profile[@]}" "$output/notary-$label-log.json" || true
-    fail "Apple did not accept $label. See $receipt."
+    fail "No acceptance for $label ($id). See $submission and $receipt."
   fi
+  retain_submission=0
   printf 'PASS notarization %s %s\n' "$label" "$id"
 }
 

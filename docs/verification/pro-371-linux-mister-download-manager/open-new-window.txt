@@ -1,0 +1,5 @@
+Mister Download Manager 0.5.2
+Window 4194307
+  Position: 10,58 (screen: 0)
+  Geometry: 930x470
+WM_CLASS(STRING) = "", "misterdownloadmanager"

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Mister Download Manager
+Comment=Manage downloads and queues across browsers
+Exec="/home/qa/profile-mister-download-manager-native-mister-cycle-deps-qa/Applications/MisterDownloadManager-0.5.0-linux-x86_64.AppImage" %F
+Icon=misterdownloadmanager
+Terminal=false
+Categories=Network;FileTransfer;
+StartupWMClass=misterdownloadmanager
+X-ArtCraft-Launcher=true

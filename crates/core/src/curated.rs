@@ -1917,6 +1917,27 @@ pub const OPENWORK_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F5DJWB4CCV"),
 };
 
+pub const MISTER_DOWNLOAD_MANAGER: crate::CraftApp = crate::CraftApp {
+    id: "mister-download-manager",
+    name: "Mister Download Manager",
+    tagline: "Manage downloads and queues across browsers",
+    repo: "anefzaoui/misterdownloadmanager",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [75, 128, 232],
+    ink_light: [32, 82, 177],
+    ink_dark: [163, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ahmed Nefzaoui and Mister Download Manager contributors",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://misterdownloadmanager.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     id: "openpencil",
     name: "OpenPencil",
@@ -2064,7 +2085,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 88] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2148,6 +2169,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 88] = [
     OPENWORK_DESKTOP,
     PASEO,
     ULTIMAKER_CURA,
+    MISTER_DOWNLOAD_MANAGER,
     OPEN_PENCIL,
     FREECAD,
     OPENMAUSBOT,

@@ -95,6 +95,37 @@ class ReleaseWatchTests(unittest.TestCase):
         self.assertEqual(self.shifter, comparison_before)
         self.assertEqual(updater.notes_baseline(notes)["gimp"]["lines"], [])
 
+    def test_failed_sources_preserve_last_metadata_and_other_apps_continue(self):
+        self.catalog[0]["release"] = {"version": "v0.4.1", "source": MEETILY_SOURCE}
+        meetily_before = deepcopy(self.catalog[0])
+        self.catalog[1]["distribution"][0]["download_size"] = 1000
+        self.flathub[SUMMARY] = None
+
+        def partial_flathub(path):
+            if path == SUMMARY:
+                raise TimeoutError("unavailable in this run")
+            return self.flathub[path]
+
+        with patch.object(updater, "github", side_effect=ValueError("quota exhausted")), \
+             patch.object(updater, "flathub", side_effect=partial_flathub):
+            report, _, notes = self.refresh()
+
+        self.assertEqual(self.catalog[0], meetily_before)
+        self.assertEqual(report["checked"], ["gimp"])
+        self.assertEqual(report["skipped"], [{"id": "meetily", "reason": "release_source_error"}])
+        self.assertEqual(report["size_errors"], ["gimp"])
+        self.assertEqual(self.catalog[1]["release"]["version"], "3.2.8")
+        self.assertEqual(self.catalog[1]["distribution"][0]["download_size"], 1000)
+        self.assertNotIn("meetily", notes["apps"])
+
+    def test_catalog_flatpak_channel_requires_the_exact_app_id(self):
+        gimp = self.catalog[1]
+        gimp.pop("release")
+        release, _ = updater.release_for(gimp)
+        self.assertEqual(release["source"], GIMP_SOURCE)
+        gimp["distribution"][0]["id"] = "org.example.Other"
+        self.assertIsNone(updater.release_for(gimp))
+
     def test_unchanged_replay_and_new_note_on_same_version(self):
         _, _, notes = self.refresh()
         original = deepcopy(self.catalog)

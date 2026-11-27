@@ -199,7 +199,10 @@ def update_flatpak_size(app, app_id, as_of):
     if channel is None:
         return
     path = f"summary/{app_id}"
-    size = flathub(path).get("download_size")
+    summary = flathub(path)
+    if not isinstance(summary, dict):
+        raise ValueError(f"Riepilogo Flathub non valido per {app_id}")
+    size = summary.get("download_size")
     source = f"https://flathub.org/api/v2/{path}"
     if type(size) is int and size > 0 and (
         channel.get("download_size") != size
@@ -217,7 +220,12 @@ def release_for(app):
     if app.get("id") == "godot-engine" and repo and repo[1].lower() == GODOT_REPO:
         return github_release(GODOT_BUILDS, github(GODOT_BUILDS))
     if repo and (not source or source.lower().startswith(f"https://github.com/{repo[1]}/releases/".lower())):
-        return github_release(repo[1], github(repo[1]))
+        if published := github_release(repo[1], github(repo[1])):
+            return published
+    for channel in app.get("distribution") or []:
+        if channel.get("manager") == "flatpak" and (package := FLATPAK.fullmatch(channel.get("source") or "")):
+            if package[1] == channel.get("id"):
+                return flatpak_release(package[1])
     return None
 
 
@@ -280,13 +288,17 @@ def refresh(catalog, shifter, baseline, selected, as_of, rules=()):
             raise ValueError(f"Regole approvate duplicate: {'/'.join(target)}")
         targets.add(target)
         approved[target[:2]].append(rule)
-    report = {"checked": [], "changes": [], "unchanged": [], "skipped": [], "shifter_updates": []}
+    report = {"checked": [], "changes": [], "unchanged": [], "skipped": [], "size_errors": [], "shifter_updates": []}
     proposals = []
     for app in catalog:
         app_id = app["id"]
         if selected and app_id not in selected:
             continue
-        result = release_for(app)
+        try:
+            result = release_for(app)
+        except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired):
+            report["skipped"].append({"id": app_id, "reason": "release_source_error"})
+            continue
         if result is None:
             report["skipped"].append({"id": app_id, "reason": "no_stable_supported_source"})
             continue
@@ -310,7 +322,10 @@ def refresh(catalog, shifter, baseline, selected, as_of, rules=()):
         distribution_before = [channel.copy() for channel in (app.get("distribution") or [])]
         flatpak = FLATPAK.fullmatch(release["source"])
         if flatpak:
-            update_flatpak_size(app, flatpak[1], as_of)
+            try:
+                update_flatpak_size(app, flatpak[1], as_of)
+            except (OSError, ValueError, subprocess.TimeoutExpired):
+                report["size_errors"].append(app_id)
         observed_version = release["version"]
         if same_version:
             release["version"] = old_version

@@ -8,7 +8,7 @@ Dalla radice della repo, stampare il risultato del controllo di due schede.
 python3 tools/aggiorna_release.py --app meetily --app gimp
 ```
 
-`--app` limita il controllo a ID del catalogo ed è ripetibile. Senza filtro viene letto il catalogo intero. Una versione precedente, una beta o un tag non confrontabile preservano la scheda in ingresso e compaiono nei risultati saltati. Un errore nel recupero delle fonti interrompe lo snapshot.
+`--app` limita il controllo a ID del catalogo ed è ripetibile. Senza filtro viene letto il catalogo intero. Una versione precedente, una beta, un tag non confrontabile o una fonte irraggiungibile preservano la scheda in ingresso e compaiono nei risultati saltati. Se manca solo la dimensione, il rilascio prosegue mantenendo il valore precedente. Il report elenca gli ID in `size_errors`. Un canale Flathub di riserva è valido quando la fonte e l'ID del pacchetto nella scheda coincidono.
 
 Per conservare i risultati, passare una directory nuova. Il secondo controllo può usare i dati e i changelog del primo per riconoscere anche annunci aggiunti alla stessa versione.
 

@@ -17,6 +17,7 @@ REPO = re.compile(r"https://github\.com/([\w.-]+/[\w.-]+)/?")
 FLATPAK = re.compile(r"https://flathub\.org/apps/([\w.-]+)")
 VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 PREVIEW = re.compile(r"\b(?:alpha|beta|nightly|preview|pre[- ]?release|rc)\d*\b", re.I)
+PREVIEW_TAG = re.compile(r"^((?:v|release-)?\d+(?:\.\d+)*)-(?:alpha|beta|nightly|preview|pre-release|prerelease|rc)\d*(?:[.-]\d+)*$", re.I)
 FEATURE = re.compile(
     r"^(?:feat(?:\([^)]*\))?!?:|add(?:s|ed)?\b|introduc(?:e|es|ed)\b|"
     r"supports?\b|new\b|remove(?:s|d)?\b|deprecat(?:e|es|ed)\b)", re.I
@@ -243,10 +244,13 @@ def refresh(catalog, shifter, baseline, selected, as_of):
         new_key = version_key(release["version"])
         old_version = before.get("version")
         old_key = version_key(old_version)
+        previous_preview = PREVIEW_TAG.fullmatch(old_version) if old_key is None and isinstance(old_version, str) else None
+        if previous_preview:
+            old_key = version_key(previous_preview[1])
         if old_version and old_key is None:
             report["skipped"].append({"id": app_id, "reason": "incomparable_current_version"})
             continue
-        same_version = old_key == new_key
+        same_version = old_key == new_key and previous_preview is None
         if old_version and not same_version and (new_key < old_key or release["date"] < (before.get("date") or "")):
             report["skipped"].append({"id": app_id, "reason": "rollback", "current": old_version,
                                       "observed": release["version"], "source": release["source"]})

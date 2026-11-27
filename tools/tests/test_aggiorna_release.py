@@ -107,6 +107,22 @@ class ReleaseWatchTests(unittest.TestCase):
         self.assertEqual(proposals, [])
         self.assertEqual(self.catalog, original)
 
+    def test_stable_release_promotes_a_catalog_preview_without_rolling_back(self):
+        self.catalog[0]["release"] = {
+            "version": "v0.5.1-beta.2", "date": "2026-11-20",
+            "source": "https://github.com/Zackriya-Solutions/meetily/releases/tag/v0.5.1-beta.2", "packages": [],
+        }
+        self.github["published_at"] = "2026-11-27T08:00:00Z"
+        report, _, _ = self.refresh()
+        self.assertEqual(report["skipped"][0]["reason"], "rollback")
+        self.assertEqual(self.catalog[0]["release"]["version"], "v0.5.1-beta.2")
+
+        self.catalog[0]["release"]["version"] = "v0.5.0-beta.2"
+        report, _, _ = self.refresh()
+        self.assertEqual(report["changes"][0]["kind"], "release")
+        self.assertEqual(self.catalog[0]["release"]["version"], "v0.5.0")
+        self.assertEqual(self.catalog[0]["release"]["date"], "2026-11-27")
+
     def test_cli_dry_run_and_new_snapshot_leave_inputs_untouched(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

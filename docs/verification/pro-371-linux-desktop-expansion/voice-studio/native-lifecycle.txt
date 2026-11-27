@@ -1,0 +1,34 @@
+Ubuntu 24.04 amd64, disposable AX42 QEMU guest
+libfuse2t64:amd64	2.9.9-8.1build1
+OFFICIAL https://github.com/debpalash/VoiceStudio/releases/download/v0.5.7/VoiceStudio-0.5.7-linux-x64.AppImage bytes=267623923 sha256=39a3e0aae23f2a95cb2aabf4a1ca4a1b9c17931b19571179ace017981e364700
+FILE /home/qa/profile-voice-studio-native-appimage-final/Applications/VoiceStudio-0.5.7-linux-x64.AppImage version=0.5.7 bytes=267623923 sha256=39a3e0aae23f2a95cb2aabf4a1ca4a1b9c17931b19571179ace017981e364700
+DESKTOP /home/qa/profile-voice-studio-native-appimage-final/data/applications/VoiceStudio.desktop ICON /home/qa/profile-voice-studio-native-appimage-final/data/icons/hicolor/128x128/apps/VoiceStudio.png sha256=31ee29d363196c46abbff3e3bbcdd4126eb7a035e4ab08f2750af3a483e5a101
+PASS voice-studio install 16836 ms VoiceStudio installed: 0.5.7
+PASS voice-studio open-old 0 ms Launch request accepted
+VoiceStudio
+Window 4194307
+  Position: -4,40 (screen: 0)
+  Geometry: 1288x824
+WM_CLASS(STRING) = "voicestudio", "VoiceStudio"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+OFFICIAL https://github.com/debpalash/VoiceStudio/releases/download/v0.5.8/VoiceStudio-0.5.8-linux-x64.AppImage bytes=289429504 sha256=90bf90e0dd057632c76e5b286a2e068f9fb9cb1e1363ebaa215a17cb2e3d430e
+DISCOVERY GitHubApi
+FILE /home/qa/profile-voice-studio-native-appimage-final/Applications/VoiceStudio-0.5.8-linux-x64.AppImage version=0.5.8 bytes=289429504 sha256=90bf90e0dd057632c76e5b286a2e068f9fb9cb1e1363ebaa215a17cb2e3d430e
+DESKTOP /home/qa/profile-voice-studio-native-appimage-final/data/applications/VoiceStudio.desktop ICON /home/qa/profile-voice-studio-native-appimage-final/data/icons/hicolor/128x128/apps/VoiceStudio.png sha256=31ee29d363196c46abbff3e3bbcdd4126eb7a035e4ab08f2750af3a483e5a101
+PASS voice-studio update 7696 ms VoiceStudio updated to 0.5.8
+PASS voice-studio open-new 0 ms Launch request accepted
+VoiceStudio
+Window 4194307
+  Position: -4,40 (screen: 0)
+  Geometry: 1288x824
+WM_CLASS(STRING) = "voicestudio", "VoiceStudio"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+PASS voice-studio remove 80 ms VoiceStudio was removed
+2026-11-27T19:12:46+00:00	DISK AVAILABLE 27447054336
+2026-11-27T19:13:11+00:00	GUI OFFLINE open-old
+2026-11-27T19:13:26+00:00	GUI OFFLINE open-new
+2026-11-27T19:13:26+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

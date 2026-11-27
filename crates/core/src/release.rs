@@ -581,23 +581,31 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
     })
 }
 
-/// Stable x86_64 desktop AppImages published by Orca and OpenCode.
-pub fn coding_desktop_linux_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+/// Desktop recipes that require an exact upstream x86_64 AppImage.
+pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
+    use crate::curated::{OPENCODE, ORCA, T3_CODE, VOICE_STUDIO};
+
+    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, T3_CODE, VOICE_STUDIO];
+    RECIPES.iter().find(|app| stems.contains(&app.id))
+}
+
+pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     use crate::curated::{OPENCODE, ORCA};
 
-    let name = match (app.id, app.repo) {
-        (id, repo) if (id, repo) == (OPENCODE.id, OPENCODE.repo) => "opencode-desktop-linux-x86_64.AppImage",
-        (id, repo) if (id, repo) == (ORCA.id, ORCA.repo) => "orca-linux.AppImage",
-        _ => return false,
+    if qualified_linux_appimage_recipe(&[app.id]).is_none_or(|recipe| recipe.repo != app.repo)
+        || release.prerelease
+        || release.version.as_ref().is_none_or(|version| !version.pre.is_empty() || !version.build.is_empty() || release.tag != format!("v{version}"))
+    {
+        return false;
+    }
+    let name = match app.id {
+        id if id == OPENCODE.id => "opencode-desktop-linux-x86_64.AppImage",
+        id if id == ORCA.id => "orca-linux.AppImage",
+        _ => {
+            return reviewed_assets(app.repo, &release.tag).any(|reviewed| reviewed.name.ends_with(".AppImage") && &reviewed == asset);
+        }
     };
-    !release.prerelease
-        && release.version.as_ref().is_some_and(|version| {
-            version.pre.is_empty()
-                && version.build.is_empty()
-                && release.tag == format!("v{version}")
-                && release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
-        })
-        && asset.name == name
+    asset.name == name
         && asset.url == format!("{}{}/{name}", download_prefix(app.repo), release.tag)
         && asset.size > 0
         && asset.sha256.as_deref().is_some_and(is_hex64)
@@ -1233,18 +1241,22 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528"),
             ("orca-linux.AppImage", 285_631_432, "7fa4d975bdd151787bb12537908464f87695ecc3f1c26cf553220ee86d3c06c2"),
         ],
-        ("debpalash/VoiceStudio", "v0.5.7") => {
-            &[("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0")]
-        }
-        ("debpalash/VoiceStudio", "v0.5.8") => {
-            &[("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e")]
-        }
-        ("pingdotgg/t3code", "v0.1.12") => {
-            &[("T3-Code-0.1.12-arm64.dmg", 237_227_036, "4613582f18d0c8ba60164e5d5d779bcebe4bb6cf7824b75fe94ecfe00a21f9bf")]
-        }
-        ("pingdotgg/t3code", "v0.1.13") => {
-            &[("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa")]
-        }
+        ("debpalash/VoiceStudio", "v0.5.7") => &[
+            ("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0"),
+            ("VoiceStudio-0.5.7-linux-x64.AppImage", 267_623_923, "39a3e0aae23f2a95cb2aabf4a1ca4a1b9c17931b19571179ace017981e364700"),
+        ],
+        ("debpalash/VoiceStudio", "v0.5.8") => &[
+            ("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e"),
+            ("VoiceStudio-0.5.8-linux-x64.AppImage", 289_429_504, "90bf90e0dd057632c76e5b286a2e068f9fb9cb1e1363ebaa215a17cb2e3d430e"),
+        ],
+        ("pingdotgg/t3code", "v0.1.12") => &[
+            ("T3-Code-0.1.12-arm64.dmg", 237_227_036, "4613582f18d0c8ba60164e5d5d779bcebe4bb6cf7824b75fe94ecfe00a21f9bf"),
+            ("T3-Code-x86_64.AppImage", 255_860_306, "66b91551571df6d29b55cb590295edf411cff96c95a8feb3f41c3ca595d722e2"),
+        ],
+        ("pingdotgg/t3code", "v0.1.13") => &[
+            ("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa"),
+            ("T3-Code-x86_64.AppImage", 256_003_692, "dac1bbe9e93c1a5fb0942332befa998597f6a086232a87766ef5d8235a44f56d"),
+        ],
         ("Mintplex-Labs/anything-llm", "v1.19.0") => {
             &[("AnythingLLMDesktop-Silicon.dmg", 584_275_091, "0498b5d929aa7776a30f453d2a3a16fe172a9d63e149e67d224d2630c88e7dd5")]
         }
@@ -1777,7 +1789,7 @@ mod tests {
         assert_eq!(&release.assets[0], approved);
         assert!(qualified_mac_dmg_asset(&crate::curated::OPENCODE, &release, approved));
         assert_eq!(&release.assets[1], linux);
-        assert!(coding_desktop_linux_asset(&crate::curated::OPENCODE, &release, linux));
+        assert!(qualified_linux_appimage_asset(&crate::curated::OPENCODE, &release, linux));
         let mut invalid_linux = fixture.clone();
         invalid_linux["metadata"]["files"][linux_name]["url"] = serde_json::json!("https://elsewhere.example/download");
         assert_eq!(parse(&invalid_linux).unwrap().assets, vec![approved.clone()]);

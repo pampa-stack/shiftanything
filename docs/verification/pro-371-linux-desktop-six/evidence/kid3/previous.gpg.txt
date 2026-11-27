@@ -1,0 +1,19 @@
+commit 1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80
+Parent:  01ed6eb99e6b56a5b70569880839a70cded541ba77b46978572cc3f72c17001c
+ContentChecksum:  98576e45492f6ca5fe4fd94024b8124d732f48fad7981176febb137de53d53ed
+Date:  2026-07-29 18:38:15 +0000
+
+    Merge pull request #32 from flathub/update-master-dae0a56 (5924599e197c)
+
+    Name: org.kde.kid3
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Jul 29 22:07:07 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

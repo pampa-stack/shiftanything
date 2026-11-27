@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 30] = [
+pub const RECIPES: [(&str, &str); 36] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -32,6 +32,12 @@ pub const RECIPES: [(&str, &str); 30] = [
     ("foliate", "com.github.johnfactotum.Foliate"),
     ("pdf4qt", "io.github.JakubMelka.Pdf4qt"),
     ("gnome-calendar", "org.gnome.Calendar"),
+    ("qownnotes", "org.qownnotes.QOwnNotes"),
+    ("qview", "com.interversehq.qView"),
+    ("czkawka", "com.github.qarmin.czkawka"),
+    ("drawpile", "net.drawpile.drawpile"),
+    ("kid3", "org.kde.kid3"),
+    ("super-productivity", "com.super_productivity.SuperProductivity"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -80,6 +86,12 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "foliate" => "https://github.com/johnfactotum/foliate",
         "pdf4qt" => "https://github.com/JakubMelka/PDF4QT",
         "gnome-calendar" => "https://gitlab.gnome.org/GNOME/gnome-calendar",
+        "qownnotes" => "https://github.com/pbek/QOwnNotes",
+        "qview" => "https://github.com/jurplel/qView",
+        "czkawka" => "https://github.com/qarmin/czkawka",
+        "drawpile" => "https://github.com/drawpile/Drawpile",
+        "kid3" => "https://invent.kde.org/multimedia/kid3",
+        "super-productivity" => "https://github.com/super-productivity/super-productivity",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

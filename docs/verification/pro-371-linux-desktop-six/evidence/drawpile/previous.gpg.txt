@@ -1,0 +1,19 @@
+commit 8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4
+Parent:  b133b7aeddef45c53cbecb3ac551d2f3f591a4597f9f22d242eaaf3666d94810
+ContentChecksum:  ef8a188160a5b1fd4587619496ad13825594ea85ef9c2a85c2977d16b26e1d51
+Date:  2026-04-03 17:01:32 +0000
+
+    Use ffmpeg and libsecret from runtime (67d5c115db6b)
+
+    Name: net.drawpile.drawpile
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Apr  3 18:00:29 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

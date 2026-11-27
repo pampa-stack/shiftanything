@@ -1,0 +1,288 @@
+[
+  {
+    "id": "qownnotes",
+    "flatpak": "org.qownnotes.QOwnNotes",
+    "repo": "https://github.com/pbek/QOwnNotes",
+    "metadata": {
+      "flathub::verification::method": "website",
+      "flathub::verification::login_is_organization": false,
+      "flathub::verification::login_name": null,
+      "flathub::verification::timestamp": "1720037724",
+      "flathub::verification::login_provider": null,
+      "flathub::verification::website": "qownnotes.org",
+      "flathub::manifest": null,
+      "flathub::verification::verified": true
+    },
+    "urls": {
+      "bugtracker": "https://github.com/pbek/QOwnNotes/issues",
+      "homepage": "https://www.qownnotes.org/",
+      "help": null,
+      "donation": null,
+      "translate": null,
+      "faq": null,
+      "contact": null,
+      "vcs_browser": "https://github.com/pbek/QOwnNotes",
+      "contribute": null
+    },
+    "logo": "https://dl.flathub.org/media/org/qownnotes/QOwnNotes/cae1c2aef8640b8703d79e1991606066/icons/128x128/org.qownnotes.QOwnNotes.png",
+    "verified": true,
+    "license": "GPL-2.0",
+    "stars": {
+      "count": 5977,
+      "source": "https://github.com/pbek/QOwnNotes/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d",
+    "current": "c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b",
+    "window_search": "qownnotes|note folder",
+    "previous_version": "26.11.15",
+    "current_version": "26.11.16",
+    "times_ms": {
+      "install": 41841,
+      "prior": 4595,
+      "open-previous": 4234,
+      "open": 8364,
+      "update": 4420,
+      "open-current": 4019,
+      "remove": 3223,
+      "update-remove": 15802
+    },
+    "cycle_ms": 70678
+  },
+  {
+    "id": "qview",
+    "flatpak": "com.interversehq.qView",
+    "repo": "https://github.com/jurplel/qView",
+    "metadata": {
+      "flathub::verification::website": "interversehq.com",
+      "flathub::verification::timestamp": "1696723008",
+      "flathub::verification::login_is_organization": false,
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::login_name": null,
+      "flathub::verification::login_provider": null
+    },
+    "urls": {
+      "bugtracker": "https://github.com/jurplel/qview/",
+      "homepage": "https://interversehq.com/qview/",
+      "help": null,
+      "donation": null,
+      "translate": null,
+      "faq": null,
+      "contact": null,
+      "vcs_browser": null,
+      "contribute": null
+    },
+    "logo": "https://dl.flathub.org/media/com/interversehq/qView/ad1964d1ce3d2b2010f5e7e23b1023dd/icons/128x128/com.interversehq.qView.png",
+    "verified": true,
+    "license": "GPL-3.0",
+    "stars": {
+      "count": 3765,
+      "source": "https://github.com/jurplel/qView/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8",
+    "current": "c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda",
+    "window_search": "qview",
+    "previous_version": "6.1",
+    "current_version": "6.1",
+    "times_ms": {
+      "install": 39069,
+      "prior": 29838,
+      "open-previous": 4607,
+      "open": 8852,
+      "update": 4431,
+      "open-current": 3674,
+      "remove": 3725,
+      "update-remove": 13624
+    },
+    "cycle_ms": 91564
+  },
+  {
+    "id": "czkawka",
+    "flatpak": "com.github.qarmin.czkawka",
+    "repo": "https://github.com/qarmin/czkawka",
+    "metadata": {
+      "flathub::verification::timestamp": "1697295718",
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "login_provider",
+      "flathub::verification::login_is_organization": true,
+      "flathub::verification::login_name": "qarmin",
+      "flathub::verification::website": null,
+      "flathub::verification::login_provider": "github"
+    },
+    "urls": {
+      "bugtracker": "https://github.com/qarmin/czkawka/issues",
+      "homepage": "https://github.com/qarmin/czkawka",
+      "help": null,
+      "donation": "https://github.com/sponsors/qarmin",
+      "translate": "https://crowdin.com/project/czkawka",
+      "faq": null,
+      "contact": null,
+      "vcs_browser": null,
+      "contribute": null
+    },
+    "logo": "https://dl.flathub.org/media/com/github/qarmin.czkawka/a229ad4f1ec70e88b3831c889494e0ae/icons/128x128/com.github.qarmin.czkawka.png",
+    "verified": true,
+    "license": "MIT",
+    "stars": {
+      "count": 35544,
+      "source": "https://github.com/qarmin/czkawka/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8",
+    "current": "55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c",
+    "window_search": "czkawka",
+    "previous_version": "9.0.0",
+    "current_version": "10.0.0",
+    "times_ms": {
+      "install": 33829,
+      "prior": 31861,
+      "open-previous": 4023,
+      "open": 8350,
+      "update": 4421,
+      "open-current": 4007,
+      "remove": 3118,
+      "update-remove": 16088
+    },
+    "cycle_ms": 90170
+  },
+  {
+    "id": "drawpile",
+    "flatpak": "net.drawpile.drawpile",
+    "repo": "https://github.com/drawpile/Drawpile",
+    "metadata": {
+      "flathub::verification::login_name": null,
+      "flathub::verification::website": "drawpile.net",
+      "flathub::verification::login_provider": null,
+      "flathub::verification::timestamp": "1705202937",
+      "flathub::manifest": null,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::login_is_organization": false
+    },
+    "urls": {
+      "help": "https://drawpile.net/help/",
+      "donation": "https://donate.drawpile.org/",
+      "translate": "https://hosted.weblate.org/engage/drawpile/",
+      "faq": "https://docs.drawpile.net/help/common/faq",
+      "contact": null,
+      "vcs_browser": null,
+      "contribute": null,
+      "bugtracker": "https://github.com/drawpile/Drawpile/issues",
+      "homepage": "https://drawpile.net/"
+    },
+    "logo": "https://raw.githubusercontent.com/drawpile/Drawpile/main/src/desktop/icons/logo.png",
+    "verified": true,
+    "license": "GPL-3.0",
+    "stars": {
+      "count": 1363,
+      "source": "https://api.github.com/repos/drawpile/Drawpile",
+      "date": "2026-11-27"
+    },
+    "prev": "8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4",
+    "current": "a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207",
+    "window_search": "drawpile",
+    "previous_version": "2.3.0",
+    "current_version": "2.3.1",
+    "times_ms": {
+      "install": 38945,
+      "prior": 27838,
+      "open-previous": 4857,
+      "open": 8998,
+      "update": 5326,
+      "open-current": 4107,
+      "remove": 3218,
+      "update-remove": 17422
+    },
+    "cycle_ms": 93261
+  },
+  {
+    "id": "kid3",
+    "flatpak": "org.kde.kid3",
+    "repo": "https://invent.kde.org/multimedia/kid3",
+    "metadata": {
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "login_provider",
+      "flathub::verification::login_name": "teams/flathub",
+      "flathub::verification::login_provider": "kde",
+      "flathub::verification::timestamp": "1681472044",
+      "flathub::verification::login_is_organization": true
+    },
+    "urls": {
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=kid3",
+      "homepage": "https://kid3.kde.org/",
+      "help": "https://docs.kde.org/index.php?application=kid3"
+    },
+    "logo": "https://dl.flathub.org/media/org/kde/kid3/a2c7ae6d09fe6071af3206501ceb4a75/icons/128x128/org.kde.kid3.png",
+    "verified": true,
+    "license": "GPL-2.0+",
+    "stars": null,
+    "prev": "1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80",
+    "current": "689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386",
+    "window_search": "kid3",
+    "previous_version": "3.10.1",
+    "current_version": "3.10.2",
+    "times_ms": {
+      "install": 40610,
+      "prior": 5476,
+      "open-previous": 5624,
+      "open": 6746,
+      "update": 4522,
+      "open-current": 3979,
+      "remove": 3421,
+      "update-remove": 12923
+    },
+    "cycle_ms": 65811
+  },
+  {
+    "id": "super-productivity",
+    "flatpak": "com.super_productivity.SuperProductivity",
+    "repo": "https://github.com/super-productivity/super-productivity",
+    "metadata": {
+      "flathub::verification::login_provider": null,
+      "flathub::verification::website": "super-productivity.com",
+      "flathub::verification::timestamp": "1733677286",
+      "flathub::verification::login_is_organization": false,
+      "flathub::verification::verified": true,
+      "flathub::verification::method": "website",
+      "flathub::verification::login_name": null,
+      "flathub::manifest": null
+    },
+    "urls": {
+      "donation": "https://github.com/sponsors/johannesjo",
+      "translate": null,
+      "faq": null,
+      "contact": null,
+      "vcs_browser": "https://github.com/super-productivity/super-productivity/",
+      "help": "https://github.com/super-productivity/super-productivity/wiki",
+      "homepage": "https://super-productivity.com/",
+      "contribute": "https://github.com/super-productivity/super-productivity/blob/master/CONTRIBUTING.md",
+      "bugtracker": "https://github.com/super-productivity/super-productivity/issues"
+    },
+    "logo": "https://dl.flathub.org/media/com/super_productivity/SuperProductivity/1f15cc6d8cb528b20bc59b66adaf0a54/icons/128x128/com.super_productivity.SuperProductivity.png",
+    "verified": true,
+    "license": "MIT",
+    "stars": {
+      "count": 24112,
+      "source": "https://github.com/super-productivity/super-productivity/stargazers",
+      "date": "2026-11-26"
+    },
+    "prev": "73566c9bbd598ae58b6f34d4c1c7496253a580727dab8eeb03e9bc2037c7670d",
+    "current": "33d0c4f8fc49bb51cb2f26c5e49a260fc1912fa9fed585cb5136e15cb9f47ab8",
+    "window_search": "super productivity|superproductivity|super-productivity",
+    "previous_version": "v20.0.0",
+    "current_version": "v20.1.0",
+    "times_ms": {
+      "install": 34043,
+      "prior": 7462,
+      "open-previous": 6997,
+      "update": 5328,
+      "open-current": 6048,
+      "remove": 2824
+    },
+    "cycle_ms": 70694
+  }
+]

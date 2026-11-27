@@ -1,0 +1,19 @@
+commit 689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386
+Parent:  87a0ed939958010b133a31d8d0ad8ba7afc606f31ceec4b061761594b44b0eba
+ContentChecksum:  97d31d9701bb8ce3e928c5d142dc1f0431a98439eddc64c035d49fff917cc174
+Date:  2026-11-06 05:37:13 +0000
+
+    chromaprint: Update v1.6.1.tar.gz to 1.6.2 (e5da301d03a2)
+
+    Name: org.kde.kid3
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov  6 06:01:13 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

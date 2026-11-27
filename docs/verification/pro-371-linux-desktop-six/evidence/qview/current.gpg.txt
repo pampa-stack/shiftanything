@@ -1,0 +1,19 @@
+commit c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda
+Parent:  a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8
+ContentChecksum:  7ba2c1e98360db475fdb0eb1c93c822995727486c1be8ffa7f51bf6ec911467a
+Date:  2026-07-16 11:51:39 +0000
+
+    Update to 6.11 runtime (8988a3e69db3)
+
+    Name: com.interversehq.qView
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Jul 16 12:02:06 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

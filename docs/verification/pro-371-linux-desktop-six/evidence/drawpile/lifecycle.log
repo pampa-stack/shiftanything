@@ -1,0 +1,59 @@
+
+=== 2026-11-27T09:15:39+00:00 drawpile install ===
+drawpile before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+drawpile JobFinished: Ok("Flathub app installed")
+drawpile after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-drawpile-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (22688)
+d4e54d00670229c15a738b44c2d964933fb9181b3422c130beff91f7ead0dbb1  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/evidence/native-drawpile-icon.svg
+net.drawpile.drawpile/x86_64/stable	flathub	a65aace6e2a0	user	2.3.1
+TIMING drawpile install 38945 ms
+
+=== 2026-11-27T09:16:18+00:00 drawpile prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/net.drawpile.drawpile/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+net.drawpile.drawpile/x86_64/stable	flathub	8972cb96b015	user	2.3.0
+drawpile before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4", package: Some("net.drawpile.drawpile"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.0"), update_available: false, can_remove: false, can_open: true }
+drawpile JobFinished: Err("Approved action rejected: native installation state changed")
+drawpile JobFinished: Err("This Flatpak is managed outside the launcher")
+drawpile after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4", package: Some("net.drawpile.drawpile"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.0"), update_available: false, can_remove: false, can_open: true })
+TIMING drawpile prior 27838 ms
+
+=== 2026-11-27T09:16:46+00:00 drawpile open ===
+dbus-daemon[2454513]: [session uid=1000 pid=2454513 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2454556 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2454513]: [session uid=1000 pid=2454513 pidfd=5] Successfully activated service 'org.a11y.Bus'
+drawpile before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.0"), update_available: true, can_remove: true, can_open: true }
+drawpile JobFinished: Ok("Launch request accepted")
+drawpile after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2454572]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2454883 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2454572]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING drawpile open-previous 4857 ms
+TIMING drawpile open 8998 ms
+
+=== 2026-11-27T09:16:55+00:00 drawpile update-remove ===
+drawpile before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.0"), update_available: true, can_remove: true, can_open: true }
+drawpile JobFinished: Ok("Flathub app updated")
+drawpile after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.1"), update_available: false, can_remove: true, can_open: true })
+TIMING drawpile update 5326 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/.var/app/net.drawpile.drawpile/shift-profile-marker: OK
+dbus-daemon[2455516]: [session uid=1000 pid=2455516 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2455543 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2455516]: [session uid=1000 pid=2455516 pidfd=5] Successfully activated service 'org.a11y.Bus'
+drawpile before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.1"), update_available: false, can_remove: true, can_open: true }
+drawpile JobFinished: Ok("Launch request accepted")
+drawpile after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.1"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2455570]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2455934 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2455570]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING drawpile open-current 4107 ms
+drawpile before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 3, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/data/flatpak/app/net.drawpile.drawpile/x86_64/stable/a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207", package: Some("net.drawpile.drawpile"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.3.1"), update_available: false, can_remove: true, can_open: true }
+drawpile JobFinished: Ok("Flathub app removed")
+drawpile after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING drawpile remove 3218 ms
+/var/tmp/shift-flatpak-desktop.VoI8r6Zy/drawpile/home/.var/app/net.drawpile.drawpile/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING drawpile update-remove 17422 ms

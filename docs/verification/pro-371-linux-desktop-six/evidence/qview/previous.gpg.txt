@@ -1,0 +1,19 @@
+commit a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8
+Parent:  d45bad6ee461eb9953b9a19df880901265893a10ea058f70a94fa350e52f9713
+ContentChecksum:  6c6ea0e91c48d66eb71131548a665f3a89a947a75d0f5f3aa0aaca4852ec87af
+Date:  2026-01-11 10:00:12 +0000
+
+    Update KDE runtime to 6.10 (599ad0b67c99)
+
+    Name: com.interversehq.qView
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sun Jan 11 11:01:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

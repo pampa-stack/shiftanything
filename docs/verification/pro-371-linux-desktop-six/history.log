@@ -1,0 +1,179 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.VoI8r6Zy/flathub.flatpakrepo
+=== org.qownnotes.QOwnNotes ===
+        ID: org.qownnotes.QOwnNotes
+       Ref: app/org.qownnotes.QOwnNotes/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 30.3 MB
+ Installed: 76.1 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: c5f6310c3174e3b5b3b073b4d2a9b614a39e0a6aaff918fcbdacf1a7294bbb9b
+    Parent: 6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d
+   Subject: QOwnNotes: Update qownnotes-26.11.15.tar.xz to 26.11.16 (29d46d98a2af)
+      Date: 2026-11-27 06:24:52 +0000
+   History: 
+
+    Commit: 6a4eb97df1cf527481e78c88b785945aaac5816ec3d8fefb4ec644e9699eb11d
+   Subject: QOwnNotes: Update qownnotes-26.11.14.tar.xz to 26.11.15 (0b9f8eea8051)
+      Date: 2026-11-24 20:09:05 +0000
+
+    Commit: 31c68aabae2898932263704f234057544dcfe84a1cd8b6027a9304fb91c5feeb
+   Subject: QOwnNotes: Update qownnotes-26.11.13.tar.xz to 26.11.14 (207c8966f0a7)
+      Date: 2026-11-23 21:54:45 +0000
+
+    Commit: 5cc8a3b53c2f77a0f9fb9bdc5a89b1e181f0ac8e4d95d9874a29650e63b3269d
+   Subject: QOwnNotes: Update qownnotes-26.11.12.tar.xz to 26.11.13 (22a547c004b8)
+      Date: 2026-11-22 17:03:16 +0000
+
+    Commit: 2050768123fdccde2ecec5a68fc3a767f6fd708d22629755059edf5054a5cc6b
+   Subject: QOwnNotes: Update qownnotes-26.11.11.tar.xz to 26.11.12 (69f89702937d)
+=== com.interversehq.qView ===
+        ID: com.interversehq.qView
+       Ref: app/com.interversehq.qView/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 3.3 MB
+ Installed: 4.5 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: c543dd9cf1f7568893e54b40f34dc8f2178c5910f3d7a9fe709e6031f973bfda
+    Parent: a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8
+   Subject: Update to 6.11 runtime (8988a3e69db3)
+      Date: 2026-07-16 11:51:39 +0000
+   History: 
+
+    Commit: a50677be27a056415a3e16a4e368789f8bbfe0be6517e8d1554cd5233280ebf8
+   Subject: Update KDE runtime to 6.10 (599ad0b67c99)
+      Date: 2026-01-11 10:00:12 +0000
+
+    Commit: d45bad6ee461eb9953b9a19df880901265893a10ea058f70a94fa350e52f9713
+   Subject: Merge pull request #18 from flathub/work/justinzobel/work (8495e4f7d190)
+      Date: 2025-07-29 04:39:24 +0000
+
+    Commit: be867c97f41228d825b8ee1c1f5cf6abe63f95cd8ec24bcdecaf88db674e07e7
+   Subject: Sort finishing arguments and upgrade to Qt6 runtime (7c591a75)
+      Date: 2025-03-03 12:36:42 +0000
+
+=== com.github.qarmin.czkawka ===
+        ID: com.github.qarmin.czkawka
+       Ref: app/com.github.qarmin.czkawka/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 16.4 MB
+ Installed: 40.6 MB
+   Runtime: org.gnome.Platform/x86_64/49
+       Sdk: org.gnome.Sdk/x86_64/49
+
+    Commit: 55440fc853ba0039626c2fb7691791d341ce9c3f548fab3611dea39ee5b0d36c
+    Parent: 952735e28f315a21c45931b978b5dc8818f3fa920cbd618f2b9e26ecf7b132af
+   Subject: Fix GTK regression and problems (#34) (226bb5ef7fbc)
+      Date: 2026-02-03 16:59:53 +0000
+   History: 
+
+    Commit: 952735e28f315a21c45931b978b5dc8818f3fa920cbd618f2b9e26ecf7b132af
+   Subject: Avif, Raw and Heif features (#32) (81b2ebd01554)
+      Date: 2025-12-01 06:58:25 +0000
+
+    Commit: ed77a235e87d902df6a1727298b04536e4c1fdf7c10a07757cf1645ac76f97cd
+   Subject: 10.0 (#30) (5e77f968bd74)
+      Date: 2025-08-18 16:10:43 +0000
+
+    Commit: f009f980a358f89da49e27265d02ccba6febf4a554ac3940d76826c1f80b90f8
+   Subject: chore: bump runtime to gnome 48 (#29) (60f3c6c57f67)
+      Date: 2025-04-24 20:27:59 +0000
+
+=== net.drawpile.drawpile ===
+        ID: net.drawpile.drawpile
+       Ref: app/net.drawpile.drawpile/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 10.3 MB
+ Installed: 26.2 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207
+    Parent: 8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4
+   Subject: Bump version to 2.3.1 (ba34ad0f20c9)
+      Date: 2026-10-21 23:55:56 +0000
+   History: 
+
+    Commit: 8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4
+   Subject: Use ffmpeg and libsecret from runtime (67d5c115db6b)
+      Date: 2026-04-03 17:01:32 +0000
+
+    Commit: b133b7aeddef45c53cbecb3ac551d2f3f591a4597f9f22d242eaaf3666d94810
+   Subject: Release 2.3.0 (eee6c840c047)
+      Date: 2025-11-20 18:35:10 +0000
+
+    Commit: 431b09b702893dd12aabe04e842d621d7f631689cb80a9939a273dea08b91859
+   Subject: Downgrade framework to 6.7 (7202e588be69)
+      Date: 2025-11-18 23:55:39 +0000
+
+=== org.kde.kid3 ===
+        ID: org.kde.kid3
+       Ref: app/org.kde.kid3/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 4.0 MB
+ Installed: 11.2 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 689653a7e94ee38334b8dd9252effad4423702fbdcdb9d39d8d069ec91685386
+    Parent: 87a0ed939958010b133a31d8d0ad8ba7afc606f31ceec4b061761594b44b0eba
+   Subject: chromaprint: Update v1.6.1.tar.gz to 1.6.2 (e5da301d03a2)
+      Date: 2026-11-06 05:37:13 +0000
+   History: 
+
+    Commit: 87a0ed939958010b133a31d8d0ad8ba7afc606f31ceec4b061761594b44b0eba
+   Subject: Merge pull request #33 from flathub/kid3-3.10.2 (51ef5cce85a5)
+      Date: 2026-10-10 07:38:41 +0000
+
+    Commit: 1aaf7a340335401d180b37cd87869d7c1fcdb0e84f97d184a2f3b7293e3c8d80
+   Subject: Merge pull request #32 from flathub/update-master-dae0a56 (5924599e197c)
+      Date: 2026-07-29 18:38:15 +0000
+
+    Commit: 01ed6eb99e6b56a5b70569880839a70cded541ba77b46978572cc3f72c17001c
+   Subject: Merge pull request #31 from flathub/update-master-b2d3994 (dc959cc2226b)
+      Date: 2026-07-24 12:32:04 +0000
+
+=== com.super_productivity.SuperProductivity ===
+        ID: com.super_productivity.SuperProductivity
+       Ref: app/com.super_productivity.SuperProductivity/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 151.4 MB
+ Installed: 370.6 MB
+   Runtime: org.freedesktop.Platform/x86_64/25.08
+       Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+    Commit: 33d0c4f8fc49bb51cb2f26c5e49a260fc1912fa9fed585cb5136e15cb9f47ab8
+    Parent: 8af17b680214d158cc93bf523ff23cabd3cb1eccaaa0cf64a935d20c913caa4e
+   Subject: Merge pull request #149 from flathub/update-master-13228e6 (41b37979dde7)
+      Date: 2026-11-21 20:33:16 +0000
+   History: 
+
+    Commit: 8af17b680214d158cc93bf523ff23cabd3cb1eccaaa0cf64a935d20c913caa4e
+   Subject: Merge pull request #148 from flathub/fix/v20-release-notes-2026-11-12 (be28c6868c1c)
+      Date: 2026-11-12 20:32:35 +0000
+
+    Commit: 73566c9bbd598ae58b6f34d4c1c7496253a580727dab8eeb03e9bc2037c7670d
+   Subject: Merge pull request #147 from flathub/update-master-b60b1c3 (ff9f30082ae4)
+      Date: 2026-11-06 22:13:04 +0000
+
+    Commit: f347a5d6209fc2f54ec77ecd81dd459e0c18f8e02ad3fb2915e18f0c62cdcc86
+   Subject: Merge pull request #146 from flathub/flathub-icon (c7d9e9d5f3b8)
+      Date: 2026-11-05 08:04:02 +0000
+
+    Commit: a7e669a2462bb953f914cf5091b3547b1d36e0db430bb2e211a30f07d5c67d19
+   Subject: Merge pull request #145 from flathub/release-notes (0dbbbd045b2e)

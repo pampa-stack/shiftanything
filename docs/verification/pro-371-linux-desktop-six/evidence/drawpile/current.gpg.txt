@@ -1,0 +1,19 @@
+commit a65aace6e2a0459e1e80ed4abe64c2ad9b2156169f212dd18dd32d03879ed207
+Parent:  8972cb96b0150bc440041c7a0f8d7fd122d1cb6b15ad71eea303aa03d50097c4
+ContentChecksum:  638ea92b545220b0d99bfee73d72ab3545e26fe9ea948f9eacf02d45e8bb4f36
+Date:  2026-10-21 23:55:56 +0000
+
+    Bump version to 2.3.1 (ba34ad0f20c9)
+
+    Name: net.drawpile.drawpile
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct 22 01:02:10 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

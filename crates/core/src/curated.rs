@@ -1075,7 +1075,28 @@ pub const DOSBOX_STAGING: crate::CraftApp = crate::CraftApp {
     mac_team: Some("944SS92GAH"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 41] = [
+pub const NOTEPAD_NEXT: crate::CraftApp = crate::CraftApp {
+    id: "notepadnext",
+    name: "Notepad Next",
+    tagline: "Edit text, code and logs in tabs",
+    repo: "dail8859/NotepadNext",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [103, 151, 77],
+    ink_light: [58, 87, 43],
+    ink_dark: [182, 226, 156],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Notepad Next contributors",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://github.com/dail8859/NotepadNext"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 42] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1117,6 +1138,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 41] = [
     ZETTLR,
     ONLYOFFICE,
     NEXTCLOUD_DESKTOP,
+    NOTEPAD_NEXT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1155,6 +1177,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         NEXTCLOUD_DESKTOP,
         CRYPTOMATOR,
         JOPLIN,
+        NOTEPAD_NEXT,
     ]
     .iter()
     .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
@@ -1335,7 +1358,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 27);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 28);
     }
 
     #[test]

@@ -911,6 +911,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("nextcloud-releases/desktop", "v35.0.3") => {
             &[("Nextcloud-35.0.3-x86_64.AppImage", 63_248_888, "334e83b145c991ae80ec9db9483334066d2562335e2191362824ccd10aa16e54")]
         }
+        ("dail8859/NotepadNext", "v0.14") => {
+            &[("NotepadNext-v0.14-x86_64.AppImage", 34_466_296, "a5a60f66cda70852998fd929d8ab6cb99dc77638c7903f82aac9e0e468816bd7")]
+        }
+        ("dail8859/NotepadNext", "v0.15") => {
+            &[("NotepadNext-v0.15-x86_64.AppImage", 36_092_408, "33e092fb52fb4f8bdbe57c63ac14104a5e092ce5c614040a1dd322eebc44aa87")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

@@ -1,0 +1,57 @@
+START 2026-11-27T10:02:15Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/dail8859/NotepadNext/releases/download/v0.14/NotepadNext-v0.14-x86_64.AppImage bytes=34466296 sha256=a5a60f66cda70852998fd929d8ab6cb99dc77638c7903f82aac9e0e468816bd7
+FILE /fixture/home/Applications/NotepadNext-v0.14-x86_64.AppImage version=0.14.0 bytes=34466296 sha256=a5a60f66cda70852998fd929d8ab6cb99dc77638c7903f82aac9e0e468816bd7
+DESKTOP /fixture/home/data/applications/NotepadNext.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/NotepadNext.png sha256=34d1c0ff441d5328af4a5ee9ff43037c4ba0a2e9579d5cefc3c18e584f6b3af6
+PASS notepadnext install 2589 ms Notepad Next installed: 0.14.0
+WM_CLASS = AppRun NotepadNext
+Notepad Next
+PASS notepadnext open-old 0 ms Launch request accepted
+GUI notepadnext open-old 11521 ms window=2097159
+OFFICIAL https://github.com/dail8859/NotepadNext/releases/download/v0.15/NotepadNext-v0.15-x86_64.AppImage bytes=36092408 sha256=33e092fb52fb4f8bdbe57c63ac14104a5e092ce5c614040a1dd322eebc44aa87
+FILE /fixture/home/Applications/NotepadNext-v0.15-x86_64.AppImage version=0.15.0 bytes=36092408 sha256=33e092fb52fb4f8bdbe57c63ac14104a5e092ce5c614040a1dd322eebc44aa87
+DESKTOP /fixture/home/data/applications/NotepadNext.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/NotepadNext.png sha256=34d1c0ff441d5328af4a5ee9ff43037c4ba0a2e9579d5cefc3c18e584f6b3af6
+PASS notepadnext update 6187 ms Notepad Next updated to 0.15.0
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot6/notepadnext-full-interface-profile/home/verification-user-data.txt: OK
+WM_CLASS = AppRun NotepadNext
+Notepad Next
+PASS notepadnext open-new 0 ms Launch request accepted
+GUI notepadnext open-new 11646 ms window=2097159
+WM_CLASS = AppRun NotepadNext
+Notepad Next
+[     0.066] I: =============================
+[     0.067] I: Notepad Next v0.15 AppImage
+[     0.067] I: Build Date/Time: Sep 21 2026 22:56:24
+[     0.067] I: Qt: 6.5.3
+[     0.067] I: OS: Ubuntu 24.04.5 LTS
+[     0.067] I: Locale: C
+[     0.067] I: CPU: x86_64
+[     0.067] I: File Path: /tmp/appimage_extracted_8000db7ae285b2b67c94dfc2bb2b78f0/usr/bin/NotepadNext
+[     0.067] I: Arguments: /tmp/appimage_extracted_8000db7ae285b2b67c94dfc2bb2b78f0/AppRun
+[     0.067] I: Config File: /fixture/home/config/NotepadNext/NotepadNext.ini
+[     0.067] I: =============================
+[     0.067] I: bool NotepadNextApplication::init()
+[     0.087] I: void TranslationManager::loadTranslation(QLocale)
+[     0.087] I: LuaState::LuaState()
+[     0.119] I: MacroManager::MacroManager(QObject*)
+[     0.119] I: void MacroManager::loadSettings()
+[     0.119] I: MainWindow::MainWindow(NotepadNextApplication*)
+[     0.173] I: setupUi Completed
+[     7.164] I: FileListDock::FileListDock(MainWindow*)
+[     7.174] I: void MainWindow::setupLanguageMenu()
+[     7.176] I: void MainWindow::applyStyleSheet()
+[     7.176] I: Loading stylesheet: ":/stylesheets/npp.css"
+[     7.198] I: void MainWindow::restoreSettings()
+[     7.198] I: void NotepadNextApplication::openFiles(const QStringList&)
+[     7.198] I: void MainWindow::newFile()
+[     7.198] I: void EditorManager::setupEditor(ScintillaNext*)
+[     7.199] I: int EditorManager::detectEOLMode(ScintillaNext*) const
+[     7.200] I: Scintilla::Internal::RegexSearchBase* Scintilla::Internal::CreateRegexSearch(CharClassify*)
+[     7.200] I: void MainWindow::addEditor(ScintillaNext*)
+[     7.200] I: void MainWindow::detectLanguage(ScintillaNext*)
+[     7.200] I: void MainWindow::setLanguage(ScintillaNext*, const QString&)
+[     7.200] I: Language Name: Text
+[     7.200] I: void DockedEditor::addEditor(ScintillaNext*)
+GUI notepadnext open-menu 17509 ms window=2097159
+PASS notepadnext remove 80 ms Notepad Next was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot6/notepadnext-full-interface-profile/home/verification-user-data.txt: OK

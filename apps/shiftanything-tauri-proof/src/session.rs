@@ -4,7 +4,7 @@ use artcraft_launcher_core::{
     automation::{InventoryEntry, Operation, Request, Snapshot as Inventory},
     curated::verified_linux_appimage,
     platform::{pick_asset, recipe_platform_verified},
-    protocol::{Backend, BackendOptions, Command, Event, InstallLocations, JobPhase, LatestRelease},
+    protocol::{Backend, BackendOptions, CANCELLED, Command, Event, INSTALL_CANCELLED, InstallLocations, JobPhase, LatestRelease},
     release::{Asset, Release},
     status::Installed,
 };
@@ -26,6 +26,7 @@ pub struct NativeState {
     jobs: BTreeMap<String, JobPhase>,
     results: BTreeMap<String, String>,
     active: BTreeMap<String, String>,
+    cancellations: BTreeMap<String, String>,
     pending: Option<Request>,
     pending_from_ui: bool,
     open_after_install: BTreeSet<String>,
@@ -135,6 +136,7 @@ impl NativeState {
             jobs: BTreeMap::new(),
             results: BTreeMap::new(),
             active: BTreeMap::new(),
+            cancellations: BTreeMap::new(),
             pending: None,
             pending_from_ui: false,
             open_after_install: BTreeSet::new(),
@@ -175,13 +177,8 @@ impl NativeState {
                 }
                 Event::Occupied { app, .. } | Event::GoBackFallback { app, .. } => {
                     // This proof never consents to overwriting an unrelated destination or downgrading.
-                    self.jobs.remove(&app);
                     self.open_after_install.remove(&app);
-                    let message = "rejected: destination or version requires additional consent".to_string();
-                    if let Some(id) = self.active.remove(&app) {
-                        self.results.insert(format!("{id}:{app}"), message.clone());
-                    }
-                    self.results.insert(format!("app:{app}"), message);
+                    self.record_job_end(&app, "rejected: destination or version requires additional consent".into(), false);
                 }
                 _ => {}
             }
@@ -192,13 +189,23 @@ impl NativeState {
     }
 
     fn finish_job(&mut self, app: &str, result: Result<String, String>) {
-        self.jobs.remove(app);
+        let stopped = result.as_ref().is_err_and(|error| error == CANCELLED);
         let message = match result {
             Ok(message) => format!("completed: {message}"),
+            Err(error) if error == CANCELLED || error == INSTALL_CANCELLED => CANCELLED.into(),
             Err(error) => format!("failed: {error}"),
         };
+        self.record_job_end(app, message, stopped);
+    }
+
+    fn record_job_end(&mut self, app: &str, message: String, stopped: bool) {
+        self.jobs.remove(app);
         if let Some(id) = self.active.remove(app) {
             self.results.insert(format!("{id}:{app}"), message.clone());
+        }
+        if let Some(id) = self.cancellations.remove(app) {
+            let outcome = if stopped { "completed: operation cancelled" } else { "failed: native operation ended without confirming cancellation" };
+            self.results.insert(format!("{id}:{app}"), outcome.into());
         }
         self.results.insert(format!("app:{app}"), message.clone());
         println!("NATIVE {app}: {message}");
@@ -278,6 +285,9 @@ impl NativeState {
             return Err("Read-only proof".into());
         }
         validate_ui_request(request, &self.inventory())?;
+        if request.operation == Operation::Cancel && self.cancellations.contains_key(&request.apps[0]) {
+            return Err("Cancellation already requested".into());
+        }
         if self.isolated
             && request.operation == Operation::Open
             && request.apps.iter().any(|id| id == "handy")
@@ -354,14 +364,18 @@ impl NativeState {
                 .jobs
                 .iter()
                 .map(|(id, phase)| {
-                    let (phase, done, total) = match phase {
-                        JobPhase::Downloading { done, total } => ("downloading", Some(*done), Some(*total)),
-                        JobPhase::Reconnecting { done, total } => ("reconnecting", Some(*done), Some(*total)),
-                        JobPhase::Verifying => ("verifying", None, None),
-                        JobPhase::Queued => ("queued", None, None),
-                        JobPhase::Waiting => ("waiting", None, None),
-                        JobPhase::Installing => ("installing", None, None),
-                        JobPhase::Removing => ("removing", None, None),
+                    let (phase, done, total) = if self.cancellations.contains_key(id) {
+                        ("cancelling", None, None)
+                    } else {
+                        match phase {
+                            JobPhase::Downloading { done, total } => ("downloading", Some(*done), Some(*total)),
+                            JobPhase::Reconnecting { done, total } => ("reconnecting", Some(*done), Some(*total)),
+                            JobPhase::Verifying => ("verifying", None, None),
+                            JobPhase::Queued => ("queued", None, None),
+                            JobPhase::Waiting => ("waiting", None, None),
+                            JobPhase::Installing => ("installing", None, None),
+                            JobPhase::Removing => ("removing", None, None),
+                        }
                     };
                     (id.clone(), Progress { phase: phase.to_string(), done, total })
                 })
@@ -407,11 +421,13 @@ impl NativeState {
         if open_after_install && can_open_after_install(&request, from_ui, self.backend.platform()) {
             self.open_after_install.insert(request.apps[0].clone());
         }
-        if request.operation == Operation::Cancel {
-            self.open_after_install.remove(&request.apps[0]);
-        }
         self.results.insert(request.id.clone(), "approved; native operation requested (not completed)".into());
         for id in request.apps {
+            if request.operation == Operation::Cancel {
+                self.open_after_install.remove(&id);
+                self.cancellations.insert(id, request.id.clone());
+                continue;
+            }
             if request.operation != Operation::Open {
                 self.jobs.insert(id.clone(), JobPhase::Queued);
             }

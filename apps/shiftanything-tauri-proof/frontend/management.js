@@ -51,7 +51,7 @@
     button.type = 'button';
     button.dataset.nativeApp = app.id;
     button.dataset.nativeOperation = operation;
-    button.disabled = !snapshot.lifecycle_enabled || (operation === 'cancel' ? !app.job : !!app.job);
+    button.disabled = !snapshot.lifecycle_enabled || (operation === 'cancel' ? !app.job || snapshot.progress[app.id]?.phase === 'cancelling' : !!app.job);
     return button;
   }
   function row(app) {

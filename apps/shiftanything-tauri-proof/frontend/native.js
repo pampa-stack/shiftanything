@@ -108,10 +108,10 @@
   const unavailableDate = it ? 'Data non disponibile' : 'Date unavailable';
   const phases = it ? {
     downloading:'Download in corso', reconnecting:'Connessione in ripristino', verifying:'Verifica del pacchetto',
-    queued:'Download in coda', waiting:'In attesa dell’installatore', installing:'Installazione in corso', removing:'Rimozione in corso',
+    queued:'Download in coda', waiting:'In attesa dell’installatore', installing:'Installazione in corso', removing:'Rimozione in corso', cancelling:'Annullamento in corso',
   } : {
     downloading:'Downloading', reconnecting:'Reconnecting', verifying:'Verifying package',
-    queued:'Download queued', waiting:'Waiting for installer', installing:'Installing', removing:'Removing',
+    queued:'Download queued', waiting:'Waiting for installer', installing:'Installing', removing:'Removing', cancelling:'Cancelling',
   };
   const versionKey = value => (value || '').replace(/^[vV](?=\d)/, '');
   const setText = (element, value) => { if (element && element.textContent !== value) element.textContent = value; };
@@ -151,7 +151,8 @@
     const detail = snapshot.inventory.results['app:'+id];
     if (!detail) return {};
     let label;
-    if (detail.startsWith('installed; could not open:')) label = it?'Installata. Apertura non riuscita.':'Installed. Could not open.';
+    if (detail === 'cancelled') label = it?'Operazione annullata':'Action cancelled';
+    else if (detail.startsWith('installed; could not open:')) label = it?'Installata. Apertura non riuscita.':'Installed. Could not open.';
     else if (detail.startsWith('completed:')) label = it?'Operazione completata':'Action completed';
     else if (detail.startsWith('rejected:')) label = it?'Operazione rifiutata':'Action rejected';
     else label = it?'Operazione non riuscita':'Action failed';
@@ -247,7 +248,8 @@
       }
       button.textContent = labels[operation];
       const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed && app.can_open !== false,remove:app.installed && app.can_remove !== false,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
-      button.disabled = !snapshot.lifecycle_enabled || !allowed;
+      const cancelling = operation === 'cancel' && snapshot.progress[app?.id]?.phase === 'cancelling';
+      button.disabled = !snapshot.lifecycle_enabled || !allowed || cancelling;
       button.hidden = !snapshot.lifecycle_enabled || !allowed;
       button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }

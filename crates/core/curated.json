@@ -32640,7 +32640,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": null,
+    "logo": "",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -32962,7 +32962,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": null,
+    "logo": "",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -33000,7 +33000,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": null,
+    "logo": "",
     "screenshots": [
       "https://raw.githubusercontent.com/matryer/xbar/main/xbarapp.com/public/img/xbar-menu-preview.png"
     ],
@@ -33320,7 +33320,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": null,
+    "logo": "",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",

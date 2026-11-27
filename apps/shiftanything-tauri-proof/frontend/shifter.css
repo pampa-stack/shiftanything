@@ -49,7 +49,9 @@
 .shifter tbody tr:last-child td{border-bottom:0}
 .sh-identity{display:flex;align-items:center;gap:8px}
 .sh-identity img{width:26px;height:26px;object-fit:contain;border-radius:5px}
-[data-candidate="penpot"] .sh-identity img{background:#d7dade}
+:is([data-candidate="penpot"],[data-candidate="arkime"],[data-candidate="dittofeed"],[data-candidate="dust3d"],
+    [data-candidate="frappe-crm"],[data-candidate="karakeep"],[data-candidate="netbird"],[data-candidate="openrefine"],
+    [data-candidate="opensnitch"],[data-candidate="pangolin"],[data-candidate="videolingo"]) .sh-identity img{background:#d7dade}
 .sh-rate{white-space:nowrap}
 .sh-rate strong{font-family:var(--mono);font-size:17px;color:var(--ok);margin-right:5px}
 .sh-gap{color:var(--warn)}

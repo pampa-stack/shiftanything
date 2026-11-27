@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Configuration"
+WM_CLASS(STRING) = "flameshot", "flameshot"

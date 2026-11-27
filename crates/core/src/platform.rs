@@ -888,6 +888,8 @@ mod tests {
             (crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]),
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::DESKREEN, ["v3.2.15", "v3.2.16"]),
+            (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),
+            (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),

@@ -1,0 +1,18 @@
+PASS PREFLIGHT moonlight v6.1.0
+PASS PREFLIGHT moonlight v6.2.0
+/dev/disk3s5   239362496 176538720  21696304    90% 3247536 216963040    1%   /System/Volumes/Data
+OFFICIAL INDEX moonlight v6.1.0 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX moonlight v6.2.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v6.1.0 Dmg https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/Moonlight-6.1.0.dmg 59806624 d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2
+PASS OFFICIAL v6.2.0 Dmg https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.2.0/Moonlight-6.2.0.dmg 78299984 43617e5210d53968fcfb4a46526d1625a9056c6fe97e731673c31193dae776fc
+NATIVE ORIGIN moonlight GitHub
+PASS OFFICIAL v6.1.0 Dmg https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.1.0/Moonlight-6.1.0.dmg 59806624 d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2
+PASS NATIVE moonlight install: Moonlight installed: 6.1.0; package_bytes=59806624; elapsed=19.453s
+NATIVE ORIGIN moonlight GitHub
+PASS OFFICIAL v6.2.0 Dmg https://github.com/moonlight-stream/moonlight-qt/releases/download/v6.2.0/Moonlight-6.2.0.dmg 78299984 43617e5210d53968fcfb4a46526d1625a9056c6fe97e731673c31193dae776fc
+PASS NATIVE moonlight update: Moonlight updated to 6.2.0; package_bytes=78299984; elapsed=15.826s
+PASS NATIVE moonlight remove: Moonlight was removed; package_bytes=0; elapsed=0.112s
+PASS NATIVE CYCLE moonlight (v6.1.0 → v6.2.0), private Trash and synthetic data preserved

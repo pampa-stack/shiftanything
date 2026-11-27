@@ -908,6 +908,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::PRUSA_SLICER,
         crate::curated::ZOTERO,
         crate::curated::DESKREEN,
+        crate::curated::MOONLIGHT,
+        crate::curated::OPEN_PENCIL,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1370,12 +1372,20 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
         }
-        ("open-pencil/open-pencil", "v0.16.0") => {
-            &[("OpenPencil_0.16.0_amd64.AppImage", 96_438_776, "a7d893ac35367c8ea000b00890136ce5861a13bf2574b44760f77849cfdf77a2")]
+        ("moonlight-stream/moonlight-qt", "v6.1.0") => {
+            &[("Moonlight-6.1.0.dmg", 59_806_624, "d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2")]
         }
-        ("open-pencil/open-pencil", "v0.17.0") => {
-            &[("OpenPencil_0.17.0_amd64.AppImage", 99_834_360, "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc")]
+        ("moonlight-stream/moonlight-qt", "v6.2.0") => {
+            &[("Moonlight-6.2.0.dmg", 78_299_984, "43617e5210d53968fcfb4a46526d1625a9056c6fe97e731673c31193dae776fc")]
         }
+        ("open-pencil/open-pencil", "v0.16.0") => &[
+            ("OpenPencil_0.16.0_amd64.AppImage", 96_438_776, "a7d893ac35367c8ea000b00890136ce5861a13bf2574b44760f77849cfdf77a2"),
+            ("OpenPencil_0.16.0_aarch64.dmg", 16_213_804, "000976fa54233d324f38842203d87976331733f5de68480c66d7fbcf0a877d09"),
+        ],
+        ("open-pencil/open-pencil", "v0.17.0") => &[
+            ("OpenPencil_0.17.0_amd64.AppImage", 99_834_360, "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc"),
+            ("OpenPencil_0.17.0_aarch64.dmg", 19_490_106, "72c1332fe713ed97b52cc5f45811f55dc350ec4bd02dbdd8e8db4d54196018ba"),
+        ],
         ("Ultimaker/Cura", "5.13.0") => {
             &[("UltiMaker-Cura-5.13.0-linux-X64.AppImage", 334_154_232, "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40")]
         }

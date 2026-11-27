@@ -1917,6 +1917,27 @@ pub const OPENWORK_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F5DJWB4CCV"),
 };
 
+pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
+    id: "moonlight",
+    name: "Moonlight",
+    tagline: "Stream games from your own computer",
+    repo: "moonlight-stream/moonlight-qt",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Cameron Gutman",
+    msi_publisher: None,
+    bundle: Some("com.moonlight-stream.Moonlight"),
+    site: Some("https://moonlight-stream.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("45U78722YL"),
+};
+
 pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     id: "openpencil",
     name: "OpenPencil",
@@ -1935,7 +1956,7 @@ pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
     bundle: Some("net.dannote.open-pencil"),
     site: Some("https://openpencil.dev/"),
     mac_bundle_name: None,
-    mac_team: None,
+    mac_team: Some("N7D7M3Q3CD"),
 };
 
 pub const ULTIMAKER_CURA: crate::CraftApp = crate::CraftApp {
@@ -2064,7 +2085,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 88] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 89] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2153,6 +2174,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 88] = [
     OPENMAUSBOT,
     ZOTERO,
     DESKREEN,
+    MOONLIGHT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

@@ -3243,6 +3243,12 @@
         "download_size": 202078156,
         "download_size_source": "https://flathub.org/api/v2/summary/im.riot.Riot",
         "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "Element-1.12.36-universal.dmg",
+        "source": "https://packages.element.io/desktop/install/macos/index.html"
       }
     ],
     "review": {
@@ -7150,6 +7156,12 @@
         "download_size": 180171889,
         "download_size_source": "https://flathub.org/api/v2/summary/io.github.ungoogled_software.ungoogled_chromium",
         "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "ungoogled-chromium_157.0.8103.78-1.1_arm64-macos.dmg",
+        "source": "https://github.com/ungoogled-software/ungoogled-chromium-macos/releases/tag/157.0.8103.78-1.1"
       }
     ],
     "review": {
@@ -13558,6 +13570,12 @@
         "download_size": 146567690,
         "download_size_source": "https://flathub.org/api/v2/summary/org.zotero.Zotero",
         "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "Zotero-10.0.9.dmg",
+        "source": "https://www.zotero.org/download/"
       }
     ],
     "platform_support": {
@@ -14162,13 +14180,22 @@
       ]
     },
     "platform_support": {
-      "windows": "https://www.sumatrapdfreader.org/download-free-pdf-viewer"
+      "windows": "https://www.sumatrapdfreader.org/download-free-pdf-viewer",
+      "macos": "https://www.sumatrapdfreader.org/mac/download-free-pdf-viewer"
     },
     "stars": {
       "count": 18072,
       "source": "https://github.com/sumatrapdfreader/sumatrapdf/stargazers",
       "date": "2026-11-26"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "SumatraPDF-mac-arm64.dmg",
+        "source": "https://www.sumatrapdfreader.org/mac/download-free-pdf-viewer"
+      }
+    ]
   },
   {
     "id": "pdfsam-basic",
@@ -18940,7 +18967,15 @@
       "date": "2026-11-24",
       "source": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.4",
       "packages": []
-    }
+    },
+    "distribution": [
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "HermesBundled-0.22.0-mac-arm64.dmg",
+        "source": "https://hermes-assets.nousresearch.com/releases/tag/rc.3-v0.22.0/HermesBundled-0.22.0-mac-arm64.dmg"
+      }
+    ]
   },
   {
     "id": "openclaw",
@@ -23001,7 +23036,18 @@
           "size_max": 269977376
         }
       ]
-    }
+    },
+    "platform_support": {
+      "macos": "https://github.com/apps/desktop"
+    },
+    "distribution": [
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "GitHubDesktop-arm64.zip",
+        "source": "https://github.com/apps/desktop"
+      }
+    ]
   },
   {
     "id": "grafana",
@@ -24994,7 +25040,18 @@
       "date": "2026-11-19",
       "source": "https://github.com/signalapp/Signal-Desktop/releases/tag/v8.36.0",
       "packages": []
-    }
+    },
+    "platform_support": {
+      "macos": "https://signal.org/download/macos/"
+    },
+    "distribution": [
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "signal-desktop-mac-universal-8.36.0.dmg",
+        "source": "https://signal.org/download/macos/"
+      }
+    ]
   },
   {
     "id": "sillytavern",

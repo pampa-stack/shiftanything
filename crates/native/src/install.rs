@@ -96,7 +96,6 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             &[
                 recipe::ANKI.id,
                 recipe::AUDACITY.id,
-                recipe::CHERRY_STUDIO.id,
                 recipe::DEEPTUTOR.id,
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,

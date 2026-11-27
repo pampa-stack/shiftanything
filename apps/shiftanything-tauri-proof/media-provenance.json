@@ -2011,14 +2011,6 @@
       "source_sha256": "3912e1156cd3aa4ccaa17bf65256dcb3f8388dcd6326176a3e775713dc215132"
     },
     {
-      "app": "cherry-studio",
-      "slot": "logo",
-      "source": "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/icons/128x128/com.cherry_ai.CherryStudio.png",
-      "file": "media/cherry-studio-logo.png",
-      "sha256": "357fcc253204679bcfca874f71582f98722b4da3b71195fcc3471f67deb057a4",
-      "source_sha256": "a31f42699a4f0ff20d1351cc716f83bfe92354c3a9740b985bbf6daf9bf2ae66"
-    },
-    {
       "app": "alpaca",
       "slot": "logo",
       "source": "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/icons/128x128/com.jeffser.Alpaca.png",

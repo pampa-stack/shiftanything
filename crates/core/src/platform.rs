@@ -836,7 +836,6 @@ mod tests {
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),
             (crate::curated::BRUNO, ["v4.3.0", "v4.4.0"]),
-            (crate::curated::CHERRY_STUDIO, ["v2.2.2", "v2.2.3"]),
             (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),
             (crate::curated::VOICE_STUDIO, ["v0.5.7", "v0.5.8"]),

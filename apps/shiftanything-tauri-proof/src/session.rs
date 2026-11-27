@@ -540,6 +540,51 @@ mod tests {
     use super::*;
     use artcraft_launcher_core::Arch;
 
+    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[test]
+    fn restart_waits_for_catalog_operations_and_reserves_the_idle_session() -> Result<(), Box<dyn std::error::Error>> {
+        const PROFILE: &str = "SHIFT_TEST_RESTART_PROFILE";
+        let Some(root) = std::env::var_os(PROFILE) else {
+            // Exercise the real isolated backend without changing the test runner's environment.
+            let profile = tempfile::tempdir()?;
+            let root = profile.path().canonicalize()?;
+            let home = root.join("home");
+            std::fs::create_dir(&home)?;
+            let mut child = std::process::Command::new(std::env::current_exe()?);
+            child.args(["--exact", "session::tests::restart_waits_for_catalog_operations_and_reserves_the_idle_session"]);
+            child.env(PROFILE, &root).env("HOME", &home).env("CFFIXED_USER_HOME", &home);
+            for (key, directory) in
+                [("XDG_CONFIG_HOME", "config"), ("XDG_DATA_HOME", "data"), ("XDG_CACHE_HOME", "cache"), ("XDG_STATE_HOME", "state")]
+            {
+                std::fs::create_dir(home.join(directory))?;
+                child.env(key, home.join(directory));
+            }
+            let output = child.output()?;
+            assert!(output.status.success(), "{}{}", String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr));
+            return Ok(());
+        };
+        let mut state = NativeState::new(root.into(), false, true)?;
+        let app = "handy".to_owned();
+        let id = "ui-1".to_owned();
+        state.pending = Some(Request { id: id.clone(), operation: Operation::Install, apps: vec![app.clone()] });
+        assert!(!state.begin_restart(), "must wait for the consent dialog");
+        state.pending = None;
+        for phase in
+            [JobPhase::Queued, JobPhase::Downloading { done: 1, total: 2 }, JobPhase::Reconnecting { done: 1, total: 2 }, JobPhase::Installing]
+        {
+            state.jobs.insert(app.clone(), phase);
+            assert!(!state.begin_restart(), "must wait during {phase:?}");
+        }
+        state.jobs.clear();
+        state.active.insert(app.clone(), id);
+        assert!(!state.begin_restart(), "must wait for an active native operation without progress");
+        state.finish_job(&app, Err(CANCELLED.into()));
+        assert!(state.begin_restart(), "cancelled jobs must release the restart");
+        assert!(!state.begin_restart(), "the same restart cannot be reserved twice");
+        assert_eq!(state.request(Operation::Install, vec![app]).unwrap_err(), "Sh*ftAnything is restarting");
+        Ok(())
+    }
+
     #[test]
     fn installation_evidence_is_scoped_to_catalog_app_and_target() {
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };

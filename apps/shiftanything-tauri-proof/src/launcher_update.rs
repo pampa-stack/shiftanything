@@ -177,17 +177,17 @@ pub(crate) fn launcher_update_install(app: AppHandle) -> Result<Snapshot, String
         tauri::async_runtime::spawn(async move {
             let result = signed::install(update).await;
             let state = handle.state::<LauncherUpdater>();
-            if let Ok(mut inner) = state.inner.lock() {
-                match result {
-                    Ok(()) => {
-                        inner.change(&handle, Status::Ready, None);
-                    }
-                    Err(error) => {
-                        inner.snapshot.available = None;
-                        inner.change(&handle, Status::Error, Some(error));
-                    }
-                }
+            let Ok(mut inner) = state.inner.lock() else {
+                return;
+            };
+            if let Err(error) = result {
+                inner.snapshot.available = None;
+                inner.change(&handle, Status::Error, Some(error));
+                return;
             }
+            inner.change(&handle, Status::RestartPending, None);
+            drop(inner);
+            restart_when_idle(handle);
         });
         Ok(snapshot)
     }
@@ -201,7 +201,12 @@ pub(crate) fn launcher_update_restart(app: AppHandle) -> Result<Snapshot, String
         return Ok(inner.snapshot.clone());
     }
     let snapshot = inner.change(&app, Status::RestartPending, None);
-    let handle = app.clone();
+    drop(inner);
+    restart_when_idle(app);
+    Ok(snapshot)
+}
+
+fn restart_when_idle(handle: AppHandle) {
     std::thread::spawn(move || {
         let native = handle.state::<Mutex<NativeState>>();
         let state = handle.state::<LauncherUpdater>();
@@ -225,5 +230,4 @@ pub(crate) fn launcher_update_restart(app: AppHandle) -> Result<Snapshot, String
             std::thread::sleep(std::time::Duration::from_millis(350));
         }
     });
-    Ok(snapshot)
 }

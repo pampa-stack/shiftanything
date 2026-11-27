@@ -83,6 +83,8 @@ struct ProcessLifecycle {
 #[derive(Clone)]
 enum HostDetection {
     System,
+    /// Explicit macOS verification profile: never adopt a copy discovered outside its records.
+    Profile(std::path::PathBuf),
     #[cfg(test)]
     Stub(HostStub),
 }
@@ -95,6 +97,7 @@ impl HostDetection {
     fn snapshot(&self) -> crate::detect::Snapshot {
         match self {
             Self::System => crate::detect::Snapshot::take(),
+            Self::Profile(_) => crate::detect::Snapshot::default(),
             #[cfg(test)]
             Self::Stub(_) => crate::detect::Snapshot::default(),
         }
@@ -103,6 +106,11 @@ impl HostDetection {
     fn detect(&self, app: &CraftApp, manifest: &Manifest, snapshot: &crate::detect::Snapshot) -> Option<Installed> {
         match self {
             Self::System => crate::detect::detect(app, manifest, snapshot),
+            Self::Profile(home) => {
+                let record = manifest.apps.get(app.id)?;
+                let path = record.path.canonicalize().ok()?;
+                path.starts_with(home).then(|| crate::detect::from_manifest(app, manifest)).flatten()
+            }
             #[cfg(test)]
             Self::Stub(host) => crate::detect::from_manifest(app, manifest)
                 .or_else(|| host(app).map(|found| crate::detect::with_recorded_release(found, manifest.releases.get(app.id)))),
@@ -114,6 +122,7 @@ impl HostDetection {
     fn registered(&self, app: &CraftApp) -> Option<Installed> {
         match self {
             Self::System => crate::detect::detect(app, &Manifest::default(), &self.snapshot()),
+            Self::Profile(_) => None,
             #[cfg(test)]
             Self::Stub(host) => host(app),
         }
@@ -447,11 +456,36 @@ impl Backend for RefusedNightlyBackend {
 }
 
 impl NativeBackend {
+    /// Explicit verification context for macOS. Requires a redirected HOME/CF profile, uses
+    /// only its owned manifest, destinations and pins, and cannot configure external clients.
+    /// This is a profile boundary, not an OS sandbox for third-party software.
+    pub fn new_isolated_macos_profile(waker: impl Fn() + Send + Sync + 'static) -> Result<Self, String> {
+        if !cfg!(target_os = "macos") {
+            return Err("Isolated native verification currently requires macOS".into());
+        }
+        let home = std::env::var_os("CFFIXED_USER_HOME").ok_or("An explicit Core Foundation profile is required")?;
+        if std::env::var_os("HOME").as_ref() != Some(&home) || !std::path::Path::new(&home).is_absolute() {
+            return Err("HOME and CFFIXED_USER_HOME must match an absolute profile directory".into());
+        }
+        let home = std::path::PathBuf::from(home).canonicalize().map_err(|e| e.to_string())?;
+        let paths = Paths::new()?;
+        if !crate::paths::resolve_existing(&paths.data).starts_with(&home) || !crate::paths::resolve_existing(&paths.cache).starts_with(&home) {
+            return Err("Native storage escaped the verification profile".into());
+        }
+        Ok(Self::with_scope(
+            artcraft_launcher_core::nightly::InstallChannel::Stable,
+            waker,
+            paths,
+            Arc::new(ProcessLifecycle::default()),
+            HostDetection::Profile(home),
+        ))
+    }
+
     /// `waker` is called (from any thread) whenever events are waiting; it should repaint the UI.
     pub fn new(waker: impl Fn() + Send + Sync + 'static) -> Self {
         let paths = Paths::new().unwrap_or_else(|e| {
             log::error!("{e}; keeping files in the temporary folder");
-            Paths::under(&std::env::temp_dir().join("artcraft-launcher"))
+            Paths::under(&std::env::temp_dir().join("shiftanything-launcher"))
         });
         Self::with_paths(artcraft_launcher_core::nightly::InstallChannel::Stable, waker, paths)
     }
@@ -464,6 +498,16 @@ impl NativeBackend {
         waker: impl Fn() + Send + Sync + 'static,
         paths: Paths,
         lifecycle: Arc<ProcessLifecycle>,
+    ) -> Self {
+        Self::with_scope(channel, waker, paths, lifecycle, HostDetection::System)
+    }
+
+    fn with_scope(
+        channel: artcraft_launcher_core::nightly::InstallChannel,
+        waker: impl Fn() + Send + Sync + 'static,
+        paths: Paths,
+        lifecycle: Arc<ProcessLifecycle>,
+        host: HostDetection,
     ) -> Self {
         let waker: Waker = Arc::new(waker);
         let limit = if channel == artcraft_launcher_core::nightly::InstallChannel::Nightly {
@@ -487,9 +531,16 @@ impl NativeBackend {
             None
         }; // Nightly never reads/writes the ordinary release-body cache.
 
+        let mut options = BackendOptions::default();
+        let profile_pins = if let HostDetection::Profile(home) = &host {
+            options.install_locations.root = Some(home.join("Applications").display().to_string());
+            Some(paths.data.join("versions.json"))
+        } else {
+            None
+        };
         let shared = Arc::new(Shared {
             channel,
-            host: HostDetection::System,
+            host,
             #[cfg(test)]
             nightly_detection_observer: Mutex::new(None),
             events: Mutex::new(Vec::new()),
@@ -509,7 +560,7 @@ impl NativeBackend {
             jobs: Mutex::new(HashMap::new()),
             lifecycle,
             manifest: Mutex::new(Manifest::load(&paths.manifest())),
-            options: Mutex::new(BackendOptions::default()),
+            options: Mutex::new(options),
             checking: AtomicBool::new(false),
             detecting: AtomicBool::new(false),
             launcher_release: Mutex::new(None),
@@ -527,7 +578,7 @@ impl NativeBackend {
             reusing_forced: AtomicBool::new(false),
         });
         let pins = if channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
-            craft_update::pins::Pins::default_path()
+            profile_pins.or_else(craft_update::pins::Pins::default_path)
         } else {
             None // Never prepare, rewrite or export the stable apps' global version-choice file.
         };
@@ -2739,6 +2790,9 @@ impl Backend for NativeBackend {
     }
 
     fn nightly_context(&self) -> Option<Box<dyn Backend>> {
+        if matches!(self.shared.host, HostDetection::Profile(_)) {
+            return None;
+        }
         // An unavailable home or aliased namespace is not an ephemeral Nightly profile and
         // must never silently select the stable context or temporary storage.
         let channel = artcraft_launcher_core::nightly::InstallChannel::Nightly;
@@ -2748,6 +2802,18 @@ impl Backend for NativeBackend {
     /// Carries out a command from the UI. Long work (checks, installs, removals) runs on its own
     /// thread.
     fn send(&mut self, command: Command) {
+        if matches!(self.shared.host, HostDetection::Profile(_))
+            && matches!(
+                command,
+                Command::UpdateLauncher | Command::McpSetAgents { .. } | Command::McpSetClient { .. } | Command::McpRestartClient { .. }
+            )
+        {
+            self.shared.emit(Event::Notice {
+                app: String::new(),
+                result: Err("Client configuration and launcher replacement are disabled in the verification profile".into()),
+            });
+            return;
+        }
         if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Nightly {
             match &command {
                 Command::UpdateLauncher
@@ -2811,6 +2877,22 @@ impl Backend for NativeBackend {
                 self.start_job(&app, Work::Install(None));
             }
             Command::InstallAll { apps } => self.install_all(&apps),
+            Command::InstallExpected { apps, installed } => {
+                // This command never turns an Update into an Install or vice versa.
+                let valid = !apps.is_empty()
+                    && apps.iter().all(|id| {
+                        CraftApp::by_id(id).is_some_and(|app| self.platform.is_some_and(|p| app.runs_on(p.os)))
+                            && self.installed(id).is_some() == installed
+                    });
+                if valid {
+                    self.install_all(&apps);
+                } else {
+                    for app in apps {
+                        self.shared
+                            .emit(Event::JobFinished { app, result: Err("Approved action rejected: native installation state changed".into()) });
+                    }
+                }
+            }
             Command::Replace { app, path } => {
                 self.start_job(&app, Work::Replace(path));
             }
@@ -2849,9 +2931,7 @@ impl Backend for NativeBackend {
                     Some(inst) => install::launch(def, &inst, &self.paths, &args),
                     None => Err(format!("{} isn't installed", def.name)),
                 };
-                if let Err(e) = result {
-                    self.shared.emit(Event::JobFinished { app, result: Err(e) });
-                }
+                self.shared.emit(Event::JobFinished { app, result: result.map(|()| "Launch request accepted".into()) });
             }
             Command::Reveal { app } => {
                 if let Some(inst) = self.installed(&app) {
@@ -2886,12 +2966,29 @@ impl Backend for NativeBackend {
             }
             Command::UpdateLauncher => self.update_launcher(),
             Command::FetchScreenshots { app } => self.fetch_screenshots(&app),
+            Command::FetchCatalogMedia { app } => {
+                let Some(entry) = artcraft_launcher_core::curated::apps().iter().find(|entry| entry.id == app) else { return };
+                if !self.shared.pictures_busy.lock().unwrap_or_else(PoisonError::into_inner).insert(entry.id.as_str()) {
+                    return;
+                }
+                let (shared, http, paths) = (self.shared.clone(), self.http.clone(), self.paths.clone());
+                std::thread::spawn(move || {
+                    let _busy = PicturesBusy { shared: shared.clone(), app: entry.id.as_str() };
+                    crate::screenshots::fetch_catalog(http.as_ref(), &paths, entry, |key, result| {
+                        shared.emit(Event::Screenshot { app: entry.id.clone(), key: key.to_string(), result });
+                    });
+                });
+            }
             Command::DownloadOrder(order) => {
                 if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
                     install::DOWNLOADS.set_order(order);
                 }
             }
             Command::Configure(mut options) => {
+                if let HostDetection::Profile(home) = &self.shared.host {
+                    options.install_locations.root = Some(home.join("Applications").display().to_string());
+                    options.install_locations.per_app.clear();
+                }
                 if self.shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
                     // Old settings must not make an app's own updater move its stable copy to nightly.
                     options.versions.retain(|id, track| {
@@ -3053,6 +3150,55 @@ mod tests {
     use super::*;
 
     use crate::source::Answer;
+
+    #[test]
+    fn verification_profile_rejects_external_records_and_client_changes() {
+        let dir = tempfile::tempdir().unwrap();
+        let home = dir.path().join("profile");
+        std::fs::create_dir(&home).unwrap();
+        let home = home.canonicalize().unwrap();
+        let app = CraftApp::by_id("photocraft").unwrap();
+        let outside = dir.path().join("outside.AppImage");
+        std::fs::write(&outside, "fixture").unwrap();
+        let inside = home.join("inside.AppImage");
+        std::fs::write(&inside, "fixture").unwrap();
+        let host = HostDetection::Profile(home.clone());
+        let mut manifest = Manifest::default();
+        manifest.apps.insert(
+            app.id.into(),
+            crate::manifest::Record {
+                version: "0.5.0".into(),
+                kind: PackageKind::AppImage,
+                path: outside.clone(),
+                installed_at: 0,
+                files: vec![],
+                needs_root: false,
+            },
+        );
+        assert!(host.detect(app, &manifest, &host.snapshot()).is_none());
+        manifest.apps.get_mut(app.id).unwrap().path = inside;
+        assert!(host.detect(app, &manifest, &host.snapshot()).is_some());
+        #[cfg(unix)]
+        {
+            let alias = home.join("external-link");
+            std::os::unix::fs::symlink(&outside, &alias).unwrap();
+            manifest.apps.get_mut(app.id).unwrap().path = alias;
+            assert!(host.detect(app, &manifest, &host.snapshot()).is_none());
+        }
+        let mut backend = backend(dir.path(), Platform { os: Os::MacOs, arch: Arch::Arm64 }, None);
+        Arc::get_mut(&mut backend.shared).unwrap().host = host;
+        assert!(backend.nightly_context().is_none());
+        backend.send(Command::UpdateLauncher);
+        assert!(backend.poll().iter().any(|event| matches!(event, Event::Notice { result: Err(_), .. })));
+        let mut options = BackendOptions::default();
+        options.install_locations.root = Some(outside.display().to_string());
+        options.install_locations.per_app.insert(app.id.into(), outside.display().to_string());
+        backend.send(Command::Configure(options));
+        let options = backend.shared.options.lock().unwrap();
+        assert_eq!(options.install_locations.root.as_deref(), Some(home.join("Applications").display().to_string().as_str()));
+        assert!(options.install_locations.per_app.is_empty());
+        assert_eq!(std::fs::read_to_string(outside).unwrap(), "fixture");
+    }
 
     // Per-test-thread, opt-in observation of the real effect sites. It cannot race unrelated
     // tests or alter global queue order/limits. A stable positive oracle checks it is not vacuous.
@@ -4319,6 +4465,53 @@ mod tests {
         assert!(backend.shared.jobs.lock().unwrap().contains_key(APP));
         drop(held.lock().unwrap().drain(..).collect::<Vec<_>>());
         assert!(backend.shared.jobs.lock().unwrap().is_empty());
+    }
+
+    #[test]
+    fn approved_update_never_installs_an_absent_app() {
+        let root = tempfile::tempdir().unwrap();
+        let mut backend = backend(root.path(), Platform { os: Os::MacOs, arch: Arch::Arm64 }, None);
+        let spawned = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        backend.spawn = Arc::new({
+            let spawned = spawned.clone();
+            move |_| {
+                spawned.fetch_add(1, Ordering::SeqCst);
+            }
+        });
+        backend.send(Command::InstallExpected { apps: vec![APP.into()], installed: true });
+        assert_eq!(spawned.load(Ordering::SeqCst), 0, "an absent app must not start any worker for Update");
+        assert!(!backend.has_active_jobs());
+        assert!(
+            backend
+                .poll()
+                .iter()
+                .any(|event| matches!(event, Event::JobFinished { app, result: Err(message) } if app == APP && message.contains("state changed")))
+        );
+        assert!(!backend.paths.data.exists(), "a rejected update does not create a profile");
+    }
+
+    #[test]
+    fn a_fresh_install_batch_never_updates_an_app_installed_after_review() {
+        let root = tempfile::tempdir().unwrap();
+        let mut backend = backend(root.path(), Platform { os: Os::MacOs, arch: Arch::Arm64 }, None);
+        backend.shared.installed.lock().unwrap().insert(APP.into(), msi_copy("0.4.0"));
+        let spawned = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        backend.spawn = Arc::new({
+            let spawned = spawned.clone();
+            move |_| {
+                spawned.fetch_add(1, Ordering::SeqCst);
+            }
+        });
+        // One stale member invalidates the entire consent, including the still absent app.
+        let apps = vec!["vectorcraft".to_string(), APP.to_string()];
+        backend.send(Command::InstallExpected { apps: apps.clone(), installed: false });
+        assert_eq!(spawned.load(Ordering::SeqCst), 0);
+        assert!(!backend.has_active_jobs());
+        let events = backend.poll();
+        for id in apps {
+            assert!(events.iter().any(|event| matches!(event, Event::JobFinished { app, result: Err(message) }
+                if *app == id && message.contains("state changed"))));
+        }
     }
 
     /// A backend that knows `release("0.5.0")` and keeps its files under `root`.

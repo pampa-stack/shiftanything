@@ -227,6 +227,17 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
     ];
     let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b)))?;
     for stem in stems {
+        if stem.eq_ignore_ascii_case("localsend") {
+            // LocalSend publishes a hyphenated architecture label. Recognize only this recipe's reviewed format.
+            if kind == PackageKind::AppImage
+                && let Some(version) = strip_stem_prefix(base, stem, '-').and_then(|rest| rest.strip_suffix("-linux-x86-64"))
+                && version.starts_with(|c: char| c.is_ascii_digit())
+                && crate::version::parse(version).is_some()
+            {
+                return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: "linux-x86_64".into(), kind });
+            }
+            continue;
+        }
         if let Some(rest) = strip_stem_prefix(base, stem, '-') {
             // rest = <version>-<os>-<arch>; os and arch never contain '-', versions may.
             let mut parts = rest.rsplitn(3, '-');
@@ -263,6 +274,9 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
+    if !recipe_platform_verified(stems, platform) {
+        return None;
+    }
     let parsed: Vec<(&Asset, AssetName)> = release.assets.iter().filter_map(|a| parse_asset_name(&a.name, stems).map(|n| (a, n))).collect();
     for kind in kinds {
         for token in platform.tokens() {
@@ -272,6 +286,13 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
     }
     None
+}
+
+/// Recipe validation is separate from upstream OS support. Other community targets remain
+/// documented and visible, but cannot enter native installation before their cycle is tested.
+pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
+    (!stems.contains(&"handy") || platform == (Platform { os: Os::MacOs, arch: Arch::Arm64 }))
+        && (!stems.contains(&"localsend") || platform == (Platform { os: Os::Linux, arch: Arch::X64 }))
 }
 
 #[cfg(test)]

@@ -1,0 +1,1329 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-11-26",
+  "suggested_software": [
+    "1Password",
+    "Adobe After Effects",
+    "Adobe Audition",
+    "Adobe InDesign",
+    "Adobe Media Encoder",
+    "Affinity Publisher",
+    "ArcGIS Pro",
+    "Asana",
+    "AutoCAD",
+    "Autodesk Inventor",
+    "Avid Pro Tools",
+    "Backblaze Computer Backup",
+    "Capture One",
+    "Cinema 4D",
+    "Claude Code",
+    "ClickUp",
+    "Confluence",
+    "Cursor",
+    "DEVONthink",
+    "Evernote",
+    "Figma",
+    "Fireflies.ai",
+    "FL Studio",
+    "FreshBooks",
+    "Goodnotes",
+    "Google Antigravity",
+    "HubSpot CRM",
+    "Jira",
+    "Microsoft 365",
+    "Microsoft Excel",
+    "Microsoft OneNote",
+    "Microsoft Outlook",
+    "Microsoft PowerPoint",
+    "Microsoft Project",
+    "Microsoft Teams",
+    "Microsoft Visio",
+    "Microsoft Word",
+    "Notion",
+    "Obsidian",
+    "Otter.ai",
+    "QuickBooks",
+    "Revit",
+    "Salesforce",
+    "Shopify",
+    "Sketch",
+    "SketchUp",
+    "Slack",
+    "SolidWorks",
+    "Todoist",
+    "Trello",
+    "Wispr Flow",
+    "Zoom"
+  ],
+  "profiles": [
+    {
+      "id": "photoshop",
+      "name": "Adobe Photoshop",
+      "aliases": [
+        "Photoshop",
+        "PS"
+      ],
+      "features": [
+        {
+          "id": "layers",
+          "name": {
+            "it": "Livelli e maschere",
+            "en": "Layers and masks"
+          },
+          "source": "https://helpx.adobe.com/photoshop/desktop/create-masks/layer-masks/add-layer-masks.html"
+        },
+        {
+          "id": "reversible",
+          "name": {
+            "it": "Regolazioni non distruttive",
+            "en": "Non-destructive adjustments"
+          },
+          "source": "https://helpx.adobe.com/photoshop/desktop/create-manage-layers/color-adjustment-fill-layers/work-with-adjustment-and-fill-layers.html"
+        },
+        {
+          "id": "psd",
+          "name": {
+            "it": "Aprire e salvare PSD con livelli",
+            "en": "Open and save layered PSD"
+          },
+          "source": "https://helpx.adobe.com/photoshop/desktop/save-and-export/export-files-to-different-formats/photoshop-file-formats-overview.html"
+        },
+        {
+          "id": "genfill",
+          "name": {
+            "it": "Riempimento generativo integrato",
+            "en": "Built-in Generative Fill"
+          },
+          "source": "https://helpx.adobe.com/photoshop/desktop/create-open-import-images/create-images/edit-images-with-generative-fill.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "photocraft",
+          "evidence": {
+            "layers": {
+              "state": "supported",
+              "source": "https://github.com/storytold/photocraft#readme",
+              "note": {
+                "it": "Livelli, gruppi e maschere raster e vettoriali documentati.",
+                "en": "Documents layers, groups, and raster and vector masks."
+              }
+            },
+            "reversible": {
+              "state": "supported",
+              "source": "https://github.com/storytold/photocraft#readme",
+              "note": {
+                "it": "Livelli di regolazione e filtri avanzati modificabili.",
+                "en": "Editable adjustment layers and smart filters."
+              }
+            },
+            "psd": {
+              "state": "supported",
+              "source": "https://github.com/storytold/photocraft#readme",
+              "note": {
+                "it": "Lettura e scrittura PSD a livelli dichiarate. Verifica a parte i tuoi file più complessi.",
+                "en": "Documents reading and writing layered PSD. Check your more complex files separately."
+              }
+            },
+            "genfill": {
+              "state": "unsupported",
+              "source": "https://github.com/storytold/photocraft#readme",
+              "note": {
+                "it": "L’upstream indica le funzioni generative tra le lacune dell’alpha.",
+                "en": "Upstream lists generative features among the alpha’s gaps."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gimp",
+          "evidence": {
+            "layers": {
+              "state": "supported",
+              "source": "https://docs.gimp.org/3.0/en/",
+              "note": {
+                "it": "Maschere e gruppi di livelli nell’editor.",
+                "en": "Layer masks and layer groups in the editor."
+              }
+            },
+            "reversible": {
+              "state": "partial",
+              "source": "https://www.gimp.org/release-notes/gimp-3.0.html",
+              "note": {
+                "it": "Filtri GEGL non distruttivi. La copertura dipende dal filtro.",
+                "en": "Non-destructive GEGL filters. Coverage depends on the filter."
+              }
+            },
+            "psd": {
+              "state": "supported",
+              "source": "https://www.gimp.org/release-notes/gimp-3.0.html",
+              "note": {
+                "it": "Import ed export PSD a livelli, con limiti sugli elementi specifici di Photoshop.",
+                "en": "Layered PSD import and export, with limits on Photoshop-specific elements."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "krita",
+          "evidence": {
+            "layers": {
+              "state": "supported",
+              "source": "https://docs.krita.org/en/user_manual/introduction_from_other_software/introduction_from_photoshop.html",
+              "note": {
+                "it": "Livelli, gruppi, filtri e maschere da disegno.",
+                "en": "Painting layers, groups, filters, and masks."
+              }
+            },
+            "reversible": {
+              "state": "supported",
+              "source": "https://docs.krita.org/en/user_manual/introduction_from_other_software/introduction_from_photoshop.html",
+              "note": {
+                "it": "I livelli filtro applicano modifiche reversibili.",
+                "en": "Filter layers apply reversible adjustments."
+              }
+            },
+            "psd": {
+              "state": "supported",
+              "source": "https://docs.krita.org/en/general_concepts/file_formats/file_psd.html",
+              "note": {
+                "it": "Lettura e scrittura dei livelli raster. Compatibilità del file dipendente dai suoi elementi.",
+                "en": "Reads and writes raster layers. Compatibility depends on the document’s features."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "premiere",
+      "name": "Adobe Premiere Pro",
+      "aliases": [
+        "Premiere",
+        "Premiere Pro",
+        "Adobe Premiere"
+      ],
+      "features": [
+        {
+          "id": "timeline",
+          "name": {
+            "it": "Timeline multitraccia",
+            "en": "Multitrack timeline"
+          },
+          "source": "https://helpx.adobe.com/content/dam/help/en/pdf/premiere_pro_reference.pdf"
+        },
+        {
+          "id": "proxy",
+          "name": {
+            "it": "Creare e usare proxy",
+            "en": "Create and use proxies"
+          },
+          "source": "https://helpx.adobe.com/premiere/desktop/organize-media/ingest-proxy-workflow/create-proxies.html"
+        },
+        {
+          "id": "captions",
+          "name": {
+            "it": "Importare ed esportare sottotitoli SRT",
+            "en": "Import and export SRT captions"
+          },
+          "source": "https://helpx.adobe.com/content/dam/help/en/pdf/premiere_pro_reference.pdf"
+        },
+        {
+          "id": "avc",
+          "name": {
+            "it": "Esportare MP4 H.264",
+            "en": "Export H.264 MP4"
+          },
+          "source": "https://helpx.adobe.com/premiere/desktop/render-and-export/export-files/overview-of-export-settings.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kdenlive",
+          "evidence": {
+            "timeline": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/getting_started/introduction.html",
+              "note": {
+                "it": "Timeline audio/video con più tracce.",
+                "en": "Audio and video timeline with multiple tracks."
+              }
+            },
+            "proxy": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/getting_started/introduction.html",
+              "note": {
+                "it": "Proxy per il montaggio di video ad alta risoluzione.",
+                "en": "Proxy editing for high-resolution footage."
+              }
+            },
+            "captions": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/effects_and_filters/subtitles.html",
+              "note": {
+                "it": "SRT tra i formati di importazione ed esportazione.",
+                "en": "SRT is supported for import and export."
+              }
+            },
+            "avc": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/exporting/render.html",
+              "note": {
+                "it": "Preset di render MP4-H264/AAC.",
+                "en": "MP4-H264/AAC rendering preset."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "shotcut",
+          "evidence": {
+            "timeline": {
+              "state": "supported",
+              "source": "https://www.shotcut.org/features/",
+              "note": {
+                "it": "Editing di più tracce audio e video.",
+                "en": "Editing on multiple audio and video tracks."
+              }
+            },
+            "proxy": {
+              "state": "supported",
+              "source": "https://www.shotcut.org/features/",
+              "note": {
+                "it": "Montaggio con proxy a risoluzione ridotta.",
+                "en": "Editing with lower-resolution proxy files."
+              }
+            },
+            "captions": {
+              "state": "supported",
+              "source": "https://www.shotcut.org/features/",
+              "note": {
+                "it": "Import ed export di sottotitoli SRT.",
+                "en": "SRT subtitle import and export."
+              }
+            },
+            "avc": {
+              "state": "supported",
+              "source": "https://www.shotcut.org/features/",
+              "note": {
+                "it": "Preset H.264 e supporto container MP4 documentati.",
+                "en": "Documents H.264 presets and the MP4 container."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "filmcraft",
+          "evidence": {
+            "timeline": {
+              "state": "supported",
+              "source": "https://github.com/storytold/filmcraft#readme",
+              "note": {
+                "it": "Sequenze con tracce video e audio.",
+                "en": "Sequences with video and audio tracks."
+              }
+            },
+            "captions": {
+              "state": "supported",
+              "source": "https://github.com/storytold/filmcraft#readme",
+              "note": {
+                "it": "Importazione ed esportazione SRT documentate.",
+                "en": "SRT import and export are documented."
+              }
+            },
+            "avc": {
+              "state": "supported",
+              "source": "https://github.com/storytold/filmcraft#readme",
+              "note": {
+                "it": "Codifica H.264 ed esportazione MP4.",
+                "en": "H.264 encoding and MP4 export."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "granola",
+      "name": "Granola",
+      "aliases": [
+        "Granola AI"
+      ],
+      "features": [
+        {
+          "id": "transcript",
+          "name": {
+            "it": "Trascrivere una riunione",
+            "en": "Transcribe a meeting"
+          },
+          "source": "https://docs.granola.ai/help-center/getting-started/granola-101"
+        },
+        {
+          "id": "summary",
+          "name": {
+            "it": "Generare un riepilogo",
+            "en": "Generate a summary"
+          },
+          "source": "https://docs.granola.ai/help-center/getting-started/granola-101"
+        },
+        {
+          "id": "templates",
+          "name": {
+            "it": "Personalizzare i modelli di riepilogo",
+            "en": "Customize summary templates"
+          },
+          "source": "https://docs.granola.ai/help-center/getting-started/granola-101"
+        },
+        {
+          "id": "ask_notes",
+          "name": {
+            "it": "Fare domande su più riunioni",
+            "en": "Ask questions across meetings"
+          },
+          "source": "https://docs.granola.ai/help-center/getting-started/granola-101"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "meetily",
+          "evidence": {
+            "transcript": {
+              "state": "supported",
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme",
+              "note": {
+                "it": "Trascrizione locale inclusa in Community.",
+                "en": "Local transcription is included in Community."
+              }
+            },
+            "summary": {
+              "state": "supported",
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme",
+              "note": {
+                "it": "Riepiloghi con un modello locale, per esempio tramite Ollama.",
+                "en": "Summaries with a local model, for example via Ollama."
+              }
+            },
+            "templates": {
+              "state": "unsupported",
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme",
+              "note": {
+                "it": "I modelli personalizzati sono indicati come funzione Pro.",
+                "en": "Custom templates are listed as a Pro feature."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "aliases": [
+        "Linear.app"
+      ],
+      "features": [
+        {
+          "id": "issues",
+          "name": {
+            "it": "Gestire e assegnare attività",
+            "en": "Manage and assign issues"
+          },
+          "source": "https://linear.app/docs/creating-issues"
+        },
+        {
+          "id": "cycles",
+          "name": {
+            "it": "Pianificare sprint o cicli",
+            "en": "Plan sprints or cycles"
+          },
+          "source": "https://linear.app/docs/use-cycles"
+        },
+        {
+          "id": "board",
+          "name": {
+            "it": "Lavorare su una bacheca Kanban",
+            "en": "Work from a Kanban board"
+          },
+          "source": "https://linear.app/docs/creating-issues"
+        },
+        {
+          "id": "github_sync",
+          "name": {
+            "it": "Collegare issue e pull request GitHub",
+            "en": "Link GitHub issues and pull requests"
+          },
+          "source": "https://linear.app/docs/github"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "plane",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://github.com/makeplane/plane#readme",
+              "note": {
+                "it": "Le attività fanno parte del progetto Community.",
+                "en": "Work items are part of the Community project."
+              }
+            },
+            "cycles": {
+              "state": "supported",
+              "source": "https://github.com/makeplane/plane#readme",
+              "note": {
+                "it": "Cicli inclusi nella versione Community.",
+                "en": "Cycles are included in Community."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://docs.plane.so/core-concepts/issues/layouts",
+              "note": {
+                "it": "La vista Board raggruppa le attività per stato.",
+                "en": "The Board layout groups work items by state."
+              }
+            },
+            "github_sync": {
+              "state": "unsupported",
+              "source": "https://docs.plane.so/integrations/github",
+              "note": {
+                "it": "La sincronizzazione GitHub richiede il piano Pro.",
+                "en": "GitHub sync requires the Pro plan."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "openproject",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://www.openproject.org/docs/user-guide/work-packages/",
+              "note": {
+                "it": "I work package supportano assegnazioni e stati.",
+                "en": "Work packages support assignees and states."
+              }
+            },
+            "cycles": {
+              "state": "supported",
+              "source": "https://www.openproject.org/blog/openproject-17-3-release/",
+              "note": {
+                "it": "Backlog e pianificazione sprint documentati.",
+                "en": "Backlogs and sprint planning are documented."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://www.openproject.org/docs/user-guide/agile-boards/",
+              "note": {
+                "it": "Bacheche Agile incluse nell’edizione Community.",
+                "en": "Agile boards are included in Community."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "illustrator",
+      "name": "Adobe Illustrator",
+      "aliases": [
+        "Illustrator"
+      ],
+      "features": [
+        {
+          "id": "bezier",
+          "name": {
+            "it": "Disegnare tracciati Bézier",
+            "en": "Draw Bézier paths"
+          },
+          "source": "https://helpx.adobe.com/illustrator/using/tool-techniques/pen-tool.html"
+        },
+        {
+          "id": "svg",
+          "name": {
+            "it": "Aprire ed esportare SVG",
+            "en": "Open and export SVG"
+          },
+          "source": "https://helpx.adobe.com/illustrator/desktop/save-and-export/export-files-to-different-formats/export-file-format-options-in-illustrator.html"
+        },
+        {
+          "id": "vector_pdf",
+          "name": {
+            "it": "Esportare in PDF vettoriale",
+            "en": "Export vector PDF"
+          },
+          "source": "https://helpx.adobe.com/illustrator/desktop/save-and-export/export-files-to-different-formats/export-file-format-options-in-illustrator.html"
+        },
+        {
+          "id": "illustrator_file",
+          "name": {
+            "it": "Aprire e salvare file .ai",
+            "en": "Open and save .ai files"
+          },
+          "source": "https://helpx.adobe.com/illustrator/using/saving-artwork.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "inks",
+          "evidence": {
+            "bezier": {
+              "state": "supported",
+              "source": "https://media.inkscape.org/dl/resources/file/How_to_Draw_a_Line.pdf",
+              "note": {
+                "it": "Strumento Bézier per segmenti e curve.",
+                "en": "Bézier tool for segments and curves."
+              }
+            },
+            "svg": {
+              "state": "supported",
+              "source": "https://wiki.inkscape.org/wiki/AnnouncePlanning091",
+              "note": {
+                "it": "SVG è un formato nativo.",
+                "en": "SVG is a native format."
+              }
+            },
+            "vector_pdf": {
+              "state": "supported",
+              "source": "https://wiki.inkscape.org/wiki/Inkscape_for_Adobe_Illustrator_users",
+              "note": {
+                "it": "Il documento può essere esportato in PDF.",
+                "en": "Documents can be exported as PDF."
+              }
+            },
+            "illustrator_file": {
+              "state": "partial",
+              "source": "https://wiki.inkscape.org/wiki/Inkscape_for_Adobe_Illustrator_users",
+              "note": {
+                "it": "Importa file AI compatibili con PDF. Il flusso di ritorno passa da SVG.",
+                "en": "Imports PDF-compatible AI files. The return workflow uses SVG."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vectorcraft",
+          "evidence": {
+            "bezier": {
+              "state": "supported",
+              "source": "https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md",
+              "note": {
+                "it": "Penna, punti e modifica di curve documentati.",
+                "en": "Documents pen, anchor points, and curve editing."
+              }
+            },
+            "svg": {
+              "state": "supported",
+              "source": "https://github.com/storytold/vectorcraft/blob/main/docs/control-protocol.md",
+              "note": {
+                "it": "Apertura e salvataggio SVG nel progetto.",
+                "en": "Supports opening and saving SVG."
+              }
+            },
+            "vector_pdf": {
+              "state": "supported",
+              "source": "https://github.com/storytold/vectorcraft/blob/main/docs/control-protocol.md",
+              "note": {
+                "it": "Esportazione PDF con pannello delle opzioni.",
+                "en": "PDF export with options."
+              }
+            },
+            "illustrator_file": {
+              "state": "partial",
+              "source": "https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md",
+              "note": {
+                "it": "Supporto al formato .ai compatibile PDF, con limiti sugli elementi specifici di Illustrator.",
+                "en": "Supports PDF-compatible .ai files, with limits on Illustrator-specific features."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lightroom",
+      "name": "Adobe Lightroom Classic",
+      "aliases": [
+        "Adobe Lightroom",
+        "Lightroom",
+        "Lightroom Classic"
+      ],
+      "features": [
+        {
+          "id": "raw_edit",
+          "name": {
+            "it": "Sviluppare foto RAW senza alterare gli originali",
+            "en": "Develop RAW photos without changing originals"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/desktop/introduction-to-lightroom-classic/faq.html"
+        },
+        {
+          "id": "batch_photo",
+          "name": {
+            "it": "Esportare più foto in gruppo",
+            "en": "Batch-export photos"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/help/exporting-photos-basic-workflow.html"
+        },
+        {
+          "id": "photo_masks",
+          "name": {
+            "it": "Applicare regolazioni locali con maschere",
+            "en": "Make local adjustments using masks"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/help/masking.html"
+        },
+        {
+          "id": "color_labels",
+          "name": {
+            "it": "Organizzare foto con etichette colore",
+            "en": "Organize photos with color labels"
+          },
+          "source": "https://helpx.adobe.com/uk/lightroom-classic/desktop/kb/lightroom-feature-comparison.html"
+        },
+        {
+          "id": "lens_profiles",
+          "name": {
+            "it": "Correggere distorsione e vignettatura con profili obiettivo",
+            "en": "Correct distortion and vignetting with lens profiles"
+          },
+          "source": "https://helpx.adobe.com/uk/lightroom-classic/desktop/kb/lightroom-feature-comparison.html"
+        },
+        {
+          "id": "tethered_capture",
+          "name": {
+            "it": "Importare direttamente durante lo scatto collegato",
+            "en": "Import directly during tethered shooting"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/desktop/import-photos/import-photos-tethered-camera.html"
+        },
+        {
+          "id": "icc_soft_proof",
+          "name": {
+            "it": "Simulare la stampa con un profilo ICC",
+            "en": "Soft-proof print output using an ICC profile"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/desktop/technical-support/technical-issues/miscellaneous-issues/color-faq.html"
+        },
+        {
+          "id": "face_groups",
+          "name": {
+            "it": "Raggruppare le foto riconoscendo i volti",
+            "en": "Group photos using face recognition"
+          },
+          "source": "https://helpx.adobe.com/lightroom-classic/help/face-recognition.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "darktable",
+          "evidence": {
+            "raw_edit": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Sviluppo RAW con ritocchi nel database e nel file .xmp.",
+                "en": "RAW development with edits stored in the database and .xmp file."
+              }
+            },
+            "batch_photo": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Esportazione di più immagini dalla vista lighttable.",
+                "en": "Exports multiple selected images from the lighttable."
+              }
+            },
+            "photo_masks": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Maschere disegnate e parametriche per i moduli di sviluppo.",
+                "en": "Drawn and parametric masks for development modules."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Etichette colore nella tavola luminosa.",
+                "en": "Color labels in lighttable."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.8/en/darktable_user_manual.pdf",
+              "note": {
+                "it": "Profili Lensfun. Copertura legata alla combinazione corpo e obiettivo.",
+                "en": "Lensfun profiles. Coverage depends on the camera and lens."
+              }
+            },
+            "tethered_capture": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/development/en/tethering/overview/",
+              "note": {
+                "it": "Ingresso tethering per fotocamere compatibili.",
+                "en": "Tethering view for compatible cameras."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://docs.darktable.org/usermanual/4.2/en/module-reference/utility-modules/darkroom/soft-proof/",
+              "note": {
+                "it": "Anteprima di prova con profilo di uscita.",
+                "en": "Soft-proof preview with an output profile."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "rawtherapee",
+          "evidence": {
+            "raw_edit": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/sidecar_files_-_processing_profiles/",
+              "note": {
+                "it": "Le regolazioni sono in profili di elaborazione separati.",
+                "en": "Adjustments are stored as separate processing profiles."
+              }
+            },
+            "batch_photo": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/queue/",
+              "note": {
+                "it": "Coda di esportazione per più immagini.",
+                "en": "Export queue for multiple images."
+              }
+            },
+            "photo_masks": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/local_adjustments/",
+              "note": {
+                "it": "Regolazioni locali con aree e maschere.",
+                "en": "Local adjustments with areas and masks."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/features/",
+              "note": {
+                "it": "Etichette colore e filtri nella raccolta.",
+                "en": "Color labels and filters in the file browser."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/lens--geometry/",
+              "note": {
+                "it": "Profili Lensfun o LCP per distorsione e vignettatura.",
+                "en": "Lensfun or LCP profiles for distortion and vignetting."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://rawpedia.pixls.us/editor/",
+              "note": {
+                "it": "Anteprima con profilo ICC della combinazione carta e stampante.",
+                "en": "Preview with the paper and printer ICC profile."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "lightcraft",
+          "evidence": {
+            "raw_edit": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Sviluppo DNG e vari RAW documentato. La compatibilità dipende dal corpo macchina.",
+                "en": "Documents development for DNG and several RAW formats. Support depends on the camera."
+              }
+            },
+            "batch_photo": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Esportazione con coda batch, con alcune sottofunzioni in corso.",
+                "en": "Batch export queue, with some subfeatures still in progress."
+              }
+            },
+            "photo_masks": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/ai-masks.md",
+              "note": {
+                "it": "Maschere locali, anche senza il modello opzionale di segmentazione.",
+                "en": "Local masks work without the optional segmentation model."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/parity-checklist.md",
+              "note": {
+                "it": "Etichette assegnabili da griglia, menu e scorciatoie.",
+                "en": "Labels can be set from the grid, menu and shortcuts."
+              }
+            },
+            "lens_profiles": {
+              "state": "partial",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/target-app-parity.md",
+              "note": {
+                "it": "Correzioni disponibili. La mappa di parità segnala la banca dati incompleta.",
+                "en": "Corrections are available. The parity assessment identifies the missing lens database."
+              }
+            },
+            "tethered_capture": {
+              "state": "unsupported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Lo scatto collegato è ancora nella roadmap.",
+                "en": "Tethered shooting remains on the roadmap."
+              }
+            },
+            "icc_soft_proof": {
+              "state": "supported",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/parity-checklist.md",
+              "note": {
+                "it": "Anteprima con profili ICC per carta e stampante.",
+                "en": "Preview using paper and printer ICC profiles."
+              }
+            },
+            "face_groups": {
+              "state": "partial",
+              "source": "https://github.com/storytold/lightcraft/blob/main/docs/faces.md",
+              "note": {
+                "it": "Vista Persone e volti XMP. Il riconoscimento automatico richiede un modello esterno opzionale.",
+                "en": "People view and XMP face names are available. Automatic recognition requires an optional external model."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "acrobat",
+      "name": "Adobe Acrobat Pro",
+      "aliases": [
+        "Adobe Acrobat",
+        "Acrobat",
+        "Acrobat Pro"
+      ],
+      "features": [
+        {
+          "id": "merge_pdf",
+          "name": {
+            "it": "Unire più PDF",
+            "en": "Merge PDFs"
+          },
+          "source": "https://helpx.adobe.com/acrobat/desktop/edit-documents/combine-files/combine-files.html"
+        },
+        {
+          "id": "split_pdf",
+          "name": {
+            "it": "Dividere un PDF in più file",
+            "en": "Split a PDF into files"
+          },
+          "source": "https://helpx.adobe.com/ca/acrobat/desktop/edit-documents/organize-pages/split-pdfs.html"
+        },
+        {
+          "id": "ocr_pdf",
+          "name": {
+            "it": "Rendere ricercabile una scansione con OCR",
+            "en": "Make a scanned document searchable with OCR"
+          },
+          "source": "https://helpx.adobe.com/acrobat/desktop/create-documents/scan-documents-to-pdfs/edit-scans.html"
+        },
+        {
+          "id": "pdf_existing_text",
+          "name": {
+            "it": "Modificare testo esistente nel PDF",
+            "en": "Edit existing PDF text"
+          },
+          "source": "https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "pdfcraft",
+          "evidence": {
+            "merge_pdf": {
+              "state": "supported",
+              "source": "https://github.com/storytold/pdfcraft#readme",
+              "note": {
+                "it": "Unione di documenti nel motore PDF.",
+                "en": "Document merging in the PDF engine."
+              }
+            },
+            "split_pdf": {
+              "state": "supported",
+              "source": "https://github.com/storytold/pdfcraft#readme",
+              "note": {
+                "it": "Divisione ed estrazione di pagine documentate.",
+                "en": "Documents page splitting and extraction."
+              }
+            },
+            "ocr_pdf": {
+              "state": "partial",
+              "source": "https://github.com/storytold/pdfcraft#readme",
+              "note": {
+                "it": "OCR presente con limiti dichiarati per le scritture non latine.",
+                "en": "OCR is available with documented limits for non-Latin scripts."
+              }
+            },
+            "pdf_existing_text": {
+              "state": "partial",
+              "source": "https://github.com/storytold/pdfcraft#readme",
+              "note": {
+                "it": "L’upstream indica limiti nell’editing del testo esistente.",
+                "en": "Upstream documents limits in existing-text editing."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pdfsam-basic",
+          "evidence": {
+            "merge_pdf": {
+              "state": "supported",
+              "source": "https://pdfsam.org/pdfsam-basic/",
+              "note": {
+                "it": "Modulo gratuito di unione con scelta degli intervalli.",
+                "en": "Free merge module with page ranges."
+              }
+            },
+            "split_pdf": {
+              "state": "supported",
+              "source": "https://pdfsam.org/pdfsam-basic/",
+              "note": {
+                "it": "Divisione per numero di pagina, dimensione o segnalibri.",
+                "en": "Splits by page number, size, or bookmarks."
+              }
+            },
+            "ocr_pdf": {
+              "state": "unsupported",
+              "source": "https://pdfsam.org/download-pdfsam-basic/",
+              "note": {
+                "it": "Il sito rimanda all’edizione separata Enhanced per OCR.",
+                "en": "The project directs OCR users to the separate Enhanced edition."
+              }
+            },
+            "pdf_existing_text": {
+              "state": "unsupported",
+              "source": "https://pdfsam.org/download-pdfsam-basic/",
+              "note": {
+                "it": "L’editor dei contenuti è nell’edizione separata Enhanced.",
+                "en": "Content editing is in the separate Enhanced edition."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "naps2",
+          "evidence": {
+            "merge_pdf": {
+              "state": "supported",
+              "source": "https://www.naps2.com/doc/saving",
+              "note": {
+                "it": "Importa pagine da più documenti e salvale in un PDF.",
+                "en": "Import pages from multiple documents and save them to one PDF."
+              }
+            },
+            "ocr_pdf": {
+              "state": "supported",
+              "source": "https://www.naps2.com/doc/ocr",
+              "note": {
+                "it": "Aggiunge testo ricercabile ai PDF importati.",
+                "en": "Adds searchable text to imported PDFs."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "arq",
+      "name": "Arq Backup",
+      "aliases": [
+        "Arq",
+        "Arq 7",
+        "Arq Premium"
+      ],
+      "features": [
+        {
+          "id": "backup_local",
+          "name": {
+            "it": "Backup su disco locale",
+            "en": "Back up to a local drive"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_encrypt",
+          "name": {
+            "it": "Cifrare il backup prima dell’invio",
+            "en": "Encrypt backups before upload"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/createBackupPlan.html"
+        },
+        {
+          "id": "backup_restore_file",
+          "name": {
+            "it": "Ripristinare un singolo file",
+            "en": "Restore a single file"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/restore.html"
+        },
+        {
+          "id": "backup_schedule_ui",
+          "name": {
+            "it": "Programmare i backup dall’interfaccia",
+            "en": "Schedule backups in the app"
+          },
+          "source": "https://www.arqbackup.com/wasabi-backup.html"
+        },
+        {
+          "id": "backup_retention",
+          "name": {
+            "it": "Impostare la conservazione delle versioni",
+            "en": "Set version retention rules"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/createBackupPlan.html"
+        },
+        {
+          "id": "backup_s3",
+          "name": {
+            "it": "Salvare su storage compatibile con S3",
+            "en": "Back up to S3-compatible storage"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_sftp",
+          "name": {
+            "it": "Salvare su un server SFTP",
+            "en": "Back up to an SFTP server"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/storageLocations.html"
+        },
+        {
+          "id": "backup_s3_lock",
+          "name": {
+            "it": "Proteggere gli oggetti S3 dalla rimozione",
+            "en": "Protect S3 objects from deletion"
+          },
+          "source": "https://www.arqbackup.com/documentation/arq7/English.lproj/objectLock.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kopia",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta repository sul filesystem locale.",
+                "en": "Supports repositories on a local filesystem."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "I contenuti del repository sono cifrati.",
+                "en": "Repository contents are encrypted."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "KopiaUI ripristina singoli file da uno snapshot.",
+                "en": "KopiaUI can restore individual files from a snapshot."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "La pianificazione degli snapshot si imposta dalle policy di KopiaUI.",
+                "en": "Snapshot schedules are configured in KopiaUI policies."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/getting-started/",
+              "note": {
+                "it": "Le policy determinano quante versioni conservare.",
+                "en": "Policies determine how many versions to retain."
+              }
+            },
+            "backup_s3": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta S3 e endpoint compatibili.",
+                "en": "Supports S3 and compatible endpoints."
+              }
+            },
+            "backup_sftp": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/repositories/",
+              "note": {
+                "it": "Supporta repository su un server SFTP.",
+                "en": "Supports repositories on an SFTP server."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/advanced/ransomware-protection/",
+              "note": {
+                "it": "Richiede un bucket con Object Lock abilitato e configurazione da terminale.",
+                "en": "Requires a bucket with Object Lock enabled and CLI configuration."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "backrest",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "La dashboard gestisce anche repository su disco locale.",
+                "en": "The dashboard also manages local disk repositories."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#overview",
+              "note": {
+                "it": "I backup usano repository restic cifrati.",
+                "en": "Backups use encrypted restic repositories."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Puoi sfogliare le istantanee e ripristinare singoli file dalla dashboard.",
+                "en": "Browse snapshots and restore individual files from the dashboard."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Permette di configurare backup e manutenzione pianificati.",
+                "en": "Configure scheduled backups and maintenance."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Le operazioni di manutenzione includono la rimozione delle istantanee fuori dalle regole di conservazione.",
+                "en": "Maintenance includes forgetting snapshots outside retention rules."
+              }
+            },
+            "backup_s3": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Supporta repository su Amazon S3 e storage compatibile.",
+                "en": "Supports repositories on Amazon S3 and compatible storage."
+              }
+            },
+            "backup_sftp": {
+              "state": "supported",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Supporta repository su server SFTP.",
+                "en": "Supports repositories on SFTP servers."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "unverified",
+              "source": "https://github.com/garethgeorge/backrest#key-features",
+              "note": {
+                "it": "Le fonti disponibili non verificano il flusso con Object Lock.",
+                "en": "The available sources do not verify the Object Lock workflow."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vorta",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/local/",
+              "note": {
+                "it": "Supporta repository Borg in una cartella locale.",
+                "en": "Supports Borg repositories in a local directory."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/local/",
+              "note": {
+                "it": "La configurazione del repository include la cifratura Borg.",
+                "en": "Repository setup includes Borg encryption."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/#restore",
+              "note": {
+                "it": "Si possono selezionare file specifici dall’archivio.",
+                "en": "Specific files can be selected from the archive."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/#scheduling-automatic-backups",
+              "note": {
+                "it": "L’interfaccia di Vorta pianifica backup automatici.",
+                "en": "The Vorta interface schedules automatic backups."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://vorta.borgbase.com/usage/prune/",
+              "note": {
+                "it": "I criteri di pruning gestiscono la conservazione degli archivi.",
+                "en": "Pruning rules manage archive retention."
+              }
+            },
+            "backup_s3": {
+              "state": "unverified",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La guida documenta repository remoti Borg via SSH. Un backend S3 diretto resta da verificare.",
+                "en": "The guide documents remote Borg repositories over SSH. A direct S3 backend remains unverified."
+              }
+            },
+            "backup_sftp": {
+              "state": "unsupported",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La modalità remota documentata richiede Borg via SSH. Un server con solo SFTP non basta.",
+                "en": "The documented remote mode requires Borg over SSH. An SFTP-only server is insufficient."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "unverified",
+              "source": "https://vorta.borgbase.com/usage/remote/",
+              "note": {
+                "it": "La documentazione remota non indica una configurazione per S3 Object Lock.",
+                "en": "The remote repository documentation does not show an S3 Object Lock setup."
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

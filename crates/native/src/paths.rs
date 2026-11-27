@@ -12,7 +12,7 @@ pub struct Paths {
     pub cache: PathBuf,
 }
 
-const DIR: &str = if cfg!(any(target_os = "macos", target_os = "windows")) { "ArtCraft Launcher" } else { "artcraft-launcher" };
+const DIR: &str = if cfg!(any(target_os = "macos", target_os = "windows")) { "ShiftAnything" } else { "shiftanything" };
 
 impl Paths {
     pub fn new() -> Result<Self, String> {
@@ -31,7 +31,7 @@ impl Paths {
     /// still refused. Stable storage keeps [`Self::new`], so its records stay byte-for-byte.
     pub fn new_resolved() -> Result<Self, String> {
         let (base, own) = match portable_root() {
-            Some(root) => (root.parent().ok_or("the portable folder has no parent")?.to_path_buf(), PathBuf::from("ArtCraftLauncherData")),
+            Some(root) => (root.parent().ok_or("the portable folder has no parent")?.to_path_buf(), PathBuf::from("ShiftAnythingData")),
             None => {
                 let data = dirs::data_local_dir().ok_or("no per-user data folder on this system")?;
                 let cache = dirs::cache_dir().ok_or("no per-user cache folder on this system")?;
@@ -93,7 +93,7 @@ impl Paths {
         self.data.join("installed.json")
     }
 
-    /// The launcher's own log files (`artcraft-launcher.log` and the previous runs').
+    /// The launcher's own log files (`shiftanything.log` and the previous runs').
     pub fn logs(&self) -> PathBuf {
         self.data.join("logs")
     }
@@ -127,7 +127,7 @@ pub fn write_atomic(path: &std::path::Path, bytes: &[u8]) -> Result<(), String> 
 /// appended as named. Anything unresolvable (a relative path, a dangling alias, an unreadable
 /// folder) is returned unchanged, so the Nightly checks see and refuse it rather than this
 /// guessing.
-fn resolve_existing(path: &std::path::Path) -> PathBuf {
+pub(crate) fn resolve_existing(path: &std::path::Path) -> PathBuf {
     if !path.is_absolute() || path.components().any(|part| matches!(part, std::path::Component::CurDir | std::path::Component::ParentDir)) {
         return path.to_path_buf();
     }
@@ -148,11 +148,11 @@ fn resolve_existing(path: &std::path::Path) -> PathBuf {
 }
 
 /// Portable mode: a `portable.txt` beside the executable keeps everything in
-/// `ArtCraftLauncherData` next to it (the Windows portable zip ships one).
+/// `ShiftAnythingData` next to it (the Windows portable zip ships one).
 pub fn portable_root() -> Option<PathBuf> {
     let exe = std::env::current_exe().ok()?;
     let dir = exe.parent()?;
-    dir.join("portable.txt").is_file().then(|| dir.join("ArtCraftLauncherData"))
+    dir.join("portable.txt").is_file().then(|| dir.join("ShiftAnythingData"))
 }
 
 #[cfg(test)]

@@ -89,7 +89,10 @@ fn harness(view: ViewMode) -> Harness<'static, Option<LauncherUi>> {
             if state.is_none()
                 && let Some(b) = backend.take()
             {
-                *state = Some(LauncherUi::new(ui.ctx(), Box::new(b), settings.clone()));
+                let mut launcher = LauncherUi::new(ui.ctx(), Box::new(b), settings.clone());
+                // These scenarios exercise management; discovery has separate catalog coverage.
+                launcher.set_page(artcraft_launcher_ui_egui::Page::Apps);
+                *state = Some(launcher);
             }
             if let Some(l) = state.as_mut() {
                 l.logic(&ui.ctx().clone(), &mut NoHost);
@@ -105,7 +108,7 @@ fn portuguese_ui_translates_labels_dates_and_messages() {
     let mut h = harness(ViewMode::Grid);
     h.run_steps(8);
     assert!(h.query_by_label("Launcher").is_none());
-    h.get_by_label("Craft App Suite");
+    h.get_by_label("My apps");
     h.get_by_label("Edição de imagens");
     h.get_by_label("Atualizar para 0.5.0");
     h.get_by_label_contains("Conferindo a soma de verificação…");
@@ -124,7 +127,7 @@ fn portuguese_ui_translates_labels_dates_and_messages() {
 fn the_table_shows_the_longest_dates_whole() {
     let mut h = harness(ViewMode::Table);
     h.run_steps(4);
-    let text = "29 de ago. de 2026";
+    let text = "30 de ago. de 2026";
     let font = egui::TextStyle::Body.resolve(&h.ctx.global_style());
     let whole = h.ctx.fonts_mut(|f| f.layout_no_wrap(text.into(), font, egui::Color32::WHITE).size().x);
     let date = h.get_all_by_label_contains(text).next().expect("a release date in the table");

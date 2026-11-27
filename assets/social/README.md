@@ -22,3 +22,5 @@ ArtCraft's website.
 
 The logos themselves are trademarks of their owners (X Corp., Google LLC, TikTok / ByteDance Ltd.,
 Meta Platforms, Inc., Discord Inc. and LinkedIn Corporation). They are used only to link to ArtCraft's own accounts on those services.
+
+`reddit.svg` is Simple Icons 16.34.0, CC0 1.0, from https://cdn.jsdelivr.net/npm/simple-icons@16.34.0/icons/reddit.svg; white fill added for tinting. Reddit is a trademark of Reddit, Inc. Reddit and X link to the profiles explicitly supplied by the operator.

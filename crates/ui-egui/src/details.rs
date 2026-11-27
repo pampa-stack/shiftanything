@@ -44,7 +44,20 @@ impl Picture {
         match result {
             // The backend already enforces the pixel budget; re-check here so bytes can never
             // reach egui's image loader (which allocates from the JPEG header) unvalidated.
-            Ok(bytes) if artcraft_launcher_core::details::screenshot_within_budget(&bytes) => Self::Ready(bytes.into()),
+            Ok(bytes) if artcraft_launcher_core::curated::media_within_budget(&bytes) => {
+                // Keep previews usable on the minimum supported GPU texture limit as well.
+                match image::load_from_memory(&bytes) {
+                    Ok(image) if image.width() > 2048 || image.height() > 2048 => {
+                        let mut output = std::io::Cursor::new(Vec::new());
+                        match image.thumbnail(2048, 2048).write_to(&mut output, image::ImageFormat::Png) {
+                            Ok(()) => Self::Ready(output.into_inner().into()),
+                            Err(error) => Self::Failed(error.to_string()),
+                        }
+                    }
+                    Ok(_) => Self::Ready(bytes.into()),
+                    Err(error) => Self::Failed(error.to_string()),
+                }
+            }
             Ok(_) => Self::Failed("the picture's dimensions are too large".into()),
             Err(why) => Self::Failed(why),
         }
@@ -78,7 +91,7 @@ impl LauncherUi {
     }
 
     /// The picture to draw, once it has arrived.
-    fn picture_source(&self, app: &str, key: &str) -> Option<egui::ImageSource<'static>> {
+    pub(crate) fn picture_source(&self, app: &str, key: &str) -> Option<egui::ImageSource<'static>> {
         match self.pictures.get(&(app.to_string(), key.to_string())) {
             Some(Picture::Ready(bytes)) => Some(egui::ImageSource::Bytes {
                 uri: format!("bytes://screenshots/{app}/{key}.jpg").into(),
@@ -632,4 +645,19 @@ fn arrow_button(ui: &mut Ui, rect: Rect, id: Id, left: bool, tip: &str, t: &Toke
     painter.add(egui::Shape::line(points, Stroke::new(1.75, ink)));
     resp.widget_info(|| egui::WidgetInfo::labeled(egui::Role::Button, true, tip));
     resp.on_hover_cursor(egui::CursorIcon::PointingHand).on_hover_text(tip).clicked()
+}
+
+#[cfg(test)]
+mod picture_budget_tests {
+    #[test]
+    fn oversized_texture_is_scaled_without_cropping() {
+        let input = image::RgbImage::new(2370, 1630);
+        let mut encoded = std::io::Cursor::new(Vec::new());
+        input.write_to(&mut encoded, image::ImageFormat::Png).unwrap();
+        let super::Picture::Ready(bytes) = super::Picture::from_result(Ok(encoded.into_inner())) else { panic!("valid image must remain available") };
+        let image = image::load_from_memory(&bytes).unwrap();
+        assert!(image.width() < input.width());
+        assert!(image.height() < input.height());
+        assert!((image.width() as f64 / image.height() as f64 - input.width() as f64 / input.height() as f64).abs() < 0.01);
+    }
 }

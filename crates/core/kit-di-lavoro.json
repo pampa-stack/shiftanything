@@ -1,0 +1,83 @@
+{
+  "checked_on": "2026-11-26",
+  "kits": [
+    {
+      "id": "designer",
+      "name": {"it":"Designer","en":"Designer"},
+      "description": {"it":"Fotoritocco, grafica vettoriale, impaginazione e prototipi.","en":"Image editing, vector design, publishing and prototyping."},
+      "steps": [
+        {"id":"photo","name":{"it":"Fotoritocco","en":"Image editing"},"paid":["Adobe Photoshop"],"compare":"photoshop","options":[
+          {"app":"gimp","use":{"it":"Ritocco, composizione e livelli.","en":"Retouching, compositing and layers."},"source":"https://docs.gimp.org/en_GB/introduction.html"},
+          {"app":"photocraft","use":{"it":"Livelli, maschere e PSD. L’app è in alpha.","en":"Layers, masks and PSD. The app is in alpha."},"source":"https://github.com/storytold/photocraft#readme"},
+          {"app":"krita","use":{"it":"Illustrazione, pennelli, livelli e maschere.","en":"Illustration, brushes, layers and masks."},"source":"https://docs.krita.org/en/user_manual.html"}]},
+        {"id":"vector","name":{"it":"Grafica vettoriale","en":"Vector design"},"paid":["Adobe Illustrator"],"compare":"illustrator","options":[
+          {"app":"inks","use":{"it":"Loghi, icone e illustrazioni in SVG.","en":"Logos, icons and illustrations in SVG."},"source":"https://inkscape-manuals.readthedocs.io/en/latest/"},
+          {"app":"vectorcraft","use":{"it":"Tracciati, forme e grafica vettoriale. Verifica i file .ai complessi.","en":"Paths, shapes and vector artwork. Check complex .ai files."},"source":"https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md"}]},
+        {"id":"layout","name":{"it":"Impaginazione","en":"Publishing"},"paid":["Adobe InDesign"],"options":[
+          {"app":"scribus","use":{"it":"Documenti multipagina e PDF/X per la stampa.","en":"Multipage documents and print-ready PDF/X."},"source":"https://github.com/scribusproject/scribus/blob/master/doc/en/readme.html"},
+          {"app":"designcraft","use":{"it":"Impaginazione con testo e immagini. È un’app di ArtCraft.","en":"Page layout with text and images. Part of the ArtCraft suite."},"source":"https://github.com/storytold/designcraft#readme"}]},
+        {"id":"prototype","name":{"it":"Prototipi di interfacce","en":"Interface prototyping"},"paid":["Figma"],"options":[
+          {"app":"penpot","use":{"it":"Collega tavole e crea prototipi navigabili. Disponibile in self-hosting.","en":"Connect boards into interactive prototypes. Available for self-hosting."},"source":"https://help.penpot.app/user-guide/prototyping-testing/prototyping/"}]}
+      ]
+    },
+    {
+      "id": "architect",
+      "name": {"it":"Architetto","en":"Architect"},
+      "description": {"it":"Piante 2D, modello BIM, rendering e mappe del sito.","en":"2D plans, BIM models, rendering and site maps."},
+      "steps": [
+        {"id":"draft","name":{"it":"Disegno 2D","en":"2D drafting"},"paid":["AutoCAD"],"options":[
+          {"app":"librecad","use":{"it":"Piante quotate e disegni 2D. Controlla gli scambi DWG.","en":"Dimensioned plans and 2D drawings. Check DWG interchange."},"source":"https://docs.librecad.org/en/latest/"},
+          {"app":"free","use":{"it":"Disegni 2D e scambio DXF.","en":"2D drawings and DXF interchange."},"source":"https://www.freecad.org/manual/a-freecad-manual.pdf#page=76"}]},
+        {"id":"bim","name":{"it":"Modello BIM","en":"BIM model"},"paid":["Revit","Archicad","Chief Architect","SoftPlan"],"options":[
+          {"app":"free","use":{"it":"Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.","en":"Parametric modeling, BIM tools and IFC. Verify interchange with your practice."},"source":"https://www.freecad.org/"}]},
+        {"id":"render","name":{"it":"Rendering","en":"Rendering"},"paid":["Enscape","Lumion"],"options":[
+          {"app":"blender","use":{"it":"Materiali, luci e rendering statici o animati.","en":"Materials, lighting, still renders and animations."},"source":"https://docs.blender.org/manual/en/4.5/render/index.html"}]},
+        {"id":"maps","name":{"it":"Analisi del sito e mappe","en":"Site analysis and maps"},"paid":["ArcGIS Pro"],"options":[
+          {"app":"qgis","use":{"it":"Dati geografici, mappe e tavole.","en":"Geographic data, maps and layouts."},"source":"https://docs.qgis.org/4.4/en/docs/about/features.html"}]}
+      ]
+    }
+  ],
+  "rankings": [
+    {
+      "id":"design-it",
+      "name":{"it":"Design · Italia","en":"Design · Italy"},
+      "metric":{"it":"Uso dichiarato","en":"Reported use"},
+      "scope":{"it":"529 partecipanti al sondaggio aperto 2026. Estratto per le app del kit.","en":"529 participants in the 2026 open survey. Extract for apps in the kit."},
+      "source":"https://xdapolidesign.com/wp-content/uploads/2026/09/Stato-UX-Italia-2026-Experience-Design-Academy.pdf#page=39",
+      "publisher":"POLI.design · Experience Design Academy",
+      "entries":[
+        {"paid":"Figma","value":91,"apps":["penpot"]},
+        {"paid":"Adobe Illustrator","value":29,"apps":["inks","vectorcraft"],"compare":"illustrator"},
+        {"paid":"Adobe Photoshop","value":25,"apps":["gimp","photocraft","krita"],"compare":"photoshop"},
+        {"paid":"Adobe InDesign","value":6,"apps":["scribus","designcraft"]}
+      ]
+    },
+    {
+      "id":"architecture-aibd",
+      "name":{"it":"Architettura · AIBD","en":"Architecture · AIBD"},
+      "metric":{"it":"Software principale","en":"Primary software"},
+      "scope":{"it":"165 risposte da progettisti di edilizia residenziale, 2026. Estratto per le app del kit.","en":"165 responses from residential building designers, 2026. Extract for apps in the kit."},
+      "source":"https://american-institute-of-building-design-aibd.kit.com/posts/2026-architectural-software-survey-results-are-in",
+      "publisher":"American Institute of Building Design",
+      "entries":[
+        {"paid":"Chief Architect","value":33.9,"apps":["free"]},
+        {"paid":"SoftPlan","value":19.4,"apps":["free"]},
+        {"paid":"Revit","value":12.1,"apps":["free"]},
+        {"paid":"AutoCAD","value":10.9,"apps":["librecad","free"]},
+        {"paid":"Archicad","value":6.1,"apps":["free"]}
+      ]
+    },
+    {
+      "id":"companies-moss",
+      "name":{"it":"Aziende · spesa rilevata","en":"Companies · recorded spending"},
+      "metric":{"it":"Aziende con acquisti","en":"Companies with purchases"},
+      "scope":{"it":"Aziende europee della categoria Design nel campione Moss. Dati di pagamento fino a maggio 2026. Estratto di due fornitori.","en":"European companies in the Design category in the Moss sample. Payment data through May 2026. Two vendors shown."},
+      "source":"https://www.getmoss.com/vendor-market-spend/design-tools",
+      "publisher":"Moss",
+      "entries":[
+        {"paid":"Adobe · suite","value":68.4,"apps":["gimp","photocraft","inks","vectorcraft","scribus","designcraft"]},
+        {"paid":"Figma","value":35.7,"apps":["penpot"]}
+      ]
+    }
+  ]
+}

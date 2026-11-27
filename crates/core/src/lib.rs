@@ -27,3 +27,11 @@ pub use catalog::{CraftApp, SUITE};
 pub use platform::{Arch, Os, PackageKind, Platform};
 pub use release::{Asset, Release};
 pub use status::{AppStatus, InstallSource, Installed, Latest};
+
+pub mod curated;
+
+pub mod automation;
+
+pub mod shifter;
+
+pub mod kits;

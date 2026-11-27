@@ -100,3 +100,30 @@ licensed like those apps. Refresh them from the source path, never redraw them.
 | Dependency | Author | Source and version | License |
 |---|---|---|---|
 | `rustix` | The rustix project developers | <https://github.com/bytecodealliance/rustix>, 1.1.5 (already locked; now directly used for Nightly held-directory operations) | MIT, selected from upstream's offered license alternatives; permission notice in `NOTICE` |
+
+## Sh*ftAnything fork
+
+The native engine and bundled fonts retain their upstream ArtCraft credits and MIT/Apache-2.0 licences.
+`assets/shiftanything/icon.png` is the approved Promptica Sh*ftAnything mark supplied by the operator, converted from `marchi/shiftanything.webp` in the Regia design reference on 2026-11-26. It replaces the upstream launcher mark in the desktop window and tray.
+`crates/core/curated.json` is the editorial catalog supplied by Promptica on 2026-11-26. Repository, release, media and verification sources remain recorded per entry. Linked third-party projects and marks belong to their respective authors; inclusion is not an installation verification.
+
+The 206-entry catalog update comes from Promptica's approved Regia data at commit `5124adce` (2026-11-26); per-entry licence and media provenance remain intact. No additional native recipe is granted by this import.
+`tools/mcp_catalogo.py` adapts Promptica's supplied local catalog server, extended with the closed native approval protocol. The Python stdio server is retained as explicitly required by the build mandate; the desktop application and engine remain Rust/egui.
+`assets/shiftanything/promptica.png`, `macos.svg`, `windows.png` and `linux.png` are unmodified operator-supplied design assets from the approved Doop canvas, respectively `/a/zdpS6LRqTI.png`, `/a/ne-Pn0I2Ou.svg`, `/a/_JZuqSLzQy.png`, `/a/7VwgzdAc_6.png`, copied 2026-11-26. Promptica and platform marks identify their respective owners; no ownership of third-party marks is claimed. Catalog logos and screenshots normally use the recorded HTTPS sources. Approved static conversions for formats outside the native decoder are bundled as documented below.
+
+`assets/catalog-media/` contains 15 static PNG conversions explicitly supplied and approved by the operator from Regia commit `cafc6fb9`. `manifest.json` records the official source URL, app, media slot and SHA-256 of each converted file; the per-app author, repository and licence remain in `crates/core/curated.json`. SVG/WebP images and selected GIF frames were converted by Regia without changing their content. No upstream source code, decoder or application bundle is copied. Marks and screenshots identify their original projects; no ownership of them is claimed. The operator specifically requested this catalog media import, including projects whose software licence is copyleft; it does not grant a software installation recipe.
+Promptica social links reuse the existing attributed Simple Icons files in `assets/social/`; no new social artwork or font is introduced.
+
+Catalog import 260 (205 Base / 55 Advanced), Regia `d6dbbd99`, 2026-11-26: original per-record sources retained, including distribution/platform documentation. Static media manifest now contains 18 approved PNGs, adding PDFsam Basic and AnythingLLM. No new installation capability is granted.
+
+sh*fter seed data: operator-supplied Regia `specs/launcher-scale-anything/shifter.json` (2026-11-26), with per-feature official sources and bilingual editorial notes. Comparison evidence does not grant installation capabilities. Unicode normalization uses `unicode-normalization` 0.1.26 ((MIT OR Apache-2.0) AND Unicode-3.0), and `tinyvec` 1.13.3 (Zlib OR Apache-2.0 OR MIT), unmodified crates with their upstream notices.
+
+Kit di lavoro / Work kits editorial data: operator-supplied Regia `specs/launcher-scale-anything/kit-di-lavoro.json`, commit 21f87b50 (2026-11-26). Each phase links its official documentation; each independent survey retains its publisher, scope, metric and source. Descriptions and rankings grant no installation capabilities.
+
+Catalog import 298 (220 Base / 78 Advanced), Regia `e5690dca` after `863f89b5`, 2026-11-26: 24 categories, explicit complete platform scope only where documented, 26 approved static PNG conversions with original URLs and SHA-256. SH*FTER Lightroom Classic now has eight documented functions; the evidence remains informational and grants no installation capability.
+
+SH*FTER data refresh, Regia `684e51eb` (2026-11-26): eight documented profiles, 20 documented alternatives, 50 additional commercial names for discovery only. Arq Backup notes preserve prerequisites and official evidence; suggested software never implies verified coverage or an installation recipe.
+
+Favorite heart outline/filled SVGs in `assets/ui-icons/heart-*.svg`: original geometric artwork drawn for this fork, 2026-11-26; covered by the repository MIT/Apache-2.0 licence. No external icon or font copied.
+
+`assets/social/reddit.svg`: Simple Icons contributors, version 16.34.0, CC0 1.0; source and tint change in assets/social/README.md. Reddit trademark belongs to Reddit, Inc.

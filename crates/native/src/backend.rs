@@ -456,6 +456,10 @@ impl Backend for RefusedNightlyBackend {
 }
 
 impl NativeBackend {
+    pub fn catalog_media(&self) -> crate::screenshots::CatalogMedia {
+        crate::screenshots::CatalogMedia::new(self.http.clone(), self.paths.clone())
+    }
+
     /// Explicit verification context for macOS. Requires a redirected HOME/CF profile, uses
     /// only its owned manifest, destinations and pins, and cannot configure external clients.
     /// This is a profile boundary, not an OS sandbox for third-party software.

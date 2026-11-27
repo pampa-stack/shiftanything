@@ -100,7 +100,7 @@
   const labels = it ? {install:'Installa',update:'Aggiorna',open:'Apri',remove:'Rimuovi',cancel:'Annulla operazione',update_all:'Aggiorna tutte'} : {install:'Install',update:'Update',open:'Open',remove:'Remove',cancel:'Cancel operation',update_all:'Update all'};
   let pendingId;
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
-  const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};
+  const platformLabels = {MacOs:'macOS', Windows:'Windows', Linux:'Linux'};
   const unavailableSize = it ? 'Dimensione non disponibile' : 'Size unavailable';
   const projectGuide = entry => [entry?.review?.source, entry?.website].find(url => url?.startsWith('https://'));
   const dateFormatter = new Intl.DateTimeFormat(document.documentElement.lang, {
@@ -120,28 +120,62 @@
     const live = snapshot.release_assets?.[appId];
     if (!live) return;
     const documented = catalogById.get(appId)?.release;
-    const sameRelease = [live.tag, live.version].some(value => versionKey(value) === versionKey(documented?.version));
+    const documentedVersion = versionKey(documented?.version);
+    const sameRelease = Boolean(documentedVersion)
+      && [live.tag, live.version].some(value => versionKey(value) === documentedVersion);
     const timestamp = live.published_at === null ? null : new Date(live.published_at * 1000);
     const date = timestamp || (sameRelease && documented?.date ? new Date(documented.date + 'T00:00:00Z') : null);
     const day = date && Number.isFinite(date.getTime()) ? date.toISOString().slice(0,10) : '';
     const size = live.bytes > 0
       ? `${sizeFormatter.format(live.bytes / 1000000)} MB · ${platformLabels[snapshot.platform.os]}`
       : unavailableSize;
-    return {version:live.version, day, dateLabel:day ? dateFormatter.format(date) : unavailableDate, size};
+    return {version:live.version, day, dateLabel:day ? dateFormatter.format(date) : unavailableDate, size, sameRelease};
   }
-  function documentedSize(appId, os) {
+  function documentedPackage(appId, os) {
     if (!platformLabels[os]) return;
     const entry = catalogById.get(appId);
     const platform = os.toLowerCase();
     const flatpak = entry?.distribution?.find(channel =>
       channel.platform === platform && channel.manager === 'flatpak' && channel.download_size > 0);
-    if (flatpak) return `${sizeFormatter.format(flatpak.download_size / 1000000)} MB · Linux · Flatpak`;
+    if (flatpak) return {
+      size:`${sizeFormatter.format(flatpak.download_size / 1000000)} MB · Linux · Flatpak`,
+      source:flatpak.download_size_source || flatpak.source,
+    };
 
     const size = entry?.release?.packages?.find(pkg => pkg.platform === platform && pkg.size_min > 0);
-    if (!size) return unavailableSize;
+    if (!size) return;
     const low = sizeFormatter.format(size.size_min / 1000000);
     const high = sizeFormatter.format((size.size_max ?? size.size_min) / 1000000);
-    return `${low === high ? low : low + '–' + high} MB · ${platformLabels[os]}`;
+    return {size:`${low === high ? low : low + '–' + high} MB · ${platformLabels[os]}`, source:entry.release.source};
+  }
+  function applyDetailPackages(output, snapshot, appId, release) {
+    if (!output) return;
+    const currentOs = snapshot.platform.os;
+    const platforms = release.sameRelease ? Object.keys(platformLabels) : [currentOs];
+    const releaseSource = release.sameRelease ? catalogById.get(appId)?.release?.source : undefined;
+    const packages = platforms.flatMap(os => {
+      const documented = release.sameRelease ? documentedPackage(appId, os) : undefined;
+      if (os === currentOs && release.size !== unavailableSize) return [{size:release.size, source:releaseSource}];
+      return documented ? [documented] : [];
+    });
+    const key = JSON.stringify(packages);
+    if (output.dataset.packageSizes === key) return;
+    output.dataset.packageSizes = key;
+    if (!packages.length) { setText(output, unavailableSize); return; }
+    output.replaceChildren(...packages.map(pkg => {
+      const row = document.createElement('div');
+      if (pkg.source) {
+        const source = document.createElement('a');
+        source.className = 'size-source';
+        source.href = pkg.source;
+        source.dataset.catalogLink = appId;
+        source.textContent = pkg.size;
+        row.append(source);
+      } else {
+        row.textContent = pkg.size;
+      }
+      return row;
+    }));
   }
   function applyReleaseDate(output, release) {
     if (!output) return;
@@ -184,7 +218,7 @@
         }
         applyReleaseDate(node.querySelector('.release-meta > div:first-child > div:last-child'), release);
       }
-      const size = release?.size ?? documentedSize(node.dataset.app, snapshot.platform?.os);
+      const size = release?.size ?? documentedPackage(node.dataset.app, snapshot.platform?.os)?.size ?? unavailableSize;
       if (size) setText(node.querySelector('.release-meta > div:last-child > div:last-child'), size);
     }
     if (datesChanged) document.querySelector('[data-catalog]').dispatchEvent(new Event('releases-changed'));
@@ -247,7 +281,7 @@
       if (release) {
         setText(detail.querySelector('.detail-facts > div:first-child > div:last-child'), release.version);
         applyReleaseDate(detail.querySelector('.detail-facts > div:nth-child(2) > div:last-child'), release);
-        setText(detail.querySelector('.detail-facts > div:nth-child(3) > div:last-child'), release.size);
+        applyDetailPackages(detail.querySelector('.detail-facts > div:nth-child(3) > div:last-child'), snapshot, appId, release);
       }
       const output = detail.querySelector('.native-result');
       if (output) {

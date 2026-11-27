@@ -1,0 +1,5 @@
+name,version,bytes,sha256,publisher,url
+blender-5.2.4-windows-x64.msi,5.2.4,366022656,bed4fef5219837a59ea4ca0c607a92326a2c8f5dc1c3c67ade72b41e4187895b,Blender Foundation,https://download.blender.org/release/Blender5.2/blender-5.2.4-windows-x64.msi
+blender-5.2.5-windows-x64.msi,5.2.5,365969408,ae8eedb6e564752b370ec26881de734273371146b94fc6be0eab4b6e74447baf,Blender Foundation,https://download.blender.org/release/Blender5.2/blender-5.2.5-windows-x64.msi
+LibreOffice_26.8.2_Win_x86-64.msi,26.8.2,375934976,ff4b911403b67ee9e6249f820f9782c44bb32c94fdaa45b0da53a8e419e5307a,The Document Foundation,https://download.documentfoundation.org/libreoffice/stable/26.8.2/win/x86_64/LibreOffice_26.8.2_Win_x86-64.msi
+LibreOffice_26.8.3_Win_x86-64.msi,26.8.3,376311808,0e6918c273eabbdbbd800ee0dacbbf130a14c13c2e4cec861b06dd59e015bf94,The Document Foundation,https://download.documentfoundation.org/libreoffice/stable/26.8.3/win/x86_64/LibreOffice_26.8.3_Win_x86-64.msi

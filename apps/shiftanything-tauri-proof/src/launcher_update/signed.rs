@@ -37,6 +37,12 @@ fn trusted_url(url: &Url) -> bool {
     url.scheme() == "https" && url.has_host() && url.username().is_empty() && url.password().is_none() && url.fragment().is_none()
 }
 
+pub(super) fn check_packaged_channel() -> Result<(), &'static str> {
+    let (channel, _) = channel(ENDPOINT, PUBLIC_KEY)?;
+    println!("{TARGET} {}", channel.endpoint);
+    Ok(())
+}
+
 pub(super) fn configure(context: &mut Context<Wry>, isolated: bool) -> Result<Channel, &'static str> {
     if isolated {
         return Err("channel_disabled");
@@ -118,7 +124,7 @@ fn apply(app: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
     std::fs::write(&archive, bytes).map_err(|_| "installation_failed")?;
     let status = Command::new("/usr/bin/tar")
         .arg("--mac-metadata")
-        .arg("-xzf")
+        .arg("-xzpf")
         .arg(&archive)
         .arg("-C")
         .arg(staging.path())
@@ -127,7 +133,6 @@ fn apply(app: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
     if !status.success() {
         return Err("release_invalid");
     }
-    let app_name = app.file_name().ok_or("installation_unsupported")?;
     let replacement = staging.path().join("Sh*ftAnything.app");
     if !std::fs::symlink_metadata(&replacement).is_ok_and(|metadata| metadata.is_dir())
         || plist_value(&replacement, "CFBundleIdentifier")? != "it.promptica.shiftanything"
@@ -159,18 +164,8 @@ fn apply(app: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
     if !description.contains("Mach-O") || !description.split(|c: char| !c.is_ascii_alphanumeric()).any(|token| token == "arm64") {
         return Err("release_invalid");
     }
-    let backup = tempfile::tempdir_in(parent).map_err(|_| "installation_permissions")?;
-    let previous = backup.path().join(app_name);
-    std::fs::rename(app, &previous).map_err(|_| "installation_permissions")?;
-    if let Err(error) = std::fs::rename(&replacement, app) {
-        eprintln!("Launcher replacement failed: {error}");
-        if std::fs::rename(&previous, app).is_err() {
-            eprintln!("Previous launcher preserved in {}", backup.keep().display());
-            return Err("installation_recovery_required");
-        }
-        return Err("installation_failed");
-    }
-    Ok(())
+    use rustix::fs::{CWD, RenameFlags, renameat_with};
+    renameat_with(CWD, app, CWD, &replacement, RenameFlags::EXCHANGE).map_err(|_| "installation_permissions")
 }
 
 #[cfg(target_os = "linux")]

@@ -8,6 +8,13 @@ use tauri::{AppHandle, Emitter, Manager, State, Wry};
 
 const EVENT: &str = "shift-launcher-update";
 
+pub(crate) fn check_packaged_channel() -> Result<(), &'static str> {
+    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    return signed::check_packaged_channel();
+    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    Err("installation_unsupported")
+}
+
 #[derive(Clone, Serialize)]
 #[serde(rename_all = "snake_case")]
 enum Status {

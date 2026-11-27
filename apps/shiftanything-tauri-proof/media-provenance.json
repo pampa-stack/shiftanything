@@ -4036,6 +4036,69 @@
       "source": "https://www.shutterencoder.com/wp-content/uploads/2026/08/Shutter-Encoder-interface-cuts-2026.webp",
       "file": "media/shutter-encoder-shot-1.png",
       "sha256": "67f9cff279c6629284f82365445375549cc419a489451bb575335f5a45139eba"
+    },
+    {
+      "app": "sonobus",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sonosaurus/sonobus/main/images/sonobus_logo_96.png",
+      "file": "media/sonobus-logo.png",
+      "sha256": "e95f2357bc99f911ca883e6f3ed5c0a04c61e14261487f0822634e25e8a8b5c9"
+    },
+    {
+      "app": "azuracast",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/AzuraCast/AzuraCast/main/resources/icon.png",
+      "file": "media/azuracast-logo.png",
+      "sha256": "05d5c253307b4cf76df78b32055387736e10e37c245da38e02076f37852228b6"
+    },
+    {
+      "app": "kimai",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/kimai/kimai/main/public/touch-icon-512x512.png",
+      "file": "media/kimai-logo.png",
+      "sha256": "d8ffc8db024e8768a8d8c76fccc5d38ed61d25602b0196225ca54cdcf4f0e9ff"
+    },
+    {
+      "app": "corteza",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/cortezaproject/corteza/2026.9.x/client/web/one/public/icon.svg",
+      "file": "media/corteza-logo.png",
+      "sha256": "d092d88c32445cae55b705b2618fefb1cbd7c0695e435496a97071d3cfdc0b6d"
+    },
+    {
+      "app": "sonobus",
+      "slot": "shot-0",
+      "source": "https://sonobus.net/assets/images/sonobus_screenshot.png",
+      "file": "media/sonobus-shot-0.png",
+      "sha256": "78071d4a2c7faa17017f5026a4dc1337b4715c0b2141928580c5634431ada114"
+    },
+    {
+      "app": "azuracast",
+      "slot": "shot-0",
+      "source": "https://www.azuracast.com/img/ScreenshotTour.gif",
+      "file": "media/azuracast-shot-0.png",
+      "sha256": "e08095d120c32f54c1281bdfed137b1a19aa994d3a845299fd50fee1545f3cc8"
+    },
+    {
+      "app": "kimai",
+      "slot": "shot-0",
+      "source": "https://www.kimai.org/images/screenshots/screenshot-dashboard.webp",
+      "file": "media/kimai-shot-0.png",
+      "sha256": "fafc462cbc95cf1a4b80ee750318b8f7c96212ab05dce47e2374882449788ec2"
+    },
+    {
+      "app": "kimai",
+      "slot": "shot-1",
+      "source": "https://www.kimai.org/images/screenshots/screenshot-reporting.webp",
+      "file": "media/kimai-shot-1.png",
+      "sha256": "4977649a59c1e09ce17d86f7a498bfecd2a1e2ce3ecdf2ef335a8c98744b6028"
+    },
+    {
+      "app": "corteza",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/cortezaproject/corteza/2026.9.x/.github/assets/corteza_dashboard.png",
+      "file": "media/corteza-shot-0.png",
+      "sha256": "1d919c66de26478263ef014e89a88e30fbf50f6c57bb74ab7725af84b36883f0"
     }
   ]
 }

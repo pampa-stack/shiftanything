@@ -29446,5 +29446,213 @@
       "Main application",
       "Cutting interface"
     ]
+  },
+  {
+    "id": "sonobus",
+    "name": "SonoBus",
+    "repo": "https://github.com/sonosaurus/sonobus",
+    "author": "Jesse Chappell",
+    "category": "video",
+    "level": "base",
+    "delivery": "desktop",
+    "description": {
+      "it": "Suona o registra in gruppo a distanza con audio a bassa latenza e mix regolabile per partecipante.",
+      "en": "Play or record together remotely with low-latency audio and adjustable mixes for each participant."
+    },
+    "alternatives": [
+      "JamKazam",
+      "SoundJack"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/sonosaurus/sonobus/blob/main/LICENSE",
+    "website": "https://sonobus.net/",
+    "releases": "https://github.com/sonosaurus/sonobus/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sonosaurus/sonobus/main/images/sonobus_logo_96.png",
+    "screenshots": [
+      "https://sonobus.net/assets/images/sonobus_screenshot.png"
+    ],
+    "media_source": "https://sonobus.net/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://sonobus.net/"
+    },
+    "stars": {
+      "count": 2252,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/sonosaurus/sonobus"
+    },
+    "release": {
+      "version": "1.7.2",
+      "date": "2023-12-11",
+      "source": "https://github.com/sonosaurus/sonobus/releases/tag/1.7.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 140693153,
+          "size_max": 140693153
+        },
+        {
+          "platform": "windows",
+          "size_min": 81195920,
+          "size_max": 81195920
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/sonosaurus/sonobus/releases/tag/1.7.2",
+      "windows": "https://github.com/sonosaurus/sonobus/releases/tag/1.7.2",
+      "linux": "https://sonobus.net/linux.html"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "azuracast",
+    "name": "AzuraCast",
+    "repo": "https://github.com/AzuraCast/AzuraCast",
+    "author": "AzuraCast",
+    "category": "video",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Gestisci una web radio autogestita con playlist, AutoDJ, dirette e statistiche d’ascolto.",
+      "en": "Run a self-hosted internet radio station with playlists, AutoDJ, live shows and listener statistics."
+    },
+    "alternatives": [
+      "Radio.co",
+      "Airtime Pro"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/AzuraCast/AzuraCast/blob/main/LICENSE.md",
+    "website": "https://www.azuracast.com/",
+    "releases": "https://github.com/AzuraCast/AzuraCast/tags",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.azuracast.com/docs/developers/apis/"
+    },
+    "logo": "https://raw.githubusercontent.com/AzuraCast/AzuraCast/main/resources/icon.png",
+    "screenshots": [
+      "https://www.azuracast.com/img/ScreenshotTour.gif"
+    ],
+    "media_source": "https://www.azuracast.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.azuracast.com/docs/"
+    },
+    "stars": {
+      "count": 4118,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/AzuraCast/AzuraCast"
+    },
+    "release": {
+      "version": "0.24.1",
+      "date": "2026-11-19",
+      "source": "https://github.com/AzuraCast/AzuraCast/tree/0.24.1",
+      "packages": []
+    },
+    "screenshot_credits": [
+      "Fotogramma dal tour ufficiale del pannello"
+    ]
+  },
+  {
+    "id": "kimai",
+    "name": "Kimai",
+    "repo": "https://github.com/kimai/kimai",
+    "author": "Kevin Papst",
+    "category": "progetti",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Registra le ore per cliente e progetto, controlla i budget ed esporta le rendicontazioni.",
+      "en": "Track time by client and project, check budgets and export timesheets."
+    },
+    "alternatives": [
+      "Toggl Track",
+      "Harvest"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/kimai/kimai/blob/main/LICENSE",
+    "website": "https://www.kimai.org/en/",
+    "releases": "https://github.com/kimai/kimai/releases",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.kimai.org/documentation/rest-api.html"
+    },
+    "logo": "https://raw.githubusercontent.com/kimai/kimai/main/public/touch-icon-512x512.png",
+    "screenshots": [
+      "https://www.kimai.org/images/screenshots/screenshot-dashboard.webp",
+      "https://www.kimai.org/images/screenshots/screenshot-reporting.webp"
+    ],
+    "media_source": "https://www.kimai.org/en/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.kimai.org/en/download.html"
+    },
+    "stars": {
+      "count": 5182,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/kimai/kimai"
+    },
+    "release": {
+      "version": "2.73.0",
+      "date": "2026-11-23",
+      "source": "https://github.com/kimai/kimai/releases/tag/2.73.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "corteza",
+    "name": "Corteza",
+    "repo": "https://github.com/cortezaproject/corteza",
+    "author": "Corteza Project",
+    "category": "crm",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Crea flussi di lavoro CRM, dashboard e moduli per contatti, opportunità e dati aziendali.",
+      "en": "Build CRM workflows, dashboards and forms to manage contacts, deals and business data."
+    },
+    "alternatives": [
+      "Salesforce",
+      "Zoho CRM"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/cortezaproject/corteza/blob/2026.9.x/LICENSE",
+    "website": "https://cortezaproject.org",
+    "releases": "https://github.com/cortezaproject/corteza/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/cortezaproject/corteza/2026.9.x/client/web/one/public/icon.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/cortezaproject/corteza/2026.9.x/.github/assets/corteza_dashboard.png"
+    ],
+    "media_source": "https://github.com/cortezaproject/corteza",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.cortezaproject.org/corteza-docs/2026.9/"
+    },
+    "stars": {
+      "count": 2193,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/cortezaproject/corteza"
+    },
+    "release": {
+      "version": "2026.9.0",
+      "date": "2026-10-19",
+      "source": "https://github.com/cortezaproject/corteza/releases/tag/2026.9.0",
+      "packages": []
+    },
+    "screenshot_credits": [
+      "Dashboard di Corteza"
+    ]
   }
 ]

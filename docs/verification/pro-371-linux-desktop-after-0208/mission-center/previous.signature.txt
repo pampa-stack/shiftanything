@@ -1,0 +1,19 @@
+commit a3b9f576e39afface73608f9752d2f5b571e0647ed9f6cb7c1ed238515a0ec36
+Parent:  bffc0e2ae553b50df6259ff79298fcd4ae5e49cf2857d0f044585e7cdf2f3fa0
+ContentChecksum:  4617db28aafaaa02d0e7ab4f2e9c35fe9036688c6f76ce94d21ffa863f967f35
+Date:  2026-05-06 03:45:21 +0000
+
+    Add upstream contribution note to `README.md` (#48) (2c5427875626)
+
+    Name: io.missioncenter.MissionCenter
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Wed May  6 04:01:35 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

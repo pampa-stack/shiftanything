@@ -1,0 +1,20 @@
+
+Boxes - Virtualization made simple
+
+          ID: org.gnome.Boxes
+         Ref: app/org.gnome.Boxes/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 50.0
+     License: LGPL-2.1+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 338.7 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f
+      Parent: b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf
+     Subject: libvirt: Update to 11.7.0 (2969d15cb036)
+        Date: 2026-03-19 08:44:47 +0000

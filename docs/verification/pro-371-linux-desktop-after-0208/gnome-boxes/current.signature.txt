@@ -1,0 +1,19 @@
+commit 476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f
+Parent:  b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf
+ContentChecksum:  3149fe7c4cf5077984392f7f44d42e104b4362f40465b218db8df5ec5a3dee11
+Date:  2026-03-19 08:44:47 +0000
+
+    libvirt: Update to 11.7.0 (2969d15cb036)
+
+    Name: org.gnome.Boxes
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Thu Mar 19 09:16:05 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

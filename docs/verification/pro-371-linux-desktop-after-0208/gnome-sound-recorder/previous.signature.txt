@@ -1,0 +1,19 @@
+commit ebee3189f16472ae78cadc97bc4d94a4c91a910d28c1fabe342db67f7c2b960d
+Parent:  7a73093bfe2f39b0a0cd9238e32dc43939b7c888db25c39701eea6bcd8410c9d
+ContentChecksum:  86741a4a72ef29b221cf0ddc6b66e8ea28c61b2fd67adceac0d81e9d1df5962d
+Date:  2026-02-03 16:39:35 +0000
+
+    chore: bump to gnome 49 runtime (1e5889c32514)
+
+    Name: org.gnome.SoundRecorder
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Feb  3 17:01:25 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,168 @@
+App=it.promptica.shiftanything (pid 57850)
+Window: "Sh*ftAnything · Tauri proof", App: Sh*ftAnything.
+
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button COLLEGA AGENTE · MCP
+				9 button Impostazioni
+			10 toggle button CATALOGO, Value: 0
+			11 toggle button PREFERITI, Value: 0
+			12 toggle button LE MIE APP, Value: 0
+			13 toggle button SH*FTER, Value: 1
+			14 toggle button TROVA APP, Value: 0
+			15 toggle button KIT DI LAVORO, Value: 0
+			1249 container SH*FTER
+				1250 container
+					1251 heading SH*FTER
+					1252 text Trova alternative open source per le funzioni che usi.
+					1253 container
+						1254 text SOFTWARE A PAGAMENTO
+						1255 combo box (settable) SOFTWARE A PAGAMENTO, Value: Adobe Photoshop, Placeholder: Cerca, es. Photoshop
+						1256 button Elenco software A–Z
+						1257 button CONFRONTA
+				1258 container Funzioni che usi
+					1259 container
+						1260 heading Funzioni che usi
+						1261 text 4 / 4
+					1262 container
+						1263 checkbox Livelli e maschere, Value: 1
+						1264 text Livelli e maschere
+					1265 toggle button Indispensabile · Livelli e maschere, Value: 0
+					1266 container
+						1267 checkbox Regolazioni non distruttive, Value: 1
+						1268 text Regolazioni non distruttive
+					1269 toggle button Indispensabile · Regolazioni non distruttive, Value: 0
+					1270 container
+						1271 checkbox Aprire e salvare PSD con livelli, Value: 1
+						1272 text Aprire e salvare PSD con livelli
+					1273 toggle button Indispensabile · Aprire e salvare PSD con livelli, Value: 0
+					1274 container
+						1275 checkbox Riempimento generativo integrato, Value: 1
+						1276 text Riempimento generativo integrato
+					1277 toggle button Indispensabile · Riempimento generativo integrato, Value: 0
+				1278 container Confronto con il catalogo
+					1279 container
+						1280 heading Confronto con il catalogo
+						1281 text Adobe Photoshop
+						1282 text 528 APP NEL CONFRONTO
+						1283 text La copertura appare quando ci sono fonti per le funzioni selezionate.
+					1284 search text field (settable) Cerca app nel confronto
+						1285 text Cerca app nel confronto
+					1286 container Pagine delle app
+						1287 button (disabled) PRECEDENTE
+						1288 text 1–12 DI 528
+						1289 button SUCCESSIVA
+					1290 table
+						1291 row APPLICAZIONE COPERTURA DOCUMENTATA SCHEDA / FONTI
+							1292 cell APPLICAZIONE
+								1293 text APPLICAZIONE
+							1294 cell COPERTURA DOCUMENTATA
+								1295 text COPERTURA DOCUMENTATA
+							1296 cell SCHEDA / FONTI
+								1297 text SCHEDA / FONTI
+						1298 row Krita 75% 3/4
+							1299 cell Krita
+								1300 text Krita
+							1301 cell 75% 3/4
+								1302 text 75%
+								1303 text 3/4
+							1304 cell
+								1305 button Scheda · Krita
+								1306 button Fonti · Krita
+						1307 row PhotoCraft 75% 3/4
+							1308 cell PhotoCraft
+								1309 text PhotoCraft
+							1310 cell 75% 3/4
+								1311 text 75%
+								1312 text 3/4
+							1313 cell
+								1314 button Scheda · PhotoCraft
+								1315 button Fonti · PhotoCraft
+						1316 row GIMP 50% 2/4
+							1317 cell GIMP
+								1318 text GIMP
+							1319 cell 50% 2/4
+								1320 text 50%
+								1321 text 2/4
+							1322 cell
+								1323 button Scheda · GIMP
+								1324 button Fonti · GIMP
+						1325 row PhotoDemon 25% 1/4
+							1326 cell PhotoDemon
+								1327 text PhotoDemon
+							1328 cell 25% 1/4
+								1329 text 25%
+								1330 text 1/4
+							1331 cell
+								1332 button Scheda · PhotoDemon
+								1333 button Fonti · PhotoDemon
+						1334 row Drawpile 0% 0/4
+							1335 cell Drawpile
+								1336 text Drawpile
+							1337 cell 0% 0/4
+								1338 text 0%
+								1339 text 0/4
+							1340 cell
+								1341 button Scheda · Drawpile
+								1342 button Fonti · Drawpile
+						1343 row Pinta 0% 0/4
+							1344 cell Pinta
+								1345 text Pinta
+							1346 cell 0% 0/4
+								1347 text 0%
+								1348 text 0/4
+							1349 cell
+								1350 button Scheda · Pinta
+								1351 button Fonti · Pinta
+						1352 row AbiWord —
+							1353 cell AbiWord
+								1354 text AbiWord
+							1355 cell —
+								1356 text —
+							1357 cell
+								1358 button Scheda · AbiWord
+						1359 row Ackee —
+							1360 cell Ackee
+								1361 text Ackee
+							1362 cell —
+								1363 text —
+							1364 cell
+								1365 button Scheda · Ackee
+						1366 row ActivityWatch —
+							1367 cell ActivityWatch
+								1368 text ActivityWatch
+							1369 cell —
+								1370 text —
+							1371 cell
+								1372 button Scheda · ActivityWatch
+						1373 row Actual Budget —
+							1374 cell Actual Budget
+								1375 text Actual Budget
+							1376 cell —
+								1377 text —
+							1378 cell
+								1379 button Scheda · Actual Budget
+						1380 row addy.io —
+							1381 cell addy.io
+								1382 text addy.io
+							1383 cell —
+								1384 text —
+							1385 cell
+								1386 button Scheda · addy.io
+						1387 row AdGuard Home —
+							1388 cell AdGuard Home
+								1389 text AdGuard Home
+							1390 cell —
+								1391 text —
+							1392 cell
+								1393 button Scheda · AdGuard Home
+					1394 text 528 app nel confronto · 1–12 di 528
+					1395 container, Text: La copertura conta le funzioni selezionate supportate per intero. Fonti controll... 2026-11-27 .
+
+No UI element is currently focused.

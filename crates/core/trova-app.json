@@ -16,6 +16,20 @@
           "en": "Transcribes microphone input locally and pastes it into the active text field with a shortcut."
         },
         "source": "https://handy.computer/docs"
+      }, {
+        "id": "openwhispr",
+        "reason": {
+          "it": "Una scorciatoia avvia la dettatura locale e incolla il testo dove stai scrivendo.",
+          "en": "Use a shortcut to dictate locally and paste the text where you are typing."
+        },
+        "source": "https://docs.openwhispr.com/guides/dictation"
+      }, {
+        "id": "epicenter-whispering",
+        "reason": {
+          "it": "Trascrive con un modello locale e incolla il testo nel campo attivo quando il sistema lo consente.",
+          "en": "Transcribe with a local model and paste into the active field when the operating system allows it."
+        },
+        "source": "https://github.com/EpicenterHQ/epicenter/blob/main/apps/whispering/README.md"
       }]
     },
     {

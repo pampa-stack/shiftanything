@@ -150,7 +150,8 @@
       browserResults.replaceChildren(...browserRows);
       browserSection.hidden = !browserRows.length;
       const count = rows.length + browserRows.length;
-      feedback.textContent = !phrase ? '' : count ? `${count} ${it?'risultati':'results'}` : matched.length
+      const resultLabel = count === 1 ? (it ? 'risultato' : 'result') : (it ? 'risultati' : 'results');
+      feedback.textContent = !phrase ? '' : count ? `${count} ${resultLabel}` : matched.length
         ? (it?'Nessun risultato documentato per questo sistema.':'No documented result for this system.')
         : (it?'Nessuna corrispondenza. Prova con un problema più specifico.':'No matches. Try a more specific problem.');
     };

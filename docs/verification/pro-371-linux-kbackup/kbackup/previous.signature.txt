@@ -1,0 +1,19 @@
+commit 7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55
+Parent:  706cbbc271e20c080b62839b5d528e1e1cc440ea66315b61f87f88151b5efecb
+ContentChecksum:  3e7b84bbc7d2b960134f29d70aae8a5516ecf63c27a8782b82c284a4516d6b1e
+Date:  2026-11-05 21:52:02 +0000
+
+    Update runtime to 6.11 (8d5a87f8e5e7)
+
+    Name: org.kde.kbackup
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov  6 00:27:35 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

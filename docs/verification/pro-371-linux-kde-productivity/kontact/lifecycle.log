@@ -1,0 +1,84 @@
+2026-11-27T22:49:12+00:00 kontact AVAILABLE 26824925184
+kontact before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+kontact JobFinished: Ok("Flathub app installed")
+kontact after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:49:59+00:00 kontact current-install b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/applications/org.kde.kontact.desktop
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/128x128/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/144x144/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/16x16/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/22x22/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/32x32/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/44x44/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/48x48/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/64x64/apps/org.kde.kontact.png
+/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6/export/share/icons/hicolor/scalable/apps/org.kde.kontact.svg
+Updating app/org.kde.kontact/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:50:02+00:00 kontact previous ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac
+kontact before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac", package: Some("org.kde.kontact"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: false, can_open: true }
+kontact JobFinished: Err("Approved action rejected: native installation state changed")
+kontact JobFinished: Err("This Flatpak is managed outside the launcher")
+kontact after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac", package: Some("org.kde.kontact"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=57158 comm="xfwm4 --compositor=off --display=:97" label="unconfined")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=57186 comm="flatpak run --user --command=sh app/org.kde.kontac" label="flatpak (unconfined)")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=57186 comm="flatpak run --user --command=sh app/org.kde.kontac" label="flatpak (unconfined)")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=57199 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+kontact before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.12' (uid=1000 pid=57298 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.13' (uid=1000 pid=57309 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:57320): dbind-WARNING **: 22:50:11.870: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:57309): xdg-desktop-portal-WARNING **: 22:50:11.903: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:57309): xdg-desktop-portal-WARNING **: 22:50:11.903: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:57309): xdg-desktop-portal-WARNING **: 22:50:11.903: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][02657.174267] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][02657.174327] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:57309): xdg-desktop-portal-WARNING **: 22:50:11.908: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[56371]: [session uid=1000 pid=56371] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.17' (uid=1000 pid=57298 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[56371]: [session uid=1000 pid=56371] Successfully activated service 'org.freedesktop.portal.Flatpak'
+kontact JobFinished: Ok("Launch request accepted")
+kontact after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.kde.kontact
+org.kde.kontact
+2026-11-27T22:50:21+00:00 kontact previous GUI WM_NAME(STRING) = "Summary - Kontact"
+WM_CLASS(STRING) = "kontact", "kontact"
+2026-11-27T22:50:21+00:00 kontact AVAILABLE 20750778368
+kontact before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: true, can_remove: true, can_open: true }
+kontact JobFinished: Ok("Flathub app updated")
+kontact after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:50:24+00:00 kontact current b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6
+/home/qa/profiles/kontact/.var/app/org.kde.kontact/fixture.txt: OK
+kontact before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: true, can_open: true }
+kontact JobFinished: Ok("Launch request accepted")
+kontact after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.kde.kontact
+org.kde.kontact
+2026-11-27T22:50:34+00:00 kontact current GUI WM_NAME(STRING) = "Summary - Kontact"
+WM_CLASS(STRING) = "kontact", "kontact"
+kontact before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/kontact/data/flatpak/app/org.kde.kontact/x86_64/stable/b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6", package: Some("org.kde.kontact"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("6.8.3"), update_available: false, can_remove: true, can_open: true }
+kontact JobFinished: Ok("Flathub app removed")
+kontact after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/kontact/.var/app/org.kde.kontact/fixture.txt: OK
+2026-11-27T22:50:36+00:00 kontact PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:50:40+00:00 kontact EXIT 0 remove
+
+(xfconfd:57172): xfconfd-WARNING **: 22:50:40.748: Name org.xfce.Xfconf lost on the message dbus, exiting.

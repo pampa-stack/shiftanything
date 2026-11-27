@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 146] = [
+pub const RECIPES: [(&str, &str); 147] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -148,6 +148,7 @@ pub const RECIPES: [(&str, &str); 146] = [
     ("surge-xt", "org.surge_synth_team.surge-xt"),
     ("snapshot", "org.gnome.Snapshot"),
     ("fractal", "org.gnome.Fractal"),
+    ("kontact", "org.kde.kontact"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -312,6 +313,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "surge-xt" => "https://github.com/surge-synthesizer/surge",
         "snapshot" => "https://gitlab.gnome.org/GNOME/snapshot",
         "fractal" => "https://gitlab.gnome.org/World/fractal",
+        "kontact" => "https://invent.kde.org/pim/kontact",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

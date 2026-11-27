@@ -79,7 +79,7 @@ struct VisualReport {
 // A bounded diagnostic write to one fixed file in this proof's private profile. No path argument.
 #[tauri::command]
 fn record_visual_metrics(report: VisualReport, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
-    if report.cards.len() > 298
+    if report.cards.len() > artcraft_launcher_core::curated::apps().len()
         || report.navigation.len() > 8
         || report.navigation.iter().any(|s| s.len() > 80)
         || report.cards.iter().any(|card| !artcraft_launcher_core::curated::apps().iter().any(|app| app.id == card.id))

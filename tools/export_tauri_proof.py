@@ -65,6 +65,40 @@ def action(lang, app):
     reason = 'Prova di sola lettura' if lang == 'it' else 'Read-only proof'
     return f'<button class="btn" type="button" data-native-app="{app["id"]}" disabled title="{reason}">{label}</button>'
 design.action = action
+def native_catalog_script(script):
+    # Keep profile persistence in the typed Rust store when regenerating Doop pages.
+    script, removed = re.subn(r"  const storageKey = .*?\n", "", script, count=1)
+    assert removed == 1
+    script, removed = re.subn(r"  try \{\n    const saved = .*?  \} catch \{\}\n", "", script, count=1, flags=re.S)
+    assert removed == 1
+    begin = script.index('  function updateHearts()')
+    end = script.index("  document.addEventListener('error'", begin)
+    script = script[:begin] + """  function updateHearts() {
+    for (const heart of document.querySelectorAll('[data-favorite-app]')) {
+      const active=favorites.has(heart.dataset.favoriteApp);
+      heart.setAttribute('aria-pressed',active);
+      const name=heart.getAttribute('aria-label').split(' · ').slice(1).join(' · ');
+      const label=document.documentElement.lang==='it' ? (active?'Rimuovi dai preferiti':'Salva nei preferiti') : (active?'Remove from favorites':'Save to favorites');
+      heart.setAttribute('aria-label',label+' · '+name);
+      heart.title=label+' · '+name;
+    }
+  }
+""" + script[end:]
+    begin = script.index("  document.addEventListener('click', event => {\n    const heart")
+    end = script.index('  if (!catalog) return;', begin)
+    return script[:begin] + """  document.addEventListener('click', event => {
+    const heart = event.target.closest('[data-favorite-app]');
+    if (!heart) return;
+    const id = heart.dataset.favoriteApp;
+    window.dispatchEvent(new CustomEvent('native-favorite-request',{detail:{id,favorite:!favorites.has(id)}}));
+  });
+  window.addEventListener('native-favorites',event=>{
+    favorites=new Set(event.detail);
+    updateHearts();
+    if (catalog) catalog.dispatchEvent(new Event('favorites-changed'));
+  });
+""" + script[end:]
+
 for language in ['it', 'en']:
     page = design.listing(language, 'all_apps')
     styles = '\n'.join(re.findall(r'<style>(.*?)</style>', page, re.S))
@@ -79,9 +113,10 @@ for language in ['it', 'en']:
         page = page.replace(url, target)
     for app in design.APPS:
         page = page.replace(f'<div class="c-name">{escape(app["name"])}</div>', f'<div class="c-name" title="{escape(app["name"])}">{escape(app["name"])}</div>')
+    page = '\n'.join(line.rstrip() for line in page.splitlines()) + '\n'
     (out / f'{language}.html').write_text(page)
     (out / 'design.css').write_text(styles)
-    (out / 'catalog.js').write_text(scripts[0])
+    (out / 'catalog.js').write_text(native_catalog_script(scripts[0]))
 (out / 'index.html').write_text((out / 'it.html').read_text())
 (root / 'apps/shiftanything-tauri-proof/media-provenance.json').write_text(json.dumps(dict(
     design={name: hashlib.sha256((source/name).read_bytes()).hexdigest() for name in ['doop_build.py', 'doop_catalogo.py', 'doop_catalogo.js']},

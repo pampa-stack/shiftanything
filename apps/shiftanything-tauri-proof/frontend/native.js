@@ -38,13 +38,13 @@
       header:rect(document.querySelector('.top')), toolbar:rect(document.querySelector('.bar')), rail:rect(document.querySelector('.rail')),
       navigation:[...document.querySelector('.bar .seg').children].map(node => node.textContent.trim()),
       cards:cards.map(cell => ({id:cell.dataset.app,rect:rect(cell),preview:rect(cell.querySelector('.preview-shot')),
-        logo_loaded:cell.querySelector('.product-icon').naturalWidth > 1,
-        preview_loaded:cell.querySelector('.preview-shot img').naturalWidth > 1})),
+        logo_loaded:(cell.querySelector('.product-icon')?.naturalWidth ?? 0) > 1,
+        preview_loaded:(cell.querySelector('.preview-shot img')?.naturalWidth ?? 0) > 1})),
     };
     await invoke('record_visual_metrics', {report});
   }
   let debounce;
-  function measureSoon() { clearTimeout(debounce); debounce=setTimeout(() => metrics().catch(error => {status.textContent=String(error);}),300); }
+  function measureSoon() { clearTimeout(debounce); debounce=setTimeout(() => metrics().catch(error => {actionError=String(error);status.textContent=actionError;}),300); }
   document.addEventListener('load', measureSoon, true);
   document.addEventListener('scroll', measureSoon, true);
   document.addEventListener('input', measureSoon);

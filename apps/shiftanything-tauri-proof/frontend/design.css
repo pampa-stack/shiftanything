@@ -267,6 +267,10 @@ main.main{overflow-y:auto;display:block}
 .rail .seg{margin:0 14px 15px;width:max-content}
 .rail .cat{line-height:1.25}
 .rail .n{padding-left:4px}
+.category-group summary{padding:9px 12px;color:var(--dim);cursor:pointer;font-size:12px;line-height:1.35}
+.category-group summary:hover,.category-group[open]>summary{color:var(--tx)}
+.category-group summary:focus-visible{outline:2px solid var(--acc);outline-offset:-3px}
+.category-group button.cat{padding-left:24px}
 .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}
 .catalog-grid .cell{gap:9px;min-width:0}
 .card-head{display:flex;gap:7px;align-items:flex-start}
@@ -387,6 +391,7 @@ main.main{overflow-y:auto;display:block}
 .promptica-product h2{font-size:21px}
 .promptica-product ul{color:var(--dim);padding-left:16px;display:grid;gap:5px}
 
+.bar .seg button,.bar .seg span{text-transform:uppercase}
 .bar .seg button{border:0;border-right:1px solid var(--bd2);padding:5px 12px;background:transparent;color:var(--dim);font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;cursor:pointer}
 .bar .seg button:last-child{border-right:0}
 .bar .seg button.on{background:var(--tx);color:#08090A;font-weight:700}

@@ -1,0 +1,136 @@
+App=shiftanything-tauri-proof (pid 15277)
+Window: "Sh*ftAnything · Tauri proof", App: shiftanything-tauri-proof.
+
+Showing the first 130 of 1200 elements.
+0 standard window Sh*ftAnything · Tauri proof
+	1 scroll area
+		2 HTML content
+			3 container
+				4 image Sh*ftAnything
+				5 text Sh
+				6 text *
+				7 text ftAnything
+				8 button (disabled) CONNECT AGENT · MCP
+				9 button (disabled) Settings
+			10 toggle button CATALOG, Value: 1
+			11 toggle button FAVORITES, Value: 0
+			12 container (disabled) Read-only proof
+				13 text (disabled) MY APPS
+			14 toggle button (disabled) SH*FTER, Value: 0
+			15 toggle button (disabled) FIND APPS, Value: 0
+			16 toggle button (disabled) WORK KITS, Value: 0
+			17 search text field (settable) Find apps, categories or alternatives…
+				18 text Find apps, categories or alternatives…
+			19 toggle button Card view, Value: 1
+			20 toggle button Table view, Value: 0
+			21 button (disabled) UPDATES
+			22 container Categories
+				23 toggle button All apps 336, Value: 1
+				24 summary Work and documents, Value: 0
+				25 summary Creative tools, Value: 0
+				26 summary AI and development, Value: 0
+				27 summary System and infrastructure, Value: 0
+				28 summary Business, Value: 0
+				29 summary Technical and learning, Value: 0
+			30 container
+				31 heading All apps336 apps
+				32 toggle button ALL, Value: 1
+				33 toggle button BASIC, Value: 0
+				34 toggle button ADVANCED, Value: 0
+				35 container
+					36 text Publisher
+					37 pop up button Publisher, Value: All publishers
+				38 container
+					39 text Categories
+					40 pop up button Categories, Value: All categories
+				41 container
+					42 text Sort by
+					43 pop up button Sort by, Value: Featured
+				44 button RESET FILTERS
+				45 text PhotoCraft
+				46 text ArtCraft
+				47 link 81,662 · GitHub stars · 2026-11-26
+					48 text ★ 81.7k
+				49 link GitHub
+					50 text GitHub
+				51 text Image editing
+				52 toggle button Save to favorites · PhotoCraft, Value: 0
+				53 button View app · PhotoCraft
+				54 text DESKTOP APP
+				55 link MCP AVAILABLE
+					56 text MCP AVAILABLE
+				57 container Documented platforms
+					58 image macOS
+					59 image Windows
+					60 image Linux
+				61 text Alternative to ·
+				62 text Adobe Photoshop
+				63 text Last updated
+				64 text 12 Nov 2026
+				65 text Download size
+				66 text 274.2 MB · macOS
+				67 button (disabled) INSTALL
+				68 button VIEW APP
+				69 text Handy
+				70 text CJ Pais
+				71 link 40,336 · GitHub stars · 2026-11-26
+					72 text ★ 40.3k
+				73 link GitHub
+					74 text GitHub
+				75 text Local voice dictation
+				76 toggle button Save to favorites · Handy, Value: 0
+				77 button View app · Handy
+				78 text DESKTOP APP
+				79 link CLI CONTROL
+					80 text CLI CONTROL
+				81 container Documented platforms
+					82 image macOS
+					83 image Windows
+					84 image Linux
+				85 text Alternative to ·
+				86 text Wispr Flow
+				87 text Last updated
+				88 text 24 Nov 2026
+				89 text Download size
+				90 text 15–15.3 MB · macOS
+				91 button (disabled) INSTALL
+				92 button VIEW APP
+				93 text Meetily Community
+				94 text Zackriya Solutions
+				95 link 33,084 · GitHub stars · 2026-11-26
+					96 text ★ 33.1k
+				97 link GitHub
+					98 text GitHub
+				99 text Transcribe and summarize meetings on your device
+				100 toggle button Save to favorites · Meetily Community, Value: 0
+				101 button View app · Meetily Community
+				102 text DESKTOP APP
+				103 text CONTROL UNVERIFIED
+				104 container Documented platforms
+					105 image macOS
+					106 image Windows
+					107 image Linux
+				108 text Alternative to ·
+				109 text Granola, Otter.ai, Fireflies.ai
+				110 text Last updated
+				111 text 14 Nov 2026
+				112 text Download size
+				113 text 48.1 MB · macOS
+				114 button (disabled) INSTALL
+				115 button VIEW APP
+				116 text Rizzo-PII
+				117 text Rizzo AI Academy
+				118 link 1,308 · GitHub stars · 2026-11-26
+					119 text ★ 1.3k
+				120 link GitHub
+					121 text GitHub
+				122 text Redact personal data in documents and images with local OCR
+				123 toggle button Save to favorites · Rizzo-PII, Value: 0
+				124 button View app · Rizzo-PII
+				125 text DESKTOP APP
+				126 link API CONTROL
+					127 text API CONTROL
+				128 container Documented platforms
+					129 image macOS
+
+The focused UI element is 0 standard window Sh*ftAnything · Tauri proof.

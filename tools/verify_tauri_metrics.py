@@ -19,6 +19,6 @@ for report in reports:
     assert report["header"]["x"] == report["header"]["y"] == 0
     assert report["rail"]["width"] == 214
     assert all(label == label.upper() for label in report["navigation"])
-    if len(cards) == 298:
+    if [card["id"] for card in cards[:6]] == ["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"]:
         assert all(c["logo_loaded"] and c["preview_loaded"] for c in cards[:6])
     print(f"PASS {report['language']}: {len(cards)} cards, {next(iter(sizes))}, all rows; native viewport/header/toolbar/rail/media checks")

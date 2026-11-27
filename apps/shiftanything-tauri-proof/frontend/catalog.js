@@ -183,7 +183,13 @@
   favoritesButton.addEventListener('click', () => switchView(true));
   catalogButton.addEventListener('click', () => switchView(false));
   search.addEventListener('input', () => render());
-  for (const input of [provider, category]) input.addEventListener('change', () => render());
+  provider.addEventListener('change', () => render());
+  category.addEventListener('change', () => {
+    const selected = categoryButtons.find(button => button.dataset.catalogCategory === category.value);
+    const group = selected?.closest('.category-group');
+    if (group) group.open = true;
+    render();
+  });
   sort.addEventListener('change', () => render({ reorder: true }));
 
   for (const button of levelButtons) button.addEventListener('click', () => {

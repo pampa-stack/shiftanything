@@ -103,10 +103,8 @@ impl CatalogMedia {
 
     /// A missing index requests the logo. Slots and URLs always come from the curated catalog.
     pub fn fetch(&self, app_id: &str, screenshot: Option<usize>) -> Result<Vec<u8>, String> {
-        let entry = artcraft_launcher_core::curated::apps()
-            .iter()
-            .find(|entry| entry.id == app_id)
-            .ok_or_else(|| "Unknown catalog app".to_string())?;
+        let entry =
+            artcraft_launcher_core::curated::apps().iter().find(|entry| entry.id == app_id).ok_or_else(|| "Unknown catalog app".to_string())?;
         let (key, url) = match screenshot {
             Some(index) => {
                 let url = entry.screenshots.get(index).ok_or_else(|| "Unknown catalog screenshot".to_string())?;

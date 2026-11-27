@@ -1,0 +1,20 @@
+
+OpenBoard - Interactive whiteboard for schools and universities
+
+          ID: ch.openboard.OpenBoard
+         Ref: app/ch.openboard.OpenBoard/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.7.7
+     License: GPL-3.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 729.2 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d
+      Parent: 74d4c294aa460c02d8cf2da32b3534c679fb6add93e99ccdb0f725f468692e8f
+     Subject: poppler: Update poppler-26.08.0.tar.xz to 26.11.0 (#137) (77a5e5dbb90b)
+        Date: 2026-11-06 20:26:42 +0000

@@ -17387,6 +17387,17 @@
     "website": "https://moneymanagerex.org/",
     "releases": "https://moneymanagerex.org/docs/downloads/latest/",
     "delivery": "desktop",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.moneymanagerex.MMEX",
+        "source": "https://flathub.org/apps/org.moneymanagerex.MMEX",
+        "download_size": 31858496,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.moneymanagerex.MMEX",
+        "download_size_checked": "2026-11-28"
+      }
+    ],
     "agent": {
       "kind": "unknown",
       "source": null

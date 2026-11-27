@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 155] = [
+pub const RECIPES: [(&str, &str); 157] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -157,6 +157,8 @@ pub const RECIPES: [(&str, &str); 155] = [
     ("bazaar", "io.github.kolunmi.Bazaar"),
     ("kbackup", "org.kde.kbackup"),
     ("gnu-octave", "org.octave.Octave"),
+    ("money-manager-ex", "org.moneymanagerex.MMEX"),
+    ("openboard", "ch.openboard.OpenBoard"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -330,6 +332,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "bazaar" => "https://gitlab.gnome.org/World/bazaar",
         "kbackup" => "https://invent.kde.org/utilities/kbackup",
         "gnu-octave" => "https://hg.savannah.gnu.org/hgweb/octave",
+        "money-manager-ex" => "https://github.com/moneymanagerex/moneymanagerex",
+        "openboard" => "https://github.com/OpenBoard-org/OpenBoard",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

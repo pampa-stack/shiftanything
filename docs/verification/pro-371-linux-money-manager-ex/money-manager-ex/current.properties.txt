@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Money Manager Ex 1.9.4 64-bit"
+WM_CLASS(STRING) = "mmex", "mmex"

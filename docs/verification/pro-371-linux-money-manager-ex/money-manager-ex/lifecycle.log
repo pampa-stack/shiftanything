@@ -1,0 +1,94 @@
+2026-11-27T23:39:02+00:00 money-manager-ex AVAILABLE 23306010624
+money-manager-ex before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+money-manager-ex JobFinished: Ok("Flathub app installed")
+money-manager-ex after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:39:42+00:00 money-manager-ex current-install 58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736
+/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736/export/share/applications/org.moneymanagerex.MMEX.desktop
+/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736/export/share/icons/hicolor/scalable/apps/org.moneymanagerex.MMEX.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Updating app/org.moneymanagerex.MMEX/x86_64/stable
+
+Note that '/home/qa/profiles/money-manager-ex-canonical/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/money-manager-ex-canonical/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:40:13+00:00 money-manager-ex previous 8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2
+money-manager-ex before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2", package: Some("org.moneymanagerex.MMEX"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.3"), update_available: false, can_remove: false, can_open: true }
+money-manager-ex JobFinished: Err("Approved action rejected: native installation state changed")
+money-manager-ex JobFinished: Err("This Flatpak is managed outside the launcher")
+money-manager-ex after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2", package: Some("org.moneymanagerex.MMEX"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=92663 comm="xfwm4 --compositor=off --display=:73" label="unconfined")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=92676 comm="flatpak run --user --command=sh app/org.moneymanag" label="flatpak (unconfined)")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=92676 comm="flatpak run --user --command=sh app/org.moneymanag" label="flatpak (unconfined)")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=92702 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+money-manager-ex before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.3"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=92801 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=92812 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:92818): dbind-WARNING **: 23:40:15.096: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:92812): xdg-desktop-portal-WARNING **: 23:40:15.113: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:92812): xdg-desktop-portal-WARNING **: 23:40:15.114: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:92812): xdg-desktop-portal-WARNING **: 23:40:15.114: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][05660.346597] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][05660.346927] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:92812): xdg-desktop-portal-WARNING **: 23:40:15.119: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[91350]: [session uid=1000 pid=91350] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=92801 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[91350]: [session uid=1000 pid=91350] Successfully activated service 'org.freedesktop.portal.Flatpak'
+money-manager-ex JobFinished: Ok("Launch request accepted")
+money-manager-ex after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.moneymanagerex.MMEX
+org.moneymanagerex.MMEX
+org.moneymanagerex.MMEX
+2026-11-27T23:40:28+00:00 money-manager-ex previous GUI WM_NAME(STRING) = "Money Manager Ex 1.9.3 64-bit"
+WM_CLASS(STRING) = "mmex", "mmex"
+2026-11-27T23:40:28+00:00 money-manager-ex AVAILABLE 15714369536
+money-manager-ex before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.3"), update_available: true, can_remove: true, can_open: true }
+money-manager-ex JobFinished: Ok("Flathub app updated")
+money-manager-ex after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:40:30+00:00 money-manager-ex current 58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736
+/home/qa/profiles/money-manager-ex-canonical/.var/app/org.moneymanagerex.MMEX/fixture.txt: OK
+money-manager-ex before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.4"), update_available: false, can_remove: true, can_open: true }
+money-manager-ex JobFinished: Ok("Launch request accepted")
+money-manager-ex after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.4"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.moneymanagerex.MMEX
+org.moneymanagerex.MMEX
+org.moneymanagerex.MMEX
+2026-11-27T23:40:45+00:00 money-manager-ex current GUI WM_NAME(STRING) = "Money Manager Ex 1.9.4 64-bit"
+WM_CLASS(STRING) = "mmex", "mmex"
+money-manager-ex before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 9, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736", package: Some("org.moneymanagerex.MMEX"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.9.4"), update_available: false, can_remove: true, can_open: true }
+money-manager-ex JobFinished: Ok("Flathub app removed")
+money-manager-ex after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/money-manager-ex-canonical/.var/app/org.moneymanagerex.MMEX/fixture.txt: OK
+2026-11-27T23:40:46+00:00 money-manager-ex PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:40:47+00:00 money-manager-ex EXIT 0 remove
+
+(xfconfd:92688): xfconfd-WARNING **: 23:40:47.168: Name org.xfce.Xfconf lost on the message dbus, exiting.

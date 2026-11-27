@@ -31843,5 +31843,49 @@
       "linux": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5",
       "windows": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5"
     }
+  },
+  {
+    "id": "opengame",
+    "name": "OpenGame",
+    "repo": "https://github.com/nexu-io/opengame",
+    "author": "OpenDesign",
+    "level": "avanz",
+    "category": "sviluppo",
+    "description": {
+      "it": "Studio locale per creare videogiochi da modelli giocabili. Studio gratuito, servizi AI cloud opzionali a pagamento.",
+      "en": "Local studio for creating games from playable templates. The studio is free, with optional paid cloud AI services."
+    },
+    "alternatives": [],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/LICENSE",
+    "website": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#connect-your-local-agent"
+    },
+    "logo": "https://raw.githubusercontent.com/nexu-io/opengame/f17151f3cc7838ddbe13d9b94392e0f983fc341b/packages/design-system/brand/apple-touch-icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/pampa-stack/shiftanything/8d01e24ac459b6847503f62d9baa1b069b3faea8/apps/shiftanything-tauri-proof/frontend/media/opengame-shot-0.png"
+    ],
+    "media_source": "https://github.com/pampa-stack/shiftanything/tree/8d01e24ac459b6847503f62d9baa1b069b3faea8/docs/verification/shiftanything-opengame",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md",
+      "sources": [
+        "https://github.com/pampa-stack/shiftanything/tree/8d01e24ac459b6847503f62d9baa1b069b3faea8/docs/verification/shiftanything-opengame"
+      ]
+    },
+    "stars": {
+      "count": 2088,
+      "date": "2026-11-27",
+      "source": "https://github.com/nexu-io/opengame/stargazers"
+    },
+    "platform_support": {
+      "macos": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#start-a-separate-workspace",
+      "windows": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#start-a-separate-workspace",
+      "linux": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md#start-a-separate-workspace"
+    }
   }
 ]

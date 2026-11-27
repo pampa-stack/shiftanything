@@ -291,8 +291,8 @@
     const guide = entry?.delivery === 'self-hosted' && projectGuide(entry);
     if (guide) {
       return {
-        label:it?'Guida per il server':'Server setup guide',
-        reason:it?'Si configura su un server.':'Requires setup on a server.',
+        label:it?'Guida di configurazione':'Setup guide',
+        reason:it?'Si configura sul proprio computer o server seguendo la guida del progetto.':'Set it up on your computer or server using the project guide.',
         target:guide,
       };
     }

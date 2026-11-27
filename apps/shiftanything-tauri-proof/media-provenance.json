@@ -4232,6 +4232,20 @@
       "file": "media/simplewall-logo.png",
       "sha256": "cd7d0614c410e240a61eeecb4dae70d5aa3dae5cce081af433accd42887e0df8",
       "source_sha256": "12a8c445613a525df7de2ebd075977f272113954a0228b0bb78f1aec131a4be4"
+    },
+    {
+      "app": "opengame",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nexu-io/opengame/f17151f3cc7838ddbe13d9b94392e0f983fc341b/packages/design-system/brand/apple-touch-icon.png",
+      "file": "media/opengame-logo.png",
+      "sha256": "d669dfc682b7f1169e5a0476f49ba882f75ac58f3e20dd2ab8a18cee45f6a125"
+    },
+    {
+      "app": "opengame",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/pampa-stack/shiftanything/8d01e24ac459b6847503f62d9baa1b069b3faea8/apps/shiftanything-tauri-proof/frontend/media/opengame-shot-0.png",
+      "file": "media/opengame-shot-0.png",
+      "sha256": "4bec184e8f1d5c96bfca0a14fbfcdc53f408c20f82b47119f6977a409a00f1df"
     }
   ]
 }

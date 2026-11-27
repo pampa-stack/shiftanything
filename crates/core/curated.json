@@ -32262,5 +32262,133 @@
       ]
     },
     "releases": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.16"
+  },
+  {
+    "id": "moonlight",
+    "name": "Moonlight",
+    "repo": "https://github.com/moonlight-stream/moonlight-qt",
+    "author": "Moonlight Game Streaming Project",
+    "level": "base",
+    "category": "rete",
+    "description": {
+      "it": "Ricevi lo streaming del desktop e dei giochi da un altro PC. Puoi usare Sunshine sul computer che trasmette.",
+      "en": "Stream your desktop and games from another PC. You can run Sunshine on the host."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/moonlight-stream/moonlight-qt/blob/v6.2.0/LICENSE",
+    "website": "https://moonlight-stream.org/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/moonlight-stream/moonlight-qt/v6.2.0/app/deploy/steamlink/moonlight.png",
+    "screenshots": [
+      "https://moonlight-stream.org/images/steam_framed.png"
+    ],
+    "media_source": "https://github.com/moonlight-stream/moonlight-qt#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://moonlight-stream.org/"
+    },
+    "stars": {
+      "count": 19815,
+      "source": "https://github.com/moonlight-stream/moonlight-qt/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
+      "linux": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
+      "windows": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0"
+    },
+    "release": {
+      "version": "6.2.0",
+      "date": "2026-10-04",
+      "source": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 78299984,
+          "size_max": null
+        },
+        {
+          "platform": "linux",
+          "size_min": 54032888,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 55920336,
+          "size_max": null
+        }
+      ]
+    },
+    "releases": "https://github.com/moonlight-stream/moonlight-qt/releases/tag/v6.2.0"
+  },
+  {
+    "id": "sunshine",
+    "name": "Sunshine",
+    "repo": "https://github.com/SunshineStream/Sunshine",
+    "author": "Sunshine contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Trasmetti schermo e giochi dal tuo computer a Moonlight. Configura l’host e associa i dispositivi dal pannello web locale.",
+      "en": "Stream your screen and games from your computer to Moonlight. Configure the host and pair devices from its local web dashboard."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/SunshineStream/Sunshine/blob/v2026.914.233613/LICENSE",
+    "website": "https://sunshine.lizardbyte.dev/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/SunshineStream/Sunshine/v2026.914.233613/sunshine.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/SunshineStream/Sunshine/v2026.914.233613/gh-pages-template/assets/img/screenshots/01-sunshine-welcome-page.png"
+    ],
+    "media_source": "https://github.com/SunshineStream/Sunshine#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://sunshine.lizardbyte.dev/"
+    },
+    "stars": {
+      "count": 44002,
+      "source": "https://github.com/SunshineStream/Sunshine/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613",
+      "linux": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613",
+      "windows": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613"
+    },
+    "release": {
+      "version": "2026.914.233613",
+      "date": "2026-09-15",
+      "source": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 40375035,
+          "size_max": null
+        },
+        {
+          "platform": "linux",
+          "size_min": 43883000,
+          "size_max": null
+        },
+        {
+          "platform": "windows",
+          "size_min": 33710080,
+          "size_max": null
+        }
+      ]
+    },
+    "releases": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613"
   }
 ]

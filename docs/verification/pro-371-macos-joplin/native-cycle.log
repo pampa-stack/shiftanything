@@ -1,0 +1,20 @@
+PASS OFFICIAL v3.7.22 Dmg https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22-arm64.DMG 211992036 185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8
+PASS OFFICIAL v3.7.24 Dmg https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24-arm64.DMG 212067439 d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e
+PASS OFFICIAL v3.7.22 Dmg https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22-arm64.DMG 211992036 185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8
+PASS NATIVE install: Joplin installed: 3.7.22; transferred=211992036
+/private/tmp/shift-joplin-scratch.NNTWZcrv/home/Applications/Joplin.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Laurent Cozic (A9BXAFS6CT)
+PASS SIGNATURE + PROFILE MARKER install 3.7.22
+PASS OFFICIAL v3.7.24 Dmg https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24-arm64.DMG 212067439 d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e
+PASS NATIVE update: Joplin updated to 3.7.24; transferred=212067439
+/private/tmp/shift-joplin-scratch.NNTWZcrv/home/Applications/Joplin.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Laurent Cozic (A9BXAFS6CT)
+PASS SIGNATURE + PROFILE MARKER update 3.7.24
+PASS NATIVE remove: Joplin was removed; transferred=0
+/private/tmp/shift-joplin-scratch.NNTWZcrv/home/.Trash/Joplin.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Laurent Cozic (A9BXAFS6CT)
+PASS SIGNATURE + PROFILE MARKER remove 3.7.24
+CLEANUP /private/tmp/shift-joplin-scratch.NNTWZcrv exit=0

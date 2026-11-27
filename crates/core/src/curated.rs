@@ -461,8 +461,29 @@ pub const LIBREOFFICE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("7P5S3ZLCN7"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 12] =
-    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, LIBREOFFICE];
+pub const JOPLIN: crate::CraftApp = crate::CraftApp {
+    id: "joplin",
+    name: "Joplin",
+    tagline: "Collect notes, notebooks and pages clipped from the web",
+    repo: "laurent22/joplin",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [93, 145, 231],
+    ink_light: [36, 71, 132],
+    ink_dark: [157, 191, 251],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Laurent Cozic",
+    msi_publisher: None,
+    bundle: Some("net.cozic.joplin-desktop"),
+    site: Some("https://joplinapp.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("A9BXAFS6CT"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 13] =
+    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, LIBREOFFICE, JOPLIN];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -654,6 +675,7 @@ mod recipe_tests {
                 "org.keepassxc.keepassxc",
                 "G2S7P7J672",
             ),
+            (super::JOPLIN, ["v3.7.22", "v3.7.24"], ["Joplin-3.7.22-arm64.DMG", "Joplin-3.7.24-arm64.DMG"], "net.cozic.joplin-desktop", "A9BXAFS6CT"),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -695,6 +717,10 @@ mod recipe_tests {
             (super::KEEPASSXC, "KeePassXC-2.8.0-arm64.dmg"),
             (super::KEEPASSXC, "KeePassXC-2.8.0-2-arm64.dmg"),
             (super::KEEPASSXC, "KeePassXC-2.8.0-1-x86_64.dmg"),
+            (super::JOPLIN, "Joplin-3.7.24.DMG"),
+            (super::JOPLIN, "Joplin-3.7.24-arm64.dmg.blockmap"),
+            (super::JOPLIN, "Joplin-3.7.21-arm64.DMG"),
+            (super::JOPLIN, "Joplin-3.7.24-beta.1-arm64.DMG"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }

@@ -35,11 +35,13 @@ use crate::process;
 
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
-    use artcraft_launcher_core::curated::{AUDACITY, HANDBRAKE, IINA, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use artcraft_launcher_core::curated::{
+        AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION,
+    };
 
     match app.id {
         id if [OBS_STUDIO.id, AUDACITY.id].contains(&id) => Some(13),
-        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id].contains(&id) => Some(12),
+        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id, JOPLIN.id].contains(&id) => Some(12),
         id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id].contains(&id) => Some(11),
         _ => None,
     }
@@ -2760,10 +2762,11 @@ mod tests {
     #[cfg(target_os = "macos")]
     #[test]
     fn reviewed_daily_apps_require_their_verified_macos_versions() {
-        use artcraft_launcher_core::curated::{AUDACITY, KEEPASSXC};
+        use artcraft_launcher_core::curated::{AUDACITY, JOPLIN, KEEPASSXC};
 
         assert_eq!(recipe_macos_minimum(&AUDACITY), Some(13));
         assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some(12));
+        assert_eq!(recipe_macos_minimum(&JOPLIN), Some(12));
     }
 
     /// A bare app name is never a launchable location, even when the working folder holds a

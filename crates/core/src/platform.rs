@@ -225,7 +225,12 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
         PackageKind::ArchPkg,
         PackageKind::Flatpak,
     ];
-    let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b)))?;
+    // Joplin publishes its signed macOS images with a capitalized extension.
+    let joplin_dmg = name
+        .strip_suffix(".DMG")
+        .filter(|base| base.starts_with("Joplin-") && stems.contains(&crate::curated::JOPLIN.id))
+        .map(|base| (PackageKind::Dmg, base));
+    let (kind, base) = KINDS.iter().find_map(|k| name.strip_suffix(k.suffix()).map(|b| (*k, b))).or(joplin_dmg)?;
     for stem in stems {
         if *stem == crate::curated::LOCALSEND.id {
             // LocalSend publishes a hyphenated architecture label. Recognize only this recipe's reviewed format.
@@ -249,6 +254,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::AUDACITY.id => Some(("audacity-macOS-", "-arm64", "macos-aarch64")),
             id if id == crate::curated::KEEPASSXC.id => Some(("KeePassXC-", "-arm64", "macos-aarch64")),
             id if id == crate::curated::LIBREOFFICE.id => Some(("LibreOffice_", "_MacOS_aarch64", "macos-aarch64")),
+            id if id == crate::curated::JOPLIN.id => Some(("Joplin-", "-arm64", "macos-aarch64")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -261,6 +267,8 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
                         && parsed.pre.is_empty()
                         && (*stem != crate::curated::AUDACITY.id || parsed.major == 4)
                         && (*stem != crate::curated::KEEPASSXC.id || (parsed.major, parsed.minor, parsed.patch) >= (2, 7, 12))
+                        && (*stem != crate::curated::JOPLIN.id
+                            || (parsed.build.is_empty() && (parsed.major, parsed.minor, parsed.patch) >= (3, 7, 22)))
                 })
             {
                 return Some(AssetName { stem: (*stem).to_string(), version: version.to_string(), token: token.into(), kind });
@@ -303,7 +311,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
-    use crate::curated::{AUDACITY, HANDBRAKE, IINA, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use crate::curated::{AUDACITY, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
 
     if !recipe_platform_verified(stems, platform) {
         return None;
@@ -316,13 +324,20 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             if name.stem == crate::curated::LIBREOFFICE.id {
                 return crate::release::libreoffice_arm64_asset(release, asset);
             }
-            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC]
+            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN]
                 .iter()
                 .find(|app| app.id == name.stem)
                 .map(|app| app.repo);
             if !official.is_none_or(|repo| {
                 !release.prerelease && asset.url == format!("{}{}/{}", crate::release::download_prefix(repo), release.tag, asset.name)
             }) {
+                return false;
+            }
+            if name.stem == JOPLIN.id
+                && (release.tag.strip_prefix('v') != Some(name.version.as_str())
+                    || !asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
+                    || asset.size == 0)
+            {
                 return false;
             }
             let needs_checksum = official.is_some() || [LOCALSEND.id, OBS_STUDIO.id].contains(&name.stem.as_str());
@@ -343,7 +358,9 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
-    use crate::curated::{AUDACITY, HANDBRAKE, HANDY, IINA, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use crate::curated::{
+        AUDACITY, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION,
+    };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
@@ -359,6 +376,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         AUDACITY.id,
         KEEPASSXC.id,
         LIBREOFFICE.id,
+        JOPLIN.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

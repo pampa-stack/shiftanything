@@ -66,7 +66,7 @@ pub fn checksum_manifest_name(repo: &str) -> &'static str {
 
 const MAX_NOTES: usize = 64 * 1024;
 
-fn is_hex64(s: &str) -> bool {
+pub(crate) fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
 }
 
@@ -530,6 +530,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("keepassxreboot/keepassxc", "2.8.0") => {
             &[("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c")]
+        }
+        ("laurent22/joplin", "v3.7.22") => {
+            &[("Joplin-3.7.22-arm64.DMG", 211_992_036, "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8")]
+        }
+        ("laurent22/joplin", "v3.7.24") => {
+            &[("Joplin-3.7.24-arm64.DMG", 212_067_439, "d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e")]
         }
         _ => &[],
     };

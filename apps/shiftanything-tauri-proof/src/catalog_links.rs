@@ -21,6 +21,8 @@ fn allowed(app: &App, target: &str) -> bool {
     let repo = app.repo.trim_end_matches('/');
     [app.repo.as_str(), &app.website, &app.license_url].contains(&target)
         || app.agent.source.as_deref() == Some(target)
+        || app.media_source.as_str() == Some(target)
+        || app.review.as_ref().is_some_and(|review| review.source.as_deref() == Some(target) || review.sources.iter().any(|source| source == target))
         || app.stars.as_ref().is_some_and(|stars| stars.source == target || target == format!("{repo}/stargazers"))
         || app.popularity.as_ref().is_some_and(|popularity| popularity.page == target || popularity.source == target)
         || app.release.as_ref().is_some_and(|release| release.source == target)
@@ -43,6 +45,10 @@ mod tests {
                 }),
                 Ok(())
             );
+        }
+        for url in ["https://doop.design/docs/get-started", "https://github.com/doop-design/doop/blob/main/README.md"] {
+            assert_eq!(dispatch("doop", url, |_| Ok(())), Ok(()));
+            assert!(dispatch("handy", url, |_| unreachable!()).is_err());
         }
         for (id, url) in [
             ("handy", "https://github.com/storytold/photocraft"),

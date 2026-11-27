@@ -25917,5 +25917,2012 @@
       "source": "https://github.com/zulip/zulip/releases/tag/13.3",
       "packages": []
     }
+  },
+  {
+    "id": "postiz",
+    "name": "Postiz",
+    "repo": "https://github.com/gitroomhq/postiz-app",
+    "author": "Gitroom",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Calendario, programmazione e pubblicazione social su un server tuo.",
+      "en": "Self-hosted calendar, scheduling and social media publishing."
+    },
+    "alternatives": [
+      "Buffer",
+      "Hootsuite",
+      "Later"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/gitroomhq/postiz-app/blob/main/LICENSE",
+    "website": "https://postiz.com",
+    "releases": "https://github.com/gitroomhq/postiz-app/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.postiz.com/general/where-things-live"
+    },
+    "logo": "https://docs.postiz.com/mintlify-assets/_mintlify/favicons/postiz/7ex-qxyRTSZphJ2G/_generated/favicon/android-chrome-192x192.png",
+    "screenshots": [
+      "https://mintcdn.com/postiz/WSXjecBlCeS6Sslb/images/general/calendar/week.png?fit=max&auto=format&n=WSXjecBlCeS6Sslb&q=85&s=8b5f88750dc44079dd3b2ed4903742bc"
+    ],
+    "media_source": "https://docs.postiz.com/general/where-things-live",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.postiz.com/self-host/installation/overview"
+    },
+    "stars": {
+      "count": 42487,
+      "source": "https://github.com/gitroomhq/postiz-app/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.26.0",
+      "date": "2026-11-13",
+      "source": "https://github.com/gitroomhq/postiz-app/releases/tag/v2.26.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "mixpost-lite",
+    "name": "Mixpost Lite",
+    "repo": "https://github.com/inovector/mixpost",
+    "author": "Inovector",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Calendario social gratuito per programmare post su Facebook Pages, Mastodon e X. Ciascuna piattaforma ha i suoi requisiti.",
+      "en": "Free social calendar for scheduling posts on Facebook Pages, Mastodon and X. Platform requirements apply."
+    },
+    "alternatives": [
+      "Buffer",
+      "Hootsuite"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/inovector/mixpost/blob/main/LICENSE.md",
+    "website": "https://mixpost.app",
+    "releases": "https://github.com/inovector/mixpost/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://mixpost.app/favicon.ico",
+    "screenshots": [],
+    "media_source": "https://mixpost.app/self-hosted",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://mixpost.app/self-hosted"
+    },
+    "stars": {
+      "count": 3965,
+      "source": "https://github.com/inovector/mixpost/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "2.6.0",
+      "date": "2026-03-16",
+      "source": "https://github.com/inovector/mixpost/releases/tag/2.6.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "mautic",
+    "name": "Mautic",
+    "repo": "https://github.com/mautic/mautic",
+    "author": "Mautic Community",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Automazione marketing self-hosted con contatti, segmenti, moduli e campagne.",
+      "en": "Self-hosted marketing automation with contacts, segments, forms and campaigns."
+    },
+    "alternatives": [
+      "HubSpot Marketing Hub",
+      "Adobe Marketo Engage",
+      "ActiveCampaign"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/mautic/mautic/blob/7.x/LICENSE.txt",
+    "website": "https://mautic.org",
+    "releases": "https://github.com/mautic/mautic/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://devdocs.mautic.org"
+    },
+    "logo": "https://raw.githubusercontent.com/mautic/mautic/7.x/.github/readme_logo.png",
+    "screenshots": [
+      "https://docs.mautic.org/en/7.2/_images/mautic-report-graph.png"
+    ],
+    "media_source": "https://docs.mautic.org/en/7.2/reports/reports.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.mautic.org/en/7.0/"
+    },
+    "stars": {
+      "count": 11126,
+      "source": "https://github.com/mautic/mautic/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "7.2.3",
+      "date": "2026-11-25",
+      "source": "https://github.com/mautic/mautic/releases/tag/7.2.3",
+      "packages": []
+    }
+  },
+  {
+    "id": "listmonk",
+    "name": "listmonk",
+    "repo": "https://github.com/knadh/listmonk",
+    "author": "Kailash Nadh & contributors",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Newsletter self-hosted con liste, segmenti, modelli e campagne. Invio tramite SMTP.",
+      "en": "Self-hosted newsletters with lists, segments, templates and campaigns. Sends through SMTP."
+    },
+    "alternatives": [
+      "Mailchimp",
+      "Brevo",
+      "Campaign Monitor"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/knadh/listmonk/blob/master/LICENSE",
+    "website": "https://listmonk.app",
+    "releases": "https://github.com/knadh/listmonk/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://listmonk.app/docs/apis/apis/"
+    },
+    "logo": "https://user-images.githubusercontent.com/547147/231084896-835dba66-2dfe-497c-ba0f-787564c0819e.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/689b5fbb-dd25-4956-a36f-e3226a65f9c4"
+    ],
+    "media_source": "https://github.com/knadh/listmonk#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://listmonk.app/docs/installation/"
+    },
+    "stars": {
+      "count": 24480,
+      "source": "https://github.com/knadh/listmonk/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v6.2.0",
+      "date": "2026-06-26",
+      "source": "https://github.com/knadh/listmonk/releases/tag/v6.2.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "keila",
+    "name": "Keila",
+    "repo": "https://github.com/pentacent/keila",
+    "author": "Pentacent",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Newsletter self-hosted con editor visuale, segmenti e controllo del tracciamento.",
+      "en": "Self-hosted newsletters with a visual editor, segments and tracking controls."
+    },
+    "alternatives": [
+      "Mailchimp",
+      "Brevo",
+      "MailerLite"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/pentacent/keila/blob/main/LICENSE.md",
+    "website": "https://www.keila.io",
+    "releases": "https://github.com/pentacent/keila/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://www.keila.io/docs/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/pentacent/keila/main/.github/assets/logo.svg",
+    "screenshots": [
+      "https://www.keila.io/_astro/keila-2024-05-01.BUp8L2VZ.png"
+    ],
+    "media_source": "https://www.keila.io/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.keila.io/docs/installation"
+    },
+    "stars": {
+      "count": 2269,
+      "source": "https://github.com/pentacent/keila/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "0.40.2",
+      "date": "2026-11-04",
+      "source": "https://github.com/pentacent/keila/releases/tag/0.40.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "formbricks",
+    "name": "Formbricks Community",
+    "repo": "https://github.com/formbricks/formbricks",
+    "author": "Formbricks",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Edizione Community self-hosted per sondaggi e raccolta feedback.",
+      "en": "Self-hosted Community edition for surveys and feedback collection."
+    },
+    "alternatives": [
+      "Qualtrics",
+      "Typeform",
+      "SurveyMonkey"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/formbricks/formbricks/blob/main/LICENSE",
+    "website": "https://formbricks.com",
+    "releases": "https://github.com/formbricks/formbricks/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://github.com/formbricks/formbricks/assets/72809645/0086704f-bee7-4d38-9cc8-fa42ee59e004",
+    "screenshots": [
+      "https://github-production-user-asset-6210df.s3.amazonaws.com/675065/249441967-ccb89ea3-82b4-4bf2-8d2c-528721ec313b.png"
+    ],
+    "media_source": "https://github.com/formbricks/formbricks#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://formbricks.com/docs/self-hosting/overview"
+    },
+    "stars": {
+      "count": 13309,
+      "source": "https://github.com/formbricks/formbricks/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "6.2.3",
+      "date": "2026-11-25",
+      "source": "https://github.com/formbricks/formbricks/releases/tag/6.2.3",
+      "packages": []
+    }
+  },
+  {
+    "id": "heyform",
+    "name": "HeyForm",
+    "repo": "https://github.com/heyform/heyform",
+    "author": "HeyForm",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Moduli e sondaggi self-hosted per raccogliere contatti, con logica condizionale.",
+      "en": "Self-hosted forms and surveys for capturing leads, with conditional logic."
+    },
+    "alternatives": [
+      "Typeform",
+      "Jotform",
+      "SurveyMonkey"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/heyform/heyform/blob/next/LICENSE",
+    "website": "https://heyform.net",
+    "releases": "https://github.com/heyform/heyform/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.heyform.net/rest-api"
+    },
+    "logo": "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/logo.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/screenshot.png"
+    ],
+    "media_source": "https://github.com/heyform/heyform#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.heyform.net/open-source/self-hosting"
+    },
+    "stars": {
+      "count": 9085,
+      "source": "https://github.com/heyform/heyform/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v3.0.8",
+      "date": "2026-11-23",
+      "source": "https://github.com/heyform/heyform/releases/tag/v3.0.8",
+      "packages": []
+    }
+  },
+  {
+    "id": "dittofeed",
+    "name": "Dittofeed",
+    "repo": "https://github.com/dittofeed/dittofeed",
+    "author": "Dittofeed",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Segmentazione, campagne e percorsi automatici a eventi su un server tuo.",
+      "en": "Self-hosted segmentation, campaigns and event-driven customer journeys."
+    },
+    "alternatives": [
+      "Customer.io",
+      "Braze",
+      "Iterable"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/dittofeed/dittofeed/blob/main/LICENSE",
+    "website": "https://dittofeed.com",
+    "releases": "https://github.com/dittofeed/dittofeed/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.dittofeed.com/guide/accessing-admin-api"
+    },
+    "logo": "https://raw.githubusercontent.com/dittofeed/dittofeed/main/packages/docs/logo/light.png",
+    "screenshots": [
+      "https://storage.googleapis.com/dittofeed-public/journeys_v2.png"
+    ],
+    "media_source": "https://github.com/dittofeed/dittofeed#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.dittofeed.com/deployment/self-hosted"
+    },
+    "stars": {
+      "count": 3087,
+      "source": "https://github.com/dittofeed/dittofeed/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v0.23.0",
+      "date": "2025-12-01",
+      "source": "https://github.com/dittofeed/dittofeed/releases/tag/v0.23.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "opnform",
+    "name": "OpnForm Community",
+    "repo": "https://github.com/OpnForm/OpnForm",
+    "author": "OpnForm",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Edizione Community self-hosted per creare moduli e raccogliere risposte e contatti.",
+      "en": "Self-hosted Community edition for building forms and collecting leads and submissions."
+    },
+    "alternatives": [
+      "Typeform",
+      "Jotform",
+      "Tally"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/OpnForm/OpnForm/blob/main/LICENSE",
+    "website": "https://opnform.com",
+    "releases": "https://github.com/OpnForm/OpnForm/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://opnform.com/favicon.ico",
+    "screenshots": [
+      "https://raw.githubusercontent.com/OpnForm/OpnForm/main/client/public/img/social-preview.jpg"
+    ],
+    "media_source": "https://opnform.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.opnform.com/deployment/self-hosted-license"
+    },
+    "stars": {
+      "count": 4037,
+      "source": "https://github.com/OpnForm/OpnForm/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.8.6",
+      "date": "2026-11-19",
+      "source": "https://github.com/OpnForm/OpnForm/releases/tag/v2.8.6",
+      "packages": []
+    }
+  },
+  {
+    "id": "sendportal",
+    "name": "SendPortal",
+    "repo": "https://github.com/mettle/sendportal",
+    "author": "Mettle",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Campagne email e liste self-hosted. Invio via SMTP senza tracciamento.",
+      "en": "Self-hosted email campaigns and lists. SMTP sending without tracking."
+    },
+    "alternatives": [
+      "Mailchimp",
+      "Campaign Monitor",
+      "Brevo"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/mettle/sendportal/blob/master/LICENSE",
+    "website": "https://sendportal.io",
+    "releases": "https://github.com/mettle/sendportal/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://sendportal.io/docs/v4/api/introduction"
+    },
+    "logo": "https://sendportal.io/img/sendportal.png",
+    "screenshots": [
+      "https://sendportal.io/img/landing/subscribers.png"
+    ],
+    "media_source": "https://sendportal.io/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://sendportal.io/docs/v4"
+    },
+    "stars": {
+      "count": 2193,
+      "source": "https://github.com/mettle/sendportal/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v4.0.0.1",
+      "date": "2026-10-22",
+      "source": "https://github.com/mettle/sendportal/releases/tag/v4.0.0.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "umami",
+    "name": "Umami",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "Umami Software",
+    "description": {
+      "it": "Dashboard per traffico, eventi, campagne UTM e funnel, ospitabile sul proprio server.",
+      "en": "Self-hosted dashboard for traffic, events, UTM campaigns, and funnels."
+    },
+    "alternatives": [
+      "Google Analytics",
+      "Plausible Cloud"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/umami-software/umami/blob/master/LICENSE",
+    "repo": "https://github.com/umami-software/umami",
+    "website": "https://umami.is",
+    "releases": "https://github.com/umami-software/umami/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.umami.is/docs/mcp"
+    },
+    "logo": "https://raw.githubusercontent.com/umami-software/umami/master/public/favicon-32x32.png",
+    "screenshots": [],
+    "media_source": "https://docs.umami.is/docs/install",
+    "release": {
+      "version": "v3.5.0",
+      "date": "2026-11-12",
+      "source": "https://github.com/umami-software/umami/releases/tag/v3.5.0",
+      "packages": []
+    },
+    "stars": {
+      "count": 40405,
+      "date": "2026-11-27",
+      "source": "https://github.com/umami-software/umami"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.umami.is/docs/install"
+    }
+  },
+  {
+    "id": "matomo",
+    "name": "Matomo On-Premise",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "Matomo",
+    "description": {
+      "it": "Analisi web sul proprio server con visite, campagne, obiettivi e report e-commerce nel core gratuito.",
+      "en": "Self-hosted web analytics with visits, campaigns, goals, and ecommerce reporting in the free core."
+    },
+    "alternatives": [
+      "Google Analytics",
+      "Adobe Analytics"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/matomo-org/matomo/blob/6.x-dev/LICENSE",
+    "repo": "https://github.com/matomo-org/matomo",
+    "website": "https://matomo.org",
+    "releases": "https://github.com/matomo-org/matomo/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://developer.matomo.org/api-reference/reporting-api"
+    },
+    "logo": "https://raw.githubusercontent.com/matomo-org/matomo/6.x-dev/plugins/CoreHome/images/favicon.png",
+    "screenshots": [],
+    "media_source": "https://matomo.org/faq/log-analytics-tool/is-matomo-truly-free-to-use-what-are-the-costs-or-requirements/",
+    "release": {
+      "version": "6.0.0",
+      "date": "2026-11-23",
+      "source": "https://github.com/matomo-org/matomo/releases/tag/6.0.0",
+      "packages": []
+    },
+    "stars": {
+      "count": 22066,
+      "date": "2026-11-27",
+      "source": "https://github.com/matomo-org/matomo"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://matomo.org/faq/log-analytics-tool/is-matomo-truly-free-to-use-what-are-the-costs-or-requirements/",
+      "edition": "Core on-premise GPL. Estensioni premium e servizio cloud separati."
+    }
+  },
+  {
+    "id": "plausible-ce",
+    "name": "Plausible Community Edition",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "Plausible Insights",
+    "description": {
+      "it": "Dashboard self-hosted per pagine, visite, sorgenti di traffico e conversioni.",
+      "en": "Self-hosted dashboard for pages, visits, traffic sources, and conversions."
+    },
+    "alternatives": [
+      "Google Analytics",
+      "Plausible Cloud"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/plausible/analytics/blob/master/LICENSE.md",
+    "repo": "https://github.com/plausible/community-edition",
+    "website": "https://plausible.io/self-hosted-web-analytics",
+    "releases": "https://github.com/plausible/community-edition/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": null,
+    "release": {
+      "version": "v3.2.2",
+      "date": "2026-11-23",
+      "source": "https://github.com/plausible/analytics/releases/tag/v3.2.2",
+      "packages": []
+    },
+    "stars": {
+      "count": 2964,
+      "date": "2026-11-27",
+      "source": "https://github.com/plausible/community-edition"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/plausible/community-edition#readme",
+      "edition": "Il codice applicativo è AGPL-3.0. Il repository di deploy e le stelle sono della Community Edition."
+    }
+  },
+  {
+    "id": "yourls",
+    "name": "YOURLS",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "YOURLS contributors",
+    "description": {
+      "it": "Pannello per creare link brevi sul proprio dominio e misurare i clic.",
+      "en": "Dashboard for creating short links on your own domain and measuring clicks."
+    },
+    "alternatives": [
+      "Bitly",
+      "Rebrandly"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/YOURLS/YOURLS/blob/master/LICENSE",
+    "repo": "https://github.com/YOURLS/YOURLS",
+    "website": "https://yourls.org",
+    "releases": "https://github.com/YOURLS/YOURLS/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://yourls.org/docs/guide/advanced/api"
+    },
+    "logo": "https://raw.githubusercontent.com/YOURLS/YOURLS/master/images/favicon.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/YOURLS/YOURLS/master/images/admin-dashboard.gif"
+    ],
+    "media_source": "https://github.com/YOURLS/YOURLS/blob/master/readme.html",
+    "release": {
+      "version": "1.10.6",
+      "date": "2026-08-30",
+      "source": "https://github.com/YOURLS/YOURLS/releases/tag/1.10.6",
+      "packages": []
+    },
+    "stars": {
+      "count": 12323,
+      "date": "2026-11-27",
+      "source": "https://github.com/YOURLS/YOURLS"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://yourls.org/docs/guide/install"
+    }
+  },
+  {
+    "id": "shlink",
+    "name": "Shlink + Web Client",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "Shlink contributors",
+    "description": {
+      "it": "Gestisce link brevi, domini e statistiche delle visite attraverso la dashboard web ufficiale.",
+      "en": "Manage short URLs, domains, and visit analytics through the official web dashboard."
+    },
+    "alternatives": [
+      "Bitly",
+      "Rebrandly"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/shlinkio/shlink/blob/develop/LICENSE",
+    "repo": "https://github.com/shlinkio/shlink",
+    "website": "https://shlink.io",
+    "releases": "https://github.com/shlinkio/shlink/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://shlink.io/documentation/api-docs/"
+    },
+    "logo": "https://raw.githubusercontent.com/shlinkio/shlink-web-client/develop/public/favicon.png",
+    "screenshots": [],
+    "media_source": "https://shlink.io/documentation/shlink-web-client/",
+    "release": {
+      "version": "v5.1.9",
+      "date": "2026-11-21",
+      "source": "https://github.com/shlinkio/shlink/releases/tag/v5.1.9",
+      "packages": []
+    },
+    "stars": {
+      "count": 5447,
+      "date": "2026-11-27",
+      "source": "https://github.com/shlinkio/shlink"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://shlink.io/documentation/shlink-web-client/"
+    }
+  },
+  {
+    "id": "easyappointments",
+    "name": "Easy!Appointments",
+    "category": "crm",
+    "level": "avanz",
+    "author": "Alex Tselegidis and contributors",
+    "description": {
+      "it": "Prenotazioni online, orari dei collaboratori e gestione degli appuntamenti nella web app self-hosted.",
+      "en": "Online bookings, staff availability, and appointment management in a self-hosted web app."
+    },
+    "alternatives": [
+      "Calendly",
+      "Acuity Scheduling"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/alextselegidis/easyappointments/blob/main/LICENSE",
+    "repo": "https://github.com/alextselegidis/easyappointments",
+    "website": "https://easyappointments.org",
+    "releases": "https://github.com/alextselegidis/easyappointments/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://easyappointments.org/documentation/rest-api/"
+    },
+    "logo": "https://raw.githubusercontent.com/alextselegidis/easyappointments/main/assets/img/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/alextselegidis/easyappointments/main/screenshot.png"
+    ],
+    "media_source": "https://github.com/alextselegidis/easyappointments#installation",
+    "release": {
+      "version": "1.6.1",
+      "date": "2026-10-19",
+      "source": "https://github.com/alextselegidis/easyappointments/releases/tag/1.6.1",
+      "packages": []
+    },
+    "stars": {
+      "count": 4508,
+      "date": "2026-11-27",
+      "source": "https://github.com/alextselegidis/easyappointments"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/alextselegidis/easyappointments#installation"
+    }
+  },
+  {
+    "id": "live-helper-chat",
+    "name": "Live Helper Chat",
+    "category": "marketing",
+    "level": "avanz",
+    "author": "Live Helper Chat contributors",
+    "description": {
+      "it": "Pannello per rispondere ai visitatori del sito, gestire code e distribuire le chat agli operatori.",
+      "en": "Dashboard for answering site visitors, managing queues, and assigning chats to operators."
+    },
+    "alternatives": [
+      "Intercom",
+      "LiveChat"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/LiveHelperChat/livehelperchat/blob/master/LICENSE",
+    "repo": "https://github.com/LiveHelperChat/livehelperchat",
+    "website": "https://livehelperchat.com",
+    "releases": "https://github.com/LiveHelperChat/livehelperchat/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://doc.livehelperchat.com/docs/mcp-setup"
+    },
+    "logo": "https://raw.githubusercontent.com/LiveHelperChat/livehelperchat/master/lhc_web/design/defaulttheme/images/general/logo.png",
+    "screenshots": [],
+    "media_source": "https://doc.livehelperchat.com/docs/install/",
+    "release": {
+      "version": "5.02v",
+      "date": "2026-11-24",
+      "source": "https://github.com/LiveHelperChat/livehelperchat/releases/tag/5.02v",
+      "packages": []
+    },
+    "stars": {
+      "count": 2258,
+      "date": "2026-11-27",
+      "source": "https://github.com/LiveHelperChat/livehelperchat"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://doc.livehelperchat.com/docs/install/"
+    }
+  },
+  {
+    "id": "suitecrm",
+    "name": "SuiteCRM 7",
+    "category": "crm",
+    "level": "avanz",
+    "author": "SalesAgility and contributors",
+    "description": {
+      "it": "CRM self-hosted con anagrafiche, lead, opportunità e attività commerciali nell’interfaccia web.",
+      "en": "Self-hosted CRM with contacts, leads, opportunities, and sales activities in a web interface."
+    },
+    "alternatives": [
+      "Salesforce",
+      "HubSpot CRM"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/SuiteCRM/SuiteCRM/blob/hotfix/LICENSE.txt",
+    "repo": "https://github.com/SuiteCRM/SuiteCRM",
+    "website": "https://suitecrm.com",
+    "releases": "https://github.com/SuiteCRM/SuiteCRM/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.suitecrm.com/developer/integration-api/v8/endpoints/"
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": null,
+    "release": {
+      "version": "v7.15.2",
+      "date": "2026-07-31",
+      "source": "https://github.com/SuiteCRM/SuiteCRM/releases/tag/v7.15.2",
+      "packages": []
+    },
+    "stars": {
+      "count": 5880,
+      "date": "2026-11-27",
+      "source": "https://github.com/SuiteCRM/SuiteCRM"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.suitecrm.com/user/sales-relationships/leads/",
+      "edition": "Edizione 7, repository e rilasci della stessa serie."
+    }
+  },
+  {
+    "id": "twenty",
+    "name": "Twenty Core",
+    "category": "crm",
+    "level": "avanz",
+    "author": "Twenty and contributors",
+    "description": {
+      "it": "CRM self-hosted per contatti, aziende e opportunità con viste tabella e pipeline.",
+      "en": "Self-hosted CRM for people, companies, and deals with table and pipeline views."
+    },
+    "alternatives": [
+      "Salesforce",
+      "HubSpot CRM"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/twentyhq/twenty/blob/main/LICENSE",
+    "repo": "https://github.com/twentyhq/twenty",
+    "website": "https://twenty.com",
+    "releases": "https://github.com/twentyhq/twenty/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/twentyhq/twenty/main/packages/twenty-docs/favicon.png",
+    "screenshots": [],
+    "media_source": "https://docs.twenty.com/developers/self-host/self-host",
+    "release": {
+      "version": "twenty/v2.63.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/twentyhq/twenty/releases/tag/twenty/v2.63.0",
+      "packages": []
+    },
+    "stars": {
+      "count": 61520,
+      "date": "2026-11-27",
+      "source": "https://github.com/twentyhq/twenty"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.twenty.com/developers/self-host/self-host",
+      "edition": "Funzioni del core open source. Le estensioni enterprise sono soggette a una licenza separata."
+    }
+  },
+  {
+    "id": "saleor",
+    "name": "Saleor + Dashboard",
+    "category": "ecommerce",
+    "level": "avanz",
+    "author": "Saleor Commerce and contributors",
+    "description": {
+      "it": "Pannello amministrativo e-commerce per prodotti, ordini, inventario, sconti e canali.",
+      "en": "Ecommerce administration dashboard for products, orders, inventory, discounts, and channels."
+    },
+    "alternatives": [
+      "Shopify",
+      "BigCommerce"
+    ],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/saleor/saleor/blob/main/LICENSE",
+    "repo": "https://github.com/saleor/saleor",
+    "website": "https://saleor.io",
+    "releases": "https://github.com/saleor/saleor/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.saleor.io/api-reference"
+    },
+    "logo": "https://raw.githubusercontent.com/saleor/saleor-dashboard/main/public/favicons/favicon-32x32.png",
+    "screenshots": [],
+    "media_source": "https://docs.saleor.io/setup/docker-compose",
+    "release": {
+      "version": "3.23.50",
+      "date": "2026-11-17",
+      "source": "https://github.com/saleor/saleor/releases/tag/3.23.50",
+      "packages": []
+    },
+    "stars": {
+      "count": 23610,
+      "date": "2026-11-27",
+      "source": "https://github.com/saleor/saleor"
+    },
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.saleor.io/setup/docker-compose",
+      "edition": "Backend BSD e Dashboard ufficiale inclusa nel setup Docker. Catalogo e commercio gestibili senza Saleor Cloud."
+    }
+  },
+  {
+    "id": "freefield",
+    "name": "Freefield",
+    "repo": "https://github.com/neuregex/freefield",
+    "author": "neuregex and contributors",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Studio web locale per video, effetti e movimenti di camera con ComfyUI. Il workflow Camera Moves usa pesi Wan 2.2 Apache-2.0.",
+      "en": "Local web studio for video, effects, and camera moves with ComfyUI. Its Camera Moves workflow uses Apache-2.0 Wan 2.2 weights."
+    },
+    "alternatives": [
+      "Higgsfield"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/neuregex/freefield/blob/main/LICENSE",
+    "website": "https://github.com/neuregex/freefield",
+    "releases": "https://github.com/neuregex/freefield/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/neuregex/freefield/blob/main/server/cli.ts"
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-explore.jpg",
+      "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-menu.jpg",
+      "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-how.jpg"
+    ],
+    "media_source": "https://github.com/neuregex/freefield",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/neuregex/freefield#on-your-own-gpu-without-modal",
+      "sources": [
+        "https://github.com/neuregex/freefield#on-your-own-gpu-without-modal",
+        "https://github.com/neuregex/freefield/blob/main/apps/camera-moves/app.json",
+        "https://huggingface.co/alibaba-pai/Wan2.2-Fun-A14B-Control-Camera",
+        "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE"
+      ],
+      "edition": "Edizione MIT con backend ComfyUI locale. Camera Moves usa file Apache-2.0, senza servizio cloud obbligatorio: 37,59 GB di pesi base e 15,3 GB per la fase più pesante nella variante full, secondo il manifest. Le licenze degli altri workflow variano. MiniMax H3 esclude UE, Regno Unito, Corea del Sud e USA nei suoi termini pubblici."
+    },
+    "stars": {
+      "count": 1776,
+      "source": "https://github.com/neuregex/freefield/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": {
+      "version": "1.0",
+      "date": "2026-11-03",
+      "source": "https://github.com/neuregex/freefield/releases/tag/v1.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "locally-uncensored",
+    "name": "Locally Uncensored",
+    "repo": "https://github.com/PurpleDoubleD/locally-uncensored",
+    "author": "PurpleDoubleD and contributors",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Studio desktop locale per generare immagini e video senza account. Su Windows e Linux supporta Wan 2.1 e 2.2. macOS Apple Silicon è in beta.",
+      "en": "Local desktop studio for generating images and video without an account. Windows and Linux support Wan 2.1 and 2.2. Apple Silicon macOS is in beta."
+    },
+    "alternatives": [
+      "Higgsfield"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/PurpleDoubleD/locally-uncensored/blob/master/LICENSE",
+    "website": "https://locallyuncensored.com",
+    "releases": "https://github.com/PurpleDoubleD/locally-uncensored/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/PurpleDoubleD/locally-uncensored#faq"
+    },
+    "logo": "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/logos/LU-monogram-bw-transparent.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/docs/screenshots/create_gallery_dark.webp",
+      "https://raw.githubusercontent.com/PurpleDoubleD/locally-uncensored/master/docs/guide/11-create.png"
+    ],
+    "media_source": "https://github.com/PurpleDoubleD/locally-uncensored/blob/master/README.md",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/PurpleDoubleD/locally-uncensored#video",
+      "sources": [
+        "https://github.com/PurpleDoubleD/locally-uncensored/releases/tag/v3.1.3",
+        "https://github.com/PurpleDoubleD/locally-uncensored#video",
+        "https://github.com/PurpleDoubleD/locally-uncensored#faq",
+        "https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B",
+        "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B"
+      ],
+      "edition": "AGPL-3.0-only. In locale nessun account o abbonamento. Per Windows e Linux gli autori indicano 8–10 GB VRAM per Wan 2.1 1.3B e 12+ GB per Wan 2.2 5B, entrambi Apache-2.0. Il client macOS Apple Silicon è in beta con percorso locale distinto. La Local API esposta ai client riguarda i modelli linguistici attivi."
+    },
+    "stars": {
+      "count": 4735,
+      "source": "https://github.com/PurpleDoubleD/locally-uncensored/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/PurpleDoubleD/locally-uncensored/releases/tag/v3.1.3",
+      "linux": "https://github.com/PurpleDoubleD/locally-uncensored/releases/tag/v3.1.3",
+      "windows": "https://github.com/PurpleDoubleD/locally-uncensored/releases/tag/v3.1.3"
+    },
+    "release": {
+      "version": "3.1.3",
+      "date": "2026-11-23",
+      "source": "https://github.com/PurpleDoubleD/locally-uncensored/releases/tag/v3.1.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 34061898,
+          "size_max": null
+        },
+        {
+          "platform": "linux",
+          "size_min": 61964596,
+          "size_max": 133315064
+        },
+        {
+          "platform": "windows",
+          "size_min": 28342658,
+          "size_max": 44494848
+        }
+      ]
+    }
+  },
+  {
+    "id": "videox-fun",
+    "name": "VideoX-Fun",
+    "repo": "https://github.com/aigc-apps/VideoX-Fun",
+    "author": "Alibaba PAI and contributors",
+    "level": "avanz",
+    "category": "video",
+    "description": {
+      "it": "Interfaccia web locale per generare video da testo e immagini con Wan 2.2. Offre controllo di camera e fotogrammi iniziali e finali.",
+      "en": "Local web interface for generating video from text and images with Wan 2.2. Includes camera control and start and end frame guidance."
+    },
+    "alternatives": [
+      "Higgsfield"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/aigc-apps/VideoX-Fun/blob/main/LICENSE",
+    "website": "https://github.com/aigc-apps/VideoX-Fun",
+    "releases": "https://github.com/aigc-apps/VideoX-Fun/tree/98fffa929bb373edcbfa3620e9aa05cd65a53103",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "cli",
+      "source": "https://github.com/aigc-apps/VideoX-Fun#2-inference-generation"
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": "https://github.com/aigc-apps/VideoX-Fun",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/aigc-apps/VideoX-Fun/blob/98fffa929bb373edcbfa3620e9aa05cd65a53103/examples/wan2.2/app.py",
+      "sources": [
+        "https://github.com/aigc-apps/VideoX-Fun#12-local-dependency-installation",
+        "https://github.com/aigc-apps/VideoX-Fun/blob/98fffa929bb373edcbfa3620e9aa05cd65a53103/examples/wan2.2/app.py",
+        "https://huggingface.co/alibaba-pai/Wan2.2-Fun-5B-InP",
+        "https://huggingface.co/alibaba-pai/Wan2.2-Fun-A14B-Control-Camera"
+      ],
+      "edition": "WebUI Gradio con Python, PyTorch e NVIDIA CUDA, documentata localmente per Windows e Linux. Il checkpoint Wan2.2-Fun-5B-InP Apache-2.0 è pubblico e i 3 file dei pesi occupano circa 24,18 GB. Il progetto indica circa 60 GB di spazio per il setup completo. Il servizio cloud è facoltativo. Distribuzione da sorgente."
+    },
+    "stars": {
+      "count": 2346,
+      "source": "https://github.com/aigc-apps/VideoX-Fun/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {},
+    "release": null
+  },
+  {
+    "id": "wg-easy",
+    "name": "WireGuard Easy",
+    "repo": "https://github.com/wg-easy/wg-easy",
+    "author": "wg-easy contributors",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Server VPN WireGuard con pannello web per gestire dispositivi e configurazioni.",
+      "en": "WireGuard VPN server with a web dashboard for devices and configurations."
+    },
+    "alternatives": [
+      "OpenVPN Access Server"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/wg-easy/wg-easy/blob/master/LICENSE",
+    "website": "https://wg-easy.github.io/wg-easy/latest/",
+    "releases": "https://github.com/wg-easy/wg-easy/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://wg-easy.github.io/wg-easy/latest/assets/logo/logo.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/wg-easy/wg-easy/master/assets/screenshot.png"
+    ],
+    "media_source": "https://github.com/wg-easy/wg-easy#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://wg-easy.github.io/wg-easy/latest/"
+    },
+    "stars": {
+      "count": 27594,
+      "source": "https://github.com/wg-easy/wg-easy/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v15.5.0",
+      "date": "2026-10-24",
+      "source": "https://github.com/wg-easy/wg-easy/releases/tag/v15.5.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "wgdashboard",
+    "name": "WGDashboard",
+    "repo": "https://github.com/WGDashboard/WGDashboard",
+    "author": "WGDashboard contributors",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Pannello web self-hosted per gestire più configurazioni WireGuard e i relativi dispositivi.",
+      "en": "Self-hosted web dashboard for multiple WireGuard configurations and their devices."
+    },
+    "alternatives": [
+      "OpenVPN Access Server"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/WGDashboard/WGDashboard/blob/main/LICENSE",
+    "website": "https://wgdashboard.dev",
+    "releases": "https://github.com/WGDashboard/WGDashboard/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Logos/Logo-2-Rounded-512x512.png",
+    "screenshots": [
+      "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Documentation%20Images/index.png"
+    ],
+    "media_source": "https://docs.wgdashboard.dev/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.wgdashboard.dev/"
+    },
+    "stars": {
+      "count": 3790,
+      "source": "https://github.com/WGDashboard/WGDashboard/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v4.3.4",
+      "date": "2026-10-26",
+      "source": "https://github.com/WGDashboard/WGDashboard/releases/tag/v4.3.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "headscale-ui",
+    "name": "Headscale UI",
+    "repo": "https://github.com/gurucomputing/headscale-ui",
+    "author": "gurucomputing",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Pannello web per gestire nodi e utenti di una rete privata con server Headscale.",
+      "en": "Web dashboard for managing nodes and users on a private network backed by Headscale."
+    },
+    "alternatives": [
+      "Tailscale"
+    ],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/gurucomputing/headscale-ui/blob/master/LICENSE.md",
+    "website": "https://github.com/gurucomputing/headscale-ui",
+    "releases": "https://github.com/gurucomputing/headscale-ui/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/gurucomputing/headscale-ui/master/documentation/assets/headscale-ui-demo.gif"
+    ],
+    "media_source": "https://github.com/gurucomputing/headscale-ui#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/gurucomputing/headscale-ui#readme"
+    },
+    "stars": {
+      "count": 2747,
+      "source": "https://github.com/gurucomputing/headscale-ui/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "2026.03.17",
+      "date": "2026-03-16",
+      "source": "https://github.com/gurucomputing/headscale-ui/releases/tag/2026.03.17",
+      "packages": []
+    }
+  },
+  {
+    "id": "netbird",
+    "name": "NetBird self-hosted",
+    "repo": "https://github.com/netbirdio/netbird",
+    "author": "NetBird",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "VPN mesh WireGuard sul proprio server con dashboard, dispositivi e regole di accesso.",
+      "en": "Self-hosted WireGuard mesh VPN with a dashboard, device inventory and access policies."
+    },
+    "alternatives": [
+      "Tailscale",
+      "Cloudflare Zero Trust"
+    ],
+    "license": "BSD-3-Clause / AGPL-3.0",
+    "license_url": "https://github.com/netbirdio/netbird/blob/main/LICENSE",
+    "website": "https://netbird.io",
+    "releases": "https://github.com/netbirdio/netbird/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.netbird.io/api"
+    },
+    "logo": "https://raw.githubusercontent.com/netbirdio/netbird/main/docs/media/logo-full.png",
+    "screenshots": [
+      "https://docs.netbird.io/docs-static/img/selfhosted/quickstart/setup.png"
+    ],
+    "media_source": "https://docs.netbird.io/selfhosted/selfhosted-quickstart",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.netbird.io/selfhosted/selfhosted-quickstart"
+    },
+    "stars": {
+      "count": 31306,
+      "source": "https://github.com/netbirdio/netbird/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v0.83.2",
+      "date": "2026-11-20",
+      "source": "https://github.com/netbirdio/netbird/releases/tag/v0.83.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "opnsense",
+    "name": "OPNsense Community",
+    "repo": "https://github.com/opnsense/core",
+    "author": "Deciso & OPNsense contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Firewall, routing e VPN con interfaccia web. Si esegue su hardware dedicato o in una VM.",
+      "en": "Firewall, routing and VPN with a web UI. Runs on dedicated hardware or in a VM."
+    },
+    "alternatives": [
+      "Sophos Firewall",
+      "FortiGate",
+      "UniFi Gateway"
+    ],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/opnsense/core/blob/master/LICENSE",
+    "website": "https://opnsense.org",
+    "releases": "https://github.com/opnsense/core/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/opnsense/core/master/src/opnsense/www/themes/opnsense/build/images/icon-logo.svg",
+    "screenshots": [
+      "https://docs.opnsense.org/_images/gui_grid.png"
+    ],
+    "media_source": "https://docs.opnsense.org/manual/gui.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.opnsense.org/"
+    },
+    "stars": {
+      "count": 4827,
+      "source": "https://github.com/opnsense/core/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "26.7.10",
+      "date": "2026-11-24",
+      "source": "https://docs.opnsense.org/releases/CE_26.7.html",
+      "packages": []
+    }
+  },
+  {
+    "id": "opensnitch",
+    "name": "OpenSnitch",
+    "repo": "https://github.com/evilsocket/opensnitch",
+    "author": "OpenSnitch contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Firewall grafico Linux che mostra e controlla le connessioni in uscita per applicazione.",
+      "en": "Graphical Linux firewall that shows and controls outgoing connections per application."
+    },
+    "alternatives": [
+      "Little Snitch",
+      "GlassWire"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/evilsocket/opensnitch/blob/master/LICENSE",
+    "website": "https://github.com/evilsocket/opensnitch",
+    "releases": "https://github.com/evilsocket/opensnitch/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/evilsocket/opensnitch/master/ui/opensnitch/res/icon.png",
+    "screenshots": [
+      "https://user-images.githubusercontent.com/2742953/85205382-6ba9cb00-b31b-11ea-8e9a-bd4b8b05a236.png"
+    ],
+    "media_source": "https://github.com/evilsocket/opensnitch#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/evilsocket/opensnitch/wiki"
+    },
+    "stars": {
+      "count": 14336,
+      "source": "https://github.com/evilsocket/opensnitch/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v1.8.0",
+      "date": "2025-12-15",
+      "source": "https://github.com/evilsocket/opensnitch/releases/tag/v1.8.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "portmaster",
+    "name": "Portmaster Free",
+    "repo": "https://github.com/safing/portmaster",
+    "author": "Safing",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Firewall locale per Windows e Linux con regole per app, filtro DNS e blocco dei tracker.",
+      "en": "Local Windows and Linux firewall with per-app rules, DNS filtering and tracker blocking."
+    },
+    "alternatives": [
+      "Little Snitch",
+      "GlassWire"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/safing/portmaster/blob/development/LICENSE",
+    "website": "https://safing.io/portmaster/",
+    "releases": "https://github.com/safing/portmaster/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://safing.io/assets/img/page-specific/landing/portmaster-thumbnail.png"
+    ],
+    "media_source": "https://github.com/safing/portmaster#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/safing/portmaster#readme"
+    },
+    "stars": {
+      "count": 14153,
+      "source": "https://github.com/safing/portmaster/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.2.9",
+      "date": "2026-11-11",
+      "source": "https://github.com/safing/portmaster/releases/tag/v2.2.9",
+      "packages": []
+    }
+  },
+  {
+    "id": "adguard-home",
+    "name": "AdGuard Home",
+    "repo": "https://github.com/AdguardTeam/AdGuardHome",
+    "author": "AdGuard",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Filtro DNS self-hosted con pannello web per bloccare pubblicità e tracker su tutta la rete.",
+      "en": "Self-hosted DNS filter with a web dashboard for network-wide ad and tracker blocking."
+    },
+    "alternatives": [
+      "NextDNS",
+      "AdGuard DNS"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/AdguardTeam/AdGuardHome/blob/master/LICENSE.txt",
+    "website": "https://adguard.com/en/adguard-home/overview.html",
+    "releases": "https://github.com/AdguardTeam/AdGuardHome/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml"
+    },
+    "logo": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/doc/adguard_home_lightmode.svg",
+    "screenshots": [
+      "https://cdn.adtidy.org/content/release_notes/dns/home-v1-0-beta/dashboard.png?mw=1360"
+    ],
+    "media_source": "https://adguard.com/en/blog/adguard-home-beta-version-1-0.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/AdguardTeam/AdGuardHome#readme"
+    },
+    "stars": {
+      "count": 38882,
+      "source": "https://github.com/AdguardTeam/AdGuardHome/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v1.0.0",
+      "date": "2026-11-19",
+      "source": "https://github.com/AdguardTeam/AdGuardHome/releases/tag/v1.0.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "pi-hole",
+    "name": "Pi-hole",
+    "repo": "https://github.com/pi-hole/pi-hole",
+    "author": "Pi-hole project",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Filtro DNS con pannello web, statistiche e liste di blocco per i dispositivi di casa o ufficio.",
+      "en": "Network DNS filter with a web dashboard, statistics and blocklists for home or office devices."
+    },
+    "alternatives": [
+      "NextDNS",
+      "AdGuard DNS"
+    ],
+    "license": "EUPL-1.2",
+    "license_url": "https://github.com/pi-hole/pi-hole/blob/master/LICENSE",
+    "website": "https://pi-hole.net",
+    "releases": "https://github.com/pi-hole/pi-hole/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.pi-hole.net/api/"
+    },
+    "logo": "https://wp-cdn.pi-hole.net/wp-content/uploads/2023/05/pihole-logo-horizontal-white-e1683321640117.png",
+    "screenshots": [
+      "https://wp-cdn.pi-hole.net/wp-content/uploads/2026/09/v6-dashboard.png"
+    ],
+    "media_source": "https://pi-hole.net/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.pi-hole.net/main/prerequisites/"
+    },
+    "stars": {
+      "count": 62242,
+      "source": "https://github.com/pi-hole/pi-hole/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v6.6",
+      "date": "2026-11-11",
+      "source": "https://github.com/pi-hole/pi-hole/releases/tag/v6.6",
+      "packages": []
+    }
+  },
+  {
+    "id": "technitium-dns-server",
+    "name": "Technitium DNS Server",
+    "repo": "https://github.com/TechnitiumSoftware/DnsServer",
+    "author": "Technitium",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Server DNS con pannello web, risoluzione ricorsiva, zone e filtro di domini.",
+      "en": "DNS server with a web console, recursive resolution, zones and domain filtering."
+    },
+    "alternatives": [
+      "Infoblox DDI",
+      "NextDNS"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/TechnitiumSoftware/DnsServer/blob/master/LICENSE",
+    "website": "https://technitium.com/dns/",
+    "releases": "https://github.com/TechnitiumSoftware/DnsServer/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/TechnitiumSoftware/DnsServer/blob/master/APIDOCS.md"
+    },
+    "logo": "https://technitium.com/img/logo.png",
+    "screenshots": [
+      "https://technitium.com/dns/ScreenShot1.png"
+    ],
+    "media_source": "https://technitium.com/dns/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://technitium.com/dns/"
+    },
+    "stars": {
+      "count": 10466,
+      "source": "https://github.com/TechnitiumSoftware/DnsServer/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v15.6.2",
+      "date": "2026-10-17",
+      "source": "https://github.com/TechnitiumSoftware/DnsServer/releases/tag/v15.6.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "netalertx",
+    "name": "NetAlertX",
+    "repo": "https://github.com/netalertx/NetAlertX",
+    "author": "NetAlertX contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Inventario dei dispositivi della propria rete, con cronologia e avvisi quando cambia qualcosa.",
+      "en": "Device inventory for your own network, with history and notifications about changes."
+    },
+    "alternatives": [
+      "Fing",
+      "Domotz"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/netalertx/NetAlertX/blob/main/LICENSE.txt",
+    "website": "https://netalertx.com",
+    "releases": "https://github.com/netalertx/NetAlertX/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/netalertx/NetAlertX/main/docs/img/devices_split.png"
+    ],
+    "media_source": "https://github.com/netalertx/NetAlertX#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.netalertx.com/"
+    },
+    "stars": {
+      "count": 7462,
+      "source": "https://github.com/netalertx/NetAlertX/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v26.10.28",
+      "date": "2026-10-28",
+      "source": "https://github.com/netalertx/NetAlertX/releases/tag/v26.10.28",
+      "packages": []
+    }
+  },
+  {
+    "id": "librenms",
+    "name": "LibreNMS",
+    "repo": "https://github.com/librenms/librenms",
+    "author": "LibreNMS contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Monitoraggio web dei dispositivi di rete via SNMP, con grafici e avvisi.",
+      "en": "Web-based SNMP network device monitoring, with charts and alerts."
+    },
+    "alternatives": [
+      "PRTG Network Monitor",
+      "SolarWinds NPM"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/librenms/librenms/blob/master/LICENSE.txt",
+    "website": "https://www.librenms.org",
+    "releases": "https://github.com/librenms/librenms/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.librenms.org/API/"
+    },
+    "logo": "https://www.librenms.org/images/LibreNMS-Logo-Black.png",
+    "screenshots": [
+      "https://www.librenms.org/images/screenshots/screenshot_device_list.png"
+    ],
+    "media_source": "https://www.librenms.org/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.librenms.org/"
+    },
+    "stars": {
+      "count": 5034,
+      "source": "https://github.com/librenms/librenms/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "26.11.0",
+      "date": "2026-11-16",
+      "source": "https://github.com/librenms/librenms/releases/tag/26.11.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "ntopng",
+    "name": "ntopng Community",
+    "repo": "https://github.com/ntop/ntopng",
+    "author": "ntop",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Pannello Community per osservare flussi e consumo di rete in tempo reale.",
+      "en": "Community dashboard for real-time traffic flows and network usage."
+    },
+    "alternatives": [
+      "Paessler PRTG",
+      "SolarWinds NetFlow Traffic Analyzer"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/ntop/ntopng/blob/dev/LICENSE",
+    "website": "https://www.ntop.org/products/traffic-analysis/ntopng/",
+    "releases": "https://github.com/ntop/ntopng/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://www.ntop.org/images/2025/06/ntopng-icon.webp",
+    "screenshots": [],
+    "media_source": "https://www.ntop.org/about-us/brand-and-logos/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/ntop/ntopng#readme"
+    },
+    "stars": {
+      "count": 8369,
+      "source": "https://github.com/ntop/ntopng/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "7.0",
+      "date": "2026-09-22",
+      "source": "https://github.com/ntop/ntopng/releases/tag/7.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "malcolm",
+    "name": "Malcolm",
+    "repo": "https://github.com/cisagov/Malcolm",
+    "author": "Battelle Energy Alliance & contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Analisi difensiva di traffico, log Zeek e avvisi Suricata con dashboard self-hosted.",
+      "en": "Defensive traffic analysis, Zeek logs and Suricata alerts in self-hosted dashboards."
+    },
+    "alternatives": [
+      "Splunk Enterprise Security",
+      "Corelight"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/cisagov/Malcolm/blob/main/LICENSE.txt",
+    "website": "https://malcolm.fyi/",
+    "releases": "https://github.com/cisagov/Malcolm/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/cisagov/Malcolm/main/docs/images/logo/Malcolm_outline_banner_dark.png",
+    "screenshots": [
+      "https://malcolm.fyi/docs/images/screenshots/dashboards_security_overview.png"
+    ],
+    "media_source": "https://malcolm.fyi/docs/dashboards.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://malcolm.fyi/"
+    },
+    "stars": {
+      "count": 2620,
+      "source": "https://github.com/cisagov/Malcolm/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v26.10.0",
+      "date": "2026-10-29",
+      "source": "https://github.com/cisagov/Malcolm/releases/tag/v26.10.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "arkime",
+    "name": "Arkime",
+    "repo": "https://github.com/arkime/arkime",
+    "author": "Arkime contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Strumento difensivo per archiviare e analizzare le sessioni della propria rete in formato PCAP.",
+      "en": "Defensive tool for storing and analyzing sessions from your own network in PCAP format."
+    },
+    "alternatives": [
+      "ExtraHop Reveal(x)",
+      "Corelight"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/arkime/arkime/blob/main/LICENSE",
+    "website": "https://arkime.com",
+    "releases": "https://github.com/arkime/arkime/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://arkime.com/api"
+    },
+    "logo": "https://raw.githubusercontent.com/arkime/arkime/main/assets/Arkime_Logo_FullGradientBlack@3x.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/arkime/arkimeweb/main/assets/sessions.png"
+    ],
+    "media_source": "https://arkime.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://arkime.com/"
+    },
+    "stars": {
+      "count": 7593,
+      "source": "https://github.com/arkime/arkime/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v6.9.2",
+      "date": "2026-11-12",
+      "source": "https://github.com/arkime/arkime/releases/tag/v6.9.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "wg-portal",
+    "name": "WireGuard Portal",
+    "repo": "https://github.com/h44z/wg-portal",
+    "author": "Christoph Haas & contributors",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Portale web per amministrare reti WireGuard, peer e accessi su un proprio server.",
+      "en": "Self-hosted web portal for administering WireGuard networks, peers and access."
+    },
+    "alternatives": [
+      "OpenVPN Access Server"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/h44z/wg-portal/blob/master/LICENSE.txt",
+    "website": "https://wgportal.org/latest/",
+    "releases": "https://github.com/h44z/wg-portal/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/h44z/wg-portal#readme"
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/h44z/wg-portal/master/docs/assets/images/screenshot.png"
+    ],
+    "media_source": "https://github.com/h44z/wg-portal#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://wgportal.org/latest/"
+    },
+    "stars": {
+      "count": 1878,
+      "source": "https://github.com/h44z/wg-portal/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.3.1",
+      "date": "2026-06-12",
+      "source": "https://github.com/h44z/wg-portal/releases/tag/v2.3.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "pangolin",
+    "name": "Pangolin Community",
+    "repo": "https://github.com/fosrl/pangolin",
+    "author": "Fossorial",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Proxy inverso e tunnel WireGuard self-hosted per pubblicare servizi privati con controllo degli accessi.",
+      "en": "Self-hosted reverse proxy and WireGuard tunnel for publishing private services with access controls."
+    },
+    "alternatives": [
+      "Cloudflare Zero Trust",
+      "Twingate"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/fosrl/pangolin/blob/main/LICENSE",
+    "website": "https://pangolin.net",
+    "releases": "https://github.com/fosrl/pangolin/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/fosrl/pangolin/main/public/logo/word_mark_black.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/fosrl/pangolin/main/public/screenshots/sites.png"
+    ],
+    "media_source": "https://github.com/fosrl/pangolin#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.pangolin.net/self-host/quick-install"
+    },
+    "stars": {
+      "count": 24001,
+      "source": "https://github.com/fosrl/pangolin/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "1.27.1",
+      "date": "2026-11-20",
+      "source": "https://github.com/fosrl/pangolin/releases/tag/1.27.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "velociraptor",
+    "name": "Velociraptor",
+    "repo": "https://github.com/Velocidex/velociraptor",
+    "author": "Velocidex contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Dashboard per inventario degli endpoint e raccolta difensiva di evidenze durante le indagini.",
+      "en": "Dashboard for endpoint inventory and defensive evidence collection during investigations."
+    },
+    "alternatives": [
+      "CrowdStrike Falcon",
+      "Microsoft Defender for Endpoint"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/Velocidex/velociraptor/blob/master/LICENSE",
+    "website": "https://docs.velociraptor.app",
+    "releases": "https://github.com/Velocidex/velociraptor/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://docs.velociraptor.app/images/favicon.png",
+    "screenshots": [
+      "https://docs.velociraptor.app/docs/gui/dashboard.png"
+    ],
+    "media_source": "https://docs.velociraptor.app/docs/gui/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.velociraptor.app/docs/gui/"
+    },
+    "stars": {
+      "count": 4522,
+      "source": "https://github.com/Velocidex/velociraptor/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v0.77.4",
+      "date": "2026-11-23",
+      "source": "https://github.com/Velocidex/velociraptor/releases/tag/v0.77.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "fleetdm",
+    "name": "Fleet Free",
+    "repo": "https://github.com/fleetdm/fleet",
+    "author": "Fleet Device Management",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Inventario dei dispositivi e monitoraggio degli endpoint con osquery e dashboard sul proprio server.",
+      "en": "Self-hosted device inventory and endpoint monitoring with osquery and a dashboard."
+    },
+    "alternatives": [
+      "Microsoft Intune",
+      "Jamf Pro"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/fleetdm/fleet/blob/main/LICENSE",
+    "website": "https://fleetdm.com/",
+    "releases": "https://github.com/fleetdm/fleet/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://fleetdm.com/docs/api/rest-api"
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/fleetdm/fleet/main/docs/images/add-new-host-modal.png"
+    ],
+    "media_source": "https://fleetdm.com/handbook/company/writing",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://fleetdm.com/pricing"
+    },
+    "stars": {
+      "count": 7263,
+      "source": "https://github.com/fleetdm/fleet/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "fleet-v4.96.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/fleetdm/fleet/releases/tag/fleet-v4.96.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "opensearch-dashboards",
+    "name": "OpenSearch Dashboards",
+    "repo": "https://github.com/opensearch-project/OpenSearch-Dashboards",
+    "author": "OpenSearch Project",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Dashboard per consultare log, metriche e rilevamenti difensivi con OpenSearch e Security Analytics.",
+      "en": "Dashboard for exploring logs, metrics and defensive detections using OpenSearch and Security Analytics."
+    },
+    "alternatives": [
+      "Splunk Enterprise Security",
+      "Elastic Security"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/opensearch-project/OpenSearch-Dashboards/blob/main/LICENSE.txt",
+    "website": "https://opensearch.org/",
+    "releases": "https://github.com/opensearch-project/OpenSearch-Dashboards/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/opensearch-project/project-website/refs/heads/main/assets/brand/SVG/Logo/opensearch_dashboards_logo_darkmode.svg",
+    "screenshots": [
+      "https://docs.opensearch.org/latest/images/Security/secanalytics-det-nav.png"
+    ],
+    "media_source": "https://docs.opensearch.org/latest/security-analytics/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.opensearch.org/latest/security-analytics/"
+    },
+    "stars": {
+      "count": 2149,
+      "source": "https://github.com/opensearch-project/OpenSearch-Dashboards/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "3.9.0",
+      "date": "2026-10-12",
+      "source": "https://github.com/opensearch-project/OpenSearch-Dashboards/releases/tag/3.9.0",
+      "packages": []
+    }
   }
 ]

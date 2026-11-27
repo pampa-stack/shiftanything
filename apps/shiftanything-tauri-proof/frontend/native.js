@@ -84,12 +84,15 @@
   let requesting = false;
   const confirmation = document.createElement('dialog');
   confirmation.className = 'native-confirmation';
-  confirmation.innerHTML = `<form method="dialog"><h2></h2><p></p><div class="native-decision"><button type="button" data-reject>${it?'Rifiuta':'Reject'}</button><button type="button" data-approve>${it?'Approva':'Approve'}</button></div></form>`;
+  confirmation.innerHTML = `<form method="dialog"><h2></h2><p></p><label class="native-first-open" hidden><input type="checkbox"> ${it?'Apri dopo l’installazione e mostra nel Dock':'Open after installation and show in the Dock'}</label><div class="native-decision"><button type="button" data-reject>${it?'Rifiuta':'Reject'}</button><button type="button" data-approve>${it?'Approva':'Approve'}</button></div></form>`;
+  const firstOpen = confirmation.querySelector('.native-first-open');
+  const launchCheckbox = firstOpen.querySelector('input');
   document.body.append(confirmation);
   const labels = it ? {install:'Installa',update:'Aggiorna',open:'Apri',remove:'Rimuovi',cancel:'Annulla download',update_all:'Aggiorna tutte'} : {install:'Install',update:'Update',open:'Open',remove:'Remove',cancel:'Cancel download',update_all:'Update all'};
   let pendingId;
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
   const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};
+  const projectGuide = entry => [entry?.review?.source, entry?.website].find(url => url?.startsWith('https://'));
   function renderDownloadSize(container, snapshot, appId, selector) {
     const bytes = snapshot.download_sizes?.[appId];
     if (!container || bytes === undefined) return;
@@ -111,7 +114,7 @@
       return {label:it?'🔒 Non supportata':'🔒 Unsupported', enabled:false};
     }
     if (app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled};
-    if (entry?.delivery === 'self-hosted' && entry.website?.startsWith('https://')) {
+    if (entry?.delivery === 'self-hosted' && projectGuide(entry)) {
       return {label:it?'Apri guida':'Open project guide', enabled:true, guide:true};
     }
     if (snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
@@ -165,6 +168,8 @@
       if (output) output.textContent = `${app?.installed_version || '—'} → ${app?.latest_version || '—'} · ${actionError || snapshot.progress[app?.id]?.phase || snapshot.inventory.results['app:'+app?.id] || ''}`;
     }
     if (snapshot.pending) {
+      if (pendingId !== snapshot.pending.id) launchCheckbox.checked = Boolean(snapshot.offer_open_after_install);
+      firstOpen.hidden = !snapshot.offer_open_after_install;
       pendingId = snapshot.pending.id;
       confirmation.querySelector('h2').textContent = labels[snapshot.pending.operation];
       const destination = snapshot.isolated_profile
@@ -177,7 +182,11 @@
   async function decide(approve) {
     if (!pendingId || requesting) return;
     requesting=true;
-    try { await invoke('decide_native_action',{requestId:pendingId,approve}); render(await invoke('native_snapshot')); }
+    try {
+      const openAfterInstall = approve && !firstOpen.hidden && launchCheckbox.checked;
+      await invoke('decide_native_action',{requestId:pendingId,approve,openAfterInstall});
+      render(await invoke('native_snapshot'));
+    }
     catch(error) { actionError=String(error); status.textContent=actionError; }
     finally {requesting=false;}
   }
@@ -194,7 +203,7 @@
     try {
       if (button.hasAttribute('data-project-guide')) {
         const appId = button.dataset.nativeApp;
-        await invoke('open_catalog_link', {appId,target:catalogById.get(appId).website});
+        await invoke('open_catalog_link', {appId,target:projectGuide(catalogById.get(appId))});
       } else {
         await invoke('request_native_action',{operation:button.dataset.nativeOperation || (app?.installed?'open':'install'),apps:[button.dataset.nativeApp]});
         render(await invoke('native_snapshot'));

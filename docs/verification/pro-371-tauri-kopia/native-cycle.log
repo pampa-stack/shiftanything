@@ -1,0 +1,9 @@
+OFFICIAL https://github.com/kopia/kopia/releases/download/v0.23.0/KopiaUI-0.23.0-arm64.dmg: size=147215056 sha256=Some("387ca1530829fc95667b23e88b644f9f0cf9f49a2abfeffeed22e3fc261f6e29")
+PASS NATIVE install: Kopia installed: 0.23.0; transferred=147215056
+PASS PROFILE MARKER install
+OFFICIAL https://github.com/kopia/kopia/releases/download/v0.23.1/KopiaUI-0.23.1-arm64.dmg: size=149169871 sha256=Some("f2adb1869c603c66aaeabd846affd21df426c614cc8285230f5465f9389a003c")
+PASS NATIVE update: Kopia updated to 0.23.1; transferred=149169871
+PASS PROFILE MARKER update
+PASS NATIVE remove: Kopia was removed; transferred=0
+PASS PROFILE MARKER remove
+CLEANUP exit=0

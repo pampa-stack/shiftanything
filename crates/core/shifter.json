@@ -192,6 +192,32 @@
               }
             }
           }
+        },
+        {
+          "app_id": "drawpile",
+          "evidence": {
+            "layers": {
+              "state": "partial",
+              "source": "https://docs.drawpile.net/help/draw/clipping.html#masking",
+              "note": {
+                "it": "Supporta livelli e clipping. Per simulare una maschera usa un livello Erase dentro un gruppo.",
+                "en": "Supports layers and clipping. An Erase layer inside a group can stand in for a mask."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pinta",
+          "evidence": {
+            "layers": {
+              "state": "partial",
+              "source": "https://www.pinta-project.com/user-guide/layersoverview/",
+              "note": {
+                "it": "Livelli raster ordinabili con opacità e fusione. Questa guida documenta il lavoro sui livelli.",
+                "en": "Reorderable raster layers support opacity and blending. This guide documents layer operations."
+              }
+            }
+          }
         }
       ]
     },
@@ -340,6 +366,56 @@
               }
             }
           }
+        },
+        {
+          "app_id": "openshot-video-editor",
+          "evidence": {
+            "timeline": {
+              "state": "supported",
+              "source": "https://www.openshot.org/files/user-guide/main_window.html",
+              "note": {
+                "it": "Timeline per disporre clip audio, video e immagini su più tracce.",
+                "en": "Timeline arranges audio clips, video clips and images across multiple tracks."
+              }
+            },
+            "captions": {
+              "state": "partial",
+              "source": "https://www.openshot.org/files/user-guide/effects.html",
+              "note": {
+                "it": "L’effetto Caption accetta sottotitoli SRT per il video. La guida descrive l’uso come effetto a schermo.",
+                "en": "The Caption effect accepts SRT captions for on-screen use in the video."
+              }
+            },
+            "avc": {
+              "state": "supported",
+              "source": "https://www.openshot.org/static/files/user-guide/export.html",
+              "note": {
+                "it": "Il profilo di esportazione MP4 H.264 con AAC è disponibile anche senza encoder hardware.",
+                "en": "The MP4 H.264 and AAC export profile works without a hardware encoder."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "flowblade",
+          "evidence": {
+            "timeline": {
+              "state": "supported",
+              "source": "https://jliljebl.github.io/flowblade/webhelp/rendering.html",
+              "note": {
+                "it": "Editor video con timeline multitraccia, basato su MLT.",
+                "en": "Video editor with a multitrack timeline based on MLT."
+              }
+            },
+            "proxy": {
+              "state": "supported",
+              "source": "https://jliljebl.github.io/flowblade/webhelp/proxy.html",
+              "note": {
+                "it": "Crea copie a risoluzione ridotta per montare e torna ai sorgenti originali per il render finale.",
+                "en": "Creates lower-resolution copies for editing and switches to originals for final rendering."
+              }
+            }
+          }
         }
       ]
     },
@@ -409,6 +485,40 @@
               "note": {
                 "it": "I modelli personalizzati sono indicati come funzione Pro.",
                 "en": "Custom templates are listed as a Pro feature."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vibe-transcribe",
+          "evidence": {
+            "transcript": {
+              "state": "supported",
+              "source": "https://github.com/thewh1teagle/vibe#readme",
+              "note": {
+                "it": "Trascrive in locale file audio e video, microfono e audio di sistema.",
+                "en": "Transcribes audio and video files, microphone input and system audio locally."
+              }
+            },
+            "summary": {
+              "state": "supported",
+              "source": "https://github.com/thewh1teagle/vibe#readme",
+              "note": {
+                "it": "Genera riepiloghi tramite Ollama in locale, dopo aver configurato un modello.",
+                "en": "Generates summaries through a locally configured Ollama model."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "whisper-webui",
+          "evidence": {
+            "transcript": {
+              "state": "partial",
+              "source": "https://github.com/jhj0517/Whisper-WebUI#readme",
+              "note": {
+                "it": "Trascrive registrazioni audio e video già salvate. La trascrizione in tempo reale dal microfono è nella roadmap.",
+                "en": "Transcribes saved audio and video recordings. Live microphone transcription is on the roadmap."
               }
             }
           }
@@ -518,6 +628,114 @@
               "note": {
                 "it": "Bacheche Agile incluse nell’edizione Community.",
                 "en": "Agile boards are included in Community."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "kaneo",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://kaneo.app/",
+              "note": {
+                "it": "Gestisce, assegna e suddivide le attività in sottoattività con assegnatario.",
+                "en": "Manages and assigns tasks and breaks them into assignable subtasks."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://kaneo.app/guides/github-issues-kanban-board",
+              "note": {
+                "it": "Bacheca Kanban con colonne di stato configurabili nella versione self-hosted.",
+                "en": "Kanban board with configurable status columns in the self-hosted edition."
+              }
+            },
+            "github_sync": {
+              "state": "supported",
+              "source": "https://kaneo.app/guides/github-issues-kanban-board",
+              "note": {
+                "it": "La GitHub App sincronizza le issue in entrambe le direzioni e collega le pull request alle attività.",
+                "en": "The GitHub App syncs issues both ways and links pull requests to tasks."
+              }
+            },
+            "cycles": {
+              "state": "unsupported",
+              "source": "https://kaneo.app/guides/project-management-for-software-teams",
+              "note": {
+                "it": "La guida del progetto dichiara che Kaneo non include la gestione degli sprint.",
+                "en": "The project guide explicitly says Kaneo has no sprint support."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "leantime",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://github.com/Leantime/docs/blob/master/getting-started/new-project.md",
+              "note": {
+                "it": "Crea attività di tipo task, storia o bug e assegnale ai membri del progetto.",
+                "en": "Creates tasks, stories or bugs and assigns them to project members."
+              }
+            },
+            "cycles": {
+              "state": "supported",
+              "source": "https://github.com/Leantime/docs/blob/master/using-leantime/task-management.md",
+              "note": {
+                "it": "Pianifica sprint con date di inizio e fine e sposta le attività dal backlog.",
+                "en": "Plans sprints with start and end dates and moves tasks from the backlog."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://github.com/Leantime/docs/blob/master/using-leantime/task-management.md",
+              "note": {
+                "it": "La bacheca Kanban organizza le attività per stato e permette di spostarle tra colonne.",
+                "en": "The Kanban board groups tasks by status and supports moving them between columns."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "kanboard",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://docs.kanboard.org/v1/user/tasks/",
+              "note": {
+                "it": "Le attività hanno assegnatario, descrizione, data, priorità e stato.",
+                "en": "Tasks support assignees, descriptions, dates, priority and status."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://docs.kanboard.org/v1/user/boards/",
+              "note": {
+                "it": "Bacheca configurabile con colonne, corsie e limiti al numero di attività in corso.",
+                "en": "Configurable board with columns, swimlanes and work-in-progress limits."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "wekan",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://github.com/wekan/wekan/blob/main/docs/Design/Deep-Dive-Into-WeKan.md",
+              "note": {
+                "it": "Le schede permettono di gestire attività e assegnatari. La bacheca può raggrupparle per assegnatario.",
+                "en": "Cards manage tasks and assignees. The board can group cards by assignee."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://wekan.fi/docs/",
+              "note": {
+                "it": "Le bacheche mostrano schede in liste e corsie e offrono viste alternative.",
+                "en": "Boards display cards in lists and swimlanes and offer alternate views."
               }
             }
           }
@@ -635,6 +853,35 @@
               "note": {
                 "it": "Supporto al formato .ai compatibile PDF, con limiti sugli elementi specifici di Illustrator.",
                 "en": "Supports PDF-compatible .ai files, with limits on Illustrator-specific features."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "bezier": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/DG262/DG26211-AdvancedDrawTechniques.html",
+              "note": {
+                "it": "Draw disegna e modifica nodi e punti di controllo dei tracciati Bézier.",
+                "en": "Draw creates Bézier paths and edits their nodes and control points."
+              }
+            },
+            "svg": {
+              "state": "partial",
+              "source": "https://books.libreoffice.org/en/DG262/DG26206-EditingImages.html",
+              "note": {
+                "it": "Draw gestisce SVG tra i formati grafici di inserimento ed esportazione.",
+                "en": "Draw handles SVG as a graphics format for inserting and exporting images."
+              }
+            },
+            "vector_pdf": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/DG262/DG26210-PrintExportEmail.html",
+              "note": {
+                "it": "Draw esporta disegni vettoriali in PDF senza doverli convertire prima in immagini raster.",
+                "en": "Draw exports vector drawings to PDF without first converting them to raster images."
               }
             }
           }
@@ -898,6 +1145,88 @@
               }
             }
           }
+        },
+        {
+          "app_id": "digikam",
+          "evidence": {
+            "raw_edit": {
+              "state": "supported",
+              "source": "https://docs.digikam.org/en/batch_queue/raw_converter.html",
+              "note": {
+                "it": "Sviluppa RAW con LibRaw, regola demosaicizzazione e bilanciamento e salva il risultato separatamente.",
+                "en": "Develops RAW with LibRaw, adjusts demosaicing and white balance and saves a separate result."
+              }
+            },
+            "batch_photo": {
+              "state": "supported",
+              "source": "https://docs.digikam.org/en/batch_queue/raw_converter.html",
+              "note": {
+                "it": "La coda converte più file RAW nelle immagini di output, per esempio JPEG, TIFF o PNG.",
+                "en": "The queue converts multiple RAW files to output images such as JPEG, TIFF or PNG."
+              }
+            },
+            "color_labels": {
+              "state": "supported",
+              "source": "https://docs.digikam.org/en/left_sidebar/labels_view.html",
+              "note": {
+                "it": "Assegna etichette colore alle foto e filtra la libreria per quelle etichette.",
+                "en": "Assigns color labels to photos and filters the library by those labels."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://docs.digikam.org/en/image_editor/enhancement_tools.html",
+              "note": {
+                "it": "La correzione automatica usa profili Lensfun per distorsione e vignettatura.",
+                "en": "Automatic lens correction uses Lensfun profiles for distortion and vignetting."
+              }
+            },
+            "face_groups": {
+              "state": "supported",
+              "source": "https://docs.digikam.org/en/left_sidebar/people_view.html",
+              "note": {
+                "it": "La vista Persone rileva i volti e raggruppa le immagini con il riconoscimento locale.",
+                "en": "People View detects faces and groups images with on-device recognition."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "rapidraw",
+          "evidence": {
+            "raw_edit": {
+              "state": "supported",
+              "source": "https://www.getrapidraw.com/docs/",
+              "note": {
+                "it": "Editor RAW non distruttivo che applica le modifiche al momento dell’esportazione.",
+                "en": "Non-destructive RAW editor that applies edits on export."
+              }
+            },
+            "photo_masks": {
+              "state": "supported",
+              "source": "https://www.getrapidraw.com/docs/other-panels/masks",
+              "note": {
+                "it": "Maschere modificabili a pennello, per soggetto e tramite altri strumenti per regolazioni locali.",
+                "en": "Editable brushes, subject masks and other tools for local adjustments."
+              }
+            },
+            "batch_photo": {
+              "state": "supported",
+              "source": "https://www.getrapidraw.com/docs/interface/library-view",
+              "note": {
+                "it": "Esporta tutte le immagini selezionate in una volta e mostra i lavori nella coda.",
+                "en": "Exports the entire selection at once and shows work in the job queue."
+              }
+            },
+            "lens_profiles": {
+              "state": "supported",
+              "source": "https://www.getrapidraw.com/docs/technical/geometry-merging-export",
+              "note": {
+                "it": "Profili Lensfun per distorsione e vignettatura quando la combinazione di fotocamera e obiettivo è coperta.",
+                "en": "Lensfun profiles correct distortion and vignetting when the camera and lens combination is covered."
+              }
+            }
+          }
         }
       ]
     },
@@ -1035,6 +1364,56 @@
               "note": {
                 "it": "Aggiunge testo ricercabile ai PDF importati.",
                 "en": "Adds searchable text to imported PDFs."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pdfarranger",
+          "evidence": {
+            "merge_pdf": {
+              "state": "supported",
+              "source": "https://github.com/pdfarranger/pdfarranger#readme",
+              "note": {
+                "it": "Apre più PDF, permette di riordinare le pagine e salva un documento unico.",
+                "en": "Opens multiple PDFs, lets you rearrange pages and saves a single document."
+              }
+            },
+            "split_pdf": {
+              "state": "supported",
+              "source": "https://github.com/pdfarranger/pdfarranger#readme",
+              "note": {
+                "it": "Divide PDF ed esporta le pagine selezionate in documenti separati.",
+                "en": "Splits PDFs and exports selected pages to separate documents."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pdf4qt",
+          "evidence": {
+            "merge_pdf": {
+              "state": "supported",
+              "source": "https://jakubmelka.github.io/#applications",
+              "note": {
+                "it": "DocPage Organizer unisce file PDF in un unico documento.",
+                "en": "DocPage Organizer combines PDF files into one document."
+              }
+            },
+            "split_pdf": {
+              "state": "supported",
+              "source": "https://jakubmelka.github.io/#applications",
+              "note": {
+                "it": "DocPage Organizer divide un PDF in più documenti.",
+                "en": "DocPage Organizer splits a PDF into multiple documents."
+              }
+            },
+            "ocr_pdf": {
+              "state": "supported",
+              "source": "https://github.com/JakubMelka/PDF4QT#3-features",
+              "note": {
+                "it": "Aggiunge al PDF uno strato di testo ricercabile con Tesseract.",
+                "en": "Adds a searchable Tesseract text layer to the PDF."
               }
             }
           }
@@ -1322,6 +1701,149 @@
               }
             }
           }
+        },
+        {
+          "app_id": "duplicati",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/backup-destinations/standard-based-destinations/file-destination",
+              "note": {
+                "it": "Il backend File salva il backup in una cartella del filesystem.",
+                "en": "The File backend stores backups in a filesystem directory."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/getting-started/set-up-a-backup-in-the-ui",
+              "note": {
+                "it": "La procedura di configurazione imposta metodo di cifratura e passphrase prima dell’invio.",
+                "en": "Set the encryption method and passphrase in the setup wizard before uploading."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/getting-started/restoring-files",
+              "note": {
+                "it": "La procedura Ripristina permette di cercare e selezionare il singolo file da una versione del backup.",
+                "en": "The restore wizard lets you find and select an individual file from a backup version."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/getting-started/set-up-a-backup-in-the-ui",
+              "note": {
+                "it": "La sezione Schedule nella procedura grafica imposta orario e frequenza.",
+                "en": "The setup wizard has a Schedule step for time and frequency."
+              }
+            },
+            "backup_retention": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/getting-started/set-up-a-backup-in-the-ui",
+              "note": {
+                "it": "La configurazione grafica permette di scegliere quando eliminare le vecchie versioni.",
+                "en": "The UI allows you to set when older versions are removed."
+              }
+            },
+            "backup_s3": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/backup-destinations/standard-based-destinations/s3-compatible-destination",
+              "note": {
+                "it": "Supporta Amazon S3 ed endpoint compatibili configurabili.",
+                "en": "Supports Amazon S3 and configurable compatible endpoints."
+              }
+            },
+            "backup_sftp": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/backup-destinations/standard-based-destinations/sftp-ssh-destination",
+              "note": {
+                "it": "Il backend di destinazione SFTP consente il backup via SSH.",
+                "en": "The SFTP destination backend writes backups over SSH."
+              }
+            },
+            "backup_s3_lock": {
+              "state": "supported",
+              "source": "https://docs.duplicati.com/security-and-secrets/using-remote-file-locking",
+              "note": {
+                "it": "Il blocco remoto dei file può impostare la conservazione degli oggetti su Amazon S3 e servizi compatibili. Il bucket deve supportare Object Lock.",
+                "en": "Remote file locking sets retention on Amazon S3 and compatible services. The bucket must support Object Lock."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pika-backup",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/app/org.gnome.World.PikaBackup/",
+              "note": {
+                "it": "Backup dei dati personali su dischi locali.",
+                "en": "Backs up personal data to local drives."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://world.pages.gitlab.gnome.org/pika-backup/help/C/setup-remote.html",
+              "note": {
+                "it": "Opzione di cifratura dei backup integrata.",
+                "en": "Built-in option to encrypt backups."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://world.pages.gitlab.gnome.org/pika-backup/help/C/recovery-pika.html",
+              "note": {
+                "it": "La voce di ripristino apre l’archivio e permette di recuperare un singolo file con il file manager.",
+                "en": "Restoring opens the archive so individual files can be recovered through the file manager."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://world.pages.gitlab.gnome.org/pika-backup/help/C/feature-schedule.html",
+              "note": {
+                "it": "Nell’app si programmano backup ricorrenti, da mensili a orari.",
+                "en": "The app schedules regular backups from monthly down to hourly."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "d-j-dup-backups",
+          "evidence": {
+            "backup_local": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/en//DejaDup/",
+              "note": {
+                "it": "Consente di selezionare un disco locale come destinazione.",
+                "en": "A local drive can be selected as the backup destination."
+              }
+            },
+            "backup_encrypt": {
+              "state": "supported",
+              "source": "https://help.gnome.org/deja-dup/prefs.html",
+              "note": {
+                "it": "L’app supporta la cifratura dei backup.",
+                "en": "The app supports backup encryption."
+              }
+            },
+            "backup_restore_file": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/en//DejaDup/",
+              "note": {
+                "it": "Il ripristino permette di copiare i file dal backup con il file manager.",
+                "en": "The restore view lets you copy individual files out using the file manager."
+              }
+            },
+            "backup_schedule_ui": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/en//DejaDup/",
+              "note": {
+                "it": "L’app pianifica backup automatici.",
+                "en": "The app schedules automatic backups."
+              }
+            }
+          }
         }
       ]
     },
@@ -1601,6 +2123,40 @@
               "note": {
                 "it": "Il plugin esporta da Figma verso Penpot. La guida indica di verificare layout e librerie dopo il trasferimento.",
                 "en": "The plugin exports from Figma to Penpot. The guide recommends checking layouts and libraries after transfer."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "drawio",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://www.drawio.com/docs/manual/layers/",
+              "note": {
+                "it": "Canvas di diagrammi con forme, gruppi, livelli separati e ordine di sovrapposizione, adatto a wireframe.",
+                "en": "Diagram canvas with shapes, groups, separate layers and stacking order, useful for wireframes."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "excalidraw",
+          "evidence": {
+            "canvas": {
+              "state": "partial",
+              "source": "https://github.com/excalidraw/excalidraw#readme",
+              "note": {
+                "it": "Lavagna con forme e strumenti di disegno, utile per wireframe a bassa fedeltà.",
+                "en": "Whiteboard with shapes and drawing tools, useful for low-fidelity wireframes."
+              }
+            },
+            "collaboration": {
+              "state": "partial",
+              "source": "https://github.com/excalidraw/excalidraw#readme",
+              "note": {
+                "it": "La versione web libera permette di modificare insieme la stessa lavagna e condividere un link in sola lettura.",
+                "en": "The free web app supports live co-editing on the same board and read-only sharing links."
               }
             }
           }

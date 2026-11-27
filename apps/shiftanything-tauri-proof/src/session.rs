@@ -10,7 +10,10 @@ use artcraft_launcher_core::{
 };
 use artcraft_launcher_native::{NativeBackend, automation};
 use serde::Serialize;
-use std::{collections::BTreeMap, path::PathBuf};
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    path::{Path, PathBuf},
+};
 
 pub struct NativeState {
     backend: NativeBackend,
@@ -21,6 +24,8 @@ pub struct NativeState {
     results: BTreeMap<String, String>,
     active: BTreeMap<String, String>,
     pending: Option<Request>,
+    pending_from_ui: bool,
+    open_after_install: BTreeSet<String>,
     next_request: u64,
     enabled: bool,
     isolated: bool,
@@ -44,6 +49,7 @@ pub struct Snapshot {
     inventory: Inventory,
     download_sizes: BTreeMap<String, u64>,
     pending: Option<Request>,
+    offer_open_after_install: bool,
     progress: BTreeMap<String, Progress>,
     favorites: std::collections::BTreeSet<String>,
 }
@@ -114,6 +120,8 @@ impl NativeState {
             results: BTreeMap::new(),
             active: BTreeMap::new(),
             pending: None,
+            pending_from_ui: false,
+            open_after_install: BTreeSet::new(),
             next_request: 0,
             enabled,
             isolated,
@@ -137,21 +145,21 @@ impl NativeState {
                 Event::Progress { app, phase } => {
                     self.jobs.insert(app, phase);
                 }
-                Event::JobFinished { app, result } | Event::Notice { app, result } => {
-                    self.jobs.remove(&app);
-                    let message = match result {
-                        Ok(message) => format!("completed: {message}"),
-                        Err(error) => format!("failed: {error}"),
-                    };
-                    if let Some(id) = self.active.remove(&app) {
-                        self.results.insert(format!("{id}:{app}"), message.clone());
+                Event::JobFinished { app, result } => {
+                    let launch = self.open_after_install.remove(&app) && result.is_ok();
+                    self.finish_job(&app, result);
+                    if launch && let Err(error) = self.open_installed_bundle(&app) {
+                        self.results.insert(format!("app:{app}"), format!("installed; could not open: {error}"));
                     }
-                    self.results.insert(format!("app:{app}"), message.clone());
-                    println!("NATIVE {app}: {message}");
+                }
+                Event::Notice { app, result } => {
+                    self.open_after_install.remove(&app);
+                    self.finish_job(&app, result);
                 }
                 Event::Occupied { app, .. } | Event::GoBackFallback { app, .. } => {
                     // This proof never consents to overwriting an unrelated destination or downgrading.
                     self.jobs.remove(&app);
+                    self.open_after_install.remove(&app);
                     let message = "rejected: destination or version requires additional consent".to_string();
                     if let Some(id) = self.active.remove(&app) {
                         self.results.insert(format!("{id}:{app}"), message.clone());
@@ -164,6 +172,30 @@ impl NativeState {
         while self.results.len() > 256 {
             self.results.pop_first();
         }
+    }
+
+    fn finish_job(&mut self, app: &str, result: Result<String, String>) {
+        self.jobs.remove(app);
+        let message = match result {
+            Ok(message) => format!("completed: {message}"),
+            Err(error) => format!("failed: {error}"),
+        };
+        if let Some(id) = self.active.remove(app) {
+            self.results.insert(format!("{id}:{app}"), message.clone());
+        }
+        self.results.insert(format!("app:{app}"), message.clone());
+        println!("NATIVE {app}: {message}");
+    }
+
+    fn open_installed_bundle(&mut self, app: &str) -> Result<(), String> {
+        let bundle = self.detected.get(app).and_then(Option::as_ref).map(|entry| Path::new(&entry.location));
+        if bundle.is_none_or(|path| !path.is_dir() || path.extension().is_none_or(|ext| !ext.eq_ignore_ascii_case("app"))) {
+            return Err("No macOS app bundle was detected after installation".into());
+        }
+        let request = Request { id: "open-after-install".into(), operation: Operation::Open, apps: vec![app.into()] };
+        self.validate(&request)?;
+        self.backend.send(Command::Launch { app: app.into(), args: vec![] });
+        Ok(())
     }
 
     fn inventory(&self) -> Inventory {
@@ -244,6 +276,7 @@ impl NativeState {
                     Ok(()) => {
                         self.results.insert(request.id.clone(), "awaiting approval".into());
                         self.pending = Some(request);
+                        self.pending_from_ui = false;
                     }
                     Err(error) => {
                         self.results.insert(request.id, format!("rejected: {error}"));
@@ -269,6 +302,7 @@ impl NativeState {
             isolated_profile: self.isolated,
             inventory: self.inventory(),
             pending: self.pending.clone(),
+            offer_open_after_install: self.pending.as_ref().is_some_and(|request| can_open_after_install(request, self.pending_from_ui, platform)),
             favorites: self.favorites.ids().clone(),
             progress: self
                 .jobs
@@ -294,13 +328,15 @@ impl NativeState {
         self.validate(&request)?;
         self.results.insert(request.id.clone(), "awaiting approval".into());
         self.pending = Some(request.clone());
+        self.pending_from_ui = true;
         Ok(request)
     }
 
-    pub fn decide(&mut self, id: &str, approve: bool) -> Result<(), String> {
+    pub fn decide(&mut self, id: &str, approve: bool, open_after_install: bool) -> Result<(), String> {
         self.poll();
         let request = self.pending.as_ref().filter(|request| request.id == id).ok_or("Unknown pending request")?.clone();
         self.pending = None;
+        let from_ui = std::mem::take(&mut self.pending_from_ui);
         if !approve {
             self.results.insert(request.id, "rejected".into());
             return Ok(());
@@ -317,6 +353,12 @@ impl NativeState {
             Operation::Open => Command::Launch { app: request.apps[0].clone(), args: vec![] },
             Operation::Cancel => Command::Cancel { app: request.apps[0].clone() },
         };
+        if open_after_install && can_open_after_install(&request, from_ui, self.backend.platform()) {
+            self.open_after_install.insert(request.apps[0].clone());
+        }
+        if request.operation == Operation::Cancel {
+            self.open_after_install.remove(&request.apps[0]);
+        }
         self.results.insert(request.id.clone(), "approved; native operation requested (not completed)".into());
         for id in request.apps {
             if request.operation != Operation::Open {
@@ -329,6 +371,10 @@ impl NativeState {
         self.backend.send(command);
         Ok(())
     }
+}
+
+fn can_open_after_install(request: &Request, from_ui: bool, platform: Option<Platform>) -> bool {
+    from_ui && request.operation == Operation::Install && request.apps.len() == 1 && platform.is_some_and(|target| target.os == Os::MacOs)
 }
 
 fn validate_ui_request(request: &Request, inventory: &Inventory) -> Result<(), String> {
@@ -349,6 +395,23 @@ fn validate_ui_request(request: &Request, inventory: &Inventory) -> Result<(), S
 mod tests {
     use super::*;
     use artcraft_launcher_core::Arch;
+
+    #[test]
+    fn only_a_single_macos_install_from_the_window_can_request_a_first_open() {
+        let mut request = Request { id: "ui-1".into(), operation: Operation::Install, apps: vec!["kopia".into()] };
+        let mac = Some(Platform { os: Os::MacOs, arch: Arch::Arm64 });
+        let linux = Some(Platform { os: Os::Linux, arch: Arch::X64 });
+        assert!(can_open_after_install(&request, true, mac));
+        assert!(!can_open_after_install(&request, false, mac));
+        assert!(!can_open_after_install(&request, true, linux));
+        assert!(!can_open_after_install(&request, true, None));
+
+        request.apps.push("handy".into());
+        assert!(!can_open_after_install(&request, true, mac));
+        request.apps.pop();
+        request.operation = Operation::Update;
+        assert!(!can_open_after_install(&request, true, mac));
+    }
 
     #[test]
     fn linux_install_action_requires_an_appimage_for_the_tested_platform_and_recipe() {

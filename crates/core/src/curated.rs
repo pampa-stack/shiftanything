@@ -18,6 +18,8 @@ pub struct App {
     pub screenshots: Vec<String>,
     pub license_url: String,
     pub media_source: serde_json::Value,
+    #[serde(default)]
+    pub review: Option<Review>,
     pub agent: Agent,
     pub release: Option<Release>,
     pub stars: Option<Stars>,
@@ -29,6 +31,12 @@ pub struct App {
     pub platform_scope_complete: bool,
     #[serde(default)]
     pub distribution: Vec<Distribution>,
+}
+#[derive(Debug, Deserialize)]
+pub struct Review {
+    pub source: Option<String>,
+    #[serde(default)]
+    pub sources: Vec<String>,
 }
 /// Documented channels only; these never grant a native installation capability.
 #[derive(Debug, Deserialize)]

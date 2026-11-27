@@ -120,6 +120,265 @@
         },
         "source": "https://localsend.org/"
       }]
+    },
+    {
+      "id": "schedule-social",
+      "example": {
+        "it": "Programma i post dei social da un calendario",
+        "en": "Schedule social posts from a calendar"
+      },
+      "match": [
+        [
+          "programm",
+          "social"
+        ],
+        [
+          "post",
+          "social",
+          "calendar"
+        ],
+        [
+          "schedul",
+          "social"
+        ],
+        [
+          "post",
+          "mastodon",
+          "programm"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "postiz",
+          "reason": {
+            "it": "Calendario e programmazione dei post su un server proprio.",
+            "en": "Calendar and post scheduling on your own server."
+          },
+          "source": "https://docs.postiz.com/self-host/installation/overview"
+        },
+        {
+          "id": "mixpost-lite",
+          "reason": {
+            "it": "Calendario e programmazione per Facebook Pages, Mastodon e X.",
+            "en": "Calendar and scheduling for Facebook Pages, Mastodon, and X."
+          },
+          "source": "https://mixpost.app/self-hosted"
+        }
+      ]
+    },
+    {
+      "id": "email-campaigns",
+      "example": {
+        "it": "Voglio inviare una newsletter agli iscritti",
+        "en": "Send an email newsletter to subscribers"
+      },
+      "match": [
+        [
+          "newsletter"
+        ],
+        [
+          "campagn",
+          "email"
+        ],
+        [
+          "campagn",
+          "mail"
+        ],
+        [
+          "mailing",
+          "list"
+        ],
+        [
+          "email",
+          "campaign"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "listmonk",
+          "reason": {
+            "it": "Gestisce liste e campagne con invio via SMTP.",
+            "en": "Manages lists and campaigns with SMTP delivery."
+          },
+          "source": "https://listmonk.app/docs/installation/"
+        },
+        {
+          "id": "keila",
+          "reason": {
+            "it": "Editor visuale per le newsletter e segmentazione contatti.",
+            "en": "Visual newsletter editor and contact segmentation."
+          },
+          "source": "https://www.keila.io/docs/installation"
+        },
+        {
+          "id": "sendportal",
+          "reason": {
+            "it": "Pannello self-hosted per iscritti e campagne email.",
+            "en": "Self-hosted dashboard for subscribers and email campaigns."
+          },
+          "source": "https://sendportal.io/docs/v4"
+        }
+      ]
+    },
+    {
+      "id": "lead-forms",
+      "example": {
+        "it": "Raccogli i contatti dal mio sito con un modulo",
+        "en": "Collect leads from my website with a form"
+      },
+      "match": [
+        [
+          "contatt",
+          "modul"
+        ],
+        [
+          "lead",
+          "form"
+        ],
+        [
+          "contatt",
+          "form"
+        ],
+        [
+          "collec",
+          "contact",
+          "form"
+        ],
+        [
+          "modul",
+          "lead"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "heyform",
+          "reason": {
+            "it": "Moduli con logica condizionale nell’installazione self-hosted.",
+            "en": "Conditional forms in the self-hosted edition."
+          },
+          "source": "https://docs.heyform.net/open-source/self-hosting"
+        },
+        {
+          "id": "opnform",
+          "reason": {
+            "it": "Moduli e raccolta risposte nell’edizione Community.",
+            "en": "Forms and response collection in the Community edition."
+          },
+          "source": "https://docs.opnform.com/deployment/self-hosted-license"
+        }
+      ]
+    },
+    {
+      "id": "private-vpn",
+      "example": {
+        "it": "Collega i dispositivi dell’ufficio in una VPN privata",
+        "en": "Connect my office devices to a private VPN"
+      },
+      "match": [
+        [
+          "vpn",
+          "privat"
+        ],
+        [
+          "vpn",
+          "wireguard"
+        ],
+        [
+          "vpn",
+          "dispositiv"
+        ],
+        [
+          "vpn",
+          "device"
+        ],
+        [
+          "wireguard",
+          "pannell"
+        ],
+        [
+          "wireguard",
+          "dashboard"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "netbird",
+          "reason": {
+            "it": "Rete privata tra dispositivi con pannello e regole d’accesso.",
+            "en": "Private network between devices with a dashboard and access rules."
+          },
+          "source": "https://docs.netbird.io/selfhosted/selfhosted-quickstart"
+        },
+        {
+          "id": "wg-easy",
+          "reason": {
+            "it": "Pannello per amministrare un server WireGuard.",
+            "en": "Dashboard for managing a WireGuard server."
+          },
+          "source": "https://wg-easy.github.io/wg-easy/latest/"
+        },
+        {
+          "id": "wgdashboard",
+          "reason": {
+            "it": "Amministra più configurazioni WireGuard da un pannello web.",
+            "en": "Manage several WireGuard configurations from one web dashboard."
+          },
+          "source": "https://docs.wgdashboard.dev/"
+        }
+      ]
+    },
+    {
+      "id": "ai-video",
+      "example": {
+        "it": "Genera video con AI sul mio computer",
+        "en": "Generate AI video on my own computer"
+      },
+      "match": [
+        [
+          "gener",
+          "video",
+          "ai"
+        ],
+        [
+          "gener",
+          "video",
+          "locale"
+        ],
+        [
+          "higgsfield"
+        ],
+        [
+          "video",
+          "generat",
+          "local"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "freefield",
+          "reason": {
+            "it": "Movimento di camera con il workflow locale Camera Moves.",
+            "en": "Camera motion through the local Camera Moves workflow."
+          },
+          "source": "https://github.com/neuregex/freefield#on-your-own-gpu-without-modal"
+        },
+        {
+          "id": "locally-uncensored",
+          "reason": {
+            "it": "App desktop per generare video con modelli Wan locali.",
+            "en": "Desktop app for generating video with local Wan models."
+          },
+          "source": "https://github.com/PurpleDoubleD/locally-uncensored#video"
+        },
+        {
+          "id": "videox-fun",
+          "reason": {
+            "it": "Interfaccia Gradio locale per generazione da testo o immagini.",
+            "en": "Local Gradio interface for generation from text or images."
+          },
+          "source": "https://github.com/aigc-apps/VideoX-Fun/blob/98fffa929bb373edcbfa3620e9aa05cd65a53103/examples/wan2.2/app.py"
+        }
+      ]
     }
   ]
 }

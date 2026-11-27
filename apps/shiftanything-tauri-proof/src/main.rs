@@ -124,8 +124,13 @@ fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::
     state.lock().map_err(|e| e.to_string())?.request(operation, apps)
 }
 #[tauri::command]
-fn decide_native_action(request_id: String, approve: bool, state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
-    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve)
+fn decide_native_action(
+    request_id: String,
+    approve: bool,
+    open_after_install: Option<bool>,
+    state: tauri::State<'_, Mutex<NativeState>>,
+) -> Result<(), String> {
+    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve, open_after_install.unwrap_or(false))
 }
 #[tauri::command]
 fn check_native_updates(state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {

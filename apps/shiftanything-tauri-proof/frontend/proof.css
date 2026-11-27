@@ -21,6 +21,8 @@
 
 .native-confirmation {position:fixed;inset:0;margin:auto;color:#eee;background:#17191d;border:1px solid #555;max-width:520px;padding:24px;}
 .native-confirmation::backdrop {background:#0009;}
+.native-first-open {margin-block:14px; display:flex; gap:8px; align-items:center;}
+.native-first-open[hidden] {display:none;}
 .native-decision,.native-management {display:flex;gap:12px;flex-wrap:wrap;}
 .native-confirmation button {padding:10px 24px;background:#30343b;color:#fff;border:1px solid #777;cursor:pointer;}
 .native-result {width:100%;overflow-wrap:anywhere;}

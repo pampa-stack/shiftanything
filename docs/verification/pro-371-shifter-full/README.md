@@ -23,3 +23,5 @@ Build Mac `34266dc`, DMG locale `9057444c2132f2ec7f8737820cee24467c36985d7fbf83c
 Le prove della build `b78fa1a` usano i 471 loghi locali verificati uno per uno con SHA-256 sui 479 record. I PNG derivati da SVG sono renderizzati prima della build. Le otto schede rimanenti mostrano le iniziali finché un logo è indisponibile.
 
 Mac Apple Silicon, bundle estratto dal DMG locale `dc6e2a78de22d8787fde70a930da17078bd8357422400d05d0e2040a8871d7b8`, nuova home e rete in uscita bloccata. [Photoshop](photoshop-471-offline-it.png), [Figma](figma-471-offline-it.png) e [ricerca Wazuh](wazuh-471-offline-it.png), tutti in finestra nativa a 1440 × 900.
+
+Ubuntu 24.04+ amd64, pacchetto locale `6437fee7970acadd7035201d26bae86ff5aaf36e1d241bff515d4a6ca763b28f` verificato prima e dopo il trasferimento. Il binario estratto dal pacchetto è stato aperto in Ubuntu 26.04, Xvfb 1440 × 900 e rete isolata. [Photoshop su Linux](photoshop-471-offline-linux.png). La prova Tauri misura 479 riquadri uniformi a 408,328 × 400 px e verifica viewport, barra, sidebar e media.

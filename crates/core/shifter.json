@@ -494,10 +494,10 @@
           "evidence": {
             "transcript": {
               "state": "supported",
-              "source": "https://github.com/Zackriya-Solutions/meetily#readme",
+              "source": "https://meetily.ai/releases/community/0.5.0",
               "note": {
-                "it": "Trascrizione locale inclusa in Community.",
-                "en": "Local transcription is included in Community."
+                "it": "Trascrizione locale inclusa in Community. La 0.5.0 aggiunge la cattura dell’audio di sistema su Linux tramite PulseAudio o PipeWire.",
+                "en": "Local transcription is included in Community. Version 0.5.0 adds Linux system audio capture via PulseAudio or PipeWire."
               }
             },
             "summary": {

@@ -1,0 +1,18 @@
+[
+  {
+    "app_id": "meetily",
+    "version": "v0.5.0",
+    "release_source": "https://github.com/Zackriya-Solutions/meetily/releases/tag/v0.5.0",
+    "line": "feat(linux): add native system audio and harden recording device switching",
+    "profile": "granola",
+    "feature": "transcript",
+    "evidence": {
+      "state": "supported",
+      "source": "https://meetily.ai/releases/community/0.5.0",
+      "note": {
+        "it": "Trascrizione locale inclusa in Community. La 0.5.0 aggiunge la cattura dell’audio di sistema su Linux tramite PulseAudio o PipeWire.",
+        "en": "Local transcription is included in Community. Version 0.5.0 adds Linux system audio capture via PulseAudio or PipeWire."
+      }
+    }
+  }
+]

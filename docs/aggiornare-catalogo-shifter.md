@@ -17,16 +17,20 @@ shift_review_dir=$(mktemp -d)
 python3 tools/aggiorna_release.py --app meetily --app gimp --output "$shift_review_dir/first"
 python3 tools/aggiorna_release.py --app meetily --app gimp \
   --catalog "$shift_review_dir/first/curated.json" \
+  --shifter "$shift_review_dir/first/shifter.json" \
   --baseline "$shift_review_dir/first/release-notes.json" \
   --output "$shift_review_dir/second"
 ```
 
 - `curated.json` contiene la copia del catalogo con i metadati osservati. Il motore di installazione mantiene la sua verifica di pacchetti e piattaforme.
 - `release-report.json` riporta nuove versioni, modifiche ai metadati, controlli invariati e rollback rifiutati. Compare per ultimo, a snapshot completo.
-- `shifter-proposals.json` contiene le righe candidate con versione, fonte e profili da rivedere. L'importazione di evidenze in SH*FTER richiede la verifica della funzione, dell'edizione gratuita e delle eventuali limitazioni. La copertura si calcola dalle evidenze approvate.
+- `shifter.json` contiene il confronto con le evidenze approvate applicate. Ogni regola in [release-evidence.json](../tools/release-evidence.json) identifica app, versione, URL e riga esatta del changelog ufficiale, oltre alla funzione e alla fonte che documenta la copertura. Il report registra ogni evidenza cambiata. Il secondo controllo dello stesso snapshot lascia il confronto invariato.
+- `shifter-proposals.json` contiene le righe candidate con versione, fonte e profili da rivedere. Per approvare una regola verifica la funzione, l'edizione gratuita e le eventuali limitazioni. La copertura si calcola dalle evidenze approvate.
 - `release-notes.json` conserva le righe candidate già osservate. Il primo controllo di una versione già in catalogo serve da riferimento. Un successivo controllo rileva le righe aggiunte.
 
 Il parser riconosce formule comuni di aggiunta, supporto, rimozione e deprecazione. Changelog senza note strutturate e fonti fuori da GitHub e Flathub richiedono verifica manuale.
+
+Il 27 novembre 2026 il controllo live ha letto i rilasci di GIMP e Meetily. Ha integrato in SH*FTER la cattura dell’audio di sistema su Linux documentata per Meetily Community 0.5.0. Ripetuto con lo snapshot risultante, ha lasciato invariati il catalogo e il confronto. Il comando prepara uno snapshot locale per la revisione e la prossima build. [Changelog ufficiale](https://github.com/Zackriya-Solutions/meetily/releases/tag/v0.5.0) · [Note di Meetily Community](https://meetily.ai/releases/community/0.5.0)
 
 ## Prove offline
 
@@ -39,4 +43,4 @@ Le fixture del 27 novembre 2026 contengono campi selezionati da due fonti uffici
 - Meetily v0.5.0, metadati della versione, asset e una riga del changelog. [API GitHub](https://api.github.com/repos/Zackriya-Solutions/meetily/releases/tags/v0.5.0)
 - GIMP 3.2.8 e 3.2.6, metadati AppStream e dimensione. [AppStream](https://flathub.org/api/v2/appstream/org.gimp.GIMP) · [Riepilogo Flathub](https://flathub.org/api/v2/summary/org.gimp.GIMP)
 
-I casi coprono avanzamento, ripetizione invariata, riga aggiunta a versione identica, rollback, release di anteprima e conservazione dei file di ingresso. Il connettore originale proviene da `specs/launcher-scale-anything/aggiorna_release.py`, commit `44d08184` della repo Regia.
+I casi coprono avanzamento, ripetizione invariata, riga aggiunta a versione identica, rollback, release di anteprima, regola approvata e conservazione dei file di ingresso. Il connettore originale proviene da `specs/launcher-scale-anything/aggiorna_release.py`, commit `44d08184` della repo Regia.

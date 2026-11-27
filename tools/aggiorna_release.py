@@ -24,6 +24,7 @@ FEATURE = re.compile(
     r"supports?\b|new\b|remove(?:s|d)?\b|deprecat(?:e|es|ed)\b)", re.I
 )
 MAX_FLATHUB_BYTES = 4 * 1024 * 1024
+EVIDENCE_STATES = {"supported", "partial", "unsupported", "unverified"}
 
 
 class SameOriginRedirect(HTTPRedirectHandler):
@@ -223,14 +224,50 @@ def notes_baseline(document):
     return entries
 
 
-def refresh(catalog, shifter, baseline, selected, as_of):
-    """Update metadata in memory; the comparison data is only read for profile references."""
+def apply_approved(shifter, approved, app_id, release, lines):
+    matched = set()
+    updates = []
+    for rule in approved.get((app_id, release["version"]), []):
+        if rule["release_source"] != release["source"] or rule["line"] not in lines:
+            continue
+        profile = next((item for item in shifter["profiles"] if item["id"] == rule["profile"]), None)
+        feature = rule["feature"]
+        if profile is None or feature not in {item["id"] for item in profile["features"]}:
+            raise ValueError(f"Funzione SH*FTER sconosciuta: {rule['profile']}/{feature}")
+        candidate = next((item for item in profile["candidates"] if item["app_id"] == app_id), None)
+        if candidate is None:
+            raise ValueError(f"App assente dal profilo {rule['profile']}: {app_id}")
+        evidence = rule["evidence"]
+        source = urlsplit(evidence["source"])
+        note = evidence["note"]
+        if (evidence["state"] not in EVIDENCE_STATES or source.scheme != "https" or not source.hostname
+                or source.username is not None or source.password is not None or set(note) != {"it", "en"}
+                or not all(isinstance(value, str) and value.strip() for value in note.values())):
+            raise ValueError(f"Evidenza approvata non valida per {app_id}/{feature}")
+        matched.add(rule["line"])
+        if candidate["evidence"].get(feature) != evidence:
+            candidate["evidence"][feature] = evidence
+            updates.append({"id": app_id, "version": release["version"], "profile": profile["id"],
+                            "feature": feature, "source": evidence["source"]})
+    return matched, updates
+
+
+def refresh(catalog, shifter, baseline, selected, as_of, rules=()):
+    """Refresh release metadata and apply only explicitly approved comparison evidence."""
     notes = baseline.copy()
     profiles = defaultdict(list)
     for profile in shifter["profiles"]:
         for app in profile["candidates"]:
             profiles[app["app_id"]].append(profile["id"])
-    report = {"checked": [], "changes": [], "unchanged": [], "skipped": []}
+    approved = defaultdict(list)
+    targets = set()
+    for rule in rules:
+        target = (rule["app_id"], rule["version"], rule["profile"], rule["feature"])
+        if target in targets:
+            raise ValueError(f"Regole approvate duplicate: {'/'.join(target)}")
+        targets.add(target)
+        approved[target[:2]].append(rule)
+    report = {"checked": [], "changes": [], "unchanged": [], "skipped": [], "shifter_updates": []}
     proposals = []
     for app in catalog:
         app_id = app["id"]
@@ -277,6 +314,10 @@ def refresh(catalog, shifter, baseline, selected, as_of):
 
         source = f"https://flathub.org/api/v2/appstream/{flatpak[1]}" if flatpak else release["source"]
         lines = list(dict.fromkeys(line for line in lines if FEATURE.match(line)))
+        matched, updates = apply_approved(shifter, approved, app_id, release, lines)
+        if updates:
+            report["shifter_updates"].extend(updates)
+            shifter["checked_on"] = max(shifter.get("checked_on") or as_of, as_of)
         previous = baseline.get(app_id)
         if not same_version:
             changed_lines = lines
@@ -286,9 +327,9 @@ def refresh(catalog, shifter, baseline, selected, as_of):
         else:
             changed_lines = []
         notes[app_id] = {"version": release["version"], "source": source, "lines": lines}
-        if changed_lines:
-            proposals.extend({"id": app_id, "version": release["version"], "source": source, "quote": line,
-                              "profiles": profiles[app_id], "status": "needs_review"} for line in changed_lines)
+        proposals.extend({"id": app_id, "version": release["version"], "source": source, "quote": line,
+                          "profiles": profiles[app_id], "status": "needs_review"}
+                         for line in changed_lines if line not in matched)
     return report, proposals, {"schema": 1, "apps": notes}
 
 
@@ -314,6 +355,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--catalog", type=Path, default=ROOT / "crates/core/curated.json")
     parser.add_argument("--shifter", type=Path, default=ROOT / "crates/core/shifter.json")
+    parser.add_argument("--approved", type=Path, default=Path(__file__).with_name("release-evidence.json"),
+                        help="Regole con versione, fonte e testo del changelog approvati")
     parser.add_argument("--baseline", type=Path, help="release-notes.json di un controllo precedente")
     parser.add_argument("--app", action="append", default=[], help="Limita il controllo a un ID ripetibile")
     parser.add_argument("--as-of", type=date.fromisoformat, default=datetime.now(UTC).date(),
@@ -325,9 +368,12 @@ def main(argv=None):
         if unknown := set(args.app) - {app["id"] for app in catalog}:
             parser.error(f"ID app inesistenti: {', '.join(sorted(unknown))}")
         baseline = notes_baseline(json_file(args.baseline)) if args.baseline else {}
-        report, proposals, notes = refresh(catalog, shifter, baseline, set(args.app), args.as_of.isoformat())
+        rules = json_file(args.approved)
+        if not isinstance(rules, list):
+            raise ValueError("Le regole approvate devono essere un elenco")
+        report, proposals, notes = refresh(catalog, shifter, baseline, set(args.app), args.as_of.isoformat(), rules)
         if args.output:
-            publish(args.output, {"curated.json": catalog, "shifter-proposals.json": proposals,
+            publish(args.output, {"curated.json": catalog, "shifter.json": shifter, "shifter-proposals.json": proposals,
                                   "release-notes.json": notes, "release-report.json": report})
     except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired) as error:
         parser.exit(1, f"Snapshot interrotto: {error}\n")

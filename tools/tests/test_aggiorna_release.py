@@ -36,7 +36,8 @@ class ReleaseWatchTests(unittest.TestCase):
              "distribution": [{"manager": "flatpak", "id": "org.gimp.GIMP", "source": GIMP_SOURCE}]},
         ]
         self.shifter = {"checked_on": "2026-11-26", "profiles": [
-            {"id": "granola", "candidates": [{"app_id": "meetily", "evidence": {"transcript": {"state": "supported"}}}]},
+            {"id": "granola", "features": [{"id": "transcript"}],
+             "candidates": [{"app_id": "meetily", "evidence": {"transcript": {"state": "supported"}}}]},
         ]}
         github = patch.object(updater, "github", side_effect=self.fixture_github)
         flathub = patch.object(updater, "flathub", side_effect=self.flathub.__getitem__)
@@ -150,6 +151,35 @@ class ReleaseWatchTests(unittest.TestCase):
             {"platform": "windows", "size_min": 368947560, "size_max": 368947560},
         ])
 
+    def test_approved_evidence_requires_exact_source_and_changelog_line(self):
+        rule, = updater.json_file(updater.ROOT / "tools/release-evidence.json")
+        original = deepcopy(self.shifter)
+        changed = {**rule, "release_source": "https://github.com/example/other/releases/tag/v0.5.0"}
+        report, proposals, _ = updater.refresh(deepcopy(self.catalog), self.shifter, {}, set(), AS_OF, [changed])
+        self.assertEqual(report["shifter_updates"], [])
+        self.assertEqual(proposals[0]["status"], "needs_review")
+        self.assertEqual(self.shifter, original)
+
+        changed = {**rule, "line": "Added a synthetic test entry"}
+        report, proposals, _ = updater.refresh(deepcopy(self.catalog), self.shifter, {}, set(), AS_OF, [changed])
+        self.assertEqual(report["shifter_updates"], [])
+        self.assertEqual(proposals[0]["status"], "needs_review")
+        self.assertEqual(self.shifter, original)
+
+        report, proposals, baseline = updater.refresh(self.catalog, self.shifter, {}, set(), AS_OF, [rule])
+        self.assertEqual(proposals, [])
+        self.assertEqual(report["shifter_updates"], [{
+            "id": "meetily", "version": "v0.5.0", "profile": "granola", "feature": "transcript",
+            "source": rule["evidence"]["source"],
+        }])
+        self.assertEqual(self.shifter["checked_on"], AS_OF)
+        self.assertEqual(self.shifter["profiles"][0]["candidates"][0]["evidence"]["transcript"], rule["evidence"])
+
+        report, proposals, _ = updater.refresh(self.catalog, self.shifter, baseline["apps"], set(), "2026-11-28", [rule])
+        self.assertEqual(report["shifter_updates"], [])
+        self.assertEqual(proposals, [])
+        self.assertEqual(self.shifter["checked_on"], AS_OF)
+
     def test_cli_dry_run_and_new_snapshot_leave_inputs_untouched(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
@@ -167,7 +197,7 @@ class ReleaseWatchTests(unittest.TestCase):
             with redirect_stdout(io.StringIO()):
                 updater.main([*flags, "--output", str(output)])
             self.assertEqual({path.name for path in output.iterdir()},
-                             {"curated.json", "release-report.json", "shifter-proposals.json", "release-notes.json"})
+                             {"curated.json", "shifter.json", "release-report.json", "shifter-proposals.json", "release-notes.json"})
             report = json.loads(stdout.getvalue())
             self.assertEqual(report["catalog"], updater.json_file(output / "release-report.json"))
             self.assertEqual(report["shifter_proposals"], updater.json_file(output / "shifter-proposals.json"))

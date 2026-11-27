@@ -3,6 +3,7 @@
 mod catalog_links;
 mod discovery;
 mod favorites;
+mod media;
 mod session;
 mod shifter;
 mod startup;
@@ -198,6 +199,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let isolated = launch.isolated;
     let lifecycle = launch.lifecycle;
     let state = NativeState::new(launch.root.clone(), lifecycle, isolated)?;
+    let catalog_media = media::Media::new(state.catalog_media());
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{}.html", launch.language);
     let webview_directory = launch.root.join("webview");
@@ -206,8 +208,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let builder = builder.activate_ignoring_other_apps(false);
     builder
         .manage(Mutex::new(state))
+        .manage(catalog_media)
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
+            media::fetch_catalog_media,
             discovery_data,
             open_social_link,
             open_catalog_link,

@@ -62,6 +62,10 @@ fn has_compatible_asset(app: &CraftApp, platform: Platform, release: &Release) -
 }
 
 impl NativeState {
+    pub fn catalog_media(&self) -> artcraft_launcher_native::screenshots::CatalogMedia {
+        self.backend.catalog_media()
+    }
+
     pub fn lifecycle_enabled(&self) -> bool {
         self.enabled
     }

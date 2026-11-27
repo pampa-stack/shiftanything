@@ -19,3 +19,13 @@ La ricerca OpenGame restituisce una scheda. View App apre il dettaglio con coper
 L'uninstaller ha eliminato la registrazione e gli eseguibili del launcher. Il file sintetico sotto `%LOCALAPPDATA%\ShiftAnything\desktop` è stato conservato con l'opzione predefinita. [Esito rimozione](release-removed.png)
 
 Il test è locale. La distribuzione pubblica, SmartScreen, l'esecuzione sotto un utente standard e l'autoaggiornamento Windows richiedono verifiche dedicate.
+
+## Verifica del pacchetto da pubblicare
+
+Usare Tauri in modalità firmata con il profilo Authenticode di Promptica. Verificare la firma del setup e dell'eseguibile estratto su una VM Windows pulita, con il subject approvato del certificato e SignTool del Windows SDK. Lo script richiede una firma incorporata valida, il publisher atteso e una marca temporale. Restituisce gli SHA-256 dei file verificati.
+
+```powershell
+./packaging/windows/verify-release-signature.ps1 -Artifact @($setup, $installedExe) -PublisherSubject $publisherSubject
+```
+
+Provato il 27 novembre 2026 su Windows 11 x64 con SDK 10.0.26100. Il controllo ha accettato il pacchetto ufficiale WordCraft 0.19.1 con marca RFC 3161 e ha rifiutato il subject errato e il setup Sh*ftAnything 0.20.6 privo di firma. Il certificato per la distribuzione di Sh*ftAnything resta da attivare.

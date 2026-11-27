@@ -1,0 +1,21 @@
+
+Kontact - Handle all your emails, calendars, contacts and more within a single
+window
+
+          ID: org.kde.kontact
+         Ref: app/org.kde.kontact/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 6.8.3
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 456.2 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac
+      Parent: 5a17a3f05db774219d669df0a046e66957395fa11ab3d0b146b561af746a8dc6
+     Subject: Update akonadi, akonadi-mime, kpimtextedit and 43 more modules (151077a8ef58)
+        Date: 2026-11-06 11:54:28 +0000

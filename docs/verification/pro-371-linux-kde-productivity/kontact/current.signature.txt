@@ -1,0 +1,19 @@
+commit b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6
+Parent:  ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac
+ContentChecksum:  2945f2b12d3ef7884a848fc37a380b58ebcf4e7ff8ce3ea18f7d3d1e7539dd42
+Date:  2026-11-25 22:26:04 +0000
+
+    Remove unused trap to stop akonadiserver on exit (1368e1d39669)
+
+    Name: org.kde.kontact
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 22:29:16 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,64 @@
+NativeBackend source dcfa7e63e69ad83a86a5c5702fd7555a5d885e13
+Probe SHA256 e389288c1dc69c436f53c7bfde1e25bca3c7d470dc3db7568b7783a86f7c7bb3
+Ubuntu 24.04 amd64; isolated temporary guest and user profile
+
+2026-11-27T18:37:26+00:00	normcap	DISK AVAILABLE 19570745344
+2026-11-27T18:38:07+00:00	normcap	NATIVE INSTALL com.github.dynobo.normcap
+2026-11-27T18:38:07+00:00	normcap	current-installed VERIFIED 0.6.0 13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1
+2026-11-27T18:38:36+00:00	normcap	previous VERIFIED 0.6.0 893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de
+2026-11-27T18:38:38+00:00	normcap	PREVIOUS DEPLOYMENT OWNERSHIP FIXTURE SEEDED
+2026-11-27T18:38:47+00:00	normcap	previous GUI OFFLINE OCR CLIPBOARD
+2026-11-27T18:38:47+00:00	normcap	DISK AVAILABLE 14571601920
+2026-11-27T18:38:51+00:00	normcap	current VERIFIED 0.6.0 13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1
+2026-11-27T18:39:00+00:00	normcap	current GUI OFFLINE OCR CLIPBOARD
+2026-11-27T18:39:01+00:00	normcap	REMOVE DATA PRESERVED
+2026-11-27T18:39:01+00:00	normcap	PASS NATIVE PACKAGE AND GUI CYCLE
+
+--- install ---
+normcap before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+normcap JobFinished: Ok("Flathub app installed")
+normcap after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+
+--- external ---
+normcap before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de", package: Some("com.github.dynobo.normcap"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: false, can_open: true }
+normcap JobFinished: Err("Approved action rejected: native installation state changed")
+normcap JobFinished: Err("This Flatpak is managed outside the launcher")
+normcap after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de", package: Some("com.github.dynobo.normcap"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: false, can_open: true })
+
+--- previous-native-open ---
+normcap before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true }
+normcap JobFinished: Ok("Launch request accepted")
+normcap after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true })
+
+--- current-update ---
+normcap before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: true, can_remove: true, can_open: true }
+normcap JobFinished: Ok("Flathub app updated")
+normcap after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+
+--- current-native-open ---
+normcap before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true }
+normcap JobFinished: Ok("Launch request accepted")
+normcap after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true })
+
+--- remove ---
+normcap before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profile-normcap-native/data/flatpak/app/com.github.dynobo.normcap/x86_64/stable/13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1", package: Some("com.github.dynobo.normcap"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.6.0"), update_available: false, can_remove: true, can_open: true }
+normcap JobFinished: Ok("Flathub app removed")
+normcap after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+
+--- current-installed signature ---
+commit 13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1
+Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+--- previous signature ---
+commit 893bf70a0ab5afda05e2b27a082420f06281074754c34d936116da9cf5e2f6de
+Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+--- current signature ---
+commit 13300efe2fe37f496adc70c6c85e600ffa0fff7721fbc91c3bd82952cf1b85f1
+Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+
+previous clipboard: SHIFT ANYTHING
+
+current clipboard: SHIFT ANYTHING
+
+Flatpak app list after isolated profile cleanup: empty

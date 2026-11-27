@@ -100,6 +100,7 @@ impl CraftApp {
             ("rapidraw", "CyberTimon/RapidRAW") => "RapidRAW".to_owned(),
             ("rustdesk", "rustdesk/rustdesk") => "rustdesk".to_owned(),
             ("activitywatch", "ActivityWatch/activitywatch") => "aw-qt".to_owned(),
+            ("orca", "stablyai/orca") => "orca-ide".to_owned(),
             _ => self.bundle_id(),
         }
     }
@@ -283,6 +284,8 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         return Some(icon);
     }
     Some(match id {
+        "opencode" => include_bytes!("../../../assets/app-icons/opencode.png"),
+        "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
         "pencil2d" => include_bytes!("../../../assets/app-icons/pencil2d.png"),
         "openshot-video-editor" => include_bytes!("../../../assets/app-icons/openshot-video-editor.png"),
         "musescore" => include_bytes!("../../../assets/app-icons/musescore.png"),

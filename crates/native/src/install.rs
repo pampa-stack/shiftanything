@@ -652,6 +652,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .then_some(())
             .ok_or_else(mismatch);
     }
+    if [artcraft_launcher_core::curated::OPENCODE.id, artcraft_launcher_core::curated::ORCA.id].contains(&app.id) && asset.name.ends_with(".AppImage")
+    {
+        return release::coding_desktop_linux_asset(app, release, asset).then_some(()).ok_or_else(mismatch);
+    }
     if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
         && (![
             artcraft_launcher_core::curated::LOSSLESSCUT.id,

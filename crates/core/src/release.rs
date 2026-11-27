@@ -547,24 +547,49 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
     if !version.pre.is_empty() || !version.build.is_empty() {
         return None;
     }
-    let name = "opencode-desktop-mac-arm64.dmg";
-    let file = &value["metadata"]["files"][name];
-    let size = file["size"].as_u64().filter(|size| *size > 0)?;
-    let sha256 = file["sha256"].as_str().filter(|hash| is_hex64(hash))?.to_ascii_lowercase();
-    if file["url"].as_str()? != format!("https://opencode.ai/files/bin/{version_label}/{name}") {
-        return None;
-    }
-
     let repo = crate::curated::OPENCODE.repo;
-    let url = format!("{}{tag}/{name}", download_prefix(repo));
+    let asset = |name: &str| {
+        let file = &value["metadata"]["files"][name];
+        let size = file["size"].as_u64().filter(|size| *size > 0)?;
+        let sha256 = file["sha256"].as_str().filter(|hash| is_hex64(hash))?.to_ascii_lowercase();
+        if file["url"].as_str()? != format!("https://opencode.ai/files/bin/{version_label}/{name}") {
+            return None;
+        }
+        let url = format!("{}{tag}/{name}", download_prefix(repo));
+        Some(Asset { name: name.into(), url, size, sha256: Some(sha256) })
+    };
+    let mut assets = vec![asset("opencode-desktop-mac-arm64.dmg")?];
+    assets.extend(asset("opencode-desktop-linux-x86_64.AppImage"));
     Some(Release {
         version: Some(version),
         name: format!("OpenCode {version_label}"),
         html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
         tag,
-        assets: vec![Asset { name: name.into(), url, size, sha256: Some(sha256) }],
+        assets,
         ..Release::default()
     })
+}
+
+/// Stable x86_64 desktop AppImages published by Orca and OpenCode.
+pub fn coding_desktop_linux_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+    use crate::curated::{OPENCODE, ORCA};
+
+    let name = match (app.id, app.repo) {
+        (id, repo) if (id, repo) == (OPENCODE.id, OPENCODE.repo) => "opencode-desktop-linux-x86_64.AppImage",
+        (id, repo) if (id, repo) == (ORCA.id, ORCA.repo) => "orca-linux.AppImage",
+        _ => return false,
+    };
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.pre.is_empty()
+                && version.build.is_empty()
+                && release.tag == format!("v{version}")
+                && release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
+        })
+        && asset.name == name
+        && asset.url == format!("{}{}/{name}", download_prefix(app.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
 pub(crate) fn godot_stable_version(tag: &str) -> Option<Version> {
@@ -1166,12 +1191,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("openclaw/openclaw", "v2026.11.10") => {
             &[("OpenClaw-2026.11.10-arm64.dmg", 248_813_181, "e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a")]
         }
-        ("anomalyco/opencode", "v2.4.1") => {
-            &[("opencode-desktop-mac-arm64.dmg", 345_340_005, "0d69386bec754af9a4d933148a47bc21beea85c1d414295a5b295f2e34640cea")]
-        }
-        ("anomalyco/opencode", "v2.4.2") => {
-            &[("opencode-desktop-mac-arm64.dmg", 345_253_101, "e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7")]
-        }
+        ("anomalyco/opencode", "v2.4.1") => &[
+            ("opencode-desktop-mac-arm64.dmg", 345_340_005, "0d69386bec754af9a4d933148a47bc21beea85c1d414295a5b295f2e34640cea"),
+            ("opencode-desktop-linux-x86_64.AppImage", 325_645_884, "0b68c8f5a6d1ad992815c026bb90a56e43d9e3db37c7fba5ea3f6094080b9a33"),
+        ],
+        ("anomalyco/opencode", "v2.4.2") => &[
+            ("opencode-desktop-mac-arm64.dmg", 345_253_101, "e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7"),
+            ("opencode-desktop-linux-x86_64.AppImage", 325_566_590, "b42c238487bdd08ee551d08053e6a5a765bd7bec65f7ca899fec66464bd0fb2b"),
+        ],
         ("ollama/ollama", "v0.40.17") => &[("Ollama.dmg", 231_575_873, "cc5eb8fa68f2f15ea6dbc79a705092a1b1e666102c54ed535c91bbbeccab8c78")],
         ("ollama/ollama", "v0.40.18") => &[("Ollama.dmg", 232_758_599, "78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed")],
         ("clash-verge-rev/clash-verge-rev", "v2.5.9") => {
@@ -1180,8 +1207,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("clash-verge-rev/clash-verge-rev", "v2.5.10") => {
             &[("Clash.Verge_2.5.10_aarch64.dmg", 80_769_307, "40d4a7da4543d75f573a5cfcc31543b0b4bf7e02caa122a9ca50654859585839")]
         }
-        ("stablyai/orca", "v1.4.279") => &[("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb")],
-        ("stablyai/orca", "v1.4.280") => &[("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528")],
+        ("stablyai/orca", "v1.4.279") => &[
+            ("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb"),
+            ("orca-linux.AppImage", 287_088_086, "72a0cd5f5cb09c69b0d998ca255dfe35aa4bf7f22145f2d218b92393cb70cd5a"),
+        ],
+        ("stablyai/orca", "v1.4.280") => &[
+            ("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528"),
+            ("orca-linux.AppImage", 285_631_432, "7fa4d975bdd151787bb12537908464f87695ecc3f1c26cf553220ee86d3c06c2"),
+        ],
         ("debpalash/VoiceStudio", "v0.5.7") => {
             &[("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0")]
         }
@@ -1688,6 +1721,8 @@ mod tests {
         let name = "opencode-desktop-mac-arm64.dmg";
         let expected = crate::release::release_from_sums(crate::curated::OPENCODE.repo, "v2.4.2", &[]);
         let approved = &expected.assets[0];
+        let linux_name = "opencode-desktop-linux-x86_64.AppImage";
+        let linux = expected.assets.iter().find(|asset| asset.name == linux_name).unwrap();
         let fixture = serde_json::json!({
             "channel": "latest",
             "distribution": "opencode",
@@ -1698,6 +1733,10 @@ mod tests {
                 "size": approved.size,
                 "sha256": approved.sha256,
                 "url": format!("https://opencode.ai/files/bin/2.4.2/{name}"),
+            }, (linux_name): {
+                "size": linux.size,
+                "sha256": linux.sha256,
+                "url": format!("https://opencode.ai/files/bin/2.4.2/{linux_name}"),
             }}}
         });
         let parse = |value: &serde_json::Value| opencode_desktop_release(&serde_json::to_vec(value).unwrap());
@@ -1705,6 +1744,11 @@ mod tests {
         assert_eq!(release.tag, "v2.4.2");
         assert_eq!(&release.assets[0], approved);
         assert!(qualified_mac_dmg_asset(&crate::curated::OPENCODE, &release, approved));
+        assert_eq!(&release.assets[1], linux);
+        assert!(coding_desktop_linux_asset(&crate::curated::OPENCODE, &release, linux));
+        let mut invalid_linux = fixture.clone();
+        invalid_linux["metadata"]["files"][linux_name]["url"] = serde_json::json!("https://elsewhere.example/download");
+        assert_eq!(parse(&invalid_linux).unwrap().assets, vec![approved.clone()]);
         for (pointer, field) in [
             ("/channel", serde_json::json!("beta")),
             ("/distribution", serde_json::json!("other")),

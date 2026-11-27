@@ -378,6 +378,18 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
     }
+    if platform.os == Os::Linux
+        && let Some(app) = [crate::curated::OPENCODE, crate::curated::ORCA].iter().find(|app| stems.contains(&app.id))
+    {
+        if !kinds.contains(&PackageKind::AppImage) {
+            return None;
+        }
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::coding_desktop_linux_asset(app, release, asset))
+            .map(|asset| (asset, PackageKind::AppImage));
+    }
     if platform.os == Os::MacOs
         && let Some(app) = crate::release::qualified_mac_dmg_recipe(stems)
     {
@@ -693,6 +705,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == linux_x64;
     }
+    if [crate::curated::OPENCODE.id, crate::curated::ORCA.id].iter().any(|id| stems.contains(id)) {
+        return platform == mac_arm64 || platform == linux_x64;
+    }
     if [crate::curated::GHOST_DOWNLOADER.id, crate::curated::LOSSLESSCUT.id, crate::curated::ZETTLR.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64 || platform == linux_x64;
     }
@@ -924,6 +939,8 @@ mod tests {
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         for (app, version, filename) in [
+            (crate::curated::OPENCODE, "2.4.2", "opencode-desktop-linux-x86_64.AppImage"),
+            (crate::curated::ORCA, "1.4.280", "orca-linux.AppImage"),
             (PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"),
             (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage"),
             (MUSESCORE, "4.7.7", "MuseScore-Studio-4.7.7.261109195-x86_64.AppImage"),
@@ -963,6 +980,10 @@ mod tests {
     fn tested_linux_appimages_are_available_without_github_api_quota() {
         let platform = Platform { os: Os::Linux, arch: Arch::X64 };
         for (repo, tag, filename, size) in [
+            ("anomalyco/opencode", "v2.4.1", "opencode-desktop-linux-x86_64.AppImage", 325_645_884),
+            ("anomalyco/opencode", "v2.4.2", "opencode-desktop-linux-x86_64.AppImage", 325_566_590),
+            ("stablyai/orca", "v1.4.279", "orca-linux.AppImage", 287_088_086),
+            ("stablyai/orca", "v1.4.280", "orca-linux.AppImage", 285_631_432),
             ("pencil2d/pencil", "v0.7.1", "pencil2d-linux-amd64-v0.7.1.AppImage", 60_471_800),
             ("pencil2d/pencil", "v0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage", 60_471_800),
             ("OpenShot/openshot-qt", "v4.1.0", "OpenShot-v4.1.0-x86_64.AppImage", 258_708_672),

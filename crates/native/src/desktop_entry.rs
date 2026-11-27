@@ -22,6 +22,8 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         return (meta.desktop_categories.as_str(), Some(meta.startup_wm_class.as_str()));
     }
     match app.id {
+        "opencode" => ("Development;", Some("ai.opencode.desktop")),
+        "orca" => ("Development;IDE;", Some("orca")),
         "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
         "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
         "musescore" => ("AudioVideo;Audio;Music;Qt;", Some("MuseScore4")),

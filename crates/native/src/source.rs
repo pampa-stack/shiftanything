@@ -377,14 +377,18 @@ impl GitHubSource {
     }
 
     fn ask_opencode_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
-        let release = self.opencode_desktop_manifest()?;
+        let mut release = self.opencode_desktop_manifest()?;
         let repo = &query.repo;
-        let asset = &release.assets[0];
         let manifest_url = format!("{}{}/{}", release::download_prefix(repo), release.tag, release::checksum_manifest_name(repo));
         let sums = self.http.get_text(&manifest_url)?.ok_or("OpenCode's GitHub release is missing its checksum manifest.")?;
-        if !release::parse_sha256sums(&sums).iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash)) {
+        let sums = release::parse_sha256sums(&sums);
+        let corroborated = |asset: &artcraft_launcher_core::release::Asset| {
+            sums.iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash))
+        };
+        if !corroborated(&release.assets[0]) {
             return Err("OpenCode's desktop and GitHub release checksums disagree.".into());
         }
+        release.assets.retain(corroborated);
         self.store(repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
         Ok(Answer { latest: LatestRelease::Found(release), source: Source::GitHubPages })
     }

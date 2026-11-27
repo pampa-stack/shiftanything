@@ -768,6 +768,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::GHOST_DOWNLOADER,
         crate::curated::KANDO,
         crate::curated::TRILIUM,
+        crate::curated::RECORDLY,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -1191,6 +1192,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("kando-menu/kando", "v3.0.1") => {
             &[("Kando-3.0.1-arm64.dmg", 154_825_532, "da33fde36a63766e1d646c5ebfaaf62865dcb764b835c0c38873d18c45d642c2")]
+        }
+        ("webadderallorg/Recordly", "v1.3.3") => {
+            &[("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5")]
+        }
+        ("webadderallorg/Recordly", "v1.4.0") => {
+            &[("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

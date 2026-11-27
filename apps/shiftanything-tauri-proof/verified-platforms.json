@@ -45,6 +45,7 @@
       "orca",
       "photocraft",
       "pinta",
+      "recordly",
       "rizzo-pii",
       "rustdesk",
       "shotcut",
@@ -78,6 +79,7 @@
       "cadcraft",
       "celluloid",
       "cherrytree",
+      "color-palette",
       "copyq",
       "craft-anything",
       "cryptomator",
@@ -170,6 +172,7 @@
       "photocraft",
       "pika-backup",
       "pinta",
+      "pixelorama",
       "prusaslicer",
       "qalculate",
       "qbittorrent",
@@ -208,7 +211,8 @@
       "wordcraft",
       "xournal",
       "zen",
-      "zettlr"
+      "zettlr",
+      "zotero"
     ]
   }
 }

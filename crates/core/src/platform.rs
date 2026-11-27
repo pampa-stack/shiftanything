@@ -829,6 +829,7 @@ mod tests {
             (crate::curated::GHOST_DOWNLOADER, ["v4.5.11", "v4.6.1"]),
             (crate::curated::KANDO, ["v3.0.0", "v3.0.1"]),
             (crate::curated::TRILIUM, ["v0.106.1", "v0.107.0"]),
+            (crate::curated::RECORDLY, ["v1.3.3", "v1.4.0"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),

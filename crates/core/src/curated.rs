@@ -1642,7 +1642,28 @@ pub const KANDO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("ASTCNA5X2Y"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 68] = [
+pub const RECORDLY: crate::CraftApp = crate::CraftApp {
+    id: "recordly",
+    name: "Recordly",
+    tagline: "Record and edit screen demonstrations",
+    repo: "webadderallorg/Recordly",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Fido Tech",
+    msi_publisher: None,
+    bundle: Some("dev.recordly.app"),
+    site: Some("https://recordly.dev/"),
+    mac_bundle_name: None,
+    mac_team: Some("54QUWA9PZA"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 69] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1711,6 +1732,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 68] = [
     MAGPIE,
     TRILIUM,
     KANDO,
+    RECORDLY,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

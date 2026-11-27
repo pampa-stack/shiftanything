@@ -15,3 +15,7 @@ Il pacchetto provato mostrava la fase di installazione Flatpak senza barra. Il f
 ## Nuove app provate sull'AX42-1
 
 DOSBox Staging, ScummVM e Video Downloader hanno completato installazione, apertura, aggiornamento Flatpak e rimozione con NativeBackend e directory utente isolate. Le coppie di screenshot mostrano la finestra prima e dopo. Per DOSBox Staging e ScummVM cambia la revisione firmata Flatpak. Il numero di versione dell'app resta 0.83.1 e 2026.4.0 rispettivamente. Le prove riguardano l'apertura delle finestre. [DOSBox Staging](dosbox-staging.png) · [ScummVM](scummvm.png) · [Video Downloader](video-downloader.png)
+
+Pixelorama 1.2.3 → 1.2.4 ha completato il ciclo aprendo il menu File in entrambe le versioni. Zotero 10.0.8 ha completato il ciclo su due revisioni Flatpak e ha aperto una libreria vuota. Il pacchetto Zotero su Flathub è distribuito dalla community ed è citato dagli autori. Plugin e sincronizzazione non sono stati provati. [Pixelorama](pixelorama.png) · [Zotero](zotero.png) · [Documentazione Zotero](https://www.zotero.org/support/kb/linux_packaging)
+
+Color Palette ha completato il ciclo su due revisioni firmate, con la palette GNOME visibile su entrambe. [Prima e dopo l'aggiornamento](color-palette.png)

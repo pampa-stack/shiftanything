@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 107] = [
+pub const RECIPES: [(&str, &str); 110] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -109,6 +109,9 @@ pub const RECIPES: [(&str, &str); 107] = [
     ("scummvm", "org.scummvm.ScummVM"),
     ("dosbox-staging", "io.github.dosbox-staging"),
     ("video-downloader", "com.github.unrud.VideoDownloader"),
+    ("pixelorama", "com.orama_interactive.Pixelorama"),
+    ("zotero", "org.zotero.Zotero"),
+    ("color-palette", "org.gnome.design.Palette"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -234,6 +237,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "scummvm" => "https://github.com/scummvm/scummvm",
         "dosbox-staging" => "https://github.com/dosbox-staging/dosbox-staging",
         "video-downloader" => "https://github.com/Unrud/video-downloader",
+        "pixelorama" => "https://github.com/Orama-Interactive/Pixelorama",
+        "zotero" => "https://github.com/zotero/zotero",
+        "color-palette" => "https://gitlab.gnome.org/World/design/palette",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

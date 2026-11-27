@@ -65,6 +65,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::GHOST_DOWNLOADER.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::KANDO.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::TRILIUM.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::RECORDLY.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::LOCALAI.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::JAN.id => Some((13, 6)),
         id if id == artcraft_launcher_core::curated::BRUNO.id => Some((12, 0)),

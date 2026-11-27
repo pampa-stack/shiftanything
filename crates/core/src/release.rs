@@ -557,6 +557,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("jgraph/drawio-desktop", "v32.7.4") => {
             &[("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3")]
         }
+        ("exelban/stats", "v3.1.0") => &[("Stats.dmg", 8_257_600, "a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7")],
+        ("exelban/stats", "v3.1.1") => &[("Stats.dmg", 8_386_915, "2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9")],
+        ("EpicenterHQ/epicenter", "v7.9.0") => {
+            &[("Whispering_7.9.0_aarch64.dmg", 15_206_641, "6a0e45d47ecdb2ada6afa8309914dd73c03db896fd153272e0891976867851c7")]
+        }
+        ("EpicenterHQ/epicenter", "v7.11.0") => {
+            &[("Whispering_7.11.0_aarch64.dmg", 15_606_745, "7c15883a5562e594633e2636db5abbc8197b8ae93c4714711bf802b531eaf2d0")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

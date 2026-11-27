@@ -257,6 +257,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::JOPLIN.id => Some(("Joplin-", "-arm64", "macos-aarch64")),
             id if id == crate::curated::SHOTCUT.id => Some(("shotcut-macos-", "", "macos-universal")),
             id if id == crate::curated::DRAWIO.id => Some(("draw.io-arm64-", "", "macos-aarch64")),
+            id if id == crate::curated::WHISPERING.id => Some(("Whispering_", "_aarch64", "macos-aarch64")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -314,22 +315,25 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
     use crate::curated::{
-        AUDACITY, DRAWIO, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, TRANSMISSION, ZED,
+        AUDACITY, DRAWIO, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT, STATS, TRANSMISSION,
+        WHISPERING, ZED,
     };
 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    // These ARM64 images keep the same filename across releases. The stable tag in
+    // These Apple Silicon-compatible images keep the same filename across releases. The stable tag in
     // the canonical URL binds the package; installation checks the signed bundle.
-    if let Some((app, filename)) = [(PINTA, "Pinta-macos-arm64.dmg"), (ZED, "Zed-aarch64.dmg")].into_iter().find(|(app, _)| stems.contains(&app.id)) {
+    if let Some((app, filename)) =
+        [(PINTA, "Pinta-macos-arm64.dmg"), (ZED, "Zed-aarch64.dmg"), (STATS, "Stats.dmg")].into_iter().find(|(app, _)| stems.contains(&app.id))
+    {
         if !kinds.contains(&PackageKind::Dmg)
             || release.prerelease
             || !release.version.as_ref().is_some_and(|version| {
                 version.pre.is_empty()
                     && version.build.is_empty()
                     && crate::version::parse(&release.tag).as_ref() == Some(version)
-                    && (app.id != ZED.id || release.tag.strip_prefix('v') == Some(version.to_string().as_str()))
+                    && (![STATS.id, ZED.id].contains(&app.id) || release.tag.strip_prefix('v') == Some(version.to_string().as_str()))
             })
         {
             return None;
@@ -351,7 +355,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             if name.stem == crate::curated::LIBREOFFICE.id {
                 return crate::release::libreoffice_arm64_asset(release, asset);
             }
-            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO]
+            let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, JOPLIN, SHOTCUT, DRAWIO, WHISPERING]
                 .iter()
                 .find(|app| app.id == name.stem)
                 .map(|app| app.repo);
@@ -360,7 +364,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             }) {
                 return false;
             }
-            if [JOPLIN.id, SHOTCUT.id, DRAWIO.id].contains(&name.stem.as_str())
+            if [JOPLIN.id, SHOTCUT.id, DRAWIO.id, WHISPERING.id].contains(&name.stem.as_str())
                 && (release.tag.strip_prefix('v') != Some(name.version.as_str())
                     || !asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
                     || asset.size == 0)
@@ -387,7 +391,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     use crate::curated::{
         AUDACITY, DRAWIO, HANDBRAKE, HANDY, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, PINTA, RIZZO_PII, SHOTCUT,
-        TRANSMISSION, ZED,
+        STATS, TRANSMISSION, WHISPERING, ZED,
     };
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
@@ -409,6 +413,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         PINTA.id,
         ZED.id,
         DRAWIO.id,
+        STATS.id,
+        WHISPERING.id,
     ]
     .iter()
     .any(|id| stems.contains(id))

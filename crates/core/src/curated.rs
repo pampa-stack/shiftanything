@@ -567,7 +567,49 @@ pub const DRAWIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("UZEUFB4N53"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 17] = [
+pub const STATS: crate::CraftApp = crate::CraftApp {
+    id: "stats",
+    name: "Stats",
+    tagline: "System monitoring in the menu bar",
+    repo: "exelban/stats",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [95, 165, 240],
+    ink_light: [37, 77, 130],
+    ink_dark: [169, 205, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Serhiy Mytrovtsiy",
+    msi_publisher: None,
+    bundle: Some("eu.exelban.Stats"),
+    site: Some("https://mac-stats.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("RP2S87B72W"),
+};
+
+pub const WHISPERING: crate::CraftApp = crate::CraftApp {
+    id: "epicenter-whispering",
+    name: "Whispering",
+    tagline: "Local voice transcription",
+    repo: "EpicenterHQ/epicenter",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [108, 171, 149],
+    ink_light: [38, 87, 73],
+    ink_dark: [159, 216, 196],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Braden Wong",
+    msi_publisher: None,
+    bundle: Some("com.bradenwong.whispering"),
+    site: Some("https://epicenter.so/"),
+    mac_bundle_name: None,
+    mac_team: Some("3C7J97QA5Z"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 19] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -585,6 +627,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 17] = [
     PINTA,
     ZED,
     DRAWIO,
+    STATS,
+    WHISPERING,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -792,6 +836,13 @@ mod recipe_tests {
                 "com.jgraph.drawio.desktop",
                 "UZEUFB4N53",
             ),
+            (
+                super::WHISPERING,
+                ["v7.9.0", "v7.11.0"],
+                ["Whispering_7.9.0_aarch64.dmg", "Whispering_7.11.0_aarch64.dmg"],
+                "com.bradenwong.whispering",
+                "3C7J97QA5Z",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -843,6 +894,9 @@ mod recipe_tests {
             (super::DRAWIO, "draw.io-x64-32.7.4.dmg"),
             (super::DRAWIO, "draw.io-universal-32.7.4.dmg"),
             (super::DRAWIO, "draw.io-arm64-32.7.4-beta.1.dmg"),
+            (super::WHISPERING, "Whispering_7.10.0_x64.dmg"),
+            (super::WHISPERING, "Whispering_7.11.0-beta.1_aarch64.dmg"),
+            (super::WHISPERING, "Epicenter_7.11.0_aarch64.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }
@@ -858,6 +912,7 @@ mod recipe_tests {
         for (id, tags, filename, bundle, team, wrong_arch_filename) in [
             ("pinta", ["3.1.1", "3.1.2"], "Pinta-macos-arm64.dmg", "com.ximian.pinta", "D5G6C56TBH", "Pinta-macos-x86_64.dmg"),
             ("zed", ["v1.29.3", "v1.30.2"], "Zed-aarch64.dmg", "dev.zed.Zed", "MQ55VZLNZQ", "Zed-x86_64.dmg"),
+            ("stats", ["v3.1.0", "v3.1.1"], "Stats.dmg", "eu.exelban.Stats", "RP2S87B72W", "Stats-intel.dmg"),
         ] {
             let app = CraftApp::by_id(id).expect("compiled recipe");
             let installable =
@@ -893,7 +948,7 @@ mod recipe_tests {
                 let mut wrong = official.clone();
                 wrong.prerelease = true;
                 assert!(!installable(&wrong, mac));
-                if id == super::ZED.id {
+                if [super::STATS.id, super::ZED.id].contains(&id) {
                     let mut wrong = official.clone();
                     wrong.tag = tag.trim_start_matches('v').into();
                     wrong.assets[0].url = wrong.assets[0].url.replace(tag, &wrong.tag);

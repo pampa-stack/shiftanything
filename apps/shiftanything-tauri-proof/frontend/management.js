@@ -91,9 +91,11 @@
       row.append(text('span', '—'));
     }
     const activity = window.nativeAppActivity(snapshot, app.id);
-    const state = text('span', activity.label || (app.installed ? (it?'Installata':'Installed') : (it?'In attesa':'Waiting')));
+    const state = document.createElement('div');
     state.title = activity.detail || '';
-    state.className = 'native-app-result';
+    state.className = 'native-app-result download-progress';
+    window.showDownloadProgress(state, snapshot.progress[app.id], entry?.name || app.id,
+      activity.label || (app.installed ? (it?'Installata':'Installed') : (it?'In attesa':'Waiting')));
     row.append(state);
     const actions = document.createElement('div');
     actions.className = 'more-actions';

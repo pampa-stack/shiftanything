@@ -349,6 +349,9 @@ main.main{overflow-y:auto;display:block}
 .install-indicator[data-verified="true"]{color:#81e1ac}
 .catalog-grid .c-acts,.catalog-table .c-acts{flex-wrap:wrap}
 .install-reason{flex-basis:100%;min-height:1lh;color:var(--dim);font-size:10.5px;line-height:1.25}
+.download-progress:has(progress){display:flex;align-items:center;gap:8px;justify-content:space-between;width:100%;min-width:0}
+.download-progress progress{flex:1 1 56px;width:56px;max-width:140px;height:6px;accent-color:var(--acc)}
+.download-progress:has(progress) .download-label{font-variant-numeric:tabular-nums}
 .catalog-table .install-reason,.detail-actions .install-reason{text-align:right}
 .detail-actions:has(.install-indicator){grid-template-columns:auto auto;column-gap:6px}
 .detail-actions > :is(.btn,.install-reason){grid-column:1/-1}

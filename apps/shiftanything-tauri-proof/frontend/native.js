@@ -89,6 +89,7 @@
     } catch(error) {actionError=String(error);status.textContent=actionError;}
   });
   window.nativeAppActivity = appActivity;
+  window.showDownloadProgress = showDownloadProgress;
   let paintKey;
   let requesting = false;
   const confirmation = document.createElement('dialog');
@@ -201,12 +202,38 @@
     time.textContent = release.dateLabel;
     output.replaceChildren(time);
   }
+  function downloadPercent(progress) {
+    if (!(progress?.total > 0) || !Number.isFinite(progress.done)) return;
+    return Math.max(0, Math.min(100, Math.floor(progress.done * 100 / progress.total)));
+  }
   function progressLabel(progress) {
-    if (!progress) return '';
-    const label = phases[progress.phase] || '';
-    if (!(progress.total > 0)) return label;
-    const percent = Math.max(0, Math.min(100, Math.floor(progress.done * 100 / progress.total)));
-    return `${label} · ${percent}%`;
+    const label = phases[progress?.phase] || '';
+    const percent = downloadPercent(progress);
+    return percent === undefined ? label : `${label} · ${percent}%`;
+  }
+  function showDownloadProgress(container, progress, appName, fallback = '') {
+    const label = progressLabel(progress);
+    let output = container.querySelector('.download-label');
+    if (!output) {
+      output = document.createElement('span');
+      output.className = 'download-label';
+      container.replaceChildren(output);
+    }
+    setText(output, label || fallback);
+    let bar = container.querySelector('progress');
+    if (progress?.phase !== 'downloading' && progress?.phase !== 'reconnecting') {
+      bar?.remove();
+      return;
+    }
+    if (!bar) {
+      bar = document.createElement('progress');
+      bar.max = 100;
+      container.append(bar);
+    }
+    bar.setAttribute('aria-label', `${phases[progress.phase]} · ${appName}`);
+    const percent = downloadPercent(progress);
+    if (percent === undefined) bar.removeAttribute('value');
+    else if (bar.position < 0 || bar.value !== percent) bar.value = percent;
   }
   function appActivity(snapshot, id) {
     const live = progressLabel(snapshot.progress[id]);
@@ -270,7 +297,7 @@
         : (it?'Installazione non ancora verificata su questo sistema.':'Installation not yet verified on this system.'),
     };
   }
-  function showInstallStatus(button, action, verified, platformReady) {
+  function showInstallStatus(button, action, verified, platformReady, progress) {
     const surface = button.closest('.cell, .catalog-row, [data-app-content]');
     const heart = surface?.querySelector('button[data-favorite-app]');
     if (heart && platformReady) {
@@ -293,14 +320,15 @@
     const actions = button.parentElement;
     let reason = actions.querySelector('.install-reason');
     const reserveSpace = surface?.classList.contains('cell');
-    if (!reason && (action.reason || reserveSpace)) {
+    if (!reason && (action.reason || reserveSpace || progress)) {
       reason = document.createElement('span');
-      reason.className = 'install-reason';
+      reason.className = 'install-reason download-progress';
       actions.append(reason);
     }
     if (reason) {
-      reason.hidden = !action.reason && !reserveSpace;
-      setText(reason, action.reason || '');
+      reason.hidden = !action.reason && !reserveSpace && !progress;
+      const appId = button.dataset.nativeApp;
+      showDownloadProgress(reason, progress, catalogById.get(appId)?.name || appId, action.reason);
     }
   }
   function render(snapshot, {force = false} = {}) {
@@ -367,7 +395,7 @@
         button.classList.toggle('solid', action.enabled && action.operation === 'install');
         if (action.target) button.dataset.externalTarget = action.target;
         else delete button.dataset.externalTarget;
-        showInstallStatus(button, action, proven, Boolean(snapshot.platform));
+        showInstallStatus(button, action, proven, Boolean(snapshot.platform), snapshot.progress[button.dataset.nativeApp]);
         continue;
       }
       button.textContent = labels[operation];

@@ -72,13 +72,19 @@ pub struct Snapshot {
 /// Completed package cycles, distinct from today's package availability.
 fn verified_installs(platform: Option<Platform>) -> &'static BTreeSet<String> {
     type Evidence = BTreeMap<String, BTreeMap<String, BTreeSet<String>>>;
-    static EVIDENCE: OnceLock<Evidence> = OnceLock::new();
+    static EVIDENCE: OnceLock<Option<Evidence>> = OnceLock::new();
     static NONE: BTreeSet<String> = BTreeSet::new();
     let Some(platform) = platform else { return &NONE };
-    let evidence =
-        EVIDENCE.get_or_init(|| serde_json::from_str(include_str!("../verified-platforms.json")).expect("valid package verification evidence"));
+    let evidence = EVIDENCE.get_or_init(|| match serde_json::from_str(include_str!("../verified-platforms.json")) {
+        Ok(evidence) => Some(evidence),
+        Err(error) => {
+            eprintln!("Invalid embedded package verification evidence: {error}");
+            None
+        }
+    });
     evidence
-        .get(&platform.os.label().to_ascii_lowercase())
+        .as_ref()
+        .and_then(|evidence| evidence.get(&platform.os.label().to_ascii_lowercase()))
         .and_then(|architectures| architectures.get(&platform.arch.label().to_ascii_lowercase()))
         .unwrap_or(&NONE)
 }

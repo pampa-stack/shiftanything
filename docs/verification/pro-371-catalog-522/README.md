@@ -52,3 +52,11 @@ Gli altri media sono riferimenti a immagini del progetto. Nessun permesso di rid
 - Firezone rende disponibile il sorgente. Per il control plane autogestito il progetto non dà supporto o istruzioni e lo suggerisce per usi hobbistici o educativi. [FAQ](https://www.firezone.dev/kb/faq#can-i-self-host-firezone)
 - Tinyauth ha una schermata di autenticazione e il pannello utente non è documentato. Yubico Authenticator richiede un dispositivo YubiKey proprietario.
 - WireGuard UI di ngoduykhanh e wg-access-server di Place1 erano senza sviluppo recente. Il fork Freifunk di wg-access-server aveva 694 stelle. BlockBlock e KnockKnock erano sotto 1.000 stelle.
+
+## VPN aggiunte dopo le prime 17 app
+
+- EasyTier 15.002 stelle, LGPL-3.0. Rete privata tra dispositivi, con client desktop Linux, macOS e Windows. Versione, dimensioni e sorgenti del client dalla release di progetto. [Release v2.6.4](https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4) · [Stelle GitHub](https://api.github.com/repos/EasyTier/EasyTier)
+- Outline VPN 9.298 stelle, Apache-2.0. Client per Linux, macOS e Windows e server autogestito tramite Outline Manager. La versione 1.23.0 si riferisce al client Mac pubblicato dall'editore su App Store. [Guida server](https://developer.getoutline.org/vpn/getting-started/server-setup-manager/) · [Client macOS](https://apps.apple.com/us/app/outline-secure-internet-access/id1356178125) · [Stelle GitHub](https://api.github.com/repos/OutlineFoundation/outline-apps)
+- Trayscale 1.094 stelle, MIT. Interfaccia Linux per il demone Tailscale, utilizzabile anche con un account registrato con Headscale. [Release v0.21.0](https://github.com/DeedleFake/trayscale/releases/tag/v0.21.0) · [Flatpak](https://flathub.org/apps/dev.deedles.Trayscale) · [Stelle GitHub](https://api.github.com/repos/DeedleFake/trayscale)
+
+Otto asset ufficiali scaricati e letti fra icone e schermate. Trayscale e Outline aggiungono due loghi al pacchetto in base alle loro licenze. I canali di installazione riportati sono documentali.

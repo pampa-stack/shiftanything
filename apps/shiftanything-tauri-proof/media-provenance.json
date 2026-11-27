@@ -4198,6 +4198,24 @@
       "sha256": "a3ec5895ed25ac570429d9f25d7dfe1afd9d10ba360cf09d14c8be91871b5c5e",
       "source_sha256": "a3ec5895ed25ac570429d9f25d7dfe1afd9d10ba360cf09d14c8be91871b5c5e",
       "license": "Apache-2.0"
+    },
+    {
+      "app": "trayscale",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/DeedleFake/trayscale/v0.21.0/dev.deedles.Trayscale.png",
+      "file": "media/trayscale-logo.png",
+      "sha256": "ae2d7fdd78ba703d21b874ab8ce02011151f976607acec6e23387a3a3066b0f4",
+      "source_sha256": "ae2d7fdd78ba703d21b874ab8ce02011151f976607acec6e23387a3a3066b0f4",
+      "license": "MIT"
+    },
+    {
+      "app": "outline-vpn",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/OutlineFoundation/outline-apps/2bba18270659ab75b469c5a79a1b955c43d58899/docs/resources/logo_client.png",
+      "file": "media/outline-vpn-logo.png",
+      "sha256": "137235b609a79f1fbd3a8cfa4f21e3e3c862c2b84166bb3ebce06d4d9b64ec0f",
+      "source_sha256": "137235b609a79f1fbd3a8cfa4f21e3e3c862c2b84166bb3ebce06d4d9b64ec0f",
+      "license": "Outline Brand User Guide"
     }
   ]
 }

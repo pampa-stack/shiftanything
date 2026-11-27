@@ -31069,5 +31069,180 @@
     "platform_support": {
       "linux": "https://docs.bunkerweb.io/latest/quickstart-guide/"
     }
+  },
+  {
+    "id": "easytier",
+    "name": "EasyTier",
+    "repo": "https://github.com/EasyTier/EasyTier",
+    "author": "EasyTier Project",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Collega i tuoi dispositivi in una rete privata tra pari e controlla connessioni e nodi dall’app desktop.",
+      "en": "Connect your devices in a private peer-to-peer network and manage connections and peers from the desktop app."
+    },
+    "alternatives": [
+      "Tailscale",
+      "ZeroTier"
+    ],
+    "license": "LGPL-3.0",
+    "license_url": "https://github.com/EasyTier/EasyTier/blob/v2.6.4/LICENSE",
+    "website": "https://easytier.rs/en/",
+    "releases": "https://github.com/EasyTier/EasyTier/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/EasyTier/EasyTier/v2.6.4/easytier-gui/src-tauri/icons/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/EasyTier/EasyTier/v2.6.4/assets/config-page.png",
+      "https://raw.githubusercontent.com/EasyTier/EasyTier/v2.6.4/assets/running-page.png"
+    ],
+    "media_source": "https://github.com/EasyTier/EasyTier/tree/v2.6.4#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4"
+    },
+    "stars": {
+      "count": 15002,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/EasyTier/EasyTier"
+    },
+    "release": {
+      "version": "v2.6.4",
+      "date": "2026-05-12",
+      "source": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 14405680,
+          "size_max": 97793216
+        },
+        {
+          "platform": "macos",
+          "size_min": 12749698,
+          "size_max": 14005782
+        },
+        {
+          "platform": "windows",
+          "size_min": 9676571,
+          "size_max": 10942975
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4",
+      "macos": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4",
+      "windows": "https://github.com/EasyTier/EasyTier/releases/tag/v2.6.4"
+    },
+    "screenshot_credits": [
+      "EasyTier GUI v2.3.2, official project README",
+      "EasyTier GUI v2.3.2, official project README"
+    ]
+  },
+  {
+    "id": "outline-vpn",
+    "name": "Outline VPN",
+    "repo": "https://github.com/OutlineFoundation/outline-apps",
+    "author": "Outline Foundation",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Configura il tuo server VPN con Outline Manager e collegati dal client desktop usando le chiavi d’accesso.",
+      "en": "Set up your own VPN server with Outline Manager and connect from the desktop client with access keys."
+    },
+    "alternatives": [
+      "OpenVPN Connect"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/OutlineFoundation/outline-apps/blob/2bba18270659ab75b469c5a79a1b955c43d58899/LICENSE",
+    "website": "https://getoutline.org/",
+    "releases": "https://developer.getoutline.org/download-links/",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/OutlineFoundation/outline-apps/2bba18270659ab75b469c5a79a1b955c43d58899/docs/resources/logo_client.png",
+    "screenshots": [
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/5e/af/36/5eaf3608-66b4-7f8e-1fa4-e93116efa081/pr_source.png/800x500bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/3b/d3/1f/3bd31f7a-224d-2684-703d-82bccc8ddb8f/pr_source.png/800x500bb.jpg"
+    ],
+    "media_source": "https://apps.apple.com/us/app/outline-secure-internet-access/id1356178125",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://developer.getoutline.org/vpn/getting-started/server-setup-manager/"
+    },
+    "stars": {
+      "count": 9298,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/OutlineFoundation/outline-apps"
+    },
+    "release": {
+      "version": "1.23.0",
+      "date": "2026-11-19",
+      "source": "https://apps.apple.com/us/app/outline-secure-internet-access/id1356178125",
+      "packages": []
+    },
+    "platform_support": {
+      "macos": "https://developer.getoutline.org/download-links/",
+      "linux": "https://developer.getoutline.org/download-links/",
+      "windows": "https://developer.getoutline.org/download-links/"
+    },
+    "screenshot_credits": [
+      "Outline Client, publisher’s Mac App Store gallery",
+      "Outline Client, publisher’s Mac App Store gallery"
+    ]
+  },
+  {
+    "id": "trayscale",
+    "name": "Trayscale",
+    "repo": "https://github.com/DeedleFake/trayscale",
+    "author": "DeedleFake",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Gestisci da Linux i dispositivi e le connessioni di una rete VPN tramite il demone Tailscale, anche dopo la registrazione con Headscale.",
+      "en": "Manage VPN connections and devices on Linux through the Tailscale daemon, including networks already enrolled with Headscale."
+    },
+    "alternatives": [
+      "Tailscale"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/DeedleFake/trayscale/blob/v0.21.0/LICENSE",
+    "website": "https://github.com/DeedleFake/trayscale",
+    "releases": "https://flathub.org/apps/dev.deedles.Trayscale",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/DeedleFake/trayscale/v0.21.0/dev.deedles.Trayscale.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/30f69ec9-630b-4d9a-98a9-cb31712c60e7"
+    ],
+    "media_source": "https://github.com/DeedleFake/trayscale/tree/v0.21.0#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/DeedleFake/trayscale/tree/v0.21.0#readme"
+    },
+    "stars": {
+      "count": 1094,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/DeedleFake/trayscale"
+    },
+    "release": {
+      "version": "v0.21.0",
+      "date": "2026-10-15",
+      "source": "https://github.com/DeedleFake/trayscale/releases/tag/v0.21.0",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/dev.deedles.Trayscale"
+    }
   }
 ]

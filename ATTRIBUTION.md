@@ -143,3 +143,5 @@ Headplane v0.8.2 favicon and product screenshots are MIT-licensed by Aarnav Tale
 Casdoor logo `static/img/casdoor.png` is the unmodified square icon from the Apache-2.0 website repository at commit `09bf3e7b84ef2209382c5b31d29d0d585801849d`. Used to identify the original app. Copyright and licence in `NOTICE` and `LICENSE-APACHE`.
 
 Authelia v4.39.28 favicon (converted from SVG), MeshCentral 1.3.2 favicon and Apache Guacamole 1.6.0 app icon are from the original Apache-2.0 projects and identify those apps. URLs and checksums are in the Tauri media manifest. See also `NOTICE` and `LICENSE-APACHE`.
+
+The Trayscale v0.21.0 app icon is unmodified and MIT-licensed by DeedleFake. The Outline VPN client logo is unmodified and identifies the original product. Outline is owned by the Outline Foundation. See the [Outline Brand User Guide](https://github.com/OutlineFoundation/outline-brand/blob/d8ddfd4891fe5def3e74f559dae970c9e026bfde/outline_brand_user_guide.pdf), `NOTICE` and the Tauri media manifest.

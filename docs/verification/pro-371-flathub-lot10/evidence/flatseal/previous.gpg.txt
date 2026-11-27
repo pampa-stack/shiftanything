@@ -1,0 +1,19 @@
+commit 14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1
+Parent:  79456afc5a115a457bd99c85e428d47637ec978293aafb328ccc450c13bfeb80
+ContentChecksum:  733e0fe0bf3cd2911b01222b4d4edf6f1d3102c88925c68afce135f21ad4a1f7
+Date:  2025-09-29 10:15:10 +0000
+
+    Update to v2.4.0 (9b380161a895)
+
+    Name: com.github.tchx84.Flatseal
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Mon Sep 29 12:05:24 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,84 @@
+[
+  {
+    "id": "flatseal",
+    "name": "Flatseal",
+    "repo": "https://github.com/tchx84/Flatseal",
+    "license": "GPL-3.0-or-later",
+    "stars": 1825,
+    "flatpak": "com.github.tchx84.Flatseal",
+    "flathub": "https://flathub.org/apps/com.github.tchx84.Flatseal",
+    "download_size": 930550,
+    "logo": "https://dl.flathub.org/media/com/github/tchx84.Flatseal/462bde383c024a52b3132ae3df79704a/icons/128x128/com.github.tchx84.Flatseal.png",
+    "metadata_urls": {
+      "bugtracker": "https://github.com/tchx84/flatseal/issues",
+      "homepage": "https://github.com/tchx84/flatseal"
+    },
+    "verification": {
+      "verified": true,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "2.4.1"
+    ],
+    "title": "flatseal",
+    "current_commit": "ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae",
+    "previous_commit": "14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1",
+    "prev": "14ba14f237835365b3b5f2c8f6eee2dcaf7f248d92f3eaf51e00ab28cfe523b1",
+    "current": "ef9fe38e9cb96c170ea579fe1bbf8c76011255d4962d7fc4b3aa4e0a6063f8ae",
+    "previous_version": "2.4.0",
+    "current_version": "2.4.1",
+    "times_ms": {
+      "install": 36956,
+      "prior": 26083,
+      "open-previous": 10212,
+      "open": 11992,
+      "update": 6331,
+      "open-current": 9926,
+      "remove": 4934,
+      "update-remove": 23197
+    },
+    "cycle_ms": 98395
+  },
+  {
+    "id": "anki",
+    "name": "Anki",
+    "repo": "https://github.com/ankitects/anki",
+    "license": "AGPL-3.0+",
+    "stars": 33049,
+    "flatpak": "net.ankiweb.Anki",
+    "flathub": "https://flathub.org/apps/net.ankiweb.Anki",
+    "download_size": 162046903,
+    "logo": "https://dl.flathub.org/media/net/ankiweb/Anki/844887dbd05a52ecf890ddd79317b1ff/icons/128x128/net.ankiweb.Anki.png",
+    "metadata_urls": {
+      "translate": "https://translating.ankiweb.net/",
+      "bugtracker": "https://forums.ankiweb.net/",
+      "homepage": "https://apps.ankiweb.net/",
+      "help": "https://docs.ankiweb.net/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "26.09.4"
+    ],
+    "title": "anki",
+    "current_commit": "53e471bfc1d618952be26572f85a3b6965a70d0c5e2fb4240c985d871b8ddd00",
+    "previous_commit": "3f79a0ca0556910be028d43f5eb7b2cc4a823c1ca4341e371619f7e8ab3fa40f",
+    "prev": "3f79a0ca0556910be028d43f5eb7b2cc4a823c1ca4341e371619f7e8ab3fa40f",
+    "current": "53e471bfc1d618952be26572f85a3b6965a70d0c5e2fb4240c985d871b8ddd00",
+    "previous_version": "26.09.4",
+    "current_version": "26.09.4",
+    "times_ms": {
+      "install": 51885,
+      "prior": 8764,
+      "open-previous": 16503,
+      "open": 21232,
+      "update": 7542,
+      "open-current": 16991,
+      "remove": 5827,
+      "update-remove": 37665
+    },
+    "cycle_ms": 119675
+  }
+]

@@ -6,6 +6,7 @@ umask 077
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 # shellcheck source=check-bundle.sh
 . "$ROOT/packaging/macos/check-bundle.sh"
+LAYOUT="$ROOT/packaging/macos/dmg/shiftanything"
 SUFFIX=local
 case "$#:${1:-}" in
   1:*) OUTPUT="$1" ;;
@@ -23,7 +24,7 @@ DMG="$OUTPUT/ShiftAnything-$VERSION-macos-$ARCH-$SUFFIX.dmg"
 STAGE="$OUTPUT/stage"
 mkdir -m 755 "$STAGE"
 ditto "$APP" "$STAGE/Sh*ftAnything.app"
-ln -s /Applications "$STAGE/Applications"
+stage_dmg_layout "$STAGE" "$LAYOUT"
 hdiutil create -srcfolder "$STAGE" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$DMG"
 codesign --force --sign - --timestamp=none "$DMG"
 codesign --verify --strict "$DMG"
@@ -38,6 +39,7 @@ cleanup() {
 trap cleanup EXIT
 hdiutil attach "$DMG" -readonly -nobrowse -noautoopen -mountpoint "$MOUNT"
 MOUNTED=1
+check_dmg_layout "$MOUNT" "$LAYOUT"
 BUNDLE="$MOUNT/Sh*ftAnything.app"
 check_bundle_modes "$BUNDLE"
 [[ "$(plutil -extract CFBundleIdentifier raw -o - "$BUNDLE/Contents/Info.plist")" = it.promptica.shiftanything ]]

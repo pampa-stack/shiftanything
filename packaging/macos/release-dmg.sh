@@ -9,6 +9,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$HERE/check-bundle.sh"
 APP_NAME='Sh*ftAnything.app'
 BUNDLE_ID=it.promptica.shiftanything
+LAYOUT="$HERE/dmg/shiftanything"
 
 fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
 usage() { printf 'usage: release-dmg.sh --check | NEW_OUTPUT_DIRECTORY | --resume OUTPUT_DIRECTORY\n'; }
@@ -182,6 +183,13 @@ verify_app() {
   done
 }
 
+mount_installer() {
+  mount="$(mktemp -d /private/tmp/shiftanything-release.XXXXXXXX)"
+  hdiutil attach "$1" -readonly -nobrowse -noautoopen -mountpoint "$mount"
+  mounted=1
+  check_dmg_layout "$mount" "$LAYOUT"
+}
+
 released=("$output"/ShiftAnything-*-macos-*.dmg)
 if [[ -f "${released[0]}" ]]; then
   [[ ${#released[@]} = 1 ]] || fail 'Unexpected number of completed release images.'
@@ -191,6 +199,7 @@ if [[ -f "${released[0]}" ]]; then
   verify_signature "$completed" dmg
   retry xcrun stapler validate "$completed"
   retry assess --type open --context context:primary-signature "$completed"
+  mount_installer "$completed"
   printf 'PASS verified existing macOS DMG: %s\n' "${released[0]}"
   exit 0
 fi
@@ -236,12 +245,15 @@ if [[ ! -f "$source_dmg" ]]; then
   stage="$(mktemp -d "$work/stage.XXXXXXXX")"
   chmod 755 "$stage"
   ditto "$app" "$stage/$APP_NAME"
-  ln -s /Applications "$stage/Applications"
-  hdiutil create -srcfolder "$stage" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$stage/build.dmg"
-  sign --identifier "$BUNDLE_ID.disk-image" "$stage/build.dmg"
-  codesign --verify --strict "$stage/build.dmg"
-  verify_signature "$stage/build.dmg" dmg
-  mv -- "$stage/build.dmg" "$source_dmg"
+  stage_dmg_layout "$stage" "$LAYOUT"
+  staging_output="$(mktemp -d "$work/image.XXXXXXXX")"
+  raw_dmg="$staging_output/$filename"
+  hdiutil create -srcfolder "$stage" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$raw_dmg"
+  sign --identifier "$BUNDLE_ID.disk-image" "$raw_dmg"
+  codesign --verify --strict "$raw_dmg"
+  verify_signature "$raw_dmg" dmg
+  mv -- "$raw_dmg" "$source_dmg"
+  rmdir -- "$staging_output"
 fi
 codesign --verify --strict "$source_dmg"
 verify_signature "$source_dmg" dmg
@@ -256,10 +268,7 @@ verify_signature "$dmg" dmg
 retry assess --type open --context context:primary-signature "$dmg"
 hdiutil verify "$dmg"
 
-mount="$(mktemp -d /private/tmp/shiftanything-release.XXXXXXXX)"
-hdiutil attach "$dmg" -readonly -nobrowse -noautoopen -mountpoint "$mount"
-mounted=1
-[[ "$(readlink "$mount/Applications")" = /Applications ]] || fail 'Missing Applications shortcut in the mounted image.'
+mount_installer "$dmg"
 verify_app "$mount/$APP_NAME"
 verified="$(mktemp -d "$work/verified.XXXXXXXX")"
 ditto "$mount/$APP_NAME" "$verified/$APP_NAME"

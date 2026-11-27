@@ -291,7 +291,9 @@
         target:guide,
       };
     }
-    if (verified && snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
+    if (snapshot.install_checks_pending?.includes(appId)) {
+      return {label:labels.install, enabled:false, busy:true, reason:it?'Controllo del pacchetto…':'Checking package…'};
+    }
     return {
       ...manualDownload(entry, platform),
       reason:verified ? (it?'Pacchetto compatibile non disponibile ora.':'Compatible package currently unavailable.')
@@ -336,7 +338,7 @@
     const firstPaint = !current;
     const {updated_at: _, ...inventoryState} = snapshot.inventory;
     const nextKey = JSON.stringify([snapshot.lifecycle_enabled, snapshot.platform, inventoryState, snapshot.release_assets,
-      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs]);
+      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs, snapshot.install_checks_pending]);
     current = snapshot;
     if (!force && paintKey === nextKey) return;
     paintKey = nextKey;
@@ -394,6 +396,8 @@
         button.disabled = !(action.enabled || action.target);
         button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
         button.classList.toggle('solid', action.enabled && action.operation === 'install');
+        if (action.busy) button.setAttribute('aria-busy', 'true');
+        else button.removeAttribute('aria-busy');
         if (action.target) button.dataset.externalTarget = action.target;
         else delete button.dataset.externalTarget;
         showInstallStatus(button, action, proven, Boolean(snapshot.platform), snapshot.progress[button.dataset.nativeApp]);
@@ -406,6 +410,7 @@
       button.hidden = !snapshot.lifecycle_enabled || !allowed;
       button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }
+    document.documentElement.dataset.nativeStarted = '';
     const controls = detail?.querySelector('.native-management');
     if (controls) controls.hidden = [...controls.children].every(child => child.hidden);
     if (snapshot.pending) {
@@ -559,27 +564,34 @@
     if (update.status === 'idle') await runUpdate('launcher_update_check');
   }
 
+  const catalogData = window.shiftCatalogData = invoke('catalog_snapshot');
+  // Begin local IPC now, then paint after the other deferred modules have registered their listeners.
+  const listenersReady = new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, {once:true}));
+
   async function start() {
-    status.textContent = `${note} · Rust…`;
-    const catalog = await invoke('catalog_snapshot');
+    status.textContent = it ? 'Caricamento del catalogo…' : 'Loading catalog…';
+    const startTime = performance.now();
+    const [catalog, firstSnapshot] = await Promise.all([catalogData, invoke('native_snapshot'), listenersReady]);
     for (const app of catalog) catalogById.set(app.id, app);
     const ids = new Set([...document.querySelectorAll('.catalog-grid [data-app]')].map(node => node.dataset.app));
     if (catalog.length !== ids.size || catalog.some(app => !ids.has(app.id))) throw Error('Native catalog differs from the local template');
-    async function poll() {
-    const snapshot = await invoke('native_snapshot');
-    render(snapshot);
-    const progress = Object.entries(snapshot.progress).map(([id, job]) =>
-      `${catalogById.get(id)?.name || id} · ${progressLabel(job)}`).join(' · ');
-    if (snapshot.isolated_profile) {
-      const profile = snapshot.lifecycle_enabled ? (it?'Profilo temporaneo':'Temporary profile') : note;
-      setText(status, `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'}${progress ? ' · ' + progress : ''}`);
-    } else {
-      setText(status, progress || (actionError && (it?'Azione non riuscita':'Action failed')) || (it?'Pronto':'Ready'));
+
+    function poll(snapshot) {
+      render(snapshot);
+      const progress = Object.entries(snapshot.progress).map(([id, job]) =>
+        `${catalogById.get(id)?.name || id} · ${progressLabel(job)}`).join(' · ');
+      if (snapshot.isolated_profile) {
+        const profile = snapshot.lifecycle_enabled ? (it?'Profilo temporaneo':'Temporary profile') : note;
+        setText(status, `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'}${progress ? ' · ' + progress : ''}`);
+      } else {
+        setText(status, progress || (actionError && (it?'Azione non riuscita':'Action failed')) || (it?'Pronto':'Ready'));
+      }
+      status.title = actionError;
+      const interval = snapshot.install_checks_pending?.length && performance.now() - startTime < 2000 ? 200 : 1000;
+      setTimeout(() => invoke('native_snapshot').then(poll).catch(error => {status.textContent=String(error);}), interval);
     }
-    status.title = actionError;
-    setTimeout(() => poll().catch(error => {status.textContent=String(error);}),1000);
-    }
-    await poll();
+
+    poll(firstSnapshot);
   }
   startLauncherUpdater().catch(error => console.warn('Launcher update unavailable', error));
   start().catch(error => { status.textContent=String(error); });

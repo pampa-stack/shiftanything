@@ -193,5 +193,5 @@
     } catch (error) { status.textContent = String(error); }
   });
   window.addEventListener('native-snapshot', event => {snapshot=event.detail;render();});
-  invoke('catalog_snapshot').then(data => {catalog=data;render();}).catch(error => {panel.querySelector('.manage-status').textContent=String(error);});
+  window.shiftCatalogData.then(data => {catalog=data;render();}).catch(error => {panel.querySelector('.manage-status').textContent=String(error);});
 })();

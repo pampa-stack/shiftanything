@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=RawTherapee
+Comment=Develop and edit RAW photos
+Exec="/home/qa/profile-rawtherapee-native-rawtherapee-cycle-release-qa/Applications/RawTherapee_5.13_x86_64_release.AppImage" %F
+Icon=rawtherapee
+Terminal=false
+Categories=Graphics;Photography;
+StartupWMClass=rawtherapee
+X-ArtCraft-Launcher=true

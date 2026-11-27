@@ -25,6 +25,7 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "opencode" => ("Development;", Some("ai.opencode.desktop")),
         "orca" => ("Development;IDE;", Some("orca")),
         "dust3d" => ("Graphics;", Some("Dust3D")),
+        "rawtherapee" => ("Graphics;Photography;", None),
         "mister-download-manager" => ("Network;FileTransfer;", None),
         "openpencil" => ("Graphics;", Some("OpenPencil")),
         "ultimaker-cura" => ("Graphics;3DGraphics;Engineering;", Some("UltiMaker-Cura")),

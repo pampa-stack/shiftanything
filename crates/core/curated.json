@@ -5258,9 +5258,9 @@
       "Capture One"
     ],
     "license": "GPL-3.0+",
-    "license_url": "https://flathub.org/apps/com.rawtherapee.RawTherapee",
+    "license_url": "https://github.com/RawTherapee/RawTherapee/blob/5.13/LICENSE",
     "website": "https://www.rawtherapee.com",
-    "releases": "https://flathub.org/apps/com.rawtherapee.RawTherapee",
+    "releases": "https://github.com/RawTherapee/RawTherapee/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "unknown",
@@ -5274,15 +5274,6 @@
     ],
     "media_source": "https://flathub.org/apps/com.rawtherapee.RawTherapee",
     "distribution": [
-      {
-        "platform": "linux",
-        "manager": "flatpak",
-        "id": "com.rawtherapee.RawTherapee",
-        "source": "https://flathub.org/apps/com.rawtherapee.RawTherapee",
-        "download_size": 105060880,
-        "download_size_source": "https://flathub.org/api/v2/summary/com.rawtherapee.RawTherapee",
-        "download_size_checked": "2026-11-26"
-      },
       {
         "platform": "macos",
         "manager": "homebrew",

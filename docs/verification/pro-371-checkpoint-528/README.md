@@ -31,3 +31,7 @@ DEB Ubuntu 24.04+ x86-64 SHA-256 `21194a64a847369e10651355bd08de18adc0825e0db175
 ## Prima di distribuire
 
 Resta da coprire il catalogo installabile per piattaforma e verificare la parità visiva completa con Doop. Mac Intel resta da provare. Il DMG locale ha firma ad hoc. Le prove di Windows sono arrivate a Windows Setup avviato da disco, con VM fermata al limite del disco di prova e sotto al margine RAM configurato. Desktop, pacchetto MSI e installazioni Windows restano aperti. L'aggiornamento del catalogo e delle fonti SH*FTER è riproducibile da script. La pianificazione automatica esterna resta da attivare. [Referto Windows](../pro-371-windows-setup/desktop/README.md)
+
+## Inventario delle ricette, 27 novembre alle 07:57 CET
+
+Il catalogo di 528 schede configura 38 candidati nativi su macOS ARM64, 17 su macOS x64, 18 su Windows per architettura, 18 su Linux ARM64 e 19 su Linux x64. Linux x64 include inoltre 19 ricette Flathub stabili, controllate per identità del progetto e canale di distribuzione. I candidati richiedono la risoluzione del pacchetto della piattaforma. I cicli eseguiti sono 22 su macOS ARM64 e 19 su Linux x64 via Flathub, con i canali Linux aggiuntivi documentati sopra. Riproduzione con `cargo run --offline -p artcraft-launcher-core --example recipe_matrix`. [Inventario JSON](recipe-scope-528.json) · [ActivityWatch](../pro-371-macos-activitywatch/README.md) · [Okular](../pro-371-linux-okular/README.md)

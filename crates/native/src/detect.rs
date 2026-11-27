@@ -240,7 +240,7 @@ pub mod macos {
             .chain(["CFBundleShortVersionString", "CFBundleVersion"])
             .find_map(|k| dict.get(k).and_then(plist::Value::as_string));
         Some(Installed {
-            version: text.and_then(version::parse),
+            version: text.and_then(|text| bundle_version(app, text)),
             source: InstallSource::MacApp,
             location: path.display().to_string(),
             package: None,
@@ -248,6 +248,33 @@ pub mod macos {
             origin: None,
             installation: None,
         })
+    }
+
+    fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+        if !app.uses_tdf_releases() {
+            return version::parse(text);
+        }
+        // TDF names its stable DMGs after the first three components of the bundle version.
+        if let Some(stable) = artcraft_launcher_core::release::libreoffice_stable_version(text) {
+            return Some(stable);
+        }
+        let (stable, build) = text.rsplit_once('.')?;
+        let build_number = build.parse::<u64>().ok()?;
+        if build_number.to_string() != build {
+            return None;
+        }
+        artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn only_libreoffice_matches_its_four_part_bundle_version_to_stable_tag() {
+        use artcraft_launcher_core::curated::{HANDY, LIBREOFFICE};
+
+        assert_eq!(bundle_version(&LIBREOFFICE, "26.8.3.1"), version::parse("26.8.3"));
+        assert!(bundle_version(&HANDY, "26.8.3.1").is_none());
+        for malformed in ["26.8.3.1.0", "26.8.3.+1", "26.8.3.01", "26.8.3-rc.1"] {
+            assert!(bundle_version(&LIBREOFFICE, malformed).is_none(), "{malformed}");
+        }
     }
 }
 

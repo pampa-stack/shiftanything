@@ -455,6 +455,14 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, url, max)
     }
 
+    /// The stable index and its Metalink files are served directly by The Document Foundation.
+    pub(crate) fn get_tdf_bytes(&self, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
+        if !url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {
+            return Err("LibreOffice metadata must use the official stable directory".into());
+        }
+        Self::get_bytes_with(&self.no_redirect, url, max)
+    }
+
     fn get_bytes_with(agent: &ureq::Agent, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
         let mut resp = agent.get(url).call().map_err(|e| format!("{UNREACHABLE} {} ({e})", host(url)))?;
         match resp.status().as_u16() {
@@ -581,6 +589,9 @@ impl Http {
         let agent = if is_loopback(url) { &self.direct_download } else { &self.download };
         let (physical, agent) = self.request(url, agent).map_err(AttemptError::Fatal)?;
         let mut req = agent.get(physical.as_ref()).header("Accept-Encoding", "identity");
+        if url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {
+            req = req.config().https_only(true).build();
+        }
         if have > 0 {
             req = req.header("Range", &format!("bytes={have}-"));
         }

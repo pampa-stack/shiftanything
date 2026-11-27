@@ -98,11 +98,18 @@ impl CraftApp {
     }
 
     pub fn releases_url(&self) -> String {
+        if self.uses_tdf_releases() {
+            return crate::release::LIBREOFFICE_STABLE_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.repo)
     }
 
     pub fn repo_url(&self) -> String {
         format!("https://github.com/{}", self.repo)
+    }
+
+    pub fn uses_tdf_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::LIBREOFFICE.id, crate::curated::LIBREOFFICE.repo)
     }
 
     /// The app's website: its page on getartcraft.com, or a community app's own site.

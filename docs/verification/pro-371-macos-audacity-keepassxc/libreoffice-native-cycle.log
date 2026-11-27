@@ -1,0 +1,20 @@
+PASS OFFICIAL 26.8.2 Dmg https://download.documentfoundation.org/libreoffice/stable/26.8.2/mac/aarch64/LibreOffice_26.8.2_MacOS_aarch64.dmg 299236406 9f24fe83ab1ed5c95eb3df580119f32932f713e577feeac02bf619fb00749b55
+PASS OFFICIAL 26.8.3 Dmg https://download.documentfoundation.org/libreoffice/stable/26.8.3/mac/aarch64/LibreOffice_26.8.3_MacOS_aarch64.dmg 299927705 de943203795e5057785f65515063e2db5eb60b0bb6d8e2534fec59e5cc5fb988
+PASS OFFICIAL 26.8.2 Dmg https://download.documentfoundation.org/libreoffice/stable/26.8.2/mac/aarch64/LibreOffice_26.8.2_MacOS_aarch64.dmg 299236406 9f24fe83ab1ed5c95eb3df580119f32932f713e577feeac02bf619fb00749b55
+PASS NATIVE install: LibreOffice installed: 26.8.2; transferred=299236406
+/private/tmp/shift-lo-native-scratch.2UjzYNAo/home/Applications/LibreOffice.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+PASS SIGNATURE + PROFILE MARKER install 26.8.2.2
+PASS OFFICIAL 26.8.3 Dmg https://download.documentfoundation.org/libreoffice/stable/26.8.3/mac/aarch64/LibreOffice_26.8.3_MacOS_aarch64.dmg 299927705 de943203795e5057785f65515063e2db5eb60b0bb6d8e2534fec59e5cc5fb988
+PASS NATIVE update: LibreOffice updated to 26.8.3; transferred=299927705
+/private/tmp/shift-lo-native-scratch.2UjzYNAo/home/Applications/LibreOffice.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+PASS SIGNATURE + PROFILE MARKER update 26.8.3.1
+PASS NATIVE remove: LibreOffice was removed; transferred=0
+/private/tmp/shift-lo-native-scratch.2UjzYNAo/home/.Trash/LibreOffice.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Document Foundation (7P5S3ZLCN7)
+PASS SIGNATURE + PROFILE MARKER remove 26.8.3.1
+CLEANUP /private/tmp/shift-lo-native-scratch.2UjzYNAo exit=0

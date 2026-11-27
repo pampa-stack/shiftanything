@@ -238,6 +238,8 @@ pub enum Origin {
     ArtCraftApi,
     /// GitHub directly: the fallback.
     GitHub,
+    /// The LibreOffice release directory.
+    TheDocumentFoundation,
 }
 
 impl Origin {
@@ -245,6 +247,7 @@ impl Origin {
         match self {
             Self::ArtCraftApi => "ArtCraft API",
             Self::GitHub => "GitHub",
+            Self::TheDocumentFoundation => "The Document Foundation",
         }
     }
 }
@@ -259,6 +262,8 @@ pub enum Source {
     /// github.com release pages (no API quota; used whenever the API gave no answer, whether it
     /// was out of quota or couldn't be reached).
     GitHubPages,
+    /// The LibreOffice release directory.
+    TheDocumentFoundation,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -269,6 +274,7 @@ impl Source {
             Self::Feed => "ArtCraft",
             Self::GitHubApi => "GitHub",
             Self::GitHubPages => "GitHub (release pages)",
+            Self::TheDocumentFoundation => "The Document Foundation",
             Self::Cache => "saved results",
         }
     }

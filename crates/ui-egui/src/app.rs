@@ -1276,27 +1276,27 @@ impl LauncherUi {
         self.entry(id).is_some_and(|e| e.status(self.platform, self.caps.manage_apps).is_installed())
     }
 
-    /// "ArtCraft API", "GitHub" or "ArtCraft API and GitHub": the services behind the releases on
-    /// screen right now. `None` until something has loaded.
+    /// The services behind the releases on screen right now. `None` until something has loaded.
     pub(crate) fn sources_label(&self) -> Option<String> {
         use artcraft_launcher_core::protocol::Origin;
         let mut api = false;
         let mut github = false;
+        let mut tdf = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
                     Some(Origin::ArtCraftApi) => api = true,
                     Some(Origin::GitHub) => github = true,
+                    Some(Origin::TheDocumentFoundation) => tdf = true,
                     None => {}
                 }
             }
         }
-        match (api, github) {
-            (true, true) => Some(crate::i18n::fmt(tl!("{a} and {b}"), &[("a", Origin::ArtCraftApi.label()), ("b", Origin::GitHub.label())])),
-            (true, false) => Some(Origin::ArtCraftApi.label().to_string()),
-            (false, true) => Some(Origin::GitHub.label().to_string()),
-            (false, false) => None,
-        }
+        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation)]
+            .into_iter()
+            .filter(|&(present, _)| present)
+            .map(|(_, origin)| origin.label().to_string())
+            .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
     }
 
     pub(crate) fn count(&self, filter: Filter) -> usize {

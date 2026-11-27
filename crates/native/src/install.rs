@@ -35,12 +35,12 @@ use crate::process;
 
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
-    use artcraft_launcher_core::curated::{AUDACITY, HANDBRAKE, IINA, KEEPASSXC, KOPIA, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use artcraft_launcher_core::curated::{AUDACITY, HANDBRAKE, IINA, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
 
     match app.id {
         id if [OBS_STUDIO.id, AUDACITY.id].contains(&id) => Some(13),
         id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id].contains(&id) => Some(12),
-        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id].contains(&id) => Some(11),
+        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id].contains(&id) => Some(11),
         _ => None,
     }
 }
@@ -522,6 +522,9 @@ fn install_at_with_profile(
 /// the download URL to agree with the release version before any bytes are fetched.
 pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &Asset) -> Result<(), String> {
     let mismatch = || format!("{}'s download does not match the advertised version {}.", app.name, release.version_label());
+    if app.uses_tdf_releases() {
+        return artcraft_launcher_core::release::libreoffice_arm64_asset(release, asset).then_some(()).ok_or_else(mismatch);
+    }
     let release_version = release.version.as_ref();
 
     // The version in the asset filename (`<stem>-<version>-<os>-<arch>.<ext>`), when it carries one.

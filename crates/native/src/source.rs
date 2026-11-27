@@ -16,11 +16,14 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
+use artcraft_launcher_core::curated::LIBREOFFICE;
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
 
 use crate::http::{Fetched, Http};
+
+mod libreoffice;
 
 /// One answer from a source.
 #[derive(Clone, Debug)]
@@ -63,7 +66,8 @@ pub trait ReleaseSource: Send + Sync {
             Ok(list) => release::choose_version_for(&list, track, query.separate_nightly).map_or(LatestRelease::None, LatestRelease::Found),
             Err(why) => LatestRelease::Failed(why),
         };
-        Answer { latest, source: Source::GitHubApi }
+        let source = if query.repo == LIBREOFFICE.repo { Source::TheDocumentFoundation } else { Source::GitHubApi };
+        Answer { latest, source }
     }
     /// The release `track` follows in the version list saved last time, however old, without
     /// asking GitHub. `None` when no list is saved.
@@ -474,10 +478,14 @@ impl GitHubSource {
         {
             return Ok(list.clone());
         }
-        if self.limited() {
-            return Err("GitHub's request limit was reached. Try again later.".into());
-        }
-        let list = self.versions_with(query, |url, etag| self.http.get_api_as(url, etag, query.priority))?;
+        let list = if query.repo == LIBREOFFICE.repo {
+            libreoffice::releases(&self.http, false)?
+        } else {
+            if self.limited() {
+                return Err("GitHub's request limit was reached. Try again later.".into());
+            }
+            self.versions_with(query, |url, etag| self.http.get_api_as(url, etag, query.priority))?
+        };
         self.cache.lock().unwrap_or_else(PoisonError::into_inner).versions.insert(query.repo.clone(), (crate::now(), list.clone()));
         // Kept on disk at once: a restart shouldn't ask for the list again within the hour.
         self.save();
@@ -532,10 +540,24 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn latest(&self, query: &ReleaseQuery, prereleases: bool) -> Answer {
+        if query.repo == LIBREOFFICE.repo {
+            let latest = match libreoffice::releases(&self.http, true) {
+                Ok(versions) => {
+                    let release = versions.into_iter().next();
+                    self.store(&query.repo, Entry { etag: None, release: release.clone(), prereleases: false, fetched_at: crate::now() });
+                    release.map_or(LatestRelease::None, LatestRelease::Found)
+                }
+                Err(why) => LatestRelease::Failed(why),
+            };
+            return Answer { latest, source: Source::TheDocumentFoundation };
+        }
         with_former(query, |q| self.latest_in(q, prereleases), |a| a.latest == LatestRelease::None)
     }
 
     fn cached(&self, query: &ReleaseQuery, prereleases: bool) -> Option<LatestRelease> {
+        if query.repo == LIBREOFFICE.repo {
+            return self.cached_in(query, false);
+        }
         with_former(query, |q| self.cached_in(q, prereleases), |c| matches!(c, None | Some(LatestRelease::None)))
     }
 
@@ -544,6 +566,9 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn newest_tag(&self, repo: &str) -> Option<String> {
+        if repo == LIBREOFFICE.repo {
+            return None;
+        }
         match self.http.redirect_target(&format!("https://github.com/{repo}/releases/latest")) {
             Ok(location) => location.as_deref().and_then(|l| release::tag_from_redirect(l, repo)),
             Err(e) => {

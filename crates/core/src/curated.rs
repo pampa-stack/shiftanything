@@ -440,8 +440,29 @@ pub const KEEPASSXC: crate::CraftApp = crate::CraftApp {
     mac_team: Some("G2S7P7J672"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 11] =
-    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC];
+pub const LIBREOFFICE: crate::CraftApp = crate::CraftApp {
+    id: "libreoffice",
+    name: "LibreOffice",
+    tagline: "Documents, spreadsheets and presentations",
+    repo: "LibreOffice/core",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [99, 171, 111],
+    ink_light: [45, 99, 55],
+    ink_dark: [157, 224, 166],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The Document Foundation",
+    msi_publisher: None,
+    bundle: Some("org.libreoffice.script"),
+    site: Some("https://www.libreoffice.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("7P5S3ZLCN7"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 12] =
+    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC, LIBREOFFICE];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -567,6 +588,39 @@ mod recipe_tests {
         }
         let mismatched = release::release_from_sums(app.repo, "v0.24.1", &[("a".repeat(64), names[0].to_owned())]);
         assert!(select(&mismatched, mac).is_none());
+    }
+
+    #[test]
+    fn libreoffice_checks_official_arm64_path_and_digest() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id(super::LIBREOFFICE.id).unwrap();
+        assert_eq!(app.bundle, Some("org.libreoffice.script"));
+        assert_eq!(app.mac_team, Some("7P5S3ZLCN7"));
+        let version = release::libreoffice_stable_version("26.8.3").unwrap();
+        let (name, url) = release::libreoffice_arm64_dmg(&version);
+        let asset = release::Asset { name, url, size: 299_927_705, sha256: Some("a".repeat(64)) };
+        let verified = release::Release { tag: version.to_string(), version: Some(version), assets: vec![asset.clone()], ..Default::default() };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &release::Release, platform| {
+            platform::pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, kind)| (asset.clone(), kind))
+        };
+        assert_eq!(selected(&verified, mac), Some((asset.clone(), PackageKind::Dmg)));
+        assert!(selected(&verified, Platform { arch: Arch::X64, ..mac }).is_none());
+        assert!(selected(&verified, Platform { os: Os::Linux, ..mac }).is_none());
+        assert!(selected(&verified, Platform { os: Os::Windows, ..mac }).is_none());
+        for asset in [
+            release::Asset { url: asset.url.replace("26.8.3/", "26.8.2/"), ..asset.clone() },
+            release::Asset { url: asset.url.replace("https://", "http://"), ..asset.clone() },
+            release::Asset { name: asset.name.replace("aarch64", "x86-64"), ..asset.clone() },
+            release::Asset { sha256: None, ..asset.clone() },
+            release::Asset { sha256: Some("wrong".into()), ..asset.clone() },
+            release::Asset { size: 0, ..asset.clone() },
+        ] {
+            assert!(selected(&release::Release { assets: vec![asset], ..verified.clone() }, mac).is_none());
+        }
+        assert!(selected(&release::Release { prerelease: true, ..verified.clone() }, mac).is_none());
+        assert!(selected(&release::Release { tag: "26.8.3.1".into(), ..verified.clone() }, mac).is_none());
     }
 
     #[test]

@@ -248,6 +248,7 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
             id if id == crate::curated::RIZZO_PII.id => Some(("Rizzo-PII-", "-macOS-arm64", "macos-aarch64")),
             id if id == crate::curated::AUDACITY.id => Some(("audacity-macOS-", "-arm64", "macos-aarch64")),
             id if id == crate::curated::KEEPASSXC.id => Some(("KeePassXC-", "-arm64", "macos-aarch64")),
+            id if id == crate::curated::LIBREOFFICE.id => Some(("LibreOffice_", "_MacOS_aarch64", "macos-aarch64")),
             _ => None,
         };
         if let Some((prefix, suffix, token)) = community_dmg {
@@ -312,6 +313,9 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         .iter()
         .filter_map(|asset| parse_asset_name(&asset.name, stems).map(|name| (asset, name)))
         .filter(|(asset, name)| {
+            if name.stem == crate::curated::LIBREOFFICE.id {
+                return crate::release::libreoffice_arm64_asset(release, asset);
+            }
             let official = [KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC]
                 .iter()
                 .find(|app| app.id == name.stem)
@@ -339,13 +343,25 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 
 /// Recipe validation is separate from the publisher's list of supported platforms.
 pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
-    use crate::curated::{AUDACITY, HANDBRAKE, HANDY, IINA, KEEPASSXC, KOPIA, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+    use crate::curated::{AUDACITY, HANDBRAKE, HANDY, IINA, KEEPASSXC, KOPIA, LIBREOFFICE, LOCALSEND, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if [HANDY.id, OBS_STUDIO.id, KOPIA.id, TRANSMISSION.id, IINA.id, HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, AUDACITY.id, KEEPASSXC.id]
-        .iter()
-        .any(|id| stems.contains(id))
+    if [
+        HANDY.id,
+        OBS_STUDIO.id,
+        KOPIA.id,
+        TRANSMISSION.id,
+        IINA.id,
+        HANDBRAKE.id,
+        MEETILY.id,
+        RIZZO_PII.id,
+        AUDACITY.id,
+        KEEPASSXC.id,
+        LIBREOFFICE.id,
+    ]
+    .iter()
+    .any(|id| stems.contains(id))
     {
         return platform == mac_arm64;
     }

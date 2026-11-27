@@ -754,10 +754,11 @@ impl NativeBackend {
         let feed = if pre { None } else { load_feed(&self.paths) };
         let now = crate::now();
         for app in artcraft_launcher_core::hosted_catalog::apps().iter().filter(|a| self.platform.is_none_or(|p| a.runs_on(p.os))) {
-            let answer = match feed.as_ref().map(|f| f.answer(app, now)) {
+            let feed = feed_for_app(feed.as_ref(), app);
+            let answer = match feed.map(|f| f.answer(app, now)) {
                 Some(FeedAnswer::Fresh(Some(r))) => Some((LatestRelease::Found(r), Origin::ArtCraftApi)),
                 Some(FeedAnswer::Fresh(None)) => Some((LatestRelease::None, Origin::ArtCraftApi)),
-                _ => self.source.as_ref().and_then(|s| s.cached(&release_query(feed.as_ref(), app), pre)).map(|l| (l, Origin::GitHub)),
+                _ => self.source.as_ref().and_then(|s| s.cached(&release_query(feed, app), pre)).map(|l| (l, release_origin(app))),
             };
             if let Some((latest, from)) = answer {
                 publish_latest(app, latest, from, &self.shared, self.platform);
@@ -2569,6 +2570,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::GitHubPages
     } else if sources.contains(&Source::GitHubApi) {
         Source::GitHubApi
+    } else if sources.contains(&Source::TheDocumentFoundation) {
+        Source::TheDocumentFoundation
     } else {
         Source::Feed
     }
@@ -2643,6 +2646,8 @@ fn latest_for(
     force: bool,
     now: i64,
 ) -> (Option<LatestRelease>, Origin, Option<Source>) {
+    let feed = feed_for_app(feed, app);
+    let origin = release_origin(app);
     let repo = feed_repo(feed, app);
     if fallback.trust_feed {
         match feed.map(|f| f.answer(app, now)) {
@@ -2675,7 +2680,7 @@ fn latest_for(
         if !live && let Some(stable) = feed_if_newer(feed, app, now, Some(&answer.latest)) {
             return (Some(LatestRelease::Found(stable)), Origin::ArtCraftApi, Some(Source::Feed));
         }
-        (Some(answer.latest), Origin::GitHub, Some(answer.source))
+        (Some(answer.latest), origin, Some(answer.source))
     } else {
         let cached = source.cached(&ReleaseQuery::for_app(app, repo), pre);
         // A stable release the feed already lists outranks an older one (or a beta or RC) GitHub
@@ -2684,7 +2689,7 @@ fn latest_for(
         // forced one's answers keeps whichever of the two is newer.
         match feed_if_newer(feed, app, now, cached.as_ref()) {
             Some(stable) => (Some(LatestRelease::Found(stable)), Origin::ArtCraftApi, Some(Source::Feed)),
-            None => (cached, Origin::GitHub, None),
+            None => (cached, origin, None),
         }
     }
 }
@@ -2733,6 +2738,7 @@ fn track_answer(
     now: i64,
 ) -> (Option<LatestRelease>, Origin, Option<Source>) {
     let query = release_query(feed, app).with_priority(github_priority(app, track, shared, force));
+    let origin = release_origin(app);
     if *track == VersionTrack::Nightly {
         // Its own record, apart from the stable track's: asking about one doesn't stand in for
         // the other when the app switches tracks.
@@ -2740,18 +2746,18 @@ fn track_answer(
         let mut asked = shared.github_asked.lock().unwrap_or_else(PoisonError::into_inner);
         let due = force || asked.get(&key).is_none_or(|t| now - t >= NIGHTLY_TRACK_EVERY);
         if !due && let Some(saved) = source.saved_choice(&query, track) {
-            return (Some(saved), Origin::GitHub, None);
+            return (Some(saved), origin, None);
         }
         asked.insert(key, now);
         drop(asked);
         if due {
             // A due or pressed check asks GitHub now, past the saved version list however recent.
             let answer = source.chosen_within(&query, track, 0);
-            return (Some(answer.latest), Origin::GitHub, Some(answer.source));
+            return (Some(answer.latest), origin, Some(answer.source));
         }
     }
     let answer = source.chosen(&query, track);
-    (Some(answer.latest), Origin::GitHub, Some(answer.source))
+    (Some(answer.latest), origin, Some(answer.source))
 }
 
 /// Who a GitHub request about `app` is for, when the GitHub budget runs short.
@@ -2796,7 +2802,15 @@ fn limit_notice(source_used: Source, limited_until: Option<i64>) -> Option<i64> 
 
 /// The repo to ask GitHub about, following the feed's repo renames.
 fn feed_repo(feed: Option<&Feed>, app: &CraftApp) -> String {
-    feed.map_or_else(|| app.repo.to_string(), |f| f.repo_for(app))
+    feed_for_app(feed, app).map_or_else(|| app.repo.to_string(), |f| f.repo_for(app))
+}
+
+fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> {
+    if app.uses_tdf_releases() { None } else { feed }
+}
+
+fn release_origin(app: &CraftApp) -> Origin {
+    if app.uses_tdf_releases() { Origin::TheDocumentFoundation } else { Origin::GitHub }
 }
 
 /// What to ask GitHub about `app`: the feed may rename its repo, but the separate-channel policy

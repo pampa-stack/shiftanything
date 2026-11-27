@@ -13,7 +13,7 @@ pub struct Asset {
     pub name: String,
     /// Bytes; 0 when unknown.
     pub size: u64,
-    /// `https://github.com/<repo>/releases/download/<tag>/<name>`.
+    /// The publisher's pinned release download URL.
     pub url: String,
     /// Lowercase hex SHA-256, when GitHub or the publisher's checksum manifest reported it.
     pub sha256: Option<String>,
@@ -68,6 +68,31 @@ const MAX_NOTES: usize = 64 * 1024;
 
 fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
+}
+
+pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
+pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
+
+pub fn libreoffice_stable_version(tag: &str) -> Option<Version> {
+    let version = version::parse(tag)?;
+    (version.pre.is_empty() && version.build.is_empty() && version.to_string() == tag).then_some(version)
+}
+
+pub fn libreoffice_arm64_dmg(version: &Version) -> (String, String) {
+    let name = format!("LibreOffice_{version}_MacOS_aarch64.dmg");
+    let url = format!("{LIBREOFFICE_STABLE_URL}{version}/mac/aarch64/{name}");
+    (name, url)
+}
+
+pub fn libreoffice_arm64_asset(release: &Release, asset: &Asset) -> bool {
+    let Some(version) = libreoffice_stable_version(&release.tag) else { return false };
+    let (name, url) = libreoffice_arm64_dmg(&version);
+    !release.prerelease
+        && release.version.as_ref() == Some(&version)
+        && asset.name == name
+        && asset.url == url
+        && (1..=LIBREOFFICE_DMG_MAX_SIZE).contains(&asset.size)
+        && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
 /// Whether `url` is safe to hand to the system browser from untrusted text (release notes):

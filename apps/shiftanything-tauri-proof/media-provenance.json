@@ -501,6 +501,83 @@
       "source": "https://wekan.fi/wekan-favicon.png",
       "file": "media/wekan-logo.png",
       "sha256": "25197f6b05ec5ef2dc8e9b03b27bb23cca8e056f021cb28e66b9ccd495bf36b9"
+    },
+    {
+      "app": "checkmk-community",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Checkmk/checkmk/e8ccf22d68c18d875f9a3005cc273b45b7fa1549/omd/license_sources/icon_mk.png",
+      "file": "media/checkmk-community-logo.png",
+      "sha256": "e3b67657f0b68f9de124f346a709174ed8e9bbb642473564455ada7edefd6fdf"
+    },
+    {
+      "app": "dfir-iris",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/dfir-iris/iris-web/v2.4.29/source/app/static/assets/img/logo-alone-2-blue.png",
+      "file": "media/dfir-iris-logo.png",
+      "sha256": "a25110fbbd1a30e198910272ef745123b4adaacdd8f9a3626ef2cd17bfad04e3"
+    },
+    {
+      "app": "ente-auth",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ente/ente/b5d3808167554687938f8602b6ae848e68a479df/mobile/apps/auth/web/icons/Icon-512.png",
+      "file": "media/ente-auth-logo.png",
+      "sha256": "6f40ce8b3b6ee36e559b2b87658fdea71e687aa63f3625947e77483cbc3d501a"
+    },
+    {
+      "app": "misp",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/MISP/MISP/d66fb5ce29e7f8209db70380555d80ef93141801/INSTALL/logos/misp-square.png",
+      "file": "media/misp-logo.png",
+      "sha256": "ccf6f5da55c3224c4dd575629942faa24c59da126d73cfb64e3ea4e59952fdf8"
+    },
+    {
+      "app": "nginx-proxy-manager",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/NginxProxyManager/nginx-proxy-manager/ed29cccd26422e5cc7118251f87d707737ba856f/frontend/public/images/logo-256.png",
+      "file": "media/nginx-proxy-manager-logo.png",
+      "sha256": "59faeaf2ca438f177416490584af465b29fd5b5c9499d895ad999a87e8a9c37c"
+    },
+    {
+      "app": "openobserve",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/openobserve/openobserve/62e6f010279ae85d5976486d03e42dab87940549/web/src/assets/images/common/openobserve_favicon.png",
+      "file": "media/openobserve-logo.png",
+      "sha256": "5f9612ad3452dc4f0b4b4d710052039f25bb9d649b2ac59e2e35d63116edcf94"
+    },
+    {
+      "app": "passbolt-community",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/passbolt/passbolt-links/1611e3769d821151592e20d48826fce29c303ae5/assets/passbolt-favicon.png",
+      "file": "media/passbolt-community-logo.png",
+      "sha256": "34783b34a9487ff4c485959e76a8e04dfe7f8aa4fccf08b7bff776ac1e1248c3"
+    },
+    {
+      "app": "plakar-community",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/PlakarKorp/plakar/59514bf7faddb9e48cc522e3e5ffecbee032a02f/docs/assets/Plakar_Logo_Simple_Primary.png",
+      "file": "media/plakar-community-logo.png",
+      "sha256": "a55f6471dfe216c2c7b1070bffd57b5acc0806522b5dca4cbd92b782632dfa86"
+    },
+    {
+      "app": "pocket-id",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pocket-id/pocket-id/ed7ae4994d1683dbe781f1055aee4352f08ad482/frontend/static/img/static-logo-rounded-512.png",
+      "file": "media/pocket-id-logo.png",
+      "sha256": "d0701607c11fc458137dbfb5016c4b572a2fde34dd4e6470948b81a0bc84bbb3"
+    },
+    {
+      "app": "timesketch",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/google/timesketch/857504e1094cf313da28ae70964bcd34e0e62491/timesketch/frontend-ng/Logo%20Files/Mark%20Only/timesketch-color.png",
+      "file": "media/timesketch-logo.png",
+      "sha256": "b83e00ecdca77fe0d374150eba9651ca839bc933e4d916b3fb7a27421196571a"
+    },
+    {
+      "app": "zabbix",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/zabbix/zabbix/cf6299cae458c1177cf09da34de3969258431922/ui/assets/img/touch-icon-192x192.png",
+      "file": "media/zabbix-logo.png",
+      "sha256": "44459b74459c10cf910f4bcaa3083911de696e6fbd33c3ce273620050d336741"
     }
   ]
 }

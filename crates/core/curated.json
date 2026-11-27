@@ -27924,5 +27924,692 @@
       "source": "https://github.com/opensearch-project/OpenSearch-Dashboards/releases/tag/3.9.0",
       "packages": []
     }
+  },
+  {
+    "id": "checkmate",
+    "name": "Checkmate",
+    "repo": "https://github.com/bluewave-labs/Checkmate",
+    "author": "BlueWave Labs",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Monitoraggio self-hosted di uptime, server e container con stato dei servizi e avvisi.",
+      "en": "Self-hosted uptime, server and container monitoring with service status and alerts."
+    },
+    "alternatives": [
+      "UptimeRobot"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/bluewave-labs/Checkmate/blob/develop/LICENSE",
+    "website": "https://checkmate.so/",
+    "releases": "https://github.com/bluewave-labs/Checkmate/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://checkmate.so/img/readme/dashboard.webp"
+    ],
+    "media_source": "https://github.com/bluewave-labs/Checkmate",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/bluewave-labs/Checkmate#readme"
+    },
+    "stars": {
+      "count": 11133,
+      "source": "https://github.com/bluewave-labs/Checkmate/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v4.1.0",
+      "date": "2026-11-19",
+      "source": "https://github.com/bluewave-labs/Checkmate/releases/tag/v4.1.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "openobserve",
+    "name": "OpenObserve OSS",
+    "repo": "https://github.com/openobserve/openobserve",
+    "author": "OpenObserve",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Dashboard self-hosted per cercare log, tracce e metriche e configurare avvisi.",
+      "en": "Self-hosted dashboard for querying logs, traces and metrics and creating alerts."
+    },
+    "alternatives": [
+      "Datadog"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/openobserve/openobserve/blob/main/LICENSE",
+    "website": "https://openobserve.ai/",
+    "releases": "https://github.com/openobserve/openobserve/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/openobserve/openobserve/62e6f010279ae85d5976486d03e42dab87940549/web/src/assets/images/common/openobserve_favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/openobserve/openobserve/62e6f010279ae85d5976486d03e42dab87940549/screenshots/home.png"
+    ],
+    "media_source": "https://github.com/openobserve/openobserve",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/openobserve/openobserve#readme",
+      "sources": [
+        "https://openobserve.ai/faqs/",
+        "https://openobserve.ai/downloads/"
+      ]
+    },
+    "stars": {
+      "count": 23195,
+      "source": "https://github.com/openobserve/openobserve/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v1.2.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/openobserve/openobserve/releases/tag/v1.2.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "checkmk-community",
+    "name": "Checkmk Community",
+    "repo": "https://github.com/Checkmk/checkmk",
+    "author": "Checkmk",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Monitoraggio di server, reti e servizi con interfaccia web, edizione Community.",
+      "en": "Monitoring for servers, networks and services with a web interface in the Community edition."
+    },
+    "alternatives": [
+      "PRTG Network Monitor"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/Checkmk/checkmk/blob/master/COPYING",
+    "website": "https://checkmk.com/",
+    "releases": "https://checkmk.com/download",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.checkmk.com/latest/en/rest_api.html"
+    },
+    "logo": "https://raw.githubusercontent.com/Checkmk/checkmk/e8ccf22d68c18d875f9a3005cc273b45b7fa1549/omd/license_sources/icon_mk.png",
+    "screenshots": [],
+    "media_source": "https://github.com/Checkmk/checkmk",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Checkmk/checkmk#readme"
+    },
+    "stars": {
+      "count": 2664,
+      "source": "https://github.com/Checkmk/checkmk/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "2.5.0p21",
+      "date": "2026-11-24",
+      "source": "https://checkmk.com/download/archive",
+      "packages": []
+    }
+  },
+  {
+    "id": "zabbix",
+    "name": "Zabbix",
+    "repo": "https://github.com/zabbix/zabbix",
+    "author": "Zabbix",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Dashboard e avvisi per disponibilità e prestazioni di reti, dispositivi e server.",
+      "en": "Dashboard and alerts for network, device and server availability and performance."
+    },
+    "alternatives": [
+      "PRTG Network Monitor"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/zabbix/zabbix/blob/master/COPYING",
+    "website": "https://www.zabbix.com/",
+    "releases": "https://www.zabbix.com/download",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/zabbix/zabbix/cf6299cae458c1177cf09da34de3969258431922/ui/assets/img/touch-icon-192x192.png",
+    "screenshots": [],
+    "media_source": "https://github.com/zabbix/zabbix",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.zabbix.com/download_sources"
+    },
+    "stars": {
+      "count": 6614,
+      "source": "https://github.com/zabbix/zabbix/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "8.0.0",
+      "date": "2026-11-05",
+      "source": "https://www.zabbix.com/download_sources",
+      "packages": []
+    }
+  },
+  {
+    "id": "glances",
+    "name": "Glances",
+    "repo": "https://github.com/nicolargo/glances",
+    "author": "Nicolas Hennion e collaboratori",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Monitor delle risorse di sistema con modalità dashboard web e MCP per leggere metriche.",
+      "en": "System resource monitor with a web dashboard mode and MCP for reading metrics."
+    },
+    "alternatives": [
+      "Datadog Infrastructure Monitoring"
+    ],
+    "license": "LGPL-3.0",
+    "license_url": "https://github.com/nicolargo/glances/blob/develop/COPYING",
+    "website": "https://glances.readthedocs.io/en/latest/",
+    "releases": "https://github.com/nicolargo/glances/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://glances.readthedocs.io/en/latest/api/mcp.html"
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/nicolargo/glances/3d40746fc91c3c88e45d4b17837c7bf583f3ff6b/docs/_static/screenshot-web.png"
+    ],
+    "media_source": "https://github.com/nicolargo/glances",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://glances.readthedocs.io/en/latest/"
+    },
+    "stars": {
+      "count": 34017,
+      "source": "https://github.com/nicolargo/glances/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v4.5.9",
+      "date": "2026-11-07",
+      "source": "https://github.com/nicolargo/glances/releases/tag/v4.5.9",
+      "packages": []
+    }
+  },
+  {
+    "id": "authentik-community",
+    "name": "authentik Community",
+    "repo": "https://github.com/goauthentik/authentik",
+    "author": "Authentik Security",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Provider di identità self-hosted per accesso unico e amministrazione delle applicazioni.",
+      "en": "Self-hosted identity provider for single sign-on and application administration."
+    },
+    "alternatives": [
+      "Okta"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/goauthentik/authentik/blob/main/LICENSE",
+    "website": "https://goauthentik.io/",
+    "releases": "https://github.com/goauthentik/authentik/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [
+      "https://raw.githubusercontent.com/goauthentik/authentik/b90e5fcab313327d5886953068414fc0387497d6/website/docs/sys-mgmt/ops/dashboard.png"
+    ],
+    "media_source": "https://github.com/goauthentik/authentik",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.goauthentik.io/install-config/install/docker-compose/"
+    },
+    "stars": {
+      "count": 26479,
+      "source": "https://github.com/goauthentik/authentik/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "version/2026.8.7",
+      "date": "2026-11-25",
+      "source": "https://github.com/goauthentik/authentik/releases/tag/version/2026.8.7",
+      "packages": []
+    }
+  },
+  {
+    "id": "pocket-id",
+    "name": "Pocket ID",
+    "repo": "https://github.com/pocket-id/pocket-id",
+    "author": "Elias Schneider e collaboratori",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Provider di identità OIDC con accesso tramite passkey e pannello di amministrazione.",
+      "en": "OIDC identity provider with passkey sign-in and an administration interface."
+    },
+    "alternatives": [
+      "Okta"
+    ],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/pocket-id/pocket-id/blob/main/LICENSE",
+    "website": "https://pocket-id.org/",
+    "releases": "https://github.com/pocket-id/pocket-id/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/pocket-id/pocket-id/ed7ae4994d1683dbe781f1055aee4352f08ad482/frontend/static/img/static-logo-rounded-512.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/pocket-id/pocket-id/ed7ae4994d1683dbe781f1055aee4352f08ad482/.github/assets/screenshot-dark.png"
+    ],
+    "media_source": "https://github.com/pocket-id/pocket-id",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/pocket-id/pocket-id#readme"
+    },
+    "stars": {
+      "count": 10503,
+      "source": "https://github.com/pocket-id/pocket-id/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.19.3",
+      "date": "2026-11-15",
+      "source": "https://github.com/pocket-id/pocket-id/releases/tag/v2.19.3",
+      "packages": []
+    }
+  },
+  {
+    "id": "ente-auth",
+    "name": "Ente Auth",
+    "repo": "https://github.com/ente/ente",
+    "author": "Ente",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Autenticatore a due fattori per desktop con modalità offline senza account.",
+      "en": "Desktop two-factor authenticator with an account-free offline mode."
+    },
+    "alternatives": [
+      "Authy"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/ente/ente/blob/main/LICENSE",
+    "website": "https://ente.com/auth/",
+    "releases": "https://github.com/ente/ente/releases/tag/auth-v4.4.27",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ente/ente/b5d3808167554687938f8602b6ae848e68a479df/mobile/apps/auth/web/icons/Icon-512.png",
+    "screenshots": [],
+    "media_source": "https://github.com/ente/ente",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://ente.com/help/auth/faq/"
+    },
+    "stars": {
+      "count": 30546,
+      "source": "https://github.com/ente/ente/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "auth-v4.4.27",
+      "date": "2026-11-19",
+      "source": "https://github.com/ente/ente/releases/tag/auth-v4.4.27",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 58891715,
+          "size_max": 58891715
+        },
+        {
+          "platform": "windows",
+          "size_min": 31021840,
+          "size_max": 31021840
+        },
+        {
+          "platform": "linux",
+          "size_min": 21991602,
+          "size_max": 38795768
+        }
+      ]
+    }
+  },
+  {
+    "id": "wireguard-windows",
+    "name": "WireGuard for Windows",
+    "repo": "https://github.com/WireGuard/wireguard-windows",
+    "author": "WireGuard LLC",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Client grafico ufficiale per gestire connessioni WireGuard su Windows.",
+      "en": "Official desktop client for managing WireGuard connections on Windows."
+    },
+    "alternatives": [
+      "OpenVPN Connect"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/WireGuard/wireguard-windows/blob/master/COPYING",
+    "website": "https://www.wireguard.com/install/",
+    "releases": "https://download.wireguard.com/windows-client/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [],
+    "media_source": "",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://download.wireguard.com/windows-client/"
+    },
+    "stars": {
+      "count": 2926,
+      "source": "https://github.com/WireGuard/wireguard-windows/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v1.1.1",
+      "date": "2026-09-20",
+      "source": "https://github.com/WireGuard/wireguard-windows/tree/v1.1.1",
+      "packages": []
+    },
+    "platform_support": {
+      "windows": "https://download.wireguard.com/windows-client/"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "misp",
+    "name": "MISP",
+    "repo": "https://github.com/MISP/MISP",
+    "author": "MISP Project",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Dashboard per organizzare e condividere indicatori di minaccia e dati su incidenti.",
+      "en": "Dashboard for organizing and sharing threat indicators and incident data."
+    },
+    "alternatives": [
+      "ThreatConnect"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/MISP/MISP/blob/2.5/LICENSE",
+    "website": "https://www.misp-project.org/",
+    "releases": "https://github.com/MISP/MISP/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/MISP/MISP/d66fb5ce29e7f8209db70380555d80ef93141801/INSTALL/logos/misp-square.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/MISP/MISP/d66fb5ce29e7f8209db70380555d80ef93141801/INSTALL/screenshots/event-view.png"
+    ],
+    "media_source": "https://github.com/MISP/MISP",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/MISP/MISP#readme"
+    },
+    "stars": {
+      "count": 6710,
+      "source": "https://github.com/MISP/MISP/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.5.53",
+      "date": "2026-11-23",
+      "source": "https://github.com/MISP/MISP/releases/tag/v2.5.53",
+      "packages": []
+    }
+  },
+  {
+    "id": "dfir-iris",
+    "name": "DFIR-IRIS",
+    "repo": "https://github.com/dfir-iris/iris-web",
+    "author": "DFIR-IRIS Project",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestione collaborativa degli incidenti con casi, cronologia, osservazioni e attività.",
+      "en": "Collaborative incident case management with timelines, observables and tasks."
+    },
+    "alternatives": [
+      "TheHive"
+    ],
+    "license": "LGPL-3.0",
+    "license_url": "https://github.com/dfir-iris/iris-web/blob/v2.4.29/LICENSE.txt",
+    "website": "https://docs.dfir-iris.org/",
+    "releases": "https://github.com/dfir-iris/iris-web/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/dfir-iris/iris-web/v2.4.29/source/app/static/assets/img/logo-alone-2-blue.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/dfir-iris/iris-web/v2.4.29/img/demo_timeline.png"
+    ],
+    "media_source": "https://github.com/dfir-iris/iris-web",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/dfir-iris/iris-web/tree/v2.4.29"
+    },
+    "stars": {
+      "count": 1637,
+      "source": "https://github.com/dfir-iris/iris-web/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.4.29",
+      "date": "2026-08-10",
+      "source": "https://github.com/dfir-iris/iris-web/releases/tag/v2.4.29",
+      "packages": []
+    }
+  },
+  {
+    "id": "timesketch",
+    "name": "Timesketch",
+    "repo": "https://github.com/google/timesketch",
+    "author": "Timesketch contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Analisi forense collaborativa delle cronologie con ricerca, annotazioni e tag.",
+      "en": "Collaborative forensic timeline analysis with search, annotations and tags."
+    },
+    "alternatives": [
+      "Magnet AXIOM"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/google/timesketch/blob/master/LICENSE",
+    "website": "https://timesketch.org/",
+    "releases": "https://github.com/google/timesketch/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/google/timesketch/857504e1094cf313da28ae70964bcd34e0e62491/timesketch/frontend-ng/Logo%20Files/Mark%20Only/timesketch-color.png",
+    "screenshots": [],
+    "media_source": "https://github.com/google/timesketch",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://timesketch.org/guides/admin/install/"
+    },
+    "stars": {
+      "count": 3455,
+      "source": "https://github.com/google/timesketch/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "20261014",
+      "date": "2026-10-14",
+      "source": "https://github.com/google/timesketch/releases/tag/20261014",
+      "packages": []
+    }
+  },
+  {
+    "id": "nginx-proxy-manager",
+    "name": "Nginx Proxy Manager",
+    "repo": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+    "author": "Nginx Proxy Manager contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Pannello per amministrare reverse proxy, certificati TLS e accessi ai propri servizi.",
+      "en": "Dashboard for managing reverse proxies, TLS certificates and access to your own services."
+    },
+    "alternatives": [
+      "Cloudflare Tunnel"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/NginxProxyManager/nginx-proxy-manager/blob/develop/LICENSE",
+    "website": "https://nginxproxymanager.com/",
+    "releases": "https://github.com/NginxProxyManager/nginx-proxy-manager/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/NginxProxyManager/nginx-proxy-manager/ed29cccd26422e5cc7118251f87d707737ba856f/frontend/public/images/logo-256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/NginxProxyManager/nginx-proxy-manager/ed29cccd26422e5cc7118251f87d707737ba856f/docs/src/public/screenshots/dark/10_users.png"
+    ],
+    "media_source": "https://github.com/NginxProxyManager/nginx-proxy-manager",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://nginxproxymanager.com/guide/"
+    },
+    "stars": {
+      "count": 34905,
+      "source": "https://github.com/NginxProxyManager/nginx-proxy-manager/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v2.17.1",
+      "date": "2026-11-19",
+      "source": "https://github.com/NginxProxyManager/nginx-proxy-manager/releases/tag/v2.17.1",
+      "packages": []
+    }
+  },
+  {
+    "id": "passbolt-community",
+    "name": "Passbolt Community Edition",
+    "repo": "https://github.com/passbolt/passbolt_api",
+    "author": "Passbolt",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestore di password per team con pannello nel browser e server self-hosted Community.",
+      "en": "Team password manager with a browser interface and a self-hosted Community server."
+    },
+    "alternatives": [
+      "1Password Business"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/passbolt/passbolt_api/blob/master/LICENSE.txt",
+    "website": "https://www.passbolt.com/docs/hosting/install/",
+    "releases": "https://github.com/passbolt/passbolt_api/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/passbolt/passbolt-links/1611e3769d821151592e20d48826fce29c303ae5/assets/passbolt-favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/passbolt/passbolt-links/1611e3769d821151592e20d48826fce29c303ae5/assets/readme/passbolt-insitu.png"
+    ],
+    "media_source": "https://github.com/passbolt/passbolt_api",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.passbolt.com/docs/hosting/install/ce/docker/"
+    },
+    "stars": {
+      "count": 6250,
+      "source": "https://github.com/passbolt/passbolt_api/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v5.18.0",
+      "date": "2026-11-12",
+      "source": "https://github.com/passbolt/passbolt_api/releases/tag/v5.18.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "plakar-community",
+    "name": "Plakar Community",
+    "repo": "https://github.com/PlakarKorp/plakar",
+    "author": "Plakar",
+    "level": "avanz",
+    "category": "backup",
+    "description": {
+      "it": "Backup e istantanee con interfaccia web locale per consultare le versioni e ripristinare file.",
+      "en": "Backup and snapshots with a local web interface for browsing versions and restoring files."
+    },
+    "alternatives": [
+      "Arq Backup"
+    ],
+    "license": "ISC",
+    "license_url": "https://github.com/PlakarKorp/plakar/blob/main/LICENSE",
+    "website": "https://plakar.io/",
+    "releases": "https://github.com/PlakarKorp/plakar/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/PlakarKorp/plakar/59514bf7faddb9e48cc522e3e5ffecbee032a02f/docs/assets/Plakar_Logo_Simple_Primary.png",
+    "screenshots": [],
+    "media_source": "https://github.com/PlakarKorp/plakar",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.plakar.io/docs/community/v1.0.6/guides/using-plakar-ui/"
+    },
+    "stars": {
+      "count": 2190,
+      "source": "https://github.com/PlakarKorp/plakar/stargazers",
+      "date": "2026-11-27"
+    },
+    "release": {
+      "version": "v1.1.8",
+      "date": "2026-10-20",
+      "source": "https://github.com/PlakarKorp/plakar/releases/tag/v1.1.8",
+      "packages": []
+    }
   }
 ]

@@ -1,0 +1,37 @@
+# Nuove schede Avanzate
+
+Verifica del 27 novembre 2026 su fonti ufficiali. Il confronto su ID e repository canonico con le 462 schede esistenti ha dato 15 aggiunte distinte. La verifica copre licenza, distribuzione gratuita, release e interfaccia.
+
+| App | Stelle | Licenza | Distribuzione verificata | Fonti ufficiali |
+| --- | ---: | --- | --- | --- |
+| Checkmate | 11,133 | AGPL-3.0 | Dashboard self-hosted | [GUI](https://github.com/bluewave-labs/Checkmate#readme) · [Licenza](https://github.com/bluewave-labs/Checkmate/blob/develop/LICENSE) · [Stelle](https://github.com/bluewave-labs/Checkmate/stargazers) · [Release](https://github.com/bluewave-labs/Checkmate/releases/tag/v4.1.0) |
+| OpenObserve OSS | 23,195 | AGPL-3.0 | Dashboard self-hosted | [GUI](https://github.com/openobserve/openobserve#readme) · [Licenza](https://github.com/openobserve/openobserve/blob/main/LICENSE) · [Stelle](https://github.com/openobserve/openobserve/stargazers) · [Release](https://github.com/openobserve/openobserve/releases/tag/v1.2.0) |
+| Checkmk Community | 2,664 | GPL-2.0 | Dashboard self-hosted | [GUI](https://github.com/Checkmk/checkmk#readme) · [Licenza](https://github.com/Checkmk/checkmk/blob/master/COPYING) · [Stelle](https://github.com/Checkmk/checkmk/stargazers) · [Release](https://checkmk.com/download/archive) |
+| Zabbix | 6,614 | AGPL-3.0 | Dashboard self-hosted | [GUI](https://www.zabbix.com/download_sources) · [Licenza](https://github.com/zabbix/zabbix/blob/master/COPYING) · [Stelle](https://github.com/zabbix/zabbix/stargazers) · [Release](https://www.zabbix.com/download_sources) |
+| Glances | 34,017 | LGPL-3.0 | Dashboard self-hosted | [GUI](https://glances.readthedocs.io/en/latest/) · [Licenza](https://github.com/nicolargo/glances/blob/develop/COPYING) · [Stelle](https://github.com/nicolargo/glances/stargazers) · [Release](https://github.com/nicolargo/glances/releases/tag/v4.5.9) |
+| authentik Community | 26,479 | MIT | Dashboard self-hosted | [GUI](https://docs.goauthentik.io/install-config/install/docker-compose/) · [Licenza](https://github.com/goauthentik/authentik/blob/main/LICENSE) · [Stelle](https://github.com/goauthentik/authentik/stargazers) · [Release](https://github.com/goauthentik/authentik/releases/tag/version/2026.8.7) |
+| Pocket ID | 10,503 | BSD-2-Clause | Dashboard self-hosted | [GUI](https://github.com/pocket-id/pocket-id#readme) · [Licenza](https://github.com/pocket-id/pocket-id/blob/main/LICENSE) · [Stelle](https://github.com/pocket-id/pocket-id/stargazers) · [Release](https://github.com/pocket-id/pocket-id/releases/tag/v2.19.3) |
+| Ente Auth | 30,546 | AGPL-3.0 | App desktop | [GUI](https://ente.com/help/auth/faq/) · [Licenza](https://github.com/ente/ente/blob/main/LICENSE) · [Stelle](https://github.com/ente/ente/stargazers) · [Release](https://github.com/ente/ente/releases/tag/auth-v4.4.27) |
+| WireGuard for Windows | 2,926 | MIT | App desktop | [GUI](https://download.wireguard.com/windows-client/) · [Licenza](https://github.com/WireGuard/wireguard-windows/blob/master/COPYING) · [Stelle](https://github.com/WireGuard/wireguard-windows/stargazers) · [Release](https://github.com/WireGuard/wireguard-windows/tree/v1.1.1) |
+| MISP | 6,710 | AGPL-3.0 | Dashboard self-hosted | [GUI](https://github.com/MISP/MISP#readme) · [Licenza](https://github.com/MISP/MISP/blob/2.5/LICENSE) · [Stelle](https://github.com/MISP/MISP/stargazers) · [Release](https://github.com/MISP/MISP/releases/tag/v2.5.53) |
+| DFIR-IRIS | 1,637 | LGPL-3.0 | Dashboard self-hosted | [GUI](https://github.com/dfir-iris/iris-web/tree/v2.4.29) · [Licenza](https://github.com/dfir-iris/iris-web/blob/v2.4.29/LICENSE.txt) · [Stelle](https://github.com/dfir-iris/iris-web/stargazers) · [Release](https://github.com/dfir-iris/iris-web/releases/tag/v2.4.29) |
+| Timesketch | 3,455 | Apache-2.0 | Dashboard self-hosted | [GUI](https://timesketch.org/guides/admin/install/) · [Licenza](https://github.com/google/timesketch/blob/master/LICENSE) · [Stelle](https://github.com/google/timesketch/stargazers) · [Release](https://github.com/google/timesketch/releases/tag/20261014) |
+| Nginx Proxy Manager | 34,905 | MIT | Dashboard self-hosted | [GUI](https://nginxproxymanager.com/guide/) · [Licenza](https://github.com/NginxProxyManager/nginx-proxy-manager/blob/develop/LICENSE) · [Stelle](https://github.com/NginxProxyManager/nginx-proxy-manager/stargazers) · [Release](https://github.com/NginxProxyManager/nginx-proxy-manager/releases/tag/v2.17.1) |
+| Passbolt Community Edition | 6,250 | AGPL-3.0 | Dashboard self-hosted | [GUI](https://www.passbolt.com/docs/hosting/install/ce/docker/) · [Licenza](https://github.com/passbolt/passbolt_api/blob/master/LICENSE.txt) · [Stelle](https://github.com/passbolt/passbolt_api/stargazers) · [Release](https://github.com/passbolt/passbolt_api/releases/tag/v5.18.0) |
+| Plakar Community | 2,190 | ISC | Dashboard self-hosted | [GUI](https://docs.plakar.io/docs/community/v1.0.6/guides/using-plakar-ui/) · [Licenza](https://github.com/PlakarKorp/plakar/blob/main/LICENSE) · [Stelle](https://github.com/PlakarKorp/plakar/stargazers) · [Release](https://github.com/PlakarKorp/plakar/releases/tag/v1.1.8) |
+
+## Dettagli della verifica
+
+- Ente Auth ha una build desktop per macOS, Windows e Linux e funziona offline senza account. Le stelle sono quelle del monorepo condiviso con Ente Photos e Locker. [FAQ upstream](https://ente.com/help/auth/faq/)
+- Glances include un server MCP ufficiale per la lettura delle metriche. [Documentazione MCP](https://glances.readthedocs.io/en/latest/api/mcp.html)
+- Authentik è limitato all’edizione Community sotto MIT. Passbolt è limitato alla Community Edition e richiede la sua estensione browser ufficiale. [Licenza Authentik](https://github.com/goauthentik/authentik/blob/main/LICENSE) · [Estensione Passbolt](https://www.passbolt.com/docs/user/faq/why-a-browser-extension/)
+- La release Community di Plakar contiene l’interfaccia web locale per esplorare gli snapshot e ripristinare file. [Guida upstream](https://docs.plakar.io/docs/community/v1.0.6/guides/using-plakar-ui/) · [Release](https://github.com/PlakarKorp/plakar/releases/tag/v1.1.8)
+- 11 loghi PNG e 9 schermate ufficiali sono stati recuperati tramite HTTPS e decodificati. Il [manifest dei loghi inclusi](../../../apps/shiftanything-tauri-proof/media-provenance.json) conserva URL e SHA-256. Il controllo riguarda gli asset e le fonti pubbliche, senza installazioni o ricette abilitate.
+
+## Scartate
+
+- **Netdata** pubblica l’agente sotto GPL ma indica che il codice della dashboard è proprietario. [Licenza upstream](https://github.com/netdata/netdata#-license)
+- **UrBackup**, **BorgWarehouse** e il mirror ufficiale di **Proxmox Backup Server** risultavano sotto la soglia di 1.000 stelle GitHub al controllo. [UrBackup](https://github.com/uroni/urbackup_backend/stargazers) · [BorgWarehouse](https://github.com/Ravinou/borgwarehouse/stargazers) · [Proxmox Backup Server](https://github.com/proxmox/proxmox-backup/stargazers)
+- **OpenZiti Console** risultava sotto soglia nel repository della GUI. [Repository della console](https://github.com/openziti/ziti-console)
+- **Authelia** documenta il portale di accesso. Una dashboard amministrativa non è stata verificata. [Documentazione upstream](https://www.authelia.com/information/about/)
+- **OpenVPN GUI** e **Zoraxy** restano candidati. Il lotto include già un client VPN Windows e un reverse proxy con dashboard. [OpenVPN GUI](https://github.com/OpenVPN/openvpn-gui) · [Zoraxy](https://github.com/tobychui/zoraxy)

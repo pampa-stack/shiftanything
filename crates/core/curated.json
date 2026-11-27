@@ -22573,7 +22573,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/gluonfield/enchanted/HEAD/Enchanted/Assets.xcassets/AppIcon.appiconset/latest-128.png",
     "screenshots": [
       "https://raw.githubusercontent.com/gluonfield/enchanted/main/assets/promo.png"
     ],
@@ -23620,9 +23620,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://docs.mailcow.email/assets/images/favicon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://docs.mailcow.email/assets/images/favicon.png",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25232,9 +25232,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://mac-stats.com/logo.webp",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://mac-stats.com/logo.webp",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -28173,7 +28173,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://docs.goauthentik.io/img/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/goauthentik/authentik/b90e5fcab313327d5886953068414fc0387497d6/website/docs/sys-mgmt/ops/dashboard.png"
     ],
@@ -28322,9 +28322,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/WireGuard/wireguard-windows/HEAD/ui/icon/wireguard.svg",
     "screenshots": [],
-    "media_source": "",
+    "media_source": "https://raw.githubusercontent.com/WireGuard/wireguard-windows/HEAD/ui/icon/wireguard.svg",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",

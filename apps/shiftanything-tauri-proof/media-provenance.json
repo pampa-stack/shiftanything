@@ -3792,6 +3792,54 @@
       "file": "media/erpnext-logo.png",
       "sha256": "81132695d1357cae6bfc641d12625c9f7e4b0854a617d5a73cd3ab1730fcaf68",
       "source_sha256": "e3fc80256d4b7a3a11a70f591bea50fe50c58c5c2bd8609be92a9d3bd4bd2960"
+    },
+    {
+      "app": "cardinal",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/DISTRHO/Cardinal/main/src/MOD/Cardinal.lv2/modgui/distrho.svg",
+      "file": "media/cardinal-logo.png",
+      "sha256": "84cb855e59b917b6692fb0bac1faf4e94f3eafce6936634ce23ca4eb3a6fde94",
+      "source_sha256": "c8c4eeddf4f0ed1c8d7eac67a7377f055d62ea20e395410e93c16395d3e5f2a7"
+    },
+    {
+      "app": "enchanted-llm",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/gluonfield/enchanted/HEAD/Enchanted/Assets.xcassets/AppIcon.appiconset/latest-128.png",
+      "file": "media/enchanted-llm-logo.png",
+      "sha256": "a7d9d7190801316a7bc8c61332a83bb70fc18aae42e1224da008dd08ae3c126a",
+      "source_sha256": "f955c6caeb88d4312668e3055685f89cff9797b64d19c6539fa9ed55db0b8113"
+    },
+    {
+      "app": "mailcow-dockerized",
+      "slot": "logo",
+      "source": "https://docs.mailcow.email/assets/images/favicon.png",
+      "file": "media/mailcow-dockerized-logo.png",
+      "sha256": "f8d61cf5071899f075e8157a5d807dd008476da749b67037793b335a2221c475",
+      "source_sha256": "dcdf200c4ee468c1ef8c6f349e2b3eefe95713631cbb873e8a5c49dccb4f005a"
+    },
+    {
+      "app": "stats",
+      "slot": "logo",
+      "source": "https://mac-stats.com/logo.webp",
+      "file": "media/stats-logo.png",
+      "sha256": "9380b448e00c9fd315551c474a5e34958c2d5679a1452d1a0b50d44b705c50ae",
+      "source_sha256": "0a3bdee33a96538026b38c22171adb6660c10ea7e04b7d58400e8a072adbe60c"
+    },
+    {
+      "app": "authentik-community",
+      "slot": "logo",
+      "source": "https://docs.goauthentik.io/img/icon.png",
+      "file": "media/authentik-community-logo.png",
+      "sha256": "55dc168e70041e69117754f2aa955fe3588e79aa21a5a7e4fbf8c0dda34ec30c",
+      "source_sha256": "bdad1a86f5f6b6fd10b88e5dc9c1c79ac1ac43ac5704cde178d9a6149f25d2f8"
+    },
+    {
+      "app": "wireguard-windows",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/WireGuard/wireguard-windows/HEAD/ui/icon/wireguard.svg",
+      "file": "media/wireguard-windows-logo.png",
+      "sha256": "960646d21ed4ad844a0da678fe0daa260c88d4b5f8abe021e2078c1fd19573ee",
+      "source_sha256": "9dab0901768075592cf7b51a69b6965ac128d07b9cd1b5df21f85c64eadc8a0a"
     }
   ]
 }

@@ -2619,13 +2619,13 @@
         },
         {
           "platform": "macos",
-          "size_min": 39300540,
+          "size_min": 209590030,
           "size_max": 221815078
         },
         {
           "platform": "windows",
           "size_min": 193809816,
-          "size_max": 235774237
+          "size_max": 193809816
         }
       ]
     }

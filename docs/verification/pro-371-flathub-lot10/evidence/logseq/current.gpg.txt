@@ -1,0 +1,19 @@
+commit 7579d39d56379d88969a93a201c1656b3d12936faa3845b1db6bbb521ecb34f1
+Parent:  e0e49d396a630c00ba46f859bbfcb5e3fe4455cc089cd4a776b77029783d60cd
+ContentChecksum:  6b0d87b4c3b1261ec6f56b9e97016d3efbc01788685250899cac00617bef16ae
+Date:  2026-04-14 12:11:43 +0000
+
+    Add back pre-built dugite-native-v2.43.4 for aarch64 (5109719d9532)
+
+    Name: com.logseq.Logseq
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Apr 14 13:03:11 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

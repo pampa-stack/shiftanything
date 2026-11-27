@@ -1,0 +1,19 @@
+commit e0e49d396a630c00ba46f859bbfcb5e3fe4455cc089cd4a776b77029783d60cd
+Parent:  165f47c9eb42822fd2a8dff7633bd9633a4574d3fbeac1c6830d3033d4a5b1d3
+ContentChecksum:  9da9f06f83fa9cb4852d704eeb8b779f67038263daaf83124f8bb69ab6a931c4
+Date:  2025-11-29 09:18:50 +0000
+
+    Update metadata for com.logseq.Logseq (#190) (7b7528818f09)
+
+    Name: com.logseq.Logseq
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 29 10:02:57 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

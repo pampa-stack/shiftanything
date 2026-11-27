@@ -1,0 +1,19 @@
+commit 793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966
+Parent:  8ff101bea4020e60fca101cda9e3c67e7ddaec62f68a9131f0405d4c40ea41e1
+ContentChecksum:  e7e66c23d602ad2f128330b248aa8d73a878d98f223c9cc0eb35fee8cd25ee33
+Date:  2026-10-24 21:00:40 +0000
+
+    Merge pull request #160 from flathub/drop-libportal (10ea7bd567b1)
+
+    Name: org.gnome.Maps
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Oct 24 22:00:34 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

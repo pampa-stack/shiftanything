@@ -1,0 +1,63 @@
+=== 2026-11-27T10:33:18+00:00 gnome-maps install ===
+gnome-maps before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnome-maps JobFinished: Ok("Flathub app installed")
+gnome-maps after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-gnome-maps-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (1247)
+2e85c4f5c02d875f05ece07486c67fcba99d9b11ec72385f57a268618b27ea0c  /var/tmp/shift-flatpak-desktop.Ny73CjmA/evidence/native-gnome-maps-icon.svg
+org.gnome.Maps/x86_64/stable	flathub	cae20ad6fd95	user	51.3
+TIMING gnome-maps install 39193 ms
+
+=== 2026-11-27T10:33:57+00:00 gnome-maps prior ===
+Previous runtime org.gnome.Platform/x86_64/51
+Updating app/org.gnome.Maps/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.Maps/x86_64/stable	flathub	793510ce8bef	user	51.2
+gnome-maps before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 51, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966", package: Some("org.gnome.Maps"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.2"), update_available: false, can_remove: false, can_open: true }
+gnome-maps JobFinished: Err("Approved action rejected: native installation state changed")
+gnome-maps JobFinished: Err("This Flatpak is managed outside the launcher")
+gnome-maps after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 51, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966", package: Some("org.gnome.Maps"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.2"), update_available: false, can_remove: false, can_open: true })
+TIMING gnome-maps prior 6685 ms
+
+=== 2026-11-27T10:34:04+00:00 gnome-maps open ===
+dbus-daemon[2745362]: [session uid=1000 pid=2745362 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2745428 comm="/usr/bin/xfwm4 --compositor=off --display=:663" label="unconfined")
+dbus-daemon[2745362]: [session uid=1000 pid=2745362 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2745460]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2745428 comm="/usr/bin/xfwm4 --compositor=off --display=:663" label="unconfined")
+dbus-daemon[2745362]: [session uid=1000 pid=2745362 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2745428 comm="/usr/bin/xfwm4 --compositor=off --display=:663" label="unconfined")
+dbus-daemon[2745362]: [session uid=1000 pid=2745362 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2745460]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gnome-maps before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.2"), update_available: true, can_remove: true, can_open: true }
+gnome-maps JobFinished: Ok("Launch request accepted")
+gnome-maps after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.2"), update_available: true, can_remove: true, can_open: true })
+TIMING gnome-maps open-previous 16535 ms
+
+(xfconfd:2745479): xfconfd-WARNING **: 10:34:22.139: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING gnome-maps open 17727 ms
+
+=== 2026-11-27T10:34:22+00:00 gnome-maps update-remove ===
+gnome-maps before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.2"), update_available: true, can_remove: true, can_open: true }
+gnome-maps JobFinished: Ok("Flathub app updated")
+gnome-maps after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.3"), update_available: false, can_remove: true, can_open: true })
+TIMING gnome-maps update 6327 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/.var/app/org.gnome.Maps/shift-profile-marker: OK
+dbus-daemon[2748281]: [session uid=1000 pid=2748281 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2748319 comm="/usr/bin/xfwm4 --compositor=off --display=:582" label="unconfined")
+dbus-daemon[2748281]: [session uid=1000 pid=2748281 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2748333]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2748319 comm="/usr/bin/xfwm4 --compositor=off --display=:582" label="unconfined")
+dbus-daemon[2748281]: [session uid=1000 pid=2748281 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2748319 comm="/usr/bin/xfwm4 --compositor=off --display=:582" label="unconfined")
+dbus-daemon[2748281]: [session uid=1000 pid=2748281 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[2748333]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gnome-maps before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.3"), update_available: false, can_remove: true, can_open: true }
+gnome-maps JobFinished: Ok("Launch request accepted")
+gnome-maps after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.3"), update_available: false, can_remove: true, can_open: true })
+TIMING gnome-maps open-current 15611 ms
+
+(xfconfd:2748340): xfconfd-WARNING **: 10:34:47.990: Name org.xfce.Xfconf lost on the message dbus, exiting.
+gnome-maps before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 3, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/data/flatpak/app/org.gnome.Maps/x86_64/stable/cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34", package: Some("org.gnome.Maps"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.3"), update_available: false, can_remove: true, can_open: true }
+gnome-maps JobFinished: Ok("Flathub app removed")
+gnome-maps after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING gnome-maps remove 4494 ms
+/var/tmp/shift-flatpak-desktop.Ny73CjmA/gnome-maps/home/.var/app/org.gnome.Maps/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING gnome-maps update-remove 30563 ms

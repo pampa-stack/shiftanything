@@ -85,6 +85,51 @@
     "cycle_ms": 98395
   },
   {
+    "id": "gnome-maps",
+    "name": "GNOME Maps",
+    "repo": "https://gitlab.gnome.org/GNOME/gnome-maps",
+    "license": "GPL-2.0-or-later",
+    "stars": null,
+    "flatpak": "org.gnome.Maps",
+    "flathub": "https://flathub.org/apps/org.gnome.Maps",
+    "download_size": 25684998,
+    "logo": "https://dl.flathub.org/media/org/gnome/Maps/b232876aa03df88d938a736897d76ca8/icons/128x128/org.gnome.Maps.png",
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/GNOME/gnome-maps/issues",
+      "homepage": "https://apps.gnome.org/Maps/",
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/gnome-maps/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/gnome-maps",
+      "contribute": "https://welcome.gnome.org/app/Maps/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "51.3",
+      "51.2"
+    ],
+    "title": "maps",
+    "current_commit": "cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34",
+    "previous_commit": "793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966",
+    "prev": "793510ce8befb86375514cd1b2a517f36b83c9cae2faa930ba19d29be5414966",
+    "current": "cae20ad6fd95b440a53b7e8c4fa36d12bac07cc10c0eac341e1e8c8f01018c34",
+    "previous_version": "51.2",
+    "current_version": "51.3",
+    "times_ms": {
+      "install": 39193,
+      "prior": 6685,
+      "open-previous": 16535,
+      "open": 17727,
+      "update": 6327,
+      "open-current": 15611,
+      "remove": 4494,
+      "update-remove": 30563
+    },
+    "cycle_ms": 94297
+  },
+  {
     "id": "qgis",
     "name": "QGIS",
     "repo": "https://github.com/qgis/QGIS",
@@ -128,6 +173,51 @@
       "update-remove": 43744
     },
     "cycle_ms": 139428
+  },
+  {
+    "id": "logseq",
+    "name": "Logseq",
+    "repo": "https://github.com/logseq/logseq",
+    "license": "AGPL-3.0-or-later",
+    "stars": 45717,
+    "flatpak": "com.logseq.Logseq",
+    "flathub": "https://flathub.org/apps/com.logseq.Logseq",
+    "download_size": 183921865,
+    "logo": "https://dl.flathub.org/media/com/logseq/Logseq/e9fd7754757f106ceb422f684122ed63/icons/128x128/com.logseq.Logseq.png",
+    "metadata_urls": {
+      "bugtracker": "https://github.com/logseq/logseq/issues",
+      "homepage": "https://logseq.com",
+      "help": "https://docs.logseq.com/",
+      "donation": "https://opencollective.com/logseq",
+      "faq": "https://docs.logseq.com/#/page/faq",
+      "contact": "https://discuss.logseq.com/"
+    },
+    "verification": {
+      "verified": true,
+      "method": "website"
+    },
+    "display_versions": [
+      "0.10.15",
+      "0.10.14"
+    ],
+    "title": "logseq",
+    "current_commit": "7579d39d56379d88969a93a201c1656b3d12936faa3845b1db6bbb521ecb34f1",
+    "previous_commit": "e0e49d396a630c00ba46f859bbfcb5e3fe4455cc089cd4a776b77029783d60cd",
+    "prev": "e0e49d396a630c00ba46f859bbfcb5e3fe4455cc089cd4a776b77029783d60cd",
+    "current": "7579d39d56379d88969a93a201c1656b3d12936faa3845b1db6bbb521ecb34f1",
+    "previous_version": "0.10.14",
+    "current_version": "0.10.15",
+    "times_ms": {
+      "install": 38377,
+      "prior": 34628,
+      "open-previous": 21356,
+      "open": 23134,
+      "update": 12296,
+      "open-current": 19367,
+      "remove": 5624,
+      "update-remove": 41908
+    },
+    "cycle_ms": 138109
   },
   {
     "id": "anki",

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 78] = [
+pub const RECIPES: [(&str, &str); 80] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -80,6 +80,8 @@ pub const RECIPES: [(&str, &str); 78] = [
     ("anki", "net.ankiweb.Anki"),
     ("evince", "org.gnome.Evince"),
     ("qgis", "org.qgis.qgis"),
+    ("gnome-maps", "org.gnome.Maps"),
+    ("logseq", "com.logseq.Logseq"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -176,6 +178,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "anki" => "https://github.com/ankitects/anki",
         "evince" => "https://gitlab.gnome.org/GNOME/evince",
         "qgis" => "https://github.com/qgis/QGIS",
+        "gnome-maps" => "https://gitlab.gnome.org/GNOME/gnome-maps",
+        "logseq" => "https://github.com/logseq/logseq",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

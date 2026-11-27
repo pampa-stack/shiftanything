@@ -14,11 +14,13 @@ OUTPUT="$1"
 BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/debug/$PKG"
 [[ -x "$BINARY" ]] || { printf 'Build the selected binary first: cargo build -p %s\n' "$PKG" >&2; exit 1; }
 mkdir -- "$OUTPUT"
+# Keep the workspace private while giving the bundle standard distribution modes.
+umask 022
 APP="$OUTPUT/Sh*ftAnything.app"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources" "$OUTPUT/icon.iconset"
-cp "$BINARY" "$APP/Contents/MacOS/ShiftAnything"
+install -m 755 "$BINARY" "$APP/Contents/MacOS/ShiftAnything"
 for file in LICENSE-MIT LICENSE-APACHE NOTICE ATTRIBUTION.md; do
-  cp "$ROOT/$file" "$APP/Contents/Resources/"
+  install -m 644 "$ROOT/$file" "$APP/Contents/Resources/$file"
 done
 for size in 16 32 64 128 256 512; do
   sips -z "$size" "$size" "$ROOT/assets/shiftanything/icon.png" --out "$OUTPUT/icon.iconset/icon_${size}x${size}.png" >/dev/null

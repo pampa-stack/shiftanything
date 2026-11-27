@@ -19,7 +19,7 @@ ARCH="$(uname -m)"
 lipo "$EXE" -verify_arch "$ARCH"
 DMG="$OUTPUT/ShiftAnything-$VERSION-macos-$ARCH-$SUFFIX.dmg"
 STAGE="$OUTPUT/stage"
-mkdir "$STAGE"
+mkdir -m 755 "$STAGE"
 ditto "$APP" "$STAGE/Sh*ftAnything.app"
 ln -s /Applications "$STAGE/Applications"
 hdiutil create -srcfolder "$STAGE" -volname 'Sh*ftAnything' -fs HFS+ -format UDZO "$DMG"
@@ -37,6 +37,17 @@ trap cleanup EXIT
 hdiutil attach "$DMG" -readonly -nobrowse -noautoopen -mountpoint "$MOUNT"
 MOUNTED=1
 BUNDLE="$MOUNT/Sh*ftAnything.app"
+check_bundle_modes() {
+  local bundle="$1" path
+  for path in "$bundle" "$bundle/Contents" "$bundle/Contents/MacOS" "$bundle/Contents/Resources" \
+    "$bundle/Contents/_CodeSignature" "$bundle/Contents/MacOS/ShiftAnything"; do
+    [[ "$(stat -f '%Lp' "$path")" = 755 ]] || { printf 'Expected mode 755: %s\n' "$path" >&2; return 1; }
+  done
+  for path in "$bundle/Contents/Info.plist" "$bundle/Contents/_CodeSignature/CodeResources"; do
+    [[ "$(stat -f '%Lp' "$path")" = 644 ]] || { printf 'Expected mode 644: %s\n' "$path" >&2; return 1; }
+  done
+}
+check_bundle_modes "$BUNDLE"
 [[ "$(plutil -extract CFBundleIdentifier raw -o - "$BUNDLE/Contents/Info.plist")" = it.promptica.shiftanything ]]
 [[ "$(plutil -extract CFBundleDisplayName raw -o - "$BUNDLE/Contents/Info.plist")" = 'Sh*ftAnything' ]]
 [[ "$(plutil -extract CFBundleExecutable raw -o - "$BUNDLE/Contents/Info.plist")" = ShiftAnything ]]
@@ -47,6 +58,7 @@ for file in LICENSE-MIT LICENSE-APACHE NOTICE ATTRIBUTION.md; do
   cmp "$ROOT/$file" "$BUNDLE/Contents/Resources/$file"
 done
 ditto "$BUNDLE" "$OUTPUT/verified-copy/Sh*ftAnything.app"
+check_bundle_modes "$OUTPUT/verified-copy/Sh*ftAnything.app"
 codesign --verify --deep --strict "$OUTPUT/verified-copy/Sh*ftAnything.app"
 ACTUAL_VERSION="$("$OUTPUT/verified-copy/Sh*ftAnything.app/Contents/MacOS/ShiftAnything" --version)"
 [[ "$ACTUAL_VERSION" = "shiftanything $VERSION" ]] || { printf 'Unexpected launcher version: %s\n' "$ACTUAL_VERSION" >&2; exit 1; }

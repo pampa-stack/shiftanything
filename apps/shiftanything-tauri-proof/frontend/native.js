@@ -265,6 +265,7 @@
         if (button.textContent !== action.label) button.textContent = action.label;
         button.disabled = !action.enabled;
         button.title = progressLabel(snapshot.progress[app?.id]) || action.label;
+        button.classList.toggle('solid', action.enabled && action.operation === 'install');
         button.toggleAttribute('data-project-guide', action.guide === true);
         continue;
       }

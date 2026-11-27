@@ -549,7 +549,7 @@ mod tests {
         assert!(!verified_installs(Some(linux)).contains("naps2"));
         assert!(verified_installs(Some(linux)).contains("photocraft"));
         assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("photocraft"));
-        assert!(verified_installs(Some(windows)).iter().map(String::as_str).eq(["photocraft"]));
+        assert!(verified_installs(Some(windows)).iter().map(String::as_str).eq(["photocraft", "wordcraft"]));
         assert!(verified_installs(Some(Platform { arch: Arch::Arm64, ..windows })).is_empty());
         let catalog = artcraft_launcher_core::curated::apps();
         for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))).chain(verified_installs(Some(windows))) {

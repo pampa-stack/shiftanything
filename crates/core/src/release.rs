@@ -807,6 +807,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
+        crate::curated::DEEPTUTOR,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1214,6 +1215,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
         ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
         ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
+        ("HKUDS/DeepTutor", "v1.7.3") => {
+            &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.3.dmg", 504_015_269, "cc48aa2dd80a78856233cfbf23d8934f2aebea9d1e69012a13923d59c5030699")]
+        }
+        ("HKUDS/DeepTutor", "v1.7.4") => {
+            &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.4.dmg", 505_892_868, "afe5bb50e9b29af77dbf1a03ab1e04e4db6112dcacb61d11ef7f822b9321dd79")]
+        }
         ("siyuan-note/siyuan", "v3.8.11") => {
             &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
         }
@@ -1487,6 +1494,35 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn deeptutor_uses_only_reviewed_apple_silicon_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::DEEPTUTOR, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[DEEPTUTOR.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        for tag in ["v1.7.3", "v1.7.4"] {
+            let expected = reviewed_assets(DEEPTUTOR.repo, tag).next().unwrap();
+            let api = serde_json::json!({
+                "tag_name": tag,
+                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+            });
+            let release = parse_github_release(&api.to_string(), DEEPTUTOR.repo).unwrap();
+            assert_eq!(pick(&release, mac), Some(expected.clone()));
+            assert_eq!(pick(&release_from_sums(DEEPTUTOR.repo, tag, &[]), mac), Some(expected));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+
+            let mut wrong_digest = release.clone();
+            wrong_digest.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&wrong_digest, mac), None);
+            let mut wrong_origin = release;
+            wrong_origin.assets[0].url = "https://mirror.example/download.dmg".into();
+            assert_eq!(pick(&wrong_origin, mac), None);
+        }
+        let unknown = release_from_sums(DEEPTUTOR.repo, "v1.7.5", &[]);
+        assert_eq!(pick(&unknown, mac), None);
+    }
 
     #[test]
     fn calibre_archive_has_only_reviewed_official_arm64_dmgs() {

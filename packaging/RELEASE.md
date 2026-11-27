@@ -1,5 +1,7 @@
 # Pubblicazione della beta
 
+Le release del catalogo raccolgono almeno 30 nuove verifiche su Mac Apple Silicon e 60 su Linux x64 rispetto alla beta pubblicata, insieme alle funzioni completate. I due lotti di verifica avanzano in parallelo. Le correzioni urgenti a download, installazione o aggiornamenti del launcher si pubblicano appena superano il collaudo.
+
 1. Scegli un commit, con la stessa versione in Cargo e Tauri. Usa quel commit per il DMG notarizzato, il DEB e le note di rilascio.
 2. Verifica i pacchetti su Mac Apple Silicon e Ubuntu x64. Esegui [il packaging Mac](macos/README.md) e `package-tauri-updater.sh` per firmare anche gli aggiornamenti e generare `latest.json`.
 3. Scrivi le novità in Markdown e genera le note con `python3 packaging/release-notes.py "$commit" --changes novita.md > release-notes.md`. Lo script ricalcola schede e verifiche per piattaforma dal commit usato per compilare e rifiuta verifiche per schede assenti.

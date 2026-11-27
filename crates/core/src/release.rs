@@ -985,6 +985,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("CyberTimon/RapidRAW", "v1.7.1") => {
             &[("03_RapidRAW_v1.7.1_ubuntu-22.04_amd64.AppImage", 117_078_520, "398ca458f2f713eb60fc4b32ff5f178323217e71ff039f9246a8f4e7d1f63a71")]
         }
+        ("rustdesk/rustdesk", "1.5.1") => {
+            &[("rustdesk-1.5.1-x86_64.AppImage", 88_472_056, "bb8b7ccb3f50a201dccdc89b46385cff90f33e60b4730faeda9fa5504ac4dce6")]
+        }
+        ("rustdesk/rustdesk", "1.5.3") => {
+            &[("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

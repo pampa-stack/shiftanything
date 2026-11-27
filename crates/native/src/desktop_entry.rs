@@ -36,6 +36,7 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "joplin" => ("Office;", Some("appimagekit-joplin")),
         "notepadnext" => ("Qt;TextEditor;Utility;", Some("NotepadNext")),
         "rapidraw" => ("Graphics;Photography;", Some("RapidRAW")),
+        "rustdesk" => ("Utility;Network;", Some("rustdesk")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -94,7 +95,7 @@ fn value(s: &str) -> String {
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
     use artcraft_launcher_core::curated::{
         AUDACITY, CRYPTOMATOR, DRAWIO, JOPLIN, LOCALSEND, LOSSLESSCUT, MUSESCORE, NEXTCLOUD_DESKTOP, NOTEPAD_NEXT, ONLYOFFICE, OPENSHOT, ORCA_SLICER,
-        PENCIL2D, RAPIDRAW, ZETTLR,
+        PENCIL2D, RAPIDRAW, RUSTDESK, ZETTLR,
     };
     (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
         && [
@@ -113,6 +114,7 @@ pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'sta
             JOPLIN,
             NOTEPAD_NEXT,
             RAPIDRAW,
+            RUSTDESK,
         ]
         .iter()
         .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))

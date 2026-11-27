@@ -1,0 +1,4 @@
+8d2523dcc7e61bcd2b39d2e17579c0a75e34b5972c30b8cb125f0015945403c7  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/rustdesk/installed-icon.png
+eb0f4b9a35e4bcfb10b58fba7b0cf9fe11276def3dbead3f15677d1fa2096d00  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/rustdesk/open-menu.png
+eb0f4b9a35e4bcfb10b58fba7b0cf9fe11276def3dbead3f15677d1fa2096d00  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/rustdesk/open-new.png
+eb0f4b9a35e4bcfb10b58fba7b0cf9fe11276def3dbead3f15677d1fa2096d00  /mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot9/full-interface/rustdesk/open-old.png

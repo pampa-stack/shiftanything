@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=RustDesk
+Comment=Provide support and access computers remotely
+Exec="/fixture/home/Applications/rustdesk-1.5.3-x86_64.AppImage" --appimage-extract-and-run %F
+Icon=rustdesk
+Terminal=false
+Categories=Utility;Network;
+StartupWMClass=rustdesk
+X-ArtCraft-Launcher=true

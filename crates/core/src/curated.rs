@@ -1180,7 +1180,28 @@ pub const ACTUAL_BUDGET: crate::CraftApp = crate::CraftApp {
     mac_team: Some("79ANZ983YF"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 46] = [
+pub const RUSTDESK: crate::CraftApp = crate::CraftApp {
+    id: "rustdesk",
+    name: "RustDesk",
+    tagline: "Provide support and access computers remotely",
+    repo: "rustdesk/rustdesk",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [86, 141, 237],
+    ink_light: [35, 66, 120],
+    ink_dark: [177, 209, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "RustDesk contributors",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://rustdesk.com/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 47] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1227,6 +1248,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 46] = [
     NEXTCLOUD_DESKTOP,
     NOTEPAD_NEXT,
     RAPIDRAW,
+    RUSTDESK,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1267,6 +1289,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         JOPLIN,
         NOTEPAD_NEXT,
         RAPIDRAW,
+        RUSTDESK,
     ]
     .iter()
     .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
@@ -1525,7 +1548,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 29);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 30);
     }
 
     #[test]

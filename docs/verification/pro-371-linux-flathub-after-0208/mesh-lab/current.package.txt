@@ -1,0 +1,20 @@
+
+MeshLab - Free and open source processing and editing 3D triangular meshes
+
+          ID: net.meshlab.MeshLab
+         Ref: app/net.meshlab.MeshLab/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2025.07
+     License: GPL-3.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 108.4 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 3188b4479b883803a9140918360e869b91d94fe4d4eb782ca1943fd8e94287ca
+      Parent: 7dad24785bc8010251e8cb86d1c94818da5172549de272fad2fa34f89918e987
+     Subject: Merge pull request #152 from flathub/update-master-7b9f4b5 (ce386cec3ca6)
+        Date: 2026-11-11 18:39:59 +0000

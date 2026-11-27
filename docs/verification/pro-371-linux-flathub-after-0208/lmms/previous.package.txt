@@ -1,0 +1,20 @@
+
+LMMS - A music production application
+
+          ID: io.lmms.LMMS
+         Ref: app/io.lmms.LMMS/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.2.2
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 120.1 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: b401cd933a3abede160da527991ca3341e5a503e7aee23336a05b6d1f304b9ac
+      Parent: e01f54bb5a52487339d65a5e16f8c2afc760541b8ccd1ad9df90e68385bba2eb
+     Subject: Update fluidsynth to 2.5.6 (32dbb3e8d412)
+        Date: 2026-07-08 00:25:47 +0000

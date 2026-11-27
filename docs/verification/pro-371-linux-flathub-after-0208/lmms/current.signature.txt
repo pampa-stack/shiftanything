@@ -1,0 +1,19 @@
+commit 83f5bcf91ec174f7db389a9455423cb31575c2668d0a150134e346f5a03529e2
+Parent:  b401cd933a3abede160da527991ca3341e5a503e7aee23336a05b6d1f304b9ac
+ContentChecksum:  2f88dec4555e571f0eabb6508b8d6a6dcab9e4b025252268256c2570515d0f57
+Date:  2026-11-14 03:01:19 +0000
+
+    Update submodule shared-modules to c91a81101cf9 (b92ee1f53bad)
+
+    Name: io.lmms.LMMS
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 14 04:01:22 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

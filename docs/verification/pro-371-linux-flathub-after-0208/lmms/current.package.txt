@@ -1,0 +1,20 @@
+
+LMMS - A music production application
+
+          ID: io.lmms.LMMS
+         Ref: app/io.lmms.LMMS/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.2.2
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 120.0 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 83f5bcf91ec174f7db389a9455423cb31575c2668d0a150134e346f5a03529e2
+      Parent: b401cd933a3abede160da527991ca3341e5a503e7aee23336a05b6d1f304b9ac
+     Subject: Update submodule shared-modules to c91a81101cf9 (b92ee1f53bad)
+        Date: 2026-11-14 03:01:19 +0000

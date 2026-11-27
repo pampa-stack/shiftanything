@@ -1368,14 +1368,18 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
         (app.id, app.repo),
         ("anicraft", "storytold/anicraft")
             | ("cadcraft", "storytold/cadcraft")
+            | ("craft-anything", "storytold/craft-anything")
             | ("deckcraft", "storytold/deckcraft")
+            | ("designcraft", "storytold/designcraft")
             | ("effectcraft", "storytold/effectcraft")
             | ("figcraft", "storytold/figcraft")
             | ("filmcraft", "storytold/filmcraft")
             | ("gridcraft", "storytold/gridcraft")
             | ("lightcraft", "storytold/lightcraft")
+            | ("mailcraft", "UCSLabs/mailcraft")
             | ("pdfcraft", "storytold/pdfcraft")
             | ("photocraft", "storytold/photocraft")
+            | ("solidcraft", "tangency-labs/solidcraft")
             | ("soundcraft", "storytold/soundcraft")
             | ("texturecraft", "storytold/texturecraft")
             | ("vectorcraft", "storytold/vectorcraft")
@@ -1617,7 +1621,12 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(super::verified_linux_appimage(&super::HANDY, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, arm));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 32);
+        for id in ["craft-anything", "designcraft", "mailcraft", "solidcraft"] {
+            let app = CraftApp::by_id(id).unwrap();
+            assert!(super::verified_linux_appimage(app, linux));
+            assert!(!super::verified_linux_appimage(app, arm));
+        }
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 36);
     }
 
     #[test]
@@ -2055,7 +2064,8 @@ mod recipe_tests {
             "Handy_0.10.2_aarch64.AppImage",
         ];
         let json = serde_json::json!({"tag_name":"v0.10.2", "assets":assets.map(|name| serde_json::json!({
-            "name":name, "browser_download_url":format!("https://github.com/cjpais/Handy/releases/download/v0.10.2/{name}")
+            "name":name, "browser_download_url":format!("https://github.com/cjpais/Handy/releases/download/v0.10.2/{name}"),
+            "size":match name { "Handy_0.10.2_amd64.AppImage" => 124_029_432, "Handy_0.10.2_aarch64.dmg" => 14_979_688, _ => 0 }
         }))})
         .to_string();
         let release = crate::release::parse_github_release(&json, "cjpais/Handy").unwrap();

@@ -345,6 +345,13 @@ main.main{overflow-y:auto;display:block}
 .favorite-btn[aria-pressed=true]{color:#fc86ab}
 .favorite-btn[aria-pressed=true] svg{fill:currentColor}
 .favorite-btn:focus-visible{outline:2px solid #e9ff74;outline-offset:2px}
+.install-indicator{display:inline-grid;place-items:center;flex:0 0 17px;width:17px;height:25px;color:var(--dim);font:700 12px var(--mono)}
+.install-indicator[data-verified="true"]{color:#81e1ac}
+.catalog-grid .c-acts,.catalog-table .c-acts{flex-wrap:wrap}
+.install-reason{flex-basis:100%;min-height:1lh;color:var(--dim);font-size:10.5px;line-height:1.25}
+.catalog-table .install-reason,.detail-actions .install-reason{text-align:right}
+.detail-actions:has(.install-indicator){grid-template-columns:auto auto;column-gap:6px}
+.detail-actions > :is(.btn,.install-reason){grid-column:1/-1}
 .preview-shot,.detail-shot{position:relative}
 .preview-error::after{content:attr(data-preview-error);display:grid;place-items:center;position:absolute;inset:0;color:var(--dim);font-size:12px}
 .preview-error img,.thumbs img.media-failed{visibility:hidden}

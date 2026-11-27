@@ -13,6 +13,7 @@ use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
     path::{Path, PathBuf},
+    sync::OnceLock,
     time::{Duration, Instant},
 };
 
@@ -61,10 +62,26 @@ pub struct Snapshot {
     isolated_profile: bool,
     inventory: Inventory,
     release_assets: BTreeMap<String, ReleaseAsset>,
+    verified_installs: &'static BTreeSet<String>,
     pending: Option<Request>,
     offer_open_after_install: bool,
     progress: BTreeMap<String, Progress>,
     favorites: std::collections::BTreeSet<String>,
+}
+
+/// Completed package cycles, distinct from today's package availability.
+fn verified_installs(platform: Option<Platform>) -> &'static BTreeSet<String> {
+    type Evidence = BTreeMap<String, BTreeMap<String, BTreeSet<String>>>;
+    static EVIDENCE: OnceLock<Evidence> = OnceLock::new();
+    static NONE: BTreeSet<String> = BTreeSet::new();
+    let Some(platform) = platform else { return &NONE };
+    let evidence = EVIDENCE.get_or_init(|| {
+        serde_json::from_str(include_str!("../verified-platforms.json")).expect("valid package verification evidence")
+    });
+    evidence
+        .get(&platform.os.label().to_ascii_lowercase())
+        .and_then(|architectures| architectures.get(&platform.arch.label().to_ascii_lowercase()))
+        .unwrap_or(&NONE)
 }
 
 fn compatible_asset<'a>(app: &CraftApp, platform: Platform, release: &'a Release) -> Option<&'a Asset> {
@@ -224,6 +241,7 @@ impl NativeState {
 
     fn inventory(&self) -> Inventory {
         let platform = self.backend.platform();
+        let verified = verified_installs(platform);
         let mut apps: Vec<_> = artcraft_launcher_core::curated::NATIVE_APPS
             .iter()
             .map(|app| {
@@ -233,7 +251,7 @@ impl NativeState {
                     _ => None,
                 };
                 let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
-                let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
+                let installable = self.enabled && verified.contains(app.id) && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
                 let update_available = installable
                     && installed.zip(release).is_some_and(|(installed, release)| {
                         !installed.externally_managed
@@ -267,8 +285,8 @@ impl NativeState {
                     detected: self.detected.contains_key(id),
                     installed: state.installed.is_some(),
                     compatible: true,
-                    installable: self.enabled && state.installable,
-                    update_available: self.enabled && state.update_available,
+                    installable: self.enabled && verified.contains(id) && state.installable,
+                    update_available: self.enabled && verified.contains(id) && state.update_available,
                     can_open: Some(state.can_open),
                     can_remove: Some(state.can_remove),
                     installed_version: state.installed_version_label,
@@ -353,6 +371,7 @@ impl NativeState {
         Snapshot {
             platform,
             release_assets,
+            verified_installs: verified_installs(platform),
             detected: self.detected.clone(),
             lifecycle_enabled: self.enabled,
             isolated_profile: self.isolated,
@@ -473,6 +492,21 @@ mod tests {
     use artcraft_launcher_core::Arch;
 
     #[test]
+    fn installation_evidence_is_scoped_to_catalog_app_and_target() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        assert!(verified_installs(Some(mac)).contains("naps2"));
+        assert!(!verified_installs(Some(linux)).contains("naps2"));
+        assert!(verified_installs(Some(linux)).contains("photocraft"));
+        assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("photocraft"));
+        assert!(verified_installs(Some(Platform { os: Os::Windows, ..linux })).is_empty());
+        let catalog = artcraft_launcher_core::curated::apps();
+        for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))) {
+            assert!(catalog.iter().any(|app| &app.id == id), "verification refers to unknown app {id}");
+        }
+    }
+
+    #[test]
     fn only_a_single_macos_install_from_the_window_can_request_a_first_open() {
         let mut request = Request { id: "ui-1".into(), operation: Operation::Install, apps: vec!["kopia".into()] };
         let mac = Some(Platform { os: Os::MacOs, arch: Arch::Arm64 });
@@ -531,12 +565,14 @@ mod tests {
     fn linux_install_action_requires_an_appimage_for_the_tested_platform_and_recipe() {
         let platform = Platform { os: Os::Linux, arch: Arch::X64 };
         let photo = CraftApp::by_id("photocraft").unwrap();
-        let obsolete = CraftApp::by_id("designcraft").unwrap();
+        let designcraft = CraftApp::by_id("designcraft").unwrap();
+        let untested = CraftApp::by_id("kopia").unwrap();
         let image = |name: &str| Release { assets: vec![Asset { name: name.into(), ..Default::default() }], ..Default::default() };
         assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.AppImage")).is_some());
         assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
         assert!(compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.deb")).is_none());
         assert!(compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
-        assert!(compatible_asset(obsolete, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")).is_none());
+        assert!(compatible_asset(designcraft, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")).is_some());
+        assert!(compatible_asset(untested, platform, &image("kopia-0.23.1-linux-x86_64.AppImage")).is_none());
     }
 }

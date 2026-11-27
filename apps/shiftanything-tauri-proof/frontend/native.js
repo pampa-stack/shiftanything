@@ -102,7 +102,19 @@
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
   const platformLabels = {MacOs:'macOS', Windows:'Windows', Linux:'Linux'};
   const unavailableSize = it ? 'Dimensione non disponibile' : 'Size unavailable';
-  const projectGuide = entry => [entry?.review?.source, entry?.website].find(url => url?.startsWith('https://'));
+  const https = url => typeof url === 'string' && url.startsWith('https://');
+  const projectGuide = entry => [entry?.review?.source, entry?.website, entry?.repo].find(https);
+  function manualDownload(entry, platform) {
+    const release = entry?.release?.source;
+    if (https(release) && /^https:\/\/github\.com\/[^/]+\/[^/]+\/releases(?:[/?#]|$)/.test(release)) {
+      return {label:it?'Rilasci GitHub':'GitHub releases', target:release};
+    }
+    const channel = entry?.distribution?.find(item => item.platform === platform && https(item.source));
+    if (channel) return {label:it?'Fonte ufficiale':'Official source', target:channel.source};
+    const target = [entry?.repo, entry?.website].find(https);
+    if (!target) return {label:it?'Download non disponibile':'Download unavailable'};
+    return {label:target.startsWith('https://github.com/') ? 'GitHub' : (it?'Fonte ufficiale':'Official source'), target};
+  }
   const dateFormatter = new Intl.DateTimeFormat(document.documentElement.lang, {
     year:'numeric', month:'short', day:'numeric', timeZone:'UTC'
   });
@@ -150,18 +162,20 @@
   }
   function applyDetailPackages(output, snapshot, appId, release) {
     if (!output) return;
-    const currentOs = snapshot.platform.os;
-    const platforms = release.sameRelease ? Object.keys(platformLabels) : [currentOs];
-    const releaseSource = release.sameRelease ? catalogById.get(appId)?.release?.source : undefined;
+    const currentOs = snapshot.platform?.os;
+    const useDocumented = !release || release.sameRelease;
+    const platforms = useDocumented ? Object.keys(platformLabels) : [currentOs];
+    const releaseSource = useDocumented ? catalogById.get(appId)?.release?.source : undefined;
     const packages = platforms.flatMap(os => {
-      const documented = release.sameRelease ? documentedPackage(appId, os) : undefined;
-      if (os === currentOs && release.size !== unavailableSize) return [{size:release.size, source:releaseSource}];
+      const documented = useDocumented ? documentedPackage(appId, os) : undefined;
+      if (os === currentOs && release && release.size !== unavailableSize) return [{size:release.size, source:releaseSource}];
       return documented ? [documented] : [];
     });
-    const key = JSON.stringify(packages);
+    const sizeMissing = missingDownloadSize(snapshot, appId);
+    const key = JSON.stringify([packages, sizeMissing]);
     if (output.dataset.packageSizes === key) return;
     output.dataset.packageSizes = key;
-    if (!packages.length) { setText(output, unavailableSize); return; }
+    if (!packages.length) { setText(output, sizeMissing); return; }
     output.replaceChildren(...packages.map(pkg => {
       const row = document.createElement('div');
       if (pkg.source) {
@@ -207,6 +221,11 @@
     else label = it?'Operazione non riuscita':'Action failed';
     return {label,detail};
   }
+  function missingDownloadSize(snapshot, appId) {
+    if (catalogById.get(appId)?.delivery === 'self-hosted') return it?'Dipende dalla configurazione':'Varies by setup';
+    const system = platformLabels[snapshot.platform?.os];
+    return !system ? unavailableSize : it?`Dimensione non rilevata · ${system}`:`Size unavailable · ${system}`;
+  }
   function updateCatalogReleases(snapshot) {
     let datesChanged = false;
     for (const node of document.querySelectorAll('.catalog-grid .cell[data-app], .catalog-row[data-app]')) {
@@ -218,12 +237,14 @@
         }
         applyReleaseDate(node.querySelector('.release-meta > div:first-child > div:last-child'), release);
       }
-      const size = release?.size ?? documentedPackage(node.dataset.app, snapshot.platform?.os)?.size ?? unavailableSize;
+      const documented = !release || release.sameRelease ? documentedPackage(node.dataset.app, snapshot.platform?.os) : undefined;
+      const size = release && release.size !== unavailableSize ? release.size
+        : documented?.size ?? missingDownloadSize(snapshot, node.dataset.app);
       if (size) setText(node.querySelector('.release-meta > div:last-child > div:last-child'), size);
     }
     if (datesChanged) document.querySelector('[data-catalog]').dispatchEvent(new Event('releases-changed'));
   }
-  function primaryAction(snapshot, appId, app) {
+  function primaryAction(snapshot, appId, app, verified) {
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
     if (app?.job) return {label:it?'In corso…':'Working…', enabled:false};
@@ -231,25 +252,62 @@
     if (platform && entry?.platform_scope_complete && !entry.platform_support?.[platform]
       && !entry.release?.packages?.some(pkg => pkg.platform === platform)
       && !entry.distribution?.some(channel => channel.platform === platform)) {
-      return {label:it?'🔒 Non supportata':'🔒 Unsupported', enabled:false};
+      return {label:it?'🔒 Non supportata':'🔒 Unsupported', reason:it?'Il progetto non supporta questo sistema.':'The project does not support this system.'};
     }
-    if (app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled, operation:'install'};
-    if (entry?.delivery === 'self-hosted' && projectGuide(entry)) {
+    if (verified && app?.detected && app.compatible && app.installable) return {label:labels.install, enabled:snapshot.lifecycle_enabled, operation:'install'};
+    const guide = entry?.delivery === 'self-hosted' && projectGuide(entry);
+    if (guide) {
       return {
         label:it?'Guida per il server':'Server setup guide',
-        title:it?'Apre il sito o la documentazione per configurare l’app sul tuo server':'Opens the project site or documentation for setting up the app on your server',
-        enabled:true,
-        guide:true,
+        reason:it?'Si configura su un server.':'Requires setup on a server.',
+        target:guide,
       };
     }
-    if (snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
-    return {label:it?'Pacchetto non disponibile':'Package unavailable', enabled:false};
+    if (verified && snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
+    return {
+      ...manualDownload(entry, platform),
+      reason:verified ? (it?'Pacchetto compatibile non disponibile ora.':'Compatible package currently unavailable.')
+        : (it?'Installazione non ancora verificata su questo sistema.':'Installation not yet verified on this system.'),
+    };
+  }
+  function showInstallStatus(button, action, verified, platformReady) {
+    const surface = button.closest('.cell, .catalog-row, [data-app-content]');
+    const heart = surface?.querySelector('button[data-favorite-app]');
+    if (heart && platformReady) {
+      let badge = heart.previousElementSibling;
+      if (!badge?.classList.contains('install-indicator')) {
+        badge = document.createElement('span');
+        badge.className = 'install-indicator';
+        heart.before(badge);
+      }
+      const ready = verified && (action.operation === 'install' || action.label === labels.open && action.enabled);
+      const label = ready ? (it?'Installazione verificata':'Installation verified')
+        : verified ? (it?'Installazione provata. Controlla lo stato del pacchetto.':'Installation tested. Check package status.')
+          : (it?'Installazione non ancora verificata':'Installation not yet verified');
+      badge.dataset.verified = String(ready);
+      badge.title = label;
+      badge.setAttribute('role','img');
+      badge.setAttribute('aria-label',label);
+      setText(badge, verified?'✓':'–');
+    }
+    const actions = button.parentElement;
+    let reason = actions.querySelector('.install-reason');
+    const reserveSpace = surface?.classList.contains('cell');
+    if (!reason && (action.reason || reserveSpace)) {
+      reason = document.createElement('span');
+      reason.className = 'install-reason';
+      actions.append(reason);
+    }
+    if (reason) {
+      reason.hidden = !action.reason && !reserveSpace;
+      setText(reason, action.reason || '');
+    }
   }
   function render(snapshot, {force = false} = {}) {
     const firstPaint = !current;
     const {updated_at: _, ...inventoryState} = snapshot.inventory;
     const nextKey = JSON.stringify([snapshot.lifecycle_enabled, snapshot.platform, inventoryState, snapshot.release_assets,
-      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites]);
+      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs]);
     current = snapshot;
     if (!force && paintKey === nextKey) return;
     paintKey = nextKey;
@@ -262,8 +320,9 @@
       window.dispatchEvent(new CustomEvent('native-favorites',{detail:snapshot.favorites}));
     }
     const inventory = new Map(snapshot.inventory.apps.map(app => [app.id,app]));
+    const verified = new Set(snapshot.verified_installs);
     const installableIds = snapshot.inventory.apps.filter(app => {
-      const action = primaryAction(snapshot, app.id, app);
+      const action = primaryAction(snapshot, app.id, app, verified.has(app.id));
       return action.enabled && action.operation === 'install';
     }).map(app => app.id);
     window.dispatchEvent(new CustomEvent('native-installable', {detail:{available:snapshot.lifecycle_enabled, ids:installableIds}}));
@@ -286,8 +345,8 @@
       if (release) {
         setText(detail.querySelector('.detail-facts > div:first-child > div:last-child'), release.version);
         applyReleaseDate(detail.querySelector('.detail-facts > div:nth-child(2) > div:last-child'), release);
-        applyDetailPackages(detail.querySelector('.detail-facts > div:nth-child(3) > div:last-child'), snapshot, appId, release);
       }
+      applyDetailPackages(detail.querySelector('.detail-facts > div:nth-child(3) > div:last-child'), snapshot, appId, release);
       const output = detail.querySelector('.native-result');
       if (output) {
         const activity = appActivity(snapshot, appId);
@@ -300,12 +359,15 @@
       const app = inventory.get(button.dataset.nativeApp);
       const operation = button.dataset.nativeOperation;
       if (!operation) {
-        const action = primaryAction(snapshot, button.dataset.nativeApp, app);
+        const proven = verified.has(button.dataset.nativeApp);
+        const action = primaryAction(snapshot, button.dataset.nativeApp, app, proven);
         if (button.textContent !== action.label) button.textContent = action.label;
-        button.disabled = !action.enabled;
-        button.title = progressLabel(snapshot.progress[app?.id]) || action.title || action.label;
+        button.disabled = !(action.enabled || action.target);
+        button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
         button.classList.toggle('solid', action.enabled && action.operation === 'install');
-        button.toggleAttribute('data-project-guide', action.guide === true);
+        if (action.target) button.dataset.externalTarget = action.target;
+        else delete button.dataset.externalTarget;
+        showInstallStatus(button, action, proven, Boolean(snapshot.platform));
         continue;
       }
       button.textContent = labels[operation];
@@ -352,9 +414,8 @@
     event.preventDefault(); event.stopImmediatePropagation(); requesting=true; actionError='';
     const app=current?.inventory.apps.find(app=>app.id===button.dataset.nativeApp);
     try {
-      if (button.hasAttribute('data-project-guide')) {
-        const appId = button.dataset.nativeApp;
-        await invoke('open_catalog_link', {appId,target:projectGuide(catalogById.get(appId))});
+      if (button.dataset.externalTarget) {
+        await invoke('open_catalog_link', {appId:button.dataset.nativeApp,target:button.dataset.externalTarget});
       } else {
         await invoke('request_native_action',{operation:button.dataset.nativeOperation || (app?.installed?'open':'install'),apps:[button.dataset.nativeApp]});
         render(await invoke('native_snapshot'));

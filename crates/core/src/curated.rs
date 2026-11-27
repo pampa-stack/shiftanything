@@ -1390,7 +1390,28 @@ pub const VOICE_STUDIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("CR8M2NTH2K"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 56] = [
+pub const T3_CODE: crate::CraftApp = crate::CraftApp {
+    id: "t3code",
+    name: "T3 Code",
+    tagline: "Work with coding agents in a desktop workspace",
+    repo: "pingdotgg/t3code",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "T3 Tools, Inc.",
+    msi_publisher: None,
+    bundle: Some("com.t3tools.t3code"),
+    site: Some("https://t3.codes/"),
+    mac_bundle_name: Some("T3 Code (Beta)"),
+    mac_team: Some("ARK85ZXQ4Z"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 57] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1447,6 +1468,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 56] = [
     CLASH_VERGE_REV,
     ORCA,
     VOICE_STUDIO,
+    T3_CODE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

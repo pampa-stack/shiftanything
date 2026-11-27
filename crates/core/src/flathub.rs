@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 92] = [
+pub const RECIPES: [(&str, &str); 94] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -94,6 +94,8 @@ pub const RECIPES: [(&str, &str); 92] = [
     ("prusaslicer", "com.prusa3d.PrusaSlicer"),
     ("bottles", "com.usebottles.bottles"),
     ("mumble", "info.mumble.Mumble"),
+    ("headlamp", "io.kinvolk.Headlamp"),
+    ("blockbench", "net.blockbench.Blockbench"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -204,6 +206,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "prusaslicer" => "https://github.com/prusa3d/PrusaSlicer",
         "bottles" => "https://github.com/bottlesdevs/Bottles",
         "mumble" => "https://github.com/mumble-voip/mumble",
+        "headlamp" => "https://github.com/kubernetes-sigs/headlamp",
+        "blockbench" => "https://github.com/JannisX11/blockbench",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -757,6 +757,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CLASH_VERGE_REV,
         crate::curated::ORCA,
         crate::curated::VOICE_STUDIO,
+        crate::curated::T3_CODE,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1085,6 +1086,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("debpalash/VoiceStudio", "v0.5.8") => {
             &[("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e")]
+        }
+        ("pingdotgg/t3code", "v0.1.12") => {
+            &[("T3-Code-0.1.12-arm64.dmg", 237_227_036, "4613582f18d0c8ba60164e5d5d779bcebe4bb6cf7824b75fe94ecfe00a21f9bf")]
+        }
+        ("pingdotgg/t3code", "v0.1.13") => {
+            &[("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

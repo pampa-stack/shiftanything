@@ -1,0 +1,56 @@
+utc=2026-11-27T11:19:37Z host_arch=arm64 macos=26.6.2
+url=https://github.com/objective-see/LuLu/releases/download/v4.5.7/LuLu_4.5.7.dmg
+sha256_source=https://api.github.com/repos/objective-see/LuLu/releases/tags/v4.5.7
+bytes=6684272 expected=6684272
+/private/var/tmp/shift-air-dmg.VT4Seqst/LuLu_4.5.7.dmg: OK
+sha256=8d60f32b6972648aab9203f2f68bd3a804e2e05c23d60200d5e093d6bdb06e8c
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $31CE4F4A
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $192AE84D
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $E409BDC0
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $BC7D4F63
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $E409BDC0
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $A7D881BC
+verificato   CRC32 $3287E9D2
+/dev/disk6          	GUID_partition_scheme
+/dev/disk6s1        	Apple_HFS                      	/private/var/tmp/shift-air-dmg.VT4Seqst/mnt
+bundle_count=1
+bundle=LuLu.app
+CFBundleIdentifier=com.objective-see.lulu.app
+CFBundleShortVersionString=4.5.7 expected=4.5.7
+CFBundleVersion=4.5.7
+CFBundleExecutable=LuLu
+LSMinimumSystemVersion=10.15
+CFBundleIconFile=AppIcon
+lipo=x86_64 arm64
+Identifier=com.objective-see.lulu.app
+Authority=Developer ID Application: Objective-See, LLC (VBG97UB4TA)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=2 Nov 2026 at 11:07:43
+TeamIdentifier=VBG97UB4TA
+Runtime Version=26.5.0
+stapler_dmg
+/private/var/tmp/shift-air-dmg.VT4Seqst/mnt/LuLu.app: valid on disk
+/private/var/tmp/shift-air-dmg.VT4Seqst/mnt/LuLu.app: satisfies its Designated Requirement
+Processing: /private/var/tmp/shift-air-dmg.VT4Seqst/LuLu_4.5.7.dmg
+The validate action worked!
+stapler_app
+Processing: /private/var/tmp/shift-air-dmg.VT4Seqst/mnt/LuLu.app
+The validate action worked!
+gatekeeper
+/private/var/tmp/shift-air-dmg.VT4Seqst/mnt/LuLu.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Objective-See, LLC (VBG97UB4TA)
+dmg_ticket=yes app_ticket=yes gatekeeper=yes
+PREFLIGHT_PASS
+"disk6" ejected.

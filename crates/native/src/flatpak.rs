@@ -82,9 +82,12 @@ mod linux {
     }
 
     impl Deployment {
-        fn version_label(&self) -> Option<String> {
-            let label = self.version.trim();
-            (!label.is_empty() && label.len() <= 96 && !label.chars().any(char::is_control)).then(|| label.to_owned())
+        fn version_label(&self) -> Option<&str> {
+            let raw = self.version.trim();
+            // Some upstream AppStream metadata serializes a release number as Python bytes.
+            let label =
+                raw.strip_prefix("b'").and_then(|value| value.strip_suffix('\'')).filter(|value| version::parse(value).is_some()).unwrap_or(raw);
+            (!label.is_empty() && label.len() <= 96 && !label.chars().any(char::is_control)).then_some(label)
         }
     }
 
@@ -261,10 +264,11 @@ mod linux {
             let can_open = exported_gui(&location, id);
             let managed = trusted && record.is_some_and(|r| self.reviewed_deployment(id, &reference, deployed).is_ok_and(|found| &found == r));
             let update_available = managed && remote_latest && self.remote_commit(&reference).is_ok_and(|commit| commit != deployed.commit);
+            let version_label = deployed.version_label();
             Ok(Status {
                 installable: managed,
                 installed: Some(Installed {
-                    version: version::parse(&deployed.version),
+                    version: version_label.and_then(version::parse),
                     source: InstallSource::Flatpak,
                     location: location.display().to_string(),
                     package: Some(id.into()),
@@ -272,7 +276,7 @@ mod linux {
                     origin: Some(deployed.origin.clone()),
                     installation: Some(deployed.scope.clone()),
                 }),
-                installed_version_label: deployed.version_label(),
+                installed_version_label: version_label.map(str::to_owned),
                 update_available,
                 can_remove: managed,
                 can_open,
@@ -293,7 +297,7 @@ mod linux {
                 }
                 let mut command = self.command();
                 command.args(["run", &scope_arg(&deployed.scope), &reference]).args(args);
-                process::spawn_detached(command)?;
+                process::check_desktop_start(command, Duration::from_secs(1))?;
                 return Ok(None);
             }
             let at_start = match action {
@@ -519,8 +523,18 @@ mod linux {
             let rows = format!("{reference}\tflathub\tuser\t5.3.4.1");
             let deployments = parse_deployments(&rows, reference, |_| Ok(COMMIT.into())).unwrap();
             let deployed = selected(&deployments);
-            assert_eq!(deployed.version_label().as_deref(), Some("5.3.4.1"));
+            assert_eq!(deployed.version_label(), Some("5.3.4.1"));
             assert!(version::parse(&deployed.version).is_none());
+        }
+
+        #[test]
+        fn flatpak_normalizes_the_bytes_version_label_published_by_cherrytree() {
+            let reference = "app/net.giuspen.cherrytree/x86_64/stable";
+            let rows = format!("{reference}\tflathub\tuser\tb'1.7.3'");
+            let deployments = parse_deployments(&rows, reference, |_| Ok(COMMIT.into())).unwrap();
+            let label = selected(&deployments).version_label();
+            assert_eq!(label, Some("1.7.3"));
+            assert_eq!(label.and_then(version::parse), version::parse("1.7.3"));
         }
 
         #[test]

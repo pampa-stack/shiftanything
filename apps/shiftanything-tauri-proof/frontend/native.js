@@ -97,7 +97,7 @@
   const firstOpen = confirmation.querySelector('.native-first-open');
   const launchCheckbox = firstOpen.querySelector('input');
   document.body.append(confirmation);
-  const labels = it ? {install:'Installa',update:'Aggiorna',open:'Apri',remove:'Rimuovi',cancel:'Annulla download',update_all:'Aggiorna tutte'} : {install:'Install',update:'Update',open:'Open',remove:'Remove',cancel:'Cancel download',update_all:'Update all'};
+  const labels = it ? {install:'Installa',update:'Aggiorna',open:'Apri',remove:'Rimuovi',cancel:'Annulla operazione',update_all:'Aggiorna tutte'} : {install:'Install',update:'Update',open:'Open',remove:'Remove',cancel:'Cancel operation',update_all:'Update all'};
   let pendingId;
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
   const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};

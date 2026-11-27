@@ -1,4 +1,4 @@
-/* Installed apps are rendered exclusively from NativeBackend's observed inventory. */
+/* Installed apps and ongoing actions come from NativeBackend's inventory. */
 (() => {
   const invoke = window.__TAURI__.core.invoke;
   const it = document.documentElement.lang === 'it';
@@ -6,7 +6,7 @@
   const panel = document.createElement('main');
   panel.className = 'main native-apps';
   panel.hidden = true;
-  panel.innerHTML = `<div class="mhead"><h1 tabindex="-1">${it?'Le mie app':'My apps'}</h1><div class="manage-tools"><button class="btn" data-native-check>${it?'Cerca aggiornamenti':'Check for updates'}</button><button class="btn solid" data-native-bulk>${it?'Aggiorna tutte':'Update all'}</button></div></div><p class="manage-status" role="status" aria-live="polite"></p><div class="manage-group"><h2>${it?'Aggiornamenti':'Updates'} · <span data-native-update-count>0</span></h2><div data-native-updates></div></div><div class="manage-group"><h2>${it?'Installate':'Installed'} · <span data-native-installed-count>0</span></h2><div data-native-installed></div></div>`;
+  panel.innerHTML = `<div class="mhead"><h1 tabindex="-1">${it?'Le mie app':'My apps'}</h1><div class="manage-tools"><button class="btn" data-native-check>${it?'Cerca aggiornamenti':'Check for updates'}</button><button class="btn solid" data-native-bulk>${it?'Aggiorna tutte':'Update all'}</button></div></div><p class="manage-status" role="status" aria-live="polite"></p><div class="manage-group" data-native-pending-group hidden><h2>${it?'Installazioni in corso':'Installations in progress'} · <span data-native-pending-count>0</span></h2><div data-native-installs></div></div><div class="manage-group"><h2>${it?'Aggiornamenti':'Updates'} · <span data-native-update-count>0</span></h2><div data-native-updates></div></div><div class="manage-group"><h2>${it?'Installate senza aggiornamenti':'Installed without updates'} · <span data-native-installed-count>0</span></h2><div data-native-installed></div></div>`;
   catalogBody.after(panel);
   document.body.append(document.querySelector('.catalog-detail'));
   let snapshot;
@@ -66,50 +66,76 @@
     identity.append(text('strong', entry?.name || app.id));
     row.append(identity, text('span', app.installed_version || '—'), text('span', app.update_available ? (app.latest_version || (it?'Nuova revisione':'New revision')) : '—'));
     const activity = window.nativeAppActivity(snapshot, app.id);
-    const state = text('span', activity.label || (it?'Installata':'Installed'));
+    const state = text('span', activity.label || (app.installed ? (it?'Installata':'Installed') : (it?'In attesa':'Waiting')));
     state.title = activity.detail || '';
     state.className = 'native-app-result';
     row.append(state);
     const actions = document.createElement('div');
     actions.className = 'more-actions';
-    if (app.update_available) {
+    if (app.installed && app.update_available) {
       const update = action(app, 'update', it?'Aggiorna':'Update');
       update.disabled ||= !app.installable || !app.compatible;
       actions.append(update);
     }
-    const open = action(app, 'open', it?'Apri':'Open');
-    open.disabled ||= app.can_open === false;
-    actions.append(open);
+    if (app.installed) {
+      const open = action(app, 'open', it?'Apri':'Open');
+      open.disabled ||= app.can_open === false;
+      actions.append(open);
+    }
     const details = text('button', it?'Scheda':'Details', 'btn');
     details.type = 'button';
     details.dataset.appDetail = app.id;
-    const remove = action(app, 'remove', it?'Rimuovi':'Remove');
-    remove.disabled ||= app.can_remove === false;
-    actions.append(details, remove);
-    if (app.job) actions.append(action(app, 'cancel', it?'Annulla download':'Cancel download'));
+    actions.append(details);
+    if (app.installed) {
+      const remove = action(app, 'remove', it?'Rimuovi':'Remove');
+      remove.disabled ||= app.can_remove === false;
+      actions.append(remove);
+    }
+    if (app.job) actions.append(action(app, 'cancel', it?'Annulla operazione':'Cancel operation'));
     row.append(actions);
     return row;
   }
+  function paintRows(container, apps, emptyState) {
+    const heading = document.createElement('div');
+    heading.className = 'table-row table-labels mono';
+    const labels = it ? ['App','Versione','Disponibile','Stato','Azioni'] : ['App','Version','Available','Status','Actions'];
+    for (const label of labels) heading.append(text('span', label));
+    container.replaceChildren(heading, ...apps.map(row));
+    if (!apps.length && emptyState) container.append(text('p', emptyState));
+  }
   function render() {
     if (!snapshot || !catalog) return;
-    const apps = snapshot.inventory.apps.filter(app => app.installed && catalog.some(entry => entry.id === app.id));
-    ready = apps.filter(app => app.detected && app.update_available && app.installable && app.compatible && !app.job);
-    const nextKey = JSON.stringify([snapshot.lifecycle_enabled,apps,snapshot.progress,snapshot.inventory.results]);
+    const apps = snapshot.inventory.apps.filter(app => (app.installed || app.job) && catalog.some(entry => entry.id === app.id));
+    const installed = apps.filter(app => app.installed);
+    const installing = apps.filter(app => !app.installed);
+    const updates = installed.filter(app => app.update_available);
+    const upToDate = installed.filter(app => !app.update_available);
+    ready = updates.filter(app => app.detected && app.installable && app.compatible && !app.job);
+    const detecting = snapshot.inventory.apps.some(app => !app.detected);
+    const nextKey = JSON.stringify([snapshot.lifecycle_enabled,apps,snapshot.progress,snapshot.inventory.results,detecting]);
     if (nextKey !== key) {
       const focused = document.activeElement;
       const hadFocus = panel.contains(focused);
       key = nextKey;
-      for (const [target, pending] of [['[data-native-updates]',true],['[data-native-installed]',false]]) {
-        const container = panel.querySelector(target);
-        const selected = apps.filter(app => !!app.update_available === pending);
-        const heading = document.createElement('div');
-        heading.className = 'table-row table-labels mono';
-        for (const label of [it?'App':'App',it?'Versione':'Version',it?'Disponibile':'Available',it?'Stato':'Status',it?'Azioni':'Actions']) heading.append(text('span', label));
-        container.replaceChildren(heading, ...selected.map(row));
-        if (!selected.length) container.append(text('p', !snapshot.inventory.apps.every(app=>app.detected) ? (it?'Rilevamento in corso…':'Detecting apps…') : pending ? (it?'Nessun aggiornamento disponibile rilevato.':'No available updates detected.') : apps.length ? (it?'Le app con aggiornamenti sono elencate sopra.':'Apps with available updates are listed above.') : (it?'Nessuna app installata nel profilo.':'No apps installed in this profile.')));
-        panel.querySelector(pending?'[data-native-update-count]':'[data-native-installed-count]').textContent = selected.length;
+      const emptyWhileDetecting = detecting ? (it?'Rilevamento in corso…':'Detecting apps…') : '';
+      paintRows(panel.querySelector('[data-native-installs]'), installing);
+      paintRows(panel.querySelector('[data-native-updates]'), updates, emptyWhileDetecting
+        || (it?'Nessun aggiornamento disponibile rilevato.':'No available updates detected.'));
+      paintRows(panel.querySelector('[data-native-installed]'), upToDate, emptyWhileDetecting
+        || (updates.length
+          ? (it?'Le app con aggiornamenti sono elencate sopra.':'Apps with available updates are listed above.')
+          : (it?'Nessuna app installata nel profilo.':'No apps installed in this profile.')));
+      panel.querySelector('[data-native-pending-group]').hidden = !installing.length;
+      panel.querySelector('[data-native-pending-count]').textContent = installing.length;
+      panel.querySelector('[data-native-update-count]').textContent = updates.length;
+      panel.querySelector('[data-native-installed-count]').textContent = upToDate.length;
+      if (hadFocus && !focused.isConnected && !panel.hidden) {
+        const focusTarget = [...panel.querySelectorAll('button:enabled')].find(button =>
+          (focused.dataset.appDetail && focused.dataset.appDetail === button.dataset.appDetail)
+          || (focused.dataset.nativeApp && focused.dataset.nativeApp === button.dataset.nativeApp
+            && focused.dataset.nativeOperation === button.dataset.nativeOperation));
+        (focusTarget || panel.querySelector('h1')).focus();
       }
-      if (hadFocus && !focused.isConnected && !panel.hidden) panel.querySelector('h1').focus();
     }
     panel.querySelector('[data-native-bulk]').disabled = !snapshot.lifecycle_enabled || !ready.length || !!snapshot.pending;
     panel.querySelector('[data-native-check]').disabled = !snapshot.lifecycle_enabled;
@@ -123,9 +149,9 @@
   });
   panel.querySelector('[data-native-bulk]').addEventListener('click', async () => {
     const status = panel.querySelector('.manage-status');
+    status.textContent = '';
     try {
       await invoke('request_native_action',{operation:'update_all',apps:ready.map(app=>app.id)});
-      status.textContent = it?'Richiesta inviata al motore nativo.':'Request sent to the native backend.';
     } catch (error) { status.textContent = String(error); }
   });
   window.addEventListener('native-snapshot', event => {snapshot=event.detail;render();});

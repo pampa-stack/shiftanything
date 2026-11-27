@@ -105,6 +105,10 @@
   const normalize = text => text.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
   const categories = new Map([...category.options].map(option => [option.value, option.textContent]));
   const index = new Map(groups[0].elements.map((item, position) => [item.dataset.app, position]));
+  const searchById = new Map(groups[0].elements.map(({dataset}) => [
+    dataset.app, normalize(`${dataset.search} ${categories.get(dataset.category)}`),
+  ]));
+  let searchTimer;
   const sortBy = {
     featured: (a, b) => index.get(a.app) - index.get(b.app),
     name: (a, b) => compareText.compare(a.name, b.name),
@@ -127,7 +131,7 @@
       return (level === 'all_apps' || data.level === level)
         && (!favoritesOnly || favorites.has(data.app))
         && (!provider.value || data.provider === provider.value)
-        && q.every(word => normalize(`${data.search} ${categories.get(data.category)}`).includes(word));
+        && q.every(word => searchById.get(data.app).includes(word));
     };
     const counts = new Map();
     const matched = new Set();
@@ -140,7 +144,10 @@
       if (!category.value || category.value === itemCategory) matched.add(app);
     }
     for (const { container, elements } of groups) {
-      for (const element of elements) element.hidden = !matched.has(element.dataset.app);
+      for (const element of elements) {
+        const hide = !matched.has(element.dataset.app);
+        if (element.hidden !== hide) element.hidden = hide;
+      }
       if (reorder) {
         const order = sortBy[sort.value];
         const sorted = [...elements].sort((a, b) => order(a.dataset, b.dataset) || sortBy.name(a.dataset, b.dataset));
@@ -183,7 +190,10 @@
   catalog.addEventListener('favorites-changed', () => render());
   favoritesButton.addEventListener('click', () => switchView(true));
   catalogButton.addEventListener('click', () => switchView(false));
-  search.addEventListener('input', () => render());
+  search.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(render, 120);
+  });
   provider.addEventListener('change', () => render());
   category.addEventListener('change', () => {
     const selected = categoryButtons.find(button => button.dataset.catalogCategory === category.value);

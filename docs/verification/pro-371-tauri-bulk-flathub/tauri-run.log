@@ -1,0 +1,14 @@
+PROOF_ROOT=/var/tmp/shift-bulk-flathub.ziiton/launcher-profile
+DESKTOP_PID=2232176
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+Native catalog requested
+Native catalog requested
+APPROVED ui-2 InstallExpected { apps: ["gnome-calculator", "gnome-text-editor"], installed: true }
+NATIVE gnome-calculator: completed: Flathub app updated
+NATIVE gnome-text-editor: completed: Flathub app updated
+APPROVED ui-3 Uninstall { app: "gnome-calculator" }
+NATIVE gnome-calculator: completed: Flathub app removed
+APPROVED ui-4 Uninstall { app: "gnome-text-editor" }
+NATIVE gnome-text-editor: completed: Flathub app removed
+Error: "Desktop proof failed"

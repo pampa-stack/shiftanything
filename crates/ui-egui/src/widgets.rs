@@ -979,6 +979,7 @@ pub fn promptica_social_icons(ui: &mut Ui, size: f32) {
             url: "https://www.reddit.com/user/Comfortable_Ice_4281/",
         },
         IconLink { name: "X", label: "Promptica X".into(), tip: "Promptica · X".into(), url: "https://x.com/Pampaeyes" },
+        IconLink { name: "Discord", label: "Discord · Promptica".into(), tip: "Discord · Promptica".into(), url: "https://discord.gg/Xrg2kksz2m" },
     ];
     icon_links(ui, size, &links);
 }

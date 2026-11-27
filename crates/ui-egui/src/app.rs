@@ -1986,6 +1986,7 @@ mod tests {
                 ("Promptica Instagram", "https://www.instagram.com/promptica_ai"),
                 ("Promptica Reddit", "https://www.reddit.com/user/Comfortable_Ice_4281/"),
                 ("Promptica X", "https://x.com/Pampaeyes"),
+                ("Discord · Promptica", "https://discord.gg/Xrg2kksz2m"),
             ] {
                 h.get_by_label(label).click_accesskit();
                 let mut opened = false;

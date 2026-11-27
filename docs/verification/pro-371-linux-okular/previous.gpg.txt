@@ -1,0 +1,19 @@
+commit c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d
+Parent:  b2ead88f33f7e9df8650a103af1bf50d52ba640b9e979c19f1db6f0df603ed73
+ContentChecksum:  257994a40c0466257ab29381eb9a1724d48332e9b5db8c49344c5019ddfcb9ee
+Date:  2026-07-03 18:23:33 +0000
+
+    Update discount, poppler, libkexiv2 and okular modules (fe3acedfd478)
+
+    Name: org.kde.okular
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Jul  3 19:01:25 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

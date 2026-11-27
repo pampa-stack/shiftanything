@@ -1,0 +1,67 @@
+native-cycle: OK
+
+=== 2026-11-27T06:49:42+00:00 okular install ===
+okular before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+okular JobFinished: Ok("Flathub app installed")
+okular after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.okular/x86_64/stable	flathub	6550bed86324	user	26.08.3
+
+=== 2026-11-27T06:50:24+00:00 okular prior ===
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.kde.okular/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.okular/x86_64/stable	flathub	c294a8e2bb75	user	26.04.3
+okular before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d", package: Some("org.kde.okular"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.3"), update_available: false, can_remove: false, can_open: true }
+okular JobFinished: Err("Approved action rejected: native installation state changed")
+okular JobFinished: Err("This Flatpak is managed outside the launcher")
+okular after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d", package: Some("org.kde.okular"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.3"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T06:50:55+00:00 okular open ===
+dbus-daemon[2350310]: [session uid=1000 pid=2350310 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2350339 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2350310]: [session uid=1000 pid=2350310 pidfd=5] Successfully activated service 'org.a11y.Bus'
+okular before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.3"), update_available: true, can_remove: true, can_open: true }
+okular JobFinished: Ok("Launch request accepted")
+okular after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.3"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2350354]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2350560 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2350354]: Successfully activated service 'org.a11y.atspi.Registry'
+
+=== 2026-11-27T06:51:00+00:00 okular update-remove ===
+okular before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/c294a8e2bb752bc9fc283ff6a3a1c4ed1dc0bf83727e3906cd2a4f0f08902d7d", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.3"), update_available: true, can_remove: true, can_open: true }
+okular JobFinished: Ok("Flathub app updated")
+okular after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/.var/app/org.kde.okular/shift-profile-marker: OK
+dbus-daemon[2350983]: [session uid=1000 pid=2350983 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2351013 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2350983]: [session uid=1000 pid=2350983 pidfd=5] Successfully activated service 'org.a11y.Bus'
+okular before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+okular JobFinished: Ok("Launch request accepted")
+okular after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2351027]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2351218 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2351027]: Successfully activated service 'org.a11y.atspi.Registry'
+okular before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/data/flatpak/app/org.kde.okular/x86_64/stable/6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1", package: Some("org.kde.okular"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+okular JobFinished: Ok("Flathub app removed")
+okular after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/.var/app/org.kde.okular/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/.var/app/org.kde.okular/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.10
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.10
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.L8Uzya8H/okular/home/.var/app/org.kde.okular/shift-profile-marker: OK
+okular: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   49G   48G  51% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       5.8Gi       1.9Gi        77Mi       4.1Gi       5.6Gi
+Swap:          4.0Gi       2.2Gi       1.8Gi

@@ -1,0 +1,19 @@
+commit 6550bed86324b4c526cc08709404e6ec74d2abeb7ce2044df4f118cce818f6a1
+Parent:  e8501f3248e5ba4ec6ac3b078762250c499d1a790f32f2347c62f2a24e87ddc6
+ContentChecksum:  7419b17810a31a360a31c0f1700856afb180fe3d26621295fc2427786f2db59b
+Date:  2026-11-12 22:36:55 +0000
+
+    Update ghostscript, poppler, libkexiv2 and 2 more modules (ee8cf98381d6)
+
+    Name: org.kde.okular
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 12 23:00:59 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

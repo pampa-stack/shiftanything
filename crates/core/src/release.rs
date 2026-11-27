@@ -50,18 +50,25 @@ impl Release {
     }
 
     pub fn sums_asset(&self) -> Option<&Asset> {
-        let kopia_repo = crate::curated::KOPIA.repo;
-        let kopia_manifest = checksum_manifest_name(kopia_repo);
-        self.assets.iter().find(|a| {
-            a.name == "SHA256SUMS.txt"
-                || (a.name == kopia_manifest && a.url == format!("{}{}/{}", download_prefix(kopia_repo), self.tag, kopia_manifest))
+        self.assets.iter().find(|asset| {
+            asset.name == "SHA256SUMS.txt"
+                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo].iter().any(|repo| {
+                    let manifest = checksum_manifest_name(repo);
+                    asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
+                })
         })
     }
 }
 
 /// The checksum manifest published under a release's download path.
 pub fn checksum_manifest_name(repo: &str) -> &'static str {
-    if repo == crate::curated::KOPIA.repo { "checksums.txt" } else { "SHA256SUMS.txt" }
+    if repo == crate::curated::KOPIA.repo {
+        "checksums.txt"
+    } else if repo == crate::curated::TERMIX.repo {
+        "SHA256SUMS"
+    } else {
+        "SHA256SUMS.txt"
+    }
 }
 
 const MAX_NOTES: usize = 64 * 1024;
@@ -506,7 +513,12 @@ const TERMIX_MAC_DMG: &str = "termix_macos_arm64_dmg.dmg";
 fn termix_desktop_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix('v')?;
     let version = Version::parse(label).ok()?;
-    (version.pre.is_empty() && version.build.is_empty()).then_some(version)
+    (version.pre.is_empty() && version.build.is_empty() && version.to_string() == label).then_some(version)
+}
+
+pub fn termix_mac_package_url(tag: &str) -> Option<String> {
+    termix_desktop_version(tag)?;
+    Some(format!("{}{tag}/{TERMIX_MAC_DMG}", download_prefix(crate::curated::TERMIX.repo)))
 }
 
 /// Bind Termix's unversioned filename to the stable desktop tag and standard ARM disk image.
@@ -514,7 +526,7 @@ pub fn termix_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && termix_desktop_version(&release.tag).as_ref().is_some_and(|version| Some(version) == release.version.as_ref())
         && asset.name == TERMIX_MAC_DMG
-        && asset.url == format!("{}{}/{TERMIX_MAC_DMG}", download_prefix(crate::curated::TERMIX.repo), release.tag)
+        && termix_mac_package_url(&release.tag).as_deref() == Some(asset.url.as_str())
         && asset.size > 0
         && asset.sha256.as_deref().is_some_and(is_hex64)
 }

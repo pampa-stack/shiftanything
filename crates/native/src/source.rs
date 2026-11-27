@@ -2,8 +2,8 @@
 //!
 //! [`GitHubSource`] asks the GitHub REST API (one request per app, revalidated with ETags) and,
 //! whenever that produces no answer, falls back to github.com's release pages: the
-//! `releases/latest` redirect names the tag and `SHA256SUMS.txt` lists every file with its
-//! checksum, which costs no API quota at all. A later [`ReleaseSource`] will ask the ArtCraft
+//! `releases/latest` redirect names the tag and the publisher's manifest lists files with
+//! their checksums, which costs no API quota at all. A later [`ReleaseSource`] will ask the ArtCraft
 //! catalog API for every app in one request.
 //!
 //! The fallback is not only for the API's quota. `api.github.com` is a different host from
@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE};
+use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, TERMIX};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -210,8 +210,10 @@ impl GitHubSource {
     ) -> Result<Option<Answer>, String> {
         let (repo, separate) = (query.repo.as_str(), query.separate_nightly);
         let ente_auth = repo == ENTE_AUTH.repo;
-        let per_page = if separate || ente_auth { VERSIONS_PAGE } else { LIST_PAGE };
-        let from_list = prereleases || ente_auth;
+        let termix = repo == TERMIX.repo;
+        let named_channel = ente_auth || termix;
+        let per_page = if separate || named_channel { VERSIONS_PAGE } else { LIST_PAGE };
+        let from_list = prereleases || named_channel;
         let url = if from_list {
             format!("https://api.github.com/repos/{repo}/releases?per_page={per_page}")
         } else {
@@ -238,6 +240,9 @@ impl GitHubSource {
                             if page > ORDINARY_PAGES {
                                 if ente_auth {
                                     return Err(format!("No Ente Auth release found in the first {ORDINARY_PAGES} release pages."));
+                                }
+                                if termix {
+                                    return Err(format!("No Termix desktop release found in the first {ORDINARY_PAGES} release pages."));
                                 }
                                 return Err(format!(
                                     "Nightly builds fill the first {ORDINARY_PAGES} release pages; the newest ordinary release is unknown and nothing was cached."
@@ -379,7 +384,10 @@ impl GitHubSource {
         };
         let manifest = release::checksum_manifest_name(repo);
         if let Some(e) = self.entry(query, false)
-            && let Some(r) = e.release.as_ref().filter(|r| r.tag == tag && r.assets.iter().any(|asset| asset.name != manifest))
+            && let Some(r) = e.release.as_ref().filter(|r| {
+                r.tag == tag
+                    && r.assets.iter().any(|asset| if repo == TERMIX.repo { release::termix_mac_asset(r, asset) } else { asset.name != manifest })
+            })
         {
             return Ok(Answer { latest: LatestRelease::Found(r.clone()), source: Source::GitHubPages });
         }
@@ -387,7 +395,10 @@ impl GitHubSource {
         // Not `note_pages_error`: this one redirects to GitHub's asset CDN, so its failure says
         // nothing about whether github.com itself can be reached for the next app.
         let sums = self.http.get_text(&sums_url)?.map(|t| release::parse_sha256sums(&t)).unwrap_or_default();
-        let r = release::release_from_sums(repo, &tag, &sums);
+        let mut r = release::release_from_sums(repo, &tag, &sums);
+        if repo == TERMIX.repo {
+            complete_termix_package(&mut r, |url| self.http.github_asset_size(url))?;
+        }
         if !release::ordinary_release_allowed(&r) {
             return Err("The latest release is a Nightly of the separate developer channel, not an ordinary release.".into());
         }
@@ -421,7 +432,25 @@ fn latest_page(repo: &str) -> String {
 }
 
 fn latest_redirect_tag(location: &str, repo: &str) -> Option<String> {
-    if repo == ENTE_AUTH.repo { release::ente_auth_tag_from_download(location) } else { release::tag_from_redirect(location, repo) }
+    if repo == ENTE_AUTH.repo {
+        return release::ente_auth_tag_from_download(location);
+    }
+    let tag = release::tag_from_redirect(location, repo)?;
+    if repo == TERMIX.repo {
+        release::termix_mac_package_url(&tag)?;
+    }
+    Some(tag)
+}
+
+/// SHA256SUMS doesn't include lengths. Keep the original GitHub URL for recipe validation
+/// and download; the CDN supplies only the length, never the digest or package choice.
+fn complete_termix_package(release: &mut Release, size: impl FnOnce(&str) -> Result<u64, String>) -> Result<(), String> {
+    let url = release::termix_mac_package_url(&release.tag).ok_or("Invalid Termix desktop release tag")?;
+    let asset = release.assets.iter_mut().find(|asset| asset.url == url).ok_or("Termix desktop package is missing from SHA256SUMS")?;
+    if asset.size == 0 {
+        asset.size = size(&url)?;
+    }
+    Ok(())
 }
 
 /// Which route one lookup takes, with the three ways of asking handed in so the policy can be
@@ -783,6 +812,57 @@ mod tests {
         ] {
             assert_eq!(latest_redirect_tag(&format!("{prefix}{path}"), repo), None, "{path}");
         }
+    }
+
+    #[test]
+    fn termix_release_pages_require_the_stable_desktop_checksum_and_package_size() {
+        use artcraft_launcher_core::{Arch, Os, PackageKind, Platform, release::Asset};
+
+        fn pick(release: &Release) -> Option<(&Asset, PackageKind)> {
+            let platform = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+            artcraft_launcher_core::platform::pick_asset(release, &[TERMIX.id], platform, &[PackageKind::Dmg])
+        }
+
+        let repo = TERMIX.repo;
+        let tag = "v27.1.0";
+        let directory = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), directory.path().join("releases.json"));
+        let result = source
+            .ask_api_with(&q(repo), false, |url, _| {
+                assert_eq!(url, "https://api.github.com/repos/Termix-SSH/Termix/releases?per_page=100");
+                Ok(Fetched::Body {
+                    text: r#"[{"tag_name":"sdk-v28.0.0"},{"tag_name":"v27.1.1","prerelease":true},{"tag_name":"v27.1.0"}]"#.into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert_eq!(tag_of(&result), Some(tag));
+        let release_page = |tag| format!("https://github.com/{repo}/releases/tag/{tag}");
+        assert_eq!(latest_redirect_tag(&release_page(tag), repo).as_deref(), Some(tag));
+        for invalid in ["sdk-v27.1.0", "v27.1.0-beta.1", "v27.1", "v27.1.0+1"] {
+            assert_eq!(latest_redirect_tag(&release_page(invalid), repo), None);
+        }
+        let digest = "a".repeat(64);
+        let alternate = format!("{digest}  termix_macos_universal_full_dmg.dmg");
+        let mut incomplete = release::release_from_sums(repo, tag, &release::parse_sha256sums(&alternate));
+        assert!(complete_termix_package(&mut incomplete, |_| panic!("must never probe the alternate package")).is_err());
+
+        let manifest = format!("{alternate}\n{digest}  termix_macos_arm64_dmg.dmg\n");
+        let mut current = release::release_from_sums(repo, tag, &release::parse_sha256sums(&manifest));
+        assert_eq!(current.sums_asset().unwrap().name, "SHA256SUMS");
+        assert!(pick(&current).is_none());
+        assert!(complete_termix_package(&mut current, |_| Err("length unavailable".into())).is_err());
+        assert!(pick(&current).is_none());
+        complete_termix_package(&mut current, |url| {
+            assert_eq!(url, format!("https://github.com/{repo}/releases/download/{tag}/termix_macos_arm64_dmg.dmg"));
+            Ok(263_900_889)
+        })
+        .unwrap();
+        let (asset, kind) = pick(&current).unwrap();
+        assert_eq!(kind, PackageKind::Dmg);
+        assert_eq!(asset.sha256.as_deref(), Some(digest.as_str()));
+        assert_eq!(asset.size, 263_900_889);
     }
 
     #[test]

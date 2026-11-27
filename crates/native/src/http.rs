@@ -491,6 +491,23 @@ impl Http {
         }
     }
 
+    /// Finds the length of a pinned GitHub release download without downloading the package.
+    /// Follow exactly one redirect to GitHub's release CDN.
+    pub(crate) fn github_asset_size(&self, url: &str) -> Result<u64, String> {
+        let target = self.redirect_target(url)?.filter(|target| github_release_cdn(target)).ok_or("Missing GitHub release asset redirect")?;
+        let url = target.as_str();
+        let resp = self.no_redirect.head(url).header("Accept-Encoding", "identity").call().map_err(|_| "Couldn't reach GitHub's release CDN")?;
+        if resp.status().as_u16() != 200 {
+            return Err(format!("GitHub's release CDN answered HTTP {}", resp.status().as_u16()));
+        }
+        resp.headers()
+            .get("content-length")
+            .and_then(|value| value.to_str().ok())
+            .and_then(|value| value.parse::<u64>().ok())
+            .filter(|size| (1..=MAX_DOWNLOAD).contains(size))
+            .ok_or_else(|| "Missing or invalid GitHub release asset size".into())
+    }
+
     /// Downloads `url` to `dest`, checking it against `sha256` when a checksum is published (and
     /// always against `size`, when known).
     ///
@@ -849,6 +866,12 @@ fn nightly_safe_url(url: &str) -> Result<(), String> {
     Ok(())
 }
 
+fn github_release_cdn(url: &str) -> bool {
+    url.parse::<ureq::http::Uri>().is_ok_and(|uri| {
+        uri.scheme_str() == Some("https") && uri.authority().is_some_and(|authority| authority.as_str() == "release-assets.githubusercontent.com")
+    })
+}
+
 /// GitHub uses absolute asset redirects. Also support ordinary relative fixture Locations;
 /// every resulting URL is validated before a request and never inherits an Authorization header.
 fn nightly_redirect(current: &str, target: &str) -> Result<String, String> {
@@ -1025,6 +1048,20 @@ pub(crate) mod tests {
         }
         for base in ["https://github.com/", "http://127.0.0.1.evil:9021/", "http://user@localhost:9021/", "http://localhost:9021/#fragment"] {
             assert!(NightlyMirror::new(base).is_err(), "{base}");
+        }
+    }
+
+    #[test]
+    fn release_asset_probe_only_follows_the_https_github_cdn() {
+        assert!(github_release_cdn("https://release-assets.githubusercontent.com/github-production-release-asset-2e65be/123?sp=r"));
+        for target in [
+            "http://release-assets.githubusercontent.com/123",
+            "https://release-assets.githubusercontent.com.example.com/123",
+            "https://release-assets.githubusercontent.com@example.com/123",
+            "https://github.com/owner/repository/releases/latest",
+            "https://127.0.0.1/123",
+        ] {
+            assert!(!github_release_cdn(target), "{target}");
         }
     }
 

@@ -29,3 +29,9 @@ Il nuovo DMG del launcher ha passato verifica checksum, mount in sola lettura, c
 Nel bundle estratto dal DMG, la finestra Tauri ha mostrato il logo, l’anteprima, la versione 26.11.3, i 263,9 MB e il pulsante Installa. Il clic ha aperto la conferma con l’opzione «Apri dopo l’installazione e mostra nel Dock». Rifiuta ha riportato alla scheda, con il profilo Tauri ancora privo di Termix. Il ciclo di installazione qui sopra usa il motore nativo in un secondo profilo. [Scheda](termix-detail-it.png) · [Conferma](termix-consent-it.png)
 
 Suite finale: 130 test core, 558 native e 12 Tauri passati. Otto test preesistenti rimangono ignorati. Formattazione, Clippy e controlli dello script del DMG passati.
+
+## Rilevamento delle versioni
+
+Il motore seleziona le release desktop stabili dalla lista ufficiale. Con l'API GitHub irraggiungibile usa la pagina del progetto e il file `SHA256SUMS`. Per un DMG senza ricevuta locale ricava la dimensione dalle intestazioni HTTPS del CDN GitHub. Il pacchetto resta vincolato a tag, nome e SHA-256 e passa gli stessi controlli del bundle.
+
+Il 27 novembre il motore ha selezionato la release 26.11.3 da un profilo nuovo sia tramite API sia con il solo dominio API bloccato. Verificati dal vivo il manifest e i 263.900.889 byte indicati dal CDN. Il test di regressione senza rete copre un tag futuro, i canali SDK e beta, un DMG con nome diverso e la dimensione mancante.

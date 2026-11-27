@@ -2,11 +2,13 @@
 #[cfg(any(target_os = "macos", target_os = "linux"))]
 mod signed;
 
+use crate::session::NativeState;
 use serde::Serialize;
 use std::sync::Mutex;
 use tauri::{AppHandle, Emitter, Manager, State, Wry};
 
 const EVENT: &str = "shift-launcher-update";
+pub(crate) const RESTART_EXIT_CODE: i32 = 75;
 
 pub(crate) fn check_packaged_channel() -> Result<(), &'static str> {
     #[cfg(any(target_os = "macos", target_os = "linux"))]
@@ -23,6 +25,8 @@ enum Status {
     Available,
     Downloading,
     Ready,
+    RestartPending,
+    Restarting,
     Error,
 }
 
@@ -110,7 +114,7 @@ pub(crate) fn launcher_update_check(app: AppHandle) -> Result<Snapshot, String> 
 fn check(app: &AppHandle) -> Result<Snapshot, String> {
     let state = app.state::<LauncherUpdater>();
     let mut inner = state.inner.lock().map_err(|e| e.to_string())?;
-    if matches!(inner.snapshot.status, Status::Checking | Status::Downloading | Status::Ready) {
+    if matches!(inner.snapshot.status, Status::Checking | Status::Downloading | Status::Ready | Status::RestartPending | Status::Restarting) {
         return Ok(inner.snapshot.clone());
     }
     inner.snapshot.available = None;
@@ -155,7 +159,7 @@ fn check(app: &AppHandle) -> Result<Snapshot, String> {
 pub(crate) fn launcher_update_install(app: AppHandle) -> Result<Snapshot, String> {
     let state = app.state::<LauncherUpdater>();
     let mut inner = state.inner.lock().map_err(|e| e.to_string())?;
-    if matches!(inner.snapshot.status, Status::Checking | Status::Downloading | Status::Ready) {
+    if matches!(inner.snapshot.status, Status::Checking | Status::Downloading | Status::Ready | Status::RestartPending | Status::Restarting) {
         return Ok(inner.snapshot.clone());
     }
     #[cfg(not(any(target_os = "macos", target_os = "linux")))]
@@ -187,4 +191,39 @@ pub(crate) fn launcher_update_install(app: AppHandle) -> Result<Snapshot, String
         });
         Ok(snapshot)
     }
+}
+
+#[tauri::command]
+pub(crate) fn launcher_update_restart(app: AppHandle) -> Result<Snapshot, String> {
+    let state = app.state::<LauncherUpdater>();
+    let mut inner = state.inner.lock().map_err(|error| error.to_string())?;
+    if !matches!(inner.snapshot.status, Status::Ready) {
+        return Ok(inner.snapshot.clone());
+    }
+    let snapshot = inner.change(&app, Status::RestartPending, None);
+    let handle = app.clone();
+    std::thread::spawn(move || {
+        let native = handle.state::<Mutex<NativeState>>();
+        let state = handle.state::<LauncherUpdater>();
+        loop {
+            let idle = match native.lock() {
+                Ok(mut native) => native.begin_restart(),
+                Err(_) => {
+                    if let Ok(mut inner) = state.inner.lock() {
+                        inner.change(&handle, Status::Ready, Some("restart_failed"));
+                    }
+                    return;
+                }
+            };
+            if idle {
+                if let Ok(mut inner) = state.inner.lock() {
+                    inner.change(&handle, Status::Restarting, None);
+                }
+                handle.exit(RESTART_EXIT_CODE);
+                return;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(350));
+        }
+    });
+    Ok(snapshot)
 }

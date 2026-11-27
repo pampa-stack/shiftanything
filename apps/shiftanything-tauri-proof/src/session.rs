@@ -35,6 +35,7 @@ pub struct NativeState {
     last_update_check: Instant,
     initial_detection_complete: bool,
     initial_release_check_complete: bool,
+    restarting: bool,
     enabled: bool,
     isolated: bool,
     pub diagnostics: PathBuf,
@@ -169,6 +170,7 @@ impl NativeState {
             last_update_check: Instant::now(),
             initial_detection_complete: false,
             initial_release_check_complete: false,
+            restarting: false,
             enabled,
             isolated,
             favorites: crate::favorites::Favorites::load(&root)?,
@@ -341,7 +343,7 @@ impl NativeState {
 
     pub fn snapshot(&mut self) -> Snapshot {
         self.poll();
-        if self.enabled {
+        if self.enabled && !self.restarting {
             if self.pending.is_none() && self.jobs.is_empty() && self.last_update_check.elapsed() >= UPDATE_CHECK_INTERVAL {
                 self.last_update_check = Instant::now();
                 self.backend.send(Command::CheckForUpdates { force: false });
@@ -438,6 +440,9 @@ impl NativeState {
     }
 
     pub fn request(&mut self, operation: Operation, apps: Vec<String>) -> Result<Request, String> {
+        if self.restarting {
+            return Err("Sh*ftAnything is restarting".into());
+        }
         self.poll();
         if self.pending.is_some() {
             return Err("Another request awaits approval".into());
@@ -449,6 +454,15 @@ impl NativeState {
         self.pending = Some(request.clone());
         self.pending_from_ui = true;
         Ok(request)
+    }
+
+    pub fn begin_restart(&mut self) -> bool {
+        self.poll();
+        if self.restarting || self.pending.is_some() || !self.jobs.is_empty() || !self.active.is_empty() {
+            return false;
+        }
+        self.restarting = true;
+        true
     }
 
     pub fn decide(&mut self, id: &str, approve: bool, open_after_install: bool) -> Result<(), String> {

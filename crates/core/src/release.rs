@@ -808,6 +808,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::BRUNO,
         crate::curated::JAN,
         crate::curated::DEEPTUTOR,
+        crate::curated::OPENWORK_DESKTOP,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1221,6 +1222,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("HKUDS/DeepTutor", "v1.7.4") => {
             &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.4.dmg", 505_892_868, "afe5bb50e9b29af77dbf1a03ab1e04e4db6112dcacb61d11ef7f822b9321dd79")]
         }
+        ("different-ai/openwork", "v0.18.72") => {
+            &[("openwork-mac-arm64-0.18.72.dmg", 382_734_040, "13f1b2e4597df2d7938848629bbe9325a5c9ce6bc9399d4144048fa942e15af5")]
+        }
+        ("different-ai/openwork", "v0.18.73") => {
+            &[("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b")]
+        }
         ("siyuan-note/siyuan", "v3.8.11") => {
             &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
         }
@@ -1522,6 +1529,35 @@ mod tests {
         }
         let unknown = release_from_sums(DEEPTUTOR.repo, "v1.7.5", &[]);
         assert_eq!(pick(&unknown, mac), None);
+    }
+
+    #[test]
+    fn openwork_uses_only_reviewed_public_apple_silicon_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::OPENWORK_DESKTOP, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for tag in ["v0.18.72", "v0.18.73"] {
+            let expected = reviewed_assets(OPENWORK_DESKTOP.repo, tag).next().unwrap();
+            let api = serde_json::json!({
+                "tag_name": tag,
+                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+            });
+            let mut release = parse_github_release(&api.to_string(), OPENWORK_DESKTOP.repo).unwrap();
+            let pick = |release: &Release, platform| {
+                pick_asset(release, &[OPENWORK_DESKTOP.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone())
+            };
+            assert_eq!(pick(&release, mac), Some(expected.clone()));
+            assert_eq!(pick(&release_from_sums(OPENWORK_DESKTOP.repo, tag, &[]), mac), Some(expected.clone()));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+            for edition in ["cloud", "enterprise"] {
+                let mut other_edition = expected.clone();
+                other_edition.name = expected.name.replacen("openwork-", &format!("openwork-{edition}-"), 1);
+                other_edition.url = expected.url.replace(&expected.name, &other_edition.name);
+                release.assets = vec![other_edition];
+                assert_eq!(pick(&release, mac), None, "{edition}");
+            }
+        }
     }
 
     #[test]

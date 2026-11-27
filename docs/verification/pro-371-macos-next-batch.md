@@ -16,6 +16,21 @@ On 27 November 2026, the native Rust downloader and macOS DMG installer tested t
 
 The recipe accepts the two reviewed Apple Silicon DMGs and their exact URLs, sizes, and digests. The API and quota-free release paths select the same file. macOS Intel, Linux, and future unreviewed assets get no install action from this recipe.
 
+## OpenWork public desktop
+
+The native installer passed the Apple Silicon package cycle on 27 November 2026 for the MIT-licensed public desktop edition from [0.18.72](https://github.com/different-ai/openwork/releases/tag/v0.18.72) and [0.18.73](https://github.com/different-ai/openwork/releases/tag/v0.18.73).
+
+| Release | Official asset | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| 0.18.72 | `openwork-mac-arm64-0.18.72.dmg` | 382734040 | `13f1b2e4597df2d7938848629bbe9325a5c9ce6bc9399d4144048fa942e15af5` |
+| 0.18.73 | `openwork-mac-arm64-0.18.73.dmg` | 383492503 | `6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b` |
+
+- The native downloader verified official HTTPS, content length, and SHA-256. The native installer checked Developer ID team `F5DJWB4CCV`, bundle `com.differentai.openwork`, version, and notarization before installing 0.18.72 and replacing it with 0.18.73.
+- Both builds reported macOS 12.0 as their minimum. Removal moved the updated ARM64 bundle into a temporary Trash. The synthetic profile marker survived update and removal. The isolated profile and both DMGs were deleted after the test.
+- The recipe only accepts these two public DMGs. OpenWork's [public](https://github.com/different-ai/openwork/blob/v0.18.73/apps/desktop/electron-builder.yml), [Cloud](https://github.com/different-ai/openwork/blob/v0.18.73/apps/desktop/electron-builder.cloud.yml), and [Enterprise](https://github.com/different-ai/openwork/blob/v0.18.73/apps/desktop/electron-builder.enterprise.yml) configs share the bundle identifier and set different product names. Detection requires the public executable name, even if a Cloud or Enterprise bundle has been renamed to `OpenWork.app`.
+- An uncached Gatekeeper assessment exceeded the standard 60-second limit. The repeat test used the exact catalog recipe and passed both package assessments with Gatekeeper enabled and the existing 180-second bound for large bundles.
+- The test did not exercise GUI launch, agent connections, managed editions, or the launcher window.
+
 ## Logseq file graphs
 
 The native package cycle passed on 27 November 2026 for the [0.10.14](https://github.com/logseq/logseq/releases/tag/0.10.14) and [0.10.15](https://github.com/logseq/logseq/releases/tag/0.10.15) Apple Silicon DMGs. The native verifier installed 0.10.14, replaced it with 0.10.15 from the same signing team `3K44EUN829` and bundle ID `com.electron.logseq`, detected the new ARM64 bundle, and removed it into a temporary Trash. The synthetic profile marker survived. App launch and opening a graph were outside the test.

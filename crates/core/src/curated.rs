@@ -1663,7 +1663,49 @@ pub const RECORDLY: crate::CraftApp = crate::CraftApp {
     mac_team: Some("54QUWA9PZA"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 69] = [
+pub const VSCODIUM: crate::CraftApp = crate::CraftApp {
+    id: "vscodium",
+    name: "VSCodium",
+    tagline: "Edit source code with the VSCodium desktop editor",
+    repo: "VSCodium/vscodium",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Baptiste Augrain",
+    msi_publisher: None,
+    bundle: Some("com.vscodium"),
+    site: Some("https://vscodium.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("VC39D2VNQ7"),
+};
+
+pub const ANKI: crate::CraftApp = crate::CraftApp {
+    id: "anki",
+    name: "Anki",
+    tagline: "Create and review flashcards",
+    repo: "ankitects/anki",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Anki Software LLC",
+    msi_publisher: None,
+    bundle: Some("net.ankiweb.anki"),
+    site: Some("https://apps.ankiweb.net/"),
+    mac_bundle_name: None,
+    mac_team: Some("ZL66D3NMZM"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 71] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1733,6 +1775,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 69] = [
     TRILIUM,
     KANDO,
     RECORDLY,
+    VSCODIUM,
+    ANKI,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

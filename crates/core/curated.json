@@ -14413,6 +14413,15 @@
         "download_size": 162046903,
         "download_size_source": "https://flathub.org/api/v2/summary/net.ankiweb.Anki",
         "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "anki-26.09.4-mac-apple.dmg",
+        "source": "https://github.com/ankitects/anki/releases/tag/26.09.4",
+        "download_size": 228182839,
+        "download_size_source": "https://github.com/ankitects/anki/releases/tag/26.09.4",
+        "download_size_checked": "2026-11-27"
       }
     ],
     "stars": {

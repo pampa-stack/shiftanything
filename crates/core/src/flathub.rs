@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 110] = [
+pub const RECIPES: [(&str, &str); 117] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -112,6 +112,13 @@ pub const RECIPES: [(&str, &str); 110] = [
     ("pixelorama", "com.orama_interactive.Pixelorama"),
     ("zotero", "org.zotero.Zotero"),
     ("color-palette", "org.gnome.design.Palette"),
+    ("video-trimmer", "org.gnome.gitlab.YaLTeR.VideoTrimmer"),
+    ("gnome-connections", "org.gnome.Connections"),
+    ("tokodon", "org.kde.tokodon"),
+    ("neochat", "org.kde.neochat"),
+    ("workbench", "re.sonny.Workbench"),
+    ("jami", "net.jami.Jami"),
+    ("furnace", "org.tildearrow.furnace"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -240,6 +247,13 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "pixelorama" => "https://github.com/Orama-Interactive/Pixelorama",
         "zotero" => "https://github.com/zotero/zotero",
         "color-palette" => "https://gitlab.gnome.org/World/design/palette",
+        "video-trimmer" => "https://gitlab.gnome.org/YaLTeR/video-trimmer",
+        "gnome-connections" => "https://gitlab.gnome.org/GNOME/connections",
+        "tokodon" => "https://invent.kde.org/network/tokodon",
+        "neochat" => "https://invent.kde.org/network/neochat",
+        "workbench" => "https://workbench.sonny.re/source",
+        "jami" => "https://git.jami.net/savoirfairelinux/jami-project",
+        "furnace" => "https://github.com/tildearrow/furnace",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

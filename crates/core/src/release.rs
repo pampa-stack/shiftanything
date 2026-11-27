@@ -488,11 +488,21 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         opencode_desktop_version(tag)
     } else if repo == crate::curated::PICARD.repo {
         picard_version(tag)
+    } else if repo == crate::curated::ANKI.repo {
+        anki_date_version(tag).or_else(|| version::parse(tag))
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
         version::parse(tag)
     }
+}
+
+// Anki's calendar tags pad the month while the macOS bundle uses ordinary SemVer.
+fn anki_date_version(tag: &str) -> Option<Version> {
+    let (year, rest) = tag.split_once('.')?;
+    let (month, patch) = rest.split_once('.')?;
+    let version = Version::new(year.parse().ok()?, month.parse().ok()?, patch.parse().ok()?);
+    ((1..=12).contains(&version.minor) && tag == format!("{}.{:02}.{}", version.major, version.minor, version.patch)).then_some(version)
 }
 
 /// GitHub publishes OpenCode 2 alongside the legacy desktop updater's 1.x releases.
@@ -769,6 +779,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::KANDO,
         crate::curated::TRILIUM,
         crate::curated::RECORDLY,
+        crate::curated::VSCODIUM,
+        crate::curated::ANKI,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -779,8 +791,14 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
-            let expected = if app.id == crate::curated::RUSTDESK.id { version.to_string() } else { format!("v{version}") };
-            version.pre.is_empty() && version.build.is_empty() && release.tag == expected
+            let canonical_tag = if app.id == crate::curated::ANKI.id {
+                anki_date_version(&release.tag).as_ref() == Some(version)
+            } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id) {
+                release.tag == version.to_string()
+            } else {
+                release.tag == format!("v{version}")
+            };
+            version.pre.is_empty() && version.build.is_empty() && canonical_tag
         })
         && reviewed_assets(app.repo, &release.tag).any(|reviewed| {
             reviewed.name.ends_with(".dmg")
@@ -1199,6 +1217,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("webadderallorg/Recordly", "v1.4.0") => {
             &[("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4")]
         }
+        ("VSCodium/vscodium", "1.143.17183") => {
+            &[("VSCodium.arm64.1.143.17183.dmg", 206_695_167, "b6cb6359484dfdbc1989528ab4e7429c68bf555f3853173801e9293ce282e902")]
+        }
+        ("VSCodium/vscodium", "1.143.17232") => {
+            &[("VSCodium.arm64.1.143.17232.dmg", 206_610_884, "da2d91385ae73594b13208bc9df20cf4d905a94f84796a33bb3e09162481e475")]
+        }
+        ("ankitects/anki", "26.09.3") => {
+            &[("anki-26.09.3-mac-apple.dmg", 226_530_103, "b36fe8f6c015a602feaf3ef38f5967c27c8964ee30a5c74ca2532225cf602345")]
+        }
+        ("ankitects/anki", "26.09.4") => {
+            &[("anki-26.09.4-mac-apple.dmg", 228_182_839, "527b968b88d54cb0308d1de7a1ee193109863546e1cb62dcd016bd93bd816684")]
+        }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }
@@ -1395,6 +1425,40 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn anki_calendar_tags_select_only_reviewed_arm64_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::ANKI, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[ANKI.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.name.clone());
+        for (tag, patch) in [("26.09.3", 3), ("26.09.4", 4)] {
+            let release = release_from_sums(ANKI.repo, tag, &[]);
+            let name = format!("anki-{tag}-mac-apple.dmg");
+            assert_eq!(release.version, Some(Version::new(26, 9, patch)));
+            assert_eq!(pick(&release, mac), Some(name));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+
+            let mut changed = release.clone();
+            changed.assets[0].name = changed.assets[0].name.replace("apple", "intel");
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release;
+            changed.prerelease = true;
+            assert_eq!(pick(&changed, mac), None);
+            assert!(release_tag_version("other/publisher", tag).is_none());
+        }
+        assert_eq!(pick(&release_from_sums(ANKI.repo, "26.09.5", &[]), mac), None);
+        assert!(anki_date_version("26.9.4").is_none());
+        assert!(anki_date_version("26.13.4").is_none());
+        assert!(anki_date_version("26.09.4-rc.1").is_none());
+    }
 
     #[test]
     fn opencode_desktop_manifest_requires_current_stable_apple_silicon_dmg() {

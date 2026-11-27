@@ -66,6 +66,8 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::KANDO.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::TRILIUM.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::RECORDLY.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::ANKI.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::VSCODIUM.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::LOCALAI.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::JAN.id => Some((13, 6)),
         id if id == artcraft_launcher_core::curated::BRUNO.id => Some((12, 0)),
@@ -639,11 +641,7 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .ok_or_else(mismatch);
     }
     if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
-        && (![
-            artcraft_launcher_core::curated::LOSSLESSCUT.id,
-            artcraft_launcher_core::curated::GHOST_DOWNLOADER.id,
-        ]
-        .contains(&app.id)
+        && (![artcraft_launcher_core::curated::LOSSLESSCUT.id, artcraft_launcher_core::curated::GHOST_DOWNLOADER.id].contains(&app.id)
             || asset.name.ends_with(".dmg"))
     {
         return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);

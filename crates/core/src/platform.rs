@@ -650,10 +650,9 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         })
         .collect();
     for kind in kinds {
-        for token in platform.tokens() {
-            if let Some((asset, _)) = parsed.iter().find(|(_, n)| n.kind == *kind && n.token == *token) {
-                return Some((asset, *kind));
-            }
+        let compatible = platform.tokens().iter().find_map(|token| parsed.iter().find(|(_, name)| name.kind == *kind && name.token == *token));
+        if let Some((asset, _)) = compatible {
+            return Some((asset, *kind));
         }
     }
     None

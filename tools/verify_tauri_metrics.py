@@ -10,8 +10,10 @@ for report in reports:
     cards = report["cards"]
     assert cards, "No visible cards measured"
     assert len({card["id"] for card in cards}) == len(cards)
-    sizes = {(round(c["rect"]["width"], 3), c["rect"]["height"]) for c in cards}
-    assert len(sizes) == 1, f"Unequal card dimensions: {sizes}"
+    widths = [c["rect"]["width"] for c in cards]
+    heights = {c["rect"]["height"] for c in cards}
+    # WebKit distributes remainder space across equal grid tracks in 1/64 CSS pixel units.
+    assert max(widths) - min(widths) <= 1 / 64 and len(heights) == 1, "Unequal card dimensions"
     assert len({c["rect"]["y"] for c in cards}) > 1, "Measure more than one grid row"
     assert all(c["preview"]["height"] == 134 for c in cards)
     assert report["viewport"]["width"] == 1440 and report["viewport"]["height"] == 900
@@ -21,4 +23,4 @@ for report in reports:
     assert all(label == label.upper() for label in report["navigation"])
     if [card["id"] for card in cards[:6]] == ["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"]:
         assert all(c["logo_loaded"] and c["preview_loaded"] for c in cards[:6])
-    print(f"PASS {report['language']}: {len(cards)} cards, {next(iter(sizes))}, all rows; native viewport/header/toolbar/rail/media checks")
+    print(f"PASS {report['language']}: {len(cards)} cards, widths {min(widths):.3f}–{max(widths):.3f}, height {next(iter(heights))}; native viewport/header/toolbar/rail/media checks")

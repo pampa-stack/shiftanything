@@ -1529,7 +1529,7 @@ const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIP
     }
     result
 }
-pub const NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] = native_apps();
+pub static NATIVE_APPS: [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] = native_apps();
 
 /// AppImage recipes that completed install, launch, update and removal on Linux x86_64.
 /// Editorial rows and release metadata cannot add recipes to this list.

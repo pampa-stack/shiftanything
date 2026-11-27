@@ -1,0 +1,18 @@
+OFFICIAL https://github.com/transmission/transmission/releases/download/4.1.3/Transmission-4.1.3.dmg: size=11186296 sha256=Some("d622736c19990262f2ab12183e1acaa5b0dad5777ddc7db0a187c06e035a7e1a")
+PASS NATIVE transmission install: Transmission installed: 4.1.3; transferred=11186296
+/private/tmp/shift-daily-native-scratch.nlMGjYap/home/Applications/Transmission.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Digital Ignition LLC (5DPYRBHEAR)
+PASS SIGNATURE + PROFILE MARKER transmission install 4.1.3
+OFFICIAL https://github.com/transmission/transmission/releases/download/4.1.4/Transmission-4.1.4.dmg: size=11545854 sha256=Some("495c5d21d515c8deb859b0db6692fd5606644a1613c2cac87c1d3e7672755a59")
+PASS NATIVE transmission update: Transmission updated to 4.1.4; transferred=11545854
+/private/tmp/shift-daily-native-scratch.nlMGjYap/home/Applications/Transmission.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Digital Ignition LLC (5DPYRBHEAR)
+PASS SIGNATURE + PROFILE MARKER transmission update 4.1.4
+PASS NATIVE transmission remove: Transmission was removed; transferred=0
+/private/tmp/shift-daily-native-scratch.nlMGjYap/home/.Trash/Transmission.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Digital Ignition LLC (5DPYRBHEAR)
+PASS SIGNATURE + PROFILE MARKER transmission remove 4.1.4
+CLEANUP transmission exit=0

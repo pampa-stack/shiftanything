@@ -1,0 +1,18 @@
+OFFICIAL https://github.com/iina/iina/releases/download/v1.5.0/IINA.v1.5.0.dmg: size=113048935 sha256=Some("8fad50479b10e09645053457cec46bd53d054ced2242cfe68f74586735a20dc7")
+PASS NATIVE iina install: IINA installed: 1.5.0; transferred=113048935
+/private/tmp/shift-daily-native-scratch.mOwimB9P/home/Applications/IINA.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Hechen Li (67CQ77V27R)
+PASS SIGNATURE + PROFILE MARKER iina install 1.5.0
+OFFICIAL https://github.com/iina/iina/releases/download/v1.5.1/IINA.v1.5.1.dmg: size=113092405 sha256=Some("f414507ec60bcfeda3a9f539f74470253e31b619d031e7a9e9a71519da1598cd")
+PASS NATIVE iina update: IINA updated to 1.5.1; transferred=113092405
+/private/tmp/shift-daily-native-scratch.mOwimB9P/home/Applications/IINA.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Hechen Li (67CQ77V27R)
+PASS SIGNATURE + PROFILE MARKER iina update 1.5.1
+PASS NATIVE iina remove: IINA was removed; transferred=0
+/private/tmp/shift-daily-native-scratch.mOwimB9P/home/.Trash/IINA.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Hechen Li (67CQ77V27R)
+PASS SIGNATURE + PROFILE MARKER iina remove 1.5.1
+CLEANUP iina exit=0

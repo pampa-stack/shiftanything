@@ -1,0 +1,18 @@
+OFFICIAL https://github.com/HandBrake/HandBrake/releases/download/1.11.1/HandBrake-1.11.1.dmg: size=47719592 sha256=Some("0973dcc4ccf53388498fbb35dbf7118b28276f2fe4ecbf08eca8596985f2c684")
+PASS NATIVE handbrake install: HandBrake installed: 1.11.1; transferred=47719592
+/private/tmp/shift-daily-native-scratch.5AJ9LwZ3/home/Applications/HandBrake.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: I.D.&.A. di Galassi Damiano & C. S.a.s. (5X9DE89KYV)
+PASS SIGNATURE + PROFILE MARKER handbrake install 1.11.1
+OFFICIAL https://github.com/HandBrake/HandBrake/releases/download/1.11.2/HandBrake-1.11.2.dmg: size=47978117 sha256=Some("4afe27aaa77a7bbb0dcda1a335d96a5f53649f2649fb84de6982ffecc35de9d7")
+PASS NATIVE handbrake update: HandBrake updated to 1.11.2; transferred=47978117
+/private/tmp/shift-daily-native-scratch.5AJ9LwZ3/home/Applications/HandBrake.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: I.D.&.A. di Galassi Damiano & C. S.a.s. (5X9DE89KYV)
+PASS SIGNATURE + PROFILE MARKER handbrake update 1.11.2
+PASS NATIVE handbrake remove: HandBrake was removed; transferred=0
+/private/tmp/shift-daily-native-scratch.5AJ9LwZ3/home/.Trash/HandBrake.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: I.D.&.A. di Galassi Damiano & C. S.a.s. (5X9DE89KYV)
+PASS SIGNATURE + PROFILE MARKER handbrake remove 1.11.2
+CLEANUP handbrake exit=0

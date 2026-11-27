@@ -26,6 +26,10 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(source))
 design = importlib.import_module('doop_catalogo')
 build = importlib.import_module('doop_build')
+# Render the catalog bundled by Rust. Regia supplies the design and may have
+# a separate catalog in progress.
+design.APPS = json.loads((root / 'crates/core/curated.json').read_text())
+design.BY_ID = {app['id']: app for app in design.APPS}
 manifest = []
 for name in ['Archivo', 'Inter', 'GeistMono']:
     if catalog_only:

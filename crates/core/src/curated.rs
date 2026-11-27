@@ -1917,6 +1917,27 @@ pub const OPENWORK_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F5DJWB4CCV"),
 };
 
+pub const OPEN_PENCIL: crate::CraftApp = crate::CraftApp {
+    id: "openpencil",
+    name: "OpenPencil",
+    tagline: "Design and edit Figma files locally",
+    repo: "open-pencil/open-pencil",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [84, 95, 227],
+    ink_light: [63, 73, 164],
+    ink_dark: [173, 182, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Danila Poyarkov and OpenPencil contributors",
+    msi_publisher: None,
+    bundle: Some("net.dannote.open-pencil"),
+    site: Some("https://openpencil.dev/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const ULTIMAKER_CURA: crate::CraftApp = crate::CraftApp {
     id: "ultimaker-cura",
     name: "UltiMaker Cura",
@@ -2001,7 +2022,7 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 85] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 86] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2085,6 +2106,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 85] = [
     OPENWORK_DESKTOP,
     PASEO,
     ULTIMAKER_CURA,
+    OPEN_PENCIL,
     FREECAD,
     OPENMAUSBOT,
 ];

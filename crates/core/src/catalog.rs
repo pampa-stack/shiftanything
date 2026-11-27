@@ -101,6 +101,7 @@ impl CraftApp {
             ("rustdesk", "rustdesk/rustdesk") => "rustdesk".to_owned(),
             ("activitywatch", "ActivityWatch/activitywatch") => "aw-qt".to_owned(),
             ("orca", "stablyai/orca") => "orca-ide".to_owned(),
+            ("openpencil", "open-pencil/open-pencil") => "OpenPencil".to_owned(),
             ("ultimaker-cura", "Ultimaker/Cura") => "com.ultimaker.cura".to_owned(),
             ("paseo", "getpaseo/paseo") => "Paseo".to_owned(),
             ("t3code", "pingdotgg/t3code") => "t3code".to_owned(),
@@ -290,6 +291,7 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
     Some(match id {
         "opencode" => include_bytes!("../../../assets/app-icons/opencode.png"),
         "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
+        "openpencil" => include_bytes!("../../../assets/app-icons/openpencil.png"),
         "ultimaker-cura" => include_bytes!("../../../assets/app-icons/ultimaker-cura.png"),
         "paseo" => include_bytes!("../../../assets/app-icons/paseo.png"),
         "t3code" => include_bytes!("../../../assets/app-icons/t3code.png"),

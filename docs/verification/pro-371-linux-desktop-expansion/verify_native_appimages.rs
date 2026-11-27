@@ -1,7 +1,7 @@
 use std::path::Path;
 use std::time::{Duration, Instant};
 
-use artcraft_launcher_core::curated::{PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+use artcraft_launcher_core::curated::{OPEN_PENCIL, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 use artcraft_launcher_core::platform::pick_asset;
 use artcraft_launcher_core::protocol::{Backend, Command, Event, LatestRelease, Source};
 use artcraft_launcher_core::release::{Release, ReleaseQuery, parse_github_release};
@@ -71,6 +71,21 @@ const CURA_PACKAGES: [Package; 2] = [
         name: "UltiMaker-Cura-5.14.0-linux-X64.AppImage",
         size: 370_960_888,
         sha: "988a2a67cce7ee7b9b9a843aad65ec4754d2ceb0a72e70eeaf884b995b75990f",
+    },
+];
+
+const OPEN_PENCIL_PACKAGES: [Package; 2] = [
+    Package {
+        version: "0.16.0",
+        name: "OpenPencil_0.16.0_amd64.AppImage",
+        size: 96_438_776,
+        sha: "a7d893ac35367c8ea000b00890136ce5861a13bf2574b44760f77849cfdf77a2",
+    },
+    Package {
+        version: "0.17.0",
+        name: "OpenPencil_0.17.0_amd64.AppImage",
+        size: 99_834_360,
+        sha: "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc",
     },
 ];
 
@@ -151,6 +166,7 @@ fn main() -> Result<(), String> {
     }
     let args: Vec<String> = std::env::args().collect();
     let Some((app, packages)) = args.get(1).and_then(|id| match id.as_str() {
+        "openpencil" => Some((OPEN_PENCIL, &OPEN_PENCIL_PACKAGES)),
         "ultimaker-cura" => Some((ULTIMAKER_CURA, &CURA_PACKAGES)),
         "paseo" => Some((PASEO, &PASEO_PACKAGES)),
         "voice-studio" => Some((VOICE_STUDIO, &VOICE_STUDIO_PACKAGES)),
@@ -224,6 +240,9 @@ fn main() -> Result<(), String> {
         }
         if app.id == ULTIMAKER_CURA.id && !entry.contains("StartupWMClass=UltiMaker-Cura\n") {
             return Err("Generated desktop entry does not match the Cura window class".into());
+        }
+        if app.id == OPEN_PENCIL.id && !entry.contains("StartupWMClass=OpenPencil\n") {
+            return Err("Generated desktop entry does not match the OpenPencil window class".into());
         }
         println!("FILE {} version={} bytes={} sha256={}", record.path.display(), record.version, package.size, package.sha);
         println!("DESKTOP {} ICON {} sha256={}", desktop.display(), icon.display(), http::sha256_file(&icon)?);

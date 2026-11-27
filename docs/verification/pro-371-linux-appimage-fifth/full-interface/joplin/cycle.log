@@ -1,0 +1,48 @@
+START 2026-11-27T09:49:40Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/laurent22/joplin/releases/download/v3.7.22/Joplin-3.7.22.AppImage bytes=207329204 sha256=2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc
+FILE /fixture/home/Applications/Joplin-3.7.22.AppImage version=3.7.22 bytes=207329204 sha256=2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc
+DESKTOP /fixture/home/data/applications/appimagekit-joplin.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/appimagekit-joplin.png sha256=73a99920dfe68e646f9ba4fedfc2ab55cfdbc6943a6ad90aa27748d678684f7a
+PASS joplin install 6776 ms Joplin installed: 3.7.22
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=150 comm="/tmp/appimage_extracted_301e6bbf2fa24ae038ba203068" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = appimagekit-joplin appimagekit-joplin
+Joplin
+PASS joplin open-old 0 ms Launch request accepted
+GUI joplin open-old 70576 ms window=2097155
+OFFICIAL https://github.com/laurent22/joplin/releases/download/v3.7.24/Joplin-3.7.24.AppImage bytes=207407075 sha256=64d544b8c865b53d975d1cc9438300465be860dfd9b6c7d4bb6f66a9f3777584
+FILE /fixture/home/Applications/Joplin-3.7.24.AppImage version=3.7.24 bytes=207407075 sha256=64d544b8c865b53d975d1cc9438300465be860dfd9b6c7d4bb6f66a9f3777584
+DESKTOP /fixture/home/data/applications/appimagekit-joplin.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/appimagekit-joplin.png sha256=73a99920dfe68e646f9ba4fedfc2ab55cfdbc6943a6ad90aa27748d678684f7a
+PASS joplin update 9058 ms Joplin updated to 3.7.24
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot5/joplin-full-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=132 comm="/tmp/appimage_extracted_ebd2375cf8c92f2c8448b34d25" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = appimagekit-joplin appimagekit-joplin
+Joplin
+PASS joplin open-new 0 ms Launch request accepted
+GUI joplin open-new 16532 ms window=2097155
+[99:1127/095131.410073:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+Sentry: Initialized with autoUploadCrashDumps: false
+(node:99) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `joplin --trace-deprecation ...` to show where the warning was created)
+[99:1127/095132.626034:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99:1127/095132.626106:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+
+START 2026-11-27T09:53:42Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+RETRY menu with localhost resolver in isolated network
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=93 comm="/tmp/appimage_extracted_ebd2375cf8c92f2c8448b34d25" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = appimagekit-joplin appimagekit-joplin
+Joplin
+[93:1127/095345.903403:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+Sentry: Initialized with autoUploadCrashDumps: false
+(node:93) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `joplin --trace-deprecation ...` to show where the warning was created)
+[93:1127/095346.996964:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93:1127/095346.997042:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+(node:205) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `exe --trace-deprecation ...` to show where the warning was created)
+GUI joplin open-menu 18918 ms window=2097155
+PASS joplin remove 120 ms Joplin was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot5/joplin-full-interface-profile/home/verification-user-data.txt: OK

@@ -94,6 +94,8 @@ impl CraftApp {
             ("localsend", "localsend/localsend") => "org.localsend.localsend_app".to_owned(),
             ("audacity", "audacity/audacity") => "org.audacityteam.Audacity4portable".to_owned(),
             ("drawio", "jgraph/drawio-desktop") => "drawio".to_owned(),
+            ("cryptomator", "cryptomator/cryptomator") => "org.cryptomator.Cryptomator".to_owned(),
+            ("joplin", "laurent22/joplin") => "appimagekit-joplin".to_owned(),
             _ => self.bundle_id(),
         }
     }
@@ -283,6 +285,8 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         "audacity" => include_bytes!("../../../assets/app-icons/audacity.png"),
         "drawio" => include_bytes!("../../../assets/app-icons/drawio.png"),
         "nextcloud-desktop" => include_bytes!("../../../assets/app-icons/nextcloud-desktop.png"),
+        "cryptomator" => include_bytes!("../../../assets/app-icons/cryptomator.png"),
+        "joplin" => include_bytes!("../../../assets/app-icons/joplin.png"),
         "artcraft" => include_bytes!("../../../assets/app-icons/artcraft.png"),
         "photocraft" => include_bytes!("../../../assets/app-icons/photocraft.png"),
         "vectorcraft" => include_bytes!("../../../assets/app-icons/vectorcraft.png"),

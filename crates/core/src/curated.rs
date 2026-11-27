@@ -1119,9 +1119,23 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
-    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE, AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP]
-        .iter()
-        .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
+    if [
+        LOCALSEND,
+        PENCIL2D,
+        OPENSHOT,
+        MUSESCORE,
+        ORCA_SLICER,
+        LOSSLESSCUT,
+        ZETTLR,
+        ONLYOFFICE,
+        AUDACITY,
+        DRAWIO,
+        NEXTCLOUD_DESKTOP,
+        CRYPTOMATOR,
+        JOPLIN,
+    ]
+    .iter()
+    .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
     {
         return true;
     }
@@ -1184,10 +1198,7 @@ mod recipe_tests {
         let app = CraftApp::by_id("vibe-transcribe").unwrap();
         assert_eq!((app.bundle, app.mac_team), (Some("github.com.thewh1teagle.vibe"), Some("VSTAWC326G")));
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (tag, name, size) in [
-            ("v3.3.5", "vibe_3.3.5_aarch64.dmg", 38_715_249),
-            ("v3.3.8", "vibe_3.3.8_aarch64.dmg", 38_640_733),
-        ] {
+        for (tag, name, size) in [("v3.3.5", "vibe_3.3.5_aarch64.dmg", 38_715_249), ("v3.3.8", "vibe_3.3.8_aarch64.dmg", 38_640_733)] {
             let release = release::release_from_sums(app.repo, tag, &[]);
             let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
             assert_eq!((asset.name.as_str(), asset.size, kind), (name, size, PackageKind::Dmg));
@@ -1198,11 +1209,7 @@ mod recipe_tests {
             let bad_checksum = release::Asset { sha256: Some("f".repeat(64)), ..asset.clone() };
             let no_checksum = release::Asset { sha256: None, ..asset.clone() };
             let wrong_repo = release::Asset { url: asset.url.replace("thewh1teagle", "mirror"), ..asset.clone() };
-            let intel = release::Asset {
-                name: asset.name.replace("aarch64", "x64"),
-                url: asset.url.replace("aarch64", "x64"),
-                ..asset.clone()
-            };
+            let intel = release::Asset { name: asset.name.replace("aarch64", "x64"), url: asset.url.replace("aarch64", "x64"), ..asset.clone() };
             for different in [different_size, bad_checksum, no_checksum, wrong_repo, intel] {
                 assert!(!release::vibe_mac_asset(&release, &different));
             }
@@ -1279,7 +1286,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 25);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 27);
     }
 
     #[test]

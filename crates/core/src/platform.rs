@@ -402,8 +402,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::neovide_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
-    if platform.os == Os::Linux && ["drawio", "audacity", "nextcloud-desktop"].iter().any(|id| stems.contains(id)) {
-        let app = [AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP].into_iter().find(|app| stems.contains(&app.id))?;
+    if platform.os == Os::Linux && ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin"].iter().any(|id| stems.contains(id)) {
+        let app = [AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP, CRYPTOMATOR, JOPLIN].into_iter().find(|app| stems.contains(&app.id))?;
         if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
             return None;
         }
@@ -412,6 +412,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             "audacity" => ("Audacity-", format!("audacity-linux-{version}-x86_64.AppImage")),
             "drawio" => ("v", format!("drawio-x86_64-{version}.AppImage")),
             "nextcloud-desktop" => ("v", format!("Nextcloud-{version}-x86_64.AppImage")),
+            "cryptomator" => ("", format!("cryptomator-{version}-x86_64.AppImage")),
+            "joplin" => ("v", format!("Joplin-{version}.AppImage")),
             _ => return None,
         };
         if release.tag != format!("{tag_prefix}{version}") {
@@ -581,7 +583,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if ["drawio", "audacity", "nextcloud-desktop"].iter().any(|id| stems.contains(id)) && platform.os == Os::Linux {
+    if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin"].iter().any(|id| stems.contains(id)) && platform.os == Os::Linux {
         return platform == linux_x64;
     }
     if ["nextcloud-desktop"].iter().any(|id| stems.contains(id)) {
@@ -700,6 +702,10 @@ mod tests {
             ("jgraph/drawio-desktop", "v32.7.4", "drawio-x86_64-32.7.4.AppImage", 154_092_007),
             ("nextcloud-releases/desktop", "v35.0.2", "Nextcloud-35.0.2-x86_64.AppImage", 63_248_888),
             ("nextcloud-releases/desktop", "v35.0.3", "Nextcloud-35.0.3-x86_64.AppImage", 63_248_888),
+            ("cryptomator/cryptomator", "1.19.6", "cryptomator-1.19.6-x86_64.AppImage", 59_075_064),
+            ("cryptomator/cryptomator", "1.19.7", "cryptomator-1.19.7-x86_64.AppImage", 59_075_064),
+            ("laurent22/joplin", "v3.7.22", "Joplin-3.7.22.AppImage", 207_329_204),
+            ("laurent22/joplin", "v3.7.24", "Joplin-3.7.24.AppImage", 207_407_075),
             ("Zettlr/Zettlr", "v4.10.0", "Zettlr-4.10.0-x86_64.AppImage", 172_628_308),
             ("Zettlr/Zettlr", "v4.11.0", "Zettlr-4.11.0-x86_64.AppImage", 172_657_896),
             ("ONLYOFFICE/DesktopEditors", "v9.4.0", "DesktopEditors-x86_64.AppImage", 625_961_464),

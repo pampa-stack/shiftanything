@@ -742,12 +742,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("keepassxreboot/keepassxc", "2.8.0") => {
             &[("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c")]
         }
-        ("laurent22/joplin", "v3.7.22") => {
-            &[("Joplin-3.7.22-arm64.DMG", 211_992_036, "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8")]
-        }
-        ("laurent22/joplin", "v3.7.24") => {
-            &[("Joplin-3.7.24-arm64.DMG", 212_067_439, "d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e")]
-        }
+        ("laurent22/joplin", "v3.7.22") => &[
+            ("Joplin-3.7.22.AppImage", 207_329_204, "2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc"),
+            ("Joplin-3.7.22-arm64.DMG", 211_992_036, "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8"),
+        ],
+        ("laurent22/joplin", "v3.7.24") => &[
+            ("Joplin-3.7.24.AppImage", 207_407_075, "64d544b8c865b53d975d1cc9438300465be860dfd9b6c7d4bb6f66a9f3777584"),
+            ("Joplin-3.7.24-arm64.DMG", 212_067_439, "d95c2376035c7630dfb94f6eecca2f6edb3a27531626553a344f2b2308a5830e"),
+        ],
         ("mltframework/shotcut", "v26.9.27") => {
             &[("shotcut-macos-26.9.27.dmg", 210_131_979, "629b056bfee1670c1669dd73f19f76fe48e0cdf90e184dc1aa1bdd6d09aa2548")]
         }
@@ -780,12 +782,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ente/ente", "auth-v4.4.26") => &[("ente-auth-v4.4.26.dmg", 46_193_389, "f063d87dc247feed7dba0ecdae208ffc22f9b5b2de0c58506394a2cae0610ada")],
         ("ente/ente", "auth-v4.4.27") => &[("ente-auth-v4.4.27.dmg", 58_891_715, "9c05d588b612d697f50d5b54cce1677cfac3c38a9aa32910279f68cd81f6c718")],
-        ("cryptomator/cryptomator", "1.19.6") => {
-            &[("Cryptomator-1.19.6-arm64.dmg", 58_714_109, "fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02")]
-        }
-        ("cryptomator/cryptomator", "1.19.7") => {
-            &[("Cryptomator-1.19.7-arm64.dmg", 58_716_219, "c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677")]
-        }
+        ("cryptomator/cryptomator", "1.19.6") => &[
+            ("cryptomator-1.19.6-x86_64.AppImage", 59_075_064, "a6167f6ab3c5f161b31726b94bcf0abcb7f78c857b16e485adeb8e5096b74acd"),
+            ("Cryptomator-1.19.6-arm64.dmg", 58_714_109, "fdfc8ef50b10baca1078b7a9edf404e330363c8a3a40fda29f86dd5d3a0a0b02"),
+        ],
+        ("cryptomator/cryptomator", "1.19.7") => &[
+            ("cryptomator-1.19.7-x86_64.AppImage", 59_075_064, "7f0367d8b83fcda665016e1a907683a9037e61589f2493c4206ea850d55fef4e"),
+            ("Cryptomator-1.19.7-arm64.dmg", 58_716_219, "c4818d38cb3f9919bfe276c812714596cc50da4d01a82ac2f22bf2e64b441677"),
+        ],
         ("ActivityWatch/activitywatch", "v0.14.2") => {
             &[("activitywatch-v0.14.2-macos-arm64.dmg", 65_835_856, "8341d56b5b43a60ca04ea2a3cc5ffbfb5e661cdb6430145d9ceb0f49dca63d65")]
         }

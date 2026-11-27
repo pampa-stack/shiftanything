@@ -452,6 +452,113 @@
     } catch(error) {actionError=String(error);status.textContent=actionError;}
     finally {requesting=false;}
   },true);
+  async function startLauncherUpdater() {
+    const banner = document.createElement('aside');
+    banner.className = 'launcher-update';
+    banner.hidden = true;
+    banner.setAttribute('aria-label', it ? 'Aggiornamento di Sh*ftAnything' : 'Sh*ftAnything update');
+    const message = document.createElement('div');
+    message.setAttribute('role', 'status');
+    const title = document.createElement('strong');
+    const detail = document.createElement('p');
+    message.append(title, detail);
+    const action = document.createElement('button');
+    action.type = 'button';
+    banner.append(message, action);
+    document.querySelector('.app > .top').after(banner);
+
+    let update;
+    let eventCount = 0;
+    let pending = '';
+    let commandError = '';
+    function renderUpdate() {
+      if (!update) return;
+      const {available, status: phase, error} = update;
+      const hiddenError = !commandError && ['channel_disabled', 'installation_unsupported', 'check_failed'].includes(error);
+      banner.hidden = hiddenError || (!available && !['downloading', 'ready', 'error'].includes(phase) && !commandError);
+      title.textContent = available
+        ? (it ? `Aggiornamento Sh*ftAnything ${available.version}` : `Sh*ftAnything ${available.version} update`)
+        : (it ? 'Aggiornamento di Sh*ftAnything' : 'Sh*ftAnything update');
+
+      const failed = phase === 'error' || Boolean(commandError);
+      if (failed) {
+        const errors = {
+          installation_cancelled: ['Installazione annullata.', 'Installation cancelled.'],
+          installation_permissions: ['Serve il permesso per aggiornare Sh*ftAnything.', 'Permission is required to update Sh*ftAnything.'],
+          installation_recovery_required: ['Impossibile sostituire il launcher. La copia precedente è stata conservata.', 'The launcher could not be replaced. The previous copy was preserved.'],
+          download_or_signature_failed: ['Download interrotto o firma non valida.', 'Download interrupted or invalid signature.'],
+          release_invalid: ['Il pacchetto di aggiornamento non ha superato la verifica.', 'The update package failed verification.'],
+        };
+        const text = errors[error] || ['Aggiornamento non riuscito.', 'Update failed.'];
+        detail.textContent = text[it ? 0 : 1];
+      } else if (phase === 'ready') {
+        detail.textContent = it ? 'Aggiornamento installato. Riavvia Sh*ftAnything per applicarlo.'
+          : 'Update installed. Restart Sh*ftAnything to apply it.';
+      } else if (phase === 'checking' || pending === 'launcher_update_check') {
+        detail.textContent = it ? 'Ricerca aggiornamenti in corso…' : 'Checking for updates…';
+      } else if (phase === 'downloading' || pending === 'launcher_update_install') {
+        detail.textContent = it ? 'Download e installazione in corso…' : 'Downloading and installing…';
+      } else {
+        detail.textContent = it ? `Versione in uso: ${update.current}` : `Current version: ${update.current}`;
+      }
+      action.hidden = !failed && phase !== 'available' && phase !== 'downloading';
+      action.disabled = Boolean(pending) || (!failed && (phase === 'downloading' || phase === 'checking'));
+      action.textContent = failed ? (it ? 'Riprova' : 'Retry') : (it ? 'Installa' : 'Install');
+    }
+
+    function acceptUpdate(next) {
+      update = next;
+      commandError = '';
+      renderUpdate();
+    }
+
+    async function runUpdate(command) {
+      if (pending) return;
+      pending = command;
+      commandError = '';
+      renderUpdate();
+      const previousEventCount = eventCount;
+      try {
+        const result = await invoke(command);
+        if (eventCount === previousEventCount) {
+          const next = result?.status ? result : await invoke('launcher_update_state');
+          if (eventCount === previousEventCount) acceptUpdate(next);
+        }
+      } catch (error) {
+        if (eventCount === previousEventCount || update.status !== 'error') {
+          commandError = String(error);
+        }
+      } finally {
+        pending = '';
+        renderUpdate();
+      }
+    }
+
+    action.addEventListener('click', () => {
+      if (commandError || update?.status === 'error') {
+        void runUpdate('launcher_update_check');
+      } else if (update?.status === 'available') {
+        void runUpdate('launcher_update_install');
+      }
+    });
+
+    const previousEventCount = eventCount;
+    const listen = window.__TAURI__.event?.listen;
+    if (listen) {
+      try {
+        await listen('shift-launcher-update', ({payload}) => {
+          eventCount++;
+          acceptUpdate(payload);
+        });
+      } catch (error) {
+        console.warn('Launcher update events unavailable', error);
+      }
+    }
+    const initial = await invoke('launcher_update_state');
+    if (eventCount === previousEventCount) acceptUpdate(initial);
+    if (update.status === 'idle') await runUpdate('launcher_update_check');
+  }
+
   async function start() {
     status.textContent = `${note} · Rust…`;
     const catalog = await invoke('catalog_snapshot');
@@ -474,5 +581,6 @@
     }
     await poll();
   }
+  startLauncherUpdater().catch(error => console.warn('Launcher update unavailable', error));
   start().catch(error => { status.textContent=String(error); });
 })();

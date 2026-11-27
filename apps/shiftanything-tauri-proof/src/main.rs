@@ -3,6 +3,7 @@
 mod catalog_links;
 mod discovery;
 mod favorites;
+mod launcher_update;
 mod media;
 mod session;
 mod shifter;
@@ -219,12 +220,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{}.html", launch.language);
     let webview_directory = launch.root.join("webview");
+    let mut context = tauri::generate_context!();
+    let launcher_updater = launcher_update::configure(&mut context, isolated);
     let builder = tauri::Builder::default();
     #[cfg(target_os = "macos")]
     let builder = builder.activate_ignoring_other_apps(false);
     builder
         .manage(Mutex::new(state))
         .manage(catalog_media)
+        .manage(launcher_updater)
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
             media::fetch_catalog_media,
@@ -238,6 +242,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             set_favorite,
             set_language,
             check_native_updates,
+            launcher_update::launcher_update_state,
+            launcher_update::launcher_update_check,
+            launcher_update::launcher_update_install,
             mcp_configuration,
             mcp_connection,
             open_mcp_docs,
@@ -259,10 +266,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .on_navigation(local_navigation)
                 .on_new_window(|_, _| tauri::webview::NewWindowResponse::Deny)
                 .build()?;
+            launcher_update::start(app.handle())?;
             println!("Local-only window created; native lifecycle enabled: {lifecycle}");
             Ok(())
         })
-        .run(tauri::generate_context!())?;
+        .run(context)?;
     Ok(())
 }
 #[cfg(test)]

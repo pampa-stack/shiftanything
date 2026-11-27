@@ -48,7 +48,7 @@ Section: utils
 Priority: optional
 Maintainer: Promptica <info@promptica.it>
 Depends: libc6 (>= 2.39), libcairo2, libgcc-s1, libgdk-pixbuf-2.0-0, libglib2.0-0t64, libgtk-3-0t64, libjavascriptcoregtk-4.1-0, libsoup-3.0-0, libwebkit2gtk-4.1-0
-Recommends: flatpak
+Recommends: flatpak, pkexec
 Description: Desktop launcher for open-source apps
  Browse, compare, install and update supported applications from Sh*ftAnything.
 CONTROL

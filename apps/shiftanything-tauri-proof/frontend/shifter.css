@@ -22,7 +22,13 @@
 .sh-features{display:grid}
 .sh-feature{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:11px 12px;border-bottom:1px solid var(--bd)}
 .sh-feature > label{display:flex;align-items:center;gap:7px}
-.shifter input[type=checkbox]{accent-color:#e9ff74}
+.shifter input[type=checkbox]{
+  appearance:none;-webkit-appearance:none;flex:none;width:13px;height:13px;
+  border:1px solid var(--dim);border-radius:2px;cursor:pointer;
+}
+.shifter input[type=checkbox]:checked{
+  border-color:#e9ff74;background:#e9ff74 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2 6 2.5 2.5L10 3' fill='none' stroke='%23121500' stroke-width='1.8'/%3E%3C/svg%3E") center/12px no-repeat;
+}
 .sh-feature button{font-size:9px;padding:4px 6px}
 .sh-manual{padding:12px;display:grid;gap:8px}
 .sh-manual form{display:flex;gap:6px}

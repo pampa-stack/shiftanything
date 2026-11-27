@@ -395,7 +395,7 @@
         if (button.textContent !== action.label) button.textContent = action.label;
         button.disabled = !(action.enabled || action.target);
         button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
-        button.classList.toggle('solid', action.enabled && action.operation === 'install');
+        button.classList.toggle('solid', action.operation === 'install' && action.enabled === true);
         if (action.busy) button.setAttribute('aria-busy', 'true');
         else button.removeAttribute('aria-busy');
         if (action.target) button.dataset.externalTarget = action.target;

@@ -286,8 +286,8 @@ impl NativeState {
                     update_available,
                     can_open: None,
                     can_remove: None,
-                    installed_version: installed.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
-                    latest_version: release.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
+                    installed_version: installed.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
+                    latest_version: release.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
                     job: self.jobs.get(app.id).map(|phase| format!("{phase:?}")),
                 }
             })

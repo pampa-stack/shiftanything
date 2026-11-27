@@ -240,6 +240,14 @@ pub mod macos {
         {
             return None;
         }
+        let curated = (app.id, app.repo);
+        let dbeaver = artcraft_launcher_core::curated::DBEAVER_CE;
+        let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+        if (curated == (dbeaver.id, dbeaver.repo) && id != "org.jkiss.dbeaver.core.product")
+            || (curated == (prusa.id, prusa.repo) && id != artcraft_launcher_core::curated::PRUSA_SLICER_MAC_BUNDLE)
+        {
+            return None;
+        }
         // `<App>Version` carries the full version including a pre-release suffix;
         // CFBundleShortVersionString only has the numbers. An empty value leaves CFBundleVersion authoritative.
         let full_keys: Vec<String> = app.mac_bundle_names().map(|n| format!("{n}Version")).collect();
@@ -260,7 +268,15 @@ pub mod macos {
     }
 
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
-        use artcraft_launcher_core::curated::DOSBOX_STAGING;
+        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, PRUSA_SLICER};
+
+        if (app.id, app.repo) == (DBEAVER_CE.id, DBEAVER_CE.repo) {
+            return version::parse_dbeaver(text);
+        }
+        if (app.id, app.repo) == (PRUSA_SLICER.id, PRUSA_SLICER.repo) {
+            let label = text.strip_prefix("PrusaSlicer ").unwrap_or(text).strip_prefix("PrusaSlicer-")?;
+            return artcraft_launcher_core::release::prusa_slicer_version(label);
+        }
 
         // Stable DOSBox Staging bundles append the five-character git commit (e.g. 0.83.1-8888e).
         if (app.id, app.repo) == (DOSBOX_STAGING.id, DOSBOX_STAGING.repo)
@@ -290,6 +306,22 @@ pub mod macos {
             return None;
         }
         artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn reviewed_bundle_versions_match_their_publisher_tags() {
+        use artcraft_launcher_core::curated::{DBEAVER_CE, PRUSA_SLICER};
+
+        for (app, text, label) in [
+            (DBEAVER_CE, "26.2.5", "26.2.5"),
+            (DBEAVER_CE, "26.2.5.2", "26.2.5.2"),
+            (PRUSA_SLICER, "PrusaSlicer PrusaSlicer-2.9.7", "2.9.7"),
+            (PRUSA_SLICER, "PrusaSlicer-2.9.6", "2.9.6"),
+        ] {
+            assert_eq!(bundle_version(&app, text).as_ref().map(version::label).as_deref(), Some(label));
+        }
+        assert!(bundle_version(&DBEAVER_CE, "26.2.5.2.1").is_none());
+        assert!(bundle_version(&PRUSA_SLICER, "PrusaSlicer-2.9.7-rc.1").is_none());
     }
 
     #[test]

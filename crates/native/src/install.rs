@@ -2553,6 +2553,16 @@ pub mod macos {
         approved_replace: Option<&Path>,
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
+        let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+        let mount = if (app.id, app.repo) == (prusa.id, prusa.repo) {
+            let nested = mount.join("Original Prusa Drivers");
+            if !std::fs::symlink_metadata(&nested).is_ok_and(|metadata| metadata.is_dir()) {
+                return Err("the disk image does not contain the expected PrusaSlicer directory".into());
+            }
+            nested
+        } else {
+            mount.to_path_buf()
+        };
         let (src, bundle) = app
             .mac_bundle_names()
             .map(|n| {
@@ -2647,10 +2657,15 @@ pub mod macos {
         if let Some(team) = required_team(expect.team, cfg!(test))? {
             super::macos_verify::verify_with(app, bundle, team, run)?;
         }
-        if let Some(want) = expect.version
-            && !found.version.as_ref().is_some_and(|v| same_release(v, want))
-        {
-            return Err(format!("the app inside isn't version {want}, so it wasn't installed"));
+        if let Some(want) = expect.version {
+            let dbeaver = artcraft_launcher_core::curated::DBEAVER_CE;
+            let matches = found
+                .version
+                .as_ref()
+                .is_some_and(|version| if (app.id, app.repo) == (dbeaver.id, dbeaver.repo) { version == want } else { same_release(version, want) });
+            if !matches {
+                return Err(format!("the app inside isn't version {}, so it wasn't installed", super::version::label(want)));
+            }
         }
         swap_into_place(bundle, destination)
     }

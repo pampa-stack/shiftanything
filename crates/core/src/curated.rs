@@ -863,6 +863,50 @@ pub const ORCA_SLICER: crate::CraftApp = crate::CraftApp {
     mac_team: Some("XQK7C38HH5"),
 };
 
+pub const DBEAVER_CE: crate::CraftApp = crate::CraftApp {
+    id: "dbeaver-ce",
+    name: "DBeaver Community",
+    tagline: "Explore databases and edit SQL",
+    repo: "dbeaver/dbeaver",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &["org.jkiss.dbeaver.core.product"],
+    color: [188, 157, 126],
+    ink_light: [108, 75, 46],
+    ink_dark: [229, 201, 172],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "DBeaver",
+    msi_publisher: None,
+    bundle: Some("io.dbeaver.DBeaverCommunity"),
+    site: Some("https://dbeaver.io/"),
+    mac_bundle_name: Some("DBeaver"),
+    mac_team: Some("42B6MDKMW8"),
+};
+
+pub const PRUSA_SLICER_MAC_BUNDLE: &str = "com.prusa3d.slic3r/";
+
+pub const PRUSA_SLICER: crate::CraftApp = crate::CraftApp {
+    id: "prusaslicer",
+    name: "PrusaSlicer",
+    tagline: "Prepare models for 3D printing",
+    repo: "prusa3d/PrusaSlicer",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[PRUSA_SLICER_MAC_BUNDLE],
+    color: [243, 151, 108],
+    ink_light: [148, 58, 20],
+    ink_dark: [255, 179, 139],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Prusa Research a.s.",
+    msi_publisher: None,
+    bundle: Some("com.prusa3d.PrusaSlicer"),
+    site: Some("https://www.prusa3d.com/p/prusaslicer/"),
+    mac_bundle_name: None,
+    mac_team: Some("DKPB65N43Z"),
+};
+
 pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
     id: "losslesscut",
     name: "LosslessCut",
@@ -1894,7 +1938,7 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 80] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 82] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1936,6 +1980,8 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 80] = [
     OPENSHOT,
     MUSESCORE,
     ORCA_SLICER,
+    DBEAVER_CE,
+    PRUSA_SLICER,
     LOSSLESSCUT,
     ZETTLR,
     ONLYOFFICE,

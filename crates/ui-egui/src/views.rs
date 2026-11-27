@@ -1604,7 +1604,7 @@ fn grid_sort_label((key, descending): (SortKey, bool)) -> &'static str {
 /// "0.4.1 installed → 0.5.0 released · Oct 8, 2026" and friends.
 pub(crate) fn version_line(e: &AppEntry, status: &AppStatus) -> String {
     let released = e.release().and_then(|r| r.published_at).map(|at| format!(" · {}", date_text(at))).unwrap_or_default();
-    let inst_ver = e.installed.as_ref().and_then(|i| i.version.as_ref().map(ToString::to_string));
+    let inst_ver = e.installed.as_ref().and_then(|i| i.version.as_ref().map(artcraft_launcher_core::version::label));
     let latest = e.latest_label();
     match (status, inst_ver.as_deref(), latest.as_deref()) {
         (AppStatus::UpdateAvailable, Some(i), Some(l)) => {

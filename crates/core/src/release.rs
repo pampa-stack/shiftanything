@@ -37,7 +37,7 @@ pub struct Release {
 
 impl Release {
     pub fn version_label(&self) -> String {
-        self.version.as_ref().map_or_else(|| self.tag.clone(), ToString::to_string)
+        self.version.as_ref().map_or_else(|| self.tag.clone(), version::label)
     }
 
     /// Fills in checksums from a publisher manifest for assets that don't have one.
@@ -485,8 +485,13 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
     })
 }
 
-fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
-    if repo == crate::curated::AUDACITY.repo {
+/// Reads a release tag using only the version rules of its exact publisher repository.
+pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
+    if repo == crate::curated::DBEAVER_CE.repo {
+        version::parse_dbeaver(tag)
+    } else if repo == crate::curated::PRUSA_SLICER.repo {
+        prusa_slicer_version(tag.strip_prefix("version_")?)
+    } else if repo == crate::curated::AUDACITY.repo {
         version::parse(tag.strip_prefix("Audacity-")?)
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
@@ -505,6 +510,12 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
     } else {
         version::parse(tag)
     }
+}
+
+/// PrusaSlicer's stable release and bundle metadata contain the same numeric version.
+pub fn prusa_slicer_version(label: &str) -> Option<Version> {
+    let version = Version::parse(label).ok()?;
+    (version.pre.is_empty() && version.build.is_empty() && version.to_string() == label).then_some(version)
 }
 
 /// Zen's stable channel appends b to both the release tag and the bundle version.
@@ -838,6 +849,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENMAUSBOT,
         crate::curated::MUSESCORE,
         crate::curated::ORCA_SLICER,
+        crate::curated::DBEAVER_CE,
+        crate::curated::PRUSA_SLICER,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -845,7 +858,12 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
-            let canonical_tag = if app.id == crate::curated::ANKI.id {
+            if app.repo == crate::curated::DBEAVER_CE.repo && app.id == crate::curated::DBEAVER_CE.id {
+                return version::parse_dbeaver(&release.tag).as_ref() == Some(version);
+            }
+            let canonical_tag = if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
+                release.tag == format!("version_{version}")
+            } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
                 zen_release_version(&release.tag).as_ref() == Some(version)
@@ -1406,6 +1424,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("LosslessCut-mac-arm64.dmg", 165_792_537, "3c0e2b3ec25fec66cf0cef343450d9a333e4bba5d64456c34cd18e891a3f5947"),
             ("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a"),
         ],
+        ("dbeaver/dbeaver", "26.2.5") => {
+            &[("dbeaver-ce-26.2.5-macos-aarch64.dmg", 124_466_382, "2d739a95bbc3bb2f9fada4863a9f11904b94ebb34673999915809f788e849d73")]
+        }
+        ("dbeaver/dbeaver", "26.2.5.2") => {
+            &[("dbeaver-ce-26.2.5.2-macos-aarch64.dmg", 124_461_569, "84aa5edce7f78aa7c9bac8204956968cbdc6e194208a5654134ccbc6e29af60e")]
+        }
+        ("prusa3d/PrusaSlicer", "version_2.9.6") => {
+            &[("PrusaSlicer-2.9.6.dmg", 142_444_072, "94fd7b8a9f87c9631e1c71739b15b184fc5f4c0ceabd69072f1c78f229a4fe40")]
+        }
+        ("prusa3d/PrusaSlicer", "version_2.9.7") => {
+            &[("PrusaSlicer-2.9.7.dmg", 142_446_004, "f735f9d527823d159d9ac1e8f84ce1b74ea571e705e70e723bee546d070db60b")]
+        }
         ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[
             ("OrcaSlicer_Mac_universal_V2.5.1.dmg", 364_654_009, "ddf48a7f34785a4d5b4313e4dc4d7ad01769d48bc4c8d825f809da96593e6f46"),
             ("OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage", 201_116_152, "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb"),
@@ -1614,7 +1644,7 @@ mod tests {
     fn desktop_recipes_use_only_reviewed_apple_silicon_packages() {
         use crate::{
             Arch, Os, PackageKind, Platform,
-            curated::{FREECAD, MUSESCORE, OPENMAUSBOT, ORCA_SLICER, PASEO},
+            curated::{DBEAVER_CE, FREECAD, MUSESCORE, OPENMAUSBOT, ORCA_SLICER, PASEO, PRUSA_SLICER},
             platform::pick_asset,
         };
 
@@ -1625,6 +1655,8 @@ mod tests {
             (OPENMAUSBOT, ["v0.1.182", "v0.1.184"], "v0.1.185"),
             (MUSESCORE, ["v4.7.6", "v4.7.7"], "v4.7.8"),
             (ORCA_SLICER, ["v2.5.1", "v2.5.2"], "v2.5.3"),
+            (DBEAVER_CE, ["26.2.5", "26.2.5.2"], "26.2.6"),
+            (PRUSA_SLICER, ["version_2.9.6", "version_2.9.7"], "version_2.9.8"),
         ] {
             let pick = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
             for tag in tags {

@@ -1650,7 +1650,7 @@ fn downgrade_previous(
     let Some(installed) = existing.filter(|_| is_chosen_downgrade(track, chosen, existing, by_name)) else {
         return Ok(None);
     };
-    let installed_v = installed.version.as_ref().map(ToString::to_string).unwrap_or_default();
+    let installed_v = installed.version.as_ref().map(version::label).unwrap_or_default();
     let releases = list().map_err(|e| {
         NoWayBack::Refused(format!("couldn't find {} {installed_v} to put back if going back fails ({e}), so nothing was changed.", app.name))
     })?;
@@ -2804,7 +2804,7 @@ fn asked_key(app: &CraftApp, pre: bool) -> String {
 /// Whether GitHub names a newer stable release of `repo` than the feed's `latest` (`None`: the
 /// feed says there is none). `false` whenever the redirect can't be read: the feed then stands.
 fn feed_is_behind(source: &dyn ReleaseSource, repo: &str, latest: Option<&Release>) -> bool {
-    let Some(newest) = source.newest_tag(repo).and_then(|tag| version::parse(&tag)) else {
+    let Some(newest) = source.newest_tag(repo).and_then(|tag| artcraft_launcher_core::release::release_tag_version(repo, &tag)) else {
         return false;
     };
     match latest.and_then(|r| r.version.as_ref()) {

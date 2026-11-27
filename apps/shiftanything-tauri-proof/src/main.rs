@@ -130,6 +130,18 @@ fn local_navigation(url: &tauri::Url) -> bool {
         (url.scheme() == "tauri" && url.host_str() == Some("localhost")) || (url.scheme() == "http" && url.host_str() == Some("tauri.localhost"));
     local_origin && matches!(url.path(), "/index.html" | "/it.html" | "/en.html") && url.query().is_none()
 }
+
+#[cfg(target_os = "linux")]
+fn linux_profile_directory(path: &std::path::Path) -> std::io::Result<()> {
+    use std::os::unix::fs::DirBuilderExt;
+
+    match std::fs::DirBuilder::new().mode(0o700).create(path) {
+        Ok(()) => Ok(()),
+        Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists && std::fs::symlink_metadata(path)?.file_type().is_dir() => Ok(()),
+        Err(error) => Err(error),
+    }
+}
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args_os().skip(1).collect();
     let lifecycle = args.iter().any(|arg| arg == "--lifecycle");
@@ -149,19 +161,34 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 return Err("Resume requires a profile created by this proof".into());
             }
         } else {
+            #[cfg(target_os = "linux")]
+            {
+                use std::os::unix::fs::DirBuilderExt;
+                std::fs::DirBuilder::new().mode(0o700).create(&root)?;
+            }
+            #[cfg(not(target_os = "linux"))]
             std::fs::create_dir(&root)?;
             std::fs::write(marker, b"shiftanything-tauri-proof-v1\n")?;
         }
+        let root = root.canonicalize()?;
         let home = root.join("home");
         for path in [&home, &home.join(".Trash"), &home.join("config"), &home.join("data"), &home.join("cache")] {
+            #[cfg(target_os = "linux")]
+            linux_profile_directory(path)?;
+            #[cfg(not(target_os = "linux"))]
             std::fs::create_dir_all(path)?;
         }
+        #[cfg(target_os = "linux")]
+        linux_profile_directory(&home.join("state"))?;
         let language = args.get(1).and_then(|s| s.to_str()).unwrap_or("it");
         if !matches!(language, "it" | "en") {
             return Err("Use it or en".into());
         }
         println!("PROOF_ROOT={}", root.display());
-        let status = std::process::Command::new(std::env::current_exe()?)
+        let mut child = std::process::Command::new(std::env::current_exe()?);
+        #[cfg(target_os = "linux")]
+        child.env("XDG_STATE_HOME", home.join("state")).env("APPIMAGE_EXTRACT_AND_RUN", "1");
+        let status = child
             .arg("--child")
             .arg(&root)
             .arg(language)

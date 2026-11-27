@@ -1,9 +1,11 @@
 //! Typed lifecycle adapter. The core approval contract and native installer remain authoritative.
 use artcraft_launcher_core::{
-    Platform,
+    CraftApp, Os, PackageKind, Platform,
     automation::{InventoryEntry, Operation, Request, Snapshot as Inventory},
+    curated::verified_linux_appimage,
     platform::{pick_asset, recipe_platform_verified},
     protocol::{Backend, BackendOptions, Command, Event, InstallLocations, JobPhase, LatestRelease},
+    release::Release,
     status::Installed,
 };
 use artcraft_launcher_native::{NativeBackend, automation};
@@ -43,8 +45,25 @@ pub struct Snapshot {
     favorites: std::collections::BTreeSet<String>,
 }
 
+fn has_compatible_asset(app: &CraftApp, platform: Platform, release: &Release) -> bool {
+    let allowed = if platform.os == Os::Linux {
+        if !verified_linux_appimage(app, platform) {
+            return false;
+        }
+        &[PackageKind::AppImage]
+    } else {
+        platform.download_kinds()
+    };
+    let stems: Vec<_> = app.stems().collect();
+    let kinds: Vec<_> = allowed.iter().copied().filter(|kind| app.installs(*kind)).collect();
+    recipe_platform_verified(&stems, platform) && pick_asset(release, &stems, platform, &kinds).is_some()
+}
+
 impl NativeState {
     pub fn new(root: PathBuf, enabled: bool) -> Result<Self, String> {
+        #[cfg(target_os = "linux")]
+        let mut backend = NativeBackend::new_isolated_linux_profile(&root.join("home"), || {})?;
+        #[cfg(not(target_os = "linux"))]
         let mut backend = NativeBackend::new_isolated_macos_profile(|| {})?;
         if enabled {
             let applications = root.join("home/Applications");
@@ -139,11 +158,7 @@ impl NativeState {
                         Some(LatestRelease::Found(release)) => Some(release),
                         _ => None,
                     };
-                    let has_asset = platform.zip(release).is_some_and(|(platform, release)| {
-                        let stems: Vec<_> = app.stems().collect();
-                        let kinds: Vec<_> = platform.download_kinds().iter().copied().filter(|kind| app.installs(*kind)).collect();
-                        recipe_platform_verified(&stems, platform) && pick_asset(release, &stems, platform, &kinds).is_some()
-                    });
+                    let has_asset = platform.zip(release).is_some_and(|(platform, release)| has_compatible_asset(app, platform, release));
                     let installable = self.enabled && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
                     let update_available = installable
                         && installed.zip(release).is_some_and(|(installed, release)| {
@@ -277,5 +292,24 @@ impl NativeState {
         println!("APPROVED {} {:?}", request.id, command);
         self.backend.send(command);
         Ok(())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use artcraft_launcher_core::{Arch, release::Asset};
+
+    #[test]
+    fn linux_install_action_requires_an_appimage_for_the_tested_platform_and_recipe() {
+        let platform = Platform { os: Os::Linux, arch: Arch::X64 };
+        let photo = CraftApp::by_id("photocraft").unwrap();
+        let obsolete = CraftApp::by_id("designcraft").unwrap();
+        let image = |name: &str| Release { assets: vec![Asset { name: name.into(), ..Default::default() }], ..Default::default() };
+        assert!(has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.AppImage")));
+        assert!(!has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-aarch64.AppImage")));
+        assert!(!has_compatible_asset(photo, platform, &image("photocraft-0.23.1-linux-x86_64.deb")));
+        assert!(!has_compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")));
+        assert!(!has_compatible_asset(obsolete, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")));
     }
 }

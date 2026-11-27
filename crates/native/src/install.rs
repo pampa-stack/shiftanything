@@ -105,6 +105,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             &[
                 recipe::ANKI.id,
                 recipe::AUDACITY.id,
+                recipe::CODEEDIT.id,
                 recipe::DEEPTUTOR.id,
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,
@@ -128,7 +129,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         ),
         (&[recipe::ORCA.id], (13, 4)),
         (&[recipe::JAN.id], (13, 6)),
-        (&[recipe::CALIBRE.id, recipe::OLLAMA.id], (14, 0)),
+        (&[recipe::CALIBRE.id, recipe::MACCY.id, recipe::OLLAMA.id, recipe::RECTANGLE.id], (14, 0)),
         (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
@@ -665,6 +666,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
         return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::MACCY.id {
+        return (app.repo == artcraft_launcher_core::curated::MACCY.repo && release::maccy_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -2314,7 +2320,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        let framework_links = app.id == artcraft_launcher_core::curated::KEYCASTR.id;
+        use artcraft_launcher_core::curated::{KEYCASTR, MACCY};
+
+        let framework_links = [KEYCASTR.id, MACCY.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2423,7 +2431,8 @@ pub mod macos {
             // The older ZIP has this one Finder sidecar outside its bundle. The current ZIP
             // includes AppleDouble records directly beside app files. They are metadata, not files
             // in the signed bundle: materializing them breaks macOS resource sealing.
-            let legacy_keycastr_sidecar = framework_links && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
+            let legacy_keycastr_sidecar =
+                framework_links && bundle == "KeyCastr.app" && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
             let appledouble = framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._"));
             let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
             if name.contains(['\\', ':'])

@@ -144,7 +144,10 @@ impl CraftApp {
     pub fn mac_package_kind(&self) -> crate::PackageKind {
         if (self.id, self.repo) == (crate::curated::NAPS2.id, crate::curated::NAPS2.repo) {
             crate::PackageKind::MacPkg
-        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
+        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO
+            || self.id == crate::curated::KEYCASTR.id
+            || (self.id, self.repo) == (crate::curated::MACCY.id, crate::curated::MACCY.repo)
+        {
             crate::PackageKind::MacZip
         } else {
             crate::PackageKind::Dmg

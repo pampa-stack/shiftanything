@@ -1,0 +1,82 @@
+2026-11-27T23:31:43+0100
+/dev/disk3s5   239362496 176212280  22022744    89% 3260481 220227440    1%   /System/Volumes/Data
+ARTIFACT 9f820a2e56bd2c27cdda4fb4556de3cbcfcbac052d9eeb2179d49e2dae277abc 4960820 https://github.com/rxhanson/Rectangle/releases/download/v2.0.4/Rectangle2.0.4.dmg
+BUNDLE=Rectangle.app
+CFBundleIdentifier=com.knollsoft.Rectangle
+CFBundleShortVersionString=2.0.4
+CFBundleVersion=111
+CFBundleExecutable=Rectangle
+LSMinimumSystemVersion=14.0
+<scratch>/preflight/rectangle/v2.0.4/mount/Rectangle.app/Contents/MacOS/Rectangle: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/rectangle/v2.0.4/mount/Rectangle.app/Contents/MacOS/Rectangle (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/rectangle/v2.0.4/mount/Rectangle.app/Contents/MacOS/Rectangle (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/rectangle/v2.0.4/mount/Rectangle.app/Contents/MacOS/Rectangle (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=com.knollsoft.Rectangle
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Ryan Hanson (XSYZ3E4B7D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=20 Oct 2026 at 19:22:30
+TeamIdentifier=XSYZ3E4B7D
+<scratch>/preflight/rectangle/v2.0.4/mount/Rectangle.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT rectangle v2.0.4
+2026-11-27T23:31:49+0100
+/dev/disk3s5   239362496 176257780  21977244    89% 3260515 219772440    1%   /System/Volumes/Data
+ARTIFACT 4dec773a2f550d64147d88e07d987ce8119bdff045f1c6993a9a5eeb9f68496c 4940143 https://github.com/rxhanson/Rectangle/releases/download/v2.0.5/Rectangle2.0.5.dmg
+BUNDLE=Rectangle.app
+CFBundleIdentifier=com.knollsoft.Rectangle
+CFBundleShortVersionString=2.0.5
+CFBundleVersion=112
+CFBundleExecutable=Rectangle
+LSMinimumSystemVersion=14.0
+<scratch>/preflight/rectangle/v2.0.5/mount/Rectangle.app/Contents/MacOS/Rectangle: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/rectangle/v2.0.5/mount/Rectangle.app/Contents/MacOS/Rectangle (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/rectangle/v2.0.5/mount/Rectangle.app/Contents/MacOS/Rectangle (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/rectangle/v2.0.5/mount/Rectangle.app/Contents/MacOS/Rectangle (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Identifier=com.knollsoft.Rectangle
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Ryan Hanson (XSYZ3E4B7D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=20 Nov 2026 at 16:22:53
+TeamIdentifier=XSYZ3E4B7D
+<scratch>/preflight/rectangle/v2.0.5/mount/Rectangle.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT rectangle v2.0.5
+PASS PREFLIGHT rectangle v2.0.4
+PASS PREFLIGHT rectangle v2.0.5
+/dev/disk3s5   239362496 176417444  22866200    89% 3263867 228662000    1%   /System/Volumes/Data
+OFFICIAL INDEX rectangle v2.0.4 digest=published
+OFFICIAL INDEX rectangle v2.0.5 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v2.0.4 Dmg https://github.com/rxhanson/Rectangle/releases/download/v2.0.4/Rectangle2.0.4.dmg 4960820 9f820a2e56bd2c27cdda4fb4556de3cbcfcbac052d9eeb2179d49e2dae277abc
+PASS OFFICIAL v2.0.5 Dmg https://github.com/rxhanson/Rectangle/releases/download/v2.0.5/Rectangle2.0.5.dmg 4940143 4dec773a2f550d64147d88e07d987ce8119bdff045f1c6993a9a5eeb9f68496c
+NATIVE ORIGIN rectangle GitHub
+PASS OFFICIAL v2.0.4 Dmg https://github.com/rxhanson/Rectangle/releases/download/v2.0.4/Rectangle2.0.4.dmg 4960820 9f820a2e56bd2c27cdda4fb4556de3cbcfcbac052d9eeb2179d49e2dae277abc
+PASS NATIVE rectangle install: Rectangle installed: 2.0.4; package_bytes=4960820; elapsed=4.579s
+NATIVE ORIGIN rectangle GitHub
+PASS OFFICIAL v2.0.5 Dmg https://github.com/rxhanson/Rectangle/releases/download/v2.0.5/Rectangle2.0.5.dmg 4940143 4dec773a2f550d64147d88e07d987ce8119bdff045f1c6993a9a5eeb9f68496c
+PASS NATIVE rectangle update: Rectangle updated to 2.0.5; package_bytes=4940143; elapsed=5.242s
+PASS NATIVE rectangle remove: Rectangle was removed; package_bytes=0; elapsed=0.060s
+PASS NATIVE CYCLE rectangle (v2.0.4 → v2.0.5), private Trash and synthetic data preserved

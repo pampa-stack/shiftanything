@@ -2,7 +2,6 @@
   "schema_version": 1,
   "checked_on": "2026-11-27",
   "suggested_software": [
-    "1Password",
     "Adobe After Effects",
     "Adobe Audition",
     "Adobe InDesign",
@@ -2927,6 +2926,159 @@
               "note": {
                 "it": "Rilegge un file locale personalizzato; la documentazione non indica una sorgente URL per quel file.",
                 "en": "Reloads a custom local file. The documentation lists no URL source for that file."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "aliases": [
+        "1 Password",
+        "OnePassword",
+        "One Password"
+      ],
+      "features": [
+        {
+          "id": "vault",
+          "name": {
+            "it": "Archivio cifrato delle credenziali",
+            "en": "Encrypted credential vault"
+          },
+          "source": "https://1password.com/features"
+        },
+        {
+          "id": "autofill",
+          "name": {
+            "it": "Compilazione automatica nel browser",
+            "en": "Browser autofill"
+          },
+          "source": "https://support.1password.com/save-fill-passwords/"
+        },
+        {
+          "id": "passkeys",
+          "name": {
+            "it": "Salvare e usare passkey nel browser",
+            "en": "Save and use passkeys in the browser"
+          },
+          "source": "https://support.1password.com/save-use-passkeys/"
+        },
+        {
+          "id": "shared-vault",
+          "name": {
+            "it": "Archivi condivisi per famiglie o team",
+            "en": "Shared vaults for families or teams"
+          },
+          "source": "https://support.1password.com/create-share-vaults/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "vaultwarden",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://github.com/dani-garcia/vaultwarden/wiki#supported-features",
+              "note": {
+                "it": "Archivio personale cifrato, con interfaccia web sul proprio server.",
+                "en": "Encrypted personal vault with a web interface on your own server."
+              }
+            },
+            "autofill": {
+              "state": "supported",
+              "source": "https://bitwarden.com/help/auto-fill-browser/",
+              "note": {
+                "it": "Richiede l’estensione Bitwarden collegata al proprio server Vaultwarden.",
+                "en": "Requires the Bitwarden browser extension connected to your Vaultwarden server."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://bitwarden.com/help/storing-passkeys/",
+              "note": {
+                "it": "Le estensioni Bitwarden compatibili salvano e usano le passkey.",
+                "en": "Compatible Bitwarden extensions save and use passkeys."
+              }
+            },
+            "shared-vault": {
+              "state": "supported",
+              "source": "https://github.com/dani-garcia/vaultwarden/wiki#supported-features",
+              "note": {
+                "it": "Organizzazioni e raccolte condivise con controllo degli accessi.",
+                "en": "Organizations and shared collections with access controls."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "keepassxc",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide",
+              "note": {
+                "it": "Archivio KeePass cifrato salvato come file locale.",
+                "en": "Encrypted KeePass vault stored as a local file."
+              }
+            },
+            "autofill": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_browser_integration",
+              "note": {
+                "it": "L’estensione KeePassXC-Browser compila i login dal database aperto.",
+                "en": "KeePassXC-Browser fills logins from the open database."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_passkeys",
+              "note": {
+                "it": "Richiede KeePassXC-Browser e un database collegato.",
+                "en": "Requires KeePassXC-Browser and a connected database."
+              }
+            },
+            "shared-vault": {
+              "state": "partial",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_database_sharing_with_keeshare",
+              "note": {
+                "it": "KeeShare condivide gruppi tramite file. La sincronizzazione va configurata a parte.",
+                "en": "KeeShare shares groups through files. Sync must be set up separately."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "secrets",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/Secrets/",
+              "note": {
+                "it": "Archivio KeePass cifrato con interfaccia desktop GNOME.",
+                "en": "Encrypted KeePass vault with a GNOME desktop interface."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "aliasvault",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://docs.aliasvault.com/",
+              "note": {
+                "it": "L’archivio viene cifrato sul dispositivo prima di inviarlo al server.",
+                "en": "The vault is encrypted on the device before it reaches the server."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://docs.aliasvault.com/",
+              "note": {
+                "it": "L’autenticatore WebAuthn salva le passkey nell’archivio cifrato.",
+                "en": "The WebAuthn authenticator saves passkeys in the encrypted vault."
               }
             }
           }

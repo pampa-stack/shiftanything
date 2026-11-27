@@ -33,6 +33,100 @@
       }]
     },
     {
+      "id": "password-management",
+      "example": {
+        "it": "Cerco un gestore di password open source",
+        "en": "I need an open-source password manager"
+      },
+      "match": [
+        [
+          "1password"
+        ],
+        [
+          "1 password"
+        ],
+        [
+          "onepassword"
+        ],
+        [
+          "one password"
+        ],
+        [
+          "gestor",
+          "password"
+        ],
+        [
+          "password",
+          "manager"
+        ],
+        [
+          "password",
+          "vault"
+        ],
+        [
+          "password",
+          "cassaforte"
+        ],
+        [
+          "salv",
+          "password"
+        ],
+        [
+          "condivid",
+          "password"
+        ],
+        [
+          "store",
+          "password"
+        ],
+        [
+          "manag",
+          "password"
+        ],
+        [
+          "shar",
+          "password"
+        ],
+        [
+          "vaultwarden"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "keepassxc",
+          "reason": {
+            "it": "Conserva le credenziali in locale in un file cifrato e supporta la compilazione nel browser.",
+            "en": "Keeps credentials in a local encrypted file and supports browser autofill."
+          },
+          "source": "https://keepassxc.org/docs/KeePassXC_UserGuide"
+        },
+        {
+          "id": "secrets",
+          "reason": {
+            "it": "Gestisce un archivio KeePass dall’interfaccia desktop di GNOME.",
+            "en": "Manages a KeePass vault from the GNOME desktop."
+          },
+          "source": "https://apps.gnome.org/Secrets/"
+        },
+        {
+          "id": "vaultwarden",
+          "reason": {
+            "it": "Offre archivi personali e condivisi su un server tuo, con interfaccia web e client Bitwarden.",
+            "en": "Offers personal and shared vaults on your server, with a web interface and Bitwarden clients."
+          },
+          "source": "https://github.com/dani-garcia/vaultwarden/wiki#supported-features"
+        },
+        {
+          "id": "aliasvault",
+          "reason": {
+            "it": "Combina un archivio cifrato e alias email, con un server autogestito.",
+            "en": "Combines an encrypted vault and email aliases on a self-hosted server."
+          },
+          "source": "https://docs.aliasvault.com/"
+        }
+      ]
+    },
+    {
       "id": "meeting-notes",
       "example": {
         "it": "Voglio la trascrizione e il riepilogo di una riunione",

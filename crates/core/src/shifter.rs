@@ -204,7 +204,17 @@ mod tests {
         let choices = data.software("");
         assert!(choices.windows(2).all(|pair| normalize(pair[0].name) < normalize(pair[1].name)));
         assert!(data.software("PHÓTOSHÓP®").iter().any(|software| software.profile.is_some_and(|profile| profile.id == "photoshop")));
-        assert!(data.software("1Password").iter().all(|software| software.profile.is_none()));
+        assert!(data.software("Zoom").iter().any(|software| software.profile.is_none()));
+        let password = data.software("One Password").into_iter().find_map(|software| software.profile).unwrap();
+        assert_eq!(password.id, "1password");
+        let selected = ["vault", "shared-vault"].map(String::from);
+        let scores = password.compare(&selected, &selected[1..]).unwrap();
+        let vaultwarden = scores.iter().find(|score| score.app_id == "vaultwarden").unwrap();
+        let keepassxc = scores.iter().find(|score| score.app_id == "keepassxc").unwrap();
+        assert_eq!(vaultwarden.supported, 2);
+        assert!(vaultwarden.missing_required.is_empty());
+        assert_eq!(keepassxc.supported, 1);
+        assert_eq!(keepassxc.missing_required, selected[1..]);
         assert!(data.software("no documented product by this name").is_empty());
         let arq = data.profiles.iter().find(|profile| profile.id == "arq").unwrap();
         let selected: Vec<_> = arq.features.iter().map(|feature| feature.id.clone()).collect();

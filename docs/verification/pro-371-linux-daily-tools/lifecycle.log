@@ -1,0 +1,224 @@
+native-cycle: OK
+
+=== 2026-11-27T08:51:50+00:00 d-j-dup-backups install ===
+d-j-dup-backups before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+d-j-dup-backups JobFinished: Ok("Flathub app installed")
+d-j-dup-backups after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-d-j-dup-backups-icon.svg: SVG Scalable Vector Graphics image, ASCII text
+af716faf82e68966ea8fe25bb23d8ab64c09f8a1b010559b06ad5127e0bd5ae5  /var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-d-j-dup-backups-icon.svg
+org.gnome.DejaDup/x86_64/stable	flathub	b85783b490ed	user	50.2
+TIMING d-j-dup-backups install 33689 ms
+
+=== 2026-11-27T08:52:24+00:00 d-j-dup-backups prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnome.DejaDup/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.DejaDup/x86_64/stable	flathub	9e539b8bea56	user	50.1
+d-j-dup-backups before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851", package: Some("org.gnome.DejaDup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.1"), update_available: false, can_remove: false, can_open: true }
+d-j-dup-backups JobFinished: Err("Approved action rejected: native installation state changed")
+d-j-dup-backups JobFinished: Err("This Flatpak is managed outside the launcher")
+d-j-dup-backups after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851", package: Some("org.gnome.DejaDup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.1"), update_available: false, can_remove: false, can_open: true })
+TIMING d-j-dup-backups prior 36931 ms
+
+=== 2026-11-27T08:53:01+00:00 d-j-dup-backups open ===
+dbus-daemon[2410293]: [session uid=1000 pid=2410293 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2410334 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2410293]: [session uid=1000 pid=2410293 pidfd=5] Successfully activated service 'org.a11y.Bus'
+d-j-dup-backups before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.1"), update_available: true, can_remove: true, can_open: true }
+d-j-dup-backups JobFinished: Ok("Launch request accepted")
+d-j-dup-backups after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2410348]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2410712 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2410348]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING d-j-dup-backups open-previous 4018 ms
+TIMING d-j-dup-backups open 4878 ms
+
+=== 2026-11-27T08:53:06+00:00 d-j-dup-backups update-remove ===
+d-j-dup-backups before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/9e539b8bea56e443f9f6cc9d82503db292baf542f4c1d1f45f95dd3bafcdc851", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.1"), update_available: true, can_remove: true, can_open: true }
+d-j-dup-backups JobFinished: Ok("Flathub app updated")
+d-j-dup-backups after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.2"), update_available: false, can_remove: true, can_open: true })
+TIMING d-j-dup-backups update 5731 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/.var/app/org.gnome.DejaDup/shift-profile-marker: OK
+dbus-daemon[2411263]: [session uid=1000 pid=2411263 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2411293 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2411263]: [session uid=1000 pid=2411263 pidfd=5] Successfully activated service 'org.a11y.Bus'
+d-j-dup-backups before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.2"), update_available: false, can_remove: true, can_open: true }
+d-j-dup-backups JobFinished: Ok("Launch request accepted")
+d-j-dup-backups after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.2"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2411308]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2411557 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2411308]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING d-j-dup-backups open-current 3600 ms
+d-j-dup-backups before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/data/flatpak/app/org.gnome.DejaDup/x86_64/stable/b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13", package: Some("org.gnome.DejaDup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.2"), update_available: false, can_remove: true, can_open: true }
+d-j-dup-backups JobFinished: Ok("Flathub app removed")
+d-j-dup-backups after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING d-j-dup-backups remove 2717 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/.var/app/org.gnome.DejaDup/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING d-j-dup-backups update-remove 13388 ms
+CYCLE_PASS d-j-dup-backups 88942 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/.var/app/org.gnome.DejaDup/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/26.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/50
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/50
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/51
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/51
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/d-j-dup-backups/home/.var/app/org.gnome.DejaDup/shift-profile-marker: OK
+d-j-dup-backups: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   52G   44G  55% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.9Gi       3.1Gi        31Mi       3.8Gi       6.5Gi
+Swap:          4.0Gi       3.3Gi       760Mi
+
+=== 2026-11-27T08:53:23+00:00 rnote install ===
+rnote before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+rnote JobFinished: Ok("Flathub app installed")
+rnote after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-rnote-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (6199)
+8d15b37221ef9c73d6e1c0da48d36baf575a41d4c016791a5bbb17871fd3da55  /var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-rnote-icon.svg
+com.github.flxzt.rnote/x86_64/stable	flathub	82614efad294	user	0.14.2
+TIMING rnote install 31902 ms
+
+=== 2026-11-27T08:53:55+00:00 rnote prior ===
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/com.github.flxzt.rnote/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+com.github.flxzt.rnote/x86_64/stable	flathub	ce33a86c3255	user	0.14.1
+rnote before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8", package: Some("com.github.flxzt.rnote"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.1"), update_available: false, can_remove: false, can_open: true }
+rnote JobFinished: Err("Approved action rejected: native installation state changed")
+rnote JobFinished: Err("This Flatpak is managed outside the launcher")
+rnote after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8", package: Some("com.github.flxzt.rnote"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.1"), update_available: false, can_remove: false, can_open: true })
+TIMING rnote prior 5573 ms
+
+=== 2026-11-27T08:54:01+00:00 rnote open ===
+dbus-daemon[2413022]: [session uid=1000 pid=2413022 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2413052 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2413022]: [session uid=1000 pid=2413022 pidfd=5] Successfully activated service 'org.a11y.Bus'
+rnote before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.1"), update_available: true, can_remove: true, can_open: true }
+rnote JobFinished: Ok("Launch request accepted")
+rnote after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2413067]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2413318 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2413067]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING rnote open-previous 3780 ms
+TIMING rnote open 5138 ms
+
+=== 2026-11-27T08:54:06+00:00 rnote update-remove ===
+rnote before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.1"), update_available: true, can_remove: true, can_open: true }
+rnote JobFinished: Ok("Flathub app updated")
+rnote after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.2"), update_available: false, can_remove: true, can_open: true })
+TIMING rnote update 4622 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/.var/app/com.github.flxzt.rnote/shift-profile-marker: OK
+dbus-daemon[2413861]: [session uid=1000 pid=2413861 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2413888 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2413861]: [session uid=1000 pid=2413861 pidfd=5] Successfully activated service 'org.a11y.Bus'
+rnote before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.2"), update_available: false, can_remove: true, can_open: true }
+rnote JobFinished: Ok("Launch request accepted")
+rnote after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.2"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2413904]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2414142 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2413904]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING rnote open-current 4048 ms
+rnote before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/data/flatpak/app/com.github.flxzt.rnote/x86_64/stable/82614efad294842f992a9c7e059f18820ea32a6ab7f9602faed2fe23a0c54433", package: Some("com.github.flxzt.rnote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.2"), update_available: false, can_remove: true, can_open: true }
+rnote JobFinished: Ok("Flathub app removed")
+rnote after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING rnote remove 2222 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/.var/app/com.github.flxzt.rnote/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING rnote update-remove 12145 ms
+CYCLE_PASS rnote 54814 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/.var/app/com.github.flxzt.rnote/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.gnome.Platform/x86_64/50
+Uninstalling runtime/org.gnome.Platform.Locale/x86_64/50
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/rnote/home/.var/app/com.github.flxzt.rnote/shift-profile-marker: OK
+rnote: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   52G   44G  55% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.9Gi       3.3Gi        31Mi       3.6Gi       6.5Gi
+Swap:          4.0Gi       3.3Gi       761Mi
+
+=== 2026-11-27T08:54:21+00:00 mixxx-dj-software install ===
+mixxx-dj-software before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+mixxx-dj-software JobFinished: Ok("Flathub app installed")
+mixxx-dj-software after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 6 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-mixxx-dj-software-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+f47c284f5e4fddb93595c5be1ade7b35616c1e38a5594e5b1e0f62daea560144  /var/tmp/shift-flatpak-desktop.HtjJ7bJn/evidence/native-mixxx-dj-software-icon.png
+org.mixxx.Mixxx/x86_64/stable	flathub	75cd677a581f	user	2.5.6
+TIMING mixxx-dj-software install 39208 ms
+
+=== 2026-11-27T08:55:00+00:00 mixxx-dj-software prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.mixxx.Mixxx/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.mixxx.Mixxx/x86_64/stable	flathub	8a0612dee353	user	2.5.2
+mixxx-dj-software before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e", package: Some("org.mixxx.Mixxx"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.2"), update_available: false, can_remove: false, can_open: true }
+mixxx-dj-software JobFinished: Err("Approved action rejected: native installation state changed")
+mixxx-dj-software JobFinished: Err("This Flatpak is managed outside the launcher")
+mixxx-dj-software after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e", package: Some("org.mixxx.Mixxx"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.2"), update_available: false, can_remove: false, can_open: true })
+TIMING mixxx-dj-software prior 6240 ms
+
+=== 2026-11-27T08:55:06+00:00 mixxx-dj-software open ===
+F: Ignoring D-Conf migrate-path setting /org/mixxx/Mixxx
+dbus-daemon[2416009]: [session uid=1000 pid=2416009 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2416039 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2416009]: [session uid=1000 pid=2416009 pidfd=5] Successfully activated service 'org.a11y.Bus'
+mixxx-dj-software before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.2"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[2416055]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2416318 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+mixxx-dj-software JobFinished: Ok("Launch request accepted")
+mixxx-dj-software after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.2"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2416055]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+TIMING mixxx-dj-software open-previous 3658 ms
+TIMING mixxx-dj-software open 7677 ms
+
+=== 2026-11-27T08:55:14+00:00 mixxx-dj-software update-remove ===
+mixxx-dj-software before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 2 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/8a0612dee35359f71e4f14388feb5863d9876d0cff234db217a41aae9885c31e", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.2"), update_available: true, can_remove: true, can_open: true }
+mixxx-dj-software JobFinished: Ok("Flathub app updated")
+mixxx-dj-software after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 6 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.6"), update_available: false, can_remove: true, can_open: true })
+TIMING mixxx-dj-software update 6028 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/.var/app/org.mixxx.Mixxx/shift-profile-marker: OK
+F: Ignoring D-Conf migrate-path setting /org/mixxx/Mixxx
+dbus-daemon[2416891]: [session uid=1000 pid=2416891 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2416919 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2416891]: [session uid=1000 pid=2416891 pidfd=5] Successfully activated service 'org.a11y.Bus'
+mixxx-dj-software before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 6 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.6"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2416934]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2417248 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2416934]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+mixxx-dj-software JobFinished: Ok("Launch request accepted")
+mixxx-dj-software after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 6 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.6"), update_available: false, can_remove: true, can_open: true })
+TIMING mixxx-dj-software open-current 3316 ms
+mixxx-dj-software before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 6 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/data/flatpak/app/org.mixxx.Mixxx/x86_64/stable/75cd677a581f17cac06479db9e3dbfc2f83d399afe3e628b34a63d70559a651d", package: Some("org.mixxx.Mixxx"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.6"), update_available: false, can_remove: true, can_open: true }
+mixxx-dj-software JobFinished: Ok("Flathub app removed")
+mixxx-dj-software after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING mixxx-dj-software remove 2815 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/.var/app/org.mixxx.Mixxx/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING mixxx-dj-software update-remove 16303 ms
+CYCLE_PASS mixxx-dj-software 69474 ms
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/.var/app/org.mixxx.Mixxx/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.HtjJ7bJn/mixxx-dj-software/home/.var/app/org.mixxx.Mixxx/shift-profile-marker: OK
+mixxx-dj-software: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   50G   47G  52% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.6Gi       3.9Gi        22Mi       3.2Gi       6.8Gi
+Swap:          4.0Gi       3.3Gi       762Mi

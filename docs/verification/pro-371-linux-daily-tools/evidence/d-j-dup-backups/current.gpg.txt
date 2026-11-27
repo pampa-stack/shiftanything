@@ -1,0 +1,19 @@
+commit b85783b490edcc7f761cc845feb1bb754cf3d4544f71a7c8a40f1186a5e45a13
+Parent:  88e34c66c2147bdb96adae9f78ee69ac7f5f4e6e252f07a82f2b06adf09d0e8a
+ContentChecksum:  4e77c0ed335a7164bc020e67d9fdc9fa9c68dbaaba10b8cb8935e09aac9e9624
+Date:  2026-09-20 01:23:58 +0000
+
+    Merge pull request #72 from flathub/sdk51 (a02c7e01daa1)
+
+    Name: org.gnome.DejaDup
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Sep 20 02:00:42 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

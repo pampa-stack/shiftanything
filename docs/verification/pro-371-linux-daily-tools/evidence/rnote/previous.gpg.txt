@@ -1,0 +1,19 @@
+commit ce33a86c325529f9d39b1ec79a8a454c458de69c803d1418edb5b2ca01fb3dd8
+Parent:  933473d84c55691f1af0e39d6b77a49540cabeb158a159de5f020452fa579518
+ContentChecksum:  a27e287625cbcea427e4e2ad15c8df8dc9797134d27555a8b5c85e88076c902f
+Date:  2026-04-13 19:38:28 +0000
+
+    update to v0.14.1 (#70) (a87d0b220817)
+
+    Name: com.github.flxzt.rnote
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Mon Apr 13 20:00:55 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

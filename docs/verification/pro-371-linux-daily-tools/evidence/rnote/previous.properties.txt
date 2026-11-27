@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "New Document - Rnote"
+WM_CLASS(STRING) = "rnote", "rnote"

@@ -364,28 +364,20 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    if platform.os == Os::Linux && stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
-        kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
-        return release
-            .assets
-            .iter()
-            .find(|asset| crate::release::ghost_downloader_linux_asset(release, asset))
-            .map(|asset| (asset, PackageKind::AppImage));
-    }
-    if platform.os == Os::Linux && stems.contains(&crate::curated::HANDY.id) {
-        if !kinds.contains(&PackageKind::AppImage) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
-    }
     if platform.os == Os::Linux
-        && let Some(app) = [crate::curated::OPENCODE, crate::curated::ORCA].iter().find(|app| stems.contains(&app.id))
+        && let Some(app) = [crate::curated::GHOST_DOWNLOADER, crate::curated::HANDY, crate::curated::OPENCODE, crate::curated::ORCA]
+            .iter()
+            .find(|app| stems.contains(&app.id))
     {
         kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
             .assets
             .iter()
-            .find(|asset| crate::release::coding_desktop_linux_asset(app, release, asset))
+            .find(|asset| match app.id {
+                "ghost-downloader" => crate::release::ghost_downloader_linux_asset(release, asset),
+                "handy" => crate::release::handy_linux_asset(release, asset),
+                _ => crate::release::coding_desktop_linux_asset(app, release, asset),
+            })
             .map(|asset| (asset, PackageKind::AppImage));
     }
     if platform.os == Os::MacOs

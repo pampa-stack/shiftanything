@@ -544,13 +544,15 @@ mod tests {
     fn installation_evidence_is_scoped_to_catalog_app_and_target() {
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
         assert!(verified_installs(Some(mac)).contains("naps2"));
         assert!(!verified_installs(Some(linux)).contains("naps2"));
         assert!(verified_installs(Some(linux)).contains("photocraft"));
         assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("photocraft"));
-        assert!(verified_installs(Some(Platform { os: Os::Windows, ..linux })).is_empty());
+        assert!(verified_installs(Some(windows)).iter().map(String::as_str).eq(["photocraft"]));
+        assert!(verified_installs(Some(Platform { arch: Arch::Arm64, ..windows })).is_empty());
         let catalog = artcraft_launcher_core::curated::apps();
-        for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))) {
+        for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))).chain(verified_installs(Some(windows))) {
             assert!(catalog.iter().any(|app| &app.id == id), "verification refers to unknown app {id}");
         }
     }

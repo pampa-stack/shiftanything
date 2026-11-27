@@ -1,6 +1,6 @@
 # PhotoCraft via the Windows launcher
 
-Verified on 27 November 2026 in an isolated Windows 11 Enterprise Evaluation x64 virtual machine on AX42. The Tauri Release build was based on `d2a7abe` with the functional changes in `2e2df4a`. The build used `--features windows-lifecycle` and a guest-only copy of the verification manifest admitting just PhotoCraft for Windows x64. The repository manifest ships without that test entry.
+Verified on 27 November 2026 in an isolated Windows 11 Enterprise Evaluation x64 virtual machine on AX42. The Tauri Release build was based on `d2a7abe` with the functional changes in `2e2df4a`. The build used `--features windows-lifecycle` and a guest-only copy of the verification manifest admitting just PhotoCraft for Windows x64. The next-beta manifest now admits that same entry. The Windows build and this recipe remain unpublished.
 
 ## Packages
 

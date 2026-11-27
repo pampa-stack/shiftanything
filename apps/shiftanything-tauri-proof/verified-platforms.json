@@ -283,5 +283,10 @@
       "zettlr",
       "zotero"
     ]
+  },
+  "windows": {
+    "x64": [
+      "photocraft"
+    ]
   }
 }

@@ -105,8 +105,8 @@ for language in ['it', 'en']:
     styles = styles.replace(build.FONT_ROOT + '/', 'fonts/')
     scripts = re.findall(r'<script>(.*?)</script>', page, re.S)
     assert len(scripts) == 1
-    page = re.sub(r'<style>.*?</style>', '<link rel="stylesheet" href="design.css"><link rel="stylesheet" href="proof.css">', page, flags=re.S)
-    page = re.sub(r'<script>.*?</script>', '<script src="catalog.js"></script><script defer src="native.js"></script><script defer src="management.js"></script>', page, flags=re.S)
+    page = re.sub(r'<style>.*?</style>', '<link rel="stylesheet" href="design.css"><link rel="stylesheet" href="proof.css"><link rel="stylesheet" href="shifter.css">', page, flags=re.S)
+    page = re.sub(r'<script>.*?</script>', '<script src="catalog.js"></script><script defer src="native.js"></script><script defer src="management.js"></script><script defer src="shifter.js"></script>', page, flags=re.S)
     page = page.replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">')
     # Brand URLs are generated inside the credit function, separately from catalog image().
     for url, target in mapping.items():

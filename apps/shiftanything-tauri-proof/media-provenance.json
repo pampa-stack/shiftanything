@@ -2896,6 +2896,662 @@
       "file": "media/mailcraft-logo.png",
       "sha256": "05fa9ccfcfb4adc4120f373a4acc93b38e8cb3e8faef8f1189ee7209b88fca6c",
       "source_sha256": "dd0e62a27b0066ae5f461d5f829cfa143b49ca6a1b9dc9b47686818edd664bf7"
+    },
+    {
+      "app": "uptime",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/louislam/uptime-kuma/HEAD/public/icon.png",
+      "file": "media/uptime-logo.png",
+      "sha256": "d30a32a5d5b2013a2041d4a58a43ffa6b3fea23f6647e25abf8cbef2dcce741a",
+      "source_sha256": "04d51f9db0d2bdc202634c5e469af2c047f17291709074a15db9e48dac12b0a1"
+    },
+    {
+      "app": "paseo",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/getpaseo/paseo/HEAD/packages/desktop/assets/icon.png",
+      "file": "media/paseo-logo.png",
+      "sha256": "8f4757115da898f5585ed49c1fdbd29c5a2a659fab226467f3b45b95f0237912",
+      "source_sha256": "585d202ff6a6e41bcd5c7464a1c4889b78977cea000f7b88ba1f67f3d9fff0bd"
+    },
+    {
+      "app": "openutau",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/openutau/OpenUtau/HEAD/OpenUtau/Assets/OpenUtau.png",
+      "file": "media/openutau-logo.png",
+      "sha256": "654c833e43c0043f09d4a8d33fe7ce7307f9aaefd1436f25ae86acea5e046753",
+      "source_sha256": "27f6ecfe6b10b7f253993db4c23aa88c74dab5ca026ead32fe699995dfbd350b"
+    },
+    {
+      "app": "immich",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/immich-app/immich/HEAD/mobile/android/metadata/en-US/images/icon.png",
+      "file": "media/immich-logo.png",
+      "sha256": "ca89690f0f400035940c41ebf4d2364fca0c5e924f09bda4175b8cff6c8cafb4",
+      "source_sha256": "cfb94a69a75b6e056865395134130dd0dd33661bace903b48af2b0c013bcccd7"
+    },
+    {
+      "app": "rizzo-flow",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/HEAD/src/rizzo_flow/logo.png",
+      "file": "media/rizzo-flow-logo.png",
+      "sha256": "504c4cabd80d401aacc4e5c94d9c1f9ff51bd9a1efb5b8802554d8583a24f0ff",
+      "source_sha256": "4932bfad906d55af783d77c0ef9f9aed638aadcdfc0d63686c5f10756791cc94"
+    },
+    {
+      "app": "sharex",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/ShareX/ShareX_Icon.ico",
+      "file": "media/sharex-logo.png",
+      "sha256": "44dead13eb77fe5e1ec3be8bcf23c97c31cb40014242502218bb65a58c2cfb43",
+      "source_sha256": "7c0edf2e90f3dbac9c76a4719df1a1f543a2a30d4cfe3dc37eb83671cae682e9"
+    },
+    {
+      "app": "siyuan",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/siyuan-note/siyuan/HEAD/app/stage/icon.png",
+      "file": "media/siyuan-logo.png",
+      "sha256": "861ae2f0a8ca241b8560cfd7e303c1652204667462af502553747d8398e8c7da",
+      "source_sha256": "0238c5609523c7dff538c2a61ad1e05b9fda08e228235aad72bf2bdbc6f356a7"
+    },
+    {
+      "app": "screentogif",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/NickeManarin/ScreenToGif/HEAD/ScreenToGif/Resources/Logo.ico",
+      "file": "media/screentogif-logo.png",
+      "sha256": "788066034512cf29d8c0192a80a660dbee6fb91eef3c14a94566ea3842b603f8",
+      "source_sha256": "38774447fb723a0296915601fae47c6f50772ecd4ae9e56e4f1183f060e3d496"
+    },
+    {
+      "app": "activitywatch",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ActivityWatch/media/HEAD/logo/logo-128.png",
+      "file": "media/activitywatch-logo.png",
+      "sha256": "b284ac64da90675a11e2cece9ceb872469d79d8db5caab03aaad3b1f6b28f1d5",
+      "source_sha256": "01f830d4d3ac61e9f8902f19aef80a9d4cd5fdb0eb8845d38b331235fd297f79"
+    },
+    {
+      "app": "anythingllm",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/HEAD/frontend/public/favicon.png",
+      "file": "media/anythingllm-logo.png",
+      "sha256": "0d6bbd057ea471c5c938de55a7cb00124506ba9d1c0ee95909d6b6a0040a7955",
+      "source_sha256": "538d36ef4217492336c50fb0dd0f6c1fe0c9010cc7c20991b4bda27ce3809fc4"
+    },
+    {
+      "app": "librechat",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/LibreChat-AI/LibreChat/HEAD/client/public/assets/maskable-icon.png",
+      "file": "media/librechat-logo.png",
+      "sha256": "9371bf470f67cfea02323913b1b1a4af50ec0095f0ca2fd43b54efa61d6a6071",
+      "source_sha256": "fd6c0d7d5b8ecc8ebcb3278254b87087321f8c73929271492e1ff3f52a09d185"
+    },
+    {
+      "app": "invoiceshelf",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/InvoiceShelf/InvoiceShelf/HEAD/public/favicons/apple-touch-icon.png",
+      "file": "media/invoiceshelf-logo.png",
+      "sha256": "a30b570b1cd819b31e17b10da203e1f50926d0fe21d4869831a7032ef96c4ee4",
+      "source_sha256": "7f22aaeff5aea426276616ad00a4004e64748df433fd362b5968777dc5dc8304"
+    },
+    {
+      "app": "nvda",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nvaccess/nvda/HEAD/source/images/nvda.ico",
+      "file": "media/nvda-logo.png",
+      "sha256": "50438312c8f301cb9e959d1193f6106508c0c20f5aaf1a851f9b6a8035573cd2",
+      "source_sha256": "ef7c54c3b39a93847b5aff6a248f136d78e0e970818d07a4e5bad889b4e11698"
+    },
+    {
+      "app": "recordly",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/webadderallorg/Recordly/HEAD/icons/icons/win/icon.ico",
+      "file": "media/recordly-logo.png",
+      "sha256": "8c38b63a1c36d421c0c68332d362494d6a30aa36506b72b297ad18340a30a4b5",
+      "source_sha256": "1602925f5b8c30ea6ee2f00123266082a10f4e8fbd7e88ef8b274f782dee396b"
+    },
+    {
+      "app": "openscreen",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/getopenscreen/openscreen/HEAD/design/assets/logo-icon.png",
+      "file": "media/openscreen-logo.png",
+      "sha256": "e04da3afb80bad581e0926968646a4a38e11fb4ed4de03bf0a2cbe1ec0f3e1c1",
+      "source_sha256": "68fdfd5520bc15e8ba6b2af0925eaf09adb20072bdfa83ac7d94949334cdda02"
+    },
+    {
+      "app": "openwhispr",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/OpenWhispr/openwhispr/HEAD/src/assets/icon.png",
+      "file": "media/openwhispr-logo.png",
+      "sha256": "9017250ff98f6ab4d3ec9120303ad9b74b9a4f01aff96bc8c4d571d098622cbb",
+      "source_sha256": "7afaa4525727413a484491e4742d3a1d83259fb774d815cc0e97870f14b531a3"
+    },
+    {
+      "app": "easyeffects",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/wwmm/easyeffects/HEAD/src/contents/site/assets/images/favicon.png",
+      "file": "media/easyeffects-logo.png",
+      "sha256": "7c22b24c2f68130cbcf60a51897276efd9dcf9eb1e044253d7e82e4abdd844fd",
+      "source_sha256": "023854c43fc4b25b795ee4951c8019e3de0593ffeb6f918b5d1f2a9b47a57cfe"
+    },
+    {
+      "app": "umi-ocr",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/hiroi-sora/Umi-OCR/HEAD/docs/images/icon-256.png",
+      "file": "media/umi-ocr-logo.png",
+      "sha256": "8cc3362dc707a6ad6245ba4c13bd3cfd8f9c5cdd093c59e5a7c757dd9fda67ca",
+      "source_sha256": "cda5b7c9de12c26ac17521f269191f935bbe82b00a25cdf9a7aabb3b4be09508"
+    },
+    {
+      "app": "esearch",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/xushengfeng/eSearch/HEAD/assets/logo/icon.ico",
+      "file": "media/esearch-logo.png",
+      "sha256": "3971a76211211e990441bdd02b336627f40cd61b77ce87c533b02c123313df63",
+      "source_sha256": "5ec4503cd26e0bd22b96127faa46fd42ecc44c2e2082a232edff336ae5efa831"
+    },
+    {
+      "app": "memos",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/usememos/memos/HEAD/web/public/logo.webp",
+      "file": "media/memos-logo.png",
+      "sha256": "c7f473ac85158f33bd749dcca8944aea59ad79f163534672a9dde22ff1b97885",
+      "source_sha256": "d9869c27accd516c12dbe5bd02e15324d208a336065b47d5fc3e7ec0bd256877"
+    },
+    {
+      "app": "gatus",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/TwiN/gatus/HEAD/.github/assets/logo.png",
+      "file": "media/gatus-logo.png",
+      "sha256": "52e0138c031b71b213eeeab7f3bd5c1fc3df83d5bc0884229f5d250d9dafc7de",
+      "source_sha256": "8e1c8efcedea42d09c253d50dd6504dced7ffcfd55217e188a57220e2a5635f8"
+    },
+    {
+      "app": "everywhere",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Sylinko/Everywhere/HEAD/src/Everywhere.Core/Assets/Icons/everywhere.png",
+      "file": "media/everywhere-logo.png",
+      "sha256": "7bd6a65aade4ce9202759c78226b504cdd2d437d71523b175643df2cb320a09e",
+      "source_sha256": "744317934c4a0429d2cf9d8011ca65d1157fb5e5bfa997109144c233249d0cec"
+    },
+    {
+      "app": "text-grab",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/HEAD/Text-Grab-Package/Text-Grab-Icon.png",
+      "file": "media/text-grab-logo.png",
+      "sha256": "768a04b223354eb4debab5493ecdb05027411d274203ed3b97c595fd140e5fc0",
+      "source_sha256": "f25f053276c93d9409a0d81ce41876c7a147aa661f1972faca39b3b30a71b61b"
+    },
+    {
+      "app": "ghost-downloader-3",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/XiaoYouChR/Ghost-Downloader-3/HEAD/app/assets/logo_withoutBackground.png",
+      "file": "media/ghost-downloader-3-logo.png",
+      "sha256": "abde9636e2f650e409e88c75ab659d40c8c42f3a3d58e9093f476b800ebe48d2",
+      "source_sha256": "6263988c79b23e68d89c671288386ea1d968c4490e490026e615fc1be7164fdd"
+    },
+    {
+      "app": "libretranslate",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/LibreTranslate/LibreTranslate/HEAD/libretranslate/static/favicon.ico",
+      "file": "media/libretranslate-logo.png",
+      "sha256": "d513b042e09b7c27f684090656c2bffc3b9a0ce4fc969f5eec36ee23eb269cda",
+      "source_sha256": "441c977fc7a116d0045b34c455940bcf37e3a25041cb130c6eaee4cfda59a579"
+    },
+    {
+      "app": "open-notebook",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/frontend/src/app/favicon.ico",
+      "file": "media/open-notebook-logo.png",
+      "sha256": "f904e3ce830379bf0f9593a994b2bed26b496a8677ad631edbfb9dd9b5b2b545",
+      "source_sha256": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932"
+    },
+    {
+      "app": "deeptutor",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/HKUDS/DeepTutor/HEAD/web/public/logo.png",
+      "file": "media/deeptutor-logo.png",
+      "sha256": "829f2a100963899732031b1193efa9770f3475031454c97286591c5bf54e2043",
+      "source_sha256": "18f17ec61760d57de918c8e69310ee24ed952e1a99e0d66614c10c22f7408a98"
+    },
+    {
+      "app": "apache-superset",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/apache/superset/HEAD/superset-frontend/src/assets/images/superset.png",
+      "file": "media/apache-superset-logo.png",
+      "sha256": "20b71da36bb0d1ab4e36b14e32a456b4fe2601d440e868dee0383aaa7d9f34b9",
+      "source_sha256": "2e5154c5083bce1dcf65d4e283023bdbbcf718251dcc333d63afa4edb0d12a67"
+    },
+    {
+      "app": "atomic-chat",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/AtomicBot-ai/Atomic-Chat/HEAD/src-tauri/app-icon.png",
+      "file": "media/atomic-chat-logo.png",
+      "sha256": "efac21ac7b53fe7d8337a218868703a302852f12e8fb5e3303e87feaa7de8e2a",
+      "source_sha256": "7927a7d7ba60811ea5bd554364ebc0e7a993dbdcdf32898593def5089c8d1702"
+    },
+    {
+      "app": "audiobookshelf",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/advplyr/audiobookshelf/HEAD/client/static/Logo.png",
+      "file": "media/audiobookshelf-logo.png",
+      "sha256": "ab6fc58ba58c607a1465aeffb87029081a585b9df452552bd2003d71e25d1282",
+      "source_sha256": "2463e4f96353d42e030b895231bd0ad18980313e4bbe648e78ed1047391cecb9"
+    },
+    {
+      "app": "bolt-diy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/assets/icons/icon.png",
+      "file": "media/bolt-diy-logo.png",
+      "sha256": "ebf90d99abf9251d358516d09d012b49d8de51146bb4b7f76f6fda0dbd3b7fe7",
+      "source_sha256": "faab915fc5d7932a1a744eb024f9e3ae162d6eef9dfcc608e43e41e087c8c9b9"
+    },
+    {
+      "app": "calibre-web",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/janeczku/calibre-web/HEAD/cps/static/icon.png",
+      "file": "media/calibre-web-logo.png",
+      "sha256": "1d7da4945ee0a24d52b171d2559ce494ecba3413e6acc6c98c8c8961f8db6e81",
+      "source_sha256": "a89911c7ef4fa0db1d1a1a26096e9038dea40b70f1dde41adf6207f2e2240d99"
+    },
+    {
+      "app": "chartdb",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/chartdb/chartdb/HEAD/src/assets/logo.png",
+      "file": "media/chartdb-logo.png",
+      "sha256": "7d4a5923773fc529808fd3a6476c6371137723faa0b8addaf127501c17afa4ef",
+      "source_sha256": "eb664e66f1d519408dc525f4e3be43f293c7ee6b8bfdeea14465805de93420ac"
+    },
+    {
+      "app": "cryptomator",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/cryptomator/cryptomator/HEAD/dist/linux/resources/cryptomator.png",
+      "file": "media/cryptomator-logo.png",
+      "sha256": "4b27f1da65a3d4441799d20ec402458eafa49a52b73c425b50ae7a431879d7e0",
+      "source_sha256": "358f5e8c62e619a1f1554bac458877bde08903b38d4212e3be73be99b598a7cb"
+    },
+    {
+      "app": "cryptpad",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/cryptpad/cryptpad/HEAD/customize.dist/main-favicon.png",
+      "file": "media/cryptpad-logo.png",
+      "sha256": "627029ec5be8353beadb59686d660939142ffc8d8d73de1e4753b5c7b3d4ab30",
+      "source_sha256": "db36b023d99b967d371984d2dd75807edbcee95f007e5f767e00dcba852abc52"
+    },
+    {
+      "app": "dyad",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/dyad-sh/dyad/HEAD/assets/icon/logo.png",
+      "file": "media/dyad-logo.png",
+      "sha256": "eac76ef1d845fbaeb31f279af51abd2b44d813d56555cc53f3159bd438c70c42",
+      "source_sha256": "09e2a8d4deb64368c656ecbc41ab82e825e0f6f73a49674634aff1166ed6c7da"
+    },
+    {
+      "app": "etherpad",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ether/etherpad/HEAD/src/static/favicon.ico",
+      "file": "media/etherpad-logo.png",
+      "sha256": "7423c5e4e510dfb3b47a7f587764b7c49b67aa0a0833771d72e8bc33095b98fd",
+      "source_sha256": "c0cd179a55d180189ec622bcb4eeb6af321ca1011c93f7bca003fbf22e8c60d2"
+    },
+    {
+      "app": "flow-launcher",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Flow-Launcher/Flow.Launcher/HEAD/Artworks/Logo/logo.png",
+      "file": "media/flow-launcher-logo.png",
+      "sha256": "4629d8414e2ea47d4c8501977249cd53eb59c4ded9bc6bc8e999bd5abc74ee3b",
+      "source_sha256": "64ad9793d2863a7b53bf7f7e1a8090e30a3393a3100a97bbcea50fec8aed02dd"
+    },
+    {
+      "app": "jellyfin-desktop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/jellyfin/jellyfin-desktop/HEAD/resources/images/icon.png",
+      "file": "media/jellyfin-desktop-logo.png",
+      "sha256": "8219964cde5ccbb9a1757d4aed0ff7ae813fdb09556434fd474ef410f9d80cfc",
+      "source_sha256": "7933c913aac5e4d3392391d2487c0a9b279651361bd2dd2c61ad589ea6171212"
+    },
+    {
+      "app": "kap",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/wulkano/Kap/HEAD/renderer/public/static/kap-icon.png",
+      "file": "media/kap-logo.png",
+      "sha256": "f592ca05956d252771ceb144713c9fb61745955faaba1c4cb92df14276fb9861",
+      "source_sha256": "dfdc8256e567b248fff8088b6684fcb006eec265633e251f92e96d2cf74cbb70"
+    },
+    {
+      "app": "ksnip",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ksnip/ksnip/HEAD/icons/ksnip.ico",
+      "file": "media/ksnip-logo.png",
+      "sha256": "3d67abb76d9685264455577bf3d76a3f31bd5148e918faabbaaad17a59dc5b24",
+      "source_sha256": "527372f7d581351bc7ef8c18099ac558531eb343d4f408086188f572082b0a27"
+    },
+    {
+      "app": "langflow",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/HEAD/src/frontend/public/icons/icon.ico",
+      "file": "media/langflow-logo.png",
+      "sha256": "0039907e1dbf9d40398db2b70918521bc6336efa56a1dbdb21ded3ae983da41e",
+      "source_sha256": "1134951f7a602692a55e2fb5b74d2860c202dac0a691b35d115976357953691d"
+    },
+    {
+      "app": "localai",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/mudler/LocalAI/HEAD/launcher/build/icon.png",
+      "file": "media/localai-logo.png",
+      "sha256": "1c514b7e17463e3e7a3b97541b05c349be67401efaac7186e16c725a69e278c0",
+      "source_sha256": "0760b9aaabe408e8db7c9f3c4ce88fde75163fc7c127f9c6943143d6f5ee821d"
+    },
+    {
+      "app": "nextcloud-files",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nextcloud/server/HEAD/core/img/logo/logo.png",
+      "file": "media/nextcloud-files-logo.png",
+      "sha256": "503675edb8478da8ef50dd788185a94db8dc98096959da78f03ecd1668cbf3ff",
+      "source_sha256": "54c0dd255274d2310c113715b1ddfbf3b3eb150ece280e6990d250edcb78b4c2"
+    },
+    {
+      "app": "nuclear",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nukeop/nuclear/HEAD/packages/player/src-tauri/icons/icon.png",
+      "file": "media/nuclear-logo.png",
+      "sha256": "7d5611b68f5057480e3a66097db1dfdfbef11aa7687f6bf17d821644d2b6005b",
+      "source_sha256": "f13a2ab8697c25dd993cf2d6ec7f32818bcecffaef6602996c2494825bd60cc6"
+    },
+    {
+      "app": "openwork-desktop",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/apps/desktop/resources/icons/icon.png",
+      "file": "media/openwork-desktop-logo.png",
+      "sha256": "a6102e2735f6baf20a11fbab2c1fbad6da2503b3e280e2cf69b83edbc9b34d34",
+      "source_sha256": "b614ff04a431fda9b5ac304e1a04ed0b1ce6b03b37b6b7ae8044cd63b2c5dc04"
+    },
+    {
+      "app": "portainer-ce",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/portainer/portainer/HEAD/app/assets/ico/apple-touch-icon.png",
+      "file": "media/portainer-ce-logo.png",
+      "sha256": "cac7c36ca8e558ed68426a7d50f7ed91bf4d71b54be522a5d0b29ca09684cf77",
+      "source_sha256": "3ca87565aab08359da716e477162dffc959099f8a30b33ca2b031e5186522a44"
+    },
+    {
+      "app": "sillytavern",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/SillyTavern/SillyTavern/HEAD/public/img/logo.png",
+      "file": "media/sillytavern-logo.png",
+      "sha256": "76bdaa8c72c6b8c2608a6f719dfb1c278fa5e5b2024deb75cd32217fcbad2458",
+      "source_sha256": "936be847d83bbcc56e24654bb53e50e2a53451e079a0699b57c8905804b4dfd0"
+    },
+    {
+      "app": "simplex-chat",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/simplex-chat/simplex-chat/HEAD/fastlane/metadata/android/en-US/images/icon.png",
+      "file": "media/simplex-chat-logo.png",
+      "sha256": "8de12a64808cef01420c41c04dbfecec3ee2cbaf3784619598698956939b12b7",
+      "source_sha256": "fa6afc844ed156306e9026116b8679ab9b9fd5c99864f4f6535639a888ab59c5"
+    },
+    {
+      "app": "swarmui",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/mcmonkeyprojects/SwarmUI/HEAD/src/wwwroot/favicon.ico",
+      "file": "media/swarmui-logo.png",
+      "sha256": "a670571302a5344224b9434b96d521838a5f35dbe49a8cd6545340e10ae611b1",
+      "source_sha256": "d96199d1b4b5547716293c854b9254bf20d84ac86f9f10c0bf2a566a2e0fe15c"
+    },
+    {
+      "app": "docs",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sismics/docs/HEAD/docs-web/src/main/webapp/src/img/icons/icon-128x128.png",
+      "file": "media/docs-logo.png",
+      "sha256": "97da89adb6c905a02f55f0b6627f1e5437fb7abf332a021dc956ea710e108828",
+      "source_sha256": "52b7e4643c1f2e6513283e69b1fcae5d72cd7afad99571c9cb4c69aa2b205096"
+    },
+    {
+      "app": "textgen",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/css/icon.png",
+      "file": "media/textgen-logo.png",
+      "sha256": "e682b7cb15bafc7dc693744de12f8c6bc79eebb204af3da8666f3ec916f27bfb",
+      "source_sha256": "05f7583bfb4e3ca80b8356a9023636d2d9e51fddeeb718f24e3748fa1014527b"
+    },
+    {
+      "app": "tigervnc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/TigerVNC/tigervnc/HEAD/java/com/tigervnc/vncviewer/tigervnc.png",
+      "file": "media/tigervnc-logo.png",
+      "sha256": "5f9daa0cb9c85f5ae0ec77b5abd1faa17141935beaf19e50e521cc4a02e2945a",
+      "source_sha256": "8395e5200ee667019aaec3e9520295430779e7b75e19af004602bb4c63e095db"
+    },
+    {
+      "app": "epicenter-whispering",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/EpicenterHQ/epicenter/HEAD/apps/whispering/src-tauri/icons/icon.png",
+      "file": "media/epicenter-whispering-logo.png",
+      "sha256": "076443350eae5d51d0e2fb8ccf2ee7db0bd3018e201ef461b8165da184fca7b7",
+      "source_sha256": "51210a3c87f7c7d0ccbee85c23e3b7be79389b80747c22b54537bae742310961"
+    },
+    {
+      "app": "zulip",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/zulip/zulip/HEAD/static/images/logo/zulip-icon-128x128.png",
+      "file": "media/zulip-logo.png",
+      "sha256": "1828eaa54c47ad369d1d5cbc15d07186b0b60b730714575df69ff0a40ea5afe1",
+      "source_sha256": "7665f10ff6b677e46d3a7e12ffd627ca9767dee313b52593912888588bf906f3"
+    },
+    {
+      "app": "postiz",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/gitroomhq/postiz-app/HEAD/apps/extension/public/icon-128.png",
+      "file": "media/postiz-logo.png",
+      "sha256": "d3482d7ba7c1261bf684e0265a5300c1b8b2815ee1138583ac26121b05b46eb1",
+      "source_sha256": "f70c07a5044a9893b1312925579bc42f82add8b7d61fbd09a172741c773623a9"
+    },
+    {
+      "app": "mixpost-lite",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/inovector/mixpost/HEAD/resources/img/favicon.ico",
+      "file": "media/mixpost-lite-logo.png",
+      "sha256": "6a50bca7c95ffb68831c51ef9b527fbee149d496e444a1ea6d91903d23e4df04",
+      "source_sha256": "619df242f08d9a81f05507d8e599ad0462403291a5115d58b8e8bf2ba972e621"
+    },
+    {
+      "app": "listmonk",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/knadh/listmonk/HEAD/static/public/static/favicon.png",
+      "file": "media/listmonk-logo.png",
+      "sha256": "c86980157ef264fdeaed1b531390c3dcabc141eab225df929a70f3791138d53a",
+      "source_sha256": "4a3b0ec9ea48a09a407f289c6f6900cfd019b8893998ec9b93bc1926a454aa2b"
+    },
+    {
+      "app": "keila",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pentacent/keila/HEAD/assets/static/favicon.ico",
+      "file": "media/keila-logo.png",
+      "sha256": "a8b0cd20e8a5084cdb4a0361be8e0934fdfe515b1b057b4e02ec2da366739d37",
+      "source_sha256": "9ca5a810dbeb3c6b4b25fa263ae5981bd4822c33e038180a36538bdeab7799b8"
+    },
+    {
+      "app": "formbricks",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/formbricks/formbricks/HEAD/apps/web/public/favicon/apple-touch-icon.png",
+      "file": "media/formbricks-logo.png",
+      "sha256": "9f1abf33c6b704ca71e542217dcf172fa4e0a392926a3622d1bd518ac5374a73",
+      "source_sha256": "461c2c229d7404a6e8f438bbdec4884283404e18865c1d2ae015a3b69e92bc10"
+    },
+    {
+      "app": "heyform",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/heyform/heyform/HEAD/packages/webapp/public/static/icon_128.png",
+      "file": "media/heyform-logo.png",
+      "sha256": "8b1f76c32794ede74a686e6d5967d4dcd8ff97c464ff407c53b43c7c089914f2",
+      "source_sha256": "98e423fdeb63021fc77f8f0c88fe8c801e936ccb0efb6874c61c5422ae81b68c"
+    },
+    {
+      "app": "opnform",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/OpnForm/OpnForm/HEAD/client/public/img/logo.png",
+      "file": "media/opnform-logo.png",
+      "sha256": "bb9ed04c93d5c44c8f754b67d2a28515a0122a09e37463fc425bace2d321b422",
+      "source_sha256": "aa6041c857338c6472d751a5aae32544cc3335ba8d2c9787d84baa4b8617c388"
+    },
+    {
+      "app": "yourls",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/YOURLS/YOURLS/HEAD/images/yourls-logo.png",
+      "file": "media/yourls-logo.png",
+      "sha256": "056f12314e66626e8fb65bb062d225386e2b8b3eb9ca67621ef3361dfa36c15e",
+      "source_sha256": "c92773aa2ecb21749055a740def9d39b8055487027acb11feb12cf3b261844f0"
+    },
+    {
+      "app": "suitecrm",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/SuiteCRM/SuiteCRM/HEAD/include/images/suite_logo.png",
+      "file": "media/suitecrm-logo.png",
+      "sha256": "69d31fb2d3126d65a426a0c096e37121da628e5f6b84b5374fc8544a0a7eb51e",
+      "source_sha256": "fc28980f114e156d6d024d6b5eecc720b9efd1390c8093586cfc76a02405b612"
+    },
+    {
+      "app": "freefield",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/neuregex/freefield/HEAD/docs/media/freefield.ico",
+      "file": "media/freefield-logo.png",
+      "sha256": "1fa259e8d624c2ed796eedcc316bd851d5728509f2cf68051522abac4944d5b0",
+      "source_sha256": "b862f3e6f064f5b79643a222ae856912d45d8c5c0d553f714ee3dc650aae7c92"
+    },
+    {
+      "app": "wg-easy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/wg-easy/wg-easy/HEAD/src/public/logo.png",
+      "file": "media/wg-easy-logo.png",
+      "sha256": "daa90e653a462294a034c316dbdc3715698113d1d6ccfb5313d2a0752e795d7a",
+      "source_sha256": "2deab8fb83142835ea3912e4a5987d87183f460e7c9e347be8de09f2734b4226"
+    },
+    {
+      "app": "wgdashboard",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/WGDashboard/WGDashboard/HEAD/src/static/client/public/img/Logo-2-Rounded-256x256.png",
+      "file": "media/wgdashboard-logo.png",
+      "sha256": "5c68f1244d39e9cec80456b078ec0f8e402fa7a45bc785ab3cc2642b0a7f686c",
+      "source_sha256": "cdbd1331280e834952231edd10f489b210840cbc82f730c8db87d2f4d521523b"
+    },
+    {
+      "app": "headscale-ui",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/gurucomputing/headscale-ui/HEAD/static/favicon.png",
+      "file": "media/headscale-ui-logo.png",
+      "sha256": "68c1765383e25251c6842fbecf00e06e5b7c1636a6c13006e683836d6c19ce84",
+      "source_sha256": "0cf9de52d11f194bcceff719947b40e802f6c04ab8277ecb94807be16c679400"
+    },
+    {
+      "app": "opnsense",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/opnsense/core/HEAD/src/opnsense/scripts/captiveportal/htdocs_default/images/favicon.png",
+      "file": "media/opnsense-logo.png",
+      "sha256": "305075181cb90203d98e79b490541a39818d6bb941e7f865a6301a878b581b58",
+      "source_sha256": "3cd53dc40912bb3b9c4f019f2090ae3a2f978dc509cdf916e6f8f41b7924b50e"
+    },
+    {
+      "app": "portmaster",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/safing/portmaster/HEAD/assets/data/favicons/ms-icon-150x150.png",
+      "file": "media/portmaster-logo.png",
+      "sha256": "e83f039410d8b9ad7fa7927be482faf074e82adbbb4cc9f25a9087f01c2805ab",
+      "source_sha256": "55f18471b320d1fd15b9b581e698441a5655f2b6acee8883cbf3cb68b1d63db1"
+    },
+    {
+      "app": "adguard-home",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/client_v2/public/assets/apple-touch-icon.png",
+      "file": "media/adguard-home-logo.png",
+      "sha256": "6b0f671af662fa55d78cedff2691a68b6ef816cb4586e3baec90c05e0467e7d2",
+      "source_sha256": "b8773eb4bdef582a0243879a9e421ce7d67d88dfa342b72b3f677d5cff5509db"
+    },
+    {
+      "app": "technitium-dns-server",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/TechnitiumSoftware/DnsServer/HEAD/DnsServerCore/www/img/logo.png",
+      "file": "media/technitium-dns-server-logo.png",
+      "sha256": "99ea75d48af4ba2cd6cea17183781e9b3d1b16418a1c1404a18a588171bdea96",
+      "source_sha256": "2af9d8fa60a3cc6167f57917b874d34754221f29245040f653282180d5e4f78d"
+    },
+    {
+      "app": "netalertx",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/netalertx/NetAlertX/HEAD/front/img/NetAlertX_logo_yellow.png",
+      "file": "media/netalertx-logo.png",
+      "sha256": "8d1053362b7e3a131d4a316a785e7720334bc262f2f399d867bef7222f42b6ef",
+      "source_sha256": "cea47b4868d9a8af8c156f69450b05578d395fcbc9ae2fc185e81088770e516a"
+    },
+    {
+      "app": "librenms",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/librenms/librenms/HEAD/html/images/apple-touch-icon.png",
+      "file": "media/librenms-logo.png",
+      "sha256": "155408062f29431b7ca5ecd37c995f342ff3e0ed72ec5a64c16f859ff819cf33",
+      "source_sha256": "5ef28db7a54ab6ccdc0cd97545db03b0ae3ac5a3110164b758be5bd2d795f399"
+    },
+    {
+      "app": "ntopng",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ntop/ntopng/HEAD/doc/src/img/logo.png",
+      "file": "media/ntopng-logo.png",
+      "sha256": "009e72039b627ed2ff71550c5b330a6fded3f16890c4643155c94e925fe93105",
+      "source_sha256": "f1659999c77e9e4c5b78df362a87a6f7850eceddec8e8d728994437bcefb15e2"
+    },
+    {
+      "app": "velociraptor",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Velocidex/velociraptor/HEAD/docs/winres/icon.png",
+      "file": "media/velociraptor-logo.png",
+      "sha256": "cce8e5103d40f4b87d6b388446d76fe49be15315d970e29fdc720f5892057721",
+      "source_sha256": "3c36b5c6ebfe3df95a19dc6be262e6441c3cbeb03af7e1837a2b96141d39bbf6"
+    },
+    {
+      "app": "fleetdm",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/fleetdm/fleet/HEAD/website/assets/logo.png",
+      "file": "media/fleetdm-logo.png",
+      "sha256": "2e496dad9ecd5fd9ab548539f511f8dbf2106d24e0251704b9f583ed48e45b17",
+      "source_sha256": "6b9002dcea2ac9787ca46996da0a7a3ae89b6b60bf075068eb1d5d112065f019"
+    },
+    {
+      "app": "opensearch-dashboards",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/opensearch-project/OpenSearch-Dashboards/HEAD/src/core/server/core_app/assets/favicons/apple-touch-icon.png",
+      "file": "media/opensearch-dashboards-logo.png",
+      "sha256": "03b83b652926d42f5fdc1368518b0e3d500e07bfe0813c29a3ff1d7cffb54c16",
+      "source_sha256": "2ba4aa9ed413b31ff40a688c28f32c9314eca3016962356084c1dc29dae3cd2f"
+    },
+    {
+      "app": "glances",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nicolargo/glances/HEAD/glances/outputs/static/images/glances.png",
+      "file": "media/glances-logo.png",
+      "sha256": "07a08dbd66d3ed7a3e29439ee240cd3c4c6eeaf9186f0a2697dfda21e5214e16",
+      "source_sha256": "14596b736c0fc1ff3f3720664fde2e2831b10face631eb1a540466db77f3bd50"
+    },
+    {
+      "app": "openchamber",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/openchamber/openchamber/HEAD/packages/electron/resources/icons/icon.ico",
+      "file": "media/openchamber-logo.png",
+      "sha256": "72930bf65d4195e1d97d49e34c4a86604e21e649f553f6233eadd90b2de89901",
+      "source_sha256": "bee258185d60de0572251486e2a0ab3a86a042bc92aead720345205a429c820c"
+    },
+    {
+      "app": "openhands-canvas",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/OpenHands/OpenHands/HEAD/public/apple-touch-icon.png",
+      "file": "media/openhands-canvas-logo.png",
+      "sha256": "fbca0400e34c2449c1ed848452f78ab7e2b5f73cc3058bb5d1fc374b30a2cfae",
+      "source_sha256": "b4beb7a5fa931f4ac8bb47894e689f5e95358f1a6fe3667650a993acbe2e3854"
+    },
+    {
+      "app": "codenomad",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/NeuralNomadsAI/CodeNomad/HEAD/packages/electron-app/electron/resources/icon.ico",
+      "file": "media/codenomad-logo.png",
+      "sha256": "9f49991fbe9b5c6979b69f337a0eaca606c55a4c5938460fa9d7cf95c0a27aa4",
+      "source_sha256": "1254c109c0bda9c2b87cc23512c6096ad1aae45b908b1b8cf6f71346085c6f6b"
     }
   ]
 }

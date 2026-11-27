@@ -1097,7 +1097,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/public/icon.svg",
+    "logo": "https://raw.githubusercontent.com/louislam/uptime-kuma/HEAD/public/icon.png",
     "screenshots": [
       "https://uptime.kuma.pet/img/light.jpg"
     ],
@@ -2074,7 +2074,7 @@
       "kind": "cli",
       "source": "https://github.com/getpaseo/paseo/blob/main/README.md#cli"
     },
-    "logo": "https://raw.githubusercontent.com/getpaseo/paseo/main/packages/website/public/logo.svg",
+    "logo": "https://raw.githubusercontent.com/getpaseo/paseo/HEAD/packages/desktop/assets/icon.png",
     "screenshots": [
       "https://paseo.sh/hero-mockup.png",
       "https://paseo.sh/mobile-mockup.png"
@@ -12581,7 +12581,7 @@
       "kind": "api",
       "source": "https://github.com/openutau/OpenUtau/tree/master/OpenUtau.Core/Editing"
     },
-    "logo": "https://raw.githubusercontent.com/openutau/OpenUtau/master/Logo/openutau.svg",
+    "logo": "https://raw.githubusercontent.com/openutau/OpenUtau/HEAD/OpenUtau/Assets/OpenUtau.png",
     "screenshots": [
       "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor.gif",
       "https://raw.githubusercontent.com/openutau/OpenUtau/master/Misc/GIFs/editor2.gif",
@@ -12967,7 +12967,7 @@
       "kind": "api",
       "source": "https://api.immich.app/"
     },
-    "logo": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.png",
+    "logo": "https://raw.githubusercontent.com/immich-app/immich/HEAD/mobile/android/metadata/en-US/images/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-screenshots.png"
     ],
@@ -13012,7 +13012,7 @@
       "kind": "api",
       "source": "https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/main/README.md#quick-start"
     },
-    "logo": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/rizzo_flow_logo.png",
+    "logo": "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/HEAD/src/rizzo_flow/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/Rizzo-AI-Academy/rizzo-flow/main/assets/playground.webp"
     ],
@@ -13115,7 +13115,7 @@
       "kind": "cli",
       "source": "https://getsharex.com/docs/command-line-arguments"
     },
-    "logo": "https://getsharex.com/img/ShareX_Logo.png",
+    "logo": "https://raw.githubusercontent.com/ShareX/ShareX/HEAD/ShareX/ShareX_Icon.ico",
     "screenshots": [
       "https://getsharex.com/img/ShareX_Screenshot.png"
     ],
@@ -13229,7 +13229,7 @@
       "kind": "api",
       "source": "https://github.com/siyuan-note/siyuan/blob/master/API.md"
     },
-    "logo": "https://b3log.org/images/brand/siyuan-128.png",
+    "logo": "https://raw.githubusercontent.com/siyuan-note/siyuan/HEAD/app/stage/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/siyuan-note/siyuan/master/screenshots/feature0.png"
     ],
@@ -14833,7 +14833,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://nickemanarin.github.io/ScreenToGif-Website/logos/ms-icon-144x144.png",
+    "logo": "https://raw.githubusercontent.com/NickeManarin/ScreenToGif/HEAD/ScreenToGif/Resources/Logo.ico",
     "screenshots": [
       "https://nickemanarin.github.io/ScreenToGif-Website/wiki/Editor-FrameList.png",
       "https://raw.githubusercontent.com/NickeManarin/ScreenToGif-Website/master/public/media/New-Recorder.png"
@@ -15661,7 +15661,7 @@
       "kind": "api",
       "source": "https://docs.activitywatch.net/en/latest/api.html"
     },
-    "logo": "https://activitywatch.net/img/logo.png",
+    "logo": "https://raw.githubusercontent.com/ActivityWatch/media/HEAD/logo/logo-128.png",
     "screenshots": [
       "https://activitywatch.net/img/screenshots/v0.14.0/activity-day-full.png",
       "https://activitywatch.net/img/screenshots/v0.14.0/timeline.png"
@@ -15910,7 +15910,7 @@
       "kind": "api",
       "source": "https://docs.anythingllm.com/features/api"
     },
-    "logo": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/frontend/src/media/logo/anything-llm-icon.png",
+    "logo": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/HEAD/frontend/public/favicon.png",
     "screenshots": [
       "https://anythingllm.com/images/home/documentchat-poster.webp",
       "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/images/screenshots/upload.png"
@@ -16089,7 +16089,7 @@
       "kind": "api",
       "source": "https://www.librechat.ai/docs/features/agents_api"
     },
-    "logo": "https://www.librechat.ai/android-chrome-512x512.png",
+    "logo": "https://raw.githubusercontent.com/LibreChat-AI/LibreChat/HEAD/client/public/assets/maskable-icon.png",
     "screenshots": [
       "https://www.librechat.ai/_next/static/media/demo_dark.102d59a6.png",
       "https://www.librechat.ai/_next/static/media/demo_light.f6e232d4.png"
@@ -17168,7 +17168,7 @@
       "kind": "api",
       "source": "https://github.com/InvoiceShelf/api-docs/blob/main/openapi.json"
     },
-    "logo": "https://invoiceshelf.com/favicons/apple-touch-icon.png",
+    "logo": "https://raw.githubusercontent.com/InvoiceShelf/InvoiceShelf/HEAD/public/favicons/apple-touch-icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/dashboard.webp",
       "https://raw.githubusercontent.com/InvoiceShelf/docs/master/docs/public/images/v2/invoices.webp"
@@ -18327,7 +18327,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://www.nvaccess.org/wp-content/uploads/2017/08/nvda_200x200.png",
+    "logo": "https://raw.githubusercontent.com/nvaccess/nvda/HEAD/source/images/nvda.ico",
     "screenshots": [
       "https://www.nvaccess.org/wp-content/uploads/2023/03/viewers-1024x576.jpg"
     ],
@@ -19145,7 +19145,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://github.com/user-attachments/assets/414b8838-6731-45d4-a815-6e3c0aa1fe52",
+    "logo": "https://raw.githubusercontent.com/webadderallorg/Recordly/HEAD/icons/icons/win/icon.ico",
     "screenshots": [],
     "media_source": "https://github.com/webadderallorg/Recordly",
     "review": {
@@ -19210,7 +19210,7 @@
       "kind": "mcp",
       "source": "https://github.com/getopenscreen/openscreen#readme"
     },
-    "logo": "https://raw.githubusercontent.com/getopenscreen/openscreen/main/public/openscreen.png",
+    "logo": "https://raw.githubusercontent.com/getopenscreen/openscreen/HEAD/design/assets/logo-icon.png",
     "screenshots": [],
     "media_source": "https://github.com/getopenscreen/openscreen",
     "review": {
@@ -19341,7 +19341,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/OpenWhispr/openwhispr/main/src/assets/logo.svg",
+    "logo": "https://raw.githubusercontent.com/OpenWhispr/openwhispr/HEAD/src/assets/icon.png",
     "screenshots": [],
     "media_source": "https://github.com/OpenWhispr/openwhispr",
     "review": {
@@ -19447,7 +19447,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/wwmm/easyeffects/master/src/contents/icons/com.github.wwmm.easyeffects.svg",
+    "logo": "https://raw.githubusercontent.com/wwmm/easyeffects/HEAD/src/contents/site/assets/images/favicon.png",
     "screenshots": [],
     "media_source": "https://github.com/wwmm/easyeffects",
     "review": {
@@ -19488,7 +19488,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://tupian.li/images/2022/10/27/icon---256.png",
+    "logo": "https://raw.githubusercontent.com/hiroi-sora/Umi-OCR/HEAD/docs/images/icon-256.png",
     "screenshots": [
       "https://tupian.li/images/2023/11/19/65599097ab5f4.png",
       "https://tupian.li/images/2023/11/19/655990a2511e0.png"
@@ -19550,7 +19550,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://esearch-app.netlify.app/readme/title_photo.svg",
+    "logo": "https://raw.githubusercontent.com/xushengfeng/eSearch/HEAD/assets/logo/icon.ico",
     "screenshots": [
       "https://esearch-app.netlify.app/readme/1.webp",
       "https://esearch-app.netlify.app/readme/8.webp"
@@ -19661,7 +19661,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/usememos/.github/refs/heads/main/assets/brand/lockup.svg",
+    "logo": "https://raw.githubusercontent.com/usememos/memos/HEAD/web/public/logo.webp",
     "screenshots": [
       "https://raw.githubusercontent.com/usememos/.github/refs/heads/main/assets/previews/timeline-light.png"
     ],
@@ -19753,7 +19753,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/TwiN/gatus/master/.github/assets/logo-with-dark-text.png",
+    "logo": "https://raw.githubusercontent.com/TwiN/gatus/HEAD/.github/assets/logo.png",
     "screenshots": [],
     "media_source": "https://github.com/TwiN/gatus",
     "review": {
@@ -19797,9 +19797,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/Sylinko/Everywhere/HEAD/src/Everywhere.Core/Assets/Icons/everywhere.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/Sylinko/Everywhere",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -19922,7 +19922,7 @@
       "kind": "cli",
       "source": "https://github.com/TheJoeFin/Text-Grab#command-line-interface"
     },
-    "logo": "https://textgrab.net/images/logo.png",
+    "logo": "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/HEAD/Text-Grab-Package/Text-Grab-Icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/main/images/All-Modes-Light.png",
       "https://raw.githubusercontent.com/TheJoeFin/Text-Grab/main/images/TealSelect.png"
@@ -20290,7 +20290,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/XiaoYouChR/Ghost-Downloader-3/main/app/assets/logo.png",
+    "logo": "https://raw.githubusercontent.com/XiaoYouChR/Ghost-Downloader-3/HEAD/app/assets/logo_withoutBackground.png",
     "screenshots": [],
     "media_source": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
     "review": {
@@ -20549,9 +20549,9 @@
       "kind": "api",
       "source": "https://docs.libretranslate.com/"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/LibreTranslate/LibreTranslate/HEAD/libretranslate/static/favicon.ico",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/LibreTranslate/LibreTranslate",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -20728,7 +20728,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/lfnovo/open-notebook/main/logo.png",
+    "logo": "https://raw.githubusercontent.com/lfnovo/open-notebook/HEAD/frontend/src/app/favicon.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/lfnovo/open-notebook/main/docs/assets/asset_list.png"
     ],
@@ -20772,7 +20772,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/HKUDS/DeepTutor/main/assets/figs/logo/color-logo.png",
+    "logo": "https://raw.githubusercontent.com/HKUDS/DeepTutor/HEAD/web/public/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/HKUDS/DeepTutor/main/assets/figs/web-dev/overview.png"
     ],
@@ -21316,7 +21316,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/apache/superset/HEAD/superset-frontend/src/assets/images/superset.png",
     "screenshots": [
       "https://superset.apache.org/img/screenshots/gallery.jpg",
       "https://superset.apache.org/img/screenshots/dashboard.jpg"
@@ -21363,7 +21363,7 @@
       "kind": "api",
       "source": "https://github.com/AtomicBot-ai/Atomic-Chat/blob/v2.5.2/README.md#-use-it-as-an-api"
     },
-    "logo": "https://raw.githubusercontent.com/AtomicBot-ai/Atomic-Chat/main/assets/logo.png",
+    "logo": "https://raw.githubusercontent.com/AtomicBot-ai/Atomic-Chat/HEAD/src-tauri/app-icon.png",
     "screenshots": [
       "https://cdn.prod.website-files.com/69d4e04c943eea1581f96f37/6a56620024750bc2cbf7c47c_hero-section-optimized.webp"
     ],
@@ -21435,7 +21435,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/advplyr/audiobookshelf/HEAD/client/static/Logo.png",
     "screenshots": [
       "https://github.com/advplyr/audiobookshelf/raw/master/images/DemoLibrary.png"
     ],
@@ -21595,7 +21595,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/HEAD/assets/icons/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/stackblitz-labs/bolt.diy/main/public/social_preview_index%281%29.jpg"
     ],
@@ -21664,9 +21664,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/janeczku/calibre-web/HEAD/cps/static/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/janeczku/calibre-web",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -21846,7 +21846,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/chartdb/chartdb/HEAD/src/assets/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/chartdb/chartdb/main/public/chartdb.png"
     ],
@@ -21898,7 +21898,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/NeuralNomadsAI/CodeNomad/HEAD/packages/electron-app/electron/resources/icon.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/NeuralNomadsAI/CodeNomad/dev/docs/screenshots/workspace-0.20.png"
     ],
@@ -22015,9 +22015,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/cryptomator/cryptomator/HEAD/dist/linux/resources/cryptomator.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/cryptomator/cryptomator",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -22074,7 +22074,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/cryptpad/cryptpad/HEAD/customize.dist/main-favicon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/cryptpad/cryptpad/main/screenshot.png",
       "https://raw.githubusercontent.com/cryptpad/cryptpad/main/screenshot-suite.png"
@@ -22503,9 +22503,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/dyad-sh/dyad/HEAD/assets/icon/logo.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/dyad-sh/dyad",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -22626,7 +22626,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/ether/etherpad/HEAD/src/static/favicon.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/ether/etherpad/develop/doc/public/etherpad_demo.gif"
     ],
@@ -22783,9 +22783,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/Flow-Launcher/Flow.Launcher/HEAD/Artworks/Logo/logo.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/Flow-Launcher/Flow.Launcher",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23209,7 +23209,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/jellyfin/jellyfin-desktop/HEAD/resources/images/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/jellyfin/jellyfin-desktop/master/screenshots/video_player.png"
     ],
@@ -23271,7 +23271,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://getkap.co/static/favicon/icon-256.png",
+    "logo": "https://raw.githubusercontent.com/wulkano/Kap/HEAD/renderer/public/static/kap-icon.png",
     "screenshots": [
       "https://getkap.co/_next/static/media/kap-app-preview.8d20470a.png"
     ],
@@ -23439,7 +23439,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/ksnip/ksnip/master/icons/ksnip.svg",
+    "logo": "https://raw.githubusercontent.com/ksnip/ksnip/HEAD/icons/ksnip.ico",
     "screenshots": [
       "https://i.imgur.com/0oP6i1H.png"
     ],
@@ -23503,9 +23503,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/langflow-ai/langflow/HEAD/src/frontend/public/icons/icon.ico",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/langflow-ai/langflow",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23552,9 +23552,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/mudler/LocalAI/HEAD/launcher/build/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/mudler/LocalAI",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -24065,7 +24065,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/nextcloud/server/HEAD/core/img/logo/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/nextcloud/screenshots/master/nextcloud-hub-25-files.png"
     ],
@@ -24155,7 +24155,7 @@
       "kind": "mcp",
       "source": "https://github.com/nukeop/nuclear/blob/player%401.56.4/README.md#mcp"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/nukeop/nuclear/HEAD/packages/player/src-tauri/icons/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/nukeop/nuclear/master/packages/docs/.gitbook/assets/dashboard-main.png",
       "https://raw.githubusercontent.com/nukeop/nuclear/master/packages/docs/.gitbook/assets/playlists.png"
@@ -24300,7 +24300,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/openchamber/openchamber/HEAD/packages/electron/resources/icons/icon.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/openchamber/openchamber/main/docs/references/desktop_dark.png",
       "https://raw.githubusercontent.com/openchamber/openchamber/main/docs/references/desktop_light.png"
@@ -24373,7 +24373,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/OpenHands/OpenHands/HEAD/public/apple-touch-icon.png",
     "screenshots": [
       "https://assets.openhands.dev/screenshot/automation-preview.png"
     ],
@@ -24444,7 +24444,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/different-ai/openwork/HEAD/apps/desktop/resources/icons/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/different-ai/openwork/dev/docs/images/model-picker.png"
     ],
@@ -24662,9 +24662,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/portainer/portainer/HEAD/app/assets/ico/apple-touch-icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/portainer/portainer",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25057,9 +25057,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/SillyTavern/SillyTavern/HEAD/public/img/logo.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/SillyTavern/SillyTavern",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25106,9 +25106,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/simplex-chat/simplex-chat/HEAD/fastlane/metadata/android/en-US/images/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/simplex-chat/simplex-chat",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25364,7 +25364,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/mcmonkeyprojects/SwarmUI/HEAD/src/wwwroot/favicon.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/mcmonkeyprojects/SwarmUI/master/.github/images/swarmui.jpg"
     ],
@@ -25458,7 +25458,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/sismics/docs/HEAD/docs-web/src/main/webapp/src/img/icons/icon-128x128.png",
     "screenshots": [
       "https://teedy.io/img/laptop-demo.png?20180301"
     ],
@@ -25503,7 +25503,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/oobabooga/textgen/HEAD/css/icon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/oobabooga/screenshots/refs/heads/main/CHAT-4.8.png"
     ],
@@ -25573,9 +25573,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/TigerVNC/tigervnc/HEAD/java/com/tigervnc/vncviewer/tigervnc.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/TigerVNC/tigervnc",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25767,9 +25767,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/EpicenterHQ/epicenter/HEAD/apps/whispering/src-tauri/icons/icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/EpicenterHQ/epicenter",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25898,9 +25898,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/zulip/zulip/HEAD/static/images/logo/zulip-icon-128x128.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/zulip/zulip",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -25943,7 +25943,7 @@
       "kind": "mcp",
       "source": "https://docs.postiz.com/general/where-things-live"
     },
-    "logo": "https://docs.postiz.com/mintlify-assets/_mintlify/favicons/postiz/7ex-qxyRTSZphJ2G/_generated/favicon/android-chrome-192x192.png",
+    "logo": "https://raw.githubusercontent.com/gitroomhq/postiz-app/HEAD/apps/extension/public/icon-128.png",
     "screenshots": [
       "https://mintcdn.com/postiz/WSXjecBlCeS6Sslb/images/general/calendar/week.png?fit=max&auto=format&n=WSXjecBlCeS6Sslb&q=85&s=8b5f88750dc44079dd3b2ed4903742bc"
     ],
@@ -25989,7 +25989,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://mixpost.app/favicon.ico",
+    "logo": "https://raw.githubusercontent.com/inovector/mixpost/HEAD/resources/img/favicon.ico",
     "screenshots": [],
     "media_source": "https://mixpost.app/self-hosted",
     "review": {
@@ -26081,7 +26081,7 @@
       "kind": "api",
       "source": "https://listmonk.app/docs/apis/apis/"
     },
-    "logo": "https://user-images.githubusercontent.com/547147/231084896-835dba66-2dfe-497c-ba0f-787564c0819e.png",
+    "logo": "https://raw.githubusercontent.com/knadh/listmonk/HEAD/static/public/static/favicon.png",
     "screenshots": [
       "https://github.com/user-attachments/assets/689b5fbb-dd25-4956-a36f-e3226a65f9c4"
     ],
@@ -26128,7 +26128,7 @@
       "kind": "api",
       "source": "https://www.keila.io/docs/api/"
     },
-    "logo": "https://raw.githubusercontent.com/pentacent/keila/main/.github/assets/logo.svg",
+    "logo": "https://raw.githubusercontent.com/pentacent/keila/HEAD/assets/static/favicon.ico",
     "screenshots": [
       "https://www.keila.io/_astro/keila-2024-05-01.BUp8L2VZ.png"
     ],
@@ -26175,7 +26175,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://github.com/formbricks/formbricks/assets/72809645/0086704f-bee7-4d38-9cc8-fa42ee59e004",
+    "logo": "https://raw.githubusercontent.com/formbricks/formbricks/HEAD/apps/web/public/favicon/apple-touch-icon.png",
     "screenshots": [
       "https://github-production-user-asset-6210df.s3.amazonaws.com/675065/249441967-ccb89ea3-82b4-4bf2-8d2c-528721ec313b.png"
     ],
@@ -26222,7 +26222,7 @@
       "kind": "api",
       "source": "https://docs.heyform.net/rest-api"
     },
-    "logo": "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/logo.svg",
+    "logo": "https://raw.githubusercontent.com/heyform/heyform/HEAD/packages/webapp/public/static/icon_128.png",
     "screenshots": [
       "https://raw.githubusercontent.com/heyform/heyform/next/assets/images/screenshot.png"
     ],
@@ -26316,7 +26316,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://opnform.com/favicon.ico",
+    "logo": "https://raw.githubusercontent.com/OpnForm/OpnForm/HEAD/client/public/img/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/OpnForm/OpnForm/main/client/public/img/social-preview.jpg"
     ],
@@ -26543,7 +26543,7 @@
       "kind": "api",
       "source": "https://yourls.org/docs/guide/advanced/api"
     },
-    "logo": "https://raw.githubusercontent.com/YOURLS/YOURLS/master/images/favicon.svg",
+    "logo": "https://raw.githubusercontent.com/YOURLS/YOURLS/HEAD/images/yourls-logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/YOURLS/YOURLS/master/images/admin-dashboard.gif"
     ],
@@ -26723,9 +26723,9 @@
       "kind": "api",
       "source": "https://docs.suitecrm.com/developer/integration-api/v8/endpoints/"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/SuiteCRM/SuiteCRM/HEAD/include/images/suite_logo.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/SuiteCRM/SuiteCRM",
     "release": {
       "version": "v7.15.2",
       "date": "2026-07-31",
@@ -26857,7 +26857,7 @@
       "kind": "cli",
       "source": "https://github.com/neuregex/freefield/blob/main/server/cli.ts"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/neuregex/freefield/HEAD/docs/media/freefield.ico",
     "screenshots": [
       "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-explore.jpg",
       "https://raw.githubusercontent.com/neuregex/freefield/main/docs/media/ui-menu.jpg",
@@ -27033,7 +27033,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://wg-easy.github.io/wg-easy/latest/assets/logo/logo.png",
+    "logo": "https://raw.githubusercontent.com/wg-easy/wg-easy/HEAD/src/public/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/wg-easy/wg-easy/master/assets/screenshot.png"
     ],
@@ -27078,7 +27078,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Logos/Logo-2-Rounded-512x512.png",
+    "logo": "https://raw.githubusercontent.com/WGDashboard/WGDashboard/HEAD/src/static/client/public/img/Logo-2-Rounded-256x256.png",
     "screenshots": [
       "https://wgdashboard-resources.tor1.cdn.digitaloceanspaces.com/Documentation%20Images/index.png"
     ],
@@ -27123,7 +27123,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/gurucomputing/headscale-ui/HEAD/static/favicon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/gurucomputing/headscale-ui/master/documentation/assets/headscale-ui-demo.gif"
     ],
@@ -27216,7 +27216,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/opnsense/core/master/src/opnsense/www/themes/opnsense/build/images/icon-logo.svg",
+    "logo": "https://raw.githubusercontent.com/opnsense/core/HEAD/src/opnsense/scripts/captiveportal/htdocs_default/images/favicon.png",
     "screenshots": [
       "https://docs.opnsense.org/_images/gui_grid.png"
     ],
@@ -27308,7 +27308,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/safing/portmaster/HEAD/assets/data/favicons/ms-icon-150x150.png",
     "screenshots": [
       "https://safing.io/assets/img/page-specific/landing/portmaster-thumbnail.png"
     ],
@@ -27354,7 +27354,7 @@
       "kind": "api",
       "source": "https://github.com/AdguardTeam/AdGuardHome/blob/master/openapi/openapi.yaml"
     },
-    "logo": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/doc/adguard_home_lightmode.svg",
+    "logo": "https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/HEAD/client_v2/public/assets/apple-touch-icon.png",
     "screenshots": [
       "https://cdn.adtidy.org/content/release_notes/dns/home-v1-0-beta/dashboard.png?mw=1360"
     ],
@@ -27446,7 +27446,7 @@
       "kind": "api",
       "source": "https://github.com/TechnitiumSoftware/DnsServer/blob/master/APIDOCS.md"
     },
-    "logo": "https://technitium.com/img/logo.png",
+    "logo": "https://raw.githubusercontent.com/TechnitiumSoftware/DnsServer/HEAD/DnsServerCore/www/img/logo.png",
     "screenshots": [
       "https://technitium.com/dns/ScreenShot1.png"
     ],
@@ -27492,7 +27492,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/netalertx/NetAlertX/HEAD/front/img/NetAlertX_logo_yellow.png",
     "screenshots": [
       "https://raw.githubusercontent.com/netalertx/NetAlertX/main/docs/img/devices_split.png"
     ],
@@ -27538,7 +27538,7 @@
       "kind": "api",
       "source": "https://docs.librenms.org/API/"
     },
-    "logo": "https://www.librenms.org/images/LibreNMS-Logo-Black.png",
+    "logo": "https://raw.githubusercontent.com/librenms/librenms/HEAD/html/images/apple-touch-icon.png",
     "screenshots": [
       "https://www.librenms.org/images/screenshots/screenshot_device_list.png"
     ],
@@ -27584,7 +27584,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://www.ntop.org/images/2025/06/ntopng-icon.webp",
+    "logo": "https://raw.githubusercontent.com/ntop/ntopng/HEAD/doc/src/img/logo.png",
     "screenshots": [],
     "media_source": "https://www.ntop.org/about-us/brand-and-logos/",
     "review": {
@@ -27811,7 +27811,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://docs.velociraptor.app/images/favicon.png",
+    "logo": "https://raw.githubusercontent.com/Velocidex/velociraptor/HEAD/docs/winres/icon.png",
     "screenshots": [
       "https://docs.velociraptor.app/docs/gui/dashboard.png"
     ],
@@ -27857,7 +27857,7 @@
       "kind": "api",
       "source": "https://fleetdm.com/docs/api/rest-api"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/fleetdm/fleet/HEAD/website/assets/logo.png",
     "screenshots": [
       "https://raw.githubusercontent.com/fleetdm/fleet/main/docs/images/add-new-host-modal.png"
     ],
@@ -27903,7 +27903,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/opensearch-project/project-website/refs/heads/main/assets/brand/SVG/Logo/opensearch_dashboards_logo_darkmode.svg",
+    "logo": "https://raw.githubusercontent.com/opensearch-project/OpenSearch-Dashboards/HEAD/src/core/server/core_app/assets/favicons/apple-touch-icon.png",
     "screenshots": [
       "https://docs.opensearch.org/latest/images/Security/secanalytics-det-nav.png"
     ],
@@ -28128,7 +28128,7 @@
       "kind": "mcp",
       "source": "https://glances.readthedocs.io/en/latest/api/mcp.html"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/nicolargo/glances/HEAD/glances/outputs/static/images/glances.png",
     "screenshots": [
       "https://raw.githubusercontent.com/nicolargo/glances/3d40746fc91c3c88e45d4b17837c7bf583f3ff6b/docs/_static/screenshot-web.png"
     ],

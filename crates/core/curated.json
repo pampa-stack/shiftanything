@@ -288,6 +288,17 @@
       "https://raw.githubusercontent.com/dynobo/normcap/main/docs/assets/screenshot.png"
     ],
     "media_source": "https://github.com/dynobo/normcap/blob/main/README.md",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.github.dynobo.normcap",
+        "source": "https://flathub.org/apps/com.github.dynobo.normcap",
+        "download_size": 155935136,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.github.dynobo.normcap",
+        "download_size_checked": "2026-11-27"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

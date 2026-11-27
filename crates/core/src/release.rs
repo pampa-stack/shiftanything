@@ -910,6 +910,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DESKREEN,
         crate::curated::MOONLIGHT,
         crate::curated::OPEN_PENCIL,
+        crate::curated::SUNSHINE,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1371,6 +1372,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
+        ("SunshineStream/Sunshine", "v2026.906.222525") => {
+            &[("Sunshine-macOS-arm64.dmg", 40_287_527, "b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a")]
+        }
+        ("SunshineStream/Sunshine", "v2026.914.233613") => {
+            &[("Sunshine-macOS-arm64.dmg", 40_375_035, "795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c")]
         }
         ("moonlight-stream/moonlight-qt", "v6.1.0") => {
             &[("Moonlight-6.1.0.dmg", 59_806_624, "d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2")]

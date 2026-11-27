@@ -1,0 +1,18 @@
+PASS PREFLIGHT sunshine v2026.906.222525
+PASS PREFLIGHT sunshine v2026.914.233613
+/dev/disk3s5   239362496 175933972  22301052    89% 3247573 223010520    1%   /System/Volumes/Data
+OFFICIAL INDEX sunshine v2026.906.222525 digest=published
+OFFICIAL INDEX sunshine v2026.914.233613 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v2026.906.222525 Dmg https://github.com/SunshineStream/Sunshine/releases/download/v2026.906.222525/Sunshine-macOS-arm64.dmg 40287527 b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a
+PASS OFFICIAL v2026.914.233613 Dmg https://github.com/SunshineStream/Sunshine/releases/download/v2026.914.233613/Sunshine-macOS-arm64.dmg 40375035 795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c
+NATIVE ORIGIN sunshine GitHub
+PASS OFFICIAL v2026.906.222525 Dmg https://github.com/SunshineStream/Sunshine/releases/download/v2026.906.222525/Sunshine-macOS-arm64.dmg 40287527 b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a
+PASS NATIVE sunshine install: Sunshine installed: 2026.906.222525; package_bytes=40287527; elapsed=33.840s
+NATIVE ORIGIN sunshine GitHub
+PASS OFFICIAL v2026.914.233613 Dmg https://github.com/SunshineStream/Sunshine/releases/download/v2026.914.233613/Sunshine-macOS-arm64.dmg 40375035 795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c
+PASS NATIVE sunshine update: Sunshine updated to 2026.914.233613; package_bytes=40375035; elapsed=14.993s
+PASS NATIVE sunshine remove: Sunshine was removed; package_bytes=0; elapsed=0.101s
+PASS NATIVE CYCLE sunshine (v2026.906.222525 → v2026.914.233613), private Trash and synthetic data preserved

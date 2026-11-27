@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil

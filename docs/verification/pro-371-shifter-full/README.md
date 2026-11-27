@@ -13,3 +13,5 @@ Con il catalogo da 462 app, [confronto Figma in italiano online](figma-logos-462
 Altri 32 loghi sono inclusi per le alternative dei profili documentati. [Il confronto Photoshop, aperto nella build Mac con rete disabilitata](photoshop-logos-offline-it.png), mostra Krita, PhotoCraft, GIMP, Drawpile e Pinta con i rispettivi loghi.
 
 Build macOS Apple Silicon `4fe44dd`, estratta dal DMG locale verificato. La finestra 1440 × 900 avviata dal bundle in un profilo temporaneo con connessioni in uscita bloccate mostra 479 app. Verificati [i loghi nel confronto Photoshop](photoshop-479-offline-it.png) e [i loghi nel confronto Figma](figma-479-offline-it.png) selezionando Figma dalla tendina.
+
+Il pacchetto Ubuntu 24.04+ amd64 della stessa build, estratto e aperto su VPS Strumenti (Ubuntu 26.04, Xvfb 1440 × 900 con rete isolata), riporta 479 app e mostra [gli stessi loghi in SH*FTER](photoshop-479-offline-linux.png). Il pacchetto contiene la scheda del menu e l'icona. La prova usa l'eseguibile estratto in una directory temporanea.

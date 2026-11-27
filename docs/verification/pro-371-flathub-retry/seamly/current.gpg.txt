@@ -1,0 +1,19 @@
+commit 1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be
+Parent:  af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59
+ContentChecksum:  1176977dbac08c0b7b2bb1efb43675508949e40ceff7fa6f08e19f167cb219b3
+Date:  2026-11-23 06:38:12 +0000
+
+    seamly2d: Update Seamly2D.git to v2026.11.23.131 (#147) (4df8e36f6c1b)
+
+    Name: io.seamly.seamly2d
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 23 07:02:13 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

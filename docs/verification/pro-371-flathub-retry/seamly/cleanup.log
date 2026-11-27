@@ -1,0 +1,14 @@
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/.var/app/io.seamly.seamly2d/shift-profile-marker: OK
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Uninstalling runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Uninstalling runtime/org.kde.KStyle.Adwaita/x86_64/6.11
+Uninstalling runtime/org.kde.Platform/x86_64/6.11
+Uninstalling runtime/org.kde.Platform.Locale/x86_64/6.11
+Uninstalling runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/.var/app/io.seamly.seamly2d/shift-profile-marker: OK
+seamly: app e runtime rimossi; dati sintetici conservati
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        96G   53G   44G  55% /
+               total        used        free      shared  buff/cache   available
+Mem:            11Gi       4.3Gi       2.5Gi        17Mi       4.9Gi       7.1Gi
+Swap:          4.0Gi       3.6Gi       440Mi

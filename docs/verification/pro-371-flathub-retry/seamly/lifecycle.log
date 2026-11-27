@@ -1,0 +1,73 @@
+=== 2026-11-27T10:27:01+00:00 seamly install ===
+seamly before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+seamly JobFinished: Ok("Flathub app installed")
+seamly after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.23.131"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/nomacs-replay-evidence/native-seamly-icon.png: PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced
+06220d07bfd851e6d10936a0a4d62a79d777e3de0417d27a5841b4b35fa689bb  /var/tmp/shift-flatpak-desktop.8NiwE1xk/nomacs-replay-evidence/native-seamly-icon.png
+io.seamly.seamly2d/x86_64/stable	flathub	1c95cb0fdef5	user	v2026.11.23.131
+TIMING seamly install 38555 ms
+
+=== 2026-11-27T10:27:39+00:00 seamly prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/io.seamly.seamly2d/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+io.seamly.seamly2d/x86_64/stable	flathub	af20e2366448	user	v2026.11.16.133
+seamly before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59", package: Some("io.seamly.seamly2d"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.16.133"), update_available: false, can_remove: false, can_open: true }
+seamly JobFinished: Err("Approved action rejected: native installation state changed")
+seamly JobFinished: Err("This Flatpak is managed outside the launcher")
+seamly after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59", package: Some("io.seamly.seamly2d"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.16.133"), update_available: false, can_remove: false, can_open: true })
+TIMING seamly prior 5925 ms
+
+=== 2026-11-27T10:27:45+00:00 seamly open ===
+dbus-daemon[2716102]: [session uid=1000 pid=2716102 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2716125 comm="/usr/bin/xfwm4 --compositor=off --display=:403" label="unconfined")
+dbus-daemon[2716102]: [session uid=1000 pid=2716102 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2716152]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2716125 comm="/usr/bin/xfwm4 --compositor=off --display=:403" label="unconfined")
+dbus-daemon[2716102]: [session uid=1000 pid=2716102 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2716125 comm="/usr/bin/xfwm4 --compositor=off --display=:403" label="unconfined")
+dbus-daemon[2716152]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2716102]: [session uid=1000 pid=2716102 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+seamly before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.16.133"), update_available: true, can_remove: true, can_open: true }
+seamly JobFinished: Ok("Launch request accepted")
+seamly after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.16.133"), update_available: true, can_remove: true, can_open: true })
+TIMING seamly open-previous 14915 ms
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  42 (X_SetInputFocus)
+  Resource id in failed request:  0x200007
+  Serial number of failed request:  18
+  Current serial number in output stream:  19
+
+(xfconfd:2716159): xfconfd-WARNING **: 10:28:02.894: Name org.xfce.Xfconf lost on the message dbus, exiting.
+TIMING seamly open 17248 ms
+
+=== 2026-11-27T10:28:02+00:00 seamly update-remove ===
+seamly before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/af20e2366448e41476f0cfa9238ea942df5b1c2f8fec27512ddf63fb6dc14d59", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.16.133"), update_available: true, can_remove: true, can_open: true }
+seamly JobFinished: Ok("Flathub app updated")
+seamly after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.23.131"), update_available: false, can_remove: true, can_open: true })
+TIMING seamly update 6531 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/.var/app/io.seamly.seamly2d/shift-profile-marker: OK
+dbus-daemon[2718092]: [session uid=1000 pid=2718092 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=2718117 comm="/usr/bin/xfwm4 --compositor=off --display=:393" label="unconfined")
+dbus-daemon[2718092]: [session uid=1000 pid=2718092 pidfd=5] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2718141]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2718117 comm="/usr/bin/xfwm4 --compositor=off --display=:393" label="unconfined")
+dbus-daemon[2718092]: [session uid=1000 pid=2718092 pidfd=5] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=2718117 comm="/usr/bin/xfwm4 --compositor=off --display=:393" label="unconfined")
+dbus-daemon[2718141]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+dbus-daemon[2718092]: [session uid=1000 pid=2718092 pidfd=5] Successfully activated service 'org.xfce.Xfconf'
+seamly before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.23.131"), update_available: false, can_remove: true, can_open: true }
+seamly JobFinished: Ok("Launch request accepted")
+seamly after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.23.131"), update_available: false, can_remove: true, can_open: true })
+TIMING seamly open-current 15729 ms
+X Error of failed request:  BadWindow (invalid Window parameter)
+  Major opcode of failed request:  42 (X_SetInputFocus)
+  Resource id in failed request:  0x200007
+  Serial number of failed request:  18
+  Current serial number in output stream:  19
+
+(xfconfd:2718148): xfconfd-WARNING **: 10:28:26.175: Name org.xfce.Xfconf lost on the message dbus, exiting.
+seamly before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/data/flatpak/app/io.seamly.seamly2d/x86_64/stable/1c95cb0fdef5e3f2b4c6caeb2cf2e0767ba751a658b477ccca13fe66d0a876be", package: Some("io.seamly.seamly2d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v2026.11.23.131"), update_available: false, can_remove: true, can_open: true }
+seamly JobFinished: Ok("Flathub app removed")
+seamly after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING seamly remove 4927 ms
+/var/tmp/shift-flatpak-desktop.8NiwE1xk/seamly/home/.var/app/io.seamly.seamly2d/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING seamly update-remove 28310 ms

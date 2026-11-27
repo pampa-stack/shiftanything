@@ -65,6 +65,8 @@
       <div class="mcp-clients" role="group" aria-label="${t('Client MCP', 'MCP clients')}">
         ${clients.map(([id, name], index) => `<button type="button" class="btn" data-client="${id}" aria-pressed="${index === 0}">${name}</button>`).join('')}
       </div>
+      <p data-opencode-help hidden>${t('Aggiungi la configurazione a opencode.jsonc. Il comando opencode debug paths mostra la cartella di configurazione.',
+        'Add the configuration to opencode.jsonc. Run opencode debug paths to find the configuration directory.')}</p>
       <pre class="mcp-config" aria-label="${t('Configurazione MCP', 'MCP configuration')}" tabindex="0"></pre>
       <div class="mcp-actions">
         <button class="btn solid" type="button" data-copy-config disabled>${t('Copia configurazione', 'Copy configuration')}</button>
@@ -79,6 +81,7 @@
       <button type="button" class="btn" data-check-mcp>${t('Verifica collegamento', 'Check connection')}</button>
     </section>`);
   const agentStatus = agent.querySelector('[role=status]');
+  const openCodeHelp = agent.querySelector('[data-opencode-help]');
   const config = agent.querySelector('.mcp-config');
   const configCopy = agent.querySelector('[data-copy-config]');
   let selectedClient = clients[0][0];
@@ -87,6 +90,7 @@
   async function showConfig(client) {
     const currentRequest = ++requestNumber;
     selectedClient = client;
+    openCodeHelp.hidden = client !== 'open_code';
     for (const button of agent.querySelectorAll('[data-client]')) {
       button.setAttribute('aria-pressed', String(button.dataset.client === client));
     }

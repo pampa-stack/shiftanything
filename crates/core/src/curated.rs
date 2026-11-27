@@ -800,7 +800,49 @@ pub const PICARD: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8D89TSJ88H"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 28] = [
+pub const MUSESCORE: crate::CraftApp = crate::CraftApp {
+    id: "musescore",
+    name: "MuseScore Studio",
+    tagline: "Write, arrange and play sheet music",
+    repo: "musescore/MuseScore",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [120, 183, 240],
+    ink_light: [37, 82, 146],
+    ink_dark: [130, 189, 248],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "MuseScore Limited",
+    msi_publisher: None,
+    bundle: Some("org.musescore.MuseScore4portable"),
+    site: Some("https://musescore.org/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
+    id: "losslesscut",
+    name: "LosslessCut",
+    tagline: "Trim and rearrange media without re-encoding",
+    repo: "mifi/lossless-cut",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [137, 191, 237],
+    ink_light: [48, 86, 131],
+    ink_dark: [147, 204, 245],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Mikael Finstad",
+    msi_publisher: None,
+    bundle: Some("losslesscut"),
+    site: Some("https://losslesscut.app/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 30] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -829,6 +871,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 28] = [
     PICARD,
     PENCIL2D,
     OPENSHOT,
+    MUSESCORE,
+    LOSSLESSCUT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -853,7 +897,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
-    if [LOCALSEND, PENCIL2D, OPENSHOT].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)) {
+    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)) {
         return true;
     }
     matches!(
@@ -943,7 +987,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 17);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 19);
     }
 
     #[test]

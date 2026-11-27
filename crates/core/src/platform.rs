@@ -364,7 +364,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::neovide_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
-    if let Some(app) = [crate::curated::PENCIL2D, crate::curated::OPENSHOT].into_iter().find(|app| stems.contains(&app.id)) {
+    use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
+    if let Some(app) = [PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].into_iter().find(|app| stems.contains(&app.id)) {
         if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
             return None;
         }
@@ -372,17 +373,32 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         if release.tag.strip_prefix('v') != Some(version.to_string().as_str()) {
             return None;
         }
-        let filename = if app.id == crate::curated::PENCIL2D.id {
-            format!("pencil2d-linux-amd64-v{version}.AppImage")
-        } else {
-            format!("OpenShot-v{version}-x86_64.AppImage")
+        let exact_name = match app.id {
+            "pencil2d" => Some(format!("pencil2d-linux-amd64-v{version}.AppImage")),
+            "openshot-video-editor" => Some(format!("OpenShot-v{version}-x86_64.AppImage")),
+            "losslesscut" => Some("LosslessCut-linux-x86_64.AppImage".into()),
+            _ => None,
         };
-        let url = format!("{}{}/{filename}", crate::release::download_prefix(app.repo), release.tag);
+        let versioned_musescore = format!("MuseScore-Studio-{version}.");
+        let url_prefix = format!("{}{}/", crate::release::download_prefix(app.repo), release.tag);
         return release
             .assets
             .iter()
             .find(|asset| {
-                asset.name == filename && asset.url == url && asset.size > 0 && asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
+                let expected_name = exact_name.as_ref().map_or_else(
+                    || {
+                        asset
+                            .name
+                            .strip_prefix(&versioned_musescore)
+                            .and_then(|rest| rest.strip_suffix("-x86_64.AppImage"))
+                            .is_some_and(|build| build.len() == 9 && build.bytes().all(|byte| byte.is_ascii_digit()))
+                    },
+                    |name| asset.name == *name,
+                );
+                expected_name
+                    && asset.url.strip_prefix(&url_prefix) == Some(asset.name.as_str())
+                    && asset.size > 0
+                    && asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
             })
             .map(|asset| (asset, PackageKind::AppImage));
     }
@@ -529,7 +545,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
-    if [crate::curated::PENCIL2D.id, crate::curated::OPENSHOT.id].iter().any(|id| stems.contains(id)) {
+    use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
+    if [PENCIL2D, OPENSHOT, MUSESCORE, LOSSLESSCUT].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
     if stems.contains(&LOCALSEND.id) {
@@ -544,12 +561,15 @@ mod tests {
 
     #[test]
     fn reviewed_linux_appimages_require_verified_stable_asset_metadata() {
-        use crate::curated::{OPENSHOT, PENCIL2D};
+        use crate::curated::{LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
-        for (app, version, filename) in
-            [(PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"), (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage")]
-        {
+        for (app, version, filename) in [
+            (PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"),
+            (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage"),
+            (MUSESCORE, "4.7.7", "MuseScore-Studio-4.7.7.261109195-x86_64.AppImage"),
+            (LOSSLESSCUT, "3.70.2", "LosslessCut-linux-x86_64.AppImage"),
+        ] {
             let tag = format!("v{version}");
             let mut release = Release {
                 assets: vec![Asset {

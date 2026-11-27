@@ -1,0 +1,40 @@
+START 2026-11-27T09:13:41Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/mifi/lossless-cut/releases/download/v3.70.1/LosslessCut-linux-x86_64.AppImage bytes=221418564 sha256=04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842
+FILE /fixture/home/Applications/LosslessCut-linux-x86_64.AppImage version=3.70.1 bytes=221418564 sha256=04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842
+DESKTOP /fixture/home/data/applications/losslesscut.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/losslesscut.png sha256=ec5517eefd33d8faed123a5893022d36f1de941e1925023c3a7979d38cd9c50b
+PASS losslesscut install 4880 ms LosslessCut installed: 3.70.1
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=119 comm="/tmp/appimage_extracted_f970504341098e9e4213f13ec4" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = losslesscut losslesscut
+LosslessCut 3.70.1
+PASS losslesscut open-old 1 ms Launch request accepted
+GUI losslesscut open-old 11128 ms window=2097155
+OFFICIAL https://github.com/mifi/lossless-cut/releases/download/v3.70.2/LosslessCut-linux-x86_64.AppImage bytes=221357823 sha256=e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a
+FILE /fixture/home/Applications/LosslessCut-linux-x86_64.AppImage version=3.70.2 bytes=221357823 sha256=e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a
+DESKTOP /fixture/home/data/applications/losslesscut.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/losslesscut.png sha256=ec5517eefd33d8faed123a5893022d36f1de941e1925023c3a7979d38cd9c50b
+PASS losslesscut update 11434 ms LosslessCut updated to 3.70.2
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/losslesscut-final-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=119 comm="/tmp/appimage_extracted_bdba53eae49c115e62deabc1c9" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = losslesscut losslesscut
+LosslessCut 3.70.2
+PASS losslesscut open-new 0 ms Launch request accepted
+GUI losslesscut open-new 13181 ms window=2097155
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=105 comm="/tmp/appimage_extracted_bdba53eae49c115e62deabc1c9" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = losslesscut losslesscut
+LosslessCut 3.70.2
+[105:1127/091429.925869:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+2026-11-27T09:14:31.076Z info: LosslessCut version 3.70.2 { isDev: false }
+2026-11-27T09:14:31.140Z info: Initialized config store
+2026-11-27T09:14:31.142Z info: Waiting for app to become ready
+[105:1127/091431.351511:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[105:1127/091431.351577:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+2026-11-27T09:14:31.360Z info: CLI arguments { _: [], sandbox: false }
+2026-11-27T09:14:31.800Z error: Failed to check github version fetch failed
+2026-11-27T09:14:33.475Z info: ffmpeg -f lavfi -i 'nullsrc=s=256x256:d=1' -f null -
+2026-11-27T09:14:33.659Z info: ffprobe -v 0 -of json -show_program_version
+GUI losslesscut open-menu 8463 ms window=2097155
+PASS losslesscut remove 125 ms LosslessCut was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot2/losslesscut-final-profile/home/verification-user-data.txt: OK

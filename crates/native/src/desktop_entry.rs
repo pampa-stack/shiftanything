@@ -24,6 +24,8 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
     match app.id {
         "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
         "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
+        "musescore" => ("AudioVideo;Audio;Music;Qt;", Some("MuseScore4")),
+        "losslesscut" => ("AudioVideo;Video;AudioVideoEditing;", Some("losslesscut")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -80,9 +82,9 @@ fn value(s: &str) -> String {
 
 /// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
-    use artcraft_launcher_core::curated::{LOCALSEND, OPENSHOT, PENCIL2D};
+    use artcraft_launcher_core::curated::{LOCALSEND, LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D};
     (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
-        && [LOCALSEND, OPENSHOT, PENCIL2D].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
+        && [LOCALSEND, LOSSLESSCUT, MUSESCORE, OPENSHOT, PENCIL2D].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
     .then_some("--appimage-extract-and-run")
 }
 

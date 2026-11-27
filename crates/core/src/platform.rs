@@ -351,6 +351,20 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
     None
 }
 
+type AssetMatcher = fn(&Release, &Asset) -> bool;
+
+fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
+    use crate::{curated, release};
+
+    let recipes: [(&str, PackageKind, AssetMatcher); 4] = [
+        (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
+        (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
+        (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
+        (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
+    ];
+    recipes.into_iter().find(|(id, _, _)| stems.contains(id)).map(|(_, kind, matches_asset)| (kind, matches_asset))
+}
+
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
@@ -397,29 +411,11 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             .find(|asset| crate::release::qualified_mac_dmg_asset(app, release, asset))
             .map(|asset| (asset, PackageKind::Dmg));
     }
-    if stems.contains(&crate::curated::NAPS2.id) {
-        if !kinds.contains(&PackageKind::MacPkg) {
+    if let Some((kind, matches_asset)) = reviewed_mac_archive(stems) {
+        if !kinds.contains(&kind) {
             return None;
         }
-        return release.assets.iter().find(|asset| crate::release::naps2_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacPkg));
-    }
-    if stems.contains(&crate::curated::KEYCASTR.id) {
-        if !kinds.contains(&PackageKind::MacZip) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::keycastr_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
-    }
-    if stems.contains(&crate::curated::MACCY.id) {
-        if !kinds.contains(&PackageKind::MacZip) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::maccy_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
-    }
-    if stems.contains(&crate::curated::NETNEWSWIRE.id) {
-        if !kinds.contains(&PackageKind::MacZip) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::netnewswire_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
+        return release.assets.iter().find(|asset| matches_asset(release, asset)).map(|asset| (asset, kind));
     }
     if stems.contains(&crate::curated::LAPCE.id) {
         if !kinds.contains(&PackageKind::Dmg) {

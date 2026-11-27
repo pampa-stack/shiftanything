@@ -1,0 +1,19 @@
+commit 6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd
+Parent:  fd8fb7882336f3a194c50426bdf139b162c9a0ac0b1faf4ebdbf3a95b74056e4
+ContentChecksum:  0fc817e846339aad4d99c18bd07d45f4b9690743407b821e37bb0f64e4676fab
+Date:  2026-01-17 01:43:56 +0000
+
+    Merge pull request #46 from flathub/update-master-22bd112 (de53ea58761a)
+
+    Name: com.github.libresprite.LibreSprite
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat Jan 17 02:03:51 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

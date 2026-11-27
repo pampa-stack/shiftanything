@@ -1,0 +1,19 @@
+commit 2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf
+Parent:  6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd
+ContentChecksum:  8e3902d616fd5f5d470822e4958f3e2defd5f3f74eae775682e82dbeeeb33381
+Date:  2026-05-12 18:20:55 +0000
+
+    Merge pull request #49 from flathub/update-runtime (83537b16b958)
+
+    Name: com.github.libresprite.LibreSprite
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue May 12 19:03:00 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

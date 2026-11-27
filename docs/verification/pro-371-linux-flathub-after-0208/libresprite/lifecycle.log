@@ -1,0 +1,68 @@
+2026-11-27T22:12:23+00:00 libresprite AVAILABLE 27390251008
+libresprite before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+libresprite JobFinished: Ok("Flathub app installed")
+libresprite after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:20+00:00 libresprite current-install 2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/applications/com.github.libresprite.LibreSprite.desktop
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/icons/hicolor/16x16/apps/com.github.libresprite.LibreSprite.png
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/icons/hicolor/256x256/apps/com.github.libresprite.LibreSprite.png
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/icons/hicolor/32x32/apps/com.github.libresprite.LibreSprite.png
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/icons/hicolor/48x48/apps/com.github.libresprite.LibreSprite.png
+/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf/export/share/icons/hicolor/64x64/apps/com.github.libresprite.LibreSprite.png
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.freedesktop.Platform/x86_64/24.08
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/com.github.libresprite.LibreSprite/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:41+00:00 libresprite previous 6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd
+libresprite before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd", package: Some("com.github.libresprite.LibreSprite"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: false, can_open: true }
+libresprite JobFinished: Err("Approved action rejected: native installation state changed")
+libresprite JobFinished: Err("This Flatpak is managed outside the launcher")
+libresprite after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd", package: Some("com.github.libresprite.LibreSprite"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[7232]: [session uid=1000 pid=7232] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=9990 comm="xfwm4 --compositor=on --display=:72" label="unconfined")
+dbus-daemon[7232]: [session uid=1000 pid=7232] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[7232]: [session uid=1000 pid=7232] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=10018 comm="flatpak run --user --command=sh app/com.github.lib" label="flatpak (unconfined)")
+dbus-daemon[7232]: [session uid=1000 pid=7232] Successfully activated service 'org.freedesktop.Flatpak'
+libresprite before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: true, can_remove: true, can_open: true }
+libresprite JobFinished: Ok("Launch request accepted")
+libresprite after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.libresprite.LibreSprite
+2026-11-27T22:13:50+00:00 libresprite previous GUI WM_NAME(STRING) = "LibreSprite 1.2-dev"
+WM_CLASS(STRING) = "libresprite", "libresprite"
+2026-11-27T22:13:50+00:00 libresprite AVAILABLE 21192318976
+libresprite before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/6e5ded41194db28c107d29ba35e1f03d59ab07820511d2f0a7a05cbde6cb5ebd", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: true, can_remove: true, can_open: true }
+libresprite JobFinished: Ok("Flathub app updated")
+libresprite after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:53+00:00 libresprite current 2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf
+/home/qa/profiles/libresprite/.var/app/com.github.libresprite.LibreSprite/fixture.txt: OK
+libresprite before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: true, can_open: true }
+libresprite JobFinished: Ok("Launch request accepted")
+libresprite after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.libresprite.LibreSprite
+2026-11-27T22:14:02+00:00 libresprite current GUI WM_NAME(STRING) = "LibreSprite 1.2-dev"
+WM_CLASS(STRING) = "libresprite", "libresprite"
+libresprite before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 1, patch: 0, pre: Prerelease("dev") }), source: Flatpak, location: "/home/qa/profiles/libresprite/data/flatpak/app/com.github.libresprite.LibreSprite/x86_64/stable/2f8fe9a8e7b034f9583b27261d32d2923d2a10afaab14e7c298f00425408dfdf", package: Some("com.github.libresprite.LibreSprite"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.1-dev"), update_available: false, can_remove: true, can_open: true }
+libresprite JobFinished: Ok("Flathub app removed")
+libresprite after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/libresprite/.var/app/com.github.libresprite.LibreSprite/fixture.txt: OK
+2026-11-27T22:14:06+00:00 libresprite PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:14:07+00:00 libresprite EXIT 0 remove
+
+(xfconfd:10032): xfconfd-WARNING **: 22:14:07.761: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -2138,7 +2138,7 @@
       "kind": "api",
       "source": "https://opencode.ai/docs/sdk/"
     },
-    "logo": "https://raw.githubusercontent.com/anomalyco/opencode/dev/.github/assets/logo-ornate-dark.svg",
+    "logo": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/packages/ui/src/assets/icons/provider/opencode.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/anomalyco/opencode/dev/services/site/public/v1/docs/assets/lander/screenshot.png"
     ],
@@ -17371,7 +17371,7 @@
       "kind": "api",
       "source": "https://docs.frappe.io/framework/user/en/guides/integration/rest_api"
     },
-    "logo": "https://frappe.io/files/ERPNexte2a3b6.png",
+    "logo": "https://raw.githubusercontent.com/frappe/erpnext/HEAD/erpnext/public/images/v16/erpnext.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/frappe/erpnext/develop/erpnext/public/images/v16/hero_image.png",
       "https://erpnext.com/files/v16_stock_summary.png"
@@ -22120,9 +22120,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/documenso/documenso/HEAD/packages/assets/logo.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/documenso/documenso",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -22163,9 +22163,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/docusealco/docuseal/HEAD/public/logo.svg",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/docusealco/docuseal",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23080,9 +23080,9 @@
       "kind": "api",
       "source": "https://grafana.com/docs/grafana/latest/developer-resources/api-reference/http-api/"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/grafana/grafana/HEAD/public/img/grafana_icon.svg",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/grafana/grafana",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23123,9 +23123,9 @@
       "kind": "api",
       "source": "https://developers.home-assistant.io/docs/api/rest/"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/home-assistant/frontend/HEAD/public/static/icons/favicon-192x192.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/home-assistant/frontend",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23325,9 +23325,9 @@
       "kind": "api",
       "source": "https://www.keycloak.org/docs-api/latest/rest-api/index.html"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/keycloak/keycloak/HEAD/js/apps/admin-ui/public/logo.svg",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/keycloak/keycloak",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -23368,7 +23368,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/LostRuins/koboldcpp/HEAD/ui/lib/ui/static/favicon.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/LostRuins/koboldcpp/concedo/media/preview.png"
     ],
@@ -24110,7 +24110,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://nodered.org/about/resources/media/node-red-icon-2.svg",
     "screenshots": [
       "https://nodered.org/images/node-red-screenshot.png"
     ],
@@ -24821,9 +24821,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/infiniflow/ragflow",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -24977,9 +24977,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/searxng/searxng/HEAD/client/simple/src/brand/searxng.svg",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/searxng/searxng",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -26498,9 +26498,9 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/plausible/analytics/HEAD/priv/static/images/ce/apple-touch-icon.png",
     "screenshots": [],
-    "media_source": null,
+    "media_source": "https://github.com/plausible/analytics",
     "release": {
       "version": "v3.2.2",
       "date": "2026-11-23",
@@ -27400,7 +27400,7 @@
       "kind": "api",
       "source": "https://docs.pi-hole.net/api/"
     },
-    "logo": "https://wp-cdn.pi-hole.net/wp-content/uploads/2023/05/pihole-logo-horizontal-white-e1683321640117.png",
+    "logo": "https://raw.githubusercontent.com/pi-hole/AdminLTE/HEAD/img/logo.svg",
     "screenshots": [
       "https://wp-cdn.pi-hole.net/wp-content/uploads/2026/09/v6-dashboard.png"
     ],
@@ -27719,7 +27719,7 @@
       "kind": "api",
       "source": "https://github.com/h44z/wg-portal#readme"
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/h44z/wg-portal/HEAD/docs/assets/images/logo.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/h44z/wg-portal/master/docs/assets/images/screenshot.png"
     ],
@@ -27948,7 +27948,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/bluewave-labs/Checkmate/HEAD/client/src/assets/icons/checkmate-icon.svg",
     "screenshots": [
       "https://checkmate.so/img/readme/dashboard.webp"
     ],

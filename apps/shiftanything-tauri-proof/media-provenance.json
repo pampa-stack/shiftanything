@@ -3552,6 +3552,246 @@
       "file": "media/codenomad-logo.png",
       "sha256": "9f49991fbe9b5c6979b69f337a0eaca606c55a4c5938460fa9d7cf95c0a27aa4",
       "source_sha256": "1254c109c0bda9c2b87cc23512c6096ad1aae45b908b1b8cf6f71346085c6f6b"
+    },
+    {
+      "app": "wazuh",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/wazuh/wazuh-dashboard-plugins/main/plugins/main/public/assets/images/themes/light/icon.svg",
+      "file": "media/wazuh-logo.png",
+      "sha256": "90b4b8b43e6537e422195902d1688610822428d5eb5a4a17ac4fda76b5ea8412",
+      "source_sha256": "cc4fd9c6d41b2a574dfb095d5753ee2aa485ba55f8bb34cea55eb8e664054beb"
+    },
+    {
+      "app": "opencode",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/anomalyco/opencode/HEAD/packages/ui/src/assets/icons/provider/opencode.svg",
+      "file": "media/opencode-logo.png",
+      "sha256": "6b6760320495b74f71936135663b106b0deedd11a5876dd2d52d602c777d6de7",
+      "source_sha256": "018a85654f13635373dc283ecc27928fa4e001c06cde47f7efa1cbcab567b51c"
+    },
+    {
+      "app": "cutter",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/rizinorg/cutter/dev/src/img/cutter.svg",
+      "file": "media/cutter-logo.png",
+      "sha256": "83bbefb8cc41cc0cbeb6f7bd2606b3bcfe3d572c2ffc162e4601113cefc30ce9",
+      "source_sha256": "4ad117f6d8fc9fffc1359d1eef7f3f1c68db0f74eebebc998fa47b89bab81832"
+    },
+    {
+      "app": "onlyoffice",
+      "slot": "logo",
+      "source": "https://static-site.onlyoffice.com/public/images/favicons/favicon150.png",
+      "file": "media/onlyoffice-logo.png",
+      "sha256": "1621354eb7a06bc3933d04015fb1b6a238825788c6513be0b0fc56d2f28cb8a2",
+      "source_sha256": "20af09551914fbce0bc315f72e388ad4fd80eaedf226f8df46a2dde0cd85914f"
+    },
+    {
+      "app": "iina",
+      "slot": "logo",
+      "source": "https://iina.io/img/icon.png",
+      "file": "media/iina-logo.png",
+      "sha256": "d8426447fc1d0e12164e7028f6732436368fca95c6b55405baaff384081ff14b",
+      "source_sha256": "f33050d8692c7d3bd6a43b2b0f3612ec1d5c5dc2cf57aa61ce165beaf55c5658"
+    },
+    {
+      "app": "vorta",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/borgbase/vorta/master/src/vorta/assets/icons/icon.svg",
+      "file": "media/vorta-logo.png",
+      "sha256": "e69a4d5754bb12d5cc57ae1b3ff08a15283606aca6eb686ce0befcb85289b706",
+      "source_sha256": "2be679a7bd1863ff9bfa1665ee83870a44f2ff1706595989b51bfa7128cab20b"
+    },
+    {
+      "app": "back-in-time",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/bit-team/backintime/dev/qt/icons/scalable/apps/backintime.svg",
+      "file": "media/back-in-time-logo.png",
+      "sha256": "c100a77e6e0c9cc495211063df4cd92314312931fd6b7d82ee0fff578b2b6e67",
+      "source_sha256": "48353764d71c9399e82af7894defeb40ff784aef18333fd1e04eca25010b259d"
+    },
+    {
+      "app": "invoiceplane",
+      "slot": "logo",
+      "source": "https://www.invoiceplane.com/assets/img/logo_64x64.png",
+      "file": "media/invoiceplane-logo.png",
+      "sha256": "d90f0c879e51546b567ad2c82a7adc267b3bd1afbeaa46d56a0dd93f9f4b72d5",
+      "source_sha256": "df666d4b7312f790b4f89e84c77a261530e3e5a0eaf063b578a6b9db7a5515d6"
+    },
+    {
+      "app": "krayin",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/krayin/laravel-crm/2.2/packages/Webkul/Admin/src/Resources/assets/images/logo.svg",
+      "file": "media/krayin-logo.png",
+      "sha256": "e884c9d10f3fe655cb83cd3379d8b7d4f61e098b1757a8f063d19d27d4b9a57a",
+      "source_sha256": "0db24d41ce1b58d3cb9acf657f02d0766bbfacebe0cf252b9af33ba258fe6634"
+    },
+    {
+      "app": "prestashop",
+      "slot": "logo",
+      "source": "https://www.prestashop-project.org/images/favicon.svg",
+      "file": "media/prestashop-logo.png",
+      "sha256": "fc585692a7bb1f9bffa6503a8854b4c3b917eb2cff8cb526cf99ae4397f777b7",
+      "source_sha256": "61f0db0d46bec51b3fb99fd71fc26499e7ce83aef762f5ee03dd87604d24ed4e"
+    },
+    {
+      "app": "woocommerce",
+      "slot": "logo",
+      "source": "https://ps.w.org/woocommerce/assets/icon.svg?rev=3640790",
+      "file": "media/woocommerce-logo.png",
+      "sha256": "0bdeb9e16657d8f7d30c0f216324522ee9e86f6b43cf38d8b03da4308a0e290f",
+      "source_sha256": "9ff684f37e2b9d9aa36ac51dfdda47fe80203f5544597ab4f38662338fc05bf5"
+    },
+    {
+      "app": "bagisto",
+      "slot": "logo",
+      "source": "https://bagisto.com/wp-content/themes/bagisto/images/logo.png",
+      "file": "media/bagisto-logo.png",
+      "sha256": "220543f41879bb225ee5c6dc383dcd56912ad8cd24f059989adb9c8182150c14",
+      "source_sha256": "b8a7a6a0a8448e69f33bdad9d5639713f2aa1216249b8bb4f6c8ca8f802e13f5"
+    },
+    {
+      "app": "wiki-js",
+      "slot": "logo",
+      "source": "https://js.wiki/apple-touch-icon.png",
+      "file": "media/wiki-js-logo.png",
+      "sha256": "625471e84c0913ae7562c852650e6024286c479963a97a7f29894c52796a0ed2",
+      "source_sha256": "b7fcb82b652f31b626b71b0e653db26fe194017d7ef9be6bd5fb20bd3a0ea40b"
+    },
+    {
+      "app": "kooha",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/SeaDve/Kooha/main/data/icons/io.github.seadve.Kooha.svg",
+      "file": "media/kooha-logo.png",
+      "sha256": "91628fb5071891933f984d9c339b6d3ba8c4b5c6b9d800c1715aabc07e99caf8",
+      "source_sha256": "c23e73abc38ec8d1c9b06f15523820b99f60c79e8c1e3b6083d3f3150dad95d6"
+    },
+    {
+      "app": "documenso",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/documenso/documenso/HEAD/packages/assets/logo.png",
+      "file": "media/documenso-logo.png",
+      "sha256": "6ab983a4ef8e90782a8f2b2f97a5881e9b54ef9a6e5cad5eb0801d4c6be9e762",
+      "source_sha256": "52d08313b728cb28cb6196fd89f99c3e2a025b2c6b513bce0c781a1c8099b5e4"
+    },
+    {
+      "app": "docuseal",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/docusealco/docuseal/HEAD/public/logo.svg",
+      "file": "media/docuseal-logo.png",
+      "sha256": "8585ab1084351161b447f1af9d4da59d049c8a9ec17de261d3e5b9ca280f9bc6",
+      "source_sha256": "fde5f71884ac625107c918c5c2a555b07b533bcf04a3df622588db99a629f506"
+    },
+    {
+      "app": "grafana",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/grafana/grafana/HEAD/public/img/grafana_icon.svg",
+      "file": "media/grafana-logo.png",
+      "sha256": "adf088f92a3a8771258df7af78dac0496a6eb33b752739aacbe5c857b9ecf1b5",
+      "source_sha256": "50806d5a65779e79f746398570e0fc322d5de55e19f0be87a275963f0947bb5e"
+    },
+    {
+      "app": "home-assistant",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/home-assistant/frontend/HEAD/public/static/icons/favicon-192x192.png",
+      "file": "media/home-assistant-logo.png",
+      "sha256": "f1617b56c4e0a36654503931454310f09142a95e8d21cf4912403f58301ab690",
+      "source_sha256": "543f7c9d823e3899723a0a4aab472ab18e64436a2ba150e980be6995c7ae4d12"
+    },
+    {
+      "app": "keycloak",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/keycloak/keycloak/HEAD/js/apps/admin-ui/public/logo.svg",
+      "file": "media/keycloak-logo.png",
+      "sha256": "c79f51ef41252be06d98b4d0b0ff29565679cfca3f1b5ea1353ef887d2b33f94",
+      "source_sha256": "1b80308b77fda924fdb81c7d666da096c799ef03e23d9eeee554cedc9f6c1393"
+    },
+    {
+      "app": "koboldcpp",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/LostRuins/koboldcpp/HEAD/ui/lib/ui/static/favicon.svg",
+      "file": "media/koboldcpp-logo.png",
+      "sha256": "b28cf9f22550a046b8100c5a9d0480b5f8765d25b5d049abc0a9b3076afb33b5",
+      "source_sha256": "5ab26e56914d750a73010b8a65f1cc81394ddcae46f90e4681023f459ab33b06"
+    },
+    {
+      "app": "node-red",
+      "slot": "logo",
+      "source": "https://nodered.org/about/resources/media/node-red-icon-2.svg",
+      "file": "media/node-red-logo.png",
+      "sha256": "038980d61b4ca21ccbfd1d77d7db29991096013fc5c57fc89dbd941691dbe049",
+      "source_sha256": "a23927a2731164b0b1c466f00435d1620356e9ef1b34ddb5f9314d421fff2b4a"
+    },
+    {
+      "app": "ragflow",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
+      "file": "media/ragflow-logo.png",
+      "sha256": "0e7795b6eeaacdee3623748844726229e68ff76143cc229749e99a27304364a8",
+      "source_sha256": "07745f99525827179cb28230ced9baec584f9458ff110b0602e54a9ac5817fb1"
+    },
+    {
+      "app": "searxng",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/searxng/searxng/HEAD/client/simple/src/brand/searxng.svg",
+      "file": "media/searxng-logo.png",
+      "sha256": "b9f62e02ec4f0be9f78ce0eab41bc7c0e036c351397d96b2cd4bd4de091e98ac",
+      "source_sha256": "74aa8b2d87ef6dda8dee1f544718fb0b2a5735c235b1d78c6a66128b450b5365"
+    },
+    {
+      "app": "sonic-visualiser",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sonic-visualiser/sonic-visualiser/default/icons/sv-icon-light.svg",
+      "file": "media/sonic-visualiser-logo.png",
+      "sha256": "54eff6888aff4d219de344b50aeb5c2b2de7dfbbd3c0d8abc24e9f1853816f20",
+      "source_sha256": "d79e42c18e1da32f99d06ccd16fb41ddd71df408472cce0d6f2a30c5249048a1"
+    },
+    {
+      "app": "sendportal",
+      "slot": "logo",
+      "source": "https://sendportal.io/img/sendportal.png",
+      "file": "media/sendportal-logo.png",
+      "sha256": "75e316f99b30bda0ce3faa503c86bea9d0a36f97bb53b3fbe4fc6e2539a8ad0b",
+      "source_sha256": "fb986d201623d2eec2f43702ed3cb79b33bd6d31415be55e9bff724028eeece4"
+    },
+    {
+      "app": "plausible-ce",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/plausible/analytics/HEAD/priv/static/images/ce/apple-touch-icon.png",
+      "file": "media/plausible-ce-logo.png",
+      "sha256": "6a3d2a62ed364cb0fe5bf9fa22b46ce9cf9f905f4ac2ee79c56f7968fb014e3b",
+      "source_sha256": "e8739cdb4c9e319d512ae63fded98cbca5b3b18b11213a00618aa4265423c8c5"
+    },
+    {
+      "app": "pi-hole",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pi-hole/AdminLTE/HEAD/img/logo.svg",
+      "file": "media/pi-hole-logo.png",
+      "sha256": "d4329e271baecca012220194aa476929a07f623bc9504971e0bee221087ee9bf",
+      "source_sha256": "c58432fbf5ee39d5afd8db60ffbbd44610581e71793d408f6cc15fcf9004629c"
+    },
+    {
+      "app": "wg-portal",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/h44z/wg-portal/HEAD/docs/assets/images/logo.svg",
+      "file": "media/wg-portal-logo.png",
+      "sha256": "15cbc74b4a16d7b21c1d19c39ded2a43cb930d218b9e85a03f34382f1d9557b2",
+      "source_sha256": "d060e73a7bea0448933f8f69b0ef2af1dd4c7532d5ddcdb6f9c55b4b754fbd80"
+    },
+    {
+      "app": "checkmate",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/bluewave-labs/Checkmate/HEAD/client/src/assets/icons/checkmate-icon.svg",
+      "file": "media/checkmate-logo.png",
+      "sha256": "225665d3b57bbfcd17658040006c74ae4a8630aeb5a29f73c056c66684641813",
+      "source_sha256": "52e65f1e35d7c93dc96d778dc248cb53db298667e294b245e3460b3487ee0285"
+    },
+    {
+      "app": "erpnext",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/frappe/erpnext/HEAD/erpnext/public/images/v16/erpnext.svg",
+      "file": "media/erpnext-logo.png",
+      "sha256": "81132695d1357cae6bfc641d12625c9f7e4b0854a617d5a73cd3ab1730fcaf68",
+      "source_sha256": "e3fc80256d4b7a3a11a70f591bea50fe50c58c5c2bd8609be92a9d3bd4bd2960"
     }
   ]
 }

@@ -52,7 +52,7 @@ impl Release {
     pub fn sums_asset(&self) -> Option<&Asset> {
         self.assets.iter().find(|asset| {
             asset.name == "SHA256SUMS.txt"
-                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo].iter().any(|repo| {
+                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].iter().any(|repo| {
                     let manifest = checksum_manifest_name(repo);
                     asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
                 })
@@ -64,7 +64,7 @@ impl Release {
 pub fn checksum_manifest_name(repo: &str) -> &'static str {
     if repo == crate::curated::KOPIA.repo {
         "checksums.txt"
-    } else if repo == crate::curated::TERMIX.repo {
+    } else if [crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].contains(&repo) {
         "SHA256SUMS"
     } else {
         "SHA256SUMS.txt"
@@ -484,6 +484,8 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         ente_auth_version(tag)
     } else if repo == crate::curated::TERMIX.repo {
         termix_desktop_version(tag)
+    } else if repo == crate::curated::OPENCODE.repo {
+        opencode_desktop_version(tag)
     } else if repo == crate::curated::PICARD.repo {
         picard_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
@@ -491,6 +493,51 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
     } else {
         version::parse(tag)
     }
+}
+
+/// GitHub publishes OpenCode 2 alongside the legacy desktop updater's 1.x releases.
+pub fn opencode_desktop_version(tag: &str) -> Option<Version> {
+    let label = tag.strip_prefix('v')?;
+    let version = Version::parse(label).ok()?;
+    (version.major == 2 && version.to_string() == label).then_some(version)
+}
+
+pub const OPENCODE_DESKTOP_FEED: &str = "https://opencode.ai/update/api/latest/desktop/opencode/";
+
+/// The publisher's current stable desktop release, mapped to the same bytes on GitHub.
+pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
+    let value: serde_json::Value = serde_json::from_slice(bytes).ok()?;
+    if value["channel"].as_str()? != "latest"
+        || value["distribution"].as_str()? != "opencode"
+        || value["name"].as_str()? != "desktop"
+        || !value["active"].as_bool()?
+    {
+        return None;
+    }
+    let version_label = value["version"].as_str()?;
+    let tag = format!("v{version_label}");
+    let version = opencode_desktop_version(&tag)?;
+    if !version.pre.is_empty() || !version.build.is_empty() {
+        return None;
+    }
+    let name = "opencode-desktop-mac-arm64.dmg";
+    let file = &value["metadata"]["files"][name];
+    let size = file["size"].as_u64().filter(|size| *size > 0)?;
+    let sha256 = file["sha256"].as_str().filter(|hash| is_hex64(hash))?.to_ascii_lowercase();
+    if file["url"].as_str()? != format!("https://opencode.ai/files/bin/{version_label}/{name}") {
+        return None;
+    }
+
+    let repo = crate::curated::OPENCODE.repo;
+    let url = format!("{}{tag}/{name}", download_prefix(repo));
+    Some(Release {
+        version: Some(version),
+        name: format!("OpenCode {version_label}"),
+        html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
+        tag,
+        assets: vec![Asset { name: name.into(), url, size, sha256: Some(sha256) }],
+        ..Release::default()
+    })
 }
 
 pub(crate) fn godot_stable_version(tag: &str) -> Option<Version> {
@@ -703,7 +750,7 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 
 /// Desktop bundle recipes restricted to exact packages qualified on Apple Silicon.
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW, crate::curated::OLLAMA];
+    const RECIPES: &[crate::CraftApp] = &[crate::curated::OPENCLAW, crate::curated::OPENCODE, crate::curated::OLLAMA];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1010,6 +1057,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("openclaw/openclaw", "v2026.11.10") => {
             &[("OpenClaw-2026.11.10-arm64.dmg", 248_813_181, "e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a")]
         }
+        ("anomalyco/opencode", "v2.4.1") => {
+            &[("opencode-desktop-mac-arm64.dmg", 345_340_005, "0d69386bec754af9a4d933148a47bc21beea85c1d414295a5b295f2e34640cea")]
+        }
+        ("anomalyco/opencode", "v2.4.2") => {
+            &[("opencode-desktop-mac-arm64.dmg", 345_253_101, "e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7")]
+        }
         ("ollama/ollama", "v0.40.17") => &[("Ollama.dmg", 231_575_873, "cc5eb8fa68f2f15ea6dbc79a705092a1b1e666102c54ed535c91bbbeccab8c78")],
         ("ollama/ollama", "v0.40.18") => &[("Ollama.dmg", 232_758_599, "78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed")],
         ("cyanfish/naps2", "v8.6.0") => {
@@ -1204,6 +1257,46 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn opencode_desktop_manifest_requires_current_stable_apple_silicon_dmg() {
+        let name = "opencode-desktop-mac-arm64.dmg";
+        let expected = crate::release::release_from_sums(crate::curated::OPENCODE.repo, "v2.4.2", &[]);
+        let approved = &expected.assets[0];
+        let fixture = serde_json::json!({
+            "channel": "latest",
+            "distribution": "opencode",
+            "name": "desktop",
+            "active": true,
+            "version": "2.4.2",
+            "metadata": {"files": {(name): {
+                "size": approved.size,
+                "sha256": approved.sha256,
+                "url": format!("https://opencode.ai/files/bin/2.4.2/{name}"),
+            }}}
+        });
+        let parse = |value: &serde_json::Value| opencode_desktop_release(&serde_json::to_vec(value).unwrap());
+        let release = parse(&fixture).unwrap();
+        assert_eq!(release.tag, "v2.4.2");
+        assert_eq!(&release.assets[0], approved);
+        assert!(qualified_mac_dmg_asset(&crate::curated::OPENCODE, &release, approved));
+        for (pointer, field) in [
+            ("/channel", serde_json::json!("beta")),
+            ("/distribution", serde_json::json!("other")),
+            ("/name", serde_json::json!("cli")),
+            ("/active", serde_json::json!(false)),
+            ("/version", serde_json::json!("1.19.6")),
+            ("/version", serde_json::json!("2.4.2-rc.1")),
+            ("/version", serde_json::json!("2.4.2+1")),
+            ("/metadata/files/opencode-desktop-mac-arm64.dmg/url", serde_json::json!("https://elsewhere.example/download")),
+            ("/metadata/files/opencode-desktop-mac-arm64.dmg/sha256", serde_json::json!("invalid")),
+            ("/metadata/files/opencode-desktop-mac-arm64.dmg/size", serde_json::json!(0)),
+        ] {
+            let mut changed = fixture.clone();
+            *changed.pointer_mut(pointer).unwrap() = field;
+            assert!(parse(&changed).is_none(), "{pointer}");
+        }
+    }
 
     const REPO: &str = "storytold/photocraft";
 

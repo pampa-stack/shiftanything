@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, TERMIX};
+use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -173,7 +173,13 @@ impl GitHubSource {
         let cache = self.cache.lock().unwrap_or_else(PoisonError::into_inner);
         // New files keep one row per setting (`repo` and `repo+pre`). Old files stored one
         // row under `repo`, so that key is still read when it matches this setting.
-        let allowed = |entry: &Entry| entry.prereleases == prereleases && entry.release.as_ref().is_none_or(release::ordinary_release_allowed);
+        let allowed = |entry: &Entry| {
+            entry.prereleases == prereleases
+                && entry.release.as_ref().is_none_or(|cached| {
+                    release::ordinary_release_allowed(cached)
+                        && (query.repo != OPENCODE.repo || release::opencode_desktop_version(&cached.tag).is_some())
+                })
+        };
         cache.entries.get(&cache_key(&query.repo, prereleases)).or_else(|| cache.entries.get(&query.repo)).filter(|entry| allowed(entry)).cloned()
     }
 
@@ -211,7 +217,9 @@ impl GitHubSource {
         let (repo, separate) = (query.repo.as_str(), query.separate_nightly);
         let ente_auth = repo == ENTE_AUTH.repo;
         let termix = repo == TERMIX.repo;
-        let named_channel = ente_auth || termix;
+        // OpenCode still labels the 1.x channel `Latest` for its legacy updater.
+        let opencode = repo == OPENCODE.repo;
+        let named_channel = ente_auth || termix || opencode;
         let per_page = if separate || named_channel { VERSIONS_PAGE } else { LIST_PAGE };
         let from_list = prereleases || named_channel;
         let url = if from_list {
@@ -243,6 +251,9 @@ impl GitHubSource {
                                 }
                                 if termix {
                                     return Err(format!("No Termix desktop release found in the first {ORDINARY_PAGES} release pages."));
+                                }
+                                if opencode {
+                                    return Err(format!("No OpenCode 2 release found in the first {ORDINARY_PAGES} release pages."));
                                 }
                                 return Err(format!(
                                     "Nightly builds fill the first {ORDINARY_PAGES} release pages; the newest ordinary release is unknown and nothing was cached."
@@ -360,9 +371,30 @@ impl GitHubSource {
         why
     }
 
+    fn opencode_desktop_manifest(&self) -> Result<Release, String> {
+        let bytes = self.http.get_bytes(release::OPENCODE_DESKTOP_FEED, 32 * 1024)?.ok_or("OpenCode's desktop release manifest is unavailable.")?;
+        release::opencode_desktop_release(&bytes).ok_or_else(|| "OpenCode's desktop release manifest is invalid.".into())
+    }
+
+    fn ask_opencode_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
+        let release = self.opencode_desktop_manifest()?;
+        let repo = &query.repo;
+        let asset = &release.assets[0];
+        let manifest_url = format!("{}{}/{}", release::download_prefix(repo), release.tag, release::checksum_manifest_name(repo));
+        let sums = self.http.get_text(&manifest_url)?.ok_or("OpenCode's GitHub release is missing its checksum manifest.")?;
+        if !release::parse_sha256sums(&sums).iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash)) {
+            return Err("OpenCode's desktop and GitHub release checksums disagree.".into());
+        }
+        self.store(repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
+        Ok(Answer { latest: LatestRelease::Found(release), source: Source::GitHubPages })
+    }
+
     /// The quota-free route through github.com (stable releases only).
     fn ask_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
         let repo = query.repo.as_str();
+        if repo == OPENCODE.repo {
+            return self.ask_opencode_pages(query);
+        }
         let github_page = repo != ENTE_AUTH.repo;
         if github_page && self.pages_quiet() {
             return Err("github.com couldn't be reached a moment ago".into());
@@ -438,6 +470,9 @@ fn latest_redirect_tag(location: &str, repo: &str) -> Option<String> {
     let tag = release::tag_from_redirect(location, repo)?;
     if repo == TERMIX.repo {
         release::termix_mac_package_url(&tag)?;
+    }
+    if repo == OPENCODE.repo {
+        release::opencode_desktop_version(&tag).filter(|version| version.pre.is_empty() && version.build.is_empty())?;
     }
     Some(tag)
 }
@@ -615,6 +650,9 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn newest_tag(&self, repo: &str) -> Option<String> {
+        if repo == OPENCODE.repo {
+            return self.opencode_desktop_manifest().ok().map(|release| release.tag);
+        }
         if repo == LIBREOFFICE.repo {
             return None;
         }
@@ -812,6 +850,50 @@ mod tests {
         ] {
             assert_eq!(latest_redirect_tag(&format!("{prefix}{path}"), repo), None, "{path}");
         }
+    }
+
+    #[test]
+    fn opencode_stable_uses_release_list_for_desktop_v2() {
+        let directory = tempfile::tempdir().unwrap();
+        let source = GitHubSource::new(Http::new().unwrap(), directory.path().join("releases.json"));
+        let repo = OPENCODE.repo;
+        let query = q(repo);
+        source.store(
+            repo,
+            Entry {
+                etag: Some("legacy".into()),
+                release: Some(Release { tag: "v1.19.6".into(), ..Release::default() }),
+                prereleases: false,
+                fetched_at: crate::now(),
+            },
+        );
+        assert!(source.cached(&query, false).is_none());
+
+        let result = source
+            .ask_api_with(&query, false, |url, etag| {
+                assert_eq!(url, "https://api.github.com/repos/anomalyco/opencode/releases?per_page=100");
+                assert_eq!(etag, None);
+                Ok(Fetched::Body {
+                    text: r#"[
+                        {"tag_name":"v1.19.6"},
+                        {"tag_name":"v2.4.1"},
+                        {"tag_name":"v2.4.2"},
+                        {"tag_name":"v2.4.10", "draft":true},
+                        {"tag_name":"v2.4.9-rc.1", "prerelease":true},
+                        {"tag_name":"v2.4.8-rc.1"},
+                        {"tag_name":"process-daemon-v3.0.0"}
+                    ]"#
+                    .into(),
+                    etag: None,
+                })
+            })
+            .unwrap()
+            .unwrap();
+        assert_eq!(tag_of(&result), Some("v2.4.2"));
+        let page = |tag| format!("https://github.com/{repo}/releases/tag/{tag}");
+        assert_eq!(latest_redirect_tag(&page("v1.19.6"), repo), None);
+        assert_eq!(latest_redirect_tag(&page("v2.4.9-rc.1"), repo), None);
+        assert_eq!(latest_redirect_tag(&page("v2.4.2"), repo).as_deref(), Some("v2.4.2"));
     }
 
     #[test]

@@ -1285,6 +1285,27 @@ pub const OPENCLAW: crate::CraftApp = crate::CraftApp {
     mac_team: Some("FWJYW4S8P8"),
 };
 
+pub const OPENCODE: crate::CraftApp = crate::CraftApp {
+    id: "opencode",
+    name: "OpenCode",
+    tagline: "Work with the OpenCode coding agent from desktop",
+    repo: "anomalyco/opencode",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Anomaly Innovations, Inc.",
+    msi_publisher: None,
+    bundle: Some("ai.opencode.desktop"),
+    site: Some("https://opencode.ai/"),
+    mac_bundle_name: None,
+    mac_team: Some("5NZ4Q7NXJ4"),
+};
+
 pub const OLLAMA: crate::CraftApp = crate::CraftApp {
     id: "ollama",
     name: "Ollama",
@@ -1306,7 +1327,7 @@ pub const OLLAMA: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MU9H2V9Y9"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 52] = [
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 53] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1358,6 +1379,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 52] = [
     DB_BROWSER_SQLITE,
     NAPS2,
     OPENCLAW,
+    OPENCODE,
     OLLAMA,
 ];
 

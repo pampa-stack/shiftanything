@@ -2154,24 +2154,24 @@
       "date": "2026-11-26"
     },
     "release": {
-      "version": "v1.19.6",
-      "date": "2026-11-17",
-      "source": "https://github.com/anomalyco/opencode/releases/tag/v1.19.6",
+      "version": "v2.4.2",
+      "date": "2026-11-26",
+      "source": "https://github.com/anomalyco/opencode/releases/tag/v2.4.2",
       "packages": [
         {
           "platform": "linux",
-          "size_min": 78461019,
-          "size_max": 159558715
+          "size_min": 219581093,
+          "size_max": 325566590
         },
         {
           "platform": "macos",
-          "size_min": 64493115,
-          "size_max": 157284530
+          "size_min": 345253101,
+          "size_max": 354523109
         },
         {
           "platform": "windows",
-          "size_min": 75991503,
-          "size_max": 126419768
+          "size_min": 262276208,
+          "size_max": 275562904
         }
       ]
     },

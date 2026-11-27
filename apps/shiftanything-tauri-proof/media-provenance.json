@@ -4225,6 +4225,28 @@
       "sha256": "8c8b4e231dc9e0e584b11fa90e3bfb27a306937e6eb12ff5a15d5c27d19ffa0e",
       "source_sha256": "8c8b4e231dc9e0e584b11fa90e3bfb27a306937e6eb12ff5a15d5c27d19ffa0e",
       "license": "BSD-3-Clause"
+    },
+    {
+      "app": "sniffnet",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/GyulyVGC/sniffnet/v1.6.0/resources/logos/raw/icon-light.png",
+      "file": "media/sniffnet-logo.png",
+      "sha256": "9e872e0aa59e6b5dfefef4f4b75c4ca2147e25b159ea0b47daf8d3ec9f3ea7e6"
+    },
+    {
+      "app": "termix",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Termix-SSH/Termix/v26.11.3/public/icons/128x128.png",
+      "file": "media/termix-logo.png",
+      "sha256": "31d4b3828cc83d6fc900daec06b92958d9f767dcadebcd5c5a7834286a88e8aa"
+    },
+    {
+      "app": "simplewall",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/henrypp/simplewall/v.3.8.7/src/res/100.ico",
+      "file": "media/simplewall-logo.png",
+      "sha256": "cd7d0614c410e240a61eeecb4dae70d5aa3dae5cce081af433accd42887e0df8",
+      "source_sha256": "12a8c445613a525df7de2ebd075977f272113954a0228b0bb78f1aec131a4be4"
     }
   ]
 }

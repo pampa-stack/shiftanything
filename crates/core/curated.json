@@ -31437,5 +31437,331 @@
       "v2rayA v2.4.24, official project README",
       "Official v2rayA RoutingA editor"
     ]
+  },
+  {
+    "id": "sniffnet",
+    "name": "Sniffnet",
+    "repo": "https://github.com/GyulyVGC/sniffnet",
+    "author": "Giuliano Bellini",
+    "category": "rete",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Monitora il traffico della tua rete da un’app desktop con grafici, filtri e avvisi per connessione.",
+      "en": "Monitor your network traffic in a desktop app with charts, filters and connection alerts."
+    },
+    "alternatives": [
+      "GlassWire"
+    ],
+    "license": "MIT OR Apache-2.0",
+    "license_url": "https://github.com/GyulyVGC/sniffnet/blob/v1.6.0/LICENSE-APACHE",
+    "website": "https://sniffnet.app/",
+    "releases": "https://github.com/GyulyVGC/sniffnet/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/GyulyVGC/sniffnet/v1.6.0/resources/logos/raw/icon-light.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/GyulyVGC/sniffnet/v1.6.0/resources/repository/pages/overview.png",
+      "https://raw.githubusercontent.com/GyulyVGC/sniffnet/v1.6.0/resources/repository/pages/inspect.png"
+    ],
+    "media_source": "https://github.com/GyulyVGC/sniffnet/tree/v1.6.0#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/GyulyVGC/sniffnet/tree/v1.6.0#readme",
+      "sources": [
+        "https://github.com/GyulyVGC/sniffnet/blob/v1.6.0/LICENSE-MIT"
+      ]
+    },
+    "stars": {
+      "count": 43339,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/GyulyVGC/sniffnet"
+    },
+    "release": {
+      "version": "v1.6.0",
+      "date": "2026-11-16",
+      "source": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 16382814,
+          "size_max": 16928753
+        },
+        {
+          "platform": "linux",
+          "size_min": 12448292,
+          "size_max": 18918776
+        },
+        {
+          "platform": "windows",
+          "size_min": 17604608,
+          "size_max": 18268160
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",
+      "linux": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",
+      "windows": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0"
+    }
+  },
+  {
+    "id": "termix",
+    "name": "Termix",
+    "repo": "https://github.com/Termix-SSH/Termix",
+    "author": "Termix",
+    "category": "rete",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Gestisci via SSH i tuoi server, apri terminali e trasferisci file da un’unica interfaccia.",
+      "en": "Manage your servers over SSH, open terminals and transfer files from one interface."
+    },
+    "alternatives": [
+      "Termius"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/Termix-SSH/Termix/blob/v26.11.3/LICENSE",
+    "website": "https://termix.site/",
+    "releases": "https://github.com/Termix-SSH/Termix/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Termix-SSH/Termix/v26.11.3/public/icons/128x128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Termix-SSH/Termix/v26.11.3/packaging/appstore/screenshots/en-US/01-dashboard.png"
+    ],
+    "media_source": "https://github.com/Termix-SSH/Termix/tree/v26.11.3#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Termix-SSH/Termix/tree/v26.11.3#readme"
+    },
+    "stars": {
+      "count": 16133,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/Termix-SSH/Termix"
+    },
+    "release": {
+      "version": "v26.11.3",
+      "date": "2026-11-21",
+      "source": "https://github.com/Termix-SSH/Termix/releases/tag/v26.11.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 263900889,
+          "size_max": 273434919
+        },
+        {
+          "platform": "linux",
+          "size_min": 198570772,
+          "size_max": 270858191
+        },
+        {
+          "platform": "windows",
+          "size_min": 227815424,
+          "size_max": 237563904
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/Termix-SSH/Termix/releases/tag/v26.11.3",
+      "linux": "https://github.com/Termix-SSH/Termix/releases/tag/v26.11.3",
+      "windows": "https://github.com/Termix-SSH/Termix/releases/tag/v26.11.3"
+    }
+  },
+  {
+    "id": "simplewall",
+    "name": "simplewall",
+    "repo": "https://github.com/henrypp/simplewall",
+    "author": "Henry++",
+    "category": "sic",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Controlla quali app Windows possono accedere alla rete e gestisci le regole del firewall per applicazione.",
+      "en": "Control which Windows apps can access the network and manage firewall rules by application."
+    },
+    "alternatives": [
+      "GlassWire"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/henrypp/simplewall/blob/v.3.8.7/LICENSE",
+    "website": "https://www.henrypp.org/product/simplewall",
+    "releases": "https://github.com/henrypp/simplewall/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/henrypp/simplewall/v.3.8.7/src/res/100.ico",
+    "screenshots": [
+      "https://raw.githubusercontent.com/henrypp/simplewall/v.3.8.7/images/simplewall.png",
+      "https://raw.githubusercontent.com/henrypp/simplewall/v.3.8.7/images/simplewall_rules.png"
+    ],
+    "media_source": "https://github.com/henrypp/simplewall/tree/v.3.8.7#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/henrypp/simplewall/tree/v.3.8.7#readme"
+    },
+    "stars": {
+      "count": 9378,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/henrypp/simplewall"
+    },
+    "release": {
+      "version": "v.3.8.7",
+      "date": "2025-08-08",
+      "source": "https://github.com/henrypp/simplewall/releases/tag/v.3.8.7",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 1198999,
+          "size_max": 1198999
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://github.com/henrypp/simplewall/releases/tag/v.3.8.7"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "karing",
+    "name": "Karing",
+    "repo": "https://github.com/KaringX/karing",
+    "author": "KaringX",
+    "category": "vpn",
+    "level": "avanz",
+    "delivery": "desktop",
+    "description": {
+      "it": "Client grafico per importare profili proxy propri, gestire le connessioni e scegliere quali app o reti instradare.",
+      "en": "A graphical client for importing your own proxy profiles, managing connections and choosing which apps or networks to route."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0-or-later",
+    "license_url": "https://github.com/KaringX/karing/blob/v1.2.26.2934/LICENSE.md",
+    "website": "https://karing.app/",
+    "releases": "https://github.com/KaringX/karing/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/KaringX/karing/v1.2.26.2934/assets/images/app_icon_128.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/KaringX/karing/v1.2.26.2934/README_assets/demo/home.png",
+      "https://raw.githubusercontent.com/KaringX/karing/v1.2.26.2934/README_assets/demo/connections.png"
+    ],
+    "media_source": "https://github.com/KaringX/karing/tree/v1.2.26.2934#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/KaringX/karing/tree/v1.2.26.2934#readme"
+    },
+    "stars": {
+      "count": 16377,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/KaringX/karing"
+    },
+    "release": {
+      "version": "v1.2.26.2934",
+      "date": "2026-11-19",
+      "source": "https://github.com/KaringX/karing/releases/tag/v1.2.26.2934",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 116908954,
+          "size_max": 117672627
+        },
+        {
+          "platform": "linux",
+          "size_min": 50941916,
+          "size_max": 73660920
+        },
+        {
+          "platform": "windows",
+          "size_min": 52032562,
+          "size_max": 52032562
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/KaringX/karing/releases/tag/v1.2.26.2934",
+      "linux": "https://github.com/KaringX/karing/releases/tag/v1.2.26.2934",
+      "windows": "https://github.com/KaringX/karing/releases/tag/v1.2.26.2934"
+    },
+    "screenshot_credits": [
+      "KaringX official project screenshots",
+      "KaringX official project screenshots"
+    ]
+  },
+  {
+    "id": "zoraxy",
+    "name": "Zoraxy",
+    "repo": "https://github.com/tobychui/zoraxy",
+    "author": "Toby Chui",
+    "category": "rete",
+    "level": "avanz",
+    "delivery": "self-hosted",
+    "description": {
+      "it": "Gestisci da un pannello web il reverse proxy HTTPS e il traffico dei servizi che ospiti.",
+      "en": "Manage the HTTPS reverse proxy and traffic for services you host from a web dashboard."
+    },
+    "alternatives": [],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/tobychui/zoraxy/blob/v3.3.5/LICENSE",
+    "website": "https://zoraxy.aroz.org/",
+    "releases": "https://github.com/tobychui/zoraxy/releases",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/tobychui/zoraxy/v3.3.5/docs/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/tobychui/zoraxy/v3.3.5/img/screenshots/1.png",
+      "https://raw.githubusercontent.com/tobychui/zoraxy/v3.3.5/img/screenshots/2.png"
+    ],
+    "media_source": "https://github.com/tobychui/zoraxy/tree/v3.3.5#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/tobychui/zoraxy/tree/v3.3.5#readme"
+    },
+    "stars": {
+      "count": 5598,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/tobychui/zoraxy"
+    },
+    "release": {
+      "version": "v3.3.5",
+      "date": "2026-11-13",
+      "source": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 101094034,
+          "size_max": 113786496
+        },
+        {
+          "platform": "linux",
+          "size_min": 95223970,
+          "size_max": 113537186
+        },
+        {
+          "platform": "windows",
+          "size_min": 103330816,
+          "size_max": 103330816
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5",
+      "linux": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5",
+      "windows": "https://github.com/tobychui/zoraxy/releases/tag/v3.3.5"
+    }
   }
 ]

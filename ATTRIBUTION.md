@@ -149,3 +149,7 @@ The Trayscale v0.21.0 app icon is unmodified and MIT-licensed by DeedleFake. The
 The marks in `apps/shiftanything-tauri-proof/frontend/shifter-brands/` identify third-party products in the SH*FTER software selector and comparison. Each mark belongs to its respective owner and sits outside the launcher code licence. [Source URLs and SHA-256](docs/verification/pro-371-shifter-layout/vendor-icons.tsv) record the 48 × 48 PNG copies prepared from the publishers’ public assets on 2026-11-27.
 
 The original Tailscale Linux systray icon is distributed under the BSD 3-Clause license. See [the upstream license](https://github.com/tailscale/tailscale/blob/v1.104.7/LICENSE), `NOTICE` and the Tauri media manifest.
+
+The catalog includes the Sniffnet v1.6.0 and Termix v26.11.3 project icons. See the MIT notice for Sniffnet, LICENSE-APACHE for Termix, and media-provenance.json for both source URLs and hashes. The artwork identifies the original projects.
+
+The simplewall catalog icon uses an unaltered frame from the main icon in the v.3.8.7 GPL-3.0 release, converted from ICO to PNG. The source and hashes are recorded in media-provenance.json. See NOTICE for the asset licence.

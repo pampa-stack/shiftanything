@@ -3084,6 +3084,557 @@
           }
         }
       ]
+    },
+    {
+      "id": "bartender",
+      "name": "Bartender",
+      "aliases": [
+        "Bartender 7",
+        "Bartender for Mac"
+      ],
+      "features": [
+        {
+          "id": "hide",
+          "name": {
+            "it": "Nascondere e mostrare icone",
+            "en": "Hide and reveal icons"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "search",
+          "name": {
+            "it": "Cercare nella barra dei menu",
+            "en": "Search menu bar items"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "shortcuts",
+          "name": {
+            "it": "Scorciatoie per mostrare le icone",
+            "en": "Keyboard shortcuts to reveal icons"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "profiles",
+          "name": {
+            "it": "Profili attivati da eventi",
+            "en": "Event-triggered layout profiles"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "ice",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Raggruppa le icone nelle sezioni visibile, nascosta e sempre nascosta.",
+                "en": "Organizes icons into visible, hidden and always-hidden sections."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Pannello di ricerca delle icone della barra.",
+                "en": "Provides a search panel for menu bar items."
+              }
+            },
+            "shortcuts": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Scorciatoie per mostrare o richiudere sezioni.",
+                "en": "Keyboard shortcuts toggle sections."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "hidden-bar",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/consolelabs/hidden#readme",
+              "note": {
+                "it": "Espande o richiude le icone dietro un separatore.",
+                "en": "Expands or hides icons behind a separator."
+              }
+            },
+            "shortcuts": {
+              "state": "supported",
+              "source": "https://github.com/consolelabs/hidden#readme",
+              "note": {
+                "it": "Scorciatoia configurabile per mostrare gli elementi nascosti.",
+                "en": "Configurable shortcut to reveal hidden items."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "dozer",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/Mortennn/Dozer#readme",
+              "note": {
+                "it": "Nasconde gli elementi a sinistra del separatore.",
+                "en": "Hides items to the left of a separator."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cleanshot",
+      "name": "CleanShot X",
+      "aliases": [
+        "CleanShot",
+        "CleanShotX"
+      ],
+      "features": [
+        {
+          "id": "crop",
+          "name": {
+            "it": "Cattura di un’area dello schermo",
+            "en": "Capture a screen region"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "annotate",
+          "name": {
+            "it": "Aggiunta di frecce, testo e sfocature",
+            "en": "Add arrows, text and blur"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "scroll",
+          "name": {
+            "it": "Cattura con scorrimento",
+            "en": "Scrolling capture"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "ocr",
+          "name": {
+            "it": "Copia del testo da una cattura",
+            "en": "Copy text from a capture"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrazione MP4 o GIF",
+            "en": "Record to MP4 or GIF"
+          },
+          "source": "https://cleanshot.com/features"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "macshot",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Seleziona la regione o l’intero schermo.",
+                "en": "Select a region or capture the full screen."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Disegna frecce, forme, testo e sfocature.",
+                "en": "Draw arrows, shapes, text and blur."
+              }
+            },
+            "scroll": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Unisce scorrimenti verticali o orizzontali.",
+                "en": "Stitches vertical and horizontal scrolling captures."
+              }
+            },
+            "ocr": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Riconosce il testo della schermata con OCR.",
+                "en": "Recognizes text from a screenshot with OCR."
+              }
+            },
+            "record": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Registra un’area o tutto lo schermo in MP4 o GIF.",
+                "en": "Record an area or the full screen to MP4 or GIF."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "flameshot",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://flameshot.org/",
+              "note": {
+                "it": "Permette di selezionare la regione da catturare.",
+                "en": "Select a region to capture."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://flameshot.org/",
+              "note": {
+                "it": "Aggiunge testo, frecce e sfocature alla cattura.",
+                "en": "Add text, arrows and blur to a capture."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "ksnip",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://github.com/ksnip/ksnip#features",
+              "note": {
+                "it": "Cattura un’area rettangolare dello schermo.",
+                "en": "Capture a rectangular area of the screen."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://github.com/ksnip/ksnip#features",
+              "note": {
+                "it": "Aggiunge frecce, testo e sfocatura.",
+                "en": "Add arrows, text and blur."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "normcap",
+          "evidence": {
+            "ocr": {
+              "state": "supported",
+              "source": "https://github.com/dynobo/normcap#readme",
+              "note": {
+                "it": "Copia il testo riconosciuto da una regione selezionata.",
+                "en": "Copy recognized text from a selected screen region."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "moom",
+      "name": "Moom",
+      "aliases": [
+        "Moom 4"
+      ],
+      "features": [
+        {
+          "id": "tile",
+          "name": {
+            "it": "Ridimensionare le finestre con scorciatoie",
+            "en": "Resize windows with shortcuts"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        },
+        {
+          "id": "edges",
+          "name": {
+            "it": "Agganciare ai bordi e agli angoli",
+            "en": "Snap to edges and corners"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        },
+        {
+          "id": "layouts",
+          "name": {
+            "it": "Salvare e riaprire layout di più app",
+            "en": "Save and recall multi-app layouts"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rectangle",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "Ridimensiona le finestre con scorciatoie frazionarie.",
+                "en": "Resize windows with shortcuts for fractional layouts."
+              }
+            },
+            "edges": {
+              "state": "supported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "Aggancia trascinando fino a un bordo o un angolo.",
+                "en": "Snap by dragging a window to an edge or corner."
+              }
+            },
+            "layouts": {
+              "state": "unsupported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "I layout di più app fanno parte di Rectangle Pro.",
+                "en": "Multi-app layouts are a Rectangle Pro feature."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "loop-macos",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://github.com/MrKai77/Loop#readme",
+              "note": {
+                "it": "Ridimensiona le finestre con azioni da scorciatoia.",
+                "en": "Resize windows with keyboard-triggered actions."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "amethyst",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://github.com/ianyh/Amethyst#readme",
+              "note": {
+                "it": "Distribuisce le finestre nel layout con scorciatoie.",
+                "en": "Arrange windows in layouts using keyboard shortcuts."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "parallels",
+      "name": "Parallels Desktop",
+      "aliases": [
+        "Parallels",
+        "Parallels Desktop for Mac"
+      ],
+      "features": [
+        {
+          "id": "windows",
+          "name": {
+            "it": "Eseguire Windows 11 su Apple Silicon",
+            "en": "Run Windows 11 on Apple Silicon"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "linux",
+          "name": {
+            "it": "Eseguire Linux su Apple Silicon",
+            "en": "Run Linux on Apple Silicon"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "folders",
+          "name": {
+            "it": "Cartelle condivise tra macOS e Windows",
+            "en": "Share folders between macOS and Windows"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "coherence",
+          "name": {
+            "it": "Finestre Windows integrate nella scrivania Mac",
+            "en": "Windows apps on the Mac desktop in Coherence mode"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "utm",
+          "evidence": {
+            "windows": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/windows/",
+              "note": {
+                "it": "Guida ufficiale per avviare Windows 11 ARM in una VM.",
+                "en": "Official guide for running Windows 11 ARM in a VM."
+              }
+            },
+            "folders": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/windows/",
+              "note": {
+                "it": "La guida documenta la condivisione tramite SPICE WebDAV.",
+                "en": "The guide documents folder sharing through SPICE WebDAV."
+              }
+            },
+            "linux": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/ubuntu/",
+              "note": {
+                "it": "Guida Ubuntu con immagine ARM per Apple Silicon.",
+                "en": "Ubuntu guide with an ARM image for Apple Silicon."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "virtualbuddy",
+          "evidence": {
+            "linux": {
+              "state": "supported",
+              "source": "https://github.com/insidegui/VirtualBuddy#features",
+              "note": {
+                "it": "Esegue distribuzioni Linux compatibili come guest su Apple Silicon.",
+                "en": "Runs compatible Linux distributions as guests on Apple Silicon."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "paste",
+      "name": "Paste",
+      "aliases": [
+        "Paste.app",
+        "Paste for Mac",
+        "Paste Clipboard Manager"
+      ],
+      "features": [
+        {
+          "id": "history",
+          "name": {
+            "it": "Cronologia degli appunti",
+            "en": "Clipboard history"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "search",
+          "name": {
+            "it": "Ricerca nella cronologia",
+            "en": "Search clipboard history"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "pin",
+          "name": {
+            "it": "Contenuti fissati e raccolte",
+            "en": "Pinned items and collections"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "sync",
+          "name": {
+            "it": "Sincronizzazione Mac, iPhone e iPad",
+            "en": "Sync across Mac, iPhone and iPad"
+          },
+          "source": "https://pasteapp.io/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "maccy",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Conserva gli elementi copiati nel Mac.",
+                "en": "Keeps items copied on the Mac."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Filtra gli appunti digitando nella finestra della cronologia.",
+                "en": "Filter clipboard items by typing in the history window."
+              }
+            },
+            "pin": {
+              "state": "partial",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Si possono fissare elementi singoli in cima alla cronologia.",
+                "en": "Pin individual items at the top of the history list."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "clipy",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://github.com/Clipy/Clipy#readme",
+              "note": {
+                "it": "Mantiene gli appunti recenti accessibili dal menu.",
+                "en": "Keeps recent clipboard items accessible from the menu."
+              }
+            },
+            "pin": {
+              "state": "partial",
+              "source": "https://github.com/Clipy/Clipy#readme",
+              "note": {
+                "it": "Gli snippet riutilizzabili si gestiscono a parte.",
+                "en": "Manage reusable snippets separately."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "copyq",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://copyq.readthedocs.io/en/latest/",
+              "note": {
+                "it": "Registra le modifiche recenti agli appunti.",
+                "en": "Records recent clipboard changes."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://copyq.readthedocs.io/en/latest/",
+              "note": {
+                "it": "Permette di cercare e recuperare un elemento.",
+                "en": "Search for and retrieve a previous item."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

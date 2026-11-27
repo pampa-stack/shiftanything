@@ -415,16 +415,45 @@
       });
       tab.setAttribute('aria-pressed', 'false');
       group.append(tab);
+      return tab;
     }
     const roles = node('div', '', 'kit-tabs');
-    for (const kit of work.kits) addTab(roles, label(kit.name), () => {
-      rankings.hidden = true;
-      rolePanel.hidden = false;
-      renderKit(kit);
+    const roleTabs = work.kits.map(kit => {
+      const tab = addTab(roles, label(kit.name), () => {
+        rankings.hidden = true;
+        rolePanel.hidden = false;
+        renderKit(kit);
+      });
+      const searchable = [kit.name, kit.description, ...kit.steps.map(step => step.name)].flatMap(value => [value.it, value.en]);
+      return {tab, fields:searchable.map(value => ' ' + normalize(value))};
     });
     addTab(roles, rankingHeading, () => { rolePanel.hidden = true; rankings.hidden = false; });
     for (const sample of work.rankings) addTab(studies, label(sample.name), () => renderRanking(sample));
-    kits.append(node('p', it?'Scegli un ruolo e trova un’app per ogni fase.':'Choose a role and find an app for each stage.', 'kit-intro'), roles, rolePanel, rankings);
+    const kitSearch = node('input');
+    kitSearch.type = 'search';
+    kitSearch.id = 'kit-search';
+    kitSearch.maxLength = 100;
+    kitSearch.setAttribute('aria-controls', 'kit-roles');
+    roles.id = 'kit-roles';
+    const kitSearchLabel = node('label', it?'Cerca per ruolo o attività':'Search by role or activity');
+    kitSearchLabel.htmlFor = kitSearch.id;
+    kitSearchLabel.append(kitSearch);
+    const kitControls = node('div', '', 'discovery-controls kit-controls');
+    kitControls.append(kitSearchLabel);
+    const noKits = node('p', it?'Nessun kit corrispondente.':'No matching kits.', 'discovery-feedback');
+    noKits.setAttribute('role', 'status');
+    noKits.hidden = true;
+    kitSearch.addEventListener('input', () => {
+      const phrase = ' ' + normalize(kitSearch.value);
+      for (const {tab, fields} of roleTabs) tab.hidden = !fields.some(field => field.includes(phrase));
+      const firstMatch = roleTabs.find(({tab}) => !tab.hidden);
+      noKits.hidden = Boolean(firstMatch);
+      if (!rankings.hidden) return;
+      const selected = roleTabs.find(({tab}) => tab.getAttribute('aria-pressed') === 'true');
+      if (selected?.tab.hidden && firstMatch) firstMatch.tab.click();
+      else rolePanel.hidden = !firstMatch;
+    });
+    kits.append(kitControls, roles, noKits, rolePanel, rankings);
     roles.firstElementChild.click();
     studies.firstElementChild?.click();
     renderKits = {updateSelection};

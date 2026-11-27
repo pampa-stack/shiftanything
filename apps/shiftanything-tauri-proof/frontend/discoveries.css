@@ -62,7 +62,9 @@
 .kits-panel .kit-intro { margin:0 0 13px; }
 .kits-panel .discovery-feedback { margin:0 0 10px; }
 .kits-panel .discovery-feedback:empty { margin:0; }
+.kit-controls { grid-template-columns:minmax(0,1fr); max-width:34rem; }
 .kit-tabs { display:flex; gap:6px; flex-wrap:wrap; margin:18px 0 15px; }
+.kit-tabs .btn[hidden] { display:none; }
 .kit-tabs .btn[aria-pressed="true"] { background:#e9ff74; border-color:#e9ff74; color:#101209; }
 .kit-heading, .kit-plan { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .kit-heading { justify-content:space-between; margin-bottom:15px; }

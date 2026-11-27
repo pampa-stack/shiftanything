@@ -477,6 +477,7 @@
     },
     {
       "id": "video-editing",
+      "exclude": ["proxy", "proxies"],
       "example": {
         "it": "Monta più clip video e aggiungi transizioni",
         "en": "Edit multiple video clips and add transitions"
@@ -793,6 +794,1528 @@
             "en": "Allows someone you authorize to view the screen and interact with the computer remotely."
           },
           "source": "https://github.com/rustdesk/rustdesk#readme"
+        }
+      ]
+    },
+    {
+      "id": "window-tiling",
+      "example": {
+        "it": "Vorrei affiancare le finestre con la tastiera",
+        "en": "I want to tile windows with keyboard shortcuts"
+      },
+      "match": [
+        [
+          "affianc",
+          "finestr"
+        ],
+        [
+          "finestr",
+          "griglia"
+        ],
+        [
+          "tile",
+          "window"
+        ],
+        [
+          "snap",
+          "window"
+        ],
+        [
+          "organizz",
+          "finestr"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "rectangle",
+          "reason": {
+            "it": "Affianca finestre con scorciatoie e zone ai bordi.",
+            "en": "Tile windows with shortcuts and screen-edge snap zones."
+          },
+          "source": "https://rectangleapp.com/"
+        },
+        {
+          "id": "loop-macos",
+          "reason": {
+            "it": "Sposta e ridimensiona finestre con scorciatoie o un menu radiale.",
+            "en": "Move and resize windows with shortcuts or a radial menu."
+          },
+          "source": "https://github.com/mrkai77/Loop#readme"
+        }
+      ]
+    },
+    {
+      "id": "window-switching",
+      "example": {
+        "it": "Mostrami le anteprime quando cambio finestra",
+        "en": "Show window previews when I switch apps"
+      },
+      "match": [
+        [
+          "anteprim",
+          "finestr"
+        ],
+        [
+          "camb",
+          "finestr"
+        ],
+        [
+          "window",
+          "preview"
+        ],
+        [
+          "switch",
+          "window"
+        ],
+        [
+          "alt tab"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "alttab",
+          "reason": {
+            "it": "Seleziona una finestra dalle anteprime con la tastiera.",
+            "en": "Select a window from previews using the keyboard."
+          },
+          "source": "https://github.com/lwouis/alt-tab-macos#readme"
+        },
+        {
+          "id": "dockdoor",
+          "reason": {
+            "it": "Mostra anteprime dal Dock e passa alla finestra selezionata.",
+            "en": "Preview windows from the Dock and switch to the selected one."
+          },
+          "source": "https://dockdoor.net/"
+        }
+      ]
+    },
+    {
+      "id": "menu-bar",
+      "example": {
+        "it": "Voglio nascondere le icone della barra dei menu del Mac",
+        "en": "I want to hide icons in my Mac menu bar"
+      },
+      "match": [
+        [
+          "nascond",
+          "barra",
+          "menu"
+        ],
+        [
+          "riordin",
+          "barra",
+          "menu"
+        ],
+        [
+          "hide",
+          "menu bar"
+        ],
+        [
+          "organiz",
+          "menu bar"
+        ],
+        [
+          "bartender"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "ice",
+          "reason": {
+            "it": "Nascondi, cerca e riordina le icone della barra del menu.",
+            "en": "Hide, search and rearrange menu bar icons."
+          },
+          "source": "https://github.com/jordanbaird/Ice#readme"
+        },
+        {
+          "id": "hidden-bar",
+          "reason": {
+            "it": "Espandi o richiudi le icone dietro un separatore.",
+            "en": "Expand or collapse icons behind a separator."
+          },
+          "source": "https://github.com/consolelabs/hidden#readme"
+        }
+      ]
+    },
+    {
+      "id": "clipboard-history",
+      "example": {
+        "it": "Voglio recuperare un testo che avevo copiato prima",
+        "en": "I want to find text I copied earlier"
+      },
+      "match": [
+        [
+          "cronologia",
+          "appunti"
+        ],
+        [
+          "recuper",
+          "copiat"
+        ],
+        [
+          "clipboard",
+          "history"
+        ],
+        [
+          "find",
+          "copied"
+        ],
+        [
+          "previously",
+          "copied"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "maccy",
+          "reason": {
+            "it": "Cerca nella cronologia degli appunti dalla tastiera.",
+            "en": "Search your clipboard history from the keyboard."
+          },
+          "source": "https://github.com/p0deje/Maccy#readme"
+        },
+        {
+          "id": "clipy",
+          "reason": {
+            "it": "Recupera elementi copiati e usa frammenti salvati.",
+            "en": "Retrieve previously copied items and use saved snippets."
+          },
+          "source": "https://github.com/Clipy/Clipy#readme"
+        },
+        {
+          "id": "copyq",
+          "reason": {
+            "it": "Cerca nella cronologia degli appunti e riutilizza gli elementi salvati.",
+            "en": "Search clipboard history and reuse saved items."
+          },
+          "source": "https://copyq.readthedocs.io/en/latest/"
+        }
+      ]
+    },
+    {
+      "id": "monitor-brightness",
+      "example": {
+        "it": "Vorrei regolare la luminosità di un monitor esterno dal Mac",
+        "en": "I want to control the brightness of an external display"
+      },
+      "match": [
+        [
+          "luminosit",
+          "monitor"
+        ],
+        [
+          "brightness",
+          "display"
+        ],
+        [
+          "brightness",
+          "monitor"
+        ],
+        [
+          "volume",
+          "monitor"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "monitorcontrol",
+          "reason": {
+            "it": "Regola luminosità e volume dei monitor compatibili dal Mac.",
+            "en": "Adjust brightness and volume on compatible displays from your Mac."
+          },
+          "source": "https://github.com/MonitorControl/MonitorControl#readme"
+        }
+      ]
+    },
+    {
+      "id": "remap-input",
+      "example": {
+        "it": "Mi serve rimappare i tasti della tastiera o del mouse",
+        "en": "I need to remap keyboard keys or mouse buttons"
+      },
+      "match": [
+        [
+          "rimapp",
+          "tast"
+        ],
+        [
+          "rimapp",
+          "mouse"
+        ],
+        [
+          "remap",
+          "key"
+        ],
+        [
+          "remap",
+          "mouse"
+        ],
+        [
+          "mouse",
+          "scorriment"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "karabiner-elements",
+          "reason": {
+            "it": "Rimappa tasti con regole semplici o combinazioni.",
+            "en": "Remap keys using simple rules or combinations."
+          },
+          "source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+        },
+        {
+          "id": "linearmouse",
+          "reason": {
+            "it": "Regola scorrimento, accelerazione e tasti del mouse.",
+            "en": "Adjust mouse scrolling, acceleration and buttons."
+          },
+          "source": "https://github.com/linearmouse/linearmouse#readme"
+        }
+      ]
+    },
+    {
+      "id": "color-picker",
+      "example": {
+        "it": "Voglio prendere un colore dallo schermo",
+        "en": "I want to pick a color from my screen"
+      },
+      "match": [
+        [
+          "prend",
+          "color",
+          "schermo"
+        ],
+        [
+          "campion",
+          "color"
+        ],
+        [
+          "color",
+          "picker"
+        ],
+        [
+          "pick",
+          "color",
+          "screen"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "pika-color",
+          "reason": {
+            "it": "Preleva i colori dallo schermo e confronta il contrasto.",
+            "en": "Pick colors from the screen and check their contrast."
+          },
+          "source": "https://github.com/superhighfives/pika#readme"
+        }
+      ]
+    },
+    {
+      "id": "visual-diagrams",
+      "example": {
+        "it": "Mi serve disegnare un diagramma di flusso",
+        "en": "I need to draw a flowchart"
+      },
+      "match": [
+        [
+          "diagramma",
+          "fluss"
+        ],
+        [
+          "disegn",
+          "diagramm"
+        ],
+        [
+          "draw",
+          "flowchart"
+        ],
+        [
+          "create",
+          "flowchart"
+        ],
+        [
+          "lucidchart"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "drawio",
+          "reason": {
+            "it": "Crea diagrammi di flusso con forme e connettori.",
+            "en": "Draw flowcharts with shapes and connectors."
+          },
+          "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md"
+        },
+        {
+          "id": "excalidraw",
+          "reason": {
+            "it": "Abbozza un processo su lavagna e salvalo come file.",
+            "en": "Sketch a process on a whiteboard and save it as a file."
+          },
+          "source": "https://github.com/excalidraw/excalidraw#readme"
+        }
+      ]
+    },
+    {
+      "id": "page-layout",
+      "example": {
+        "it": "Voglio impaginare un portfolio con testi e fotografie",
+        "en": "I want to lay out a photo portfolio"
+      },
+      "match": [
+        [
+          "impagin",
+          "portfolio"
+        ],
+        [
+          "impagin",
+          "brochure"
+        ],
+        [
+          "foto",
+          "impagin"
+        ],
+        [
+          "lay out",
+          "portfolio"
+        ],
+        [
+          "indesign"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "scribus",
+          "reason": {
+            "it": "Impagina fotografie e didascalie ed esporta PDF.",
+            "en": "Lay out photographs and captions and export PDFs."
+          },
+          "source": "https://flathub.org/apps/net.scribus.Scribus"
+        }
+      ]
+    },
+    {
+      "id": "raw-development",
+      "example": {
+        "it": "Voglio modificare esposizione e colori dei miei RAW",
+        "en": "I want to develop RAW photos"
+      },
+      "match": [
+        [
+          "raw",
+          "modific"
+        ],
+        [
+          "raw",
+          "svilupp"
+        ],
+        [
+          "raw",
+          "color"
+        ],
+        [
+          "develop",
+          "raw"
+        ],
+        [
+          "raw",
+          "photos"
+        ],
+        [
+          "lightroom"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "darktable",
+          "reason": {
+            "it": "Regola esposizione, colore e maschere senza modificare il RAW.",
+            "en": "Adjust exposure, color and masks while preserving the RAW."
+          },
+          "source": "https://flathub.org/apps/org.darktable.Darktable"
+        },
+        {
+          "id": "rawtherapee",
+          "reason": {
+            "it": "Sviluppa i RAW con riduzione del rumore e dettagli.",
+            "en": "Develop RAW photos with noise reduction and detail controls."
+          },
+          "source": "https://flathub.org/apps/com.rawtherapee.RawTherapee"
+        }
+      ]
+    },
+    {
+      "id": "photo-library",
+      "example": {
+        "it": "Mi serve organizzare migliaia di foto con tag e album",
+        "en": "I need to organize photos with tags and albums"
+      },
+      "match": [
+        [
+          "organiz",
+          "foto",
+          "tag"
+        ],
+        [
+          "foto",
+          "album"
+        ],
+        [
+          "organiz",
+          "photo",
+          "tag"
+        ],
+        [
+          "photo",
+          "library",
+          "album"
+        ],
+        [
+          "digikam"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "digikam",
+          "reason": {
+            "it": "Raggruppa gli scatti in album e aggiungi tag e valutazioni.",
+            "en": "Organize photos into albums with tags and ratings."
+          },
+          "source": "https://flathub.org/apps/org.kde.digikam"
+        }
+      ]
+    },
+    {
+      "id": "design-composite",
+      "example": {
+        "it": "Voglio fare compositing video con i nodi",
+        "en": "I want node-based video compositing"
+      },
+      "match": [
+        [
+          "composit",
+          "nodi"
+        ],
+        [
+          "composit",
+          "video"
+        ],
+        [
+          "node based",
+          "composit"
+        ],
+        [
+          "node",
+          "composit"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "natron",
+          "reason": {
+            "it": "Organizza chiavi, maschere ed effetti in un grafo di nodi.",
+            "en": "Arrange keys, masks and effects in a node graph."
+          },
+          "source": "https://github.com/NatronGitHub/Natron"
+        },
+        {
+          "id": "blender",
+          "reason": {
+            "it": "Combina render e immagini con il compositore a nodi.",
+            "en": "Combine renders and images with the node compositor."
+          },
+          "source": "https://flathub.org/apps/org.blender.Blender"
+        }
+      ]
+    },
+    {
+      "id": "proxy-editing",
+      "example": {
+        "it": "Voglio montare un video 4K usando clip proxy",
+        "en": "I want to edit 4K footage with proxies"
+      },
+      "match": [
+        [
+          "mont",
+          "proxy"
+        ],
+        [
+          "video",
+          "proxy"
+        ],
+        [
+          "edit",
+          "prox"
+        ],
+        [
+          "footage",
+          "prox"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "kdenlive",
+          "reason": {
+            "it": "Monta su copie leggere e usa gli originali per il render finale.",
+            "en": "Edit using smaller copies and use the originals for the final render."
+          },
+          "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html"
+        }
+      ]
+    },
+    {
+      "id": "motion-graphics",
+      "example": {
+        "it": "Mi serve animare forme ed elementi grafici per un video",
+        "en": "I need to animate vector graphics for a video"
+      },
+      "match": [
+        [
+          "anim",
+          "forme"
+        ],
+        [
+          "anim",
+          "grafic",
+          "video"
+        ],
+        [
+          "motion graphics"
+        ],
+        [
+          "anim",
+          "vector",
+          "video"
+        ],
+        [
+          "after effects"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "friction",
+          "reason": {
+            "it": "Anima forme vettoriali e livelli su una timeline.",
+            "en": "Animate vector shapes and layers on a timeline."
+          },
+          "source": "https://github.com/friction2d/friction#readme"
+        }
+      ]
+    },
+    {
+      "id": "voice-cleanup",
+      "example": {
+        "it": "Voglio togliere il rumore di fondo da una registrazione vocale",
+        "en": "I want to remove background noise from a voice recording"
+      },
+      "match": [
+        [
+          "rumore",
+          "fondo",
+          "voc"
+        ],
+        [
+          "rumore",
+          "fondo",
+          "registr"
+        ],
+        [
+          "noise",
+          "voic",
+          "record"
+        ],
+        [
+          "clean",
+          "dialogue"
+        ],
+        [
+          "riduzione",
+          "rumore",
+          "audio"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "audacity",
+          "reason": {
+            "it": "Taglia pause, applica riduzione del rumore e normalizza il segnale.",
+            "en": "Trim pauses, apply noise reduction and normalize audio."
+          },
+          "source": "https://flathub.org/apps/org.audacityteam.Audacity"
+        }
+      ]
+    },
+    {
+      "id": "audio-mixing",
+      "example": {
+        "it": "Vorrei mixare più tracce audio e regolare i livelli",
+        "en": "I want to mix multiple audio tracks"
+      },
+      "match": [
+        [
+          "mix",
+          "tracc"
+        ],
+        [
+          "mix",
+          "audio",
+          "tracks"
+        ],
+        [
+          "missagg",
+          "tracc"
+        ],
+        [
+          "mix",
+          "tracks"
+        ],
+        [
+          "multitraccia",
+          "mix"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "ardour",
+          "reason": {
+            "it": "Automatizza parametri e gestisci bus e livelli nel mixer.",
+            "en": "Automate parameters and manage buses and levels in the mixer."
+          },
+          "source": "https://manual.ardour.org/"
+        }
+      ]
+    },
+    {
+      "id": "beat-making",
+      "example": {
+        "it": "Voglio creare un beat di batteria con pattern",
+        "en": "I want to program drum beats from patterns"
+      },
+      "match": [
+        [
+          "beat",
+          "batter"
+        ],
+        [
+          "batter",
+          "pattern"
+        ],
+        [
+          "drum",
+          "pattern"
+        ],
+        [
+          "program",
+          "drum"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "hydrogen",
+          "reason": {
+            "it": "Costruisci pattern ritmici e concatenali in una canzone.",
+            "en": "Build drum patterns and arrange them into a song."
+          },
+          "source": "https://github.com/hydrogen-music/hydrogen"
+        }
+      ]
+    },
+    {
+      "id": "midi-composition",
+      "example": {
+        "it": "Voglio scrivere note MIDI in un piano roll",
+        "en": "I want to compose MIDI in a piano roll"
+      },
+      "match": [
+        [
+          "scriv",
+          "midi"
+        ],
+        [
+          "compon",
+          "midi"
+        ],
+        [
+          "compos",
+          "midi"
+        ],
+        [
+          "piano roll"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "lmms",
+          "reason": {
+            "it": "Scrivi note nel piano roll e organizza pattern e strumenti virtuali.",
+            "en": "Write notes in the piano roll and arrange patterns and instruments."
+          },
+          "source": "https://flathub.org/apps/io.lmms.LMMS"
+        },
+        {
+          "id": "qtractor",
+          "reason": {
+            "it": "Sequenzia note MIDI e tracce audio nello stesso progetto Linux.",
+            "en": "Sequence MIDI notes and audio tracks in the same Linux project."
+          },
+          "source": "https://github.com/rncbc/qtractor#readme"
+        }
+      ]
+    },
+    {
+      "id": "pixel-art",
+      "example": {
+        "it": "Vorrei disegnare sprite e animazioni pixel art",
+        "en": "I want to draw pixel art sprites and animations"
+      },
+      "match": [
+        [
+          "pixel art"
+        ],
+        [
+          "disegn",
+          "sprite"
+        ],
+        [
+          "draw",
+          "sprite"
+        ],
+        [
+          "sprite",
+          "anim"
+        ],
+        [
+          "aseprite"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "libresprite",
+          "reason": {
+            "it": "Disegna sprite e prepara sequenze di animazione.",
+            "en": "Draw sprites and create animation sequences."
+          },
+          "source": "https://flathub.org/apps/com.github.libresprite.LibreSprite"
+        },
+        {
+          "id": "pixelorama",
+          "reason": {
+            "it": "Crea sprite e animazioni a fotogrammi.",
+            "en": "Create sprites and frame-by-frame animations."
+          },
+          "source": "https://flathub.org/apps/com.orama_interactive.Pixelorama"
+        }
+      ]
+    },
+    {
+      "id": "cad-modeling",
+      "example": {
+        "it": "Voglio disegnare un pezzo 3D parametrico",
+        "en": "I want to design a parametric 3D part"
+      },
+      "match": [
+        [
+          "modell",
+          "parametric"
+        ],
+        [
+          "pezz",
+          "3d",
+          "parametric"
+        ],
+        [
+          "parametric",
+          "model"
+        ],
+        [
+          "parametric",
+          "3d",
+          "part"
+        ],
+        [
+          "autodesk fusion"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "free",
+          "reason": {
+            "it": "Costruisci solidi da schizzi e vincoli parametrici.",
+            "en": "Construct solids using sketches and parametric constraints."
+          },
+          "source": "https://flathub.org/apps/org.freecad.FreeCAD"
+        },
+        {
+          "id": "openscad",
+          "reason": {
+            "it": "Genera forme riproducibili con un modello dichiarativo.",
+            "en": "Generate reproducible shapes using a declarative model."
+          },
+          "source": "https://flathub.org/apps/org.openscad.OpenSCAD"
+        }
+      ]
+    },
+    {
+      "id": "printed-parts",
+      "example": {
+        "it": "Voglio preparare il G-code per la stampante 3D",
+        "en": "I want to slice a model for 3D printing"
+      },
+      "match": [
+        [
+          "g code",
+          "stamp"
+        ],
+        [
+          "stamp",
+          "3d",
+          "slic"
+        ],
+        [
+          "slice",
+          "3d",
+          "print"
+        ],
+        [
+          "simplify3d"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "prusaslicer",
+          "reason": {
+            "it": "Imposta materiali e supporti e visualizza l’anteprima dei percorsi.",
+            "en": "Set materials and supports and preview tool paths."
+          },
+          "source": "https://flathub.org/apps/com.prusa3d.PrusaSlicer"
+        },
+        {
+          "id": "orca-slicer",
+          "reason": {
+            "it": "Calibra filamento e stampa, poi esporta il G-code.",
+            "en": "Calibrate filament and print settings, then export G-code."
+          },
+          "source": "https://www.orcaslicer.com/"
+        }
+      ]
+    },
+    {
+      "id": "electronic-board-design",
+      "example": {
+        "it": "Voglio disegnare lo schema di una scheda elettronica",
+        "en": "I want to design a circuit board schematic"
+      },
+      "match": [
+        [
+          "scheda",
+          "elettron"
+        ],
+        [
+          "progett",
+          "pcb"
+        ],
+        [
+          "circuit board"
+        ],
+        [
+          "pcb",
+          "design"
+        ],
+        [
+          "altium"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "kicad",
+          "reason": {
+            "it": "Disegna schemi, assegna impronte e prepara il PCB.",
+            "en": "Draw schematics, assign footprints and prepare a PCB."
+          },
+          "source": "https://flathub.org/apps/org.kicad.KiCad"
+        }
+      ]
+    },
+    {
+      "id": "api-testing",
+      "example": {
+        "it": "Voglio provare le API con collezioni di richieste",
+        "en": "I want to test API requests in collections"
+      },
+      "match": [
+        [
+          "prov",
+          "api"
+        ],
+        [
+          "test",
+          "api"
+        ],
+        [
+          "api",
+          "richiest"
+        ],
+        [
+          "api",
+          "request"
+        ],
+        [
+          "postman"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "bruno",
+          "reason": {
+            "it": "Crea collezioni di richieste e salvale in file versionabili.",
+            "en": "Build request collections and save them as versionable files."
+          },
+          "source": "https://github.com/usebruno/bruno/blob/main/readme.md"
+        }
+      ]
+    },
+    {
+      "id": "database-gui",
+      "example": {
+        "it": "Cerco un programma per esplorare il database con SQL",
+        "en": "I need a GUI to browse a SQL database"
+      },
+      "match": [
+        [
+          "esplor",
+          "database"
+        ],
+        [
+          "consult",
+          "database"
+        ],
+        [
+          "gui",
+          "database"
+        ],
+        [
+          "browse",
+          "database"
+        ],
+        [
+          "datagrip"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "dbeaver-ce",
+          "reason": {
+            "it": "Gestisci connessioni, modifica query ed esplora gli schemi.",
+            "en": "Manage connections, edit queries and browse schemas."
+          },
+          "source": "https://dbeaver.com/docs/dbeaver/"
+        }
+      ]
+    },
+    {
+      "id": "virtual-machines",
+      "example": {
+        "it": "Voglio provare un altro sistema in una macchina virtuale",
+        "en": "I want to test another OS in a virtual machine"
+      },
+      "match": [
+        [
+          "macchin",
+          "virtual"
+        ],
+        [
+          "virtual machine"
+        ],
+        [
+          "parallels"
+        ],
+        [
+          "emul",
+          "sistema"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "utm",
+          "reason": {
+            "it": "Avvia un sistema operativo in una macchina virtuale su Apple Silicon.",
+            "en": "Run an operating system in a virtual machine on Apple Silicon."
+          },
+          "source": "https://docs.getutm.app/"
+        },
+        {
+          "id": "gnome-boxes",
+          "reason": {
+            "it": "Crea e avvia macchine virtuali da immagini di sistema su Linux.",
+            "en": "Create and start virtual machines from system images on Linux."
+          },
+          "source": "https://apps.gnome.org/Boxes/"
+        }
+      ]
+    },
+    {
+      "id": "project-timeline",
+      "example": {
+        "it": "Voglio pianificare un progetto con un diagramma di Gantt",
+        "en": "I want to plan a project on a Gantt chart"
+      },
+      "match": [
+        [
+          "gantt"
+        ],
+        [
+          "pianific",
+          "progett",
+          "scad"
+        ],
+        [
+          "project",
+          "milestone"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "openproject",
+          "reason": {
+            "it": "Organizza pacchetti di lavoro e dipendenze con il diagramma di Gantt.",
+            "en": "Organize work packages and dependencies in the Gantt chart."
+          },
+          "source": "https://www.openproject.org/docs/user-guide/"
+        },
+        {
+          "id": "ganttproject",
+          "reason": {
+            "it": "Definisci fasi, carico e dipendenze su una timeline locale.",
+            "en": "Define phases, workload and dependencies on a local timeline."
+          },
+          "source": "https://www.ganttproject.biz/free-gantt-chart-software"
+        }
+      ]
+    },
+    {
+      "id": "office-documents",
+      "example": {
+        "it": "Voglio modificare documenti Word senza Microsoft Office",
+        "en": "I want to edit Word documents without Microsoft Office"
+      },
+      "match": [
+        [
+          "modific",
+          "document",
+          "word"
+        ],
+        [
+          "edit",
+          "word",
+          "document"
+        ],
+        [
+          "crea",
+          "document",
+          "word"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "libreoffice",
+          "reason": {
+            "it": "Scrivi, revisiona e impagina documenti con Writer.",
+            "en": "Write, review and lay out documents in Writer."
+          },
+          "source": "https://documentation.libreoffice.org/en/english-documentation/"
+        },
+        {
+          "id": "onlyoffice",
+          "reason": {
+            "it": "Modifica documenti Office con Desktop Editors.",
+            "en": "Edit Office documents with Desktop Editors."
+          },
+          "source": "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/README.md"
+        }
+      ]
+    },
+    {
+      "id": "office-spreadsheets",
+      "example": {
+        "it": "Voglio creare un foglio di calcolo con tabelle pivot",
+        "en": "I want a spreadsheet with pivot tables"
+      },
+      "match": [
+        [
+          "foglio",
+          "calcolo"
+        ],
+        [
+          "pivot",
+          "tabell"
+        ],
+        [
+          "spreadsheet"
+        ],
+        [
+          "pivot",
+          "table"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "libreoffice",
+          "reason": {
+            "it": "Usa formule, grafici e tabelle pivot in Calc.",
+            "en": "Use formulas, charts and pivot tables in Calc."
+          },
+          "source": "https://documentation.libreoffice.org/en/english-documentation/"
+        }
+      ]
+    },
+    {
+      "id": "pdf-organize",
+      "example": {
+        "it": "Voglio unire e dividere le pagine di un PDF",
+        "en": "I want to merge and split PDF pages"
+      },
+      "match": [
+        [
+          "unir",
+          "pdf"
+        ],
+        [
+          "divid",
+          "pdf"
+        ],
+        [
+          "split",
+          "pdf"
+        ],
+        [
+          "merge",
+          "pdf"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "pdfsam-basic",
+          "reason": {
+            "it": "Unisci, dividi o estrai pagine dai PDF con PDFsam Basic.",
+            "en": "Merge, split or extract PDF pages in PDFsam Basic."
+          },
+          "source": "https://github.com/torakiki/pdfsam"
+        }
+      ]
+    },
+    {
+      "id": "research-library",
+      "example": {
+        "it": "Mi serve organizzare la bibliografia di una tesi",
+        "en": "I need to organize research citations and bibliography"
+      },
+      "match": [
+        [
+          "bibliograf"
+        ],
+        [
+          "bibliograph"
+        ],
+        [
+          "organizz",
+          "citaz"
+        ],
+        [
+          "manage",
+          "citation"
+        ],
+        [
+          "reference",
+          "manager"
+        ],
+        [
+          "endnote"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "zotero",
+          "reason": {
+            "it": "Salva riferimenti, allegati e metadati in una raccolta.",
+            "en": "Save references, attachments and metadata in a library."
+          },
+          "source": "https://github.com/zotero/zotero"
+        }
+      ]
+    },
+    {
+      "id": "spaced-repetition",
+      "example": {
+        "it": "Vorrei ripassare con schede a ripetizione dilazionata",
+        "en": "I want to study using spaced repetition flashcards"
+      },
+      "match": [
+        [
+          "ripetizion",
+          "dilazion"
+        ],
+        [
+          "spaced repetition"
+        ],
+        [
+          "study",
+          "flashcard"
+        ],
+        [
+          "ripass",
+          "sched"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "anki",
+          "reason": {
+            "it": "Ripassa schede con un algoritmo di ripetizione dilazionata.",
+            "en": "Review flashcards with a spaced-repetition algorithm."
+          },
+          "source": "https://github.com/ankitects/anki"
+        }
+      ]
+    },
+    {
+      "id": "website-analytics",
+      "example": {
+        "it": "Vorrei misurare il traffico del sito sul mio server",
+        "en": "I want self-hosted website traffic analytics"
+      },
+      "match": [
+        [
+          "traffico",
+          "sito"
+        ],
+        [
+          "misur",
+          "visite",
+          "sito"
+        ],
+        [
+          "website",
+          "traffic"
+        ],
+        [
+          "website",
+          "analytic"
+        ],
+        [
+          "adobe analytics"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "matomo",
+          "reason": {
+            "it": "Raccogli statistiche e usa rapporti sulle visite sul tuo server.",
+            "en": "Collect statistics and use visitor reports on your own server."
+          },
+          "source": "https://matomo.org/faq/log-analytics-tool/is-matomo-truly-free-to-use-what-are-the-costs-or-requirements/"
+        },
+        {
+          "id": "plausible-ce",
+          "reason": {
+            "it": "Consulta il traffico e gli obiettivi sulla dashboard autogestita.",
+            "en": "Review traffic and goals in a self-hosted dashboard."
+          },
+          "source": "https://github.com/plausible/community-edition#readme"
+        }
+      ]
+    },
+    {
+      "id": "customer-surveys",
+      "example": {
+        "it": "Voglio creare un sondaggio per raccogliere il feedback dei clienti",
+        "en": "I want to run a survey to collect customer feedback"
+      },
+      "match": [
+        [
+          "sondagg",
+          "feedback"
+        ],
+        [
+          "sondagg",
+          "client"
+        ],
+        [
+          "survey",
+          "feedback"
+        ],
+        [
+          "collect",
+          "feedback"
+        ],
+        [
+          "typeform"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "formbricks",
+          "reason": {
+            "it": "Pubblica sondaggi con la versione Community self-hosted.",
+            "en": "Publish surveys with the self-hosted Community edition."
+          },
+          "source": "https://formbricks.com/docs/self-hosting/overview"
+        }
+      ]
+    },
+    {
+      "id": "invoice-management",
+      "example": {
+        "it": "Devo preparare preventivi e fatture per i clienti",
+        "en": "I need to prepare invoices and quotes for clients"
+      },
+      "match": [
+        [
+          "preventiv",
+          "fattur"
+        ],
+        [
+          "prepar",
+          "fattur"
+        ],
+        [
+          "prepar",
+          "invoice"
+        ],
+        [
+          "track",
+          "invoice"
+        ],
+        [
+          "freshbooks"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "invoiceplane",
+          "reason": {
+            "it": "Gestisci clienti, preventivi, fatture e pagamenti registrati.",
+            "en": "Manage clients, quotes, invoices and recorded payments."
+          },
+          "source": "https://github.com/InvoicePlane/InvoicePlane"
+        }
+      ]
+    },
+    {
+      "id": "disk-usage",
+      "example": {
+        "it": "Voglio capire quali cartelle mi occupano tutto il disco",
+        "en": "I want to see which folders take up disk space"
+      },
+      "match": [
+        [
+          "cartell",
+          "disco"
+        ],
+        [
+          "spazio",
+          "disco"
+        ],
+        [
+          "folder",
+          "disk space"
+        ],
+        [
+          "disk",
+          "usage"
+        ],
+        [
+          "daisydisk"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "filelight",
+          "reason": {
+            "it": "Visualizza l’occupazione per cartella e cerca i file più grandi.",
+            "en": "Visualize disk usage by folder and find the biggest files."
+          },
+          "source": "https://flathub.org/apps/org.kde.filelight"
+        }
+      ]
+    },
+    {
+      "id": "folder-sync",
+      "example": {
+        "it": "Voglio sincronizzare una cartella tra due computer",
+        "en": "I want to synchronize a folder between two computers"
+      },
+      "match": [
+        [
+          "sincron",
+          "cartell"
+        ],
+        [
+          "synchroniz",
+          "folder"
+        ],
+        [
+          "sync",
+          "folder"
+        ],
+        [
+          "resilio sync"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "syncthing",
+          "reason": {
+            "it": "Sincronizza le cartelle autorizzate direttamente tra i dispositivi.",
+            "en": "Sync authorized folders directly between devices."
+          },
+          "source": "https://github.com/syncthing/syncthing#readme"
+        }
+      ]
+    },
+    {
+      "id": "system-monitoring",
+      "example": {
+        "it": "Cerco un modo per vedere CPU e memoria dalla barra",
+        "en": "I want to monitor CPU and memory from the menu bar"
+      },
+      "match": [
+        [
+          "veder",
+          "cpu",
+          "memoria"
+        ],
+        [
+          "monitor",
+          "cpu",
+          "memory"
+        ],
+        [
+          "cpu",
+          "memory",
+          "menu bar"
+        ],
+        [
+          "istat menus"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "stats",
+          "reason": {
+            "it": "Controlla CPU, memoria e rete dalla barra di macOS.",
+            "en": "Monitor CPU, memory and network activity from the macOS menu bar."
+          },
+          "source": "https://github.com/exelban/stats#readme"
+        },
+        {
+          "id": "sloth",
+          "reason": {
+            "it": "Consulta dal Mac file e socket aperti dai processi.",
+            "en": "Inspect files and sockets opened by Mac processes."
+          },
+          "source": "https://github.com/sveinbjornt/Sloth#readme"
         }
       ]
     }

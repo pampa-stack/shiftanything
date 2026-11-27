@@ -800,6 +800,7 @@ mod tests {
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
+            (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),
             (crate::curated::VOICE_STUDIO, ["v0.5.7", "v0.5.8"]),
             (crate::curated::CLASH_VERGE_REV, ["v2.5.9", "v2.5.10"]),

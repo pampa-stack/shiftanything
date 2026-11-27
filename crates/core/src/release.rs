@@ -759,6 +759,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::ORCA,
         crate::curated::VOICE_STUDIO,
         crate::curated::T3_CODE,
+        crate::curated::ANYTHING_LLM,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1102,6 +1103,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("pingdotgg/t3code", "v0.1.13") => {
             &[("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa")]
+        }
+        ("Mintplex-Labs/anything-llm", "v1.19.0") => {
+            &[("AnythingLLMDesktop-Silicon.dmg", 584_275_091, "0498b5d929aa7776a30f453d2a3a16fe172a9d63e149e67d224d2630c88e7dd5")]
+        }
+        ("Mintplex-Labs/anything-llm", "v1.20.0") => {
+            &[("AnythingLLMDesktop-Silicon.dmg", 604_481_437, "eb5d0702d86ba7452660efcb6482141e8da863e397e802498a3884f21404aade")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]

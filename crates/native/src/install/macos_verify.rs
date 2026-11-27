@@ -112,7 +112,7 @@ fn identity_requirement(app: &CraftApp, team: &str) -> Result<String, String> {
     ))
 }
 
-fn assessment_accepted(output: &str) -> bool {
+pub(super) fn assessment_accepted(output: &str) -> bool {
     let Ok(value) = plist::Value::from_reader_xml(output.as_bytes()) else { return false };
     let Some(dict) = value.as_dictionary() else { return false };
     if dict.get("assessment:verdict").and_then(plist::Value::as_boolean) != Some(true) {

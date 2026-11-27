@@ -701,6 +701,15 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// A PKG is extracted only after qualification of that exact release and layout.
+pub fn naps2_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::NAPS2.repo, &release.tag).any(|reviewed| {
+            reviewed.name == asset.name && reviewed.url == asset.url && reviewed.size == asset.size && reviewed.sha256 == asset.sha256
+        })
+}
+
 const SOLVESPACE_MAC_DMG: &str = "SolveSpace.dmg";
 
 /// SolveSpace publishes the same DMG filename under stable tags such as v3.3.
@@ -954,6 +963,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
+        }
+        ("cyanfish/naps2", "v8.6.0") => {
+            &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
+        }
+        ("cyanfish/naps2", "v8.6.1") => {
+            &[("naps2-8.6.1-mac-arm64.pkg", 27_550_717, "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601")]
         }
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],

@@ -1,0 +1,15 @@
+PHASE install
+PASS OFFICIAL v8.6.0 MacPkg https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-mac-arm64.pkg 27484564 57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc
+PASS OFFICIAL v8.6.1 MacPkg https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-mac-arm64.pkg 27550717 94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601
+PASS OFFICIAL v8.6.0 MacPkg https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-mac-arm64.pkg 27484564 57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc
+PASS NATIVE install: NAPS2 installed: 8.6.0; transferred=27484564; elapsed=25.071s
+PHASE update
+PASS OFFICIAL v8.6.1 MacPkg https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-mac-arm64.pkg 27550717 94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601
+PASS NATIVE update: NAPS2 updated to 8.6.1; transferred=27550717; elapsed=24.113s
+NAPS2 8.6.1+357d0355397d9f28f1fdd8a9d0508e7dcd0697d3
+Copyright 2009-2026 NAPS2 Contributors
+
+PASS isolated CLI smoke
+PHASE remove
+PASS NATIVE remove: NAPS2 was removed; transferred=0; elapsed=0.111s
+PASS unchanged system receipt

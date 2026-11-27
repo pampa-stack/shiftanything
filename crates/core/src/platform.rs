@@ -59,6 +59,8 @@ pub enum PackageKind {
     Dmg,
     /// A signed macOS .app bundle in a ZIP from an approved release source.
     MacZip,
+    /// An approved macOS PKG from which the launcher extracts one verified application.
+    MacPkg,
     AppImage,
     Deb,
     Rpm,
@@ -76,6 +78,7 @@ impl PackageKind {
             Self::PortableZip => "Portable (.zip)",
             Self::Dmg => "Disk image (.dmg)",
             Self::MacZip => "App archive (.zip)",
+            Self::MacPkg => "Application package (.pkg)",
             Self::AppImage => "AppImage",
             Self::Deb => "Debian package (.deb)",
             Self::Rpm => "RPM package (.rpm)",
@@ -91,6 +94,7 @@ impl PackageKind {
             Self::PortableZip => "-portable.zip",
             Self::Dmg => ".dmg",
             Self::MacZip => ".zip",
+            Self::MacPkg => ".pkg",
             Self::AppImage => ".AppImage",
             Self::Deb => ".deb",
             Self::Rpm => ".rpm",
@@ -165,7 +169,7 @@ impl Platform {
     pub fn default_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg],
             Os::Linux => &[PackageKind::AppImage, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -175,7 +179,7 @@ impl Platform {
     pub fn download_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg],
             Os::Linux => &[PackageKind::AppImage, PackageKind::Deb, PackageKind::Rpm, PackageKind::ArchPkg, PackageKind::Flatpak, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -352,6 +356,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
 
     if !recipe_platform_verified(stems, platform) {
         return None;
+    }
+    if stems.contains(&crate::curated::NAPS2.id) {
+        if !kinds.contains(&PackageKind::MacPkg) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::naps2_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacPkg));
     }
     if stems.contains(&crate::curated::KEYCASTR.id) {
         if !kinds.contains(&PackageKind::MacZip) {
@@ -687,6 +697,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::APPFLOWY.id,
         crate::curated::BLOCKBENCH.id,
         crate::curated::DB_BROWSER_SQLITE.id,
+        crate::curated::NAPS2.id,
         crate::curated::SUPER_PRODUCTIVITY.id,
     ]
     .iter()
@@ -759,6 +770,34 @@ mod tests {
         latest.version = crate::version::parse("3.13.0");
         latest.tag = "v3.13.0".into();
         assert!(!select(&latest, platform));
+    }
+
+    #[test]
+    fn naps2_macos_accepts_only_reviewed_arm64_packages() {
+        use crate::curated::NAPS2;
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, target| pick_asset(release, &[NAPS2.id], target, target.default_kinds()).is_some();
+        for tag in ["v8.6.0", "v8.6.1"] {
+            let mut release = crate::release::release_from_sums(NAPS2.repo, tag, &[]);
+            assert!(select(&release, mac));
+            assert!(!select(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(pick_asset(&release, &["handy"], mac, mac.default_kinds()).is_none());
+            release.prerelease = true;
+            assert!(!select(&release, mac));
+            release.prerelease = false;
+            let asset = &mut release.assets[0];
+            let original = asset.sha256.replace("a".repeat(64));
+            assert!(!select(&release, mac));
+            release.assets[0].sha256 = original;
+            release.assets[0].url = release.assets[0].url.replace("arm64", "x64");
+            release.assets[0].name = release.assets[0].name.replace("arm64", "x64");
+            assert!(!select(&release, mac));
+        }
+        let mut future = crate::release::release_from_sums(NAPS2.repo, "v8.6.1", &[]);
+        future.version = crate::version::parse("v8.6.2");
+        future.tag = "v8.6.2".into();
+        assert!(!select(&future, mac));
     }
 
     #[test]

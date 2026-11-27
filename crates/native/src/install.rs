@@ -54,6 +54,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             Some((11, 0))
         }
         id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
+        id if id == artcraft_launcher_core::curated::NAPS2.id => Some((12, 0)),
         id if [
             OBS_STUDIO.id,
             AUDACITY.id,
@@ -212,7 +213,7 @@ struct Failure {
 pub fn keeps_old_copy(kind: PackageKind, existing: Option<&Installed>, previous: Option<&Record>) -> bool {
     let source = existing.map(|inst| inst.source);
     match kind {
-        PackageKind::Dmg | PackageKind::MacZip => source == Some(InstallSource::MacApp),
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => source == Some(InstallSource::MacApp),
         PackageKind::AppImage => source == Some(InstallSource::Launcher) && previous.is_some_and(|r| r.kind == PackageKind::AppImage),
         PackageKind::Flatpak => existing.is_some_and(|inst| inst.source == InstallSource::Flatpak && !inst.externally_managed),
         _ => false,
@@ -326,6 +327,10 @@ fn install_at_with_profile(
     // Every early way out below gives the job's place in its batch back (see [`BatchPlace`]).
     #[cfg_attr(not(any(target_os = "linux", windows)), allow(unused_mut, unused_variables))]
     let mut batch = BatchPlace(job.batch.take());
+    #[cfg(target_os = "macos")]
+    if kind == PackageKind::MacPkg && (job.replace || existing.is_some_and(|copy| !owns_naps2_copy(previous, Path::new(&copy.location)))) {
+        return Err("NAPS2 was installed outside the launcher. Manage that copy the way it was installed.".into());
+    }
     #[allow(unused_variables)]
     let destination = destination(app, kind, existing, previous, job.install_locations)?;
     #[cfg(windows)]
@@ -440,7 +445,7 @@ fn install_at_with_profile(
     let result = match kind {
         // No team to check the signature against: refuse rather than install it unchecked.
         #[cfg(target_os = "macos")]
-        PackageKind::Dmg | PackageKind::MacZip if !app.installs(kind) => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg if !app.installs(kind) => {
             Err("ArtCraft Launcher has no macOS signing team recorded for this app, so it wasn't installed here".into())
         }
         #[cfg(target_os = "macos")]
@@ -464,6 +469,9 @@ fn install_at_with_profile(
             &macos::Expect::release(app, release),
         )
         .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "macos")]
+        PackageKind::MacPkg => macos::install_pkg(app, &file, existing, destination.as_deref(), job.paths, &macos::Expect::release(app, release))
+            .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
         #[cfg(windows)]
         PackageKind::Msi => {
             // An update lands in the same Windows Installer context as the copy being replaced:
@@ -609,6 +617,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .then_some(())
             .ok_or_else(mismatch);
     }
+    if app.id == artcraft_launcher_core::curated::NAPS2.id {
+        return (app.repo == artcraft_launcher_core::curated::NAPS2.repo && release::naps2_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
     if app.id == artcraft_launcher_core::curated::BLOCKBENCH.id {
         return (app.repo == artcraft_launcher_core::curated::BLOCKBENCH.repo && release::blockbench_mac_asset(release, asset))
             .then_some(())
@@ -711,7 +724,7 @@ pub fn occupied(
     let target = match kind {
         PackageKind::Msi => folder,
         PackageKind::PortableZip => Some(folder.unwrap_or_else(|| paths.apps()).join(app.id)),
-        PackageKind::Dmg | PackageKind::MacZip => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => {
             folder.and_then(|f| app.mac_bundle_names().map(|n| f.join(format!("{n}.app"))).find(|t| std::fs::symlink_metadata(t).is_ok()))
         }
         #[cfg(target_os = "linux")]
@@ -761,8 +774,10 @@ fn destination(
         });
     }
     let Some(folder) = locations.folder(app.id) else { return Ok(None) };
-    if !matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip)
-        || process::in_sandbox()
+    if !matches!(
+        kind,
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip
+    ) || process::in_sandbox()
     {
         return Err("custom install folders aren't supported on this system".into());
     }
@@ -797,7 +812,7 @@ pub fn default_folder(kind: PackageKind, arch: Option<Arch>, paths: &Paths) -> O
     #[cfg(target_os = "macos")]
     {
         let _ = (arch, paths);
-        matches!(kind, PackageKind::Dmg | PackageKind::MacZip).then(macos::default_applications_dir).flatten()
+        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg).then(macos::default_applications_dir).flatten()
     }
     #[cfg(not(any(windows, target_os = "macos")))]
     {
@@ -1001,7 +1016,7 @@ pub fn is_release_arch_package(app: &CraftApp, installed: &Installed) -> bool {
 /// Package formats this machine can install, best first.
 pub fn available_kinds() -> Vec<PackageKind> {
     #[cfg(target_os = "macos")]
-    return vec![PackageKind::Dmg, PackageKind::MacZip];
+    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg];
     #[cfg(windows)]
     return vec![PackageKind::Msi, PackageKind::PortableZip];
     #[cfg(target_os = "linux")]
@@ -1156,6 +1171,11 @@ fn parse_pacman_repo(si: &str) -> Option<String> {
     })
 }
 
+#[cfg(target_os = "macos")]
+fn owns_naps2_copy(record: Option<&Record>, path: &Path) -> bool {
+    record.is_some_and(|record| record.kind == PackageKind::MacPkg && record.path == path)
+}
+
 /// Removes an installed copy. `phase` hears when the removal has to wait for another install;
 /// `stop` cancels it while it waits.
 pub fn uninstall(
@@ -1168,6 +1188,10 @@ pub fn uninstall(
 ) -> Result<(), String> {
     let _ = (record, stop, &phase, paths);
     let path = PathBuf::from(&installed.location);
+    #[cfg(target_os = "macos")]
+    if app.mac_package_kind() == PackageKind::MacPkg && !owns_naps2_copy(record, &path) {
+        return Err("NAPS2 was installed outside the launcher. Manage that copy the way it was installed.".into());
+    }
     if let Some(msg) = managed_elsewhere(app, installed, true) {
         return Err(msg);
     }
@@ -2208,6 +2232,82 @@ pub mod macos {
         let framework_links = app.id == artcraft_launcher_core::curated::KEYCASTR.id;
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
+    }
+
+    /// Extract the signed NAPS2 payload without executing an installer or touching its receipt DB.
+    pub(super) fn install_pkg(
+        app: &CraftApp,
+        package: &Path,
+        existing: Option<&Installed>,
+        destination: Option<&Path>,
+        paths: &Paths,
+        expect: &Expect<'_>,
+    ) -> Result<PathBuf, String> {
+        use artcraft_launcher_core::curated::NAPS2;
+
+        const PKGUTIL: &str = "/usr/sbin/pkgutil";
+        const SPCTL: &str = "/usr/sbin/spctl";
+        const SANDBOX: &str = "/usr/bin/sandbox-exec";
+        const PROFILE: &str = r#"(version 1) (allow default) (deny network*) (deny file-write*)
+            (allow file-write* (subpath (param "PACKAGE_STAGE")))"#;
+        let team = NAPS2.mac_team.ok_or("NAPS2 has no configured macOS signing team")?;
+        if (app.id, app.repo, expect.team) != (NAPS2.id, NAPS2.repo, Some(team)) {
+            return Err("This macOS installer has not been reviewed.".into());
+        }
+        let package = package.to_str().ok_or("unusual characters in the macOS package path")?;
+        let deadline = Duration::from_secs(60);
+        let mut signature = process::command(PKGUTIL);
+        signature.args(["--check-signature", package]).env("LC_ALL", "C");
+        let signature = process::run_command(signature, PKGUTIL, deadline)?;
+        let team_suffix = format!(" ({team})");
+        if !signature.lines().map(str::trim).any(|line| line.starts_with("1. Developer ID Installer: ") && line.ends_with(&team_suffix))
+            || !signature.lines().map(str::trim).any(|line| line == "Notarization: trusted by the Apple notary service")
+        {
+            return Err("The macOS package did not pass installer identity and notarization checks.".into());
+        }
+        let assessment = process::run(SPCTL, &["--assess", "--type", "install", "--ignore-cache", "--no-cache", "--raw", package], deadline)?;
+        if !super::macos_verify::assessment_accepted(&assessment) {
+            return Err("macOS did not accept the signed installer package.".into());
+        }
+
+        let stage = tempfile::tempdir_in(&paths.cache).map_err(|error| format!("couldn't stage the macOS package ({error})"))?;
+        let stage_path = stage.path().canonicalize().map_err(|error| error.to_string())?;
+        let expanded = stage_path.join("expanded");
+        let area = stage_path.to_str().ok_or("unusual characters in the staging path")?;
+        let expanded_path = expanded.to_str().ok_or("unusual characters in the expanded staging path")?;
+        let mut unpack = process::command(SANDBOX);
+        unpack
+            .args(["-D", &format!("PACKAGE_STAGE={area}"), "-p", PROFILE, PKGUTIL, "--expand-full", package, expanded_path])
+            .env("TMPDIR", &stage_path);
+        process::run_command(unpack, SANDBOX, deadline)?;
+
+        let component = expanded.join("com.naps2.desktop.pkg");
+        let payload = component.join("Payload");
+        if !exact_directory(&expanded, &["Distribution", "com.naps2.desktop.pkg"])
+            || !exact_directory(&component, &["Bom", "PackageInfo", "Payload"])
+            || !exact_directory(&payload, &["NAPS2.app"])
+        {
+            return Err("The macOS package does not have the reviewed NAPS2 payload layout.".into());
+        }
+        copy_app(app, &payload, existing, destination, None, expect)
+    }
+
+    fn exact_directory(path: &Path, expected: &[&str]) -> bool {
+        if !std::fs::symlink_metadata(path).is_ok_and(|meta| meta.is_dir()) {
+            return false;
+        }
+        let Ok(entries) = std::fs::read_dir(path) else { return false };
+        let mut found = 0;
+        for entry in entries {
+            let Ok(entry) = entry else { return false };
+            if !entry.file_name().to_str().is_some_and(|name| expected.contains(&name))
+                || !entry.file_type().is_ok_and(|kind| kind.is_file() || kind.is_dir())
+            {
+                return false;
+            }
+            found += 1;
+        }
+        found == expected.len()
     }
 
     fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str, framework_links: bool) -> Result<(), String> {

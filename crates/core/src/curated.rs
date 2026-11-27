@@ -1243,7 +1243,28 @@ pub const DB_BROWSER_SQLITE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("C34AV33YLK"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 49] = [
+pub const NAPS2: crate::CraftApp = crate::CraftApp {
+    id: "naps2",
+    name: "NAPS2",
+    tagline: "Scan, rearrange and OCR documents",
+    repo: "cyanfish/naps2",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [48, 132, 192],
+    ink_light: [21, 82, 122],
+    ink_dark: [137, 209, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ben Olden-Cooligan",
+    msi_publisher: None,
+    bundle: Some("com.naps2.desktop"),
+    site: Some("https://www.naps2.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("2P9Q2K3XM9"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 50] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1293,6 +1314,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 49] = [
     RUSTDESK,
     SUPER_PRODUCTIVITY,
     DB_BROWSER_SQLITE,
+    NAPS2,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

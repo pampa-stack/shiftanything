@@ -127,9 +127,11 @@ impl CraftApp {
         }
     }
 
-    /// A MAC application can be distributed as a disk image or an approved ZIP.
+    /// The package format verified for this macOS application.
     pub fn mac_package_kind(&self) -> crate::PackageKind {
-        if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
+        if (self.id, self.repo) == (crate::curated::NAPS2.id, crate::curated::NAPS2.repo) {
+            crate::PackageKind::MacPkg
+        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
             crate::PackageKind::MacZip
         } else {
             crate::PackageKind::Dmg
@@ -144,7 +146,9 @@ impl CraftApp {
     /// Whether the launcher installs this app from a `kind` package.
     pub fn installs(&self, kind: crate::PackageKind) -> bool {
         match kind {
-            crate::PackageKind::Dmg | crate::PackageKind::MacZip => self.mac_team.is_some() && self.mac_package_kind() == kind,
+            crate::PackageKind::Dmg | crate::PackageKind::MacZip | crate::PackageKind::MacPkg => {
+                self.mac_team.is_some() && self.mac_package_kind() == kind
+            }
             _ => true,
         }
     }

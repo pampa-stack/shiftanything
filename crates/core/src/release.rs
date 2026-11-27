@@ -561,6 +561,23 @@ pub fn vorta_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Match only the official stable Apple Silicon disk image, not the Intel build or updater ZIP.
+pub fn openscreen_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.pre.is_empty()
+                && version.build.is_empty()
+                && release.tag == format!("v{version}")
+                && asset.name == format!("Openscreen-macOS-Apple-Silicon-{version}.dmg")
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::OPENSCREEN.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::OPENSCREEN.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 /// Match the stable Apple Silicon installer and its publisher's digest.
 pub fn vibe_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
@@ -777,6 +794,16 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
+        ("getopenscreen/openscreen", "v2.3.0") => &[(
+            "Openscreen-macOS-Apple-Silicon-2.3.0.dmg",
+            141_157_755,
+            "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82",
+        )],
+        ("getopenscreen/openscreen", "v2.4.0") => &[(
+            "Openscreen-macOS-Apple-Silicon-2.4.0.dmg",
+            141_308_945,
+            "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51",
+        )],
         ("thewh1teagle/vibe", "v3.3.5") => &[("vibe_3.3.5_aarch64.dmg", 38_715_249, "efaf965175cf9d6b7c6782e38eb42b50800a4645c06771584fcbd46c74d75807")],
         ("thewh1teagle/vibe", "v3.3.8") => &[("vibe_3.3.8_aarch64.dmg", 38_640_733, "48dd4ffd5b4fc6a9466fc2b68ee04d398e794404758577e46f27163614138a39")],
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],

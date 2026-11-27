@@ -1,0 +1,74 @@
+Filesystem   1024-blocks      Used Available Capacity  Mounted on
+/dev/disk3s5   482797652 436911460   1005148   100%    /System/Volumes/Data
+/dev/disk7s1   976557744 974021672   2333768   100%    /Volumes/T7-Backup
+2026-11-27T09:48:21Z
+checksum PASS 177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51 141308945 https://github.com/getopenscreen/openscreen/releases/download/v2.4.0/Openscreen-macOS-Apple-Silicon-2.4.0.dmg
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $7FD42623
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $AB841DA2
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $9C2CCD2F
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $2FAC7DCF
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 5)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $9C2CCD2F
+Calcolo checksum di GPT Header (Backup GPT Header : 6)…
+  GPT Header (Backup GPT Header : 6): verificato   CRC32 $3D6AC7D8
+verificato   CRC32 $665BAC7E
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-pkg-proof.O8btMA1y
+APP=Openscreen.app
+CFBundleIdentifier=com.etiennelescot.openscreen
+CFBundleShortVersionString=2.4.0
+CFBundleVersion=2.4.0
+CFBundleExecutable=Openscreen
+LSMinimumSystemVersion=13.0
+arm64
+/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/MacOS/Openscreen (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.2
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=com.etiennelescot.openscreen
+Authority=Developer ID Application: Etienne Lescot (M4LK7C6S84)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=M4LK7C6S84
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Mantle.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (GPU).app
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (GPU).app
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (Plugin).app
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (Plugin).app
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (Renderer).app
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper (Renderer).app
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper.app
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Openscreen Helper.app
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/ReactiveObjC.framework/Versions/Current/.
+--prepared:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+--validated:/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app/Contents/Frameworks/Squirrel.framework/Versions/Current/.
+/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app: valid on disk
+/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app: satisfies its Designated Requirement
+/private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app: accepted
+source=Notarized Developer ID
+gatekeeper_app_rc=0
+Processing: /private/tmp/shift-mac-pkg-proof.O8btMA1y/Openscreen.app
+Openscreen.app does not have a ticket stapled to it.
+stapler_app_rc=65
+Processing: /Volumes/T7-Backup/shift-mac-small-cycle.0AY51V44/assets/v2.4.0/Openscreen-macOS-Apple-Silicon-2.4.0.dmg
+The validate action worked!
+stapler_dmg_rc=0
+"disk8" ejected.

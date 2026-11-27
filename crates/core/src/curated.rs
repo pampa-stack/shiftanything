@@ -1033,7 +1033,28 @@ pub const VIBE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("VSTAWC326G"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 39] = [
+pub const OPENSCREEN: crate::CraftApp = crate::CraftApp {
+    id: "openscreen",
+    name: "OpenScreen",
+    tagline: "Record, edit and export screen demos",
+    repo: "getopenscreen/openscreen",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [98, 132, 223],
+    ink_light: [52, 74, 161],
+    ink_dark: [172, 190, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenScreen contributors",
+    msi_publisher: None,
+    bundle: Some("com.etiennelescot.openscreen"),
+    site: Some("https://getopenscreen.com/"),
+    mac_bundle_name: Some("Openscreen"),
+    mac_team: Some("M4LK7C6S84"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 40] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1064,6 +1085,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 39] = [
     LAPCE,
     VORTA,
     VIBE,
+    OPENSCREEN,
     SOLVESPACE,
     PENCIL2D,
     OPENSHOT,
@@ -1186,6 +1208,39 @@ mod recipe_tests {
             }
             let prerelease = release::Release { prerelease: true, ..release.clone() };
             assert!(!release::vibe_mac_asset(&prerelease, asset));
+        }
+    }
+
+    #[test]
+    fn openscreen_recipe_accepts_only_the_official_apple_silicon_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("openscreen").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("com.etiennelescot.openscreen"), Some("M4LK7C6S84")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, size) in [("v2.3.0", 141_157_755), ("v2.4.0", 141_308_945)] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            let version = release.version.as_ref().unwrap();
+            assert_eq!(asset.name, format!("Openscreen-macOS-Apple-Silicon-{version}.dmg"));
+            assert_eq!((asset.size, kind), (size, PackageKind::Dmg));
+            for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }, Platform { os: Os::Windows, ..mac }] {
+                assert!(platform::pick_asset(&release, &[app.id], host, host.download_kinds()).is_none());
+            }
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let wrong_tag = release::Asset { url: asset.url.replace(tag, "v9.0.0"), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            let wrong_repo = release::Asset { url: asset.url.replace("getopenscreen", "mirror"), ..asset.clone() };
+            let intel = release::Asset {
+                name: asset.name.replace("Apple-Silicon", "Intel"),
+                url: asset.url.replace("Apple-Silicon", "Intel"),
+                ..asset.clone()
+            };
+            for different in [different_size, wrong_tag, no_checksum, wrong_repo, intel] {
+                assert!(!release::openscreen_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::openscreen_mac_asset(&prerelease, asset));
         }
     }
 

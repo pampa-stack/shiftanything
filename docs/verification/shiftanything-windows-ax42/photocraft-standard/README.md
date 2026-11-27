@@ -26,3 +26,7 @@ Both packages had valid timestamped Authenticode signatures from Learning Machin
 - Before the initial Rust snapshot, the Windows grid briefly displayed macOS download metadata with its action placeholders. It switched to Windows metadata after initialization.
 - Machine-wide MSI install, update, and removal need a Windows administrator's approval when initiated by a standard user. The launcher itself ran without elevation. The separate elevated setup commands here produced only the checked old-version fixture and collected evidence.
 - This proof applies to the two listed PhotoCraft MSIs on Windows x64 and the tested launcher build. Launcher self-update, bulk update, other Windows apps, and public Windows release signing were outside this proof.
+
+## Tests and cleanup
+
+The Windows native unit suite passed 569 tests with four ignored and zero failures. The Windows x64 asset selection test and Tauri Release build passed. The scoped runtime tests used a local fixture account with standard rights. [Both guest fixture accounts and their profiles were removed after the test](11-windows-native-tests-and-cleanup.png).

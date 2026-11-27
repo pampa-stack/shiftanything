@@ -1,0 +1,24 @@
+START 2026-11-27T09:01:23Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/pencil2d/pencil/releases/download/v0.7.1/pencil2d-linux-amd64-v0.7.1.AppImage bytes=60471800 sha256=02416a6777f3b5aca826285b85d66476c1352d0d8252b55714cc7bc55ba463f6
+FILE /fixture/home/Applications/pencil2d-linux-amd64-v0.7.1.AppImage version=0.7.1 bytes=60471800 sha256=02416a6777f3b5aca826285b85d66476c1352d0d8252b55714cc7bc55ba463f6
+DESKTOP /fixture/home/data/applications/org.pencil2d.Pencil2D.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.pencil2d.Pencil2D.png sha256=0932522d650c8ee27bdb43a8502d5a8bb91b78261c3a649217adfcaf9d43a47b
+PASS pencil2d install 2105 ms Pencil2D installed: 0.7.1
+WM_CLASS = AppRun Pencil2D
+Pencil2D v0.7.1 — Pencil2D
+PASS pencil2d open-old 0 ms Launch request accepted
+GUI pencil2d open-old 44661 ms window=2097158
+OFFICIAL https://github.com/pencil2d/pencil/releases/download/v0.7.2/pencil2d-linux-amd64-v0.7.2.AppImage bytes=60471800 sha256=4034b036258b6a13d4540911ebce085f31ee18a9dacf438845ac71998d42ff91
+FILE /fixture/home/Applications/pencil2d-linux-amd64-v0.7.2.AppImage version=0.7.2 bytes=60471800 sha256=4034b036258b6a13d4540911ebce085f31ee18a9dacf438845ac71998d42ff91
+DESKTOP /fixture/home/data/applications/org.pencil2d.Pencil2D.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.pencil2d.Pencil2D.png sha256=0932522d650c8ee27bdb43a8502d5a8bb91b78261c3a649217adfcaf9d43a47b
+PASS pencil2d update 7181 ms Pencil2D updated to 0.7.2
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/pencil2d-final-profile/home/verification-user-data.txt: OK
+WM_CLASS = AppRun Pencil2D
+Pencil2D v0.7.2 — Pencil2D
+PASS pencil2d open-new 4 ms Launch request accepted
+GUI pencil2d open-new 59423 ms window=2097158
+WM_CLASS = AppRun Pencil2D
+Pencil2D v0.7.2 — Pencil2D
+GUI pencil2d open-menu 21961 ms window=2097158
+PASS pencil2d remove 42 ms Pencil2D was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/pencil2d-final-profile/home/verification-user-data.txt: OK

@@ -22,6 +22,8 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         return (meta.desktop_categories.as_str(), Some(meta.startup_wm_class.as_str()));
     }
     match app.id {
+        "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
+        "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -76,10 +78,12 @@ fn value(s: &str) -> String {
     s.replace('\\', "\\\\").replace('\n', "\\n").replace('\r', "\\r").replace('\t', "\\t")
 }
 
-/// LocalSend's AppImage supports extracting itself at launch, including on systems without a usable FUSE mount.
+/// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
-    (app.id == artcraft_launcher_core::curated::LOCALSEND.id && path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage")))
-        .then_some("--appimage-extract-and-run")
+    use artcraft_launcher_core::curated::{LOCALSEND, OPENSHOT, PENCIL2D};
+    (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
+        && [LOCALSEND, OPENSHOT, PENCIL2D].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
+    .then_some("--appimage-extract-and-run")
 }
 
 /// The entry for `app` installed as the AppImage `appimage`; `icon` when its icon is installed

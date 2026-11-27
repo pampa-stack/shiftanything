@@ -737,7 +737,49 @@ pub const NEOVIDE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("X8CNW77992"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 25] = [
+pub const PENCIL2D: crate::CraftApp = crate::CraftApp {
+    id: "pencil2d",
+    name: "Pencil2D",
+    tagline: "Draw and animate frame by frame",
+    repo: "pencil2d/pencil",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [130, 158, 225],
+    ink_light: [49, 75, 140],
+    ink_dark: [176, 199, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The Pencil2D Team",
+    msi_publisher: None,
+    bundle: Some("org.pencil2d.Pencil2D"),
+    site: Some("https://www.pencil2d.org/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub const OPENSHOT: crate::CraftApp = crate::CraftApp {
+    id: "openshot-video-editor",
+    name: "OpenShot Video Editor",
+    tagline: "Edit video with tracks, titles and transitions",
+    repo: "OpenShot/openshot-qt",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [113, 178, 220],
+    ink_light: [47, 91, 130],
+    ink_dark: [160, 211, 242],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenShot Studios, LLC",
+    msi_publisher: None,
+    bundle: Some("org.openshot.OpenShot"),
+    site: Some("https://www.openshot.org/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 27] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -763,6 +805,8 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 25] = [
     GODOT,
     TERMIX,
     NEOVIDE,
+    PENCIL2D,
+    OPENSHOT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -787,8 +831,8 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
-    if app.id == LOCALSEND.id {
-        return app.repo == LOCALSEND.repo;
+    if [LOCALSEND, PENCIL2D, OPENSHOT].iter().any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)) {
+        return true;
     }
     matches!(
         (app.id, app.repo),
@@ -877,7 +921,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 15);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 17);
     }
 
     #[test]

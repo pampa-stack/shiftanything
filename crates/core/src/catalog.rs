@@ -264,6 +264,8 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         return Some(icon);
     }
     Some(match id {
+        "pencil2d" => include_bytes!("../../../assets/app-icons/pencil2d.png"),
+        "openshot-video-editor" => include_bytes!("../../../assets/app-icons/openshot-video-editor.png"),
         "artcraft" => include_bytes!("../../../assets/app-icons/artcraft.png"),
         "photocraft" => include_bytes!("../../../assets/app-icons/photocraft.png"),
         "vectorcraft" => include_bytes!("../../../assets/app-icons/vectorcraft.png"),

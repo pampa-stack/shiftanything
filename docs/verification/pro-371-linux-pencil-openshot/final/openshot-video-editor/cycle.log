@@ -1,0 +1,124 @@
+START 2026-11-27T09:03:51Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/OpenShot/openshot-qt/releases/download/v4.1.0/OpenShot-v4.1.0-x86_64.AppImage bytes=258708672 sha256=43af897622628b6ee092d5cfc5b555d50d6253dd32c5562060c9759b041d7e4c
+FILE /fixture/home/Applications/OpenShot-v4.1.0-x86_64.AppImage version=4.1.0 bytes=258708672 sha256=43af897622628b6ee092d5cfc5b555d50d6253dd32c5562060c9759b041d7e4c
+DESKTOP /fixture/home/data/applications/org.openshot.OpenShot.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.openshot.OpenShot.png sha256=f3cfe681657a358e7c9924f50cc4a961e5970bf1fa39912e011d6d256cdd19a6
+PASS openshot-video-editor install 13559 ms OpenShot Video Editor installed: 4.1.0
+WM_CLASS = openshot-qt openshot
+* Untitled Project [HD 720p 30 fps] - OpenShot Video Editor
+PASS openshot-video-editor open-old 2 ms Launch request accepted
+GUI openshot-video-editor open-old 11916 ms window=2097171
+OFFICIAL https://github.com/OpenShot/openshot-qt/releases/download/v4.1.1/OpenShot-v4.1.1-x86_64.AppImage bytes=258921664 sha256=662d0c3cec67ddc90df6a8b0c723c0aac0d3bddf0c3c467eff562e818bb8c72f
+FILE /fixture/home/Applications/OpenShot-v4.1.1-x86_64.AppImage version=4.1.1 bytes=258921664 sha256=662d0c3cec67ddc90df6a8b0c723c0aac0d3bddf0c3c467eff562e818bb8c72f
+DESKTOP /fixture/home/data/applications/org.openshot.OpenShot.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.openshot.OpenShot.png sha256=f3cfe681657a358e7c9924f50cc4a961e5970bf1fa39912e011d6d256cdd19a6
+PASS openshot-video-editor update 9513 ms OpenShot Video Editor updated to 4.1.1
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/openshot-video-editor-final-profile/home/verification-user-data.txt: OK
+WM_CLASS = openshot-qt openshot
+OpenShot Video Editor
+PASS openshot-video-editor open-new 0 ms Launch request accepted
+GUI openshot-video-editor open-new 10610 ms window=2097171
+WM_CLASS = openshot-qt openshot
+OpenShot Video Editor
+INFO http_client: Configured packaged CA bundle: /tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/lib/certifi/cacert.pem
+INFO app: ------------------------------------------------
+INFO app:             Fri Nov 27 09:04:54 2026
+INFO app:               Starting new session
+INFO app: ------------------------------------------------
+INFO app:             OpenShot (version 4.1.1)
+INFO app: ------------------------------------------------
+INFO app: openshot-qt version: 4.1.1
+INFO app: distribution: appimage | Official distribution: no
+INFO app: libopenshot version: 1.1.1
+INFO app: platform: Linux-6.8.0-136-generic-x86_64-with-glibc2.4
+INFO app: processor: x86_64
+INFO app: machine: x86_64
+INFO app: python version: 3.8.10
+INFO app: qt binding: pyqt5 (Qt 5.12.8, binding 5.14.1)
+INFO app: Frozen version info from build server:
+{
+    "build_name": "OpenShot-v4.1.1-release-candidate-18416-cf0b398c-e0aa3886",
+    "date": "2026-11-01 22:38",
+    "libopenshot": {
+        "CI_COMMIT_REF_NAME": "release-20261101",
+        "CI_COMMIT_SHA": "cf0b398c7ff94e61da595e27aa83d0826e7aaeb8",
+        "CI_JOB_ID": "59401",
+        "CI_PIPELINE_ID": "18412",
+        "CI_PROJECT_NAME": "libopenshot",
+        "SO": "33",
+        "VERSION": "1.1.1"
+    },
+    "libopenshot-audio": {
+        "CI_COMMIT_REF_NAME": "develop",
+        "CI_COMMIT_SHA": "e0aa38866260fb1baffccf2fa5dac9ea92c38993",
+        "CI_JOB_ID": "59092",
+        "CI_PIPELINE_ID": "18330",
+        "CI_PROJECT_NAME": "libopenshot-audio",
+        "SO": "10",
+        "VERSION": "1.0.2"
+    },
+    "official_distribution": false,
+    "openshot-qt": {
+        "CI_COMMIT_REF_NAME": "release-20261101",
+        "CI_COMMIT_SHA": "eead0c71dcb323f6befa7d5935daeb1bedf95cd2",
+        "CI_JOB_ID": "59420",
+        "CI_PIPELINE_ID": "18416",
+        "CI_PROJECT_NAME": "openshot-qt",
+        "SO": null,
+        "VERSION": "4.1.1"
+    }
+}
+INFO app: Unsaved project assets: /fixture/home/.openshot_qt
+INFO project_data: Setting profile to HD 720p 30 fps
+INFO project_data: Apply default audio playback settings: 22050, 2 channels
+INFO app: checking babl_ext_path: /tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/lib/babl-ext
+INFO app: setting BABL_PATH: /tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/lib/babl-ext
+INFO language: Qt Detected Languages: []
+INFO language: LANG Environment Variable: C.UTF-8
+INFO language: LOCALE Environment Variable:
+INFO language: OpenShot Preference Language: Default
+INFO timeline: Timeline backend: QWidget (TimelineWidget)
+INFO ui_util: Initializing UI for MainWindow
+INFO http_client: HTTP GET OpenShot version info attempt 1/2: https://www.openshot.org/version/json/
+INFO thumbnail: Starting thumbnail server listening on ('127.0.0.1', 48985)
+WARNING http_client: HTTP GET OpenShot version info failed via https://www.openshot.org/version/json/: HTTPSConnectionPool(host='www.openshot.org', port=443): Max retries exceeded with url: /version/json/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7897bcaace50>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+INFO http_client: HTTP GET OpenShot version info attempt 2/2: http://www.openshot.org/version/json/
+WARNING http_client: HTTP GET OpenShot version info failed via http://www.openshot.org/version/json/: HTTPConnectionPool(host='www.openshot.org', port=80): Max retries exceeded with url: /version/json/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7897bcaacf10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+WARNING version: Failed to get OpenShot version info
+Traceback (most recent call last):
+  File "/tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/classes/version.py", line 46, in get_version_from_http
+    version_info = http_client.get_json(
+  File "/tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/classes/http_client.py", line 125, in get_json
+    raise RuntimeError("Failed to fetch %s from %s URL(s): %s" % (description, len(urls), last_error))
+RuntimeError: Failed to fetch OpenShot version info from 2 URL(s): HTTPConnectionPool(host='www.openshot.org', port=80): Max retries exceeded with url: /version/json/ (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7897bcaacf10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+WARNING updates: Cannot add existing listener: <windows.views.timeline.TimelineView object at 0x7897bcab6b80>
+INFO transition_model: updating transitions model.
+INFO effects_model: updating effects model.
+INFO emoji_model: updating emoji model.
+INFO generation_service: ComfyUI check failed at http://127.0.0.1:8188 (<urlopen error [Errno 111] Connection refused>)
+INFO main_window: InitCacheSettings
+INFO main_window: cache-mode: CacheMemory
+INFO main_window: cache-limit-mb: 768
+INFO main_window: cache-ahead-percent: 0.5
+INFO main_window: cache-preroll-min-frames: 24
+INFO main_window: cache-preroll-max-frames: 48
+INFO main_window: cache-max-frames: 900
+INFO main_window: Creating CacheMemory object with 805306368 byte limit
+INFO preview_thread: QThread Start Method Invoked
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+ALSA lib seq_hw.c:528:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+INFO main_window: Initialized OMP threads to 8 (user setting)
+INFO main_window: Initialized FFmpeg threads to 8 (user setting)
+WARNING main_window: Unhandled shutdown detected: No Log Found
+INFO base: Setting font to /tmp/appimage_extracted_6e642f38b9ae0f0d3cbe84d0fb6218ba/usr/bin/images/fonts/Ubuntu-R.ttf
+INFO ui_util: Initializing UI for MainWindow
+INFO theme: Setting Fusion dark palette
+INFO main_window: recover_backup
+INFO project_data: Setting profile to HD 720p 30 fps
+INFO project_data: Apply default audio playback settings: 22050, 2 channels
+INFO video_widget: Load: Set video widget display aspect ratio to: 1.7777777910232544
+INFO video_widget: Set video widget pixel aspect ratio to: 1.0
+INFO timeline: Preview image size: 588x328 (requested bounds: 589x368)
+GUI openshot-video-editor open-menu 9586 ms window=2097171
+PASS openshot-video-editor remove 121 ms OpenShot Video Editor was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/openshot-video-editor-final-profile/home/verification-user-data.txt: OK

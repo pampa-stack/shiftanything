@@ -358,6 +358,28 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::neovide_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
     }
+    if let Some(app) = [crate::curated::PENCIL2D, crate::curated::OPENSHOT].into_iter().find(|app| stems.contains(&app.id)) {
+        if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
+            return None;
+        }
+        let version = release.version.as_ref().filter(|version| version.pre.is_empty() && version.build.is_empty())?;
+        if release.tag.strip_prefix('v') != Some(version.to_string().as_str()) {
+            return None;
+        }
+        let filename = if app.id == crate::curated::PENCIL2D.id {
+            format!("pencil2d-linux-amd64-v{version}.AppImage")
+        } else {
+            format!("OpenShot-v{version}-x86_64.AppImage")
+        };
+        let url = format!("{}{}/{filename}", crate::release::download_prefix(app.repo), release.tag);
+        return release
+            .assets
+            .iter()
+            .find(|asset| {
+                asset.name == filename && asset.url == url && asset.size > 0 && asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
+            })
+            .map(|asset| (asset, PackageKind::AppImage));
+    }
     if stems.contains(&TERMIX.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -500,6 +522,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
+    if [crate::curated::PENCIL2D.id, crate::curated::OPENSHOT.id].iter().any(|id| stems.contains(id)) {
+        return platform == linux_x64;
+    }
     if stems.contains(&LOCALSEND.id) {
         return platform == mac_arm64 || platform == linux_x64;
     }
@@ -509,6 +534,41 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn reviewed_linux_appimages_require_verified_stable_asset_metadata() {
+        use crate::curated::{OPENSHOT, PENCIL2D};
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (app, version, filename) in
+            [(PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"), (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage")]
+        {
+            let tag = format!("v{version}");
+            let mut release = Release {
+                assets: vec![Asset {
+                    url: format!("{}{tag}/{filename}", crate::release::download_prefix(app.repo)),
+                    name: filename.into(),
+                    size: 42,
+                    sha256: Some("a".repeat(64)),
+                }],
+                version: crate::version::parse(version),
+                tag,
+                ..Release::default()
+            };
+            let select = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::AppImage]).is_some();
+            assert!(select(&release, linux));
+            assert!(!select(&release, Platform { arch: Arch::Arm64, ..linux }));
+            assert!(!select(&release, Platform { os: Os::MacOs, ..linux }));
+            release.prerelease = true;
+            assert!(!select(&release, linux));
+            release.prerelease = false;
+            let expected_url = std::mem::replace(&mut release.assets[0].url, format!("https://example.com/{filename}"));
+            assert!(!select(&release, linux));
+            release.assets[0].url = expected_url;
+            release.assets[0].sha256 = None;
+            assert!(!select(&release, linux));
+        }
+    }
 
     fn release(names: &[&str]) -> Release {
         Release {

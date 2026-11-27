@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=OpenShot Video Editor
+Comment=Edit video with tracks, titles and transitions
+Exec="/fixture/home/Applications/OpenShot-v4.1.0-x86_64.AppImage" --appimage-extract-and-run %F
+Icon=org.openshot.OpenShot
+Terminal=false
+Categories=GNOME;GTK;AudioVideo;Video;AudioVideoEditing;
+StartupWMClass=openshot
+X-ArtCraft-Launcher=true

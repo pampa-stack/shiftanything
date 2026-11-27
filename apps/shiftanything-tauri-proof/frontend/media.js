@@ -93,6 +93,26 @@
     watch(preview, card.dataset.app, preview?.matches('.preview-logo') ? null : 0);
   }
 
+  let comparisonLogos = [];
+  document.addEventListener('comparison-rows-rendered', event => {
+    for (const fallback of comparisonLogos) {
+      observer.unobserve(fallback);
+      visible.delete(fallback);
+      tasks.delete(fallback);
+    }
+    comparisonLogos = [...event.target.querySelectorAll('[data-sh-logo]')];
+    for (const fallback of comparisonLogos) {
+      queue(fallback, fallback.dataset.shLogo, null, source => {
+        if (!source) return;
+        const image = document.createElement('img');
+        image.className = 'icoapp product-icon';
+        image.alt = '';
+        image.src = source;
+        fallback.replaceWith(image);
+      });
+    }
+  });
+
   function watchDetail() {
     const appId = detailContent.querySelector('[data-native-app]')?.dataset.nativeApp;
     if (!appId) return;

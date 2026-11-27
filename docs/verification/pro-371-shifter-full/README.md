@@ -5,3 +5,5 @@
 La prova browser locale, con risposta nativa di fixture, ha percorso tutte le 35 pagine, verificato ricerca bilingue, 419 ID distinti, tabella senza overflow del documento da mobile e transizioni della colonna Indispensabili. Il protocollo MCP su stdio reale ha restituito l'intero catalogo dai nove profili e nel confronto manuale. `verify_shifter.py` concorda con Rust su 20.175 selezioni.
 
 Il confronto è documentale. L'installazione delle app è verificata da prove separate.
+
+[Finestra macOS con i loghi di Doop, Penpot e FigCraft](figma-logos-en.png). SH*FTER usa il caricamento nativo del catalogo per le righe in vista. Un riquadro chiaro rende leggibile il logo scuro di Penpot.

@@ -49,6 +49,7 @@
 .shifter tbody tr:last-child td{border-bottom:0}
 .sh-identity{display:flex;align-items:center;gap:8px}
 .sh-identity img{width:26px;height:26px;object-fit:contain;border-radius:5px}
+[data-candidate="penpot"] .sh-identity img{background:#d7dade}
 .sh-rate{white-space:nowrap}
 .sh-rate strong{font-family:var(--mono);font-size:17px;color:var(--ok);margin-right:5px}
 .sh-gap{color:var(--warn)}

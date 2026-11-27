@@ -298,6 +298,7 @@
       } else {
         const initials = node('span', [...app.name].slice(0, 2).join('').toUpperCase(), 'sh-initials');
         initials.setAttribute('aria-hidden', 'true');
+        initials.dataset.shLogo = app.id;
         identity.append(initials);
       }
       identity.append(node('strong', app.name));
@@ -339,6 +340,7 @@
       row.append(actionCell);
       rows.append(row);
     }
+    rows.dispatchEvent(new Event('comparison-rows-rendered', { bubbles: true }));
   }
 
   function drawResultPage() {

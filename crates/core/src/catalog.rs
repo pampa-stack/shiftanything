@@ -167,6 +167,7 @@ impl CraftApp {
         } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO
             || self.id == crate::curated::KEYCASTR.id
             || (self.id, self.repo) == (crate::curated::MACCY.id, crate::curated::MACCY.repo)
+            || (self.id, self.repo) == (crate::curated::NETNEWSWIRE.id, crate::curated::NETNEWSWIRE.repo)
         {
             crate::PackageKind::MacZip
         } else {

@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -64,7 +64,11 @@ for tag in (old, new):
             published_digests = {digest}
         version = f'{tag}.0'
     else:
-        assert re.fullmatch(r'\d+\.\d+\.\d+' if app_id == 'maccy' else r'v\d+\.\d+\.\d+', tag)
+        tag_pattern = {
+            'maccy': r'\d+\.\d+\.\d+',
+            'netnewswire': r'mac-\d+\.\d+(?:\.\d+)?',
+        }.get(app_id, r'v\d+\.\d+\.\d+')
+        assert re.fullmatch(tag_pattern, tag)
         assert url == f'https://github.com/{repo}/releases/download/{tag}/{name}'
         html = Path(f'{app_id}-{tag}-assets.html').read_text()
         [block] = [item for item in html.split('</li>') if f'href="/{repo}/releases/download/{tag}/{name}"' in item]
@@ -73,12 +77,14 @@ for tag in (old, new):
             assert not published_digests
         else:
             assert published_digests == {digest}, published_digests
-        version = tag.removeprefix('v')
+        version = tag.removeprefix('v').removeprefix('mac-')
+        if app_id == 'netnewswire' and version.count('.') == 1:
+            version += '.0'
     releases.append({'tag': tag, 'version': version, 'name': tag, 'published_at': None, 'html_url': f'https://github.com/{repo}/releases/tag/{tag}', 'notes': '', 'prerelease': False, 'assets': [{'name': name, 'size': int(size), 'sha256': digest, 'url': url}]})
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp'):
+if app_id not in ('blender', 'gimp', 'netnewswire'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion

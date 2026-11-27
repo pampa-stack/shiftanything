@@ -2838,6 +2838,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_zotero_releases()
         || app.uses_blender_releases()
         || app.uses_gimp_releases()
+        || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
     {

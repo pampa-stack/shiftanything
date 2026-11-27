@@ -16,7 +16,7 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, LIBREOFFICE, OPENCODE, TERMIX, ZOTERO};
+use artcraft_launcher_core::curated::{BLENDER, ENTE_AUTH, GIMP, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, ZOTERO};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
@@ -384,6 +384,11 @@ impl GitHubSource {
         release::opencode_desktop_release(&bytes).ok_or_else(|| "OpenCode's desktop release manifest is invalid.".into())
     }
 
+    fn latest_netnewswire(&self) -> Result<Release, String> {
+        let target = self.http.redirect_target(release::NETNEWSWIRE_STABLE_MAC_URL)?.ok_or("NetNewsWire's Mac download is unavailable")?;
+        release::netnewswire_mac_release_from_download(&target).ok_or_else(|| "NetNewsWire's Mac download did not name a stable Mac release".into())
+    }
+
     fn ask_opencode_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
         let mut release = self.opencode_desktop_manifest()?;
         let repo = &query.repo;
@@ -592,6 +597,8 @@ impl GitHubSource {
             blender::releases(&self.http, false)?
         } else if query.repo == GIMP.repo {
             gimp::releases(&self.http, false)?
+        } else if query.repo == NETNEWSWIRE.repo {
+            release::netnewswire_mac_release_history(self.latest_netnewswire()?)
         } else {
             if self.limited() {
                 return Err("GitHub's request limit was reached. Try again later.".into());
@@ -675,6 +682,7 @@ impl ReleaseSource for GitHubSource {
         let publisher = match query.repo.as_str() {
             repo if repo == BLENDER.repo => Some((Source::Blender, blender::releases(&self.http, true))),
             repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
+            repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
         if let Some((source, releases)) = publisher {
@@ -726,6 +734,9 @@ impl ReleaseSource for GitHubSource {
     fn newest_tag(&self, repo: &str) -> Option<String> {
         if repo == OPENCODE.repo {
             return self.opencode_desktop_manifest().ok().map(|release| release.tag);
+        }
+        if repo == NETNEWSWIRE.repo {
+            return self.latest_netnewswire().ok().map(|release| release.tag);
         }
         if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo].contains(&repo) {
             return None;

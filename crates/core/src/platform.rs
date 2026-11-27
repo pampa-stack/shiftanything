@@ -419,6 +419,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         }
         return release.assets.iter().find(|asset| crate::release::maccy_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
     }
+    if stems.contains(&crate::curated::NETNEWSWIRE.id) {
+        if !kinds.contains(&PackageKind::MacZip) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::netnewswire_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
+    }
     if stems.contains(&crate::curated::LAPCE.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -762,6 +768,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         NEOVIDE.id,
         crate::curated::KEYCASTR.id,
         crate::curated::MACCY.id,
+        crate::curated::NETNEWSWIRE.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,

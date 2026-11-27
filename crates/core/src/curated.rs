@@ -1980,6 +1980,27 @@ pub const GIMP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("T25BQ8HSJF"),
 };
 
+pub const NETNEWSWIRE: crate::CraftApp = crate::CraftApp {
+    id: "netnewswire",
+    name: "NetNewsWire",
+    tagline: "Read feeds with an open source RSS reader",
+    repo: "Ranchero-Software/NetNewsWire",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [94, 155, 228],
+    ink_light: [23, 78, 150],
+    ink_dark: [159, 200, 244],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ranchero Software",
+    msi_publisher: None,
+    bundle: Some("com.ranchero.NetNewsWire-Evergreen"),
+    site: Some("https://netnewswire.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("M8L2WTLA8W"),
+};
+
 pub const MACCY: crate::CraftApp = crate::CraftApp {
     id: "maccy",
     name: "Maccy",
@@ -2253,7 +2274,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 97] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 98] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2351,6 +2372,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 97] = [
     MACCY,
     BLENDER,
     GIMP,
+    NETNEWSWIRE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

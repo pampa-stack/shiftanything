@@ -18,7 +18,7 @@
     clearGaps: ['Tutti coperti', 'All covered'],
     missingEssential: ['funzione da coprire', 'feature to cover'],
     missingEssentials: ['funzioni da coprire', 'features to cover'],
-    unverified: ['Non verificato', 'Unverified'],
+    unverified: ['Da documentare', 'Needs a source'],
     supported: ['Supportata', 'Supported'],
     partial: ['Parziale', 'Partial'],
     unsupported: ['Assente nell’edizione gratuita', 'Unavailable in free edition'],
@@ -44,7 +44,6 @@
     customFunction: ['Scrivi una funzione', 'Enter a feature'],
     about: ['La copertura conta le funzioni selezionate supportate per intero. Fonti controllate il', 'Coverage counts selected features with full support. Sources checked on'],
     customNote: ['La funzione è stata aggiunta manualmente.', 'This feature was added manually.'],
-    relatedNote: ['La funzione va verificata per questa app.', 'This feature needs verification for this app.'],
     loading: ['Caricamento del confronto…', 'Loading comparison…'],
     loadError: ['Impossibile caricare il confronto. Riprova dal tab SH*FTER.', 'Unable to load the comparison. Try opening SH*FTER again.'],
     compareError: ['Impossibile aggiornare il confronto.', 'Unable to update the comparison.'],
@@ -181,6 +180,7 @@
     hubspot: ['HubSpot CRM'],
     'image-line': ['FL Studio'],
     linear: ['Linear'],
+    loom: ['Loom'],
     maxon: ['Cinema 4D'],
     microsoft: ['Microsoft 365', 'Microsoft Excel', 'Microsoft OneNote', 'Microsoft Outlook', 'Microsoft PowerPoint',
       'Microsoft Project', 'Microsoft Teams', 'Microsoft Visio', 'Microsoft Word'],
@@ -310,8 +310,9 @@
       const proof = evidenceByApp.get(app.id)?.get(feature.key);
       const descriptor = labels[proof?.state ?? 'unverified'];
       const section = node('section', undefined, 'sh-proof');
-      section.append(node('strong', feature.name[lang] + ' · ' + descriptor),
-        node('span', proof?.note[lang] || (feature.source ? labels.relatedNote : labels.customNote), 'dim'));
+      section.append(node('strong', feature.name[lang] + ' · ' + descriptor));
+      const note = proof?.note[lang] || (!feature.source ? labels.customNote : '');
+      if (note) section.append(node('span', note, 'dim'));
       const actions = node('div', undefined, 'sh-proof-actions');
       if (feature.source) actions.append(sourceButton(labels.baseline, { kind: 'baseline', feature_id: feature.key }));
       if (proof?.source) actions.append(sourceButton(labels.source, { kind: 'evidence', app_id: app.id, feature_id: feature.key }));

@@ -63,3 +63,5 @@ Mac Apple Silicon, DMG locale SHA-256 `fe3ce7317b52870c00309049c340b356f4cb5262f
 Ubuntu 24.04+ amd64, DEB da `7007986` SHA-256 `5ce5b35228ea2437fd2ba7eef8d2d84b76c03d22a9f56845ee4d282965bc9e40`. Eseguibile estratto e aperto su Ubuntu 26.04, con Xvfb, profilo temporaneo e namespace di rete con il solo loopback. Screenshot letti di [Wispr Flow](wispr-flow-505-offline-linux.png) e [Photoshop](photoshop-505-offline-linux.png). Pinta, KeePassXC e Xournal++ hanno aperto il consenso nativo. Rifiuto via Esc, nessuna installazione e nessun job avviato in questa prova offline.
 
 Parità Rust/MCP su 20.256 selezioni. Il client stdio vede 505 app e 10 profili. Core 128 passati, Native 556, Tauri 12, con otto ignorati preesistenti fra Core e Native. Il DEB precedente alle tre nuove immagini resta l'evidenza Linux di questa sezione.
+
+Il selettore software include l'icona ufficiale Loom, pubblicata come favicon 32 × 32 nel sito Loom. Il PNG distribuito conserva i byte originali, SHA-256 `e7e3387938293b8833aaf643b8de0e3b03b2ea777007795534cbb7ce45d460dc`. [Fonte PNG](https://cdn.loom.com/assets/favicons-loom/favicon-32x32.png)

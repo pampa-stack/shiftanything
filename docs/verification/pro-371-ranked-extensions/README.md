@@ -12,5 +12,6 @@ Il 27 novembre 2026 i pacchetti ufficiali sono stati installati, aggiornati e ri
 - **Mumble**, Linux x64. Flatpak 1.5.915 → 1.5.939. È stata aperta la finestra principale dopo l’assistente, senza accedere a un server o usare il microfono. [Screenshot](mumble.png) · [Flathub](https://flathub.org/apps/info.mumble.Mumble)
 - **Headlamp**, Linux x64. Flatpak 0.45.0 → 0.46.0. Finestra aperta su entrambe le versioni senza configurazione Kubernetes. [Screenshot](headlamp.png) · [Flathub](https://flathub.org/apps/io.kinvolk.Headlamp)
 - **Blockbench**, Linux x64. Flatpak 5.2.1 → 5.2.2. Schermata New/Recent aperta offline su entrambe le versioni. [Screenshot](blockbench.png) · [Flathub](https://flathub.org/apps/net.blockbench.Blockbench)
+- **Kando**, Linux x64. Flatpak 3.0.0 → 3.0.1. Avvio nel tray e impostazioni aperte su entrambe le versioni con una sessione XFCE/X11 nel banco di prova. [Screenshot](kando.png) · [Flathub](https://flathub.org/apps/menu.kando.Kando)
 
 I DMG sono limitati ai file verificati per Apple Silicon. I cicli Linux usano il canale Flathub firmato per x64. Le versioni indicate sono quelle esercitate sui rispettivi canali.

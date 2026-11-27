@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 94] = [
+pub const RECIPES: [(&str, &str); 95] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -96,6 +96,7 @@ pub const RECIPES: [(&str, &str); 94] = [
     ("mumble", "info.mumble.Mumble"),
     ("headlamp", "io.kinvolk.Headlamp"),
     ("blockbench", "net.blockbench.Blockbench"),
+    ("kando", "menu.kando.Kando"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -208,6 +209,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "mumble" => "https://github.com/mumble-voip/mumble",
         "headlamp" => "https://github.com/kubernetes-sigs/headlamp",
         "blockbench" => "https://github.com/JannisX11/blockbench",
+        "kando" => "https://github.com/kando-menu/kando",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

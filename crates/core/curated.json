@@ -28221,6 +28221,17 @@
   },
   {
     "id": "ente-auth",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.ente.auth",
+        "source": "https://flathub.org/apps/io.ente.auth",
+        "download_size": 27705718,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.ente.auth",
+        "download_size_checked": "2026-11-27"
+      }
+    ],
     "name": "Ente Auth",
     "repo": "https://github.com/ente/ente",
     "author": "Ente",

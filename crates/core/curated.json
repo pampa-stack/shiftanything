@@ -32398,5 +32398,2193 @@
       ]
     },
     "releases": "https://github.com/SunshineStream/Sunshine/releases/tag/v2026.914.233613"
+  },
+  {
+    "id": "utm",
+    "name": "UTM",
+    "repo": "https://github.com/utmapp/UTM",
+    "author": "utmapp",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Crea e avvia macchine virtuali su Mac con QEMU e Apple Virtualization.",
+      "en": "Create and run virtual machines on Mac with QEMU and Apple Virtualization."
+    },
+    "alternatives": [
+      "Parallels Desktop",
+      "VMware Fusion"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/utmapp/UTM/blob/main/LICENSE",
+    "website": "https://getutm.app",
+    "releases": "https://github.com/utmapp/UTM/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/utmapp/UTM/main/Platform/Assets.xcassets/AppIcon.appiconset/icon_256pt.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/utmapp/UTM/main/screenmac.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://mac.getutm.app/"
+    },
+    "stars": {
+      "count": 37103,
+      "source": "https://github.com/utmapp/UTM/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/utmapp/UTM/releases/tag/v5.0.9-2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v5.0.9-2",
+      "date": "2026-11-18",
+      "source": "https://github.com/utmapp/UTM/releases/tag/v5.0.9-2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 304699821,
+          "size_max": 304699821
+        }
+      ]
+    },
+    "media_source": "https://github.com/utmapp/UTM#readme"
+  },
+  {
+    "id": "monitorcontrol",
+    "name": "MonitorControl",
+    "repo": "https://github.com/MonitorControl/MonitorControl",
+    "author": "MonitorControl",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Regola luminosità e volume dei monitor esterni dai controlli di macOS.",
+      "en": "Adjust external display brightness and volume with macOS controls."
+    },
+    "alternatives": [
+      "Lunar Pro"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/MonitorControl/MonitorControl/blob/main/License.txt",
+    "website": "https://monitorcontrol.app",
+    "releases": "https://github.com/MonitorControl/MonitorControl/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/MonitorControl/MonitorControl/main/MonitorControl/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/MonitorControl/MonitorControl/main/.github/screenshot.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/MonitorControl/MonitorControl#readme"
+    },
+    "stars": {
+      "count": 34863,
+      "source": "https://github.com/MonitorControl/MonitorControl/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/MonitorControl/MonitorControl/releases/tag/v4.4.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v4.4.0",
+      "date": "2026-09-15",
+      "source": "https://github.com/MonitorControl/MonitorControl/releases/tag/v4.4.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 20391423,
+          "size_max": 20391423
+        }
+      ]
+    },
+    "media_source": "https://github.com/MonitorControl/MonitorControl#readme"
+  },
+  {
+    "id": "rectangle",
+    "name": "Rectangle",
+    "repo": "https://github.com/rxhanson/Rectangle",
+    "author": "Ryan Hanson",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Disponi e ridimensiona le finestre con scorciatoie e aggancio ai bordi.",
+      "en": "Arrange and resize windows with shortcuts and edge snapping."
+    },
+    "alternatives": [
+      "Magnet",
+      "Rectangle Pro"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/rxhanson/Rectangle/blob/main/LICENSE",
+    "website": "https://rectangleapp.com",
+    "releases": "https://github.com/rxhanson/Rectangle/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/rxhanson/Rectangle/main/Rectangle/Assets.xcassets/AppIcon.appiconset/mac256pts1x.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/rxhanson/Rectangle#readme"
+    },
+    "stars": {
+      "count": 30357,
+      "source": "https://github.com/rxhanson/Rectangle/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/rxhanson/Rectangle/releases/tag/v2.0.5"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.0.5",
+      "date": "2026-11-20",
+      "source": "https://github.com/rxhanson/Rectangle/releases/tag/v2.0.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 4940143,
+          "size_max": 4940143
+        }
+      ]
+    },
+    "media_source": "https://github.com/rxhanson/Rectangle#readme"
+  },
+  {
+    "id": "ice",
+    "name": "Ice",
+    "repo": "https://github.com/jordanbaird/Ice",
+    "author": "jordanbaird",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Nascondi e organizza le icone della barra dei menu.",
+      "en": "Hide and organize menu bar icons."
+    },
+    "alternatives": [
+      "Bartender"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/jordanbaird/Ice/blob/main/LICENSE",
+    "website": "https://icemenubar.app",
+    "releases": "https://github.com/jordanbaird/Ice/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/jordanbaird/Ice/main/Ice/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/jordanbaird/Ice#readme"
+    },
+    "stars": {
+      "count": 30120,
+      "source": "https://github.com/jordanbaird/Ice/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/jordanbaird/Ice/releases/tag/0.11.12"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "0.11.12",
+      "date": "2024-10-29",
+      "source": "https://github.com/jordanbaird/Ice/releases/tag/0.11.12",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 3497507,
+          "size_max": 3497507
+        }
+      ]
+    },
+    "media_source": "https://github.com/jordanbaird/Ice#readme"
+  },
+  {
+    "id": "aerospace",
+    "name": "AeroSpace",
+    "repo": "https://github.com/nikitabobko/AeroSpace",
+    "author": "nikitabobko",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Gestore a mosaico con spazi di lavoro e scorciatoie configurabili. La versione distribuita dal progetto è in beta.",
+      "en": "Tiling window manager with workspaces and configurable shortcuts. The project distributes it as a beta."
+    },
+    "alternatives": [
+      "Amethyst"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/nikitabobko/AeroSpace/blob/main/LICENSE.txt",
+    "website": "https://nikitabobko.github.io/AeroSpace/guide",
+    "releases": "https://github.com/nikitabobko/AeroSpace/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": null,
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/nikitabobko/AeroSpace#readme"
+    },
+    "stars": {
+      "count": 23982,
+      "source": "https://github.com/nikitabobko/AeroSpace/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/nikitabobko/AeroSpace/releases/tag/v0.21.3-Beta"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.21.3-Beta",
+      "date": "2026-07-16",
+      "source": "https://github.com/nikitabobko/AeroSpace/releases/tag/v0.21.3-Beta",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 7944479,
+          "size_max": 7944479
+        }
+      ]
+    }
+  },
+  {
+    "id": "codeedit",
+    "name": "CodeEdit",
+    "repo": "https://github.com/CodeEditApp/CodeEdit",
+    "author": "CodeEditApp",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Editor di codice nativo per macOS con progetti, terminale e ricerca.",
+      "en": "Native macOS code editor with projects, terminal and search."
+    },
+    "alternatives": [
+      "Sublime Text",
+      "TextMate"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/CodeEditApp/CodeEdit/blob/main/LICENSE.md",
+    "website": "https://codeedit.app",
+    "releases": "https://github.com/CodeEditApp/CodeEdit/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/CodeEditApp/CodeEdit/main/.github/CodeEdit-Icon-128%402x.png",
+    "screenshots": [
+      "https://user-images.githubusercontent.com/806104/194004176-3143d19f-1ad9-449c-bd41-8c4f9998f44b.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/CodeEditApp/CodeEdit#readme"
+    },
+    "stars": {
+      "count": 23136,
+      "source": "https://github.com/CodeEditApp/CodeEdit/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/CodeEditApp/CodeEdit/releases/tag/v0.3.6"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.3.6",
+      "date": "2025-08-26",
+      "source": "https://github.com/CodeEditApp/CodeEdit/releases/tag/v0.3.6",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 35962501,
+          "size_max": 35962501
+        }
+      ]
+    },
+    "media_source": "https://github.com/CodeEditApp/CodeEdit#readme"
+  },
+  {
+    "id": "karabiner-elements",
+    "name": "Karabiner-Elements",
+    "repo": "https://github.com/pqrs-org/Karabiner-Elements",
+    "author": "pqrs-org",
+    "level": "avanz",
+    "category": "accessibilita",
+    "description": {
+      "it": "Rimappa i tasti della tastiera con regole personalizzate per dispositivo e applicazione.",
+      "en": "Remap keyboard keys with rules for individual devices and applications."
+    },
+    "alternatives": [
+      "BetterTouchTool"
+    ],
+    "license": "Unlicense",
+    "license_url": "https://github.com/pqrs-org/Karabiner-Elements/blob/main/LICENSE.md",
+    "website": "https://karabiner-elements.pqrs.org/",
+    "releases": "https://github.com/pqrs-org/Karabiner-Elements/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://karabiner-elements.pqrs.org/images/logo.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+    },
+    "stars": {
+      "count": 23177,
+      "source": "https://github.com/pqrs-org/Karabiner-Elements/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/pqrs-org/Karabiner-Elements/releases/tag/v17.0.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v17.0.0",
+      "date": "2026-11-26",
+      "source": "https://github.com/pqrs-org/Karabiner-Elements/releases/tag/v17.0.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 36850918,
+          "size_max": 36850918
+        }
+      ]
+    },
+    "media_source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+  },
+  {
+    "id": "maccy",
+    "name": "Maccy",
+    "repo": "https://github.com/p0deje/Maccy",
+    "author": "p0deje",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Conserva una cronologia degli appunti ricercabile dalla barra dei menu.",
+      "en": "Keep a searchable clipboard history in the menu bar."
+    },
+    "alternatives": [
+      "Paste"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/p0deje/Maccy/blob/master/LICENSE",
+    "website": "https://maccy.app",
+    "releases": "https://github.com/p0deje/Maccy/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/p0deje/Maccy/master/Maccy/Assets.xcassets/AppIcon.appiconset/AppIcon%20%28Big%20Sur%29-256w.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/p0deje/Maccy#readme"
+    },
+    "stars": {
+      "count": 22502,
+      "source": "https://github.com/p0deje/Maccy/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/p0deje/Maccy/releases/tag/2.8.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "2.8.0",
+      "date": "2026-10-26",
+      "source": "https://github.com/p0deje/Maccy/releases/tag/2.8.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 5288775,
+          "size_max": 5288775
+        }
+      ]
+    },
+    "media_source": "https://github.com/p0deje/Maccy#readme"
+  },
+  {
+    "id": "aerial",
+    "name": "Aerial",
+    "repo": "https://github.com/AerialScreensaver/Aerial",
+    "author": "AerialScreensaver",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra video panoramici come salvaschermo con controlli per raccolte e download.",
+      "en": "Display aerial videos as a screen saver with collection and download controls."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/AerialScreensaver/Aerial/blob/main/LICENSE",
+    "website": "https://aerialscreensaver.github.io/",
+    "releases": "https://github.com/AerialScreensaver/Aerial/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/AerialScreensaver/Aerial/main/Aerial/Resources/Icons/LogoIcon-128px%402x.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/AerialScreensaver/Aerial/main/screenshot.webp"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://aerialscreensaver.github.io/"
+    },
+    "stars": {
+      "count": 678,
+      "source": "https://github.com/AerialScreensaver/Aerial/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/AerialScreensaver/Aerial/releases/tag/v4.1.12"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v4.1.12",
+      "date": "2026-11-19",
+      "source": "https://github.com/AerialScreensaver/Aerial/releases/tag/v4.1.12",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 11277099,
+          "size_max": 11277099
+        }
+      ]
+    },
+    "media_source": "https://aerialscreensaver.github.io/"
+  },
+  {
+    "id": "background-music",
+    "name": "Background Music",
+    "repo": "https://github.com/kyleneideck/BackgroundMusic",
+    "author": "kyleneideck",
+    "level": "base",
+    "category": "voce",
+    "description": {
+      "it": "Controlla il volume di ogni app e mette in pausa la musica quando parte altro audio.",
+      "en": "Control each app’s volume and pause music when another app plays audio."
+    },
+    "alternatives": [
+      "SoundSource"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/kyleneideck/BackgroundMusic/blob/master/LICENSE",
+    "website": "https://github.com/kyleneideck/BackgroundMusic",
+    "releases": "https://github.com/kyleneideck/BackgroundMusic/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/kyleneideck/BackgroundMusic/master/BGMApp/BGMApp/Images.xcassets/AppIcon.appiconset/appicon_256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/kyleneideck/BackgroundMusic/master/Images/README/Screenshot.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/kyleneideck/BackgroundMusic#readme"
+    },
+    "stars": {
+      "count": 19405,
+      "source": "https://github.com/kyleneideck/BackgroundMusic/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/kyleneideck/BackgroundMusic/releases/tag/v0.5.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.5.0",
+      "date": "2026-06-10",
+      "source": "https://github.com/kyleneideck/BackgroundMusic/releases/tag/v0.5.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 806818,
+          "size_max": 806818
+        }
+      ]
+    },
+    "media_source": "https://github.com/kyleneideck/BackgroundMusic#readme"
+  },
+  {
+    "id": "iterm2",
+    "name": "iTerm2",
+    "repo": "https://github.com/gnachman/iTerm2",
+    "author": "George Nachman and iTerm2 contributors",
+    "level": "avanz",
+    "category": "sviluppo",
+    "description": {
+      "it": "Terminale grafico con pannelli affiancati, ricerca e profili.",
+      "en": "Graphical terminal with split panes, search and profiles."
+    },
+    "alternatives": [
+      "Terminal"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/gnachman/iTerm2/blob/master/LICENSE",
+    "website": "https://iterm2.com/downloads.html",
+    "releases": "https://iterm2.com/downloads.html",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": null,
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://iterm2.com/downloads.html"
+    },
+    "stars": {
+      "count": 18333,
+      "source": "https://github.com/gnachman/iTerm2/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://iterm2.com/downloads.html"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "xbar",
+    "name": "xbar",
+    "repo": "https://github.com/matryer/xbar",
+    "author": "matryer",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra nella barra dei menu le informazioni generate dai tuoi script. Il progetto distribuisce questa versione come beta.",
+      "en": "Display information from your scripts in the menu bar. The project distributes this version as a beta."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/matryer/xbar/blob/main/LICENSE.txt",
+    "website": "https://xbarapp.com",
+    "releases": "https://github.com/matryer/xbar/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": null,
+    "screenshots": [
+      "https://raw.githubusercontent.com/matryer/xbar/main/xbarapp.com/public/img/xbar-menu-preview.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/matryer/xbar#readme"
+    },
+    "stars": {
+      "count": 18085,
+      "source": "https://github.com/matryer/xbar/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/matryer/xbar/releases/tag/v2.1.7-beta"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.1.7-beta",
+      "date": "2021-10-29",
+      "source": "https://github.com/matryer/xbar/releases/tag/v2.1.7-beta",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 8484887,
+          "size_max": 8484887
+        }
+      ]
+    },
+    "media_source": "https://github.com/matryer/xbar#readme"
+  },
+  {
+    "id": "alttab",
+    "name": "AltTab",
+    "repo": "https://github.com/lwouis/alt-tab-macos",
+    "author": "lwouis",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Passa tra le finestre aperte con anteprime e scorciatoie.",
+      "en": "Switch between open windows using previews and shortcuts."
+    },
+    "alternatives": [
+      "Witch"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/lwouis/alt-tab-macos/blob/master/LICENCE.md",
+    "website": "https://alt-tab.app",
+    "releases": "https://github.com/lwouis/alt-tab-macos/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/lwouis/alt-tab-macos/master/docs/readme/app-icon.webp",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/lwouis/alt-tab-macos#readme"
+    },
+    "stars": {
+      "count": 16583,
+      "source": "https://github.com/lwouis/alt-tab-macos/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/lwouis/alt-tab-macos/releases/tag/v11.10.2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v11.10.2",
+      "date": "2026-11-16",
+      "source": "https://github.com/lwouis/alt-tab-macos/releases/tag/v11.10.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 4885500,
+          "size_max": 4885500
+        }
+      ]
+    },
+    "media_source": "https://github.com/lwouis/alt-tab-macos#readme"
+  },
+  {
+    "id": "hammerspoon",
+    "name": "Hammerspoon",
+    "repo": "https://github.com/Hammerspoon/hammerspoon",
+    "author": "The Hammerspoon Project",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Personalizza finestre, input e scorciatoie di macOS con Lua.",
+      "en": "Customize macOS windows, input and shortcuts with Lua."
+    },
+    "alternatives": [
+      "Keyboard Maestro"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Hammerspoon/hammerspoon/blob/master/LICENSE",
+    "website": "https://github.com/Hammerspoon/hammerspoon",
+    "releases": "https://github.com/Hammerspoon/hammerspoon/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Hammerspoon/hammerspoon/master/Hammerspoon/Images.xcassets/AppIcon.appiconset/256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Hammerspoon/hammerspoon#readme"
+    },
+    "stars": {
+      "count": 16496,
+      "source": "https://github.com/Hammerspoon/hammerspoon/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Hammerspoon/hammerspoon/releases/tag/1.1.1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.1.1",
+      "date": "2026-02-26",
+      "source": "https://github.com/Hammerspoon/hammerspoon/releases/tag/1.1.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 9704557,
+          "size_max": 9704557
+        }
+      ]
+    },
+    "media_source": "https://github.com/Hammerspoon/hammerspoon#readme"
+  },
+  {
+    "id": "amethyst",
+    "name": "Amethyst",
+    "repo": "https://github.com/ianyh/Amethyst",
+    "author": "ianyh",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Organizza automaticamente le finestre in layout a mosaico.",
+      "en": "Automatically arrange windows in tiling layouts."
+    },
+    "alternatives": [
+      "Magnet"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/ianyh/Amethyst/blob/development/LICENSE.md",
+    "website": "https://ianyh.com/amethyst/",
+    "releases": "https://github.com/ianyh/Amethyst/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ianyh/Amethyst/development/Amethyst/Images.xcassets/AppIcon.appiconset/icon_256x256.png",
+    "screenshots": [
+      "https://ianyh.com/amethyst/images/windows.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/ianyh/Amethyst#readme"
+    },
+    "stars": {
+      "count": 16345,
+      "source": "https://github.com/ianyh/Amethyst/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/ianyh/Amethyst/releases/tag/v0.25.1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.25.1",
+      "date": "2026-11-21",
+      "source": "https://github.com/ianyh/Amethyst/releases/tag/v0.25.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 7597173,
+          "size_max": 7597173
+        }
+      ]
+    },
+    "media_source": "https://github.com/ianyh/Amethyst#readme"
+  },
+  {
+    "id": "hidden-bar",
+    "name": "Hidden Bar",
+    "repo": "https://github.com/consolelabs/hidden",
+    "author": "consolelabs",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Comprimi le icone meno usate per liberare spazio nella barra dei menu.",
+      "en": "Collapse less-used icons to make space in the menu bar."
+    },
+    "alternatives": [
+      "Bartender"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/consolelabs/hidden/blob/develop/LICENSE",
+    "website": "https://d.foundation/opensource",
+    "releases": "https://github.com/consolelabs/hidden/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/consolelabs/hidden/develop/hidden/Assets.xcassets/AppIcon.appiconset/icon_256%401x.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/consolelabs/hidden#readme"
+    },
+    "stars": {
+      "count": 15639,
+      "source": "https://github.com/consolelabs/hidden/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/consolelabs/hidden/releases/tag/v1.13.4"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v1.13.4",
+      "date": "2026-11-23",
+      "source": "https://github.com/consolelabs/hidden/releases/tag/v1.13.4",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 2757264,
+          "size_max": 2757264
+        }
+      ]
+    },
+    "media_source": "https://github.com/consolelabs/hidden#readme"
+  },
+  {
+    "id": "easydict",
+    "name": "Easydict",
+    "repo": "https://github.com/tisfeng/Easydict",
+    "author": "tisfeng",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Cerca parole e traduci testo selezionato, digitato o catturato con OCR.",
+      "en": "Look up words and translate text selected, typed or captured with OCR."
+    },
+    "alternatives": [
+      "DeepL"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/tisfeng/Easydict/blob/dev/LICENSE",
+    "website": "https://github.com/tisfeng/Easydict",
+    "releases": "https://github.com/tisfeng/Easydict/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/tisfeng/Easydict/dev/Easydict/App/Assets.xcassets/white-black-icon.appiconset/icon_256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/tisfeng/Easydict#readme"
+    },
+    "stars": {
+      "count": 15451,
+      "source": "https://github.com/tisfeng/Easydict/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/tisfeng/Easydict/releases/tag/2.26.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "2.26.0",
+      "date": "2026-10-27",
+      "source": "https://github.com/tisfeng/Easydict/releases/tag/2.26.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 35761660,
+          "size_max": 35761660
+        }
+      ]
+    },
+    "media_source": "https://github.com/tisfeng/Easydict#readme"
+  },
+  {
+    "id": "sketchybar",
+    "name": "SketchyBar",
+    "repo": "https://github.com/FelixKratz/SketchyBar",
+    "author": "FelixKratz",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Barra di stato per macOS configurabile con script e file di testo.",
+      "en": "macOS status bar configured with scripts and text files."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/FelixKratz/SketchyBar/blob/master/LICENSE.md",
+    "website": "https://felixkratz.github.io/SketchyBar/setup",
+    "releases": "https://felixkratz.github.io/SketchyBar/setup",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": null,
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://felixkratz.github.io/SketchyBar/setup"
+    },
+    "stars": {
+      "count": 12647,
+      "source": "https://github.com/FelixKratz/SketchyBar/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://felixkratz.github.io/SketchyBar/setup"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "playcover",
+    "name": "PlayCover",
+    "repo": "https://github.com/PlayCover/PlayCover",
+    "author": "PlayCover",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Avvia app iOS compatibili su Mac Apple Silicon e configura i controlli.",
+      "en": "Run compatible iOS apps on Apple Silicon Macs and configure controls."
+    },
+    "alternatives": [],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/PlayCover/PlayCover/blob/develop/LICENSE",
+    "website": "https://playcover.io",
+    "releases": "https://github.com/PlayCover/PlayCover/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/PlayCover/PlayCover/develop/PlayCover/Assets.xcassets/AppIcon.appiconset/256%402x.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/PlayCover/PlayCover#readme"
+    },
+    "stars": {
+      "count": 12210,
+      "source": "https://github.com/PlayCover/PlayCover/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/PlayCover/PlayCover/releases/tag/3.1.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "3.1.0",
+      "date": "2024-09-02",
+      "source": "https://github.com/PlayCover/PlayCover/releases/tag/3.1.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 5563083,
+          "size_max": 5563083
+        }
+      ]
+    },
+    "media_source": "https://github.com/PlayCover/PlayCover#readme"
+  },
+  {
+    "id": "loop-macos",
+    "name": "Loop",
+    "repo": "https://github.com/mrkai77/Loop",
+    "author": "mrkai77",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Sposta e ridimensiona le finestre con un menu radiale e scorciatoie.",
+      "en": "Move and resize windows with a radial menu and keyboard shortcuts."
+    },
+    "alternatives": [
+      "Magnet"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/mrkai77/Loop/blob/develop/LICENSE",
+    "website": "https://github.com/mrkai77/Loop",
+    "releases": "https://github.com/mrkai77/Loop/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/mrkai77/Loop/develop/Loop/Assets.xcassets/App%20Icons/AppIcon-Holo.appiconset/appicon_256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/mrkai77/Loop#readme"
+    },
+    "stars": {
+      "count": 12034,
+      "source": "https://github.com/mrkai77/Loop/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/mrkai77/Loop/releases/tag/1.4.2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.4.2",
+      "date": "2026-01-26",
+      "source": "https://github.com/mrkai77/Loop/releases/tag/1.4.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 24046630,
+          "size_max": 24046630
+        }
+      ]
+    },
+    "media_source": "https://github.com/mrkai77/Loop#readme"
+  },
+  {
+    "id": "boring-notch",
+    "name": "Boring Notch",
+    "repo": "https://github.com/TheBoredTeam/boring.notch",
+    "author": "TheBoredTeam",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Aggiunge controlli multimediali e informazioni di sistema attorno al notch.",
+      "en": "Add media controls and system information around the notch."
+    },
+    "alternatives": [
+      "NotchNook"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/TheBoredTeam/boring.notch/blob/main/LICENSE",
+    "website": "https://theboring.name/",
+    "releases": "https://github.com/TheBoredTeam/boring.notch/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/TheBoredTeam/boring.notch/main/boringNotch/Assets.xcassets/AppIcon.appiconset/notch-stage-icon2%202.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/TheBoredTeam/boring.notch#readme"
+    },
+    "stars": {
+      "count": 11488,
+      "source": "https://github.com/TheBoredTeam/boring.notch/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/TheBoredTeam/boring.notch/releases/tag/v2.7.3"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.7.3",
+      "date": "2025-11-24",
+      "source": "https://github.com/TheBoredTeam/boring.notch/releases/tag/v2.7.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 9727030,
+          "size_max": 9727030
+        }
+      ]
+    },
+    "media_source": "https://github.com/TheBoredTeam/boring.notch#readme"
+  },
+  {
+    "id": "netnewswire",
+    "name": "NetNewsWire",
+    "repo": "https://github.com/Ranchero-Software/NetNewsWire",
+    "author": "Ranchero Software",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Leggi feed RSS e Atom con cartelle, filtri e sincronizzazione opzionale.",
+      "en": "Read RSS and Atom feeds with folders, filters and optional sync."
+    },
+    "alternatives": [
+      "Reeder"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Ranchero-Software/NetNewsWire/blob/main/LICENSE",
+    "website": "https://netnewswire.com/",
+    "releases": "https://github.com/Ranchero-Software/NetNewsWire/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Ranchero-Software/NetNewsWire/main/Mac/Resources/Assets.xcassets/AppIcon.appiconset/Icon-MacOS-256x256%401x.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Ranchero-Software/NetNewsWire#readme"
+    },
+    "stars": {
+      "count": 10579,
+      "source": "https://github.com/Ranchero-Software/NetNewsWire/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.3.1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "mac-7.3.1",
+      "date": "2026-11-20",
+      "source": "https://github.com/Ranchero-Software/NetNewsWire/releases/tag/mac-7.3.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 10473901,
+          "size_max": 10473901
+        }
+      ]
+    },
+    "media_source": "https://github.com/Ranchero-Software/NetNewsWire#readme"
+  },
+  {
+    "id": "pock",
+    "name": "Pock",
+    "repo": "https://github.com/pock/pock",
+    "author": "pock",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra Dock e widget sulla Touch Bar dei Mac compatibili. Richiede un MacBook con Touch Bar.",
+      "en": "Display the Dock and widgets on the Touch Bar of compatible Macs. Requires a MacBook with a Touch Bar."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/pock/pock/blob/main/LICENSE.md",
+    "website": "https://pock.app/",
+    "releases": "https://pock.app/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/pock/pock/main/Pock/Bundle/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+    "screenshots": [
+      "https://pock.app/_nuxt/img/pock_widgets.5cf5510.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://pock.app/"
+    },
+    "stars": {
+      "count": 10175,
+      "source": "https://github.com/pock/pock/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://pock.app/"
+    },
+    "platform_scope_complete": true,
+    "media_source": "https://pock.app/"
+  },
+  {
+    "id": "eul",
+    "name": "eul",
+    "repo": "https://github.com/gao-sun/eul",
+    "author": "gao-sun",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Visualizza CPU, memoria, rete e altri dati in un pannello di sistema.",
+      "en": "View CPU, memory, network and other data in a system monitor."
+    },
+    "alternatives": [
+      "iStat Menus"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/gao-sun/eul/blob/master/LICENSE",
+    "website": "https://github.com/gao-sun/eul",
+    "releases": "https://github.com/gao-sun/eul/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/gao-sun/eul/master/Resource/Assets.xcassets/AppIcon.appiconset/eul%40256px.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/gao-sun/eul#readme"
+    },
+    "stars": {
+      "count": 9958,
+      "source": "https://github.com/gao-sun/eul/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/gao-sun/eul/releases/tag/v1.6.2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v1.6.2",
+      "date": "2021-08-05",
+      "source": "https://github.com/gao-sun/eul/releases/tag/v1.6.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 4453426,
+          "size_max": 4453426
+        }
+      ]
+    },
+    "media_source": "https://github.com/gao-sun/eul#readme"
+  },
+  {
+    "id": "sloth",
+    "name": "Sloth",
+    "repo": "https://github.com/sveinbjornt/Sloth",
+    "author": "sveinbjornt",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra file, socket e connessioni aperti dai processi del Mac.",
+      "en": "Inspect files, sockets and connections opened by Mac processes."
+    },
+    "alternatives": [],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/sveinbjornt/Sloth/blob/master/LICENSE.txt",
+    "website": "https://sveinbjorn.org/sloth",
+    "releases": "https://github.com/sveinbjornt/Sloth/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sveinbjornt/Sloth/master/resources/sloth_icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/sveinbjornt/Sloth/master/resources/sloth_screenshot1.jpg"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/sveinbjornt/Sloth#readme"
+    },
+    "stars": {
+      "count": 9006,
+      "source": "https://github.com/sveinbjornt/Sloth/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/sveinbjornt/Sloth/releases/tag/3.6"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "3.6",
+      "date": "2026-04-22",
+      "source": "https://github.com/sveinbjornt/Sloth/releases/tag/3.6",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 1343658,
+          "size_max": 1343658
+        }
+      ]
+    },
+    "media_source": "https://github.com/sveinbjornt/Sloth#readme"
+  },
+  {
+    "id": "clipy",
+    "name": "Clipy",
+    "repo": "https://github.com/Clipy/Clipy",
+    "author": "Clipy",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Memorizza gli appunti e organizza frammenti di testo riutilizzabili.",
+      "en": "Keep clipboard history and organize reusable text snippets."
+    },
+    "alternatives": [
+      "Paste"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Clipy/Clipy/blob/develop/LICENSE",
+    "website": "https://clipy-app.com",
+    "releases": "https://github.com/Clipy/Clipy/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Clipy/Clipy/develop/Clipy/Resources/Assets.xcassets/AppIcon.appiconset/256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Clipy/Clipy#readme"
+    },
+    "stars": {
+      "count": 8990,
+      "source": "https://github.com/Clipy/Clipy/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Clipy/Clipy/releases/tag/1.4.2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.4.2",
+      "date": "2026-11-15",
+      "source": "https://github.com/Clipy/Clipy/releases/tag/1.4.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 14790546,
+          "size_max": 14790546
+        }
+      ]
+    },
+    "media_source": "https://github.com/Clipy/Clipy#readme"
+  },
+  {
+    "id": "virtualbuddy",
+    "name": "VirtualBuddy",
+    "repo": "https://github.com/insidegui/VirtualBuddy",
+    "author": "insidegui",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Crea macchine virtuali macOS e Linux su Mac Apple Silicon.",
+      "en": "Create macOS and Linux virtual machines on Apple Silicon Macs."
+    },
+    "alternatives": [
+      "Parallels Desktop"
+    ],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/insidegui/VirtualBuddy/blob/main/LICENSE",
+    "website": "https://github.com/insidegui/VirtualBuddy",
+    "releases": "https://github.com/insidegui/VirtualBuddy/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/insidegui/VirtualBuddy/main/assets/VirtualBuddyIcon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/insidegui/VirtualBuddy/main/assets/Showcase.jpg"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/insidegui/VirtualBuddy#readme"
+    },
+    "stars": {
+      "count": 9054,
+      "source": "https://github.com/insidegui/VirtualBuddy/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.1-326"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "2.1-326",
+      "date": "2026-11-03",
+      "source": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.1-326",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 21069155,
+          "size_max": 21069155
+        }
+      ]
+    },
+    "media_source": "https://github.com/insidegui/VirtualBuddy#readme"
+  },
+  {
+    "id": "wwdc",
+    "name": "WWDC for macOS",
+    "repo": "https://github.com/insidegui/WWDC",
+    "author": "insidegui",
+    "level": "base",
+    "category": "didattica",
+    "description": {
+      "it": "Cerca, guarda e scarica le sessioni della conferenza Apple.",
+      "en": "Search, watch and download Apple developer conference sessions."
+    },
+    "alternatives": [],
+    "license": "BSD-2-Clause",
+    "license_url": "https://github.com/insidegui/WWDC/blob/master/LICENSE",
+    "website": "https://wwdc.io",
+    "releases": "https://github.com/insidegui/WWDC/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/insidegui/WWDC/master/WWDC/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/insidegui/WWDC#readme"
+    },
+    "stars": {
+      "count": 8745,
+      "source": "https://github.com/insidegui/WWDC/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/insidegui/WWDC/releases/tag/7.5"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "7.5",
+      "date": "2024-06-07",
+      "source": "https://github.com/insidegui/WWDC/releases/tag/7.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 19325975,
+          "size_max": 19325975
+        }
+      ]
+    },
+    "media_source": "https://github.com/insidegui/WWDC#readme"
+  },
+  {
+    "id": "dozer",
+    "name": "Dozer",
+    "repo": "https://github.com/Mortennn/Dozer",
+    "author": "Mortennn",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Nascondi le icone meno usate della barra dei menu. La versione stabile risale al 2020.",
+      "en": "Hide seldom-used menu bar icons. The stable release dates to 2020."
+    },
+    "alternatives": [
+      "Bartender"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/Mortennn/Dozer/blob/master/LICENSE",
+    "website": "https://github.com/Mortennn/Dozer",
+    "releases": "https://github.com/Mortennn/Dozer/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Mortennn/Dozer/master/Dozer/Other/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Mortennn/Dozer#readme"
+    },
+    "stars": {
+      "count": 8719,
+      "source": "https://github.com/Mortennn/Dozer/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Mortennn/Dozer/releases/tag/v4.0.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v4.0.0",
+      "date": "2019-08-20",
+      "source": "https://github.com/Mortennn/Dozer/releases/tag/v4.0.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 8081734,
+          "size_max": 8081734
+        }
+      ]
+    },
+    "media_source": "https://github.com/Mortennn/Dozer#readme"
+  },
+  {
+    "id": "gifski",
+    "name": "Gifski",
+    "repo": "https://github.com/sindresorhus/Gifski",
+    "author": "Sindre Sorhus",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Converti video in GIF e regola qualità, dimensioni e frequenza dei fotogrammi.",
+      "en": "Convert videos to GIFs and adjust quality, size and frame rate."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/sindresorhus/Gifski/blob/main/license",
+    "website": "https://sindresorhus.com/gifski",
+    "releases": "https://apps.apple.com/app/id1351639930",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sindresorhus/Gifski/main/Stuff/AppIcon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/sindresorhus/Gifski/main/Stuff/screenshot1.jpg"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://sindresorhus.com/gifski"
+    },
+    "stars": {
+      "count": 8616,
+      "source": "https://github.com/sindresorhus/Gifski/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://sindresorhus.com/gifski"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.23.0",
+      "date": "2023-08-23",
+      "source": "https://github.com/sindresorhus/Gifski/releases/tag/v2.23.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 3375904,
+          "size_max": 3375904
+        }
+      ]
+    },
+    "media_source": "https://sindresorhus.com/gifski"
+  },
+  {
+    "id": "macvim",
+    "name": "MacVim",
+    "repo": "https://github.com/macvim-dev/macvim",
+    "author": "macvim-dev",
+    "level": "avanz",
+    "category": "sviluppo",
+    "description": {
+      "it": "Usa Vim in un editor grafico macOS con finestre, schede e menu nativi.",
+      "en": "Use Vim in a graphical macOS editor with native windows, tabs and menus."
+    },
+    "alternatives": [
+      "Sublime Text"
+    ],
+    "license": "Vim",
+    "license_url": "https://github.com/macvim-dev/macvim/blob/master/LICENSE",
+    "website": "https://macvim.org",
+    "releases": "https://github.com/macvim-dev/macvim/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://macvim.org/docs/MacVim.png",
+    "screenshots": [
+      "https://macvim.org/images/macvim-screenshot-light.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/macvim-dev/macvim#readme"
+    },
+    "stars": {
+      "count": 7899,
+      "source": "https://github.com/macvim-dev/macvim/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/macvim-dev/macvim/releases/tag/release-184"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "release-184",
+      "date": "2026-11-01",
+      "source": "https://github.com/macvim-dev/macvim/releases/tag/release-184",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 26360181,
+          "size_max": 26360181
+        }
+      ]
+    },
+    "media_source": "https://github.com/macvim-dev/macvim#readme"
+  },
+  {
+    "id": "linearmouse",
+    "name": "LinearMouse",
+    "repo": "https://github.com/linearmouse/linearmouse",
+    "author": "linearmouse",
+    "level": "base",
+    "category": "accessibilita",
+    "description": {
+      "it": "Regola accelerazione del puntatore, scorrimento e pulsanti per ogni mouse.",
+      "en": "Adjust pointer acceleration, scrolling and buttons for individual mice."
+    },
+    "alternatives": [
+      "SteerMouse"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/linearmouse/linearmouse/blob/main/LICENSE",
+    "website": "https://linearmouse.app",
+    "releases": "https://github.com/linearmouse/linearmouse/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/linearmouse/linearmouse/main/LinearMouse/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/linearmouse/linearmouse#readme"
+    },
+    "stars": {
+      "count": 7253,
+      "source": "https://github.com/linearmouse/linearmouse/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/linearmouse/linearmouse/releases/tag/v0.13.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.13.0",
+      "date": "2026-11-15",
+      "source": "https://github.com/linearmouse/linearmouse/releases/tag/v0.13.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 6184959,
+          "size_max": 6184959
+        }
+      ]
+    },
+    "media_source": "https://github.com/linearmouse/linearmouse#readme"
+  },
+  {
+    "id": "openinterminal",
+    "name": "OpenInTerminal",
+    "repo": "https://github.com/Ji4n1ng/OpenInTerminal",
+    "author": "Ji4n1ng",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Apri la cartella di Finder nel terminale o nell’editor che preferisci.",
+      "en": "Open the current Finder folder in your preferred terminal or editor."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/Ji4n1ng/OpenInTerminal/blob/master/LICENSE",
+    "website": "https://github.com/Ji4n1ng/OpenInTerminal",
+    "releases": "https://github.com/Ji4n1ng/OpenInTerminal/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/Ji4n1ng/OpenInTerminal/master/OpenInTerminal/Assets.xcassets/logo.imageset/AppIcon-iOS-Default-512x512%401x.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/Ji4n1ng/OpenInTerminal#readme"
+    },
+    "stars": {
+      "count": 7060,
+      "source": "https://github.com/Ji4n1ng/OpenInTerminal/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/Ji4n1ng/OpenInTerminal/releases/tag/v2.3.9"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.3.9",
+      "date": "2026-07-13",
+      "source": "https://github.com/Ji4n1ng/OpenInTerminal/releases/tag/v2.3.9",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 24842104,
+          "size_max": 24842104
+        }
+      ]
+    },
+    "media_source": "https://github.com/Ji4n1ng/OpenInTerminal#readme"
+  },
+  {
+    "id": "dockdoor",
+    "name": "DockDoor Free",
+    "repo": "https://github.com/ejbills/DockDoor",
+    "author": "Ethan Bills and DockDoor contributors",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra anteprime delle finestre mentre passi sopra alle app nel Dock.",
+      "en": "Show window previews while you hover over apps in the Dock."
+    },
+    "alternatives": [
+      "DockView"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/ejbills/DockDoor/blob/main/LICENSE",
+    "website": "https://dockdoor.net",
+    "releases": "https://github.com/ejbills/DockDoor/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ejbills/DockDoor/main/Assets/Assets.xcassets/AppIcon.appiconset/AppIcon-iOS-Default-256x256%401x.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/ejbills/DockDoor/main/resources/web/previews-poster.webp"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://dockdoor.net/"
+    },
+    "stars": {
+      "count": 6635,
+      "source": "https://github.com/ejbills/DockDoor/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/ejbills/DockDoor/releases/tag/1.42.5"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.42.5",
+      "date": "2026-11-18",
+      "source": "https://github.com/ejbills/DockDoor/releases/tag/1.42.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 22832758,
+          "size_max": 22832758
+        }
+      ]
+    },
+    "media_source": "https://github.com/ejbills/DockDoor#readme"
+  },
+  {
+    "id": "meetingbar",
+    "name": "MeetingBar",
+    "repo": "https://github.com/leits/MeetingBar",
+    "author": "leits",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Mostra le riunioni del calendario e apri la chiamata dalla barra dei menu.",
+      "en": "Show calendar meetings and join calls from the menu bar."
+    },
+    "alternatives": [
+      "Dato"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/leits/MeetingBar/blob/master/LICENSE",
+    "website": "https://meetingbar.app",
+    "releases": "https://github.com/leits/MeetingBar/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/leits/MeetingBar/master/MeetingBar/Assets.xcassets/AppIcon.appiconset/256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/leits/MeetingBar/master/screenshot.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/leits/MeetingBar#readme"
+    },
+    "stars": {
+      "count": 5419,
+      "source": "https://github.com/leits/MeetingBar/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/leits/MeetingBar/releases/tag/v5.0.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v5.0.0",
+      "date": "2026-11-07",
+      "source": "https://github.com/leits/MeetingBar/releases/tag/v5.0.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 8210845,
+          "size_max": 8210845
+        }
+      ]
+    },
+    "media_source": "https://github.com/leits/MeetingBar#readme"
+  },
+  {
+    "id": "mist",
+    "name": "Mist",
+    "repo": "https://github.com/ninxsoft/Mist",
+    "author": "ninxsoft",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Scarica firmware e installer ufficiali di macOS con un’interfaccia grafica.",
+      "en": "Download official macOS firmware and installers from a graphical interface."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/ninxsoft/Mist/blob/main/LICENSE",
+    "website": "https://github.com/ninxsoft/Mist",
+    "releases": "https://github.com/ninxsoft/Mist/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ninxsoft/Mist/main/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/ninxsoft/Mist#readme"
+    },
+    "stars": {
+      "count": 5442,
+      "source": "https://github.com/ninxsoft/Mist/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/ninxsoft/Mist/releases/tag/v0.40"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v0.40",
+      "date": "2026-07-07",
+      "source": "https://github.com/ninxsoft/Mist/releases/tag/v0.40",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 15997728,
+          "size_max": 15997728
+        }
+      ]
+    },
+    "media_source": "https://github.com/ninxsoft/Mist#readme"
+  },
+  {
+    "id": "finicky",
+    "name": "Finicky",
+    "repo": "https://github.com/johnste/finicky",
+    "author": "johnste",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Scegli il browser o il profilo che apre ciascun link in base alle tue regole.",
+      "en": "Choose which browser or profile opens each link based on your rules."
+    },
+    "alternatives": [
+      "Choosy"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/johnste/finicky/blob/main/LICENSE",
+    "website": "https://github.com/johnste/finicky",
+    "releases": "https://github.com/johnste/finicky/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/johnste/finicky/main/packages/finicky-ui/public/finicky-logo.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/johnste/finicky#readme"
+    },
+    "stars": {
+      "count": 5316,
+      "source": "https://github.com/johnste/finicky/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/johnste/finicky/releases/tag/v4.2.2"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v4.2.2",
+      "date": "2025-10-03",
+      "source": "https://github.com/johnste/finicky/releases/tag/v4.2.2",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 28569676,
+          "size_max": 28569676
+        }
+      ]
+    },
+    "media_source": "https://github.com/johnste/finicky#readme"
+  },
+  {
+    "id": "swiftbar",
+    "name": "SwiftBar",
+    "repo": "https://github.com/swiftbar/SwiftBar",
+    "author": "swiftbar",
+    "level": "avanz",
+    "category": "sistema",
+    "description": {
+      "it": "Mostra dati e azioni personalizzate nella barra dei menu tramite script.",
+      "en": "Show custom data and actions in the menu bar using scripts."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/swiftbar/SwiftBar/blob/main/LICENSE",
+    "website": "https://swiftbar.app",
+    "releases": "https://github.com/swiftbar/SwiftBar/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/swiftbar/SwiftBar/main/SwiftBar/Resources/Assets.xcassets/AppIcon.appiconset/mac_256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/swiftbar/SwiftBar#readme"
+    },
+    "stars": {
+      "count": 4833,
+      "source": "https://github.com/swiftbar/SwiftBar/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/swiftbar/SwiftBar/releases/tag/v2.1.1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.1.1",
+      "date": "2026-08-11",
+      "source": "https://github.com/swiftbar/SwiftBar/releases/tag/v2.1.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 2991349,
+          "size_max": 2991349
+        }
+      ]
+    },
+    "media_source": "https://github.com/swiftbar/SwiftBar#readme"
+  },
+  {
+    "id": "macshot",
+    "name": "macshot",
+    "repo": "https://github.com/sw33tLie/macshot",
+    "author": "sw33tLie",
+    "level": "base",
+    "category": "foto",
+    "description": {
+      "it": "Cattura e annota lo schermo, registra video ed estrai testo con OCR.",
+      "en": "Capture and annotate your screen, record video and extract text with OCR."
+    },
+    "alternatives": [
+      "CleanShot X"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/sw33tLie/macshot/blob/main/LICENSE",
+    "website": "https://macshot.io",
+    "releases": "https://github.com/sw33tLie/macshot/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sw33tLie/macshot/main/macshot/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/sw33tLie/macshot/main/assets/preview.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/sw33tLie/macshot#readme"
+    },
+    "stars": {
+      "count": 4371,
+      "source": "https://github.com/sw33tLie/macshot/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/sw33tLie/macshot/releases/tag/v4.4.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v4.4.0",
+      "date": "2026-11-01",
+      "source": "https://github.com/sw33tLie/macshot/releases/tag/v4.4.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 8624563,
+          "size_max": 8624563
+        }
+      ]
+    },
+    "media_source": "https://github.com/sw33tLie/macshot#readme"
+  },
+  {
+    "id": "itsycal",
+    "name": "Itsycal",
+    "repo": "https://github.com/sfsam/Itsycal",
+    "author": "Mowglii",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Consulta date ed eventi in un calendario nella barra dei menu.",
+      "en": "Browse dates and events in a menu bar calendar."
+    },
+    "alternatives": [
+      "Dato"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/sfsam/Itsycal/blob/master/LICENSE.txt",
+    "website": "https://www.mowglii.com/itsycal/",
+    "releases": "https://www.mowglii.com/itsycal/",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/sfsam/Itsycal/master/Itsycal/AppIcon.icon/Assets/AppIcon512%402x.png",
+    "screenshots": [
+      "https://www.mowglii.com/itsycal/itsycalbanner2@2x.png"
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.mowglii.com/itsycal/"
+    },
+    "stars": {
+      "count": 4063,
+      "source": "https://github.com/sfsam/Itsycal/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://www.mowglii.com/itsycal/"
+    },
+    "platform_scope_complete": true,
+    "media_source": "https://www.mowglii.com/itsycal/"
+  },
+  {
+    "id": "pika-color",
+    "name": "Pika",
+    "repo": "https://github.com/superhighfives/pika",
+    "author": "Sam Gwilym",
+    "level": "base",
+    "category": "design",
+    "description": {
+      "it": "Campiona colori, verifica il contrasto e copia i valori da usare nel design.",
+      "en": "Sample colors, check contrast and copy color values for design work."
+    },
+    "alternatives": [
+      "Sip"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/superhighfives/pika/blob/main/LICENSE.md",
+    "website": "https://superhighfives.com/pika",
+    "releases": "https://github.com/superhighfives/pika/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/superhighfives/pika/main/Pika/Assets/Assets.xcassets/AppIcon.appiconset/256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/superhighfives/pika#readme"
+    },
+    "stars": {
+      "count": 2632,
+      "source": "https://github.com/superhighfives/pika/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/superhighfives/pika/releases/tag/2.0.3"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "2.0.3",
+      "date": "2026-11-17",
+      "source": "https://github.com/superhighfives/pika/releases/tag/2.0.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 8613124,
+          "size_max": 8613124
+        }
+      ]
+    },
+    "media_source": "https://github.com/superhighfives/pika#readme"
+  },
+  {
+    "id": "syncthing-macos",
+    "name": "Syncthing for macOS",
+    "repo": "https://github.com/syncthing/syncthing-macos",
+    "author": "syncthing",
+    "level": "base",
+    "category": "backup",
+    "description": {
+      "it": "Sincronizza cartelle tra dispositivi con un’app nella barra dei menu che include Syncthing. Dal menu si apre la dashboard locale nel browser.",
+      "en": "Sync folders across devices with a native menu bar app that bundles Syncthing. Open the local dashboard in your browser from the menu."
+    },
+    "alternatives": [
+      "Dropbox"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/syncthing/syncthing-macos/blob/v2/LICENSE",
+    "website": "https://syncthing.net",
+    "releases": "https://github.com/syncthing/syncthing-macos/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/syncthing/syncthing-macos/v2/syncthing/Assets.xcassets/Syncthing.appiconset/icon_256x256.png",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/syncthing/syncthing-macos#readme"
+    },
+    "stars": {
+      "count": 4051,
+      "source": "https://github.com/syncthing/syncthing-macos/stargazers",
+      "date": "2026-11-27"
+    },
+    "platform_support": {
+      "macos": "https://github.com/syncthing/syncthing-macos/releases/tag/v2.1.6-1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v2.1.6-1",
+      "date": "2026-10-06",
+      "source": "https://github.com/syncthing/syncthing-macos/releases/tag/v2.1.6-1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 28069114,
+          "size_max": 28069114
+        }
+      ]
+    },
+    "media_source": "https://github.com/syncthing/syncthing-macos#readme"
   }
 ]

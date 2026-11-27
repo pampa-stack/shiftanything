@@ -1476,7 +1476,7 @@ impl NativeBackend {
                 let _operation = shared.flatpak_operation.lock().unwrap_or_else(PoisonError::into_inner);
                 let result = run_flathub(&shared, &paths, &app, work, &stop);
                 if let Ok(flatpak) = flathub_client(&shared.host) {
-                    refresh_flathub_app(&shared, &flatpak, &app);
+                    refresh_flathub_app(&shared, &flatpak, &app, None);
                 }
                 drop(job);
                 shared.emit(Event::JobFinished { app, result });
@@ -1516,15 +1516,20 @@ fn refresh_flathub(shared: &Shared, platform: Option<Platform>) {
     }
     let Ok(flatpak) = flathub_client(&shared.host) else { return };
     let Ok(_operation) = shared.flatpak_operation.try_lock() else { return };
+    let scan = flatpak.inventory_scan();
     for id in crate::flatpak::IDS {
-        refresh_flathub_app(shared, &flatpak, id);
+        refresh_flathub_app(shared, &flatpak, id, Some(&scan));
     }
 }
 
 #[cfg(target_os = "linux")]
-fn refresh_flathub_app(shared: &Shared, flatpak: &crate::flatpak::UserFlatpak, app: &str) {
+fn refresh_flathub_app(shared: &Shared, flatpak: &crate::flatpak::UserFlatpak, app: &str, scan: Option<&crate::flatpak::InventoryScan>) {
     let record = shared.manifest.lock().unwrap_or_else(PoisonError::into_inner).flathub.get(app).cloned();
-    let status = flatpak.status(app, record.as_ref(), true).unwrap_or_else(|error| {
+    let status = match scan {
+        Some(scan) => flatpak.status_from_scan(app, record.as_ref(), true, scan),
+        None => flatpak.status(app, record.as_ref(), true),
+    };
+    let status = status.unwrap_or_else(|error| {
         log::debug!("{app}: Flatpak detection failed: {error}");
         crate::flatpak::Status::default()
     });

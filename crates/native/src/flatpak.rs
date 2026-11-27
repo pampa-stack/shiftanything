@@ -32,7 +32,7 @@ pub(crate) struct Owned {
 }
 
 #[cfg(target_os = "linux")]
-pub(crate) use linux::{Action, UserFlatpak};
+pub(crate) use linux::{Action, InventoryScan, UserFlatpak};
 
 #[cfg(target_os = "linux")]
 mod linux {
@@ -68,10 +68,22 @@ mod linux {
         Open(&'a [String]),
     }
 
+    #[cfg(test)]
+    type QueryStub = std::sync::Arc<dyn Fn(&[&str], Duration) -> Result<String, String> + Send + Sync>;
+
     #[derive(Clone)]
     pub(crate) struct UserFlatpak {
         data: PathBuf,
         profile: Option<PathBuf>,
+        #[cfg(test)]
+        query_stub: Option<QueryStub>,
+    }
+
+    /// List and remote state shared by one inventory refresh. Deployment identity is still checked per ref.
+    pub(crate) struct InventoryScan {
+        rows: Result<String, String>,
+        trusted: bool,
+        remote_missing: bool,
     }
 
     struct Deployment {
@@ -116,7 +128,12 @@ mod linux {
             if !data.is_absolute() {
                 return Err("Flatpak user directory must be absolute".into());
             }
-            Ok(Self { data, profile: profile.map(Path::to_path_buf) })
+            Ok(Self {
+                data,
+                profile: profile.map(Path::to_path_buf),
+                #[cfg(test)]
+                query_stub: None,
+            })
         }
 
         fn command(&self) -> Command {
@@ -136,6 +153,10 @@ mod linux {
         }
 
         fn query(&self, args: &[&str], timeout: Duration) -> Result<String, String> {
+            #[cfg(test)]
+            if let Some(query) = &self.query_stub {
+                return query(args, timeout);
+            }
             let mut command = self.command();
             command.args(args);
             process::run_command(command, "flatpak", timeout)
@@ -192,15 +213,33 @@ mod linux {
             self.verify_remote()
         }
 
-        fn deployments(&self, reference: &str) -> Result<Vec<Deployment>, String> {
+        fn list_deployments(&self) -> Result<String, String> {
             let scope = if self.profile.is_some() { &["--user"][..] } else { &[][..] };
             let mut args = vec!["list", "--app", "--columns=ref:full,origin:full,installation:full,version:full"];
             args.extend_from_slice(scope);
-            let rows = self.query(&args, LOCAL_TIMEOUT)?;
+            self.query(&args, LOCAL_TIMEOUT)
+        }
+
+        fn deployments_from_rows(&self, rows: &str, reference: &str) -> Result<Vec<Deployment>, String> {
             // The list command abbreviates OSTree commits even with the :full column suffix.
-            parse_deployments(&rows, reference, |scope| {
+            parse_deployments(rows, reference, |scope| {
                 self.query(&["info", &scope_arg(scope), "--show-commit", reference], LOCAL_TIMEOUT).map(|commit| commit.trim().to_owned())
             })
+        }
+
+        fn deployments(&self, reference: &str) -> Result<Vec<Deployment>, String> {
+            self.deployments_from_rows(&self.list_deployments()?, reference)
+        }
+
+        pub(crate) fn inventory_scan(&self) -> InventoryScan {
+            self.inventory_scan_with_trust(|| self.verify_remote().is_ok())
+        }
+
+        fn inventory_scan_with_trust(&self, verify_trust: impl FnOnce() -> bool) -> InventoryScan {
+            let rows = self.list_deployments();
+            let trusted = rows.is_ok() && verify_trust();
+            let remote_missing = rows.is_ok() && !trusted && self.remote_missing().unwrap_or(false);
+            InventoryScan { rows, trusted, remote_missing }
         }
 
         fn remote_commit(&self, reference: &str) -> Result<String, String> {
@@ -253,11 +292,35 @@ mod linux {
         }
 
         pub(crate) fn status(&self, catalog_id: &str, record: Option<&Owned>, remote_latest: bool) -> Result<Status, String> {
+            self.status_using(catalog_id, record, remote_latest, None)
+        }
+
+        pub(crate) fn status_from_scan(
+            &self,
+            catalog_id: &str,
+            record: Option<&Owned>,
+            remote_latest: bool,
+            scan: &InventoryScan,
+        ) -> Result<Status, String> {
+            self.status_using(catalog_id, record, remote_latest, Some(scan))
+        }
+
+        fn status_using(
+            &self,
+            catalog_id: &str,
+            record: Option<&Owned>,
+            remote_latest: bool,
+            scan: Option<&InventoryScan>,
+        ) -> Result<Status, String> {
             let (id, reference) = recipe(catalog_id)?;
-            let deployments = self.deployments(&reference)?;
-            let trusted = self.verify_remote().is_ok();
+            let deployments = match scan {
+                Some(scan) => self.deployments_from_rows(scan.rows.as_ref().map_err(Clone::clone)?, &reference),
+                None => self.deployments(&reference),
+            }?;
+            let trusted = scan.map_or_else(|| self.verify_remote().is_ok(), |scan| scan.trusted);
             if deployments.is_empty() {
-                return Ok(Status { installable: trusted || self.remote_missing().unwrap_or(false), ..Status::default() });
+                let installable = trusted || scan.map_or_else(|| self.remote_missing().unwrap_or(false), |scan| scan.remote_missing);
+                return Ok(Status { installable, ..Status::default() });
             }
             let deployed = selected(&deployments);
             let location = self.location(&reference, deployed)?;
@@ -513,6 +576,7 @@ mod linux {
     #[cfg(test)]
     mod tests {
         use super::*;
+        use std::sync::{Arc, Mutex};
 
         const STABLE: &str = "app/org.gnome.Papers/x86_64/stable";
         const COMMIT: &str = "dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c";
@@ -551,6 +615,125 @@ mod linux {
             assert_eq!(selected(&rows).scope, "user");
             assert_eq!(scope_arg(&rows[0].scope), "--system");
             assert!(parse_deployments(&list, &exact, |_| Ok("short".into())).is_err());
+        }
+
+        #[test]
+        fn bulk_inventory_reuses_the_list_and_remote_probe_and_preserves_scope() {
+            let scratch = tempfile::tempdir().unwrap();
+            let user_path = scratch.path().join("user-deployment");
+            let entries = user_path.join("export/share/applications");
+            std::fs::create_dir_all(&entries).unwrap();
+            std::fs::write(
+                entries.join("org.gnome.Papers.desktop"),
+                "[Desktop Entry]\nType=Application\nX-Flatpak=org.gnome.Papers\nExec=/usr/bin/flatpak run --branch=stable --arch=x86_64 org.gnome.Papers\n",
+            )
+            .unwrap();
+
+            // The remote exists, but without the canonical repo configuration it is not trusted.
+            let calls = Arc::new(Mutex::new(Vec::new()));
+            let recorded = calls.clone();
+            let flatpak = UserFlatpak {
+                data: scratch.path().join("flatpak"),
+                profile: None,
+                query_stub: Some(Arc::new(move |args, timeout| {
+                    assert_eq!(timeout, LOCAL_TIMEOUT);
+                    recorded.lock().unwrap().push(args.iter().map(|value| (*value).to_owned()).collect::<Vec<_>>());
+                    match args {
+                        ["list", "--app", "--columns=ref:full,origin:full,installation:full,version:full"] => Ok(format!(
+                            "app/org.gnome.Papers/aarch64/stable\tflathub\tuser\t2.1\n\
+                             {STABLE}\tthird-party\tsystem\t1.0\n{STABLE}\tflathub\tuser\t2.0\n"
+                        )),
+                        ["remotes", "--user", "--show-disabled", "--columns=name:full"] => Ok("flathub\n".into()),
+                        ["info", "--system" | "--user", "--show-commit", STABLE] => Ok(COMMIT.into()),
+                        ["info", "--user", "--show-location", STABLE] => Ok(user_path.to_str().unwrap().into()),
+                        _ => panic!("unexpected Flatpak command: {args:?}"),
+                    }
+                })),
+            };
+
+            let scan = flatpak.inventory_scan();
+            let mut observed = None;
+            for id in super::super::IDS {
+                let status = flatpak.status_from_scan(id, None, true, &scan).unwrap();
+                if id == "papers" {
+                    let installed = status.installed.as_ref().unwrap();
+                    assert_eq!(installed.installation.as_deref(), Some("user"));
+                    assert_eq!(status.installed_version_label.as_deref(), Some("2.0"));
+                    assert!(installed.externally_managed);
+                    assert!(status.can_open);
+                    assert!(!status.can_remove);
+                    assert!(!status.update_available);
+                    assert!(!status.installable);
+                    observed = Some(status);
+                } else {
+                    assert_eq!(status, Status::default());
+                }
+            }
+
+            {
+                let calls = calls.lock().unwrap();
+                assert_eq!(calls.iter().filter(|args| args[0] == "list").count(), 1);
+                assert_eq!(calls.iter().filter(|args| args[0] == "remotes").count(), 1);
+                assert_eq!(calls.len(), 5);
+            }
+
+            assert_eq!(flatpak.status("papers", None, true).unwrap(), observed.unwrap());
+            assert_eq!(flatpak.status("krita", None, true).unwrap(), Status::default());
+            assert_eq!(calls.lock().unwrap().iter().filter(|args| args[0] == "list").count(), 3);
+        }
+
+        #[test]
+        fn bulk_inventory_keeps_the_remote_bootstrap_policy() {
+            use std::cell::Cell;
+
+            let scratch = tempfile::tempdir().unwrap();
+            for (trusted, remotes, installable, expected_queries) in [
+                (false, Ok(""), true, vec!["list", "remotes"]),
+                (false, Err("remotes unavailable"), false, vec!["list", "remotes"]),
+                (true, Ok("flathub"), true, vec!["list"]),
+            ] {
+                let calls = Arc::new(Mutex::new(Vec::new()));
+                let recorded = calls.clone();
+                let flatpak = UserFlatpak {
+                    data: scratch.path().join("flatpak"),
+                    profile: None,
+                    query_stub: Some(Arc::new(move |args, _| {
+                        recorded.lock().unwrap().push(args[0].to_owned());
+                        match args[0] {
+                            "list" => Ok(String::new()),
+                            "remotes" => remotes.map(str::to_owned).map_err(str::to_owned),
+                            _ => panic!("unexpected Flatpak command: {args:?}"),
+                        }
+                    })),
+                };
+                let trust_checks = Cell::new(0);
+                let scan = flatpak.inventory_scan_with_trust(|| {
+                    trust_checks.set(trust_checks.get() + 1);
+                    trusted
+                });
+                for id in super::super::IDS {
+                    assert_eq!(flatpak.status_from_scan(id, None, true, &scan).unwrap(), Status { installable, ..Status::default() });
+                }
+                assert_eq!(trust_checks.get(), 1);
+                assert_eq!(*calls.lock().unwrap(), expected_queries);
+            }
+        }
+
+        #[test]
+        fn bulk_inventory_propagates_a_failed_list_without_probing_the_remote() {
+            let scratch = tempfile::tempdir().unwrap();
+            let flatpak = UserFlatpak {
+                data: scratch.path().join("data/flatpak"),
+                profile: Some(scratch.path().into()),
+                query_stub: Some(Arc::new(|args, _| {
+                    assert_eq!(args, ["list", "--app", "--columns=ref:full,origin:full,installation:full,version:full", "--user"]);
+                    Err("list failed".into())
+                })),
+            };
+            let scan = flatpak.inventory_scan();
+            for id in ["papers", "krita"] {
+                assert_eq!(flatpak.status_from_scan(id, None, true, &scan), Err("list failed".into()));
+            }
         }
 
         #[test]

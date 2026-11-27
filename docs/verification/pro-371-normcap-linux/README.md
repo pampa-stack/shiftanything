@@ -7,6 +7,8 @@ Il 27 novembre 2026, in un guest AX42 isolato, il canale Flatpak stabile `com.gi
 
 In entrambe le revisioni, l'OCR ha copiato esattamente `SHIFT ANYTHING` negli appunti dopo una selezione nella GUI. Il test ha usato Xvfb e l'acquisizione Qt su X11, con una finestra di testo sintetico e rete limitata a loopback. [Screenshot della selezione](capture.png).
 
-Il file sintetico è rimasto integro e l'elenco delle app Flatpak nel profilo è tornato vuoto. Il test ha eseguito il ciclo con Flatpak. La ricetta launcher è limitata a Linux x64.
+Nella prima prova il ciclo è stato eseguito con Flatpak. Una seconda prova ha eseguito il ciclo con il NativeBackend di Sh*ftAnything compilato dal commit `dcfa7e63e69ad83a86a5c5702fd7555a5d885e13`. Un comando Flatpak ha ripristinato la revisione precedente nel profilo temporaneo come precondizione. Prima di ripristinare il record di gestione, il NativeBackend ha rifiutato aggiornamento e rimozione dell’installazione esterna. Il NativeBackend ha poi aperto entrambe le revisioni, aggiornato il pacchetto, rilevato il cambio di revisione e rimosso l’app. L’OCR ha restituito `SHIFT ANYTHING` anche in entrambe le aperture native. I dati sintetici sono rimasti integri e l’elenco delle app Flatpak nel profilo è tornato vuoto. La ricetta è limitata a Linux x64.
+
+[Log operativo del NativeBackend](native-lifecycle.txt) · [Selezione OCR dopo l’apertura nativa](native-capture.png)
 
 [Documentazione del produttore](https://dynobo.github.io/normcap/) · [Flathub](https://flathub.org/apps/com.github.dynobo.normcap) · [Metadati della distribuzione](https://flathub.org/api/v2/summary/com.github.dynobo.normcap)

@@ -1537,7 +1537,28 @@ pub const JAN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F8AH6NHVY5"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 63] = [
+pub const LOCALAI: crate::CraftApp = crate::CraftApp {
+    id: "localai",
+    name: "LocalAI Desktop",
+    tagline: "Run AI models locally",
+    repo: "mudler/LocalAI",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "LocalAI S.R.L.",
+    msi_publisher: None,
+    bundle: Some("io.localai.launcher"),
+    site: Some("https://localai.io/"),
+    mac_bundle_name: Some("local-ai-launcher"),
+    mac_team: Some("34F3GGU9A6"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 64] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1601,6 +1622,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 63] = [
     UPSCAYL,
     BRUNO,
     JAN,
+    LOCALAI,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

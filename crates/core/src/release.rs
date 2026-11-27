@@ -763,6 +763,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
         crate::curated::LOSSLESSCUT,
+        crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
     ];
@@ -1158,6 +1159,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             &[("upscayl-2.15.0-mac.dmg", 385_264_901, "0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a")]
         }
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
+        ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
+        ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }

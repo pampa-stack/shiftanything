@@ -94,7 +94,8 @@
   let requesting = false;
   const confirmation = document.createElement('dialog');
   confirmation.className = 'native-confirmation';
-  confirmation.innerHTML = `<form method="dialog"><h2></h2><p></p><label class="native-first-open" hidden><input type="checkbox"> ${it?'Apri dopo l’installazione e mostra nel Dock':'Open after installation and show in the Dock'}</label><div class="native-decision"><button type="button" data-reject>${it?'Rifiuta':'Reject'}</button><button type="button" data-approve>${it?'Approva':'Approve'}</button></div></form>`;
+  confirmation.setAttribute('aria-labelledby', 'native-confirmation-title');
+  confirmation.innerHTML = `<form method="dialog"><h2 id="native-confirmation-title"></h2><p></p><label class="native-first-open" hidden><input type="checkbox"> ${it?'Apri dopo l’installazione e mostra nel Dock':'Open after installation and show in the Dock'}</label><div class="native-decision"><button type="button" data-reject>${it?'Rifiuta':'Reject'}</button><button type="button" data-approve>${it?'Approva':'Approve'}</button></div></form>`;
   const firstOpen = confirmation.querySelector('.native-first-open');
   const launchCheckbox = firstOpen.querySelector('input');
   document.body.append(confirmation);
@@ -275,8 +276,12 @@
   function primaryAction(snapshot, appId, app, verified) {
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
-    if (app?.job) return {label:it?'In corso…':'Working…', enabled:false};
-    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false), operation:'open'};
+    if (app?.job) return {label:it?'In corso…':'Working…', enabled:false, busy:true};
+    if (app?.installed) {
+      const available = app.detected && snapshot.lifecycle_enabled;
+      if (app.update_available) return {label:labels.update, enabled:Boolean(available && app.compatible && app.installable), operation:'update'};
+      return {label:labels.open, enabled:Boolean(available && app.can_open !== false), operation:'open'};
+    }
     if (platform && entry?.platform_scope_complete && !entry.platform_support?.[platform]
       && !entry.release?.packages?.some(pkg => pkg.platform === platform)
       && !entry.distribution?.some(channel => channel.platform === platform)) {
@@ -310,7 +315,7 @@
         badge.className = 'install-indicator';
         heart.before(badge);
       }
-      const ready = verified && action.enabled && (action.operation === 'install' || action.operation === 'open');
+      const ready = verified && action.enabled && Boolean(action.operation);
       const label = ready ? (it?'Installazione verificata':'Installation verified')
         : verified ? (it?'Installazione provata. Controlla lo stato del pacchetto.':'Installation tested. Check package status.')
           : (it?'Installazione non ancora verificata':'Installation not yet verified');
@@ -362,7 +367,7 @@
     if (primary && !detail.querySelector('.native-management')) {
       const controls = document.createElement('div');
       controls.className = 'native-management';
-      for (const operation of ['update','remove','cancel']) {
+      for (const operation of ['remove','cancel']) {
         const button = document.createElement('button');
         button.type='button'; button.className='btn'; button.dataset.nativeApp=primary.dataset.nativeApp; button.dataset.nativeOperation=operation;
         controls.append(button);
@@ -396,7 +401,8 @@
         button.disabled = !(action.enabled || action.target);
         button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
         button.classList.toggle('solid', action.operation === 'install' && action.enabled === true);
-        button.toggleAttribute('data-native-open', action.operation === 'open');
+        if (action.operation) button.dataset.nativePrimaryOperation = action.operation;
+        else delete button.dataset.nativePrimaryOperation;
         if (action.busy) button.setAttribute('aria-busy', 'true');
         else button.removeAttribute('aria-busy');
         if (action.target) button.dataset.externalTarget = action.target;
@@ -408,7 +414,9 @@
       const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed && app.can_open !== false,remove:app.installed && app.can_remove !== false,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
       const cancelling = operation === 'cancel' && snapshot.progress[app?.id]?.phase === 'cancelling';
       button.disabled = !snapshot.lifecycle_enabled || !allowed || cancelling;
-      button.hidden = !snapshot.lifecycle_enabled || !(operation === 'open' ? app?.installed : allowed);
+      const visible = operation === 'open' ? app?.installed
+        : operation === 'update' ? app?.installed && app.update_available && !app.job : allowed;
+      button.hidden = !snapshot.lifecycle_enabled || !visible;
       button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }
     document.documentElement.dataset.nativeStarted = '';
@@ -447,12 +455,13 @@
     const button=event.target.closest('[data-native-app]');
     if (!button || button.disabled || requesting) return;
     event.preventDefault(); event.stopImmediatePropagation(); requesting=true; actionError='';
-    const app=current?.inventory.apps.find(app=>app.id===button.dataset.nativeApp);
     try {
       if (button.dataset.externalTarget) {
         await invoke('open_catalog_link', {appId:button.dataset.nativeApp,target:button.dataset.externalTarget});
       } else {
-        await invoke('request_native_action',{operation:button.dataset.nativeOperation || (app?.installed?'open':'install'),apps:[button.dataset.nativeApp]});
+        const operation = button.dataset.nativeOperation || button.dataset.nativePrimaryOperation;
+        if (!operation) return;
+        await invoke('request_native_action',{operation,apps:[button.dataset.nativeApp]});
         render(await invoke('native_snapshot'));
       }
     } catch(error) {actionError=String(error);status.textContent=actionError;}

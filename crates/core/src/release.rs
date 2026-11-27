@@ -1079,6 +1079,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::INKSCAPE,
         crate::curated::KDENLIVE,
         crate::curated::SUBTITLE_EDIT,
+        crate::curated::DEEPCHAT,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1650,6 +1651,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("SunshineStream/Sunshine", "v2026.914.233613") => {
             &[("Sunshine-macOS-arm64.dmg", 40_375_035, "795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c")]
+        }
+        ("ThinkInAIXYZ/deepchat", "v1.1.3") => {
+            &[("DeepChat-1.1.3-mac-arm64.dmg", 425_447_652, "1a65b868af90992b5af0268115253c25bbee0dc689607a229db9648db686056f")]
+        }
+        ("ThinkInAIXYZ/deepchat", "v1.1.4") => {
+            &[("DeepChat-1.1.4-mac-arm64.dmg", 421_016_003, "e63b0d18e7cf0a26e9d80084cc2e3b50df1aa87d82cff3494e28e001ad766055")]
         }
         ("SubtitleEdit/subtitleedit", "v5.3.0") => {
             &[("SubtitleEdit-macOS-ARM64.dmg", 135_167_783, "8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b")]

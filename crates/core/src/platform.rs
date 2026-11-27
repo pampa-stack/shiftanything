@@ -915,6 +915,7 @@ mod tests {
             (crate::curated::INKSCAPE, ["1.4.3", "1.4.4"]),
             (crate::curated::KDENLIVE, ["26.08.2", "26.08.3"]),
             (crate::curated::SUBTITLE_EDIT, ["v5.3.0", "v5.4.0"]),
+            (crate::curated::DEEPCHAT, ["v1.1.3", "v1.1.4"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),

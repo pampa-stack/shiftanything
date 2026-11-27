@@ -118,6 +118,7 @@ fn main() -> Result<(), String> {
             "kdenlive",
             "subtitle-edit",
             "openwhispr",
+            "deepchat",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

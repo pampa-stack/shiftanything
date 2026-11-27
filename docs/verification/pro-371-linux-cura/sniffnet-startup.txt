@@ -1,0 +1,8 @@
+Ubuntu 24.04 amd64, guest AX42, 27 novembre 2026
+OFFICIAL https://github.com/GyulyVGC/sniffnet/releases/download/v1.5.1/Sniffnet_LinuxAppImage_amd64.AppImage bytes=21002744 sha256=04f209d5e45157c57a6fdf34acf82359df88be36046af247fa55693beda7722f
+PASS sniffnet install 1604 ms Sniffnet installed: 1.5.1
+discover_other_daemon: 1PASS sniffnet open-old 0 ms Launch request accepted
+Nessuna finestra Sniffnet presente al termine della ricerca X11.
+Secondo tentativo diretto, senza privilegi e con solo loopback (exit 101):
+│                           Sniffnet 1.5.1                           │
+Library libxkbcommon-x11.so could not be loaded.

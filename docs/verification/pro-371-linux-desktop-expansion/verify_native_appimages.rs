@@ -1,7 +1,7 @@
 use std::path::Path;
 use std::time::{Duration, Instant};
 
-use artcraft_launcher_core::curated::{PASEO, T3_CODE, VOICE_STUDIO};
+use artcraft_launcher_core::curated::{PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 use artcraft_launcher_core::platform::pick_asset;
 use artcraft_launcher_core::protocol::{Backend, Command, Event, LatestRelease, Source};
 use artcraft_launcher_core::release::{Release, ReleaseQuery, parse_github_release};
@@ -59,11 +59,31 @@ const PASEO_PACKAGES: [Package; 2] = [
     },
 ];
 
+const CURA_PACKAGES: [Package; 2] = [
+    Package {
+        version: "5.13.0",
+        name: "UltiMaker-Cura-5.13.0-linux-X64.AppImage",
+        size: 334_154_232,
+        sha: "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40",
+    },
+    Package {
+        version: "5.14.0",
+        name: "UltiMaker-Cura-5.14.0-linux-X64.AppImage",
+        size: 370_960_888,
+        sha: "988a2a67cce7ee7b9b9a843aad65ec4754d2ceb0a72e70eeaf884b995b75990f",
+    },
+];
+
+fn release_tag(app: &CraftApp, package: &Package) -> String {
+    let prefix = if app.id == ULTIMAKER_CURA.id { "" } else { "v" };
+    format!("{prefix}{}", package.version)
+}
+
 fn verify_release(app: &CraftApp, release: &Release, package: &Package) -> Result<(), String> {
     let host = Platform::current().ok_or("Missing current platform")?;
     let (asset, kind) = pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).ok_or("Recipe rejected published AppImage")?;
     if kind != PackageKind::AppImage
-        || release.tag != format!("v{}", package.version)
+        || release.tag != release_tag(app, package)
         || asset.name != package.name
         || asset.size != package.size
         || asset.sha256.as_deref() != Some(package.sha)
@@ -76,8 +96,20 @@ fn verify_release(app: &CraftApp, release: &Release, package: &Package) -> Resul
 
 fn initialize(app: &CraftApp, paths: &paths::Paths, package: &Package, previous: bool) -> Result<(), String> {
     if previous {
-        let url = format!("https://api.github.com/repos/{}/releases/tags/v{}", app.repo, package.version);
-        let body = http::Http::new()?.get_text(&url)?.ok_or("Published historical API result missing")?;
+        let url = format!(
+            "https://api.github.com/repos/{}/releases/tags/{}",
+            app.repo,
+            release_tag(app, package)
+        );
+        let body = match std::env::var_os("SHIFT_NATIVE_APPIMAGE_PREVIOUS_METADATA") {
+            Some(file) => {
+                println!("HISTORICAL METADATA GitHub API response supplied from file");
+                std::fs::read_to_string(file).map_err(|error| error.to_string())?
+            }
+            None => http::Http::new()?
+                .get_text(&url)?
+                .ok_or("Published historical API result missing")?,
+        };
         let release = parse_github_release(&body, app.repo)?;
         verify_release(app, &release, package)?;
         let cache = serde_json::json!({"entries": {app.repo: {
@@ -119,6 +151,7 @@ fn main() -> Result<(), String> {
     }
     let args: Vec<String> = std::env::args().collect();
     let Some((app, packages)) = args.get(1).and_then(|id| match id.as_str() {
+        "ultimaker-cura" => Some((ULTIMAKER_CURA, &CURA_PACKAGES)),
         "paseo" => Some((PASEO, &PASEO_PACKAGES)),
         "voice-studio" => Some((VOICE_STUDIO, &VOICE_STUDIO_PACKAGES)),
         "t3code" => Some((T3_CODE, &T3_CODE_PACKAGES)),
@@ -188,6 +221,9 @@ fn main() -> Result<(), String> {
                 != artcraft_launcher_core::catalog::app_icon_png(app.id).ok_or("No bundled icon")?
         {
             return Err("Unexpected generated desktop entry or menu icon".into());
+        }
+        if app.id == ULTIMAKER_CURA.id && !entry.contains("StartupWMClass=UltiMaker-Cura\n") {
+            return Err("Generated desktop entry does not match the Cura window class".into());
         }
         println!("FILE {} version={} bytes={} sha256={}", record.path.display(), record.version, package.size, package.sha);
         println!("DESKTOP {} ICON {} sha256={}", desktop.display(), icon.display(), http::sha256_file(&icon)?);

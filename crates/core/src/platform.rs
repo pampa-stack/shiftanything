@@ -695,7 +695,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         return platform == linux_x64;
     }
     if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
-        return platform == mac_arm64 || platform == linux_x64;
+        return platform == linux_x64 || (platform == mac_arm64 && crate::release::qualified_mac_dmg_recipe(stems).is_some());
     }
     if [
         crate::curated::DBEAVER_CE.id,
@@ -979,11 +979,21 @@ mod tests {
 
     #[test]
     fn qualified_appimages_match_reviewed_bytes_and_platform() {
-        use crate::curated::{PASEO, T3_CODE, VOICE_STUDIO};
+        use crate::curated::{PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
-        for (app, tags) in [(PASEO, ["v0.18.0", "v0.18.1"]), (T3_CODE, ["v0.1.12", "v0.1.13"]), (VOICE_STUDIO, ["v0.5.7", "v0.5.8"])] {
+        for (app, tags) in [
+            (PASEO, ["v0.18.0", "v0.18.1"]),
+            (T3_CODE, ["v0.1.12", "v0.1.13"]),
+            (ULTIMAKER_CURA, ["5.13.0", "5.14.0"]),
+            (VOICE_STUDIO, ["v0.5.7", "v0.5.8"]),
+        ] {
             let select = |release: &Release, host| pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).is_some();
+            assert!(recipe_platform_verified(&[app.id], linux));
+            assert_eq!(
+                recipe_platform_verified(&[app.id], Platform { os: Os::MacOs, arch: Arch::Arm64 }),
+                crate::release::qualified_mac_dmg_recipe(&[app.id]).is_some(),
+            );
             for tag in tags {
                 let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
                 assert!(select(&release, linux), "{} {tag}", app.id);

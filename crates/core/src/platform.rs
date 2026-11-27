@@ -367,14 +367,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if platform.os == Os::Windows
         && let Some(repo) = stems.iter().find_map(|id| crate::release::reviewed_windows_msi_repo(id))
     {
-        if !kinds.contains(&PackageKind::Msi) {
-            return None;
-        }
-        return release
-            .assets
-            .iter()
-            .find(|asset| crate::release::reviewed_windows_msi_asset(repo, release, asset))
-            .map(|asset| (asset, PackageKind::Msi));
+        let kind = *kinds.iter().find(|&&kind| kind == PackageKind::Msi)?;
+        return release.assets.iter().find(|asset| crate::release::reviewed_windows_msi_asset(repo, release, asset)).map(|asset| (asset, kind));
     }
     if platform.os == Os::Linux
         && let Some(app) = crate::release::qualified_linux_appimage_recipe(stems)

@@ -1718,26 +1718,23 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         _ => &[],
     };
-    receipts.iter().map(move |&(name, size, sha256)| Asset {
-        name: name.into(),
-        size,
-        url: if repo == crate::curated::CALIBRE.repo {
+    receipts.iter().filter_map(move |&(name, size, sha256)| {
+        let url = if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
         } else if repo == crate::curated::OPENTTD.repo {
             format!("{OPENTTD_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::ZOTERO.repo {
             format!("{ZOTERO_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::BLENDER.repo {
-            // These tags are the canonical stable versions in the receipts above.
-            let (series, _) = tag.rsplit_once('.').expect("reviewed Blender version");
+            let (series, _) = tag.rsplit_once('.')?;
             format!("{BLENDER_DMG_URL}Blender{series}/{name}")
         } else if repo == crate::curated::GIMP.repo {
-            let (series, _) = tag.rsplit_once('.').expect("reviewed GIMP version");
+            let (series, _) = tag.rsplit_once('.')?;
             format!("{GIMP_DMG_URL}v{series}/macos/{name}")
         } else {
             format!("{}{tag}/{name}", download_prefix(repo))
-        },
-        sha256: Some(sha256.into()),
+        };
+        Some(Asset { name: name.into(), size, url, sha256: Some(sha256.into()) })
     })
 }
 

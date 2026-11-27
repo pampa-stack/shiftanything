@@ -583,18 +583,23 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    use crate::curated::{OPENCODE, ORCA, PASEO, T3_CODE, VOICE_STUDIO};
+    use crate::curated::{OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
 
-    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, PASEO, T3_CODE, VOICE_STUDIO];
+    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, PASEO, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
 pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     use crate::curated::{OPENCODE, ORCA};
 
+    let Some(version) = release.version.as_ref() else {
+        return false;
+    };
     if qualified_linux_appimage_recipe(&[app.id]).is_none_or(|recipe| recipe.repo != app.repo)
         || release.prerelease
-        || release.version.as_ref().is_none_or(|version| !version.pre.is_empty() || !version.build.is_empty() || release.tag != format!("v{version}"))
+        || !version.pre.is_empty()
+        || !version.build.is_empty()
+        || release_tag_version(app.repo, &release.tag).as_ref() != Some(version)
     {
         return false;
     }
@@ -605,7 +610,8 @@ pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, 
             return reviewed_assets(app.repo, &release.tag).any(|reviewed| reviewed.name.ends_with(".AppImage") && &reviewed == asset);
         }
     };
-    asset.name == name
+    release.tag == format!("v{version}")
+        && asset.name == name
         && asset.url == format!("{}{}/{name}", download_prefix(app.repo), release.tag)
         && asset.size > 0
         && asset.sha256.as_deref().is_some_and(is_hex64)
@@ -1301,6 +1307,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
+        ("Ultimaker/Cura", "5.13.0") => {
+            &[("UltiMaker-Cura-5.13.0-linux-X64.AppImage", 334_154_232, "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40")]
+        }
+        ("Ultimaker/Cura", "5.14.0") => {
+            &[("UltiMaker-Cura-5.14.0-linux-X64.AppImage", 370_960_888, "988a2a67cce7ee7b9b9a843aad65ec4754d2ceb0a72e70eeaf884b995b75990f")]
         }
         ("getpaseo/paseo", "v0.17.6") => {
             &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]

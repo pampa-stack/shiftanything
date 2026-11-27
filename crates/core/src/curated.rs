@@ -1875,6 +1875,27 @@ pub const OPENWORK_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F5DJWB4CCV"),
 };
 
+pub const ULTIMAKER_CURA: crate::CraftApp = crate::CraftApp {
+    id: "ultimaker-cura",
+    name: "UltiMaker Cura",
+    tagline: "Prepare 3D models for printing",
+    repo: "Ultimaker/Cura",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "UltiMaker",
+    msi_publisher: None,
+    bundle: Some("com.ultimaker.cura"),
+    site: Some("https://ultimaker.com/en/software/ultimaker-cura"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const PASEO: crate::CraftApp = crate::CraftApp {
     id: "paseo",
     name: "Paseo",
@@ -1938,7 +1959,7 @@ pub const OPENMAUSBOT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("993D98NH4J"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 82] = [
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 83] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2019,6 +2040,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 82] = [
     DEEPTUTOR,
     OPENWORK_DESKTOP,
     PASEO,
+    ULTIMAKER_CURA,
     FREECAD,
     OPENMAUSBOT,
 ];

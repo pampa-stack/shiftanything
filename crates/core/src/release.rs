@@ -694,12 +694,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("Rizzo-AI-Academy/rizzo-pii", "v2.2.0") => {
             &[("Rizzo-PII-2.2.0-macOS-arm64.dmg", 197_183_674, "eb732c316dc5a60c84afe5a921162c7abb52575b3fb6e0aaf0c7902642c0e808")]
         }
-        ("audacity/audacity", "Audacity-4.0.1") => {
-            &[("audacity-macOS-4.0.1-arm64.dmg", 50_034_126, "278c8647b78c77af7f07dbd5e7d9bfc950bc14168047b65738716b61d12055ec")]
-        }
-        ("audacity/audacity", "Audacity-4.0.2") => {
-            &[("audacity-macOS-4.0.2-arm64.dmg", 50_030_766, "fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3")]
-        }
+        ("audacity/audacity", "Audacity-4.0.1") => &[
+            ("audacity-linux-4.0.1-x86_64.AppImage", 73_755_128, "ca2f04f172124d1f18ac608749854c5d31f04ab266a758c348190c05d9b2087c"),
+            ("audacity-macOS-4.0.1-arm64.dmg", 50_034_126, "278c8647b78c77af7f07dbd5e7d9bfc950bc14168047b65738716b61d12055ec"),
+        ],
+        ("audacity/audacity", "Audacity-4.0.2") => &[
+            ("audacity-linux-4.0.2-x86_64.AppImage", 73_726_456, "a5f8787aa13cdb500a60fc013403b986776876b960cca962bc6e7fff066172f3"),
+            ("audacity-macOS-4.0.2-arm64.dmg", 50_030_766, "fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3"),
+        ],
         ("keepassxreboot/keepassxc", "2.7.12") => {
             &[("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40")]
         }
@@ -726,12 +728,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("zed-industries/zed", "v1.29.3") => &[("Zed-aarch64.dmg", 88_779_557, "b692c9effdfcec874c47f56c3b27df069a63c6b3d23ecd070ffec9238a708bb8")],
         ("zed-industries/zed", "v1.30.2") => &[("Zed-aarch64.dmg", 88_057_394, "36ab60379627730fc3ac6ab79bc57dba7a1cf6d6df8117b8e22190d9b639fff5")],
-        ("jgraph/drawio-desktop", "v32.6.10") => {
-            &[("draw.io-arm64-32.6.10.dmg", 157_367_951, "83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727")]
-        }
-        ("jgraph/drawio-desktop", "v32.7.4") => {
-            &[("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3")]
-        }
+        ("jgraph/drawio-desktop", "v32.6.10") => &[
+            ("drawio-x86_64-32.6.10.AppImage", 152_706_651, "94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256"),
+            ("draw.io-arm64-32.6.10.dmg", 157_367_951, "83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727"),
+        ],
+        ("jgraph/drawio-desktop", "v32.7.4") => &[
+            ("drawio-x86_64-32.7.4.AppImage", 154_092_007, "7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c"),
+            ("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3"),
+        ],
         ("exelban/stats", "v3.1.0") => &[("Stats.dmg", 8_257_600, "a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7")],
         ("exelban/stats", "v3.1.1") => &[("Stats.dmg", 8_386_915, "2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9")],
         ("EpicenterHQ/epicenter", "v7.9.0") => {
@@ -823,6 +827,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ONLYOFFICE/DesktopEditors", "v10.0.0") => {
             &[("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745")]
+        }
+        ("nextcloud-releases/desktop", "v35.0.2") => {
+            &[("Nextcloud-35.0.2-x86_64.AppImage", 63_248_888, "cd62e276ecc8172b3075043abeec789024355bba3d0cd9ad8b3c850e9ad0d7d8")]
+        }
+        ("nextcloud-releases/desktop", "v35.0.3") => {
+            &[("Nextcloud-35.0.3-x86_64.AppImage", 63_248_888, "334e83b145c991ae80ec9db9483334066d2562335e2191362824ccd10aa16e54")]
         }
         _ => &[],
     };

@@ -1,0 +1,38 @@
+START 2026-11-27T09:40:11Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/jgraph/drawio-desktop/releases/download/v32.6.10/drawio-x86_64-32.6.10.AppImage bytes=152706651 sha256=94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256
+FILE /fixture/home/Applications/drawio-x86_64-32.6.10.AppImage version=32.6.10 bytes=152706651 sha256=94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256
+DESKTOP /fixture/home/data/applications/drawio.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/drawio.png sha256=39356154162b97d0679c461d415acfcfbaccd55765e11c8f52c727af4a4be8da
+PASS drawio install 3625 ms draw.io Desktop installed: 32.6.10
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=126 comm="/tmp/appimage_extracted_485bd4bc1ca807954646482fa4" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+_: line 24: convert: command not found
+START 2026-11-27T09:41:25Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=426 comm="/tmp/appimage_extracted_485bd4bc1ca807954646482fa4" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = draw-io draw-io
+Untitled Diagram - draw.io
+PASS drawio open-old 0 ms Launch request accepted
+GUI drawio open-old 24406 ms window=2097155
+OFFICIAL https://github.com/jgraph/drawio-desktop/releases/download/v32.7.4/drawio-x86_64-32.7.4.AppImage bytes=154092007 sha256=7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c
+FILE /fixture/home/Applications/drawio-x86_64-32.7.4.AppImage version=32.7.4 bytes=154092007 sha256=7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c
+DESKTOP /fixture/home/data/applications/drawio.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/drawio.png sha256=39356154162b97d0679c461d415acfcfbaccd55765e11c8f52c727af4a4be8da
+PASS drawio update 6163 ms draw.io Desktop updated to 32.7.4
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/drawio-full-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=126 comm="/tmp/appimage_extracted_1e03d3bfb7b8eff01d91bdae8a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = draw-io draw-io
+Untitled Diagram - draw.io
+PASS drawio open-new 2 ms Launch request accepted
+GUI drawio open-new 13548 ms window=2097155
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=93 comm="/tmp/appimage_extracted_1e03d3bfb7b8eff01d91bdae8a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+WM_CLASS = draw-io draw-io
+Untitled Diagram - draw.io
+[93:1127/094214.495882:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93:1127/094215.352094:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93:1127/094215.352188:ERROR:dbus/bus.cc:406] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+GUI drawio open-menu 13470 ms window=2097155
+PASS drawio remove 121 ms draw.io Desktop was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/drawio-full-interface-profile/home/verification-user-data.txt: OK

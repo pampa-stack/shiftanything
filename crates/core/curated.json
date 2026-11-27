@@ -2634,9 +2634,9 @@
       "Adobe Audition"
     ],
     "license": "GPL-3.0-only",
-    "license_url": "https://flathub.org/apps/org.audacityteam.Audacity",
+    "license_url": "https://github.com/audacity/audacity/blob/Audacity-4.0.2/LICENSE.txt",
     "website": "https://www.audacityteam.org/",
-    "releases": "https://flathub.org/apps/org.audacityteam.Audacity",
+    "releases": "https://github.com/audacity/audacity/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "api",
@@ -2673,10 +2673,26 @@
       "source": "https://flathub.org/apps/org.audacityteam.Audacity"
     },
     "release": {
-      "version": "3.7.8",
-      "date": "2026-05-26",
-      "source": "https://flathub.org/apps/org.audacityteam.Audacity",
-      "packages": []
+      "version": "4.0.2",
+      "date": "2026-11-02",
+      "source": "https://github.com/audacity/audacity/releases/tag/Audacity-4.0.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 70670856,
+          "size_max": 73726456
+        },
+        {
+          "platform": "macos",
+          "size_min": 50030766,
+          "size_max": 91997209
+        },
+        {
+          "platform": "windows",
+          "size_min": 32843241,
+          "size_max": 49823744
+        }
+      ]
     },
     "stars": {
       "count": 19188,
@@ -23933,9 +23949,9 @@
       "Dropbox"
     ],
     "license": "GPL-2.0",
-    "license_url": "https://github.com/nextcloud/desktop/license",
+    "license_url": "https://github.com/nextcloud/desktop/blob/master/COPYING",
     "website": "https://nextcloud.com/install/#install-clients",
-    "releases": "https://github.com/nextcloud/desktop/releases",
+    "releases": "https://github.com/nextcloud-releases/desktop/releases",
     "delivery": "desktop",
     "agent": {
       "kind": "unknown",
@@ -23957,8 +23973,24 @@
     "release": {
       "version": "v35.0.3",
       "date": "2026-11-05",
-      "source": "https://github.com/nextcloud/desktop/releases/tag/v35.0.3",
-      "packages": []
+      "source": "https://github.com/nextcloud-releases/desktop/releases/tag/v35.0.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 63248888,
+          "size_max": 63248888
+        },
+        {
+          "platform": "macos",
+          "size_min": 156001040,
+          "size_max": 156001040
+        },
+        {
+          "platform": "windows",
+          "size_min": 62775296,
+          "size_max": 62775296
+        }
+      ]
     }
   },
   {

@@ -29,6 +29,9 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "losslesscut" => ("AudioVideo;Video;AudioVideoEditing;", Some("losslesscut")),
         "zettlr" => ("Office;WordProcessor;", Some("zettlr")),
         "onlyoffice" => ("Office;WordProcessor;Spreadsheet;Presentation;", Some("ONLYOFFICE")),
+        "audacity" => ("AudioVideo;Audio;AudioVideoEditing;", Some("Audacity4")),
+        "drawio" => ("Graphics;", Some("draw-io")),
+        "nextcloud-desktop" => ("Utility;X-SuSE-SyncUtility;", Some("Nextcloud")),
         "artcraft" => ("Graphics;AudioVideo;2DGraphics;", Some("artcraft")),
         "photocraft" => ("Graphics;2DGraphics;RasterGraphics;Photography;", Some("photocraft")),
         "pdfcraft" => ("Office;Viewer;", Some("pdfcraft")),
@@ -85,9 +88,11 @@ fn value(s: &str) -> String {
 
 /// These reviewed AppImages support extracting themselves on systems without a usable FUSE mount.
 pub(crate) fn appimage_runtime_flag(app: &CraftApp, path: &Path) -> Option<&'static str> {
-    use artcraft_launcher_core::curated::{LOCALSEND, LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
+    use artcraft_launcher_core::curated::{
+        AUDACITY, DRAWIO, LOCALSEND, LOSSLESSCUT, MUSESCORE, NEXTCLOUD_DESKTOP, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR,
+    };
     (path.extension().is_some_and(|ext| ext.eq_ignore_ascii_case("appimage"))
-        && [LOCALSEND, LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR]
+        && [LOCALSEND, LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR, AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP]
             .iter()
             .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo)))
     .then_some("--appimage-extract-and-run")

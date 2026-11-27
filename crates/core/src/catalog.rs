@@ -90,10 +90,11 @@ impl CraftApp {
 
     /// Some publishers use a distinct AppImage desktop identifier.
     pub fn linux_desktop_id(&self) -> String {
-        if (self.id, self.repo) == (crate::curated::LOCALSEND.id, crate::curated::LOCALSEND.repo) {
-            "org.localsend.localsend_app".to_owned()
-        } else {
-            self.bundle_id()
+        match (self.id, self.repo) {
+            ("localsend", "localsend/localsend") => "org.localsend.localsend_app".to_owned(),
+            ("audacity", "audacity/audacity") => "org.audacityteam.Audacity4portable".to_owned(),
+            ("drawio", "jgraph/drawio-desktop") => "drawio".to_owned(),
+            _ => self.bundle_id(),
         }
     }
 
@@ -113,7 +114,11 @@ impl CraftApp {
     }
 
     pub fn release_repository(&self) -> &'static str {
-        if (self.id, self.repo) == (crate::curated::GODOT.id, crate::curated::GODOT.repo) { crate::curated::GODOT_RELEASES_REPO } else { self.repo }
+        match (self.id, self.repo) {
+            ("godot-engine", "godotengine/godot") => crate::curated::GODOT_RELEASES_REPO,
+            ("nextcloud-desktop", "nextcloud/desktop") => crate::curated::NEXTCLOUD_DESKTOP_RELEASES_REPO,
+            _ => self.repo,
+        }
     }
 
     /// A MAC application can be distributed as a disk image or an approved ZIP.
@@ -275,6 +280,9 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         "losslesscut" => include_bytes!("../../../assets/app-icons/losslesscut.png"),
         "zettlr" => include_bytes!("../../../assets/app-icons/zettlr.png"),
         "onlyoffice" => include_bytes!("../../../assets/app-icons/onlyoffice.png"),
+        "audacity" => include_bytes!("../../../assets/app-icons/audacity.png"),
+        "drawio" => include_bytes!("../../../assets/app-icons/drawio.png"),
+        "nextcloud-desktop" => include_bytes!("../../../assets/app-icons/nextcloud-desktop.png"),
         "artcraft" => include_bytes!("../../../assets/app-icons/artcraft.png"),
         "photocraft" => include_bytes!("../../../assets/app-icons/photocraft.png"),
         "vectorcraft" => include_bytes!("../../../assets/app-icons/vectorcraft.png"),

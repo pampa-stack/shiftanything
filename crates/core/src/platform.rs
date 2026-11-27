@@ -349,6 +349,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         PINTA, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
+    use crate::curated::NEXTCLOUD_DESKTOP;
+
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
@@ -387,6 +389,33 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             return None;
         }
         return release.assets.iter().find(|asset| crate::release::neovide_mac_asset(release, asset)).map(|asset| (asset, PackageKind::Dmg));
+    }
+    if platform.os == Os::Linux && ["drawio", "audacity", "nextcloud-desktop"].iter().any(|id| stems.contains(id)) {
+        let app = [AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP].into_iter().find(|app| stems.contains(&app.id))?;
+        if release.prerelease || !kinds.contains(&PackageKind::AppImage) {
+            return None;
+        }
+        let version = release.version.as_ref().filter(|version| version.pre.is_empty() && version.build.is_empty())?;
+        let (tag_prefix, expected_name) = match app.id {
+            "audacity" => ("Audacity-", format!("audacity-linux-{version}-x86_64.AppImage")),
+            "drawio" => ("v", format!("drawio-x86_64-{version}.AppImage")),
+            "nextcloud-desktop" => ("v", format!("Nextcloud-{version}-x86_64.AppImage")),
+            _ => return None,
+        };
+        if release.tag != format!("{tag_prefix}{version}") {
+            return None;
+        }
+        let expected_url = format!("{}{}/{expected_name}", crate::release::download_prefix(app.release_repository()), release.tag);
+        return release
+            .assets
+            .iter()
+            .find(|asset| {
+                asset.name == expected_name
+                    && asset.url == expected_url
+                    && asset.size > 0
+                    && asset.sha256.as_deref().is_some_and(crate::release::is_hex64)
+            })
+            .map(|asset| (asset, PackageKind::AppImage));
     }
     use crate::curated::{LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
     if let Some(app) = [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE].into_iter().find(|app| stems.contains(&app.id)) {
@@ -540,6 +569,12 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
+    if ["drawio", "audacity", "nextcloud-desktop"].iter().any(|id| stems.contains(id)) && platform.os == Os::Linux {
+        return platform == linux_x64;
+    }
+    if ["nextcloud-desktop"].iter().any(|id| stems.contains(id)) {
+        return false;
+    }
     if [
         HANDY.id,
         OBS_STUDIO.id,
@@ -645,12 +680,18 @@ mod tests {
             ("mifi/lossless-cut", "v3.70.2", "LosslessCut-linux-x86_64.AppImage", 221_357_823),
             ("OrcaSlicer/OrcaSlicer", "v2.5.1", "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage", 201_116_152),
             ("OrcaSlicer/OrcaSlicer", "v2.5.2", "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage", 201_034_232),
+            ("audacity/audacity", "Audacity-4.0.1", "audacity-linux-4.0.1-x86_64.AppImage", 73_755_128),
+            ("audacity/audacity", "Audacity-4.0.2", "audacity-linux-4.0.2-x86_64.AppImage", 73_726_456),
+            ("jgraph/drawio-desktop", "v32.6.10", "drawio-x86_64-32.6.10.AppImage", 152_706_651),
+            ("jgraph/drawio-desktop", "v32.7.4", "drawio-x86_64-32.7.4.AppImage", 154_092_007),
+            ("nextcloud-releases/desktop", "v35.0.2", "Nextcloud-35.0.2-x86_64.AppImage", 63_248_888),
+            ("nextcloud-releases/desktop", "v35.0.3", "Nextcloud-35.0.3-x86_64.AppImage", 63_248_888),
             ("Zettlr/Zettlr", "v4.10.0", "Zettlr-4.10.0-x86_64.AppImage", 172_628_308),
             ("Zettlr/Zettlr", "v4.11.0", "Zettlr-4.11.0-x86_64.AppImage", 172_657_896),
             ("ONLYOFFICE/DesktopEditors", "v9.4.0", "DesktopEditors-x86_64.AppImage", 625_961_464),
             ("ONLYOFFICE/DesktopEditors", "v10.0.0", "DesktopEditors-x86_64.AppImage", 425_810_424),
         ] {
-            let app = crate::hosted_catalog::apps().iter().find(|app| app.repo == repo).unwrap_or_else(|| panic!("missing {repo}"));
+            let app = crate::hosted_catalog::apps().iter().find(|app| app.release_repository() == repo).unwrap_or_else(|| panic!("missing {repo}"));
             let release = crate::release::release_from_sums(repo, tag, &[]);
             let (asset, _) = pick_asset(&release, &[app.id], platform, &[PackageKind::AppImage]).expect("a reviewed fallback asset");
             assert_eq!(asset.name, filename);

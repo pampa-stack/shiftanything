@@ -989,7 +989,30 @@ pub const SOLVESPACE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8X77K9NDG3"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 37] = [
+pub const NEXTCLOUD_DESKTOP: crate::CraftApp = crate::CraftApp {
+    id: "nextcloud-desktop",
+    name: "Nextcloud Desktop",
+    tagline: "Synchronizes files with your Nextcloud server",
+    repo: "nextcloud/desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [101, 161, 219],
+    ink_light: [36, 73, 129],
+    ink_dark: [152, 197, 240],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Nextcloud",
+    msi_publisher: None,
+    bundle: Some("com.nextcloud.desktopclient.nextcloud"),
+    site: Some("https://nextcloud.com/install/#install-clients"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
+pub const NEXTCLOUD_DESKTOP_RELEASES_REPO: &str = "nextcloud-releases/desktop";
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 38] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1027,6 +1050,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 37] = [
     LOSSLESSCUT,
     ZETTLR,
     ONLYOFFICE,
+    NEXTCLOUD_DESKTOP,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
@@ -1051,7 +1075,7 @@ pub fn verified_linux_appimage(app: &crate::CraftApp, platform: crate::Platform)
     if platform.os != crate::Os::Linux || platform.arch != crate::Arch::X64 {
         return false;
     }
-    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE]
+    if [LOCALSEND, PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, LOSSLESSCUT, ZETTLR, ONLYOFFICE, AUDACITY, DRAWIO, NEXTCLOUD_DESKTOP]
         .iter()
         .any(|candidate| (app.id, app.repo) == (candidate.id, candidate.repo))
     {
@@ -1144,7 +1168,7 @@ mod recipe_tests {
         assert!(!super::verified_linux_appimage(&photo, arm));
         assert!(!super::verified_linux_appimage(&impostor, linux));
         assert!(!super::verified_linux_appimage(&super::HANDY, linux));
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 22);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 25);
     }
 
     #[test]
@@ -1331,7 +1355,11 @@ mod recipe_tests {
                 assert_eq!(select(&official, mac), Some((filename.to_owned(), PackageKind::Dmg)));
                 assert_eq!(official.assets[0].sha256.as_ref().map(String::len), Some(64));
                 assert!(select(&official, Platform { os: Os::MacOs, arch: Arch::X64 }).is_none());
-                assert!(select(&official, Platform { os: Os::Linux, arch: Arch::X64 }).is_none());
+                let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+                assert_eq!(
+                    select(&official, linux).map(|(_, kind)| kind),
+                    super::verified_linux_appimage(&app, linux).then_some(PackageKind::AppImage),
+                );
                 assert!(select(&official, Platform { os: Os::Windows, arch: Arch::Arm64 }).is_none());
                 let mut missing_hash = official.clone();
                 missing_hash.assets.retain(|asset| asset.name == filename);

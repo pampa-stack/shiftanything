@@ -1,0 +1,751 @@
+START 2026-11-27T09:44:12Z on vps-agenti (x86_64)
+Ubuntu 24.04.5 LTS
+OFFICIAL https://github.com/audacity/audacity/releases/download/Audacity-4.0.1/audacity-linux-4.0.1-x86_64.AppImage bytes=73755128 sha256=ca2f04f172124d1f18ac608749854c5d31f04ab266a758c348190c05d9b2087c
+FILE /fixture/home/Applications/audacity-linux-4.0.1-x86_64.AppImage version=4.0.1 bytes=73755128 sha256=ca2f04f172124d1f18ac608749854c5d31f04ab266a758c348190c05d9b2087c
+DESKTOP /fixture/home/data/applications/org.audacityteam.Audacity4portable.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.audacityteam.Audacity4portable.png sha256=2ca98da6ec2dcfddba63f61b35957a4f12e2cf41811089816bc37ad42b62649e
+PASS audacity install 2019 ms Audacity 4 installed: 4.0.1
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=82 comm="/tmp/appimage_extracted_33cf4a53133f207e1277c76cec" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[98]: Unknown username "root" on element <allow>
+dbus-daemon[98]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=82 comm="/tmp/appimage_extracted_33cf4a53133f207e1277c76cec" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[98]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = audacity4portable Audacity4
+Audacity 4.0
+PASS audacity open-old 0 ms Launch request accepted
+GUI audacity open-old 13379 ms window=2097172
+OFFICIAL https://github.com/audacity/audacity/releases/download/Audacity-4.0.2/audacity-linux-4.0.2-x86_64.AppImage bytes=73726456 sha256=a5f8787aa13cdb500a60fc013403b986776876b960cca962bc6e7fff066172f3
+FILE /fixture/home/Applications/audacity-linux-4.0.2-x86_64.AppImage version=4.0.2 bytes=73726456 sha256=a5f8787aa13cdb500a60fc013403b986776876b960cca962bc6e7fff066172f3
+DESKTOP /fixture/home/data/applications/org.audacityteam.Audacity4portable.desktop ICON /fixture/home/data/icons/hicolor/128x128/apps/org.audacityteam.Audacity4portable.png sha256=2ca98da6ec2dcfddba63f61b35957a4f12e2cf41811089816bc37ad42b62649e
+PASS audacity update 8227 ms Audacity 4 updated to 4.0.2
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/audacity-full-interface-profile/home/verification-user-data.txt: OK
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.1' (uid=1000 pid=88 comm="/tmp/appimage_extracted_c326f152533e055130661e937a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[104]: Unknown username "root" on element <allow>
+dbus-daemon[104]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=88 comm="/tmp/appimage_extracted_c326f152533e055130661e937a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[104]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = audacity4portable Audacity4
+Audacity 4.0
+PASS audacity open-new 0 ms Launch request accepted
+GUI audacity open-new 12380 ms window=2097172
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.a11y.Bus' requested by ':1.2' (uid=1000 pid=67 comm="/tmp/appimage_extracted_c326f152533e055130661e937a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.a11y.Bus'
+dbus[83]: Unknown username "root" on element <allow>
+dbus-daemon[83]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=67 comm="/tmp/appimage_extracted_c326f152533e055130661e937a" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[83]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+WM_CLASS = audacity4portable Audacity4
+Audacity 4.0
+/lib/x86_64-linux-gnu/libOpenGL.so.0
+/lib/x86_64-linux-gnu/libjack.so.0
+/lib/x86_64-linux-gnu/libnss3.so
+QGuiApplication::setDesktopFileName: the specified desktop file name ends with .desktop. For compatibility reasons, the .desktop suffix will be removed. Please specify a desktop file name without .desktop suffix
+[1;33m09:44:53.383 | WARN  | main_thread     | Qt              | Invalid QML element name "TempoDetection"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.383 | WARN  | main_thread     | Qt              | Invalid QML element name "SaveBehavior"; value type names should begin with a lowercase letter[0m
+[1;32m09:44:53.383 | INFO  | main_thread     | ParameterExtractorRegistry::registerExtractor | Registered parameter extractor for family: 2[0m
+[1;32m09:44:53.385 | INFO  | main_thread     | ParameterExtractorRegistry::registerExtractor | Registered parameter extractor for family: 1[0m
+[1;32m09:44:53.386 | INFO  | main_thread     | ParameterExtractorRegistry::registerExtractor | Registered parameter extractor for family: 4[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "TrackType"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "ClipKey"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "ClipStyle"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "AsymmetricStereoHeights"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "ClipBoundaryAction"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.386 | WARN  | main_thread     | Qt              | Invalid QML element name "Direction"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "PlaybackQuality"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "DitherType"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "PlaybackMeterType"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "PlaybackMeterStyle"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "PlaybackMeterPosition"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.392 | WARN  | main_thread     | Qt              | Invalid QML element name "PlaybackMeterDbRange"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.393 | WARN  | main_thread     | Qt              | Invalid QML element name "SaveLocationType"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.393 | WARN  | main_thread     | Qt              | Invalid QML element name "ExportChannels"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.393 | WARN  | main_thread     | Qt              | Invalid QML element name "ExportOptionType"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.393 | WARN  | main_thread     | Qt              | Invalid QML element name "EffectFamily"; value type names should begin with a lowercase letter[0m
+[1;33m09:44:53.393 | WARN  | main_thread     | Qt              | Invalid QML element name "ViewerComponentType"; value type names should begin with a lowercase letter[0m
+[1;32m09:44:53.394 | INFO  | main_thread     | GlobalModule::onPreInit | log path: /fixture/home/data/Audacity/Audacity4/logs/Audacity_261127_094453.log[0m
+[1;32m09:44:53.394 | INFO  | main_thread     | GlobalModule::onPreInit | === Started Audacity 4.0.2, build: 263060742 ===[0m
+[1;32m09:44:53.398 | INFO  | main_thread     | LanguagesService::effectiveLanguageCode | System languages: QVariant(QStringList, QList("C")) [0m
+[1;31m09:44:53.398 | ERROR | main_thread     | LanguagesService::setCurrentLanguage | Unsupported language code: "system" [0m
+[1;32m09:44:53.409 | INFO  | main_thread     | UiConfiguration::correctUserFontIfNeeded | The user font "Sans"  is missing, we will use the fallback font Sans[0m
+[1;32m09:44:53.456 | INFO  | main_thread     | DiagnosticsModule::onInit | success start crash handler[0m
+[1;32m09:44:53.458 | INFO  | main_thread     | AbstractCloudService::readTokens | Could not find the tokens file: /fixture/home/data/Audacity/Audacity4/audiocom_cred.dat[0m
+[1;31m09:44:53.459 | ERROR | main_thread     | ExtensionsLoader::manifestPaths | failed scan files, err: [401] The file does not exist[0m
+[1;31m09:44:53.459 | ERROR | main_thread     | ExtPluginsLoader::qmlsPaths | failed scan files, err: [401] The file does not exist, path: /tmp/appimage_extracted_c326f152533e055130661e937a553f27/share/audacity4portable-4.0//plugins[0m
+[1;31m09:44:53.459 | ERROR | main_thread     | ExtensionsConfiguration::manifestConfigs | failed read config data, err: [406] An error occurred when reading from the file, file: /fixture/home/data/Audacity/Audacity4/plugins/plugins.json[0m
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM sysdefault
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM default
+ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_card_id returned error: No such file or directory
+ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+ALSA lib confmisc.c:1342:(snd_func_refer) error evaluating name
+ALSA lib conf.c:5208:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+ALSA lib conf.c:5731:(snd_config_expand) Evaluate error: No such file or directory
+ALSA lib pcm.c:2721:(snd_pcm_open_noupdate) Unknown PCM dmix
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+[1;31m09:44:53.843 | ERROR | main_thread     | [AU3] ReportError | Failed to load shared library 'libavformat.so.63': libavformat.so.63: cannot open shared object file: No such file or directory[0m
+[1;31m09:44:53.844 | ERROR | main_thread     | [AU3] ReportError | Failed to load shared library 'libavformat.so.62': libavformat.so.62: cannot open shared object file: No such file or directory[0m
+[1;31m09:44:53.844 | ERROR | main_thread     | [AU3] ReportError | Failed to load shared library 'libavformat.so.61': libavformat.so.61: cannot open shared object file: No such file or directory[0m
+[1;32m09:44:53.921 | INFO  | main_thread     | [AU3] Load      | FFmpeg libraries loaded successfully from: /lib/x86_64-linux-gnu/libavformat.so.60.16.100[0m
+[1;32m09:44:53.957 | INFO  | main_thread     | GuiApplication::setupGraphicsApi | Using graphics api: "opengl" [0m
+[1;32m09:44:53.957 | INFO  | main_thread     | GuiApplication::setupGraphicsApi | Gui platform: "xcb" [0m
+[1;32m09:44:53.957 | INFO  | main_thread     | GuiApplication::setupGraphicsApi | Detecting problems with graphics api[0m
+[1;32m09:44:53.957 | INFO  | main_thread     | SingleInstanceListener::start | single-instance listener bound: "Audacity4" [0m
+[1;32m09:44:53.957 | INFO  | main_thread     | BaseApplication::setupNewContext | Creating new context with id: 1[0m
+[1;33m09:44:53.964 | WARN  | main_thread     | Qt              | dbus reply error: [ "org.freedesktop.DBus.Error.ServiceUnknown" ] "The name org.freedesktop.portal.Desktop was not provided by any .service files"[0m
+[1;33m09:44:53.964 | WARN  | main_thread     | Qt              | dbus reply error: [ "org.freedesktop.DBus.Error.ServiceUnknown" ] "The name org.freedesktop.portal.Desktop was not provided by any .service files"[0m
+[1;32m09:45:00.221 | INFO  | main_thread     | ParameterExtractorRegistry::registerExtractor | Registered parameter extractor for family: 3[0m
+[1;31m09:45:00.226 | ERROR | main_thread     | ExtensionsLoader::manifestPaths | failed scan files, err: [401] The file does not exist[0m
+[1;31m09:45:00.228 | ERROR | main_thread     | ExtPluginsLoader::qmlsPaths | failed scan files, err: [401] The file does not exist, path: /tmp/appimage_extracted_c326f152533e055130661e937a553f27/share/audacity4portable-4.0//plugins[0m
+[1;31m09:45:00.228 | ERROR | main_thread     | ExtensionsConfiguration::manifestConfigs | failed read config data, err: [406] An error occurred when reading from the file, file: /fixture/home/data/Audacity/Audacity4/plugins/plugins.json[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: accessibility-dev-show-tree[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: diagnostics-show[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pinned-head[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: undo-history[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mixer-board[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-meta-data[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: timer-record[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: compare-audio[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: drag[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-info[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: help[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import2[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export2[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: message[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: open-project2[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: save-project2[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-preference[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-preference[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-time[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-frequencies[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tracks[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-clip[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-envelope[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-label[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-project[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-status[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-audio[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-visuals[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: contrast-analyser[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip-boundary-to-cursor[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-to-next-clip-boundary[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-next-clip[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-prev-clip-boundary[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-next-clip-boundary[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: split-new[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: preferences[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: file-save-copy[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-labels[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-raw[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-mp3[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-wav[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-ogg[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-f-l-a-c[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-sel[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: quick-help[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manual[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: about[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-labels[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: add-label-playing[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: type-to-create-label[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-frame[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-alt[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-generators[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-effects[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-more-effects[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-analyzers[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-tools[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: config-reset[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: simulate-recording-errors[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: detect-upstream-dropouts[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: write-journal[0m
+[1;33m09:45:00.230 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-sync-lock-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-track-start-to-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-save[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-restore[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-stored-cursor[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: store-cursor-position[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-off[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-nearest[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-prior[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-left[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-right[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-left[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-right[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-left[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-right[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-short[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-short[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-long[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-long[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: minutes-and-seconds[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: beats-and-measures[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: reset-toolbars[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render-to-new-track[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: resample[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-all-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-all-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-left[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-right[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-center[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-selection-with-tracks[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sync-lock[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-left[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-right[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-inc[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-dec[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-menu[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-mute[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-solo[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-close[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-stop-select[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: once-play-stop[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation-level[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: overdub[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: s-w-playthrough[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-one-sec[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-to-selection[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-cut-preview[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-prev-label[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-next-label[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: fit-v[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-start[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-end[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-extra-menus[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-clipping[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-r-m-s[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-audio-setup-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-cut-copy-paste-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transport-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-device-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-device[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-device[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: audio-host[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-channels[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-edit-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-record-meter-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-play-meter-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-inc[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-dec[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-inc[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-dec[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-selection-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-snapping-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-spectral-selection-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-signature-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-tools-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: envelope-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: draw-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: multi-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-tool[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transcription-t-b[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-looped[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-cut-preview[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-play-speed[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-inc[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-dec[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-higher-peak-frequency[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-lower-peak-frequency[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: render-pitch-and-speed[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-up[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-down[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: new-time-track[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: scrub[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-scrub-ruler[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-backwards[0m
+[1;33m09:45:00.231 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-forwards[0m
+[1;33m09:45:00.238 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: accessibility-dev-show-tree[0m
+[1;33m09:45:00.238 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: diagnostics-show[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pinned-head[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: undo-history[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mixer-board[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-meta-data[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: timer-record[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: compare-audio[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: drag[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-info[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: help[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import2[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export2[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: message[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: open-project2[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: save-project2[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-preference[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-preference[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-time[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-frequencies[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-clip[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-envelope[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-label[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-project[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-status[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-audio[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-visuals[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: contrast-analyser[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip-boundary-to-cursor[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-to-next-clip-boundary[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-next-clip[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-prev-clip-boundary[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-next-clip-boundary[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: split-new[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: preferences[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: file-save-copy[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-labels[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-raw[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-mp3[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-wav[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-ogg[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-f-l-a-c[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-sel[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: quick-help[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manual[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: about[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-labels[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: add-label-playing[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: type-to-create-label[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-frame[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-alt[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-generators[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-effects[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-more-effects[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-analyzers[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-tools[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: config-reset[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: simulate-recording-errors[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: detect-upstream-dropouts[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: write-journal[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-sync-lock-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-track-start-to-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-save[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-restore[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-stored-cursor[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: store-cursor-position[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-off[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-nearest[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-prior[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-left[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-right[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-left[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-right[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-left[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-right[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-short[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-short[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-long[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-long[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: minutes-and-seconds[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: beats-and-measures[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: reset-toolbars[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render-to-new-track[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: resample[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-all-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-all-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-left[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-right[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-center[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-selection-with-tracks[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sync-lock[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-left[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-right[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-inc[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-dec[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-menu[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-mute[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-solo[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-close[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-stop-select[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: once-play-stop[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation-level[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: overdub[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: s-w-playthrough[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-one-sec[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-to-selection[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-cut-preview[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-prev-label[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-next-label[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: fit-v[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-start[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-end[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-extra-menus[0m
+[1;33m09:45:00.239 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-clipping[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-r-m-s[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-audio-setup-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-cut-copy-paste-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transport-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-device-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-device[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-device[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: audio-host[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-channels[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-edit-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-record-meter-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-play-meter-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-inc[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-dec[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-inc[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-dec[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-selection-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-snapping-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-spectral-selection-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-signature-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-tools-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: envelope-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: draw-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: multi-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-tool[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transcription-t-b[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-looped[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-cut-preview[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-play-speed[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-inc[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-dec[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-higher-peak-frequency[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-lower-peak-frequency[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: render-pitch-and-speed[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-up[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-down[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: new-time-track[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: scrub[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-scrub-ruler[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-backwards[0m
+[1;33m09:45:00.240 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-forwards[0m
+[1;33m09:45:01.521 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.523 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.525 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.526 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.528 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.529 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.530 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.532 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.534 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.536 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.537 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:220:5: QML Loader: Binding loop detected for property "itemImplicitWidth":
+qrc:/qt/qml/Muse/UiComponents/FlatButton.qml:226:9[0m
+[1;33m09:45:01.541 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.541 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.541 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:01.542 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/platform/AppMenuBar.qml:132:21: Unable to assign [undefined] to QFont[0m
+[1;33m09:45:02.196 | WARN  | main_thread     | Qt              | KDDockWidgets::LayoutSaver::ScalingInfo::ScalingInfo(int, const QString&, QRect, int) Failed to find main window with name ""[0m
+[1;33m09:45:02.196 | WARN  | main_thread     | Qt              | Failed to restore layout create MainWindow with name "mainWindow_0" first[0m
+[1;31m09:45:02.196 | ERROR | main_thread     | DockWindow::restorePageState | Could not restore the state of "ProjectPage" ![0m
+[1;32m09:45:02.618 | INFO  | main_thread     | ActionsDispatcher::doDispatch | try call action: dock-set-open[0m
+[1;31m09:45:02.728 | ERROR | main_thread     | AppUpdateScenario::checkForUpdate | [503] Host updates.audacityteam.org not found[0m
+/home/runner/work/muse_deps/muse_deps/.build/platform/work/wxwidgets/src/src/common/arrstr.cpp(542): assert ""nIndex < m_nCount"" failed in RemoveAt(): bad index in wxArrayString::Remove
+[1;31m09:45:03.104 | ERROR | main_thread     | ExtensionsLoader::manifestPaths | failed scan files, err: [401] The file does not exist[0m
+[1;31m09:45:03.104 | ERROR | main_thread     | ExtPluginsLoader::qmlsPaths | failed scan files, err: [401] The file does not exist, path: /tmp/appimage_extracted_c326f152533e055130661e937a553f27/share/audacity4portable-4.0//plugins[0m
+[1;31m09:45:03.104 | ERROR | main_thread     | ExtensionsConfiguration::manifestConfigs | failed read config data, err: [406] An error occurred when reading from the file, file: /fixture/home/data/Audacity/Audacity4/plugins/plugins.json[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: accessibility-dev-show-tree[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: diagnostics-show[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pinned-head[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: undo-history[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mixer-board[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-meta-data[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: timer-record[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: compare-audio[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: drag[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-info[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: help[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import2[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export2[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: message[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: open-project2[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: save-project2[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-preference[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-preference[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-time[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-frequencies[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tracks[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-clip[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-envelope[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-label[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-project[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-status[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-audio[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track-visuals[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-track[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: contrast-analyser[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip-boundary-to-cursor[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-to-next-clip-boundary[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-prev-clip[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-next-clip[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-prev-clip-boundary[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-next-clip-boundary[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: split-new[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: preferences[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: file-save-copy[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-labels[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: import-raw[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-mp3[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-wav[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-ogg[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-f-l-a-c[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: export-sel[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: quick-help[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manual[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: about[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: edit-labels[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: add-label-playing[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: type-to-create-label[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-frame[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-alt[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-generators[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-effects[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: get-more-effects[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-analyzers[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: manage-tools[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: config-reset[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: simulate-recording-errors[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: detect-upstream-dropouts[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: write-journal[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-sync-lock-tracks[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-track-start-to-end[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-save[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-restore[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-cursor-stored-cursor[0m
+[1;33m09:45:03.189 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: store-cursor-position[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-off[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-nearest[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: snap-to-prior[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-left[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sel-set-ext-right[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: curs-track-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-left[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-short-jump-right[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-left[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: cursor-long-jump-right[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-short[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-short[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-left-long[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek-right-long[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: minutes-and-seconds[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: beats-and-measures[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: reset-toolbars[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mix-and-render-to-new-track[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: resample[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-all-tracks[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-all-tracks[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: mute-tracks[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: unmute-tracks[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-left[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-right[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pan-center[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-selection-with-tracks[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sync-lock[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-left[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-pan-right[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-inc[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-gain-dec[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-menu[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-mute[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-solo[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: track-close[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-stop-select[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: once-play-stop[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation-level[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: sound-activation[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: overdub[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: s-w-playthrough[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-one-sec[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-to-selection[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-selection-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-after-selection-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-before-and-after-selection-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-cut-preview[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-prev-label[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: move-to-next-label[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: fit-v[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-start[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: skip-sel-end[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-extra-menus[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-clipping[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-r-m-s[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-audio-setup-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-cut-copy-paste-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transport-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-device-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-device[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-device[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: audio-host[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-channels[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-edit-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-record-meter-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-play-meter-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-inc[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: output-gain-dec[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-inc[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: input-gain-dec[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-selection-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-snapping-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-spectral-selection-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-signature-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-time-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-tools-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: select-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: envelope-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: draw-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: multi-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: prev-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-tool[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: show-transcription-t-b[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-looped[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed[0m
+[1;33m09:45:03.190 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-at-speed-cut-preview[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: set-play-speed[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-inc[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: play-speed-dec[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-higher-peak-frequency[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: next-lower-peak-frequency[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: render-pitch-and-speed[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-up[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: pitch-down[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: new-time-track[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: scrub[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: seek[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: toggle-scrub-ruler[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-backwards[0m
+[1;33m09:45:03.191 | WARN  | main_thread     | ShortcutsRegister::readShortcut | ignoring shortcut for invalid action: keyboard-scrub-forwards[0m
+[1;33m09:45:03.207 | WARN  | main_thread     | Qt              | qrc:/qt/qml/Audacity/AppShell/FirstLaunchSetup/FirstLaunchSetupDialog.qml: Setting initial properties failed: FirstLaunchSetupDialog does not have a property called floating[0m
+[1;32m09:45:03.240 | INFO  | main_thread     | ActionsDispatcher::doDispatch | try call action: file-new[0m
+GUI audacity open-menu 19832 ms window=2097172
+PASS audacity remove 40 ms Audacity 4 was removed
+/mnt/dati/lavori/shift-vps2-appimage.RTanHwuk/lot4/audacity-full-interface-profile/home/verification-user-data.txt: OK

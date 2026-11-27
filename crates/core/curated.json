@@ -30153,5 +30153,921 @@
       "source": "https://github.com/electerious/Ackee/releases/tag/v3.7.1",
       "packages": []
     }
+  },
+  {
+    "id": "headplane",
+    "name": "Headplane",
+    "repo": "https://github.com/tale/headplane",
+    "author": "tale",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Amministra utenti, dispositivi e accessi dalla console web di una rete Headscale esistente.",
+      "en": "Manage users, devices and access from the web console of an existing Headscale network."
+    },
+    "alternatives": [
+      "Tailscale Admin Console"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/tale/headplane/blob/v0.8.2/LICENSE",
+    "website": "https://headplane.net/",
+    "releases": "https://github.com/tale/headplane/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/tale/headplane/05e3ee33f6d3b347013654c69186791347be8bd9/public/favicon.ico",
+    "screenshots": [
+      "https://raw.githubusercontent.com/tale/headplane/v0.8.2/docs/assets/preview-dark.png",
+      "https://raw.githubusercontent.com/tale/headplane/v0.8.2/docs/assets/machine-dark.png"
+    ],
+    "media_source": "https://github.com/tale/headplane#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://headplane.net/install/docker"
+    },
+    "stars": {
+      "count": 3363,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/tale/headplane"
+    },
+    "release": {
+      "version": "v0.8.2",
+      "date": "2026-10-22",
+      "source": "https://github.com/tale/headplane/releases/tag/v0.8.2",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://headplane.net/install/native-mode"
+    }
+  },
+  {
+    "id": "casdoor",
+    "name": "Casdoor",
+    "repo": "https://github.com/casdoor/casdoor",
+    "author": "Casdoor Contributors",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestisci identità, accessi e autenticazione a più fattori da una console web per le tue applicazioni.",
+      "en": "Manage identities, access and multifactor authentication for your apps from a web console."
+    },
+    "alternatives": [
+      "Okta",
+      "Auth0"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/casdoor/casdoor/blob/v4.31.0/LICENSE",
+    "website": "https://casdoor.ai",
+    "releases": "https://github.com/casdoor/casdoor/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://casdoor.ai/docs/basic/public-api/"
+    },
+    "logo": "https://raw.githubusercontent.com/casdoor/casdoor-website/09bf3e7b84ef2209382c5b31d29d0d585801849d/static/img/casdoor.png",
+    "screenshots": [
+      "https://cdn.casbin.org/img/casdoor-console.png",
+      "https://cdn.casbin.org/img/casdoor-applications.png"
+    ],
+    "media_source": "https://github.com/casdoor/casdoor#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://casdoor.ai/docs/basic/server-installation/"
+    },
+    "stars": {
+      "count": 14966,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/casdoor/casdoor"
+    },
+    "release": {
+      "version": "v4.31.0",
+      "date": "2026-11-25",
+      "source": "https://github.com/casdoor/casdoor/releases/tag/v4.31.0",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/casdoor/casdoor/releases/tag/v4.31.0",
+      "macos": "https://github.com/casdoor/casdoor/releases/tag/v4.31.0",
+      "windows": "https://github.com/casdoor/casdoor/releases/tag/v4.31.0"
+    }
+  },
+  {
+    "id": "zitadel",
+    "name": "ZITADEL",
+    "repo": "https://github.com/zitadel/zitadel",
+    "author": "ZITADEL",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestisci accessi, organizzazioni e applicazioni con login, passkey e ruoli da una console web autogestita.",
+      "en": "Manage sign-in, organizations, applications, passkeys and roles in a self-hosted web console."
+    },
+    "alternatives": [
+      "Auth0",
+      "Okta"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/zitadel/zitadel/blob/v4.20.6/LICENSE",
+    "website": "https://zitadel.com/",
+    "releases": "https://github.com/zitadel/zitadel/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://zitadel.com/docs/apis/introduction"
+    },
+    "logo": "https://raw.githubusercontent.com/zitadel/zitadel/v4.20.6/apps/docs/public/zitadel-192x192.png",
+    "screenshots": [
+      "https://zitadel.com/docs/_next/static/immutable/media/myprofile.2qf2dam8a1_69.png",
+      "https://zitadel.com/docs/img/guides/console/contextswitcher.png"
+    ],
+    "media_source": "https://zitadel.com/docs/guides/manage/console/console-overview",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://zitadel.com/docs/self-hosting/deploy/compose"
+    },
+    "stars": {
+      "count": 15662,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/zitadel/zitadel"
+    },
+    "release": {
+      "version": "v4.20.6",
+      "date": "2026-11-25",
+      "source": "https://github.com/zitadel/zitadel/releases/tag/v4.20.6",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/zitadel/zitadel/releases/tag/v4.20.6",
+      "macos": "https://github.com/zitadel/zitadel/releases/tag/v4.20.6",
+      "windows": "https://github.com/zitadel/zitadel/releases/tag/v4.20.6"
+    }
+  },
+  {
+    "id": "lulu",
+    "name": "LuLu",
+    "repo": "https://github.com/objective-see/LuLu",
+    "author": "Objective-See Foundation",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Controlla le connessioni in uscita su Mac e decidi quali applicazioni possono accedere alla rete.",
+      "en": "Monitor outgoing connections on your Mac and choose which applications can access the network."
+    },
+    "alternatives": [
+      "Little Snitch"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/objective-see/LuLu/blob/v4.6.0/LICENSE.md",
+    "website": "https://objective-see.org/products/lulu.html",
+    "releases": "https://github.com/objective-see/LuLu/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/objective-see/LuLu/v4.6.0/LuLu/App/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+    "screenshots": [
+      "https://objective-see.org/images/LL/rulesWindow.png",
+      "https://objective-see.org/images/LL/alert.png"
+    ],
+    "media_source": "https://objective-see.org/products/lulu.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://objective-see.org/products/lulu.html"
+    },
+    "stars": {
+      "count": 13683,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/objective-see/LuLu"
+    },
+    "release": {
+      "version": "v4.6.0",
+      "date": "2026-11-27",
+      "source": "https://github.com/objective-see/LuLu/releases/tag/v4.6.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 6737625,
+          "size_max": 6737625
+        }
+      ]
+    },
+    "platform_support": {
+      "macos": "https://objective-see.org/products/lulu.html"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "system-informer",
+    "name": "System Informer",
+    "repo": "https://github.com/winsiderss/systeminformer",
+    "author": "Winsider Seminars & Solutions",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Ispeziona processi, servizi e attività di rete su Windows per capire quali risorse stanno usando le app.",
+      "en": "Inspect Windows processes, services and network activity to understand how applications use system resources."
+    },
+    "alternatives": [
+      "Task Manager",
+      "Process Explorer"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/winsiderss/systeminformer/blob/v4.0.26241.138/LICENSE.txt",
+    "website": "https://www.systeminformer.com/",
+    "releases": "https://github.com/winsiderss/systeminformer/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/winsiderss/systeminformer/v4.0.26241.138/SystemInformer/resources/systeminformer-128x128.png",
+    "screenshots": [
+      "https://www.systeminformer.com/include/screenshots/main_window.png",
+      "https://www.systeminformer.com/include/screenshots/network.png"
+    ],
+    "media_source": "https://www.systeminformer.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.systeminformer.com/downloads"
+    },
+    "stars": {
+      "count": 16590,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/winsiderss/systeminformer"
+    },
+    "release": {
+      "version": "v4.0.26241.138",
+      "date": "2026-08-29",
+      "source": "https://github.com/winsiderss/systeminformer/releases/tag/v4.0.26241.138",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 22089103,
+          "size_max": 30354960
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://www.systeminformer.com/downloads"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "onionshare",
+    "name": "OnionShare",
+    "repo": "https://github.com/onionshare/onionshare",
+    "author": "OnionShare Project",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Condividi e ricevi file direttamente tramite Tor con una GUI che gestisce sessioni e collegamenti temporanei.",
+      "en": "Send and receive files over Tor through a graphical interface that manages sessions and temporary links."
+    },
+    "alternatives": [
+      "WeTransfer",
+      "Firefox Send"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/onionshare/onionshare/blob/v2.7.3/LICENSE.txt",
+    "website": "https://onionshare.org/",
+    "releases": "https://github.com/onionshare/onionshare/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/onionshare/onionshare/v2.7.3/desktop/onionshare/resources/images/logo_transparent.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/onionshare/onionshare/v2.7.3/desktop/screenshots/appdata-onionshare-share-server.png",
+      "https://raw.githubusercontent.com/onionshare/onionshare/v2.7.3/desktop/screenshots/appdata-onionshare-receive-server.png"
+    ],
+    "media_source": "https://github.com/onionshare/onionshare/tree/v2.7.3/desktop/screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.onionshare.org/2.7/en/install.html"
+    },
+    "stars": {
+      "count": 7248,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/onionshare/onionshare"
+    },
+    "release": {
+      "version": "v2.7.3",
+      "date": "2026-11-23",
+      "source": "https://github.com/onionshare/onionshare/releases/tag/v2.7.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 184429470,
+          "size_max": 184429470
+        },
+        {
+          "platform": "windows",
+          "size_min": 146554880,
+          "size_max": 146554880
+        },
+        {
+          "platform": "linux",
+          "size_min": 87944920,
+          "size_max": 328060928
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://docs.onionshare.org/2.7/en/install.html",
+      "macos": "https://docs.onionshare.org/2.7/en/install.html",
+      "windows": "https://docs.onionshare.org/2.7/en/install.html"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "authelia",
+    "name": "Authelia",
+    "repo": "https://github.com/authelia/authelia",
+    "author": "Authelia Team",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Proteggi l’accesso alle app web autogestite e gestisci i tuoi dispositivi e le passkey dal pannello utente.",
+      "en": "Protect access to self-hosted web apps and manage your devices and passkeys from the user panel."
+    },
+    "alternatives": [
+      "Cloudflare Access",
+      "Okta"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/authelia/authelia/blob/v4.39.28/LICENSE",
+    "website": "https://www.authelia.com/",
+    "releases": "https://github.com/authelia/authelia/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/authelia/authelia/v4.39.28/docs/static/favicon.svg",
+    "screenshots": [
+      "https://www.authelia.com/images/dark.png"
+    ],
+    "media_source": "https://github.com/authelia/authelia#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.authelia.com/integration/deployment/docker/",
+      "sources": [
+        "https://www.authelia.com/integration/deployment/docker/",
+        "https://www.authelia.com/roadmap/active/dashboard-control-panel-for-users/"
+      ]
+    },
+    "stars": {
+      "count": 29749,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/authelia/authelia"
+    },
+    "release": {
+      "version": "v4.39.28",
+      "date": "2026-09-17",
+      "source": "https://github.com/authelia/authelia/releases/tag/v4.39.28",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/authelia/authelia/releases/tag/v4.39.28"
+    }
+  },
+  {
+    "id": "taskexplorer",
+    "name": "Task Explorer",
+    "repo": "https://github.com/DavidXanatos/TaskExplorer",
+    "author": "David Xanatos",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Analizza processi e risorse di sistema e osserva come i programmi accedono a file e rete.",
+      "en": "Inspect system processes and resources to see how applications access files and the network."
+    },
+    "alternatives": [
+      "Process Explorer",
+      "Task Manager"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/DavidXanatos/TaskExplorer/blob/v2.0.1/LICENSE",
+    "website": "https://xanasoft.com/taskexplorer-downloads/",
+    "releases": "https://github.com/DavidXanatos/TaskExplorer/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/DavidXanatos/TaskExplorer/v2.0.1/TaskExplorer/Resources/TaskExplorer.ico",
+    "screenshots": [
+      "https://raw.githubusercontent.com/DavidXanatos/TaskExplorer/v2.0.1/.github/images/thread_view.png",
+      "https://raw.githubusercontent.com/DavidXanatos/TaskExplorer/v2.0.1/.github/images/linux_view.png"
+    ],
+    "media_source": "https://github.com/DavidXanatos/TaskExplorer#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://xanasoft.com/taskexplorer-downloads/"
+    },
+    "stars": {
+      "count": 3860,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/DavidXanatos/TaskExplorer"
+    },
+    "release": {
+      "version": "v2.0.1",
+      "date": "2026-10-12",
+      "source": "https://github.com/DavidXanatos/TaskExplorer/releases/tag/v2.0.1",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 18625520,
+          "size_max": 18625520
+        },
+        {
+          "platform": "linux",
+          "size_min": 32371796,
+          "size_max": 33871448
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://xanasoft.com/taskexplorer-downloads/",
+      "linux": "https://github.com/DavidXanatos/TaskExplorer/releases/tag/v2.0.1"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "bleachbit",
+    "name": "BleachBit",
+    "repo": "https://github.com/bleachbit/bleachbit",
+    "author": "Andrew Ziem",
+    "level": "base",
+    "category": "sic",
+    "description": {
+      "it": "Libera spazio e cancella cache, cookie e cronologie selezionate dopo aver visto un’anteprima.",
+      "en": "Free disk space and clear selected caches, cookies and history after previewing changes."
+    },
+    "alternatives": [
+      "CCleaner"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/bleachbit/bleachbit/blob/v6.0.6/COPYING",
+    "website": "https://www.bleachbit.org/",
+    "releases": "https://github.com/bleachbit/bleachbit/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/bleachbit/bleachbit/v6.0.6/bleachbit.png",
+    "screenshots": [
+      "https://docs.bleachbit.org/images/bleachbit_5_1_1_cookie_manager_windows_11.png",
+      "https://docs.bleachbit.org/images/bleachbit_5_1_1_preferences_windows_11.png"
+    ],
+    "media_source": "https://www.bleachbit.org/screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.bleachbit.org/news/bleachbit-606"
+    },
+    "stars": {
+      "count": 7618,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/bleachbit/bleachbit"
+    },
+    "release": {
+      "version": "v6.0.6",
+      "date": "2026-10-22",
+      "source": "https://github.com/bleachbit/bleachbit/releases/tag/v6.0.6",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 15140856,
+          "size_max": 20402357
+        },
+        {
+          "platform": "linux",
+          "size_min": 635100,
+          "size_max": 694926
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://www.bleachbit.org/download/windows",
+      "linux": "https://www.bleachbit.org/download/linux"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "infisical",
+    "name": "Infisical Community",
+    "repo": "https://github.com/Infisical/infisical",
+    "author": "Infisical",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Custodisci i segreti delle applicazioni in progetti separati per ambiente e gestiscili da una dashboard autogestita.",
+      "en": "Store application secrets in projects split by environment and manage them from a self-hosted dashboard."
+    },
+    "alternatives": [
+      "Doppler",
+      "AWS Secrets Manager"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/Infisical/infisical/blob/v0.167.16/LICENSE",
+    "website": "https://infisical.com/",
+    "releases": "https://github.com/Infisical/infisical/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://infisical.com/docs/api-reference/overview/introduction"
+    },
+    "logo": "https://raw.githubusercontent.com/Infisical/infisical/v0.167.16/img/logotransparent.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/Infisical/infisical/v0.167.16/img/infisical_github_repo4.png"
+    ],
+    "media_source": "https://github.com/Infisical/infisical#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://infisical.com/docs/self-hosting/overview"
+    },
+    "stars": {
+      "count": 30820,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/Infisical/infisical"
+    },
+    "release": {
+      "version": "v0.167.16",
+      "date": "2026-11-25",
+      "source": "https://github.com/Infisical/infisical/releases/tag/v0.167.16",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://infisical.com/docs/self-hosting/overview"
+    }
+  },
+  {
+    "id": "opencti",
+    "name": "OpenCTI Community",
+    "repo": "https://github.com/OpenCTI-Platform/opencti",
+    "author": "Filigran",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Raccogli indicatori e rapporti su minacce note e collega le evidenze per supportare il lavoro difensivo del team.",
+      "en": "Collect indicators and reports on known threats and connect evidence to support your defensive team."
+    },
+    "alternatives": [
+      "ThreatConnect",
+      "Recorded Future"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/OpenCTI-Platform/opencti/blob/7.261124.0/LICENSE",
+    "website": "https://filigran.io/products/opencti",
+    "releases": "https://github.com/OpenCTI-Platform/opencti/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.opencti.io/latest/reference/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/OpenCTI-Platform/opencti/7.261124.0/opencti-platform/opencti-front/public/assets/static/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/OpenCTI-Platform/opencti/7.261124.0/.github/img/readme/hero-light.webp"
+    ],
+    "media_source": "https://github.com/OpenCTI-Platform/opencti#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.opencti.io/latest/deployment/overview/"
+    },
+    "stars": {
+      "count": 10451,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/OpenCTI-Platform/opencti"
+    },
+    "release": {
+      "version": "7.261124.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/OpenCTI-Platform/opencti/releases/tag/7.261124.0",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://docs.opencti.io/latest/deployment/overview/"
+    }
+  },
+  {
+    "id": "simplelogin",
+    "name": "SimpleLogin",
+    "repo": "https://github.com/simple-login/app",
+    "author": "SimpleLogin",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Crea alias per ricevere e rispondere alle email mantenendo separato il tuo indirizzo principale.",
+      "en": "Create email aliases for receiving and replying while keeping your primary address separate."
+    },
+    "alternatives": [
+      "Firefox Relay",
+      "Hide My Email"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/simple-login/app/blob/v4.83.7/LICENSE",
+    "website": "https://simplelogin.io/",
+    "releases": "https://github.com/simple-login/app/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/simple-login/app/blob/v4.83.7/docs/api.md"
+    },
+    "logo": "https://raw.githubusercontent.com/simple-login/app/v4.83.7/static/logo-without-text.svg",
+    "screenshots": [
+      "https://simplelogin.io/docs/getting-started/create-custom-alias.png",
+      "https://simplelogin.io/docs/getting-started/create-random-alias.png"
+    ],
+    "media_source": "https://simplelogin.io/docs/getting-started/create-alias/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/simple-login/app#self-hosting"
+    },
+    "stars": {
+      "count": 7165,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/simple-login/app"
+    },
+    "release": {
+      "version": "v4.83.7",
+      "date": "2026-11-24",
+      "source": "https://github.com/simple-login/app/releases/tag/v4.83.7",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/simple-login/app#self-hosting"
+    }
+  },
+  {
+    "id": "addyio",
+    "name": "addy.io",
+    "repo": "https://github.com/anonaddy/anonaddy",
+    "author": "Will Browning",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestisci alias e inoltri della posta da un pannello web sul tuo server.",
+      "en": "Manage email aliases and forwarding from a web dashboard on your own server."
+    },
+    "alternatives": [
+      "Firefox Relay",
+      "Hide My Email"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/anonaddy/anonaddy/blob/v1.7.4/LICENSE.md",
+    "website": "https://addy.io/",
+    "releases": "https://github.com/anonaddy/anonaddy/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://app.addy.io/docs/"
+    },
+    "logo": "https://raw.githubusercontent.com/anonaddy/anonaddy/v1.7.4/public/svg/icon-logo.svg",
+    "screenshots": [
+      "https://addy.io/assets/img/help/getting-started/navigating-the-web-application.png"
+    ],
+    "media_source": "https://addy.io/help/navigating-the-web-application/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/anonaddy/docker#readme"
+    },
+    "stars": {
+      "count": 4964,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/anonaddy/anonaddy"
+    },
+    "release": {
+      "version": "v1.7.4",
+      "date": "2026-10-29",
+      "source": "https://github.com/anonaddy/anonaddy/releases/tag/v1.7.4",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/anonaddy/docker#readme"
+    }
+  },
+  {
+    "id": "sftpgo",
+    "name": "SFTPGo Community",
+    "repo": "https://github.com/drakkan/sftpgo",
+    "author": "SFTPGo Project",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestisci account e trasferimenti di file con SFTP, WebDAV e un pannello web per utenti e amministratori.",
+      "en": "Manage accounts and file transfers with SFTP, WebDAV and a web interface for users and admins."
+    },
+    "alternatives": [
+      "Cerberus FTP Server",
+      "FileCloud"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/drakkan/sftpgo/blob/v2.7.6/LICENSE",
+    "website": "https://sftpgo.com/",
+    "releases": "https://github.com/drakkan/sftpgo/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/drakkan/sftpgo/blob/v2.7.6/openapi/openapi.yaml"
+    },
+    "logo": "https://raw.githubusercontent.com/drakkan/sftpgo/v2.7.6/static/favicon.png",
+    "screenshots": [
+      "https://sftpgo.com/assets/img/webclient.png"
+    ],
+    "media_source": "https://sftpgo.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/drakkan/sftpgo/tree/v2.7.6#features"
+    },
+    "stars": {
+      "count": 12861,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/drakkan/sftpgo"
+    },
+    "release": {
+      "version": "v2.7.6",
+      "date": "2026-09-19",
+      "source": "https://github.com/drakkan/sftpgo/releases/tag/v2.7.6",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://github.com/drakkan/sftpgo/releases/tag/v2.7.6",
+      "windows": "https://github.com/drakkan/sftpgo/releases/tag/v2.7.6",
+      "macos": "https://docs.sftpgo.com/latest/installation/#macos"
+    }
+  },
+  {
+    "id": "guacamole",
+    "name": "Apache Guacamole",
+    "repo": "https://github.com/apache/guacamole-client",
+    "author": "Apache Software Foundation",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Accedi da browser alle macchine autorizzate tramite RDP, VNC o SSH da un gateway autogestito.",
+      "en": "Use a self-hosted gateway to access authorized machines in your browser over RDP, VNC or SSH."
+    },
+    "alternatives": [
+      "TeamViewer",
+      "Remote Desktop Services"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/apache/guacamole-client/blob/1.6.0/LICENSE",
+    "website": "https://guacamole.apache.org/",
+    "releases": "https://guacamole.apache.org/releases/",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/apache/guacamole-client/1.6.0/guacamole/src/main/frontend/src/images/logo-144.png",
+    "screenshots": [
+      "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-home-screen.png",
+      "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-client-interface.png"
+    ],
+    "media_source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://guacamole.apache.org/doc/1.6.0/gug/guacamole-docker.html"
+    },
+    "stars": {
+      "count": 1762,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/apache/guacamole-client"
+    },
+    "release": {
+      "version": "1.6.0",
+      "date": "2025-06-22",
+      "source": "https://guacamole.apache.org/releases/1.6.0/",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://guacamole.apache.org/doc/1.6.0/gug/guacamole-docker.html"
+    }
+  },
+  {
+    "id": "meshcentral",
+    "name": "MeshCentral",
+    "repo": "https://github.com/Ylianst/MeshCentral",
+    "author": "MeshCentral Contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Amministra da browser i dispositivi autorizzati, con accesso remoto allo schermo e gestione dei file.",
+      "en": "Manage authorized devices through a browser with remote desktop access and file management."
+    },
+    "alternatives": [
+      "TeamViewer",
+      "AnyDesk"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/Ylianst/MeshCentral/blob/1.3.2/LICENSE",
+    "website": "https://meshcentral.com/",
+    "releases": "https://github.com/Ylianst/MeshCentral/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "cli",
+      "source": "https://docs.meshcentral.com/meshctrl/"
+    },
+    "logo": "https://raw.githubusercontent.com/Ylianst/MeshCentral/1.3.2/public/favicon-303x303.png",
+    "screenshots": [
+      "https://docs.meshcentral.com/meshcentral/images/2022-05-18-22-27-25.jpg",
+      "https://docs.meshcentral.com/meshcentral/images/2022-05-18-22-29-12.jpg"
+    ],
+    "media_source": "https://docs.meshcentral.com/meshcentral/#after-agent-install",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.meshcentral.com/install/quickstart/"
+    },
+    "stars": {
+      "count": 7764,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/Ylianst/MeshCentral"
+    },
+    "release": {
+      "version": "1.3.2",
+      "date": "2026-11-25",
+      "source": "https://github.com/Ylianst/MeshCentral/releases/tag/1.3.2",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://docs.meshcentral.com/install/quickstart/",
+      "windows": "https://docs.meshcentral.com/install/quickstart/"
+    }
+  },
+  {
+    "id": "bunkerweb",
+    "name": "BunkerWeb Community",
+    "repo": "https://github.com/bunkerity/bunkerweb",
+    "author": "Bunkerity",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Proteggi applicazioni web che gestisci con un firewall applicativo e controlla servizi e attività da una dashboard.",
+      "en": "Protect web applications you operate with a web application firewall and monitor services and activity from a dashboard."
+    },
+    "alternatives": [
+      "Cloudflare WAF",
+      "AWS WAF"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/bunkerity/bunkerweb/blob/v1.6.18/LICENSE.md",
+    "website": "https://www.bunkerweb.io/",
+    "releases": "https://github.com/bunkerity/bunkerweb/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://docs.bunkerweb.io/latest/api/"
+    },
+    "logo": "https://raw.githubusercontent.com/bunkerity/bunkerweb/v1.6.18/docs/assets/favicon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/bunkerity/bunkerweb/v1.6.18/docs/assets/img/ui-home.png",
+      "https://raw.githubusercontent.com/bunkerity/bunkerweb/v1.6.18/docs/assets/img/ui-services.png"
+    ],
+    "media_source": "https://docs.bunkerweb.io/latest/web-ui/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.bunkerweb.io/latest/quickstart-guide/",
+      "sources": [
+        "https://docs.bunkerweb.io/latest/quickstart-guide/",
+        "https://docs.bunkerweb.io/latest/web-ui/"
+      ]
+    },
+    "stars": {
+      "count": 11330,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/bunkerity/bunkerweb"
+    },
+    "release": {
+      "version": "v1.6.18",
+      "date": "2026-11-20",
+      "source": "https://github.com/bunkerity/bunkerweb/releases/tag/v1.6.18",
+      "packages": []
+    },
+    "platform_support": {
+      "linux": "https://docs.bunkerweb.io/latest/quickstart-guide/"
+    }
   }
 ]

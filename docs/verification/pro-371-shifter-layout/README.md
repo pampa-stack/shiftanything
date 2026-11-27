@@ -16,3 +16,7 @@ La copia estratta dal DMG Apple Silicon, compilato da `52a8dc1`, mostra i loghi 
 Con la rete disponibile, la scheda ActivityWatch ha mostrato il pacchetto macOS da 67,3 MB e il pulsante Installa ha aperto il consenso. Rifiuta ha riportato al catalogo senza richiesta pendente, job o app installata. Il ciclo completo del motore è documentato a parte. [Consenso](package-macos-activitywatch-consent-it.png) · [Prova ActivityWatch](../pro-371-macos-activitywatch/README.md)
 
 Il DMG locale `ShiftAnything-0.20.3-macos-arm64-tauri-local.dmg` ha SHA-256 `07d33c9810905a1034dadd2de919fd6a9bb968876debff8e8f0c6ff38456d944`. Verificati checksum del disco, mount in sola lettura, architettura, licenze e firma ad hoc dell’immagine e del bundle. La firma per la distribuzione resta aperta.
+
+## Prova dal DEB del 27 novembre
+
+Il DEB Ubuntu x86-64 `shiftanything_0.20.3_amd64-local.deb` da `f5005db` ha SHA-256 `46fcc5c42e3808bc918153930f6ad7a895539641c07c31b4d639987f3747441a`. La finestra avviata dall'archivio estratto ha mostrato i loghi a sinistra dei nomi nel confronto Photoshop. Il pulsante Fonti di PhotoCraft ha aperto le quattro funzioni documentate, con riempimento generativo segnato come parziale. [Icone in SH*FTER](package-linux-icons-it.png) · [Fonti PhotoCraft](package-linux-sources-it.png)

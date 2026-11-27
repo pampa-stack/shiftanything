@@ -548,6 +548,19 @@ pub fn neovide_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+/// Match only the Apple Silicon image of the official stable release.
+pub fn vorta_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && format!("v{version}") == release.tag)
+        && asset.name == format!("Vorta-{}-arm.dmg", release.tag)
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::VORTA.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::VORTA.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const LAPCE_MAC_DMG: &str = "Lapce-macos.dmg";
 
 /// The universal package is unversioned; bind it to the publisher's stable tag and digest.
@@ -721,6 +734,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ActivityWatch/activitywatch", "v0.14.3") => {
             &[("activitywatch-v0.14.3-macos-arm64.dmg", 67_250_584, "5462f3b90f9e1c0352061888d5f041029abb2ccfbe05e42c6dc63d91ff26bd4a")]
         }
+        ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
+        ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
         ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],
         ("lapce/lapce", "v0.4.6") => &[(LAPCE_MAC_DMG, 45_483_653, "d4ba42218148446c265c6a823107a969b3b0dca5e14df834563f2859927228f5")],
         ("keycastr/keycastr", "v0.11.0") => &[(KEYCASTR_MAC_ZIP, 2_628_593, "00cc656a786012bcbdb5b203b1a56604727ad2ced5e4f5c1d189296f62881033")],

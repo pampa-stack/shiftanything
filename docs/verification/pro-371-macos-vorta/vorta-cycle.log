@@ -1,0 +1,25 @@
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436609336   1307272   100% 8155290 13072720   38%   /System/Volumes/Data
+Recipe vorta selected Vorta-v0.12.1-arm.dmg 45686573 bytes
+Verifying after 5.051s
+Installing after 5.051s
+PASS 0.12.1 45686573 bytes
+PASS install 6.776s
+112692	/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-vorta/Apps/Vorta.app
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436723076   1193532   100% 8155939 11935320   41%   /System/Volumes/Data
+Recipe vorta selected Vorta-v0.12.2-arm.dmg 45694460 bytes
+Verifying after 4.839s
+Installing after 4.839s
+PASS 0.12.2 45694460 bytes
+PASS update 6.903s
+112740	/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-vorta/Apps/Vorta.app
+PASS private Trash /private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-vorta/.Trash/Vorta.app
+PASS remove 0.018s
+Identifier=com.borgbase.client.macos
+Authority=Developer ID Application: Manuel Riel (CNMSCAXT48)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=CNMSCAXT48
+Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on
+/dev/disk3s5   482797652 436724468   1192140   100% 8155924 11921400   41%   /System/Volumes/Data

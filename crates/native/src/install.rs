@@ -34,16 +34,17 @@ use crate::paths::Paths;
 use crate::process;
 
 #[cfg(target_os = "macos")]
-fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
+fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
     use artcraft_launcher_core::curated::{
         ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, NEOVIDE,
         OBS_STUDIO, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
     };
 
     match app.id {
-        id if [artcraft_launcher_core::curated::KEYCASTR.id, artcraft_launcher_core::curated::LAPCE.id].contains(&id) => Some(11),
-        id if id == artcraft_launcher_core::curated::PICARD.id => Some(13),
-        id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some(13),
+        id if id == artcraft_launcher_core::curated::VORTA.id => Some((14, 4)),
+        id if [artcraft_launcher_core::curated::KEYCASTR.id, artcraft_launcher_core::curated::LAPCE.id].contains(&id) => Some((11, 0)),
+        id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
+        id if [OBS_STUDIO.id, AUDACITY.id, DRAWIO.id].contains(&id) => Some((13, 0)),
         id if [
             KOPIA.id,
             TRANSMISSION.id,
@@ -60,11 +61,17 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
         ]
         .contains(&id) =>
         {
-            Some(12)
+            Some((12, 0))
         }
-        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id, WHISPERING.id, CRYPTOMATOR.id].contains(&id) => Some(11),
+        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id, WHISPERING.id, CRYPTOMATOR.id].contains(&id) => Some((11, 0)),
         _ => None,
     }
+}
+
+#[cfg(target_os = "macos")]
+fn macos_major_minor(version: &str) -> Option<(u16, u16)> {
+    let mut parts = version.trim().split('.');
+    Some((parts.next()?.parse().ok()?, parts.next().unwrap_or("0").parse().ok()?))
 }
 
 /// Some reviewed Apple Silicon packages require a minimum macOS version.
@@ -72,8 +79,8 @@ pub fn recipe_system_supported(app: &CraftApp) -> bool {
     #[cfg(target_os = "macos")]
     {
         let Some(minimum) = recipe_macos_minimum(app) else { return true };
-        static MACOS_MAJOR: std::sync::OnceLock<Option<u16>> = std::sync::OnceLock::new();
-        MACOS_MAJOR
+        static MACOS_VERSION: std::sync::OnceLock<Option<(u16, u16)>> = std::sync::OnceLock::new();
+        MACOS_VERSION
             .get_or_init(|| {
                 std::process::Command::new("/usr/bin/sw_vers")
                     .arg("-productVersion")
@@ -82,9 +89,9 @@ pub fn recipe_system_supported(app: &CraftApp) -> bool {
                     .ok()
                     .filter(|output| output.status.success())
                     .and_then(|output| String::from_utf8(output.stdout).ok())
-                    .and_then(|version| version.trim().split('.').next()?.parse().ok())
+                    .and_then(|version| macos_major_minor(&version))
             })
-            .is_some_and(|major| major >= minimum)
+            .is_some_and(|version| version >= minimum)
     }
     #[cfg(not(target_os = "macos"))]
     {
@@ -565,6 +572,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
         return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::VORTA.id {
+        return (app.repo == artcraft_launcher_core::curated::VORTA.repo && release::vorta_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -3012,20 +3024,25 @@ mod tests {
     fn reviewed_daily_apps_require_their_verified_macos_versions() {
         use artcraft_launcher_core::curated::{AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, JOPLIN, KEEPASSXC, SHOTCUT, STATS, WHISPERING, ZED};
 
-        assert_eq!(recipe_macos_minimum(&AUDACITY), Some(13));
-        assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some(12));
-        assert_eq!(recipe_macos_minimum(&JOPLIN), Some(12));
-        assert_eq!(recipe_macos_minimum(&SHOTCUT), Some(12));
-        assert_eq!(recipe_macos_minimum(&ZED), Some(12));
-        assert_eq!(recipe_macos_minimum(&DRAWIO), Some(13));
-        assert_eq!(recipe_macos_minimum(&STATS), Some(12));
-        assert_eq!(recipe_macos_minimum(&WHISPERING), Some(11));
-        assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some(12));
-        assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some(11));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some(12));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some(11));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some(13));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some(11));
+        assert_eq!(recipe_macos_minimum(&AUDACITY), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&JOPLIN), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&SHOTCUT), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&ZED), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&DRAWIO), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&STATS), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&WHISPERING), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
+        let vorta = recipe_macos_minimum(&artcraft_launcher_core::curated::VORTA).unwrap();
+        assert_eq!(vorta, (14, 4));
+        for (version, supported) in [("14.3.9", false), ("14.4", true), ("14.4.1", true), ("15.0", true), ("14", false), ("14.err", false)] {
+            assert_eq!(macos_major_minor(version).is_some_and(|current| current >= vorta), supported);
+        }
     }
 
     #[test]

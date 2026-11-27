@@ -947,7 +947,28 @@ pub const LAPCE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("CYSGAZFR8D"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 35] = [
+pub const VORTA: crate::CraftApp = crate::CraftApp {
+    id: "vorta",
+    name: "Vorta",
+    tagline: "Back up and restore files with Borg",
+    repo: "borgbase/vorta",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [219, 140, 91],
+    ink_light: [129, 62, 33],
+    ink_dark: [236, 178, 143],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Vorta contributors",
+    msi_publisher: None,
+    bundle: Some("com.borgbase.client.macos"),
+    site: Some("https://vorta.borgbase.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("CNMSCAXT48"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 36] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -976,6 +997,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 35] = [
     KEYCASTR,
     PICARD,
     LAPCE,
+    VORTA,
     PENCIL2D,
     OPENSHOT,
     MUSESCORE,
@@ -1353,14 +1375,16 @@ mod recipe_tests {
     }
 
     #[test]
-    fn keycastr_and_picard_use_only_the_reviewed_apple_silicon_release_packages() {
+    fn reviewed_mac_recipes_use_only_their_apple_silicon_release_packages() {
         use crate::release::release_from_sums;
         use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform::pick_asset};
 
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for (id, tags, kind) in
-            [("keycastr", ["v0.11.0", "v0.11.1"], PackageKind::MacZip), ("musicbrainz-picard", ["release-3.0.4", "release-3.0.5"], PackageKind::Dmg)]
-        {
+        for (id, tags, kind) in [
+            ("keycastr", ["v0.11.0", "v0.11.1"], PackageKind::MacZip),
+            ("musicbrainz-picard", ["release-3.0.4", "release-3.0.5"], PackageKind::Dmg),
+            ("vorta", ["v0.12.1", "v0.12.2"], PackageKind::Dmg),
+        ] {
             let app = CraftApp::by_id(id).unwrap();
             assert!(app.installs(kind));
             for tag in tags {

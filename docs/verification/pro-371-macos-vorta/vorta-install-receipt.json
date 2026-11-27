@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "vorta": {
+      "version": "0.12.1",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-mac-daily-cycle.Am4EmbJ0/home-vorta/Apps/Vorta.app",
+      "installed_at": 1795772090,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

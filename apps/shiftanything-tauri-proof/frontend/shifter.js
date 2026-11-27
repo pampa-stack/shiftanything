@@ -280,7 +280,8 @@
       const name = node('td');
       const identity = node('div', undefined, 'sh-identity');
       const original = icons.get(app.id);
-      if (original?.getAttribute('src')?.startsWith('media/')) {
+      const image = original?.getAttribute('src') ?? '';
+      if (image.startsWith('media/') || /^data:image\/(png|jpeg|webp);base64,/.test(image)) {
         const logo = original.cloneNode(true);
         logo.loading = 'eager';
         identity.append(logo);

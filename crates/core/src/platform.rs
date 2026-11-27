@@ -365,9 +365,8 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
         return None;
     }
     if platform.os == Os::Linux
-        && let Some(app) = [crate::curated::GHOST_DOWNLOADER, crate::curated::HANDY, crate::curated::OPENCODE, crate::curated::ORCA]
-            .iter()
-            .find(|app| stems.contains(&app.id))
+        && let Some(app) = crate::release::qualified_linux_appimage_recipe(stems)
+            .or_else(|| [crate::curated::GHOST_DOWNLOADER, crate::curated::HANDY].iter().find(|app| stems.contains(&app.id)))
     {
         kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
@@ -376,7 +375,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             .find(|asset| match app.id {
                 "ghost-downloader" => crate::release::ghost_downloader_linux_asset(release, asset),
                 "handy" => crate::release::handy_linux_asset(release, asset),
-                _ => crate::release::coding_desktop_linux_asset(app, release, asset),
+                _ => crate::release::qualified_linux_appimage_asset(app, release, asset),
             })
             .map(|asset| (asset, PackageKind::AppImage));
     }
@@ -695,13 +694,14 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == linux_x64;
     }
+    if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
+        return platform == mac_arm64 || platform == linux_x64;
+    }
     if [
         crate::curated::GHOST_DOWNLOADER.id,
         crate::curated::LOSSLESSCUT.id,
         crate::curated::MUSESCORE.id,
         crate::curated::ORCA_SLICER.id,
-        crate::curated::OPENCODE.id,
-        crate::curated::ORCA.id,
         crate::curated::ZETTLR.id,
     ]
     .iter()
@@ -970,6 +970,29 @@ mod tests {
             release.assets[0].url = expected_url;
             release.assets[0].sha256 = None;
             assert!(!select(&release, linux));
+        }
+    }
+
+    #[test]
+    fn qualified_appimages_match_reviewed_bytes_and_platform() {
+        use crate::curated::{T3_CODE, VOICE_STUDIO};
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (app, tags) in [(T3_CODE, ["v0.1.12", "v0.1.13"]), (VOICE_STUDIO, ["v0.5.7", "v0.5.8"])] {
+            let select = |release: &Release, host| pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).is_some();
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                assert!(select(&release, linux), "{} {tag}", app.id);
+                assert!(!select(&release, Platform { arch: Arch::Arm64, ..linux }));
+                assert!(!select(&release, Platform { os: Os::Windows, ..linux }));
+                release.prerelease = true;
+                assert!(!select(&release, linux));
+                release.prerelease = false;
+                let asset = release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap();
+                asset.sha256 = Some("f".repeat(64));
+                assert!(!select(&release, linux));
+            }
+            assert!(!select(&crate::release::release_from_sums(app.repo, "v99.0.0", &[]), linux));
         }
     }
 

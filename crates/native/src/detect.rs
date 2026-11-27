@@ -234,6 +234,12 @@ pub mod macos {
         if !app.bundle_ids().any(|b| b == id) {
             return None;
         }
+        // OpenWork's public, Cloud, and Enterprise builds share the bundle identifier.
+        let openwork = artcraft_launcher_core::curated::OPENWORK_DESKTOP;
+        if (app.id, app.repo) == (openwork.id, openwork.repo) && dict.get("CFBundleExecutable").and_then(plist::Value::as_string) != Some("OpenWork")
+        {
+            return None;
+        }
         // `<App>Version` carries the full version including a pre-release suffix;
         // CFBundleShortVersionString only has the numbers.
         let full_keys: Vec<String> = app.mac_bundle_names().map(|n| format!("{n}Version")).collect();
@@ -284,6 +290,25 @@ pub mod macos {
             return None;
         }
         artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn renamed_openwork_cloud_or_enterprise_is_not_detected_as_public() {
+        use artcraft_launcher_core::curated::OPENWORK_DESKTOP;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("OpenWork.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        let mut info = plist::Dictionary::new();
+        info.insert("CFBundleIdentifier".into(), OPENWORK_DESKTOP.bundle.unwrap().into());
+        info.insert("CFBundleShortVersionString".into(), "0.18.73".into());
+
+        for (name, expected) in [("OpenWork", true), ("OpenWork Cloud", false), ("OpenWork Enterprise", false)] {
+            info.insert("CFBundleExecutable".into(), name.into());
+            plist::Value::Dictionary(info.clone()).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&OPENWORK_DESKTOP, &bundle).is_some(), expected, "{name}");
+        }
     }
 
     #[test]

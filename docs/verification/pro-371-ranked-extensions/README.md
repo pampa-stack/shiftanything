@@ -30,4 +30,8 @@ Il 27 novembre 2026 i pacchetti ufficiali sono stati installati, aggiornati e ri
 - **Godot Engine**, Linux x64. Aggiornamento Flatpak firmato 4.7.1 → 4.7.2 e schermata Project Manager aperta offline su entrambe le versioni. Rimozione dell’app e dei runtime nel profilo temporaneo. [Screenshot](godot-engine.png) · [Pacchetto indicato dal progetto](https://docs.godotengine.org/en/stable/about/faq.html#how-do-i-install-the-godot-editor-on-my-system-for-desktop-integration)
 - **GPT4All**, Linux x64. Aggiornamento fra due revisioni Flatpak firmate, entrambe v3.10.0. Schermata iniziale aperta usando solo loopback. App e runtime rimossi. [Screenshot](gpt4all.png) · [Flathub](https://flathub.org/apps/io.gpt4all.gpt4all)
 
+
+- **LosslessCut**, macOS arm64 da 12.0. Download ufficiali 3.70.1 → 3.70.2 (165.847.881 e 165.792.537 byte), SHA-256, Developer ID `46F6T3M669` e notarizzazione verificati. Installazione, aggiornamento e rimozione eseguiti tramite NativeBackend in un profilo temporaneo sul Pro, senza aprire la GUI. [Fonte ufficiale](https://github.com/mifi/lossless-cut/releases/tag/v3.70.2)
+- **DBeaver Community**, Linux x64. Installazione, aggiornamento Flatpak firmato 26.2.4 → 26.2.5 e rimozione tramite NativeBackend su VPS Strumenti. Workspace vuoto aperto offline in entrambe le versioni. Per il test Xvfb è stata usata l'opzione JVM `-Dproduct.config.disable=true`. [Screenshot](dbeaver-ce.png) · [Pacchetto indicato dal progetto](https://dbeaver.io/download/?arch=x86_64&os=linux&start=)
+
 I DMG sono limitati ai file verificati per Apple Silicon. I cicli Linux usano il canale Flathub firmato o AppImage con checksum per x64. Le versioni indicate sono quelle esercitate sui rispettivi canali.

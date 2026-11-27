@@ -871,17 +871,17 @@ pub const LOSSLESSCUT: crate::CraftApp = crate::CraftApp {
     former_repo: None,
     former_ids: &[],
     former_names: &[],
-    former_bundles: &[],
+    former_bundles: &["losslesscut"],
     color: [137, 191, 237],
     ink_light: [48, 86, 131],
     ink_dark: [147, 204, 245],
     kind: crate::catalog::AppKind::Community,
     publisher: "Mikael Finstad",
     msi_publisher: None,
-    bundle: Some("losslesscut"),
+    bundle: Some("no.mifi.losslesscut-mac"),
     site: Some("https://losslesscut.app/"),
-    mac_bundle_name: None,
-    mac_team: None,
+    mac_bundle_name: Some("LosslessCut"),
+    mac_team: Some("46F6T3M669"),
 };
 
 pub const ZETTLR: crate::CraftApp = crate::CraftApp {

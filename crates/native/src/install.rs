@@ -60,7 +60,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         id if id == artcraft_launcher_core::curated::RUSTDESK.id => Some((12, 3)),
         id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
-        id if id == artcraft_launcher_core::curated::UPSCAYL.id => Some((12, 0)),
+        id if id == artcraft_launcher_core::curated::UPSCAYL.id || id == artcraft_launcher_core::curated::LOSSLESSCUT.id => Some((12, 0)),
         id if id == artcraft_launcher_core::curated::CHERRY_STUDIO.id => Some((13, 0)),
         id if id == artcraft_launcher_core::curated::ANYTHING_LLM.id => Some((11, 0)),
         id if id == artcraft_launcher_core::curated::T3_CODE.id => Some((13, 0)),
@@ -629,7 +629,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .then_some(())
             .ok_or_else(mismatch);
     }
-    if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id]) {
+    if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
+        && (app.id != artcraft_launcher_core::curated::LOSSLESSCUT.id || asset.name.ends_with(".dmg"))
+    {
         return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::NAPS2.id {

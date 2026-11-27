@@ -762,6 +762,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::ANYTHING_LLM,
         crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
+        crate::curated::LOSSLESSCUT,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1194,12 +1195,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("musescore/MuseScore", "v4.7.7") => {
             &[("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d")]
         }
-        ("mifi/lossless-cut", "v3.70.1") => {
-            &[("LosslessCut-linux-x86_64.AppImage", 221_418_564, "04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842")]
-        }
-        ("mifi/lossless-cut", "v3.70.2") => {
-            &[("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a")]
-        }
+        ("mifi/lossless-cut", "v3.70.1") => &[
+            ("LosslessCut-mac-arm64.dmg", 165_847_881, "82964e13ca65beeee508fbdb27fe823121701748b8b4023800bdcf701183d2ea"),
+            ("LosslessCut-linux-x86_64.AppImage", 221_418_564, "04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842"),
+        ],
+        ("mifi/lossless-cut", "v3.70.2") => &[
+            ("LosslessCut-mac-arm64.dmg", 165_792_537, "3c0e2b3ec25fec66cf0cef343450d9a333e4bba5d64456c34cd18e891a3f5947"),
+            ("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a"),
+        ],
         ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[(
             "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage",
             201_116_152,

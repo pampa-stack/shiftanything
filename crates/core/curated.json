@@ -16616,6 +16616,14 @@
       "https://dl.flathub.org/media/io/dbeaver/DBeaverCommunity/49b473071bb5503dd8a28474cf5ad4ea/screenshots/image-3_1248x668@1.png"
     ],
     "media_source": "https://flathub.org/apps/io.dbeaver.DBeaverCommunity",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.dbeaver.DBeaverCommunity",
+        "source": "https://flathub.org/apps/io.dbeaver.DBeaverCommunity"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

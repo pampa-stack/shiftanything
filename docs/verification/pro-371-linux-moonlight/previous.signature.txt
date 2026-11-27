@@ -1,0 +1,19 @@
+commit d46a012e142b9b5eaad94e5549c042964f3029b03d555d3d5088057cd1ba6b9f
+Parent:  ed1f6a3adf254d522b439e5535b7f567a480d4b03282e03be9c61aa83b0f9ec3
+ContentChecksum:  3c6dfbf6605264bd2b90f187c59e591084bb6c738419477022f508fbb7731cbf
+Date:  2026-10-04 16:19:22 +0000
+
+    Merge pull request #88 from flathub/disable_qmlcache (eafc9212b8c2)
+
+    Name: com.moonlight_stream.Moonlight
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Oct  4 17:06:54 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -70,6 +70,12 @@ pub struct Score {
     pub missing_required: Vec<String>,
 }
 
+impl Score {
+    pub fn has_positive_coverage(&self) -> bool {
+        self.coverage.is_some_and(|coverage| coverage > 0)
+    }
+}
+
 pub fn data() -> Result<&'static Dataset, &'static str> {
     static DATA: OnceLock<Result<Dataset, String>> = OnceLock::new();
     DATA.get_or_init(|| serde_json::from_str(include_str!("../shifter.json")).map_err(|error| error.to_string())).as_ref().map_err(String::as_str)

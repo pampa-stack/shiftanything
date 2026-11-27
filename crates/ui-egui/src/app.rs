@@ -1809,7 +1809,7 @@ mod tests {
             screenshot(&mut h, "shifter");
             h.get_by_label(if language == "it" { "Fonti · PhotoCraft" } else { "Sources · PhotoCraft" }).click_accesskit();
             h.run_steps(3);
-            assert!(h.query_all_by_label(if language == "it" { "Assente" } else { "Absent" }).next().is_some());
+            assert!(h.query_all_by_label(if language == "it" { "Parziale" } else { "Partial" }).next().is_some());
             screenshot(&mut h, "shifter-sources");
             h.key_press(egui::Key::Escape);
             h.run_steps(3);
@@ -1826,20 +1826,44 @@ mod tests {
             } else {
                 "Manual comparison. Reuse documented features or add your own."
             });
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
-                .click();
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
-                .type_text("Fixture feature");
+            let (add_feature, add, empty, reuse, search) = if language == "it" {
+                (
+                    "Aggiungi una funzione",
+                    "Aggiungi",
+                    "Nessuna alternativa con supporto completo documentato per almeno una delle funzioni selezionate.",
+                    "Riusa una funzione documentata",
+                    "Cerca app, categoria o alternativa",
+                )
+            } else {
+                (
+                    "Add a feature",
+                    "Add",
+                    "No alternatives have documented full support for any selected feature.",
+                    "Reuse a documented feature",
+                    "Search apps",
+                )
+            };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, add_feature).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, add_feature).type_text("Fixture feature");
             h.run_steps(3);
-            h.get_by_label(if language == "it" { "Aggiungi" } else { "Add" }).click_accesskit();
+            h.get_by_label(add).click_accesskit();
             h.run_steps(3);
-            let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+            h.get_by_label(empty);
+            let details = if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" };
+            assert!(h.query_by_label(details).is_none(), "no comparison row without positive coverage");
+
+            h.get_by_label(reuse).click_accesskit();
+            h.run_steps(3);
+            let (_, layers) = artcraft_launcher_core::shifter::data().unwrap().feature("photoshop:layers").unwrap();
+            h.get_by_label(&format!("Adobe Photoshop · {}", layers.name.in_language(language))).click_accesskit();
+            h.run_steps(3);
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).click();
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).type_text("PhotoCraft");
             h.run_steps(3);
+            h.get_by_label("50% · 1/2");
             assert!(h.query_all_by_label("—").next().is_some());
             assert!(h.query_by_label(if language == "it" { "Non verificato" } else { "Unverified" }).is_none());
-            h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
+            h.get_by_label(details).click_accesskit();
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));
         }

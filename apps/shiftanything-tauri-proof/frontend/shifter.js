@@ -29,11 +29,10 @@
     close: ['Chiudi', 'Close'],
     nothing: ['Scegli almeno una funzione per calcolare la copertura.', 'Choose at least one feature to calculate coverage.'],
     empty: ['Cerca un software oppure scegli un confronto pronto.', 'Search for software or choose an existing comparison.'],
-    noResults: ['Non ci sono app nel confronto.', 'There are no apps in the comparison.'],
+    noResults: ['Nessuna alternativa con supporto completo documentato per almeno una delle funzioni selezionate.', 'No alternatives have documented full support for any selected feature.'],
     noAppMatches: ['Nessuna app corrisponde alla ricerca.', 'No apps match your search.'],
     findApp: ['Cerca app nel confronto', 'Search apps in comparison'],
     appCount: ['app nel confronto', 'apps in comparison'],
-    needsSources: ['La copertura appare quando ci sono fonti per le funzioni selezionate.', 'Coverage appears when there are sources for the selected features.'],
     previousPage: ['Precedente', 'Previous'],
     nextPage: ['Successiva', 'Next'],
     resultPages: ['Pagine delle app', 'App result pages'],
@@ -114,7 +113,7 @@
         <div class="sh-scroll">
           <table id="sh-results-table" data-results hidden>
             <thead class="mono"><tr>
-              <th scope="col">${labels.candidate}</th><th scope="col" data-coverage-column>${labels.coverage}</th>
+              <th scope="col">${labels.candidate}</th><th scope="col">${labels.coverage}</th>
               <th scope="col" data-essentials-column hidden>${labels.essentials}</th><th scope="col">${labels.proofs} / ${labels.app}</th>
             </tr></thead>
             <tbody data-candidates></tbody>
@@ -123,7 +122,6 @@
         <p class="sh-announce" data-sh-announce role="status"></p>
         <footer class="sh-note" data-sh-note hidden>
           <span>${labels.about} <time></time>.</span>
-          <span data-coverage-note hidden>${labels.needsSources}</span>
         </footer>
       </section>
     </div>`;
@@ -381,12 +379,9 @@
       name.append(identity);
 
       row.append(name);
-      if (selected.length) {
-        const coverage = node('td', undefined, 'sh-rate');
-        if (score.coverage === null) coverage.append(node('span', '—', 'dim'));
-        else coverage.append(node('strong', score.coverage + '%'), node('span', score.supported + '/' + selected.length, 'dim'));
-        row.append(coverage);
-      }
+      const coverage = node('td', undefined, 'sh-rate');
+      coverage.append(node('strong', score.coverage + '%'), ' ', node('span', score.supported + '/' + selected.length, 'dim'));
+      row.append(coverage);
       const source = evidenceByApp.get(app.id);
       const evidenceKey = feature => activeProfile ? feature.id : feature.key;
       if (required.length) {
@@ -434,8 +429,6 @@
     const total = format(scores.length) + ' ' + labels.appCount;
     const range = matched.length ? format(start + 1) + '–' + format(end) + ' ' + labels.rangeOf + ' ' + format(matched.length) : '';
     find('result-total').textContent = total;
-    find('coverage-note').hidden = !selected.length || !matched.some(score => score.coverage === null);
-    find('coverage-column').hidden = selected.length === 0;
     find('essentials-column').hidden = required.length === 0;
     results.toggleAttribute('data-has-essentials', required.length > 0);
     find('result-tools').hidden = scores.length === 0;
@@ -449,7 +442,7 @@
     find('candidates').replaceChildren();
     drawRows(matched.slice(start, end), selected, required);
     results.hidden = matched.length === 0;
-    setStatus(!scores.length ? labels.noResults : !matched.length ? labels.noAppMatches : !selected.length ? labels.nothing : '');
+    setStatus(!scores.length ? labels.noResults : !matched.length ? labels.noAppMatches : '');
     find('sh-announce').textContent = range ? total + ' · ' + range : '';
   }
 
@@ -467,7 +460,6 @@
     drawFeatures();
     comparisonResult = undefined;
     find('result-total').textContent = '';
-    find('coverage-note').hidden = true;
     find('result-tools').hidden = true;
     results.hidden = true;
     find('candidates').replaceChildren();
@@ -475,6 +467,10 @@
 
     if (!startingName) {
       setStatus(labels.empty);
+      return;
+    }
+    if (!selected.length) {
+      setStatus(labels.nothing);
       return;
     }
     setStatus(labels.loading);

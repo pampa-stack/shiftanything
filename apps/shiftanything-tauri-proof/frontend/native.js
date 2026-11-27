@@ -242,6 +242,10 @@
     if (live) return {label:live};
     const detail = snapshot.inventory.results['app:'+id];
     if (!detail) return {};
+    // The native installer returns this before touching the running app's files.
+    if (/^failed: .+ is running\. Quit it, then try again\.$/.test(detail)) {
+      return {label:it?'App aperta. Chiudila e riprova.':'App is open. Quit it and try again.',detail,blocked:true};
+    }
     let label;
     if (detail === 'cancelled') label = it?'Operazione annullata':'Action cancelled';
     else if (detail.startsWith('installed; could not open:')) label = it?'Installata. Apertura non riuscita.':'Installed. Could not open.';
@@ -331,17 +335,19 @@
       setText(badge, verified?'✓':'–');
     }
     const actions = button.parentElement;
+    const appId = button.dataset.nativeApp;
+    const activity = appActivity(current, appId);
+    const message = activity.blocked ? activity.label : action.reason;
     let reason = actions.querySelector('.install-reason');
     const reserveSpace = surface?.classList.contains('cell');
-    if (!reason && (action.reason || reserveSpace || progress)) {
+    if (!reason && (message || reserveSpace || progress)) {
       reason = document.createElement('span');
       reason.className = 'install-reason download-progress';
       actions.append(reason);
     }
     if (reason) {
-      reason.hidden = !action.reason && !reserveSpace && !progress;
-      const appId = button.dataset.nativeApp;
-      showDownloadProgress(reason, progress, catalogById.get(appId)?.name || appId, action.reason);
+      reason.hidden = !message && !reserveSpace && !progress;
+      showDownloadProgress(reason, progress, catalogById.get(appId)?.name || appId, message);
     }
   }
   function render(snapshot, {force = false} = {}) {

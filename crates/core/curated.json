@@ -29654,5 +29654,504 @@
     "screenshot_credits": [
       "Dashboard di Corteza"
     ]
+  },
+  {
+    "id": "zammad",
+    "name": "Zammad",
+    "repo": "https://github.com/zammad/zammad",
+    "author": "Zammad Foundation",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Gestisci richieste di assistenza con ticket, code, regole di assegnazione e storico delle conversazioni.",
+      "en": "Manage support requests with tickets, queues, assignment rules and conversation history."
+    },
+    "alternatives": [
+      "Zendesk",
+      "Freshdesk"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/zammad/zammad/blob/develop/LICENSE",
+    "website": "https://zammad.org/",
+    "releases": "https://github.com/zammad/zammad/tags",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.zammad.org/en/latest/api/mcp.html"
+    },
+    "logo": "https://raw.githubusercontent.com/zammad/zammad/develop/public/apple-touch-icon.png",
+    "screenshots": [
+      "https://zammad.com/media/pages/product/releases/7-3/615aa7e408-1795105202/overview-popover_en-1280x.png",
+      "https://zammad.com/media/pages/product/releases/7-3/ec3155e6ce-1795102640/mcp_admin_en-1280x.png"
+    ],
+    "media_source": "https://zammad.com/en/product/releases/7-3",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.zammad.org/en/latest/install/docker-compose.html"
+    },
+    "stars": {
+      "count": 6151,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/zammad/zammad"
+    },
+    "release": {
+      "version": "7.3.0",
+      "date": "2026-11-25",
+      "source": "https://zammad.com/en/product/releases/7-3",
+      "packages": []
+    }
+  },
+  {
+    "id": "frappe-helpdesk",
+    "name": "Frappe Helpdesk",
+    "repo": "https://github.com/frappe/helpdesk",
+    "author": "Frappe Technologies",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Gestisci le richieste dei clienti con portale, base di conoscenza e obiettivi di risposta per l’assistenza.",
+      "en": "Manage customer requests with a portal, knowledge base and support response targets."
+    },
+    "alternatives": [
+      "Freshdesk",
+      "Zendesk"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/frappe/helpdesk/blob/develop/LICENSE",
+    "website": "https://frappe.io/helpdesk",
+    "releases": "https://github.com/frappe/helpdesk/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "mcp",
+      "source": "https://docs.frappe.io/helpdesk/ai-agents"
+    },
+    "logo": "https://raw.githubusercontent.com/frappe/helpdesk/develop/.github/hd-logo.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/frappe/helpdesk/develop/.github/AgentListView.png",
+      "https://frappe.io/files/hd-ticket-analytics-v3-dark.webp"
+    ],
+    "media_source": "https://github.com/frappe/helpdesk#screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.frappe.io/helpdesk/installation"
+    },
+    "stars": {
+      "count": 3520,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/frappe/helpdesk"
+    },
+    "release": {
+      "version": "v16.2.2",
+      "date": "2026-11-25",
+      "source": "https://github.com/frappe/helpdesk/releases/tag/v16.2.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "glpi",
+    "name": "GLPI Community",
+    "repo": "https://github.com/glpi-project/glpi",
+    "author": "Teclib’ e comunità GLPI",
+    "level": "avanz",
+    "category": "crm",
+    "description": {
+      "it": "Tieni insieme inventario IT, dispositivi, contratti e ticket di assistenza in un pannello.",
+      "en": "Manage IT inventory, devices, contracts and support tickets in one dashboard."
+    },
+    "alternatives": [
+      "Freshservice",
+      "ServiceNow ITSM"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/glpi-project/glpi/blob/12.0/bugfixes/LICENSE",
+    "website": "https://www.glpi-project.org/",
+    "releases": "https://github.com/glpi-project/glpi/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://help.glpi-project.org/documentation/modules/configuration/general/api/restful-api-v2"
+    },
+    "logo": "https://www.glpi-project.org/wp-content/uploads/2025/10/cropped-glpi-logo-ig-192x192.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/glpi-project/glpi/12.0/bugfixes/public/pics/screenshots/dashboard.png",
+      "https://raw.githubusercontent.com/glpi-project/glpi/12.0/bugfixes/public/pics/screenshots/ticket.png"
+    ],
+    "media_source": "https://github.com/glpi-project/glpi#readme",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.glpi-project.org/downloads/"
+    },
+    "stars": {
+      "count": 6674,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/glpi-project/glpi"
+    },
+    "release": {
+      "version": "12.0.2",
+      "date": "2026-11-12",
+      "source": "https://github.com/glpi-project/glpi/releases/tag/12.0.2",
+      "packages": []
+    }
+  },
+  {
+    "id": "softether-vpn-client",
+    "name": "SoftEther VPN Client",
+    "repo": "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable",
+    "author": "SoftEther VPN Project",
+    "level": "avanz",
+    "category": "vpn",
+    "description": {
+      "it": "Configura e gestisci connessioni ai tuoi server SoftEther VPN con il client grafico per Windows.",
+      "en": "Configure and manage connections to your SoftEther VPN servers with the Windows desktop client."
+    },
+    "alternatives": [
+      "OpenVPN Connect",
+      "Viscosity"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/blob/master/LICENSE",
+    "website": "https://www.softether.org/",
+    "releases": "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/SoftEtherVPN/SoftEtherVPN_Stable/master/src/vpncmgr/VPN.ico",
+    "screenshots": [
+      "https://www.softether.org/@api/deki/files/524/=0-00-4-2-1.png?size=webview",
+      "https://www.softether.org/@api/deki/files/532/=0-08-4-2-3.png"
+    ],
+    "media_source": "https://www.softether.org/3-screens/2.vpnclient",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://www.softether.org/5-download/src"
+    },
+    "stars": {
+      "count": 2273,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/SoftEtherVPN/SoftEtherVPN_Stable"
+    },
+    "release": {
+      "version": "v4.41-9787-rtm",
+      "date": "2025-05-07",
+      "source": "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/tag/v4.41-9787-rtm",
+      "packages": [
+        {
+          "platform": "windows",
+          "size_min": 56073792,
+          "size_max": 56073792
+        }
+      ]
+    },
+    "platform_support": {
+      "windows": "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/tag/v4.41-9787-rtm"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "mullvad-browser",
+    "name": "Mullvad Browser",
+    "repo": "https://github.com/mullvad/mullvad-browser",
+    "author": "Mullvad VPN",
+    "level": "base",
+    "category": "sic",
+    "description": {
+      "it": "Naviga con impostazioni che limitano tracciamento e riconoscimento del dispositivo. È gratuito e utilizzabile senza account.",
+      "en": "Browse with settings that limit tracking and device fingerprinting. Free to use without an account."
+    },
+    "alternatives": [
+      "Brave",
+      "DuckDuckGo Browser"
+    ],
+    "license": "MPL-2.0",
+    "license_url": "https://github.com/mullvad/mullvad-browser/blob/16.0.3/LICENSE",
+    "website": "https://mullvad.net/en/browser",
+    "releases": "https://mullvad.net/en/download/browser",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/mullvad/mullvad-browser/16.0.3/browser/branding/mb-release/default256.png",
+    "screenshots": [
+      "https://mullvad.net/media/uploads/2026/mullvad-browser-doh.png"
+    ],
+    "media_source": "https://mullvad.net/en/help/install-mullvad-browser",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://mullvad.net/en/help/install-mullvad-browser"
+    },
+    "stars": {
+      "count": 2676,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/mullvad/mullvad-browser"
+    },
+    "release": {
+      "version": "16.0.3",
+      "date": "2026-11-24",
+      "source": "https://github.com/mullvad/mullvad-browser/releases/tag/16.0.3",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 121911080,
+          "size_max": 162300698
+        },
+        {
+          "platform": "macos",
+          "size_min": 163035356,
+          "size_max": 163035356
+        },
+        {
+          "platform": "windows",
+          "size_min": 110171352,
+          "size_max": 110171352
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://mullvad.net/en/help/install-mullvad-browser",
+      "macos": "https://mullvad.net/en/help/install-mullvad-browser",
+      "windows": "https://mullvad.net/en/help/install-mullvad-browser"
+    },
+    "platform_scope_complete": true
+  },
+  {
+    "id": "aliasvault",
+    "name": "AliasVault",
+    "repo": "https://github.com/aliasvault/aliasvault",
+    "author": "AliasVault",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Crea alias email e identità separate per i siti e conserva le credenziali in un archivio cifrato.",
+      "en": "Create email aliases and separate identities for websites and store credentials in an encrypted vault."
+    },
+    "alternatives": [
+      "1Password",
+      "Firefox Relay"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/aliasvault/aliasvault/blob/main/LICENSE.md",
+    "website": "https://www.aliasvault.com/",
+    "releases": "https://github.com/aliasvault/aliasvault/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/aliasvault/aliasvault/main/core/assets/brand/app-icon-1024.png",
+    "screenshots": [
+      "https://github.com/user-attachments/assets/fa5bf64a-704d-4f09-b4e0-0310ab662204"
+    ],
+    "media_source": "https://github.com/aliasvault/aliasvault#screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://docs.aliasvault.com/installation/"
+    },
+    "stars": {
+      "count": 3574,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/aliasvault/aliasvault"
+    },
+    "release": {
+      "version": "0.31.4",
+      "date": "2026-11-19",
+      "source": "https://github.com/aliasvault/aliasvault/releases/tag/0.31.4",
+      "packages": []
+    }
+  },
+  {
+    "id": "harbor",
+    "name": "Harbor",
+    "repo": "https://github.com/goharbor/harbor",
+    "author": "Progetto Harbor · CNCF",
+    "level": "avanz",
+    "category": "sic",
+    "description": {
+      "it": "Gestisci un registro di immagini container con permessi, scansione di sicurezza e criteri di distribuzione.",
+      "en": "Manage a container image registry with access controls, security scanning and distribution policies."
+    },
+    "alternatives": [
+      "Docker Hub",
+      "JFrog Artifactory"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/goharbor/harbor/blob/main/LICENSE",
+    "website": "https://goharbor.io/",
+    "releases": "https://github.com/goharbor/harbor/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://goharbor.io/docs/main/working-with-projects/using-api-explorer/"
+    },
+    "logo": "https://raw.githubusercontent.com/goharbor/website/main/static/img/icons/harbor-logo-white.svg",
+    "screenshots": [
+      "https://goharbor.io/docs/main/img/project-configuration.png",
+      "https://goharbor.io/docs/main/img/new-search.png"
+    ],
+    "media_source": "https://goharbor.io/docs/main/working-with-projects/project-configuration/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://goharbor.io/docs/main/install-config/"
+    },
+    "stars": {
+      "count": 29811,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/goharbor/harbor"
+    },
+    "release": {
+      "version": "v2.15.5",
+      "date": "2026-11-12",
+      "source": "https://github.com/goharbor/harbor/releases/tag/v2.15.5",
+      "packages": []
+    }
+  },
+  {
+    "id": "healthchecks",
+    "name": "Healthchecks",
+    "repo": "https://github.com/healthchecks/healthchecks",
+    "author": "Pēteris Caune e comunità",
+    "level": "avanz",
+    "category": "infra",
+    "description": {
+      "it": "Ricevi avvisi se backup o operazioni programmate non arrivano all’orario previsto.",
+      "en": "Get alerts when backups or scheduled jobs fail to report on time."
+    },
+    "alternatives": [
+      "Cronitor",
+      "Better Stack"
+    ],
+    "license": "BSD-3-Clause",
+    "license_url": "https://github.com/healthchecks/healthchecks/blob/master/LICENSE",
+    "website": "https://healthchecks.io/",
+    "releases": "https://github.com/healthchecks/healthchecks/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://healthchecks.io/docs/api/"
+    },
+    "logo": "https://healthchecks.io/static/img/logo-rounded-ua2.svg",
+    "screenshots": [
+      "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/my_checks.png",
+      "https://raw.githubusercontent.com/healthchecks/healthchecks/master/static/img/check_details.png"
+    ],
+    "media_source": "https://github.com/healthchecks/healthchecks#screenshots",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://healthchecks.io/docs/self_hosted/"
+    },
+    "stars": {
+      "count": 10557,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/healthchecks/healthchecks"
+    },
+    "release": {
+      "version": "v5.0.3",
+      "date": "2026-10-27",
+      "source": "https://github.com/healthchecks/healthchecks/releases/tag/v5.0.3",
+      "packages": []
+    }
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "repo": "https://github.com/TryGhost/Ghost",
+    "author": "Ghost Foundation",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Pubblica un sito o una rivista, organizza i contenuti e programma le uscite da un editor web.",
+      "en": "Publish a site or magazine, organize content and schedule posts from a web editor."
+    },
+    "alternatives": [
+      "Substack",
+      "Squarespace"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/TryGhost/Ghost/blob/main/LICENSE",
+    "website": "https://ghost.org/",
+    "releases": "https://github.com/TryGhost/Ghost/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://ghost.org/docs/admin-api/"
+    },
+    "logo": "https://raw.githubusercontent.com/TryGhost/Ghost/main/apps/admin/src/settings/assets/images/ghost-favicon.png",
+    "screenshots": [
+      "https://storage.ghost.io/c/69/0f/690faecc-18d1-42c5-a99a-83ce5fada384/content/images/2023/11/dynamic-cards.png"
+    ],
+    "media_source": "https://ghost.org/help/using-the-editor/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://ghost.org/docs/install/"
+    },
+    "stars": {
+      "count": 55935,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/TryGhost/Ghost"
+    },
+    "release": {
+      "version": "v6.79.0",
+      "date": "2026-11-24",
+      "source": "https://github.com/TryGhost/Ghost/releases/tag/v6.79.0",
+      "packages": []
+    }
+  },
+  {
+    "id": "ackee",
+    "name": "Ackee",
+    "repo": "https://github.com/electerious/Ackee",
+    "author": "Tobias Reich",
+    "level": "avanz",
+    "category": "marketing",
+    "description": {
+      "it": "Misura visite, provenienza e pagine più lette con un pannello di statistiche da ospitare sul tuo server.",
+      "en": "Measure visits, referrers and top pages from a web analytics dashboard on your own server."
+    },
+    "alternatives": [
+      "Google Analytics",
+      "Fathom Analytics"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/electerious/Ackee/blob/master/LICENSE",
+    "website": "https://ackee.electerious.com/",
+    "releases": "https://github.com/electerious/Ackee/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "api",
+      "source": "https://github.com/electerious/Ackee#api"
+    },
+    "logo": "https://ackee.electerious.com/assets/images/favicon.ico",
+    "screenshots": [
+      "https://ackee.electerious.com/assets/images/views.png",
+      "https://ackee.electerious.com/assets/images/referrers.png"
+    ],
+    "media_source": "https://ackee.electerious.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-27",
+      "source": "https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#with-docker-compose"
+    },
+    "stars": {
+      "count": 4736,
+      "date": "2026-11-27",
+      "source": "https://api.github.com/repos/electerious/Ackee"
+    },
+    "release": {
+      "version": "v3.7.1",
+      "date": "2026-10-23",
+      "source": "https://github.com/electerious/Ackee/releases/tag/v3.7.1",
+      "packages": []
+    }
   }
 ]

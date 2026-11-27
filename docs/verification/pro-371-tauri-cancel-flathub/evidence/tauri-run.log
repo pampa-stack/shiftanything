@@ -1,0 +1,20 @@
+PROOF_ROOT=/var/tmp/shift-cancel-tauri.ZtjoIuXG/launcher-profile
+DESKTOP_PID=2276528
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+Native catalog requested
+Native catalog requested
+APPROVED ui-1 InstallExpected { apps: ["gimp"], installed: false }
+APPROVED ui-3 Cancel { app: "gimp" }
+NATIVE gimp: cancelled
+
+(shiftanything-tauri-proof:2276528): Gdk-WARNING **: 05:21:40.958: The program 'shiftanything-tauri-proof' received an X Window System error.
+This probably reflects a bug in the program.
+The error was 'BadDrawable (invalid Pixmap or Window parameter)'.
+  (Details: serial 1031 error_code 9 request_code 14 (core protocol) minor_code 0)
+  (Note to programmers: normally, X errors are reported asynchronously;
+   that is, you will receive the error a while after causing it.
+   To debug your program, run it with the GDK_SYNCHRONIZE environment
+   variable to change this behavior. You can then get a meaningful
+   backtrace from your debugger if you break on the gdk_x_error() function.)
+Error: "Desktop proof failed"

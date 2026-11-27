@@ -277,6 +277,230 @@
       "source": "https://raw.githubusercontent.com/penpot/penpot/develop/frontend/resources/images/assets/penpot-logo-icon.svg",
       "file": "media/penpot-logo.png",
       "sha256": "a1ce66bb590dac9d40cc9035885b309a8918702e292850ecdc5c416d31179de2"
+    },
+    {
+      "app": "d-j-dup-backups",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/gnome/DejaDup/00692dcba561d76fbde09a6cf43b953a/icons/128x128/org.gnome.DejaDup.png",
+      "file": "media/d-j-dup-backups-logo.png",
+      "sha256": "ec833f353e79ff06b89561d4e4544b5d40b96b173dc4465ee88b82fba1cfa409"
+    },
+    {
+      "app": "darktable",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/darktable/Darktable/1b5cfd7af8bcd84fc939759726f1ba7d/icons/128x128/org.darktable.Darktable.png",
+      "file": "media/darktable-logo.png",
+      "sha256": "548742931197f25e782e5bd3978b3499c6591183a8a6a93b6fa0f39d6b4ad112"
+    },
+    {
+      "app": "digikam",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/kde/digikam.desktop/8d00ac8f4fc4e26502d3ecf0260325dd/icons/128x128/org.kde.digikam.desktop.png",
+      "file": "media/digikam-logo.png",
+      "sha256": "32d2d17b473dcdf55ccde8a5850a0cfe67237fd4ea46357134e989d91c3fe39b"
+    },
+    {
+      "app": "drawpile",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/drawpile/Drawpile/main/src/desktop/icons/logo.png",
+      "file": "media/drawpile-logo.png",
+      "sha256": "c7bf2bdd85d863e3d57232f7b82575cf1409b8bd3c4e3b4d22d96b420cc0da7a"
+    },
+    {
+      "app": "filmcraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/filmcraft-7ca8adb57a34d1f4bff8c7e976ac5fe73e69a89b4268d15b3b861c7e51c45a74.png",
+      "file": "media/filmcraft-logo.png",
+      "sha256": "7ca8adb57a34d1f4bff8c7e976ac5fe73e69a89b4268d15b3b861c7e51c45a74"
+    },
+    {
+      "app": "flowblade",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/io/github/jliljebl.Flowblade/836cb65985cfcdb6c4a47fa2ef05aa6f/icons/128x128/io.github.jliljebl.Flowblade.png",
+      "file": "media/flowblade-logo.png",
+      "sha256": "95f638731580194f3cd6ac97339b9c6f3c8490e60d320806d76fdfafcd657606"
+    },
+    {
+      "app": "gimp",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/gimp/GIMP/800933a572869e1c8daee367dc2287cb/icons/128x128/org.gimp.GIMP.png",
+      "file": "media/gimp-logo.png",
+      "sha256": "2f20274fbd366bd28f8031c05b255b6d2315325267da3185fad8cdd58227c441"
+    },
+    {
+      "app": "inks",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/inkscape/Inkscape/d06b79da7ad6df73032683fbcf8c4d56/icons/128x128/org.inkscape.Inkscape.png",
+      "file": "media/inks-logo.png",
+      "sha256": "edef2977b7baee7b4b724ae5d2015fab3b28b906bc2b3236db90baccfaecff7b"
+    },
+    {
+      "app": "kanboard",
+      "slot": "logo",
+      "source": "https://kanboard.org/assets/img/touch-icon-ipad-retina.png",
+      "file": "media/kanboard-logo.png",
+      "sha256": "1d9f43edbfc2704f78b14205cbf18868f417a8c9a0437e2a42c8b3e6517132e5"
+    },
+    {
+      "app": "kaneo",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/usekaneo/kaneo/main/apps/site/public/logo-512.png",
+      "file": "media/kaneo-logo.png",
+      "sha256": "d4f5129a0fd21043ba2493a185dbb475ef18a58c807d5a2f125c368d56302d5e"
+    },
+    {
+      "app": "kdenlive",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/kde/kdenlive.desktop/43ea1daa3a961b305292f8cd7ccae60f/icons/128x128/org.kde.kdenlive.desktop.png",
+      "file": "media/kdenlive-logo.png",
+      "sha256": "bdea386f63aec185b120dc8276e4dfefb455a4e458581f25556a36d0e88aad70"
+    },
+    {
+      "app": "kopia",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/kopia/kopia/master/icons/kopia.png",
+      "file": "media/kopia-logo.png",
+      "sha256": "211615216475951cbcb94d8164ba3ec9a78891a20476a1a336cf8004d7c27780"
+    },
+    {
+      "app": "krita",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/kde/krita/530c582f7eee53102ed8ddc13f2fc4e1/icons/128x128/org.kde.krita.png",
+      "file": "media/krita-logo.png",
+      "sha256": "8f81f12972b76b7c0a2806f086bee4757510b3900a9e0887b033472e11198f17"
+    },
+    {
+      "app": "leantime",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Leantime/leantime/master/public/assets/images/favicon.png",
+      "file": "media/leantime-logo.png",
+      "sha256": "6ae0ce23e83e5c63cca1ec04aeb0bc31a9cb077372188e094766de220d56b4f5"
+    },
+    {
+      "app": "lightcraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/lightcraft-a1fc54a714b769fa627eb44b0dcc1230e5fc3643890fd3504811b4c05c4a913a.png",
+      "file": "media/lightcraft-logo.png",
+      "sha256": "a1fc54a714b769fa627eb44b0dcc1230e5fc3643890fd3504811b4c05c4a913a"
+    },
+    {
+      "app": "naps2",
+      "slot": "logo",
+      "source": "https://www.naps2.com/images/scanner-large.png",
+      "file": "media/naps2-logo.png",
+      "sha256": "9ba55ccd393451c765f251a4d6814a29673611ce3a88f84f8219a22d54624e18"
+    },
+    {
+      "app": "openproject",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/opf/openproject/dev/app/assets/images/pwa/icon-192.png",
+      "file": "media/openproject-logo.png",
+      "sha256": "099d73a237f78b1798f12a3e4e06a89968837f1f248ece66590bd2e7e508c6e1"
+    },
+    {
+      "app": "openshot-video-editor",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/openshot/OpenShot/70e490a97108be7b86e11ffcf7674bfa/icons/128x128/org.openshot.OpenShot.png",
+      "file": "media/openshot-video-editor-logo.png",
+      "sha256": "6f5db40e9e206f34747368811262072933a3c0f5a09f483b576710fcbfd6d802"
+    },
+    {
+      "app": "pdf4qt",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/io/github/JakubMelka.Pdf4qt/773e71846410b5dc1a920adda1bd1966/icons/128x128/io.github.JakubMelka.Pdf4qt.png",
+      "file": "media/pdf4qt-logo.png",
+      "sha256": "a39470fa644350d58a198e4236f331ae6ff7e6e967917ac338feb9fdbf690a3c"
+    },
+    {
+      "app": "pdfarranger",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/com/github/jeromerobert.pdfarranger/e4ca6b0caccb8aa65fb40f5c22a3752c/icons/128x128/com.github.jeromerobert.pdfarranger.png",
+      "file": "media/pdfarranger-logo.png",
+      "sha256": "7b1f17232a5313db600ae8403986fefa690520a4e0a174ac195ae7f749ece0c0"
+    },
+    {
+      "app": "pdfcraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/pdfcraft-1933bbeaea290497facd328e917dafcc433d0c0caa9f1e207aa45ac1e430898c.png",
+      "file": "media/pdfcraft-logo.png",
+      "sha256": "1933bbeaea290497facd328e917dafcc433d0c0caa9f1e207aa45ac1e430898c"
+    },
+    {
+      "app": "pdfsam-basic",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/torakiki/pdfsam/v6.0.11/pdfsam-basic/src/main/resources/images/basic/256x256.png",
+      "file": "media/pdfsam-basic-logo.png",
+      "sha256": "ed9439879baf9589f552c372a6e21eae2a55892dbc8b0a26e283fdde5d66b1eb"
+    },
+    {
+      "app": "pika-backup",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/gnome/World.PikaBackup/bed402ded7f6226f1c6d7fc1f72fec9f/icons/128x128/org.gnome.World.PikaBackup.png",
+      "file": "media/pika-backup-logo.png",
+      "sha256": "bcb9d78727f4266726d3454135a8110db73020fe5defac5a616346cd6b1d7bfc"
+    },
+    {
+      "app": "pinta",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/com/github/PintaProject.Pinta/6036b596f8f5a6ce7c2dc8a7d9c0565f/icons/128x128/com.github.PintaProject.Pinta.png",
+      "file": "media/pinta-logo.png",
+      "sha256": "b374040179565b371a3cdcc0769049d3fcc5b033194c95043e0454ac4ca5f497"
+    },
+    {
+      "app": "plane",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/makeplane/plane/preview/apps/web/public/favicon/android-chrome-192x192.png",
+      "file": "media/plane-logo.png",
+      "sha256": "0c7cb718991a36d60b9c97d5b3fac94a92a79869893ba8fce436b1d4e10ba1d0"
+    },
+    {
+      "app": "rapidraw",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/io/github/CyberTimon.RapidRAW/ad38379eaa4f288e0dfa6f16483188df/icons/128x128/io.github.CyberTimon.RapidRAW.png",
+      "file": "media/rapidraw-logo.png",
+      "sha256": "884ddd0619491ef8d17b6cbf58960226d44b932b3ec17efe374fc56c041f1a4e"
+    },
+    {
+      "app": "rawtherapee",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/com/rawtherapee/RawTherapee/1690c20ece4741e6dcb2ed7346d3747e/icons/128x128/com.rawtherapee.RawTherapee.png",
+      "file": "media/rawtherapee-logo.png",
+      "sha256": "d57af9f3e6bf6475d063658dea38fcef11d4fa00ee1b7552e169f5d92d434fdf"
+    },
+    {
+      "app": "shotcut",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/shotcut/Shotcut/c6c9911162213f0f4e4f246342019836/icons/128x128/org.shotcut.Shotcut.png",
+      "file": "media/shotcut-logo.png",
+      "sha256": "160130b6ee45af16b32469fa41821d0c91ce37caf04c9acc0e3ce6f94e4a9972"
+    },
+    {
+      "app": "upscayl",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/upscayl/Upscayl/d407ddb4cb2ce379a1a84198fbe10b16/icons/128x128/org.upscayl.Upscayl.png",
+      "file": "media/upscayl-logo.png",
+      "sha256": "d0a2d81f87ea2d7e3c89097e3e139712325bd4eef0d7fdef292fd1425332201f"
+    },
+    {
+      "app": "vectorcraft",
+      "slot": "logo",
+      "source": "https://getartcraft.com/launcher-app-icons/vectorcraft-47f2061e3683ba8e7241c4783ca02207d29dfef0a7c94cd0eb8ea0a88dfc0b1e.png",
+      "file": "media/vectorcraft-logo.png",
+      "sha256": "47f2061e3683ba8e7241c4783ca02207d29dfef0a7c94cd0eb8ea0a88dfc0b1e"
+    },
+    {
+      "app": "vibe-transcribe",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/thewh1teagle/vibe/main/design/logo.png",
+      "file": "media/vibe-transcribe-logo.png",
+      "sha256": "1f0d7ca07fd59e92f5881baee9d05f6bca237f8c8f2e041a01b75cf111bc3387"
+    },
+    {
+      "app": "wekan",
+      "slot": "logo",
+      "source": "https://wekan.fi/wekan-favicon.png",
+      "file": "media/wekan-logo.png",
+      "sha256": "25197f6b05ec5ef2dc8e9b03b27bb23cca8e056f021cb28e66b9ccd495bf36b9"
     }
   ]
 }

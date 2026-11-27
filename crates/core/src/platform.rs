@@ -979,10 +979,10 @@ mod tests {
 
     #[test]
     fn qualified_appimages_match_reviewed_bytes_and_platform() {
-        use crate::curated::{T3_CODE, VOICE_STUDIO};
+        use crate::curated::{PASEO, T3_CODE, VOICE_STUDIO};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
-        for (app, tags) in [(T3_CODE, ["v0.1.12", "v0.1.13"]), (VOICE_STUDIO, ["v0.5.7", "v0.5.8"])] {
+        for (app, tags) in [(PASEO, ["v0.18.0", "v0.18.1"]), (T3_CODE, ["v0.1.12", "v0.1.13"]), (VOICE_STUDIO, ["v0.5.7", "v0.5.8"])] {
             let select = |release: &Release, host| pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).is_some();
             for tag in tags {
                 let mut release = crate::release::release_from_sums(app.repo, tag, &[]);

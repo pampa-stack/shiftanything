@@ -11,6 +11,6 @@ Le due ricette valgono per Linux x64 con FUSE 2. Versioni successive possono com
 
 Recordly resta fuori dalle ricette Linux di questo lotto. La versione 1.3.3 si installa ma il lancio standard abortisce: Electron rifiuta il permesso del suo helper SUID in questo ambiente. Il file desktop ufficiale specifica `--no-sandbox`. [Release verificata](https://github.com/webadderallorg/Recordly/releases/tag/v1.3.3).
 
-Paseo resta fuori dalle ricette Linux di questo lotto. Installazione, update e rimozione sono avvenuti, ma dopo l'aggiornamento a 0.18.1 la GUI nel guest ha mostrato un errore del server locale. [Release verificata](https://github.com/getpaseo/paseo/releases/tag/v0.18.1).
+Il primo lotto ha escluso Paseo dopo un errore di avvio del server locale nel guest. Il collaudo successivo ha riprodotto la causa, arrestato in ordine il server del profilo temporaneo e completato il ciclo. [Prova Paseo](../pro-371-paseo-linux/README.md).
 
 [Sonda Rust](verify_native_appimages.rs). Per ripetere la prova, compilarla come binario della crate native e usare un profilo Linux isolato con `Applications`, directory XDG locali e il file `.shift-native-appimage-proof`. La sonda accetta l'ID dell'app e una fase fra `install`, `open-old`, `update`, `open-new` e `remove`. Le fasi di apertura richiedono una sessione grafica. Per ripetere il passaggio `update`, GitHub deve ancora riportare come ultima la release indicata nella sonda.

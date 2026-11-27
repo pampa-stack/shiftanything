@@ -24,6 +24,7 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
     match app.id {
         "opencode" => ("Development;", Some("ai.opencode.desktop")),
         "orca" => ("Development;IDE;", Some("orca")),
+        "paseo" => ("Development;", Some("Paseo")),
         "t3code" => ("Development;", Some("com.t3tools.T3Code")),
         "voice-studio" => ("Audio;", Some("VoiceStudio")),
         "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),

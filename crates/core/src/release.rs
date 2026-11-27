@@ -583,9 +583,9 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    use crate::curated::{OPENCODE, ORCA, T3_CODE, VOICE_STUDIO};
+    use crate::curated::{OPENCODE, ORCA, PASEO, T3_CODE, VOICE_STUDIO};
 
-    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, T3_CODE, VOICE_STUDIO];
+    const RECIPES: &[crate::CraftApp] = &[OPENCODE, ORCA, PASEO, T3_CODE, VOICE_STUDIO];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1315,8 +1315,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("getpaseo/paseo", "v0.17.6") => {
             &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]
         }
-        ("getpaseo/paseo", "v0.18.0") => {
-            &[("Paseo-0.18.0-arm64.dmg", 190_247_198, "2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91")]
+        ("getpaseo/paseo", "v0.18.0") => &[
+            ("Paseo-0.18.0-arm64.dmg", 190_247_198, "2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91"),
+            ("Paseo-x86_64.AppImage", 171_962_101, "3498024f3a3a7c55c7421a5dd6d85824745e638ddfb612c1909ec1058b03c24e"),
+        ],
+        ("getpaseo/paseo", "v0.18.1") => {
+            &[("Paseo-x86_64.AppImage", 171_958_150, "a17d26d6930da647c0eacad3ebcae779bfc4bb47a824236ff790a60c199d85b6")]
         }
         ("siyuan-note/siyuan", "v3.8.11") => {
             &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]

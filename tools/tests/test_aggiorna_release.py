@@ -113,6 +113,52 @@ class ReleaseWatchTests(unittest.TestCase):
             self.assertEqual(current["packages"], [{"platform": "linux", "size_min": 63248888, "size_max": 63248888}])
             self.assertIsNone(updater.release_for({**app, "id": "other"}))
 
+    def test_opencode_watches_the_desktop_channel_not_github_latest(self):
+        repo = "anomalyco/opencode"
+        base = f"https://github.com/{repo}/releases"
+        tag = "v2.4.2"
+        manifest = {"channel": "latest", "distribution": "opencode", "name": "desktop", "active": True, "version": "2.4.2"}
+        release = {
+            "tag_name": tag, "html_url": f"{base}/tag/{tag}", "published_at": "2026-11-26T00:59:05Z",
+            "assets": [
+                {"name": name, "size": size, "browser_download_url": f"{base}/download/{tag}/{name}"}
+                for name, size in {
+                    "opencode-desktop-mac-arm64.dmg": 345253101,
+                    "opencode-desktop-mac-x64.dmg": 354523109,
+                    "opencode-desktop-win-x64.exe": 275562904,
+                    "opencode-desktop-linux-aarch64.rpm": 219581093,
+                    "opencode-linux-x86_64.deb": 1000,
+                    "opencode-desktop-win-x64.exe.blockmap": 2000,
+                }.items()
+            ],
+        }
+        app = {"id": "opencode", "repo": f"https://github.com/{repo}",
+               "release": {"version": "v1.19.6", "source": f"{base}/tag/v1.19.6"}}
+        with patch.object(updater, "https_json", return_value=manifest) as feed, \
+             patch.object(updater, "github", return_value=release) as github:
+            current, _ = updater.release_for(app)
+            feed.assert_called_once_with("https://opencode.ai/update/api/latest/desktop/opencode/", 32 * 1024)
+            github.assert_called_once_with(repo, tag=tag)
+        self.assertEqual(current["version"], tag)
+        self.assertEqual(current["packages"], [
+            {"platform": "linux", "size_min": 219581093, "size_max": 219581093},
+            {"platform": "macos", "size_min": 345253101, "size_max": 354523109},
+            {"platform": "windows", "size_min": 275562904, "size_max": 275562904},
+        ])
+        for invalid in [
+            [],
+            {**manifest, "active": 1},
+            {**manifest, "channel": "beta"},
+            {**manifest, "version": "1.19.6"},
+            {**manifest, "version": "2.4.2-rc.1"},
+        ]:
+            with patch.object(updater, "https_json", return_value=invalid), patch.object(updater, "github") as github:
+                self.assertIsNone(updater.release_for(app))
+                github.assert_not_called()
+        with patch.object(updater, "https_json", return_value=manifest), \
+             patch.object(updater, "github", return_value={**release, "tag_name": "v1.19.6"}):
+            self.assertIsNone(updater.release_for(app))
+
     def test_failed_sources_preserve_last_metadata_and_other_apps_continue(self):
         self.catalog[0]["release"] = {"version": "v0.4.1", "source": MEETILY_SOURCE}
         meetily_before = deepcopy(self.catalog[0])

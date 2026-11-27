@@ -10,7 +10,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from urllib.parse import unquote, urlsplit
-from urllib.request import HTTPRedirectHandler, build_opener
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = re.compile(r"https://github\.com/([\w.-]+/[\w.-]+)/?")
@@ -19,6 +19,13 @@ VERSION = re.compile(r"(?:[vV]|release-)?(\d+(?:\.\d+)*)(?:\+[\w.-]+)?")
 GODOT_REPO = "godotengine/godot"
 GODOT_BUILDS = "godotengine/godot-builds"
 GODOT_TAG = re.compile(r"\d+\.\d+(?:\.\d+)?-stable")
+OPENCODE_REPO = "anomalyco/opencode"
+OPENCODE_FEED = "https://opencode.ai/update/api/latest/desktop/opencode/"
+OPENCODE_TAG = re.compile(r"v2\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)")
+OPENCODE_PACKAGE = re.compile(
+    r"opencode-desktop-(?:mac-(?:arm64|x64)\.dmg|win-(?:arm64|x64)\.exe|"
+    r"linux-(?:(?:amd64|arm64)\.deb|(?:x86_64|aarch64)\.rpm|(?:x86_64|arm64)\.AppImage))"
+)
 RELEASE_REPOSITORIES = {
     ("godot-engine", GODOT_REPO): GODOT_BUILDS,
     ("nextcloud-desktop", "nextcloud/desktop"): "nextcloud-releases/desktop",
@@ -44,17 +51,23 @@ class SameOriginRedirect(HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
-def flathub(path):
-    with build_opener(SameOriginRedirect()).open(f"https://flathub.org/api/v2/{path}", timeout=20) as res:
-        payload = res.read(MAX_FLATHUB_BYTES + 1)
-        if len(payload) > MAX_FLATHUB_BYTES:
-            raise ValueError(f"Risposta Flathub troppo grande: {path}")
+def https_json(url, maximum_bytes):
+    request = Request(url, headers={"Accept": "application/json", "User-Agent": "ShiftAnything-Catalog/1.0"})
+    with build_opener(SameOriginRedirect()).open(request, timeout=20) as res:
+        payload = res.read(maximum_bytes + 1)
+        if len(payload) > maximum_bytes:
+            raise ValueError(f"Risposta troppo grande: {url}")
         return json.loads(payload)
 
 
-def github(repo):
+def flathub(path):
+    return https_json(f"https://flathub.org/api/v2/{path}", MAX_FLATHUB_BYTES)
+
+
+def github(repo, *, tag=None):
+    release = f"tags/{tag}" if tag is not None else "latest"
     result = subprocess.run(
-        ["gh", "api", "--hostname", "github.com", "-X", "GET", f"repos/{repo}/releases/latest"],
+        ["gh", "api", "--hostname", "github.com", "-X", "GET", f"repos/{repo}/releases/{release}"],
         check=False, capture_output=True, text=True, timeout=30,
     )
     if result.returncode:
@@ -97,6 +110,8 @@ def github_release(repo, data):
         return None
     if repo == GODOT_BUILDS and not GODOT_TAG.fullmatch(version):
         return None
+    if repo == OPENCODE_REPO and not OPENCODE_TAG.fullmatch(version):
+        return None
 
     def release_path(kind, suffix):
         return f"/{repo}/releases/{kind}/{suffix}"
@@ -117,6 +132,11 @@ def github_release(repo, data):
         platform = package_platform(name)
         if repo == GODOT_BUILDS and name == f"Godot_v{version}_macos.universal.zip":
             platform = "macos"
+        if repo == OPENCODE_REPO:
+            if not OPENCODE_PACKAGE.fullmatch(name):
+                continue
+            if name.endswith(".exe"):
+                platform = "windows"
         expected = release_path("download", f"{version}/{name}")
         if platform and type(size) is int and size > 0 and official(asset["browser_download_url"], expected):
             packages[platform].append(size)
@@ -216,11 +236,28 @@ def update_flatpak_size(app, app_id, as_of):
         channel.update(download_size=size, download_size_source=source, download_size_checked=as_of)
 
 
+def opencode_release():
+    manifest = https_json(OPENCODE_FEED, 32 * 1024)
+    if not isinstance(manifest, dict) or manifest.get("active") is not True:
+        return None
+    if (manifest.get("channel"), manifest.get("distribution"), manifest.get("name")) != ("latest", "opencode", "desktop"):
+        return None
+    tag = f"v{manifest.get('version')}"
+    if not OPENCODE_TAG.fullmatch(tag):
+        return None
+    release = github(OPENCODE_REPO, tag=tag)
+    if not release or release.get("tag_name") != tag:
+        return None
+    return github_release(OPENCODE_REPO, release)
+
+
 def release_for(app):
     source = (app.get("release") or {}).get("source") or ""
     if flatpak := FLATPAK.fullmatch(source):
         return flatpak_release(flatpak[1])
     repo = REPO.fullmatch(app.get("repo") or "")
+    if repo and app.get("id") == "opencode" and repo[1].lower() == OPENCODE_REPO:
+        return opencode_release()
     if repo and (release_repo := RELEASE_REPOSITORIES.get((app.get("id"), repo[1].lower()))):
         return github_release(release_repo, github(release_repo))
     if repo and (not source or source.lower().startswith(f"https://github.com/{repo[1]}/releases/".lower())):

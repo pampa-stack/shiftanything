@@ -1,0 +1,10 @@
+PROOF_ROOT=/var/tmp/shift-tauri-flathub.ysriyaXg/launcher-profile
+DESKTOP_PID=2178734
+Local-only window created; native lifecycle enabled: true
+Native catalog requested
+Native catalog requested
+Native catalog requested
+APPROVED ui-1 InstallExpected { apps: ["gnome-calculator"], installed: true }
+NATIVE gnome-calculator: completed: Flathub app is up to date
+APPROVED ui-2 Uninstall { app: "gnome-calculator" }
+NATIVE gnome-calculator: completed: Flathub app removed

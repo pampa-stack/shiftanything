@@ -1,0 +1,15 @@
+Processing request of type CallToolRequest
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
+PASS rejected open with installed=False
+Processing request of type CallToolRequest
+PASS rejected update with installed=False
+Processing request of type CallToolRequest
+PASS rejected update_all with installed=False
+Processing request of type CallToolRequest
+PASS rejected remove with installed=False
+Processing request of type CallToolRequest
+PASS rejected cancel with installed=False
+Processing request of type CallToolRequest
+Processing request of type CallToolRequest
+PASS unknown app/task rejected

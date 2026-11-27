@@ -4,6 +4,8 @@
 set -euo pipefail
 umask 077
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+# shellcheck source=check-bundle.sh
+. "$ROOT/packaging/macos/check-bundle.sh"
 SUFFIX=local
 case "$#:${1:-}" in
   1:*) OUTPUT="$1" ;;
@@ -37,16 +39,6 @@ trap cleanup EXIT
 hdiutil attach "$DMG" -readonly -nobrowse -noautoopen -mountpoint "$MOUNT"
 MOUNTED=1
 BUNDLE="$MOUNT/Sh*ftAnything.app"
-check_bundle_modes() {
-  local bundle="$1" path
-  for path in "$bundle" "$bundle/Contents" "$bundle/Contents/MacOS" "$bundle/Contents/Resources" \
-    "$bundle/Contents/_CodeSignature" "$bundle/Contents/MacOS/ShiftAnything"; do
-    [[ "$(stat -f '%Lp' "$path")" = 755 ]] || { printf 'Expected mode 755: %s\n' "$path" >&2; return 1; }
-  done
-  for path in "$bundle/Contents/Info.plist" "$bundle/Contents/_CodeSignature/CodeResources"; do
-    [[ "$(stat -f '%Lp' "$path")" = 644 ]] || { printf 'Expected mode 644: %s\n' "$path" >&2; return 1; }
-  done
-}
 check_bundle_modes "$BUNDLE"
 [[ "$(plutil -extract CFBundleIdentifier raw -o - "$BUNDLE/Contents/Info.plist")" = it.promptica.shiftanything ]]
 [[ "$(plutil -extract CFBundleDisplayName raw -o - "$BUNDLE/Contents/Info.plist")" = 'Sh*ftAnything' ]]
@@ -60,9 +52,7 @@ done
 ditto "$BUNDLE" "$OUTPUT/verified-copy/Sh*ftAnything.app"
 check_bundle_modes "$OUTPUT/verified-copy/Sh*ftAnything.app"
 codesign --verify --deep --strict "$OUTPUT/verified-copy/Sh*ftAnything.app"
-ACTUAL_VERSION="$("$OUTPUT/verified-copy/Sh*ftAnything.app/Contents/MacOS/ShiftAnything" --version)"
-[[ "$ACTUAL_VERSION" = "shiftanything $VERSION" ]] || { printf 'Unexpected launcher version: %s\n' "$ACTUAL_VERSION" >&2; exit 1; }
-printf '%s\n' "$ACTUAL_VERSION"
+check_bundle_version "$OUTPUT/verified-copy/Sh*ftAnything.app" "$VERSION"
 hdiutil detach "$MOUNT" -quiet
 MOUNTED=0
 shasum -a 256 "$DMG" > "$OUTPUT/SHA256SUMS.txt"

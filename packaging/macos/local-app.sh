@@ -1,18 +1,28 @@
 #!/usr/bin/env bash
 # Assemble an isolated, ad-hoc signed test bundle. Never installs or launches it.
-# Usage: local-app.sh [--tauri] NEW_OUTPUT_DIRECTORY
+# Usage: local-app.sh [--tauri [--release]] NEW_OUTPUT_DIRECTORY
 set -euo pipefail
 umask 077
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 PKG=artcraft-launcher
+PROFILE=debug
 if [[ "${1:-}" = --tauri ]]; then
   PKG=shiftanything-tauri-proof
   shift
+  if [[ "${1:-}" = --release ]]; then
+    PROFILE=release
+    shift
+  fi
 fi
-[[ $# = 1 ]] || { echo 'usage: local-app.sh [--tauri] NEW_OUTPUT_DIRECTORY' >&2; exit 2; }
+[[ $# = 1 && "$1" != -* ]] || { echo 'usage: local-app.sh [--tauri [--release]] NEW_OUTPUT_DIRECTORY' >&2; exit 2; }
 OUTPUT="$1"
-BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/debug/$PKG"
-[[ -x "$BINARY" ]] || { printf 'Build the selected binary first: cargo build -p %s\n' "$PKG" >&2; exit 1; }
+BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/$PROFILE/$PKG"
+if [[ ! -x "$BINARY" ]]; then
+  RELEASE_FLAG=
+  [[ "$PROFILE" != release ]] || RELEASE_FLAG=' --release'
+  printf 'Build the selected binary first: cargo build --locked%s -p %s\n' "$RELEASE_FLAG" "$PKG" >&2
+  exit 1
+fi
 mkdir -- "$OUTPUT"
 # Keep the workspace private while giving the bundle standard distribution modes.
 umask 022

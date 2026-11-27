@@ -624,6 +624,198 @@
       ]
     },
     {
+      "id": "loom",
+      "name": "Loom",
+      "aliases": [
+        "Atlassian Loom",
+        "Loom Business"
+      ],
+      "features": [
+        {
+          "id": "screen_voice",
+          "name": {
+            "it": "Registrare schermo e voce",
+            "en": "Record screen and microphone"
+          },
+          "source": "https://www.loom.com/community/how-to-record-your-first-video"
+        },
+        {
+          "id": "webcam_overlay",
+          "name": {
+            "it": "Mostrare anche la webcam",
+            "en": "Show the webcam alongside the screen"
+          },
+          "source": "https://www.loom.com/community/how-to-record-your-first-video"
+        },
+        {
+          "id": "trim_recording",
+          "name": {
+            "it": "Tagliare parti del video",
+            "en": "Trim parts of the recording"
+          },
+          "source": "https://support.atlassian.com/loom/docs/edit-your-loom-video/"
+        },
+        {
+          "id": "auto_captions",
+          "name": {
+            "it": "Generare sottotitoli automatici",
+            "en": "Generate automatic captions"
+          },
+          "source": "https://support.atlassian.com/loom/docs/loom-video-transcription-and-closed-captions/"
+        },
+        {
+          "id": "video_mp4",
+          "name": {
+            "it": "Salvare un file MP4",
+            "en": "Save an MP4 file"
+          },
+          "source": "https://support.atlassian.com/loom/docs/download-your-loom-video/"
+        },
+        {
+          "id": "share_browser_link",
+          "name": {
+            "it": "Condividere un link di riproduzione",
+            "en": "Share a browser playback link"
+          },
+          "source": "https://support.atlassian.com/loom/docs/share-your-recording/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "openscreen",
+          "evidence": {
+            "screen_voice": {
+              "state": "supported",
+              "source": "https://github.com/getopenscreen/openscreen#core-features",
+              "note": {
+                "it": "Registra schermo o finestra insieme a microfono e audio di sistema.",
+                "en": "Records a display or a window with microphone and system audio."
+              }
+            },
+            "webcam_overlay": {
+              "state": "supported",
+              "source": "https://github.com/getopenscreen/openscreen#core-features",
+              "note": {
+                "it": "La webcam si può mostrare in un riquadro nel video.",
+                "en": "The webcam can be shown as a picture-in-picture tile."
+              }
+            },
+            "trim_recording": {
+              "state": "supported",
+              "source": "https://github.com/getopenscreen/openscreen#core-features",
+              "note": {
+                "it": "La timeline supporta tagli e regolazioni di velocità per segmento.",
+                "en": "The timeline supports trims and per-segment speed changes."
+              }
+            },
+            "auto_captions": {
+              "state": "supported",
+              "source": "https://github.com/getopenscreen/openscreen#core-features",
+              "note": {
+                "it": "Genera sottotitoli sul dispositivo e consente di correggere la trascrizione.",
+                "en": "Generates captions on-device and lets you edit the transcript."
+              }
+            },
+            "video_mp4": {
+              "state": "supported",
+              "source": "https://github.com/getopenscreen/openscreen#core-features",
+              "note": {
+                "it": "Esporta in MP4 o GIF in diverse risoluzioni.",
+                "en": "Exports MP4 or GIF at different resolutions."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "recordly",
+          "evidence": {
+            "screen_voice": {
+              "state": "supported",
+              "source": "https://github.com/webadderallorg/Recordly#all-features",
+              "note": {
+                "it": "Registra schermo o finestra, microfono e audio di sistema.",
+                "en": "Records a display or a window, microphone and system audio."
+              }
+            },
+            "webcam_overlay": {
+              "state": "supported",
+              "source": "https://github.com/webadderallorg/Recordly#all-features",
+              "note": {
+                "it": "Il riquadro webcam è posizionabile e ridimensionabile nell’editor.",
+                "en": "The webcam overlay can be positioned and resized in the editor."
+              }
+            },
+            "trim_recording": {
+              "state": "supported",
+              "source": "https://github.com/webadderallorg/Recordly#all-features",
+              "note": {
+                "it": "L’editor integrato permette di eliminare sezioni dalla timeline.",
+                "en": "The built-in editor can remove sections from the timeline."
+              }
+            },
+            "video_mp4": {
+              "state": "supported",
+              "source": "https://github.com/webadderallorg/Recordly#all-features",
+              "note": {
+                "it": "L’editor esporta il video in MP4 sul computer.",
+                "en": "The editor exports an MP4 file to the computer."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "obs",
+          "evidence": {
+            "screen_voice": {
+              "state": "supported",
+              "source": "https://obsproject.com/kb/quick-start-guide",
+              "note": {
+                "it": "Aggiungi una sorgente schermo e seleziona il microfono nelle impostazioni audio.",
+                "en": "Add a display source and select the microphone in the audio settings."
+              }
+            },
+            "webcam_overlay": {
+              "state": "supported",
+              "source": "https://obsproject.com/kb/video-capture-sources",
+              "note": {
+                "it": "Una sorgente webcam si può posizionare sopra lo schermo nella stessa scena.",
+                "en": "A webcam source can be positioned over the display in the same scene."
+              }
+            },
+            "video_mp4": {
+              "state": "supported",
+              "source": "https://obsproject.com/kb/standard-recording-output-guide",
+              "note": {
+                "it": "Registra e converti il contenitore video in MP4 dal menu File.",
+                "en": "Record and remux the recording to MP4 from the File menu."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "kooha",
+          "evidence": {
+            "screen_voice": {
+              "state": "supported",
+              "source": "https://github.com/SeaDve/Kooha#readme",
+              "note": {
+                "it": "Seleziona il monitor o una regione e scegli il microfono.",
+                "en": "Select the monitor or a region and enable the microphone."
+              }
+            },
+            "video_mp4": {
+              "state": "supported",
+              "source": "https://github.com/SeaDve/Kooha#readme",
+              "note": {
+                "it": "MP4 è uno dei formati di registrazione documentati.",
+                "en": "MP4 is a documented recording format."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "granola",
       "name": "Granola",
       "aliases": [

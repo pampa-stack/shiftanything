@@ -267,6 +267,10 @@ pub mod macos {
         {
             return Some(parsed);
         }
+        let zen = artcraft_launcher_core::curated::ZEN;
+        if (app.id, app.repo) == (zen.id, zen.repo) {
+            return artcraft_launcher_core::release::zen_release_version(text).or_else(|| version::parse(text));
+        }
         if !app.uses_tdf_releases() {
             return version::parse(text);
         }

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 117] = [
+pub const RECIPES: [(&str, &str); 133] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -119,6 +119,22 @@ pub const RECIPES: [(&str, &str); 117] = [
     ("workbench", "re.sonny.Workbench"),
     ("jami", "net.jami.Jami"),
     ("furnace", "org.tildearrow.furnace"),
+    ("gromit", "net.christianbeier.Gromit-MPX"),
+    ("koko", "org.kde.koko"),
+    ("jitsi-meet", "org.jitsi.jitsi-meet"),
+    ("musicbrainz-picard", "org.musicbrainz.Picard"),
+    ("kstars", "org.kde.kstars"),
+    ("freetube", "io.freetubeapp.FreeTube"),
+    ("sigil", "com.sigil_ebook.Sigil"),
+    ("dosbox-x", "com.dosbox_x.DOSBox-X"),
+    ("jellyfin-desktop", "org.jellyfin.JellyfinDesktop"),
+    ("cloudcompare", "org.cloudcompare.CloudCompare"),
+    ("ungoogled-chromium", "io.github.ungoogled_software.ungoogled_chromium"),
+    ("kooha", "io.github.seadve.Kooha"),
+    ("vorta", "com.borgbase.Vorta"),
+    ("fragments", "de.haeckerfelix.Fragments"),
+    ("darktable", "org.darktable.Darktable"),
+    ("element", "im.riot.Riot"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -254,6 +270,22 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "workbench" => "https://workbench.sonny.re/source",
         "jami" => "https://git.jami.net/savoirfairelinux/jami-project",
         "furnace" => "https://github.com/tildearrow/furnace",
+        "gromit" => "https://github.com/bk138/gromit-mpx",
+        "koko" => "https://invent.kde.org/graphics/koko",
+        "jitsi-meet" => "https://github.com/jitsi/jitsi-meet-electron",
+        "musicbrainz-picard" => "https://github.com/metabrainz/picard",
+        "kstars" => "https://invent.kde.org/education/kstars",
+        "freetube" => "https://github.com/FreeTubeApp/FreeTube",
+        "sigil" => "https://github.com/Sigil-Ebook/Sigil",
+        "dosbox-x" => "https://github.com/joncampbell123/dosbox-x",
+        "jellyfin-desktop" => "https://github.com/jellyfin/jellyfin-desktop",
+        "cloudcompare" => "https://github.com/CloudCompare/CloudCompare",
+        "ungoogled-chromium" => "https://github.com/ungoogled-software/ungoogled-chromium",
+        "kooha" => "https://github.com/SeaDve/Kooha",
+        "vorta" => "https://github.com/borgbase/vorta",
+        "fragments" => "https://gitlab.gnome.org/World/Fragments",
+        "darktable" => "https://github.com/darktable-org/darktable",
+        "element" => "https://github.com/element-hq/element-web",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

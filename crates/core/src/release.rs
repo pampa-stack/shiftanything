@@ -77,6 +77,7 @@ pub(crate) fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
 }
 
+pub const CALIBRE_DMG_URL: &str = "https://download.calibre-ebook.com/";
 pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
 pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
 
@@ -447,7 +448,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
     let releases = format!("https://github.com/{repo}/releases");
     let html_url = v["html_url"].as_str().and_then(|u| safe_release_html_url(repo, u)).unwrap_or_else(|| releases.clone());
     let prefix = download_prefix(repo);
-    let assets = v["assets"]
+    let mut assets: Vec<Asset> = v["assets"]
         .as_array()
         .map(|list| {
             list.iter()
@@ -465,6 +466,13 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                 .collect()
         })
         .unwrap_or_default();
+    // GitHub drops older Calibre binaries. Keep this recipe on the publisher's reviewed archive.
+    if repo == crate::curated::CALIBRE.repo {
+        for asset in reviewed_assets(repo, &tag) {
+            assets.retain(|other| other.name != asset.name);
+            assets.push(asset);
+        }
+    }
     Ok(Release {
         version: release_tag_version(repo, &tag),
         name: v["name"].as_str().map(|n| truncate(n, 120)).filter(|n| !n.is_empty()).unwrap_or_else(|| tag.clone()),
@@ -490,11 +498,20 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         picard_version(tag)
     } else if repo == crate::curated::ANKI.repo {
         anki_date_version(tag).or_else(|| version::parse(tag))
+    } else if repo == crate::curated::ZEN.repo {
+        zen_release_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
         version::parse(tag)
     }
+}
+
+/// Zen's stable channel appends b to both the release tag and the bundle version.
+pub fn zen_release_version(tag: &str) -> Option<Version> {
+    let version = version::parse(tag.strip_suffix('b')?)?;
+    let canonical = tag == format!("{version}b") || (version.patch == 0 && tag == format!("{}.{}b", version.major, version.minor));
+    (version.pre.is_empty() && version.build.is_empty() && canonical).then_some(version)
 }
 
 // Anki's calendar tags pad the month while the macOS bundle uses ordinary SemVer.
@@ -779,8 +796,14 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::KANDO,
         crate::curated::TRILIUM,
         crate::curated::RECORDLY,
+        crate::curated::ZETTLR,
         crate::curated::VSCODIUM,
         crate::curated::ANKI,
+        crate::curated::CALIBRE,
+        crate::curated::OPENCHAMBER,
+        crate::curated::OSAURUS,
+        crate::curated::ZEN,
+        crate::curated::HEADLAMP,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -793,7 +816,11 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
         && release.version.as_ref().is_some_and(|version| {
             let canonical_tag = if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
-            } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id) {
+            } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
+                zen_release_version(&release.tag).as_ref() == Some(version)
+            } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
+                || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
+            {
                 release.tag == version.to_string()
             } else {
                 release.tag == format!("v{version}")
@@ -1223,11 +1250,41 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("VSCodium/vscodium", "1.143.17232") => {
             &[("VSCodium.arm64.1.143.17232.dmg", 206_610_884, "da2d91385ae73594b13208bc9df20cf4d905a94f84796a33bb3e09162481e475")]
         }
+        ("kovidgoyal/calibre", "v9.18.0") => {
+            &[("calibre-9.18.0.dmg", 406_181_327, "b4b8000433b6e4d0fdfb3bd0283cd76b7525c65daf5af027ec4dc1e629ef3d0c")]
+        }
+        ("kovidgoyal/calibre", "v9.19.0") => {
+            &[("calibre-9.19.0.dmg", 408_549_188, "207c80d80ace59cb21a4c52fa1c40843a8e860de100304e590da664db3abfb3f")]
+        }
         ("ankitects/anki", "26.09.3") => {
             &[("anki-26.09.3-mac-apple.dmg", 226_530_103, "b36fe8f6c015a602feaf3ef38f5967c27c8964ee30a5c74ca2532225cf602345")]
         }
         ("ankitects/anki", "26.09.4") => {
             &[("anki-26.09.4-mac-apple.dmg", 228_182_839, "527b968b88d54cb0308d1de7a1ee193109863546e1cb62dcd016bd93bd816684")]
+        }
+        ("openchamber/openchamber", "v2.8.0") => {
+            &[("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9")]
+        }
+        ("openchamber/openchamber", "v2.8.1") => {
+            &[("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217")]
+        }
+        ("osaurus-ai/osaurus", "1.0.12") => {
+            &[("Osaurus-1.0.12.dmg", 126_257_063, "181b5f527f30bcde1ffa73f08d6cda4d720c3e26284d3197ca2d7449af10dd4d")]
+        }
+        ("osaurus-ai/osaurus", "1.0.13") => {
+            &[("Osaurus-1.0.13.dmg", 126_326_179, "fdb747c6cdbfdbfea97f449bfeedd39de14c00234e64238088f109a2de3923a0")]
+        }
+        ("kubernetes-sigs/headlamp", "v0.45.0") => {
+            &[("Headlamp-0.45.0-mac-arm64.dmg", 143_705_681, "4f3e7de1c048f8dbe84bfd6c18ac61d0aafd4d909278ca44648d4562c80995f3")]
+        }
+        ("kubernetes-sigs/headlamp", "v0.46.0") => {
+            &[("Headlamp-0.46.0-mac-arm64.dmg", 145_502_945, "20294a2f1e92aa98c2a90aa0717b6b8e730ed55a0300c03db18c2f779ed7b564")]
+        }
+        ("zen-browser/desktop", "1.24.2b") => {
+            &[("zen.macos-universal.dmg", 240_772_424, "04ee33c2e906b52f90f73384aa50e80a92530ae4b3414fb26a0a982e257f172c")]
+        }
+        ("zen-browser/desktop", "1.24.3b") => {
+            &[("zen.macos-universal.dmg", 240_816_809, "86f6a01e786095d7661c68357396a00cd3e169d6ae5e176245077bb701af8b65")]
         }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
@@ -1296,9 +1353,10 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("Zettlr/Zettlr", "v4.10.0") => {
             &[("Zettlr-4.10.0-x86_64.AppImage", 172_628_308, "bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc")]
         }
-        ("Zettlr/Zettlr", "v4.11.0") => {
-            &[("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7")]
-        }
+        ("Zettlr/Zettlr", "v4.11.0") => &[
+            ("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7"),
+            ("Zettlr-4.11.0-arm64.dmg", 202_782_993, "68e57c3dcb8275b175ac1b67f7d94945c84e0a7c4da6e1ab6b6e8fcd64458793"),
+        ],
         ("ONLYOFFICE/DesktopEditors", "v9.4.0") => {
             &[("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c")]
         }
@@ -1336,7 +1394,11 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
     receipts.iter().map(move |&(name, size, sha256)| Asset {
         name: name.into(),
         size,
-        url: format!("{}{tag}/{name}", download_prefix(repo)),
+        url: if repo == crate::curated::CALIBRE.repo {
+            format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else {
+            format!("{}{tag}/{name}", download_prefix(repo))
+        },
         sha256: Some(sha256.into()),
     })
 }
@@ -1426,6 +1488,43 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 mod tests {
     use super::*;
 
+    #[test]
+    fn calibre_archive_has_only_reviewed_official_arm64_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::CALIBRE, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[CALIBRE.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        for tag in ["v9.18.0", "v9.19.0"] {
+            let name = format!("calibre-{}.dmg", &tag[1..]);
+            let api = serde_json::json!({"tag_name": tag, "assets": []});
+            let release = parse_github_release(&api.to_string(), CALIBRE.repo).unwrap();
+            let asset = pick(&release, mac).unwrap();
+            assert_eq!(asset.name, name);
+            assert_eq!(asset.url, format!("{CALIBRE_DMG_URL}{}/{name}", &tag[1..]));
+            assert_eq!(pick(&release_from_sums(CALIBRE.repo, tag, &[]), mac), Some(asset.clone()));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+            assert!(parse_github_release(&api.to_string(), "mirror/calibre").unwrap().assets.is_empty());
+
+            let mut changed = release.clone();
+            changed.assets[0].url = changed.assets[0].url.replace(CALIBRE_DMG_URL, "https://mirror.example/");
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.tag = "v9.20.0".into();
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release;
+            changed.prerelease = true;
+            assert_eq!(pick(&changed, mac), None);
+        }
+        let unknown = parse_github_release(r#"{"tag_name":"v9.20.0","assets":[]}"#, CALIBRE.repo).unwrap();
+        assert_eq!(pick(&unknown, mac), None);
+    }
     #[test]
     fn anki_calendar_tags_select_only_reviewed_arm64_dmgs() {
         use crate::{Arch, Os, PackageKind, Platform, curated::ANKI, platform::pick_asset};

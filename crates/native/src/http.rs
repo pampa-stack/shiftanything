@@ -606,7 +606,9 @@ impl Http {
         let agent = if is_loopback(url) { &self.direct_download } else { &self.download };
         let (physical, agent) = self.request(url, agent).map_err(AttemptError::Fatal)?;
         let mut req = agent.get(physical.as_ref()).header("Accept-Encoding", "identity");
-        if url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {
+        if url.starts_with(artcraft_launcher_core::release::CALIBRE_DMG_URL) {
+            req = req.config().https_only(true).max_redirects(0).build();
+        } else if url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {
             req = req.config().https_only(true).build();
         }
         if have > 0 {

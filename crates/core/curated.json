@@ -2913,6 +2913,15 @@
         "manager": "homebrew",
         "id": "calibre",
         "source": "https://formulae.brew.sh/cask/calibre"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "calibre-9.19.0.dmg",
+        "source": "https://calibre-ebook.com/download_osx",
+        "download_size": 408549188,
+        "download_size_source": "https://calibre-ebook.com/download_osx",
+        "download_size_checked": "2026-11-27"
       }
     ],
     "review": {
@@ -7369,6 +7378,12 @@
         "manager": "homebrew",
         "id": "zen",
         "source": "https://formulae.brew.sh/cask/zen"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "zen.macos-universal.dmg",
+        "source": "https://github.com/zen-browser/desktop/releases/tag/1.24.3b"
       }
     ],
     "review": {
@@ -13905,6 +13920,15 @@
         "download_size": 189852652,
         "download_size_source": "https://flathub.org/api/v2/summary/com.zettlr.Zettlr",
         "download_size_checked": "2026-11-26"
+      },
+      {
+        "platform": "macos",
+        "manager": "direct",
+        "id": "Zettlr-4.11.0-arm64.dmg",
+        "source": "https://github.com/Zettlr/Zettlr/releases/tag/v4.11.0",
+        "download_size": 202782993,
+        "download_size_source": "https://github.com/Zettlr/Zettlr/releases/tag/v4.11.0",
+        "download_size_checked": "2026-11-27"
       }
     ],
     "stars": {
@@ -17135,7 +17159,18 @@
     },
     "platform_support": {
       "linux": "https://vorta.borgbase.com/install/linux/"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.borgbase.Vorta",
+        "source": "https://flathub.org/apps/com.borgbase.Vorta",
+        "download_size": 22701832,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.borgbase.Vorta",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "timeshift",
@@ -18227,7 +18262,18 @@
       "date": "2024-07-11",
       "source": "https://github.com/CloudCompare/CloudCompare/releases/tag/v2.13.2",
       "packages": []
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.cloudcompare.CloudCompare",
+        "source": "https://flathub.org/apps/org.cloudcompare.CloudCompare",
+        "download_size": 177973800,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.cloudcompare.CloudCompare",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "grass-gis",
@@ -19443,7 +19489,18 @@
       "date": "2026-06-05",
       "source": "https://github.com/SeaDve/Kooha/releases/tag/v2.3.2",
       "packages": []
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.github.seadve.Kooha",
+        "source": "https://flathub.org/apps/io.github.seadve.Kooha",
+        "download_size": 1160398,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.github.seadve.Kooha",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "easyeffects",
@@ -23291,7 +23348,18 @@
           "size_max": 156347542
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.jellyfin.JellyfinDesktop",
+        "source": "https://flathub.org/apps/org.jellyfin.JellyfinDesktop",
+        "download_size": 142000101,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.jellyfin.JellyfinDesktop",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "kap",
@@ -28699,7 +28767,18 @@
       "linux": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
       "macos": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
       "windows": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.freetubeapp.FreeTube",
+        "source": "https://flathub.org/apps/io.freetubeapp.FreeTube",
+        "download_size": 134914462,
+        "download_size_source": "https://flathub.org/api/v2/summary/io.freetubeapp.FreeTube",
+        "download_size_checked": "2026-11-27"
+      }
+    ]
   },
   {
     "id": "invidious",

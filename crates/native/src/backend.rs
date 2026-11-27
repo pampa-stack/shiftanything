@@ -2826,7 +2826,9 @@ fn feed_repo(feed: Option<&Feed>, app: &CraftApp) -> String {
 }
 
 fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> {
-    if app.uses_tdf_releases() || app.release_repository() != app.repo { None } else { feed }
+    let calibre = artcraft_launcher_core::curated::CALIBRE;
+    // The generic feed references GitHub assets; Calibre uses the publisher's retained archive.
+    if app.uses_tdf_releases() || app.release_repository() != app.repo || (app.id, app.repo) == (calibre.id, calibre.repo) { None } else { feed }
 }
 
 fn release_origin(app: &CraftApp) -> Origin {
@@ -3422,6 +3424,16 @@ mod tests {
     use super::*;
 
     use crate::source::Answer;
+
+    #[test]
+    fn calibre_keeps_its_publisher_archive_instead_of_the_generic_feed() {
+        let feed = Feed::default();
+        let calibre = artcraft_launcher_core::curated::CALIBRE;
+        let handy = artcraft_launcher_core::curated::HANDY;
+        assert!(feed_for_app(Some(&feed), &calibre).is_none());
+        assert_eq!(release_query(Some(&feed), &calibre).repo, calibre.repo);
+        assert_eq!(feed_for_app(Some(&feed), &handy), Some(&feed));
+    }
 
     #[test]
     fn obs_keeps_its_asset_route_on_macos_and_flathub_on_stable_linux_x64() {

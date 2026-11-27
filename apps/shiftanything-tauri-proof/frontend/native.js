@@ -324,15 +324,15 @@
         badge.className = 'install-indicator';
         heart.before(badge);
       }
-      const ready = verified && action.enabled && Boolean(action.operation);
+      const ready = verified && action.enabled === true && Boolean(action.operation);
       const label = ready ? (it?'Installazione verificata':'Installation verified')
         : verified ? (it?'Installazione provata. Controlla lo stato del pacchetto.':'Installation tested. Check package status.')
           : (it?'Installazione non ancora verificata':'Installation not yet verified');
       badge.dataset.verified = String(ready);
+      badge.dataset.tested = String(verified);
       badge.title = label;
       badge.setAttribute('role','img');
       badge.setAttribute('aria-label',label);
-      setText(badge, verified?'✓':'–');
     }
     const actions = button.parentElement;
     const appId = button.dataset.nativeApp;

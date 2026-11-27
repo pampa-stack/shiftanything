@@ -1,0 +1,43 @@
+
+=== 2026-11-27T05:12:07+00:00 tenacity install ===
+tenacity before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+tenacity JobFinished: Ok("Flathub app installed")
+tenacity after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.tenacityaudio.Tenacity/x86_64/stable	flathub	2651fd8dc7a2	user	1.3.5
+
+=== 2026-11-27T05:12:38+00:00 tenacity prior ===
+Updating app/org.tenacityaudio.Tenacity/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.tenacityaudio.Tenacity/x86_64/stable	flathub	9c07f37a9b90	user	1.3.5
+tenacity before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582", package: Some("org.tenacityaudio.Tenacity"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: false, can_open: true }
+tenacity JobFinished: Err("Approved action rejected: native installation state changed")
+tenacity JobFinished: Err("This Flatpak is managed outside the launcher")
+tenacity after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582", package: Some("org.tenacityaudio.Tenacity"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T05:12:41+00:00 tenacity open ===
+dbus-daemon[2266864]: [session uid=1000 pid=2266864 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2266902 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2266864]: [session uid=1000 pid=2266864 pidfd=5] Successfully activated service 'org.a11y.Bus'
+tenacity before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: true, can_remove: true, can_open: true }
+tenacity JobFinished: Ok("Launch request accepted")
+tenacity after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2266930]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2267097 comm="xdg-dbus-proxy --args=64" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2266930]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+=== 2026-11-27T05:12:46+00:00 tenacity update-remove ===
+tenacity before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/9c07f37a9b906d50d7bd62fee2558dab24d8236fe57ef980d2a894bfb6568582", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: true, can_remove: true, can_open: true }
+tenacity JobFinished: Ok("Flathub app updated")
+tenacity after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2268096]: [session uid=1000 pid=2268096 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2268130 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2268096]: [session uid=1000 pid=2268096 pidfd=5] Successfully activated service 'org.a11y.Bus'
+tenacity before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: true, can_open: true }
+tenacity JobFinished: Ok("Launch request accepted")
+tenacity after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2268151]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2268460 comm="xdg-dbus-proxy --args=64" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2268151]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+tenacity before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 5 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/tenacity/home/data/flatpak/app/org.tenacityaudio.Tenacity/x86_64/stable/2651fd8dc7a2f8d6b38f1ca40f6b084bdf28443479cab559a2f182120c74aa90", package: Some("org.tenacityaudio.Tenacity"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.5"), update_available: false, can_remove: true, can_open: true }
+tenacity JobFinished: Ok("Flathub app removed")
+tenacity after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+PASS native install, open, update, remove, persisted ownership and profile data

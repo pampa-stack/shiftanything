@@ -1,0 +1,19 @@
+commit c538b4c0f28ba795a3c3cd9b41df6e291d6b602d97bc91998f2ed22916e0ca6a
+Parent:  d913ad334b2802ed0a6651498c1493d2b7626bdb72994e1c923de811c10d3820
+ContentChecksum:  873e4c943b8b9a8c6086100fb7c3a1fb3d6eac882d7a810d5c5b3152627b8f21
+Date:  2026-11-26 18:21:22 +0000
+
+    Merge pull request #182 from flathub/update-master-fcbfecb (b6d3b8c88652)
+
+    Name: io.github.peazip.PeaZip
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 26 18:30:46 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

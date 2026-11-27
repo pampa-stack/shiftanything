@@ -1,0 +1,43 @@
+
+=== 2026-11-27T05:12:07+00:00 pika-backup install ===
+pika-backup before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+pika-backup JobFinished: Ok("Flathub app installed")
+pika-backup after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.World.PikaBackup/x86_64/stable	flathub	205af1fb24f0	user	0.8.4
+
+=== 2026-11-27T05:12:41+00:00 pika-backup prior ===
+Updating app/org.gnome.World.PikaBackup/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.World.PikaBackup/x86_64/stable	flathub	0ae24eb7ed50	user	0.8.4
+pika-backup before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77", package: Some("org.gnome.World.PikaBackup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: false, can_open: true }
+pika-backup JobFinished: Err("Approved action rejected: native installation state changed")
+pika-backup JobFinished: Err("This Flatpak is managed outside the launcher")
+pika-backup after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77", package: Some("org.gnome.World.PikaBackup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: false, can_open: true })
+
+=== 2026-11-27T05:12:46+00:00 pika-backup open ===
+dbus-daemon[2267450]: [session uid=1000 pid=2267450 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2267479 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2267450]: [session uid=1000 pid=2267450 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pika-backup before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: true, can_remove: true, can_open: true }
+pika-backup JobFinished: Ok("Launch request accepted")
+pika-backup after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[2267570]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2267919 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2267570]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+
+=== 2026-11-27T05:12:51+00:00 pika-backup update-remove ===
+pika-backup before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/0ae24eb7ed508efaf7e9e93ca3bc01e696fde9f03822787c8a7a402493feff77", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: true, can_remove: true, can_open: true }
+pika-backup JobFinished: Ok("Flathub app updated")
+pika-backup after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2268741]: [session uid=1000 pid=2268741 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2268869 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2268741]: [session uid=1000 pid=2268741 pidfd=5] Successfully activated service 'org.a11y.Bus'
+pika-backup before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: true, can_open: true }
+pika-backup JobFinished: Ok("Launch request accepted")
+pika-backup after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: true, can_open: true })
+dbus-daemon[2268922]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2269164 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2268922]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+pika-backup before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 8, patch: 4 }), source: Flatpak, location: "/var/tmp/shift-flatpak-daily.NTm2PHZf/pika-backup/home/data/flatpak/app/org.gnome.World.PikaBackup/x86_64/stable/205af1fb24f0208e95fb3b5f28344d6d526682f43ccc1465b403a78a77ec8c19", package: Some("org.gnome.World.PikaBackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.8.4"), update_available: false, can_remove: true, can_open: true }
+pika-backup JobFinished: Ok("Flathub app removed")
+pika-backup after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+PASS native install, open, update, remove, persisted ownership and profile data

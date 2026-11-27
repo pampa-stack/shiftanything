@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 10] = [
+pub const RECIPES: [(&str, &str); 13] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -12,6 +12,9 @@ pub const RECIPES: [(&str, &str); 10] = [
     ("gimp", "org.gimp.GIMP"),
     ("inks", "org.inkscape.Inkscape"),
     ("kdenlive", "org.kde.kdenlive"),
+    ("pika-backup", "org.gnome.World.PikaBackup"),
+    ("tenacity", "org.tenacityaudio.Tenacity"),
+    ("peazip", "io.github.peazip.PeaZip"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -40,6 +43,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "gimp" => "https://gitlab.gnome.org/GNOME/gimp",
         "inks" => "https://gitlab.com/inkscape/inkscape",
         "kdenlive" => "https://invent.kde.org/multimedia/kdenlive",
+        "pika-backup" => "https://gitlab.gnome.org/World/pika-backup",
+        "tenacity" => "https://codeberg.org/tenacityteam/tenacity",
+        "peazip" => "https://github.com/peazip/PeaZip",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

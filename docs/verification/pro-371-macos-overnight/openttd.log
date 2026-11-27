@@ -1,0 +1,46 @@
+ARTIFACT fbc8048714aae1199a9e444a469a0a75f7b5dcb5c43aaedfc91df12859cabe2a 14464742 https://cdn.openttd.org/openttd-releases/15.2/openttd-15.2-macos-universal.dmg
+BUNDLE=OpenTTD.app
+CFBundleIdentifier=org.openttd.openttd
+CFBundleShortVersionString=15.2
+CFBundleVersion=15.2
+CFBundleExecutable=openttd
+    minos 11.0
+Authority=Developer ID Application: OpenTTD Distribution Ltd (475CDUM4UL)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=475CDUM4UL
+source=Notarized Developer ID
+PASS PREFLIGHT openttd 15.2
+ARTIFACT 7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614 14459846 https://cdn.openttd.org/openttd-releases/15.3/openttd-15.3-macos-universal.dmg
+BUNDLE=OpenTTD.app
+CFBundleIdentifier=org.openttd.openttd
+CFBundleShortVersionString=15.3
+CFBundleVersion=15.3
+CFBundleExecutable=openttd
+    minos 11.0
+Authority=Developer ID Application: OpenTTD Distribution Ltd (475CDUM4UL)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=475CDUM4UL
+source=Notarized Developer ID
+PASS PREFLIGHT openttd 15.3
+PASS PREFLIGHT openttd 15.2
+PASS PREFLIGHT openttd 15.3
+/dev/disk3s5   239362496 175426724  22808300    89% 3247668 228083000    1%   /System/Volumes/Data
+OFFICIAL INDEX openttd 15.2 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX openttd 15.3 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 15.2 Dmg https://cdn.openttd.org/openttd-releases/15.2/openttd-15.2-macos-universal.dmg 14464742 fbc8048714aae1199a9e444a469a0a75f7b5dcb5c43aaedfc91df12859cabe2a
+PASS OFFICIAL 15.3 Dmg https://cdn.openttd.org/openttd-releases/15.3/openttd-15.3-macos-universal.dmg 14459846 7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614
+NATIVE ORIGIN openttd GitHub
+PASS OFFICIAL 15.2 Dmg https://cdn.openttd.org/openttd-releases/15.2/openttd-15.2-macos-universal.dmg 14464742 fbc8048714aae1199a9e444a469a0a75f7b5dcb5c43aaedfc91df12859cabe2a
+PASS NATIVE openttd install: OpenTTD installed: 15.2.0; package_bytes=14464742; elapsed=5.218s
+PASS CLI openttd -h: OpenTTD 15.2
+NATIVE ORIGIN openttd GitHub
+PASS OFFICIAL 15.3 Dmg https://cdn.openttd.org/openttd-releases/15.3/openttd-15.3-macos-universal.dmg 14459846 7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614
+PASS NATIVE openttd update: OpenTTD updated to 15.3.0; package_bytes=14459846; elapsed=6.257s
+PASS CLI openttd -h: OpenTTD 15.3
+PASS NATIVE openttd remove: OpenTTD was removed; package_bytes=0; elapsed=0.105s
+PASS NATIVE CYCLE openttd (15.2 → 15.3), private Trash and synthetic data preserved

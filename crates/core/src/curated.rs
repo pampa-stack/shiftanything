@@ -1938,6 +1938,27 @@ pub const MOONLIGHT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("45U78722YL"),
 };
 
+pub const OPENTTD: crate::CraftApp = crate::CraftApp {
+    id: "openttd",
+    name: "OpenTTD",
+    tagline: "Build and manage a transport network",
+    repo: "OpenTTD/OpenTTD",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [50, 132, 71],
+    ink_light: [36, 106, 59],
+    ink_dark: [141, 211, 147],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenTTD Distribution Ltd",
+    msi_publisher: None,
+    bundle: Some("org.openttd.openttd"),
+    site: Some("https://www.openttd.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("475CDUM4UL"),
+};
+
 pub const AIRI: crate::CraftApp = crate::CraftApp {
     id: "airi",
     name: "AIRI",
@@ -2148,7 +2169,7 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 91] = [
+pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2241,6 +2262,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 91] = [
     MOONLIGHT,
     SUNSHINE,
     AIRI,
+    OPENTTD,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

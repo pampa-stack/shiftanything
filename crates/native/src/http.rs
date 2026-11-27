@@ -606,9 +606,13 @@ impl Http {
         let agent = if is_loopback(url) { &self.direct_download } else { &self.download };
         let (physical, agent) = self.request(url, agent).map_err(AttemptError::Fatal)?;
         let mut req = agent.get(physical.as_ref()).header("Accept-Encoding", "identity");
-        if [artcraft_launcher_core::release::CALIBRE_DMG_URL, artcraft_launcher_core::release::ZOTERO_DMG_URL]
-            .iter()
-            .any(|prefix| url.starts_with(prefix))
+        if [
+            artcraft_launcher_core::release::CALIBRE_DMG_URL,
+            artcraft_launcher_core::release::OPENTTD_DMG_URL,
+            artcraft_launcher_core::release::ZOTERO_DMG_URL,
+        ]
+        .iter()
+        .any(|prefix| url.starts_with(prefix))
         {
             req = req.config().https_only(true).max_redirects(0).build();
         } else if url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {

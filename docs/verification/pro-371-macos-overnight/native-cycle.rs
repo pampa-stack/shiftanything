@@ -19,8 +19,8 @@ impl<'a> Package<'a> {
         Ok(Self { tag, name, size: size.parse().map_err(|_| "invalid official package size")?, digest, url })
     }
 
-    fn version(&self) -> &str {
-        self.tag.trim_start_matches('v')
+    fn version(&self) -> String {
+        artcraft_launcher_core::version::parse(self.tag).expect("canonical package tag").to_string()
     }
 
     fn assert_release(&self, id: &str, release: &Release) -> Result<(), String> {
@@ -83,7 +83,7 @@ fn main() -> Result<(), String> {
         || !parent.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("shift-air-overnight."))
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
-        || !["moonlight", "openpencil", "airi", "sunshine"].contains(&app.id)
+        || !["moonlight", "openpencil", "airi", "sunshine", "openttd"].contains(&app.id)
         || app.mac_team.is_none()
         || app.mac_bundle_name.unwrap_or(app.name) != app_name
     {

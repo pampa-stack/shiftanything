@@ -79,6 +79,7 @@ pub(crate) fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
 }
 
+pub const OPENTTD_DMG_URL: &str = "https://cdn.openttd.org/openttd-releases/";
 pub const CALIBRE_DMG_URL: &str = "https://download.calibre-ebook.com/";
 pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
 pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
@@ -505,8 +506,8 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                 .collect()
         })
         .unwrap_or_default();
-    // GitHub drops older Calibre binaries. Keep this recipe on the publisher's reviewed archive.
-    if repo == crate::curated::CALIBRE.repo {
+    // These publishers keep the reviewed macOS images in their own release archives.
+    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo].contains(&repo) {
         for asset in reviewed_assets(repo, &tag) {
             assets.retain(|other| other.name != asset.name);
             assets.push(asset);
@@ -913,6 +914,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPEN_WHISPR,
         crate::curated::SUNSHINE,
         crate::curated::AIRI,
+        crate::curated::OPENTTD,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -925,6 +927,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
             }
             let canonical_tag = if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
                 release.tag == format!("version_{version}")
+            } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
+                version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
@@ -1375,6 +1379,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("milind-soni/OpenMausBot", "v0.1.184") => {
             &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
         }
+        ("OpenTTD/OpenTTD", "15.2") => {
+            &[("openttd-15.2-macos-universal.dmg", 14_464_742, "fbc8048714aae1199a9e444a469a0a75f7b5dcb5c43aaedfc91df12859cabe2a")]
+        }
+        ("OpenTTD/OpenTTD", "15.3") => {
+            &[("openttd-15.3-macos-universal.dmg", 14_459_846, "7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614")]
+        }
         ("moeru-ai/airi", "v0.15.2") => {
             &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
         }
@@ -1626,6 +1636,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         size,
         url: if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else if repo == crate::curated::OPENTTD.repo {
+            format!("{OPENTTD_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::ZOTERO.repo {
             format!("{ZOTERO_DMG_URL}{tag}/{name}")
         } else {

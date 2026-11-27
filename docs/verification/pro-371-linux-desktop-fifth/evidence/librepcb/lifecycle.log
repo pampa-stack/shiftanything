@@ -1,0 +1,58 @@
+
+=== 2026-11-27T09:43:48+00:00 librepcb install ===
+librepcb before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+librepcb JobFinished: Ok("Flathub app installed")
+librepcb after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-librepcb-icon.png: PNG image data, 128 x 128, 8-bit/color RGBA, non-interlaced
+048945ac1ddbf205e37ad2cab50e843a86883469fc8a7a7b8e0665e5099405eb  /var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-librepcb-icon.png
+org.librepcb.LibrePCB/x86_64/stable	flathub	5936072c9616	user	2.1.1
+TIMING librepcb install 40848 ms
+
+=== 2026-11-27T09:44:29+00:00 librepcb prior ===
+Previous runtime org.kde.Platform/x86_64/6.10
+Updating app/org.librepcb.LibrePCB/x86_64/stable
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.librepcb.LibrePCB/x86_64/stable	flathub	e69ff1edbe92	user	2.1.0
+librepcb before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15", package: Some("org.librepcb.LibrePCB"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: false, can_open: true }
+librepcb JobFinished: Err("Approved action rejected: native installation state changed")
+librepcb JobFinished: Err("This Flatpak is managed outside the launcher")
+librepcb after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15", package: Some("org.librepcb.LibrePCB"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: false, can_open: true })
+TIMING librepcb prior 10239 ms
+
+=== 2026-11-27T09:44:39+00:00 librepcb open ===
+dbus-daemon[2534586]: [session uid=1000 pid=2534586 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2534616 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2534586]: [session uid=1000 pid=2534586 pidfd=5] Successfully activated service 'org.a11y.Bus'
+librepcb before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[2534630]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2535040 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2534630]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+librepcb JobFinished: Ok("Launch request accepted")
+librepcb after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true })
+TIMING librepcb open-previous 5598 ms
+TIMING librepcb open 10279 ms
+
+=== 2026-11-27T09:44:49+00:00 librepcb update-remove ===
+librepcb before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true }
+librepcb JobFinished: Ok("Flathub app updated")
+librepcb after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.1"), update_available: false, can_remove: true, can_open: true })
+TIMING librepcb update 7035 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/.var/app/org.librepcb.LibrePCB/shift-profile-marker: OK
+dbus-daemon[2535662]: [session uid=1000 pid=2535662 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2535691 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2535662]: [session uid=1000 pid=2535662 pidfd=5] Successfully activated service 'org.a11y.Bus'
+librepcb before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.1"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2535705]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2536076 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2535705]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+librepcb JobFinished: Ok("Launch request accepted")
+librepcb after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.1"), update_available: false, can_remove: true, can_open: true })
+TIMING librepcb open-current 5550 ms
+librepcb before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 1 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/data/flatpak/app/org.librepcb.LibrePCB/x86_64/stable/5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57", package: Some("org.librepcb.LibrePCB"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.1"), update_available: false, can_remove: true, can_open: true }
+librepcb JobFinished: Ok("Flathub app removed")
+librepcb after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING librepcb remove 4027 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/librepcb/home/.var/app/org.librepcb.LibrePCB/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING librepcb update-remove 20553 ms

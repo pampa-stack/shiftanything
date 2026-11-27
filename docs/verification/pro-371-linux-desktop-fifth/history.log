@@ -1,0 +1,323 @@
+3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a  /var/tmp/shift-flatpak-desktop.4s4sWfKW/flathub.flatpakrepo
+=== org.mozilla.firefox ===
+        ID: org.mozilla.firefox
+       Ref: app/org.mozilla.firefox/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 131.4 MB
+ Installed: 349.9 MB
+   Runtime: org.freedesktop.Platform/x86_64/25.08
+       Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+    Commit: b8dd418bd71860acb006d755db5b47184d7b88a6dea4f626dc52a1dc5f2dc96e
+    Parent: 3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-24 14:05:48 +0000
+   History:
+
+    Commit: 3ab15a895b6a9935e2cc33dd2771c600422ed3cfa153bcadf8c60dff5b8f41fc
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-17 14:07:05 +0000
+
+    Commit: 6e1de891c7933f796cb8ad8091dfa2d75b5e975db5602d76999351fd623b0ebd
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-10 13:37:15 +0000
+
+    Commit: df51b8005c4cd8f1e185d98ec86d15151ac35a453413e4629c2e46691015b207
+   Subject: Export org.mozilla.firefox
+      Date: 2026-11-03 14:07:49 +0000
+
+    Commit: 829e35ba8714341c76f9c5a6a3af90de611fb275b4710fbdda0684b0e587a41a
+   Subject: Export org.mozilla.firefox
+=== org.kde.gcompris ===
+        ID: org.kde.gcompris
+       Ref: app/org.kde.gcompris/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 60.7 MB
+ Installed: 95.6 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08
+    Parent: e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d
+   Subject: gcompris: Update gcompris-qt-26.1.tar.xz to 26.2 (fcc0ce07dbae)
+      Date: 2026-09-28 07:54:23 +0000
+   History:
+
+    Commit: e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d
+   Subject: Add CODEOWNERS (93417e60aff4)
+      Date: 2026-07-26 09:36:39 +0000
+
+    Commit: 56884597e0c88c7707009efb816c23e2fa1a63194a228688b1d00cefa7e1c6a1
+   Subject: Remove QtGraphs as it is now in the runtime (3a283cd6594d)
+      Date: 2026-07-22 18:42:57 +0000
+
+    Commit: 8706c58a281d718087ee90b45c9fde4f2b2508cb2a4e07f960f78b8cded250ae
+   Subject: Merge pull request #42 from flathub/update-master-3871407 (2430001a4736)
+      Date: 2026-03-12 14:44:03 +0000
+
+=== org.gnome.SimpleScan ===
+        ID: org.gnome.SimpleScan
+       Ref: app/org.gnome.SimpleScan/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 19.6 MB
+ Installed: 48.5 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75
+    Parent: 11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe
+   Subject: Merge pull request #65 from flathub/update-master-5339c06 (d806efd7f50f)
+      Date: 2026-05-02 19:10:08 +0000
+   History:
+
+    Commit: 11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe
+   Subject: remove unused submodule "shared-modules" (efc4007bf975)
+      Date: 2025-10-29 18:23:23 +0000
+
+    Commit: 56acdf173fc9178d34acbc2c0a153ba283c00359165994d29a91634024dbc4d0
+   Subject: Merge pull request #56 from xanscale/gnome49 (8fe5d04dd89d)
+      Date: 2025-10-22 12:37:11 +0000
+
+    Commit: acc76dd9bfd26eb3c1f69d3bcac4ecc791194ce1c01bc20c32779dba6612aada
+   Subject: Merge pull request #57 from flathub/update-master-6cc8b2c (66d9f00b2e96)
+      Date: 2025-10-18 06:16:47 +0000
+
+=== org.gnome.clocks ===
+        ID: org.gnome.clocks
+       Ref: app/org.gnome.clocks/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 3.7 MB
+ Installed: 7.7 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: 4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519
+    Parent: 3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809
+   Subject: Merge pull request #66 from flathub/update-master-f1f14c0 (4112a21b74f6)
+      Date: 2026-09-17 15:13:58 +0000
+   History:
+
+    Commit: 3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809
+   Subject: Merge pull request #62 from A6GibKm/50.beta (4757a3b73ad6)
+      Date: 2026-03-18 18:49:59 +0000
+
+    Commit: 9c74d82314ec8671fa7e8fa4538d95de7c63b40688d518846de582cb574d7c03
+   Subject: Merge pull request #61 from A6GibKm/gnome-desktop-44.5 (47b7535852bf)
+      Date: 2026-02-28 15:12:45 +0000
+
+    Commit: 6673b4ee614ccc3cc832d76d0fc1e10126d38411ac0bfe2cc258b8bcd4399f0a
+   Subject: Merge pull request #59 from flathub/yakushabb-patch-1 (7059b30a07ce)
+      Date: 2026-02-04 19:29:36 +0000
+
+=== io.github.CyberTimon.RapidRAW ===
+        ID: io.github.CyberTimon.RapidRAW
+       Ref: app/io.github.CyberTimon.RapidRAW/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 43.6 MB
+ Installed: 100.6 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: d509a0946323da68d5e3841b447772f77ad841a25deae1e9e1fe4ebd29599958
+    Parent: 6c818fa72b9a9c1c053e02f45e9e3d0980f4a8e864932802b9dd9801cd6747dd
+   Subject: Merge pull request #67 from flathub/update-master-9faea44 (3d5874b90ebe)
+      Date: 2026-11-22 23:05:20 +0000
+   History:
+
+    Commit: 6c818fa72b9a9c1c053e02f45e9e3d0980f4a8e864932802b9dd9801cd6747dd
+   Subject: Merge pull request #66 from flathub/update-master-82de312 (b0bc17dd7d5c)
+      Date: 2026-11-15 22:34:54 +0000
+
+    Commit: c097ba02636be247ba1a6996d994090f2e1003f38478fad2b550027a15952470
+   Subject: Merge pull request #63 from flathub/update-master-d1ae309 (903c5eb68876)
+      Date: 2026-11-08 00:46:36 +0000
+
+    Commit: fceee7bb28eff4b2fad7ae73787d765a795e94782c386905c0aacbeff427c34a
+   Subject: Merge pull request #62 from flathub/update-master-30b5ede (8078ae60512d)
+      Date: 2026-10-25 16:40:00 +0000
+
+    Commit: 7faf4540f3853d3414eb9100db406a45773d134b8a7e06eafba17800d4658dd9
+   Subject: Merge pull request #61 from flathub/update-master-d8b4592 (dbe0b85e37a6)
+=== org.gnome.gitlab.somas.Apostrophe ===
+        ID: org.gnome.gitlab.somas.Apostrophe
+       Ref: app/org.gnome.gitlab.somas.Apostrophe/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 90.0 MB
+ Installed: 270.9 MB
+   Runtime: org.gnome.Platform/x86_64/51
+       Sdk: org.gnome.Sdk/x86_64/51
+
+    Commit: eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a
+    Parent: 522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c
+   Subject: Merge pull request #84 from flathub/v3.5 (e65c8b438cb2)
+      Date: 2026-10-08 17:59:39 +0000
+   History:
+
+    Commit: 522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c
+   Subject: Merge pull request #80 from flathub/improve-fedc (bf4f3be39277)
+      Date: 2026-05-18 21:00:50 +0000
+
+    Commit: da11b3a1e7b206c2d99bf90d36099d71d86e338779124a9d52e6168834925034
+   Subject: Merge pull request #63 from flathub/v3.4 (1642028c3a81)
+      Date: 2025-09-29 22:08:50 +0000
+
+    Commit: cb84bd856e525f338e92e7e1398c9b8d54fdb80870f45471ccf86bdaacfbfd27
+   Subject: Merge pull request #57 from flathub/somas95-patch-4 (9bd5bc4c4af2)
+      Date: 2025-09-11 08:17:56 +0000
+
+=== org.librepcb.LibrePCB ===
+        ID: org.librepcb.LibrePCB
+       Ref: app/org.librepcb.LibrePCB/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 65.0 MB
+ Installed: 169.9 MB
+   Runtime: org.kde.Platform/x86_64/6.10
+       Sdk: org.kde.Sdk/x86_64/6.10
+
+    Commit: 5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57
+    Parent: e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15
+   Subject: librepcb: Update LibrePCB to 2.1.1 (#59) (3bf2587a9355)
+      Date: 2026-06-12 19:45:47 +0000
+   History:
+
+    Commit: e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15
+   Subject: Update to LibrePCB 2.1.0 (#55) (74615264812f)
+      Date: 2026-05-19 16:27:05 +0000
+
+    Commit: be757b08a968ca182b929d5637001b76694d38b1bb6607ee6db2e5457331e109
+   Subject: Merge pull request #48 from flathub/master-2.0.1 (f36d2ee82575)
+      Date: 2026-02-25 13:32:39 +0000
+
+    Commit: 4408a4c7fb668cc8883d559f644f909a99dac843e63a938c0ce9196b8325939e
+   Subject: Update to LibrePCB 2.0.0 (#45) (13300cd92bce)
+      Date: 2026-01-28 17:46:46 +0000
+
+=== com.vscodium.codium ===
+        ID: com.vscodium.codium
+       Ref: app/com.vscodium.codium/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 220.8 MB
+ Installed: 637.0 MB
+   Runtime: org.freedesktop.Sdk/x86_64/26.08
+       Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+    Commit: b63788f25cee55b738d5aa6df3b864c237bda087ce0ee43e803e5a7b207a25ab
+    Parent: bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+   Subject: fix: :fire: Remove extension fixed version (b8504c8266f7)
+      Date: 2026-11-10 22:28:32 +0000
+   History:
+
+    Commit: bdf75afd9a0cbd14a12e0dfa9a68904e67b2176e400b2be339a083bf84b3c574
+   Subject: chore: :tada: Update vscodium v1.140.06880 (8225f3649031)
+      Date: 2026-10-14 16:30:54 +0000
+
+    Commit: b62989bf713784b33f6eac8fa7772ce6ccdc8bd3b9f25d862eef69956e591a98
+   Subject: chore: :tada: Update VSCodium v1.135.06055 (97ac965c6ed7)
+      Date: 2026-09-10 22:40:24 +0000
+
+    Commit: af803cf102996f7f250ee90983eac1c5f2c1260c7dae3acf33b7ac78b35b05f0
+   Subject: chore: :tada: Update vscodium v1.126.04524 (3b24dc17c072)
+      Date: 2026-08-04 23:51:10 +0000
+
+=== org.kde.subtitlecomposer ===
+        ID: org.kde.subtitlecomposer
+       Ref: app/org.kde.subtitlecomposer/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 2.5 MB
+ Installed: 4.8 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 1d3c7467ecdd649f676b8c456504d50c6fd002687fb1f4012f5dad9302f753da
+    Parent: 90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7
+   Subject: Update to KDE Runtime 6.11 (3626aa7177a4)
+      Date: 2026-11-13 10:27:15 +0000
+   History:
+
+    Commit: 90a931ec31812043f9bbc53d60da5679580414d951548bb7238c017f39affbe7
+   Subject: Merge pull request #30 from flathub/6.10-runtime (174b969c5e0e)
+      Date: 2025-12-11 17:15:19 +0000
+
+    Commit: 0e6db6568430f2cadf2634dfa69de79dcf0203f211c94c3451e2201e602e8fff
+   Subject: Merge pull request #22 from Erick555/patch-1 (89d53c530054)
+      Date: 2025-09-15 18:13:52 +0000
+
+    Commit: ec076c3b8f56fcc8f1d697f90bd4ac96ce86d0039dfba2e14f0b1acb1baf8bdc
+   Subject: Update to KDE Runtime 6.7 (cd603115)
+      Date: 2024-07-09 12:24:27 +0000
+
+=== org.gnome.Fractal ===
+        ID: org.gnome.Fractal
+       Ref: app/org.gnome.Fractal/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 31.2 MB
+ Installed: 79.7 MB
+   Runtime: org.gnome.Platform/x86_64/50
+       Sdk: org.gnome.Sdk/x86_64/50
+
+    Commit: 08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb
+    Parent: 079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42
+   Subject: Fractal 14.3 (bb3847d0ecca)
+      Date: 2026-10-26 16:17:26 +0000
+   History:
+
+    Commit: 079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42
+   Subject: Fractal 14.2 (29ab50c38354)
+      Date: 2026-10-21 15:49:05 +0000
+
+    Commit: be6bc4ab095c275998efad5b3538907f957b2b3833e6c3735d7351f69b010bf2
+   Subject: Fractal 14.1 (2ce7fee40880)
+      Date: 2026-07-19 09:17:05 +0000
+
+    Commit: a2ca847d1ec03f2cd940dd44bf9139d853c17db49b389be324b47ae57be44ff6
+   Subject: Fractal 14 (b5c726c42f4a)
+      Date: 2026-06-12 12:05:01 +0000
+
+=== org.kde.neochat ===
+        ID: org.kde.neochat
+       Ref: app/org.kde.neochat/x86_64/stable
+      Arch: x86_64
+    Branch: stable
+Collection: org.flathub.Stable
+  Download: 7.6 MB
+ Installed: 19.6 MB
+   Runtime: org.kde.Platform/x86_64/6.11
+       Sdk: org.kde.Sdk/x86_64/6.11
+
+    Commit: 199582ed86f037dfd621bf9cfd840928f72b976ad051163ff318bf900974592b
+    Parent: 27542e98b2f82f332f35e94a2cfe1b04611541ba054dc0ed8514d5b836d722ed
+   Subject: Update to KDE Runtime 6.11 (bd2910e730ae)
+      Date: 2026-11-13 10:41:53 +0000
+   History:
+
+    Commit: 27542e98b2f82f332f35e94a2cfe1b04611541ba054dc0ed8514d5b836d722ed
+   Subject: Update kunifiedpush and neochat modules (0745d7ad1ccb)
+      Date: 2026-11-05 21:01:45 +0000
+
+    Commit: 1b2143c865f1482903530ff99c15d57f2e7a727a968ac3b09da3b6793629e79c
+   Subject: Update kunifiedpush and neochat modules (1c9b12754dca)
+      Date: 2026-10-22 20:38:54 +0000
+
+    Commit: 43774625f51f5b1bb5c5c6181e91f7acc889d80f6339812dcaadedcf95125e09
+   Subject: Update kunifiedpush and neochat modules (b20c10c5163f)
+      Date: 2026-09-10 23:23:12 +0000

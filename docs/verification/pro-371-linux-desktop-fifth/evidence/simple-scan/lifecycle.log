@@ -1,0 +1,58 @@
+
+=== 2026-11-27T09:40:18+00:00 simple-scan install ===
+simple-scan before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+simple-scan JobFinished: Ok("Flathub app installed")
+simple-scan after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-simple-scan-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (1261)
+24b5ecf5fea25c20af656d97cf949920da5423ca5ae415a83ea3bac68f0a293a  /var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-simple-scan-icon.svg
+org.gnome.SimpleScan/x86_64/stable	flathub	03a3320a68af	user	50.0
+TIMING simple-scan install 39124 ms
+
+=== 2026-11-27T09:40:57+00:00 simple-scan prior ===
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Previous runtime org.gnome.Platform/x86_64/49
+Updating app/org.gnome.SimpleScan/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.SimpleScan/x86_64/stable	flathub	11dcd294c0a6	user	49.1
+simple-scan before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe", package: Some("org.gnome.SimpleScan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: false, can_remove: false, can_open: true }
+simple-scan JobFinished: Err("Approved action rejected: native installation state changed")
+simple-scan JobFinished: Err("This Flatpak is managed outside the launcher")
+simple-scan after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe", package: Some("org.gnome.SimpleScan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: false, can_remove: false, can_open: true })
+TIMING simple-scan prior 26793 ms
+
+=== 2026-11-27T09:41:24+00:00 simple-scan open ===
+dbus-daemon[2520866]: [session uid=1000 pid=2520866 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2520937 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2520866]: [session uid=1000 pid=2520866 pidfd=5] Successfully activated service 'org.a11y.Bus'
+simple-scan before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[2521018]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2521631 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2521018]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+simple-scan JobFinished: Ok("Launch request accepted")
+simple-scan after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true })
+TIMING simple-scan open-previous 5475 ms
+TIMING simple-scan open 9655 ms
+
+=== 2026-11-27T09:41:33+00:00 simple-scan update-remove ===
+simple-scan before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true }
+simple-scan JobFinished: Ok("Flathub app updated")
+simple-scan after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+TIMING simple-scan update 5219 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/.var/app/org.gnome.SimpleScan/shift-profile-marker: OK
+dbus-daemon[2523252]: [session uid=1000 pid=2523252 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2523337 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2523252]: [session uid=1000 pid=2523252 pidfd=5] Successfully activated service 'org.a11y.Bus'
+simple-scan before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2523422]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2523899 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2523422]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+simple-scan JobFinished: Ok("Launch request accepted")
+simple-scan after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+TIMING simple-scan open-current 5479 ms
+simple-scan before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/data/flatpak/app/org.gnome.SimpleScan/x86_64/stable/03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75", package: Some("org.gnome.SimpleScan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true }
+simple-scan JobFinished: Ok("Flathub app removed")
+simple-scan after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING simple-scan remove 3922 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/simple-scan/home/.var/app/org.gnome.SimpleScan/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING simple-scan update-remove 19044 ms

@@ -1,0 +1,61 @@
+
+=== 2026-11-27T09:38:39+00:00 gnome-clocks install ===
+gnome-clocks before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnome-clocks JobFinished: Ok("Flathub app installed")
+gnome-clocks after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-gnome-clocks-icon.svg: SVG Scalable Vector Graphics image, ASCII text, with very long lines (1221)
+3a0d7d7ee0d58457b2cd2aedab11b5e3da8822efed0cbd5602c3aad13efaaeec  /var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-gnome-clocks-icon.svg
+org.gnome.clocks/x86_64/stable	flathub	4facc20158d9	user	51.0
+TIMING gnome-clocks install 38065 ms
+
+=== 2026-11-27T09:39:17+00:00 gnome-clocks prior ===
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Previous runtime org.gnome.Platform/x86_64/50
+Updating app/org.gnome.clocks/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.gnome.clocks/x86_64/stable	flathub	3acf5d86824f	user	50.0
+gnome-clocks before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809", package: Some("org.gnome.clocks"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true }
+gnome-clocks JobFinished: Err("Approved action rejected: native installation state changed")
+gnome-clocks JobFinished: Err("This Flatpak is managed outside the launcher")
+gnome-clocks after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809", package: Some("org.gnome.clocks"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: false, can_open: true })
+TIMING gnome-clocks prior 30619 ms
+
+=== 2026-11-27T09:39:48+00:00 gnome-clocks open ===
+dbus-daemon[2512191]: [session uid=1000 pid=2512191 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2512225 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2512191]: [session uid=1000 pid=2512191 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gnome-clocks before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[2512239]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2512777 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2512239]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gnome-clocks JobFinished: Ok("Launch request accepted")
+gnome-clocks after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true })
+TIMING gnome-clocks open-previous 5682 ms
+TIMING gnome-clocks open 7306 ms
+
+=== 2026-11-27T09:39:55+00:00 gnome-clocks update-remove ===
+gnome-clocks before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: true, can_remove: true, can_open: true }
+gnome-clocks JobFinished: Ok("Flathub app updated")
+gnome-clocks after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+TIMING gnome-clocks update 3836 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/.var/app/org.gnome.clocks/shift-profile-marker: OK
+dbus-daemon[2513920]: [session uid=1000 pid=2513920 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2513961 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2513920]: [session uid=1000 pid=2513920 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gnome-clocks before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2514007]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2514523 comm="xdg-dbus-proxy --args=69" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2514007]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gnome-clocks JobFinished: Ok("Launch request accepted")
+gnome-clocks after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true })
+TIMING gnome-clocks open-current 5386 ms
+gnome-clocks before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 51, minor: 0, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/data/flatpak/app/org.gnome.clocks/x86_64/stable/4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519", package: Some("org.gnome.clocks"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("51.0"), update_available: false, can_remove: true, can_open: true }
+gnome-clocks JobFinished: Ok("Flathub app removed")
+gnome-clocks after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING gnome-clocks remove 3203 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/gnome-clocks/home/.var/app/org.gnome.clocks/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING gnome-clocks update-remove 15471 ms

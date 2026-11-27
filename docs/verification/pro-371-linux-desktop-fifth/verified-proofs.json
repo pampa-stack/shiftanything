@@ -1,0 +1,245 @@
+[
+  {
+    "id": "gcompris",
+    "name": "GCompris",
+    "repo": "https://invent.kde.org/education/gcompris",
+    "license": "AGPL-3.0",
+    "stars": null,
+    "flatpak": "org.kde.gcompris",
+    "flathub": "https://flathub.org/apps/org.kde.gcompris",
+    "download_size": 60678722,
+    "logo": "https://dl.flathub.org/media/org/kde/gcompris/6b4a73b3e227329bd88ac50017e42bbb/icons/128x128/org.kde.gcompris.png",
+    "title": "gcompris",
+    "verification": {
+      "login_is_organization": true,
+      "login_name": "teams/flathub",
+      "timestamp": "1681471941",
+      "login_provider": "kde",
+      "verified": true,
+      "website": null,
+      "method": "login_provider"
+    },
+    "display_versions": [
+      "26.2",
+      "26.1"
+    ],
+    "metadata_urls": {
+      "translate": "https://invent.kde.org/education/gcompris/-/wikis/Developers-corner/How-to-translate",
+      "vcs_browser": "https://invent.kde.org/education/gcompris",
+      "bugtracker": "https://bugs.kde.org/enter_bug.cgi?format=guided&product=gcompris",
+      "homepage": "https://gcompris.net/",
+      "help": "https://docs.kde.org/?application=gcompris",
+      "donation": "https://gcompris.net/donate-en.html"
+    },
+    "current": "312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08",
+    "prev": "e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d",
+    "previous_version": "26.1",
+    "current_version": "26.2",
+    "times_ms": {
+      "install": 42137,
+      "prior": 5074,
+      "open-previous": 12511,
+      "open": 13409,
+      "update": 5423,
+      "open-current": 11845,
+      "remove": 4119,
+      "update-remove": 22816
+    },
+    "cycle_ms": 83352
+  },
+  {
+    "id": "simple-scan",
+    "name": "Simple Scan",
+    "repo": "https://gitlab.gnome.org/GNOME/simple-scan",
+    "license": "GPL-3.0+",
+    "stars": null,
+    "flatpak": "org.gnome.SimpleScan",
+    "flathub": "https://flathub.org/apps/org.gnome.SimpleScan",
+    "download_size": 19628153,
+    "logo": "https://dl.flathub.org/media/org/gnome/SimpleScan/247bcd8adbcba10aac970eeb3faf2b4b/icons/128x128/org.gnome.SimpleScan.png",
+    "title": "document scanner|simple scan",
+    "verification": {
+      "login_name": null,
+      "website": "gnome.org",
+      "login_provider": null,
+      "timestamp": "1713434161",
+      "verified": true,
+      "method": "website",
+      "login_is_organization": false
+    },
+    "display_versions": [
+      "50.0",
+      "49.0"
+    ],
+    "metadata_urls": {
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/simple-scan/",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/simple-scan",
+      "bugtracker": "https://gitlab.gnome.org/GNOME/simple-scan/issues",
+      "homepage": "https://apps.gnome.org/SimpleScan/"
+    },
+    "current": "03a3320a68af5423ec6e18967906f8e7942057e159f554ced7e5d065c18b0d75",
+    "prev": "11dcd294c0a6ed800d0b21bffbbe3f8030bcf4a7165051610ee421b6c44363fe",
+    "previous_version": "49.1",
+    "current_version": "50.0",
+    "times_ms": {
+      "install": 39124,
+      "prior": 26793,
+      "open-previous": 5475,
+      "open": 9655,
+      "update": 5219,
+      "open-current": 5479,
+      "remove": 3922,
+      "update-remove": 19044
+    },
+    "cycle_ms": 94667
+  },
+  {
+    "id": "gnome-clocks",
+    "name": "GNOME Clocks",
+    "repo": "https://gitlab.gnome.org/GNOME/gnome-clocks",
+    "license": "GPL-2.0-or-later",
+    "stars": null,
+    "flatpak": "org.gnome.clocks",
+    "flathub": "https://flathub.org/apps/org.gnome.clocks",
+    "download_size": 3731639,
+    "logo": "https://dl.flathub.org/media/org/gnome/clocks/cf1afae44c663bad86644cdb9a4cf331/icons/128x128/org.gnome.clocks.png",
+    "title": "clocks|clock",
+    "verification": {
+      "login_is_organization": false,
+      "verified": true,
+      "method": "website",
+      "timestamp": "1713434449",
+      "login_name": null,
+      "login_provider": null,
+      "website": "gnome.org"
+    },
+    "display_versions": [
+      "51.0",
+      "50.0"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/GNOME/gnome-clocks/issues",
+      "homepage": "https://apps.gnome.org/Clocks/",
+      "help": "https://help.gnome.org/users/gnome-clocks/stable/",
+      "donation": "https://www.gnome.org/donate/",
+      "translate": "https://l10n.gnome.org/module/gnome-clocks/",
+      "contact": "https://matrix.to/#/#clocks:gnome.org",
+      "vcs_browser": "https://gitlab.gnome.org/GNOME/gnome-clocks",
+      "contribute": "https://welcome.gnome.org/app/Clocks/"
+    },
+    "current": "4facc20158d901c62d8e68b2cbf1b52c0577c2497c348eb1512c9d7cfee0a519",
+    "prev": "3acf5d86824f9fca00a06546a62bdc2968a6d133603bfbfab12420df868b0809",
+    "previous_version": "50.0",
+    "current_version": "51.0",
+    "times_ms": {
+      "install": 38065,
+      "prior": 30619,
+      "open-previous": 5682,
+      "open": 7306,
+      "update": 3836,
+      "open-current": 5386,
+      "remove": 3203,
+      "update-remove": 15471
+    },
+    "cycle_ms": 91579
+  },
+  {
+    "id": "apostrophe",
+    "name": "Apostrophe",
+    "repo": "https://gitlab.gnome.org/World/apostrophe",
+    "license": "GPL-3.0+",
+    "stars": null,
+    "flatpak": "org.gnome.gitlab.somas.Apostrophe",
+    "flathub": "https://flathub.org/apps/org.gnome.gitlab.somas.Apostrophe",
+    "download_size": 89981986,
+    "logo": "https://dl.flathub.org/media/org/gnome/gitlab.somas.Apostrophe/baebad421be7166f7c9deaf43a1cd2e7/icons/128x128/org.gnome.gitlab.somas.Apostrophe.png",
+    "title": "apostrophe",
+    "verification": {
+      "verified": true,
+      "method": "login_provider",
+      "login_name": "somas",
+      "login_provider": "gnome",
+      "timestamp": "1711925133",
+      "login_is_organization": false
+    },
+    "display_versions": [
+      "3.5",
+      "3.4"
+    ],
+    "metadata_urls": {
+      "bugtracker": "https://gitlab.gnome.org/World/apostrophe/-/issues",
+      "homepage": "https://apps.gnome.org/Apostrophe/",
+      "help": "https://gitlab.gnome.org/World/apostrophe/",
+      "donation": "https://www.paypal.me/manuelgenoves",
+      "translate": "https://l10n.gnome.org/module/apostrophe/",
+      "vcs_browser": "https://gitlab.gnome.org/World/apostrophe/"
+    },
+    "current": "eebf714c88801c14b0c5bd343088f8a6cbadad29de22c61d345a7a47c795917a",
+    "prev": "522ff389b5bf48c4fc4f825ba1c9a7cab797d23f851e2d777db0db9339b1817c",
+    "previous_version": "3.4",
+    "current_version": "3.5",
+    "times_ms": {
+      "install": 38400,
+      "prior": 37430,
+      "open-previous": 6116,
+      "open": 7417,
+      "update": 9541,
+      "open-current": 7384,
+      "remove": 5124,
+      "update-remove": 23873
+    },
+    "cycle_ms": 107193
+  },
+  {
+    "id": "librepcb",
+    "name": "LibrePCB",
+    "repo": "https://github.com/LibrePCB/LibrePCB",
+    "license": "GPL-3.0",
+    "stars": 3067,
+    "flatpak": "org.librepcb.LibrePCB",
+    "flathub": "https://flathub.org/apps/org.librepcb.LibrePCB",
+    "download_size": 64968151,
+    "logo": "https://dl.flathub.org/media/org/librepcb/LibrePCB/af8c7f0c78768d77739b59d6bc893a2f/icons/128x128/org.librepcb.LibrePCB.png",
+    "title": "librepcb",
+    "verification": {
+      "login_is_organization": false,
+      "verified": true,
+      "method": "website",
+      "login_name": null,
+      "login_provider": null,
+      "website": "librepcb.org",
+      "timestamp": "1693421933"
+    },
+    "display_versions": [
+      "2.1.1",
+      "2.1.0"
+    ],
+    "metadata_urls": {
+      "contact": "https://librepcb.org/contact/",
+      "vcs_browser": "https://github.com/LibrePCB/LibrePCB",
+      "contribute": "https://librepcb.org/contribute/",
+      "bugtracker": "https://github.com/LibrePCB/LibrePCB/issues",
+      "homepage": "https://librepcb.org",
+      "help": "https://librepcb.org/docs/",
+      "donation": "https://librepcb.org/donate/",
+      "translate": "https://explore.transifex.com/librepcb/librepcb-application/",
+      "faq": "https://librepcb.org/faq/"
+    },
+    "current": "5936072c96166a1c5b05d1a45c2ee8eaf24e7e19e4628ec813e11736b3b86b57",
+    "prev": "e69ff1edbe92820e4c06cd2eb74fcc9c914647d1335ae4854227cf0fb206cb15",
+    "previous_version": "2.1.0",
+    "current_version": "2.1.1",
+    "times_ms": {
+      "install": 40848,
+      "prior": 10239,
+      "open-previous": 5598,
+      "open": 10279,
+      "update": 7035,
+      "open-current": 5550,
+      "remove": 4027,
+      "update-remove": 20553
+    },
+    "cycle_ms": 82140
+  }
+]

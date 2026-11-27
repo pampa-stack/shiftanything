@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 42] = [
+pub const RECIPES: [(&str, &str); 47] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -44,6 +44,11 @@ pub const RECIPES: [(&str, &str); 42] = [
     ("glaxnimate", "org.kde.glaxnimate"),
     ("evolution", "org.gnome.Evolution"),
     ("freac", "org.freac.freac"),
+    ("gcompris", "org.kde.gcompris"),
+    ("simple-scan", "org.gnome.SimpleScan"),
+    ("gnome-clocks", "org.gnome.clocks"),
+    ("apostrophe", "org.gnome.gitlab.somas.Apostrophe"),
+    ("librepcb", "org.librepcb.LibrePCB"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -104,6 +109,11 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "glaxnimate" => "https://invent.kde.org/graphics/glaxnimate",
         "evolution" => "https://gitlab.gnome.org/GNOME/evolution",
         "freac" => "https://github.com/enzo1982/freac",
+        "gcompris" => "https://invent.kde.org/education/gcompris",
+        "simple-scan" => "https://gitlab.gnome.org/GNOME/simple-scan",
+        "gnome-clocks" => "https://gitlab.gnome.org/GNOME/gnome-clocks",
+        "apostrophe" => "https://gitlab.gnome.org/World/apostrophe",
+        "librepcb" => "https://github.com/LibrePCB/LibrePCB",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

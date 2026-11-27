@@ -1,0 +1,56 @@
+
+=== 2026-11-27T09:46:06+00:00 gcompris install ===
+gcompris before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gcompris JobFinished: Ok("Flathub app installed")
+gcompris after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-gcompris-icon.svg: SVG Scalable Vector Graphics image, Unicode text, UTF-8 text, with very long lines (17794), with no line terminators
+d9b21308ee95e47c6762007075510fb2c4450f79fa38643960e3fa5625bb3351  /var/tmp/shift-flatpak-desktop.4s4sWfKW/evidence/native-gcompris-icon.svg
+org.kde.gcompris/x86_64/stable	flathub	312e00eb0afe	user	26.2
+TIMING gcompris install 42137 ms
+
+=== 2026-11-27T09:46:48+00:00 gcompris prior ===
+Previous runtime org.kde.Platform/x86_64/6.11
+Updating app/org.kde.gcompris/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+org.kde.gcompris/x86_64/stable	flathub	e605435a769c	user	26.1
+gcompris before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d", package: Some("org.kde.gcompris"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.1"), update_available: false, can_remove: false, can_open: true }
+gcompris JobFinished: Err("Approved action rejected: native installation state changed")
+gcompris JobFinished: Err("This Flatpak is managed outside the launcher")
+gcompris after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d", package: Some("org.kde.gcompris"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.1"), update_available: false, can_remove: false, can_open: true })
+TIMING gcompris prior 5074 ms
+
+=== 2026-11-27T09:46:53+00:00 gcompris open ===
+dbus-daemon[2543437]: [session uid=1000 pid=2543437 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2543468 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2543437]: [session uid=1000 pid=2543437 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gcompris before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[2543487]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2544180 comm="xdg-dbus-proxy --args=67" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2543487]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gcompris JobFinished: Ok("Launch request accepted")
+gcompris after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.1"), update_available: true, can_remove: true, can_open: true })
+TIMING gcompris open-previous 12511 ms
+TIMING gcompris open 13409 ms
+
+=== 2026-11-27T09:47:06+00:00 gcompris update-remove ===
+gcompris before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 1, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/e605435a769c79197a5bae4f457720e3189ae655081f8894efca389453e6ae8d", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.1"), update_available: true, can_remove: true, can_open: true }
+gcompris JobFinished: Ok("Flathub app updated")
+gcompris after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.2"), update_available: false, can_remove: true, can_open: true })
+TIMING gcompris update 5423 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/.var/app/org.kde.gcompris/shift-profile-marker: OK
+dbus-daemon[2545696]: [session uid=1000 pid=2545696 pidfd=5] Activating service name='org.a11y.Bus' requested by ':1.4' (uid=1000 pid=2545725 comm="/var/tmp/shift-tauri-flathub.ysriyaXg/sysroot/usr/" label="unconfined")
+dbus-daemon[2545696]: [session uid=1000 pid=2545696 pidfd=5] Successfully activated service 'org.a11y.Bus'
+gcompris before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.2"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[2545765]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=1000 pid=2546489 comm="xdg-dbus-proxy --args=68" label="bwrap//&unpriv_bwrap (enforce)")
+dbus-daemon[2545765]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+gcompris JobFinished: Ok("Launch request accepted")
+gcompris after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.2"), update_available: false, can_remove: true, can_open: true })
+TIMING gcompris open-current 11845 ms
+gcompris before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 2, patch: 0 }), source: Flatpak, location: "/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/data/flatpak/app/org.kde.gcompris/x86_64/stable/312e00eb0afe2cca5073759693de470eadf0e39b448c9cded715ee7269ba1e08", package: Some("org.kde.gcompris"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.2"), update_available: false, can_remove: true, can_open: true }
+gcompris JobFinished: Ok("Flathub app removed")
+gcompris after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+TIMING gcompris remove 4119 ms
+/var/tmp/shift-flatpak-desktop.4s4sWfKW/gcompris/home/.var/app/org.kde.gcompris/shift-profile-marker: OK
+PASS native install, open, update, remove, persisted ownership and profile data
+TIMING gcompris update-remove 22816 ms

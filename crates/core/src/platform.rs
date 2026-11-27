@@ -143,16 +143,15 @@ impl Platform {
         }
     }
 
-    /// Asset platform tokens to try, best first. Windows on ARM and 64-bit Windows can fall back
-    /// to emulated builds; macOS prefers universal, then native builds. Apple silicon can fall
-    /// back to Intel builds, but Intel Macs cannot run ARM builds.
+    /// Asset platform tokens to try, best first. Windows can fall back to emulated builds.
+    /// macOS prefers universal builds and only accepts packages with code for the current CPU.
     fn tokens(self) -> &'static [&'static str] {
         match (self.os, self.arch) {
             (Os::Windows, Arch::X64) => &["windows-x64", "windows-x86"],
             (Os::Windows, Arch::X86) => &["windows-x86"],
             (Os::Windows, Arch::Arm64) => &["windows-arm64", "windows-x64", "windows-x86"],
             (Os::MacOs, Arch::X64) => &["macos-universal", "macos-x86_64"],
-            (Os::MacOs, Arch::Arm64) => &["macos-universal", "macos-aarch64", "macos-arm64", "macos-x86_64"],
+            (Os::MacOs, Arch::Arm64) => &["macos-universal", "macos-aarch64", "macos-arm64"],
             (Os::Linux, Arch::X64) => &["linux-x86_64"],
             (Os::Linux, Arch::Arm64) => &["linux-aarch64"],
             (Os::Linux, Arch::Riscv64) => &["linux-riscv64"],
@@ -890,15 +889,12 @@ mod tests {
     }
 
     #[test]
-    fn apple_silicon_keeps_the_intel_fallback() {
+    fn apple_silicon_rejects_an_intel_only_release() {
         let r = release(&["photocraft-0.5.0-macos-x86_64.dmg"]);
-        assert_eq!(
-            pick_asset(&r, &["photocraft"], Platform { os: Os::MacOs, arch: Arch::Arm64 }, &[PackageKind::Dmg]).map(|(a, _)| a.name.as_str()),
-            Some("photocraft-0.5.0-macos-x86_64.dmg")
-        );
-        for arch in [Arch::X86, Arch::Riscv64] {
+        for arch in [Arch::Arm64, Arch::X86, Arch::Riscv64] {
             assert_eq!(pick_asset(&r, &["photocraft"], Platform { os: Os::MacOs, arch }, &[PackageKind::Dmg]), None);
         }
+        assert!(pick_asset(&r, &["photocraft"], Platform { os: Os::MacOs, arch: Arch::X64 }, &[PackageKind::Dmg]).is_some());
     }
 
     #[test]

@@ -1,0 +1,50 @@
+{
+  "cta": {
+    "name": "INSTALLA",
+    "enabled": true,
+    "background_rgb": [
+      237,
+      237,
+      239
+    ],
+    "bounds": [
+      230,
+      545,
+      186,
+      30
+    ]
+  },
+  "aniCraft": {
+    "version": "0.2.1",
+    "actual_size_bytes": 19024376,
+    "release_date_visible": "12 nov 2026",
+    "source_link_accessible": "GitHub",
+    "installed_then_removed": true
+  },
+  "navigation": [
+    {
+      "locale": "it",
+      "from": "Kit di lavoro",
+      "to": "Le mie app",
+      "pass": true
+    },
+    {
+      "locale": "it",
+      "from": "Trova app",
+      "to": "Le mie app",
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "from": "Workflow Kits",
+      "to": "My apps",
+      "pass": true
+    },
+    {
+      "locale": "en",
+      "from": "Find apps",
+      "to": "My apps",
+      "pass": true
+    }
+  ]
+}

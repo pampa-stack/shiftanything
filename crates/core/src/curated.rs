@@ -1990,7 +1990,17 @@ mod recipe_tests {
             for arch in [crate::Arch::X64, crate::Arch::Arm64] {
                 let platform = crate::Platform { os, arch };
                 let chosen = crate::platform::pick_asset(&release, &["handy"], platform, platform.download_kinds());
-                assert_eq!(chosen.is_some(), os == crate::Os::MacOs && arch == crate::Arch::Arm64);
+                if os == crate::Os::MacOs && arch == crate::Arch::Arm64 {
+                    let (asset, kind) = chosen.expect("native Apple Silicon disk image");
+                    assert_eq!(asset.name, "Handy_0.10.2_aarch64.dmg");
+                    assert_eq!(kind, crate::PackageKind::Dmg);
+                    let mut intel_only = release.clone();
+                    intel_only.assets.retain(|asset| asset.name == "Handy_0.10.2_x64.dmg");
+                    assert_eq!(intel_only.assets.len(), 1);
+                    assert!(crate::platform::pick_asset(&intel_only, &["handy"], platform, platform.download_kinds()).is_none());
+                } else {
+                    assert!(chosen.is_none());
+                }
             }
         }
     }

@@ -27,6 +27,8 @@ Il controllo giornaliero dei rilasci è nel ramo di lavoro. Aggiorna versione e 
 
 Nella finestra macOS, il tasto Aggiornamenti lasciava visibile anche la pagina Kit di lavoro. La correzione chiude la pagina precedente quando si apre la gestione. Verificati tre passaggi in italiano e in inglese con Playwright sul frontend effettivo e il bridge Tauri simulato: Kit di lavoro e Trova app → Aggiornamenti, SH*FTER → Le mie app. I due pacchetti locali sopra precedono questa correzione.
 
+La [verifica desktop successiva](../pro-371-followup/README.md) documenta i pacchetti che includono il fix, il pulsante Installa e i metadati nelle app gestite.
+
 ## Limiti prima della release
 
 Rimangono da verificare le altre schede, macOS Intel, Linux ARM64 e Windows. La macchina Windows è arrivata a Windows Setup. Il desktop e i cicli dei pacchetti Windows sono aperti. Rimangono anche la verifica pixel per pixel con Doop e la notarizzazione del DMG. AppFlowy su Linux ha richiesto libkeybinder nel banco isolato e il suo editor resta da verificare. La ricetta Linux resta fuori da questo checkpoint. La PR resta in bozza. [Windows](../pro-371-windows-setup/desktop/README.md) · [PR 4](https://github.com/pampa-stack/shiftanything/pull/4)

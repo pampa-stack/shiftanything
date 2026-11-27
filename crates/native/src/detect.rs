@@ -241,13 +241,13 @@ pub mod macos {
             return None;
         }
         // `<App>Version` carries the full version including a pre-release suffix;
-        // CFBundleShortVersionString only has the numbers.
+        // CFBundleShortVersionString only has the numbers. An empty value leaves CFBundleVersion authoritative.
         let full_keys: Vec<String> = app.mac_bundle_names().map(|n| format!("{n}Version")).collect();
         let text = full_keys
             .iter()
             .map(String::as_str)
             .chain(["CFBundleShortVersionString", "CFBundleVersion"])
-            .find_map(|k| dict.get(k).and_then(plist::Value::as_string));
+            .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()));
         Some(Installed {
             version: text.and_then(|text| bundle_version(app, text)),
             source: InstallSource::MacApp,
@@ -290,6 +290,25 @@ pub mod macos {
             return None;
         }
         artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn empty_short_bundle_version_falls_back_to_bundle_version() {
+        use artcraft_launcher_core::curated::FREECAD;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("FreeCAD.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        let mut info = plist::Dictionary::new();
+        info.insert("CFBundleIdentifier".into(), FREECAD.bundle.unwrap().into());
+        info.insert("CFBundleVersion".into(), "1.1.3".into());
+
+        for (short, expected) in [("", Some("1.1.3")), ("1.1.4", Some("1.1.4")), ("invalid", None)] {
+            info.insert("CFBundleShortVersionString".into(), short.into());
+            plist::Value::Dictionary(info.clone()).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&FREECAD, &bundle).unwrap().version, expected.and_then(version::parse));
+        }
     }
 
     #[test]

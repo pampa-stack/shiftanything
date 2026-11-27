@@ -810,6 +810,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DEEPTUTOR,
         crate::curated::OPENWORK_DESKTOP,
         crate::curated::PASEO,
+        crate::curated::FREECAD,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -823,6 +824,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 zen_release_version(&release.tag).as_ref() == Some(version)
             } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
+                || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
             {
                 release.tag == version.to_string()
             } else {
@@ -1229,6 +1231,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("different-ai/openwork", "v0.18.73") => {
             &[("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b")]
         }
+        ("FreeCAD/FreeCAD", "1.1.3") => {
+            &[("FreeCAD_1.1.3-macOS-arm64-py311.dmg", 649_856_006, "f5c0ece7cd7c932466d6effadc0fc6e179b0538a9d9a6a77a6769eae3af2667c")]
+        }
+        ("FreeCAD/FreeCAD", "1.1.4") => {
+            &[("FreeCAD_1.1.4-macOS-arm64-py311.dmg", 649_760_538, "071343b4abb70492b75c973f41eaf1d2528f9b9c7ea018d22a4f46ae14d27ac0")]
+        }
         ("getpaseo/paseo", "v0.17.6") => {
             &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]
         }
@@ -1568,26 +1576,32 @@ mod tests {
     }
 
     #[test]
-    fn paseo_uses_only_reviewed_apple_silicon_packages() {
-        use crate::{Arch, Os, PackageKind, Platform, curated::PASEO, platform::pick_asset};
+    fn paseo_and_freecad_use_only_reviewed_apple_silicon_packages() {
+        use crate::{
+            Arch, Os, PackageKind, Platform,
+            curated::{FREECAD, PASEO},
+            platform::pick_asset,
+        };
 
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        let pick = |release: &Release, platform| pick_asset(release, &[PASEO.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
-        for tag in ["v0.17.6", "v0.18.0"] {
-            let expected = reviewed_assets(PASEO.repo, tag).next().unwrap();
-            let api = serde_json::json!({
-                "tag_name": tag,
-                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
-            });
-            let mut release = parse_github_release(&api.to_string(), PASEO.repo).unwrap();
-            assert_eq!(pick(&release, mac), Some(expected.clone()));
-            assert_eq!(pick(&release_from_sums(PASEO.repo, tag, &[]), mac), Some(expected));
-            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
-            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
-            release.prerelease = true;
-            assert_eq!(pick(&release, mac), None);
+        for (app, tags, next) in [(PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"), (FREECAD, ["1.1.3", "1.1.4"], "1.1.5")] {
+            let pick = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+            for tag in tags {
+                let expected = reviewed_assets(app.repo, tag).next().unwrap();
+                let api = serde_json::json!({
+                    "tag_name": tag,
+                    "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+                });
+                let mut release = parse_github_release(&api.to_string(), app.repo).unwrap();
+                assert_eq!(pick(&release, mac), Some(expected.clone()));
+                assert_eq!(pick(&release_from_sums(app.repo, tag, &[]), mac), Some(expected));
+                assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+                assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+                release.prerelease = true;
+                assert_eq!(pick(&release, mac), None);
+            }
+            assert_eq!(pick(&release_from_sums(app.repo, next, &[]), mac), None);
         }
-        assert_eq!(pick(&release_from_sums(PASEO.repo, "v0.18.1", &[]), mac), None);
     }
 
     #[test]

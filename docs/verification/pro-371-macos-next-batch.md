@@ -56,3 +56,14 @@ The Apple Silicon package cycle passed on 27 November 2026 for the Apache-2.0 de
 | 0.18.0 | `Paseo-0.18.0-arm64.dmg` | 190247198 | `2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91` |
 
 The initial 0.18.0 assessment hit the 60-second Gatekeeper limit. The repeat passed with Gatekeeper enabled and the existing 180-second bound for large bundles applied to Paseo. Both release lookup paths use the exact reviewed macOS assets. This test covers the package lifecycle. The desktop window and agent connections were outside the test.
+
+## FreeCAD
+
+On 27 November 2026, the Apple Silicon package cycle passed on a MacBook Air running macOS 26.6.2 with Gatekeeper enabled. The native installer checked each official DMG's length and SHA-256, Developer ID team `289DJRF23X`, bundle ID `org.freecad.FreeCAD`, exact version, deep signature integrity, and notarization. It installed 1.1.3, replaced it with 1.1.4 in the same temporary Applications directory, and moved the updated ARM64 bundle into the temporary Trash. The synthetic profile marker survived. The test profile and downloaded files were deleted. The project lists macOS 12 as the minimum. [FreeCAD downloads](https://www.freecad.org/downloads) · [1.1.3 release](https://github.com/FreeCAD/FreeCAD/releases/tag/1.1.3) · [1.1.4 release](https://github.com/FreeCAD/FreeCAD/releases/tag/1.1.4)
+
+| Release | Official asset | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| 1.1.3 | `FreeCAD_1.1.3-macOS-arm64-py311.dmg` | 649856006 | `f5c0ece7cd7c932466d6effadc0fc6e179b0538a9d9a6a77a6769eae3af2667c` |
+| 1.1.4 | `FreeCAD_1.1.4-macOS-arm64-py311.dmg` | 649760538 | `071343b4abb70492b75c973f41eaf1d2528f9b9c7ea018d22a4f46ae14d27ac0` |
+
+The standard copy dropped the detached signature on `Contents/packages.txt`. The installer now preserves the signing attributes while staging these two exact FreeCAD builds, then runs the existing signature and Gatekeeper checks under a 180-second bound. Both inspected bundles leave `CFBundleShortVersionString` empty and report their exact release in `CFBundleVersion`. Detection skips an empty version field and retains the precedence of a populated field. The existing Linux Flatpak route is independent of this recipe. The test covers the package lifecycle. Opening FreeCAD or a CAD file was outside the test.

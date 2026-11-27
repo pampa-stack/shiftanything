@@ -1873,7 +1873,28 @@ pub const PASEO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("99ZMJMKU9Y"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 79] = [
+pub const FREECAD: crate::CraftApp = crate::CraftApp {
+    id: "free",
+    name: "FreeCAD",
+    tagline: "Create and edit parametric 3D models",
+    repo: "FreeCAD/FreeCAD",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [56, 113, 193],
+    ink_light: [30, 82, 148],
+    ink_dark: [157, 197, 253],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The FreeCAD project association",
+    msi_publisher: None,
+    bundle: Some("org.freecad.FreeCAD"),
+    site: Some("https://www.freecad.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("289DJRF23X"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 80] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -1953,6 +1974,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 79] = [
     DEEPTUTOR,
     OPENWORK_DESKTOP,
     PASEO,
+    FREECAD,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

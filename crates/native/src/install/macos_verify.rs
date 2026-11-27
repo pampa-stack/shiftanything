@@ -20,8 +20,12 @@ pub(crate) fn verify_with(
     team: &str,
     mut run: impl FnMut(&str, &[&str], Duration) -> Result<crate::process::RunOutput, String>,
 ) -> Result<(), String> {
+    use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, FREECAD, GODOT, OPENWORK_DESKTOP, PASEO, TERMIX};
+
     let path = bundle.to_str().ok_or("couldn't check the app's unusual path, so it wasn't installed")?;
     let requirement = identity_requirement(app, team)?;
+    // FreeCAD's official package exceeds one minute during deep verification on Apple Silicon.
+    let signature_timeout = if app.id == FREECAD.id { Duration::from_secs(180) } else { TIMEOUT };
     for (check, program, args) in [
         // Do not apply the outer app's team or identifier requirement to its nested code.
         ("signature integrity", CODESIGN, vec!["--verify", "--all-architectures", "--deep", "--strict", path]),
@@ -30,7 +34,7 @@ pub(crate) fn verify_with(
         // notarized result part of verification too (Apple DTS: codesign -R="notarized").
         ("notarization", CODESIGN, vec!["--verify", "--check-notarization", "-R=notarized", path]),
     ] {
-        let output = run(program, &args, TIMEOUT)
+        let output = run(program, &args, signature_timeout)
             .map_err(|reason| format!("macOS verification did not succeed ({check}: {reason}), so the app wasn't installed"))?;
         if !output.success {
             let reason = output.stderr.trim();
@@ -50,8 +54,7 @@ pub(crate) fn verify_with(
     // Ignore existing assessment objects AND avoid storing this assessment. This does not
     // bypass trust/revocation caches or prove a fresh OCSP response.
     // Uncached assessments of these large bundles have exceeded the default bound.
-    use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, OPENWORK_DESKTOP, PASEO, TERMIX};
-    let policy_timeout = if [ACTUAL_BUDGET.id, APPFLOWY.id, GODOT.id, OPENWORK_DESKTOP.id, PASEO.id, TERMIX.id].contains(&app.id) {
+    let policy_timeout = if [ACTUAL_BUDGET.id, APPFLOWY.id, FREECAD.id, GODOT.id, OPENWORK_DESKTOP.id, PASEO.id, TERMIX.id].contains(&app.id) {
         Duration::from_secs(180)
     } else {
         TIMEOUT
@@ -213,15 +216,15 @@ mod tests {
 
     #[test]
     fn mac_install_allows_longer_uncached_assessments_for_large_bundles() {
-        use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, OPENWORK_DESKTOP, PASEO, TERMIX};
+        use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, FREECAD, GODOT, OPENWORK_DESKTOP, PASEO, TERMIX};
 
-        for app in [&ACTUAL_BUDGET, &APPFLOWY, &GODOT, &OPENWORK_DESKTOP, &PASEO, &TERMIX] {
+        for app in [&ACTUAL_BUDGET, &APPFLOWY, &FREECAD, &GODOT, &OPENWORK_DESKTOP, &PASEO, &TERMIX] {
             verify_with(app, Path::new("/private/owned/Large.app"), app.mac_team.unwrap(), |program, args, timeout| {
                 if program == SPCTL && args.first() == Some(&"--assess") {
                     assert_eq!(timeout, Duration::from_secs(180));
                     return Ok(success(accepted()));
                 }
-                assert_eq!(timeout, TIMEOUT);
+                assert_eq!(timeout, if app.id == FREECAD.id && program == CODESIGN { Duration::from_secs(180) } else { TIMEOUT });
                 Ok(success(if program == SPCTL { "assessments enabled" } else { "" }))
             })
             .unwrap();

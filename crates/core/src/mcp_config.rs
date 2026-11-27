@@ -16,6 +16,8 @@ pub enum McpConfigFormat {
     VsCode,
     /// Codex's `config.toml`: a `[mcp_servers.<name>]` table.
     CodexToml,
+    /// OpenCode 2 uses the `mcp.servers` map with a local command array.
+    OpenCode,
 }
 
 impl McpConfigFormat {
@@ -39,10 +41,16 @@ pub fn mcp_config(format: McpConfigFormat, gateway: &str) -> String {
             let v = json!({"servers": {SERVER_KEY: {"type": "stdio", "command": gateway, "args": ["--stdio"]}}});
             serde_json::to_string_pretty(&v).unwrap_or_default()
         }
+        McpConfigFormat::OpenCode => open_code_config(SERVER_KEY, gateway, &[json!("--stdio")]).to_string(),
         McpConfigFormat::CodexToml => {
             format!("[mcp_servers.{SERVER_KEY}]\ncommand = {}\nargs = [\"--stdio\"]\n", toml_string(gateway))
         }
     }
+}
+
+fn open_code_config(key: &str, command: &str, args: &[Value]) -> Value {
+    let command: Vec<_> = std::iter::once(Value::String(command.to_owned())).chain(args.iter().cloned()).collect();
+    json!({"mcp": {"servers": {key: {"type": "local", "command": command}}}})
 }
 
 /// Format the scoped catalog server's exact command and roots for each supported client.
@@ -56,6 +64,7 @@ pub fn catalog_config(format: McpConfigFormat, configuration: &str) -> Result<St
     }
     let output = match format {
         McpConfigFormat::Json => json!({"mcpServers": {"shiftanything": entry}}),
+        McpConfigFormat::OpenCode => open_code_config("shiftanything", command, args),
         McpConfigFormat::VsCode => json!({"servers": {"shiftanything": {"type": "stdio", "command": command, "args": args}}}),
         McpConfigFormat::CodexToml => {
             return Ok(format!(
@@ -115,5 +124,9 @@ mod tests {
         let expected: Vec<&str> = args.as_array().unwrap().iter().map(|value| value.as_str().unwrap()).collect();
         assert_eq!(toml_args, expected);
         assert_eq!(vscode["servers"]["shiftanything"]["type"], "stdio");
+        let open_code: Value = serde_json::from_str(&catalog_config(McpConfigFormat::OpenCode, &input).unwrap()).unwrap();
+        let command = open_code["mcp"]["servers"]["shiftanything"]["command"].as_array().unwrap();
+        assert_eq!(command.first().unwrap(), "uv");
+        assert_eq!(command[1..], *args.as_array().unwrap());
     }
 }

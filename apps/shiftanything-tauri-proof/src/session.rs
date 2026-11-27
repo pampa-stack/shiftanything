@@ -60,6 +60,10 @@ fn has_compatible_asset(app: &CraftApp, platform: Platform, release: &Release) -
 }
 
 impl NativeState {
+    pub fn lifecycle_enabled(&self) -> bool {
+        self.enabled
+    }
+
     pub fn new(root: PathBuf, enabled: bool) -> Result<Self, String> {
         #[cfg(target_os = "linux")]
         let mut backend = NativeBackend::new_isolated_linux_profile(&root.join("home"), || {})?;

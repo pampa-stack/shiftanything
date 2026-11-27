@@ -27,12 +27,12 @@ impl LauncherUi {
 
     pub(crate) fn kits_page(&mut self, ui: &mut Ui) {
         let Ok(data) = kits::data() else {
-            ui.label(tl!("Work kit data unavailable"));
+            ui.label(tl!("Workflow kit data unavailable"));
             return;
         };
         let language = crate::i18n::current().code();
         egui::Frame::new().inner_margin(18).show(ui, |ui| {
-            ui.heading(RichText::new(tl!("Work kits")).size(30.0));
+            ui.heading(RichText::new(tl!("Workflow Kits")).size(30.0));
             ui.style_mut().text_styles.insert(egui::TextStyle::Body, egui::FontId::proportional(12.0));
             ui.style_mut().text_styles.insert(egui::TextStyle::Button, egui::FontId::proportional(11.0));
             ui.spacing_mut().interact_size.y = 26.0;

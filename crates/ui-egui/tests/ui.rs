@@ -5275,7 +5275,7 @@ fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
     };
     h.set_size(egui::vec2(1440.0, 900.0));
     h.run_steps(4);
-    h.get_by_role_and_label(egui::accesskit::Role::Button, "Work kits").click_accesskit();
+    h.get_by_role_and_label(egui::accesskit::Role::Button, "Workflow Kits").click_accesskit();
     h.run_steps(5);
     assert!(h.query_by_label("Select · PhotoCraft").is_none(), "installed apps are never selected for an implicit update");
     assert!(h.query_by_label("Select · GIMP").is_none(), "curated presence alone grants no recipe");
@@ -5328,7 +5328,7 @@ fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
 #[test]
 fn work_kits_surveys_details_and_comparison_work_in_both_languages() {
     for (language, kits, architect, ranking, compare) in [
-        ("en", "Work kits", "Architect", "Ranking", "Compare in SH*FTER"),
+        ("en", "Workflow Kits", "Architect", "Ranking", "Compare in SH*FTER"),
         ("it", "Kit di lavoro", "Architetto", "Classifica", "Confronta in SH*FTER"),
     ] {
         let (mut h, _, _) = versions_harness(Machine::default(), None, vec![]);

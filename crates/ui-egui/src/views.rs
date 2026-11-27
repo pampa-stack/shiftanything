@@ -1572,7 +1572,7 @@ fn pages() -> Vec<(Page, widgets::Cell<'static>)> {
     ];
     if cfg!(not(target_arch = "wasm32")) {
         pages.push((Page::Shifter, widgets::Cell { label: "SH*FTER", tip: "SH*FTER", count: None, literal_case: true }));
-        pages.push((Page::Kits, widgets::Cell { label: tl!("Work kits"), tip: tl!("Work kits"), count: None, literal_case: false }));
+        pages.push((Page::Kits, widgets::Cell { label: tl!("Workflow Kits"), tip: tl!("Workflow Kits"), count: None, literal_case: false }));
     }
     pages
 }

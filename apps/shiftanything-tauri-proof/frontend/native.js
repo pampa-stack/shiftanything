@@ -26,8 +26,8 @@
       ['https://x.com/Pampaeyes','x'],
       ['https://discord.gg/Xrg2kksz2m','discord'],
     ]).get(link.href);
-    const appId = link.dataset.catalogLink || link.closest('[data-app]')?.dataset.app || link.closest('[data-app-content]')?.querySelector('[data-native-app]')?.dataset.nativeApp;
-    const open = social && link.closest('.footer-brand') ? invoke('open_social_link', {link:social})
+    const appId = link.dataset?.catalogLink || link.closest('[data-app]')?.dataset?.app || link.closest('[data-app-content]')?.querySelector?.('[data-native-app]')?.dataset.nativeApp;
+    const open = social && link.closest('.footer-brand, .promptica-links') ? invoke('open_social_link', {link:social})
       : appId ? invoke('open_catalog_link', {appId,target:link.getAttribute('href')}) : null;
     if (open) {
       open.then(() => {

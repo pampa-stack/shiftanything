@@ -8,6 +8,7 @@ mod shifter;
 #[cfg(target_os = "macos")]
 mod verification;
 use artcraft_launcher_core::automation::{Operation, Request};
+use artcraft_launcher_core::mcp_config::{McpConfigFormat, catalog_config};
 use serde::{Deserialize, Serialize};
 use session::NativeState;
 use std::{path::PathBuf, sync::Mutex};
@@ -56,6 +57,55 @@ fn catalog_snapshot() -> Result<serde_json::Value, String> {
 #[tauri::command]
 fn discovery_data() -> Result<serde_json::Value, String> {
     discovery::data()
+}
+#[derive(Deserialize)]
+#[serde(rename_all = "snake_case")]
+enum McpClient {
+    Codex,
+    ClaudeCode,
+    Cursor,
+    VsCode,
+    OpenCode,
+}
+
+impl McpClient {
+    fn docs(&self) -> &'static str {
+        match self {
+            Self::Codex => "https://developers.openai.com/codex/mcp",
+            Self::ClaudeCode => "https://code.claude.com/docs/en/mcp",
+            Self::Cursor => "https://cursor.com/docs/mcp",
+            Self::VsCode => "https://code.visualstudio.com/docs/agent-customization/mcp-servers",
+            Self::OpenCode => "https://opencode.ai/docs/mcp-servers/",
+        }
+    }
+
+    fn format(&self) -> McpConfigFormat {
+        match self {
+            Self::Codex => McpConfigFormat::CodexToml,
+            Self::ClaudeCode | Self::Cursor => McpConfigFormat::Json,
+            Self::VsCode => McpConfigFormat::VsCode,
+            Self::OpenCode => McpConfigFormat::OpenCode,
+        }
+    }
+}
+
+#[tauri::command]
+fn mcp_configuration(client: McpClient, state: tauri::State<'_, Mutex<NativeState>>) -> Result<String, String> {
+    if !state.lock().map_err(|error| error.to_string())?.lifecycle_enabled() {
+        return Err("MCP setup requires an active lifecycle profile".into());
+    }
+    catalog_config(client.format(), &artcraft_launcher_native::automation::configuration()?)
+}
+#[tauri::command]
+fn mcp_connection(state: tauri::State<'_, Mutex<NativeState>>) -> Result<bool, String> {
+    if !state.lock().map_err(|error| error.to_string())?.lifecycle_enabled() {
+        return Ok(false);
+    }
+    artcraft_launcher_native::automation::connection()
+}
+#[tauri::command]
+fn open_mcp_docs(client: McpClient) -> Result<(), String> {
+    artcraft_launcher_native::process::open(std::ffi::OsStr::new(client.docs()))
 }
 #[tauri::command]
 fn native_snapshot(state: tauri::State<'_, Mutex<NativeState>>) -> Result<session::Snapshot, String> {
@@ -253,6 +303,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             decide_native_action,
             set_favorite,
             check_native_updates,
+            mcp_configuration,
+            mcp_connection,
+            open_mcp_docs,
             shifter::shifter_workspace,
             shifter::compare_shifter,
             shifter::open_shifter_source

@@ -533,6 +533,7 @@ impl LauncherUi {
                             McpConfigFormat::Json => tl!("Copy JSON"),
                             McpConfigFormat::VsCode => tl!("Copy for VS Code"),
                             McpConfigFormat::CodexToml => tl!("Copy for Codex (TOML)"),
+                            McpConfigFormat::OpenCode => tl!("Copy for OpenCode"),
                         };
                         if ui.button(label).clicked() {
                             ui.ctx().copy_text(mcp_config(format, gateway));

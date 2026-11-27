@@ -49,7 +49,7 @@
   }
 
   const find = panel(it ? 'Trova app' : 'Find apps');
-  const kits = panel(it ? 'Kit di lavoro' : 'Work kits');
+  const kits = panel(it ? 'Kit di lavoro' : 'Workflow Kits');
   let snapshot;
   let renderKits;
   let system;

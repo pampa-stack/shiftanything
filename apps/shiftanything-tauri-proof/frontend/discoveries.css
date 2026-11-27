@@ -5,6 +5,14 @@
 .discovery-panel p { color:var(--dim); margin:10px 0; }
 .discovery-controls, .discovery-examples, .discovery-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
 .discovery-controls input, .discovery-controls select { min-height:34px; border:1px solid var(--bd2); border-radius:5px; background:var(--bg); color:var(--tx); padding:7px 10px; font:inherit; }
+.discovery-controls select {
+  appearance:none;
+  color-scheme:dark;
+  padding-right:28px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='m1 1 4 4 4-4' fill='none' stroke='%23d5d7da' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+}
 .discovery-controls input[type="search"] { flex:1 1 230px; max-width:650px; }
 .discovery-examples { margin-top:16px; }
 .discovery-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%, 315px),1fr)); gap:14px; }

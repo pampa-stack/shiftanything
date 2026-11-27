@@ -398,6 +398,20 @@ fn newest_first(a: Option<&version::Version>, b: Option<&version::Version>) -> s
     }
 }
 
+#[cfg(any(windows, test))]
+fn msi_display_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+    // The official draw.io MSI registers X.Y.Z.0 for the upstream release X.Y.Z.
+    if app.id == "drawio"
+        && let Some(core) = text.trim().strip_suffix(".0")
+        && let Ok(parsed) = version::Version::parse(core)
+        && parsed.pre.is_empty()
+        && parsed.build.is_empty()
+    {
+        return Some(parsed);
+    }
+    version::parse(text)
+}
+
 #[cfg(windows)]
 pub mod windows {
     use std::path::PathBuf;
@@ -405,7 +419,9 @@ pub mod windows {
     use winreg::enums::{HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE, KEY_READ, KEY_WOW64_32KEY, KEY_WOW64_64KEY};
     use winreg::{HKEY, RegKey};
 
-    use super::{CraftApp, InstallSource, Installed, exe_candidates, install_dir_keys, is_installer_entry, suite_folders, version};
+    use super::{
+        CraftApp, InstallSource, Installed, exe_candidates, install_dir_keys, is_installer_entry, msi_display_version, suite_folders, version,
+    };
 
     const UNINSTALL: &str = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
 
@@ -488,7 +504,7 @@ pub mod windows {
                 if !is_installer_entry(app, &name, &publisher) || out.iter().any(|m: &MsiInstall| m.product_code == code) {
                     continue;
                 }
-                let version = key.get_value::<String, _>("DisplayVersion").ok().and_then(|v| version::parse(&v));
+                let version = key.get_value::<String, _>("DisplayVersion").ok().and_then(|v| msi_display_version(app, &v));
                 let location: String = key.get_value("InstallLocation").unwrap_or_default();
                 let exe =
                     exe_path(app, (!location.is_empty()).then(|| PathBuf::from(location)).or_else(|| install_dir(app, hive, flags)), hive, flags);
@@ -1123,6 +1139,20 @@ mod tests {
         let mut versions = vec![None, old.clone(), new.clone(), None];
         versions.sort_by(|a, b| newest_first(a.as_ref(), b.as_ref()));
         assert_eq!(versions, vec![new, old, None, None]);
+    }
+
+    #[test]
+    fn drawio_msi_display_version_matches_upstream_release() {
+        use artcraft_launcher_core::curated::DRAWIO;
+
+        assert_eq!(msi_display_version(&DRAWIO, "31.5.2.0"), version::parse("31.5.2"));
+        assert_eq!(msi_display_version(&DRAWIO, "32.7.4.0"), version::parse("32.7.4"));
+        assert_eq!(msi_display_version(&DRAWIO, "32.7.4"), version::parse("32.7.4"));
+        for unsupported in ["32.7.4.1", "32.7.4.0.0", "32.7.4-rc.0.0", "32.7.4.0+build"] {
+            // Legitimate semver suffixes still use the shared parser unchanged.
+            assert_eq!(msi_display_version(&DRAWIO, unsupported), version::parse(unsupported));
+        }
+        assert_eq!(msi_display_version(SUITE.iter().find(|app| app.id == "photocraft").unwrap(), "32.7.4.0"), None);
     }
 
     /// A file without VERSIONINFO, or one that isn't there, has no version.

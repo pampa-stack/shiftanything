@@ -1077,6 +1077,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::VLC,
         crate::curated::INKSCAPE,
         crate::curated::KDENLIVE,
+        crate::curated::SUBTITLE_EDIT,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1617,6 +1618,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("SunshineStream/Sunshine", "v2026.914.233613") => {
             &[("Sunshine-macOS-arm64.dmg", 40_375_035, "795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c")]
+        }
+        ("SubtitleEdit/subtitleedit", "v5.3.0") => {
+            &[("SubtitleEdit-macOS-ARM64.dmg", 135_167_783, "8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b")]
+        }
+        ("SubtitleEdit/subtitleedit", "v5.4.0") => {
+            &[("SubtitleEdit-macOS-ARM64.dmg", 138_297_144, "23ff6eb5afd79c4448cced84979b3c428bbab6f2de0de9c01a5f3370f91042e6")]
         }
         ("moonlight-stream/moonlight-qt", "v6.1.0") => {
             &[("Moonlight-6.1.0.dmg", 59_806_624, "d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2")]

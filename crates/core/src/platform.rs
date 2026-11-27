@@ -914,6 +914,7 @@ mod tests {
             (crate::curated::VLC, ["3.0.23", "3.0.24"]),
             (crate::curated::INKSCAPE, ["1.4.3", "1.4.4"]),
             (crate::curated::KDENLIVE, ["26.08.2", "26.08.3"]),
+            (crate::curated::SUBTITLE_EDIT, ["v5.3.0", "v5.4.0"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),

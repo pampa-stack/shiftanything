@@ -2358,7 +2358,28 @@ pub const DESKREEN: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3MGY23CG64"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 102] = [
+pub const SUBTITLE_EDIT: crate::CraftApp = crate::CraftApp {
+    id: "subtitle-edit",
+    name: "Subtitle Edit",
+    tagline: "Create, synchronize and edit subtitles",
+    repo: "SubtitleEdit/subtitleedit",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [66, 149, 215],
+    ink_light: [30, 79, 120],
+    ink_dark: [157, 216, 248],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Nikolaj Olsson",
+    msi_publisher: None,
+    bundle: Some("dk.nikse.subtitleedit"),
+    site: Some("https://github.com/SubtitleEdit/subtitleedit"),
+    mac_bundle_name: None,
+    mac_team: Some("MFC9L2T4RB"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 103] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2461,6 +2482,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 102] = [
     VLC,
     INKSCAPE,
     KDENLIVE,
+    SUBTITLE_EDIT,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

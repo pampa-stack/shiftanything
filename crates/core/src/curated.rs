@@ -398,7 +398,50 @@ pub const RIZZO_PII: crate::CraftApp = crate::CraftApp {
     mac_team: Some("5J76G3383Y"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 9] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII];
+pub const AUDACITY: crate::CraftApp = crate::CraftApp {
+    id: "audacity",
+    name: "Audacity 4",
+    tagline: "Audio editing and recording",
+    repo: "audacity/audacity",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [102, 152, 230],
+    ink_light: [37, 65, 125],
+    ink_dark: [155, 187, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Audacity Team",
+    msi_publisher: None,
+    bundle: Some("org.audacityteam.audacity4"),
+    site: Some("https://www.audacityteam.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("6EPAF2X3PR"),
+};
+
+pub const KEEPASSXC: crate::CraftApp = crate::CraftApp {
+    id: "keepassxc",
+    name: "KeePassXC",
+    tagline: "Local password manager",
+    repo: "keepassxreboot/keepassxc",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [100, 172, 125],
+    ink_light: [46, 97, 64],
+    ink_dark: [157, 225, 179],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "KeePassXC Team",
+    msi_publisher: None,
+    bundle: Some("org.keepassxc.keepassxc"),
+    site: Some("https://keepassxc.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("G2S7P7J672"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 11] =
+    [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII, AUDACITY, KEEPASSXC];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -543,6 +586,20 @@ mod recipe_tests {
                 "com.rizzoai.pii-anonymizer",
                 "5J76G3383Y",
             ),
+            (
+                super::AUDACITY,
+                ["Audacity-4.0.1", "Audacity-4.0.2"],
+                ["audacity-macOS-4.0.1-arm64.dmg", "audacity-macOS-4.0.2-arm64.dmg"],
+                "org.audacityteam.audacity4",
+                "6EPAF2X3PR",
+            ),
+            (
+                super::KEEPASSXC,
+                ["2.7.12", "2.8.0"],
+                ["KeePassXC-2.7.12-arm64.dmg", "KeePassXC-2.8.0-1-arm64.dmg"],
+                "org.keepassxc.keepassxc",
+                "G2S7P7J672",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -578,9 +635,17 @@ mod recipe_tests {
             (super::MEETILY, "meetily-pro_0.5.0_aarch64.dmg"),
             (super::MEETILY, "meetily_0.5.0_amd64.AppImage"),
             (super::RIZZO_PII, "Rizzo-PII-2.2.0-macOS-arm64-offline.dmg"),
+            (super::AUDACITY, "audacity-macOS-3.7.9-arm64.dmg"),
+            (super::AUDACITY, "audacity-macOS-4.0.2-universal.dmg"),
+            (super::KEEPASSXC, "KeePassXC-2.7.11-arm64.dmg"),
+            (super::KEEPASSXC, "KeePassXC-2.8.0-arm64.dmg"),
+            (super::KEEPASSXC, "KeePassXC-2.8.0-2-arm64.dmg"),
+            (super::KEEPASSXC, "KeePassXC-2.8.0-1-x86_64.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }
+        assert_eq!(super::AUDACITY.mac_bundle_names().collect::<Vec<_>>(), ["Audacity 4"]);
+        assert!(!super::AUDACITY.bundle_ids().any(|id| id == "org.audacityteam.audacity"));
     }
 
     #[test]

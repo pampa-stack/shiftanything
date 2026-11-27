@@ -33,18 +33,23 @@ use crate::manifest::Record;
 use crate::paths::Paths;
 use crate::process;
 
+#[cfg(target_os = "macos")]
+fn recipe_macos_minimum(app: &CraftApp) -> Option<u16> {
+    use artcraft_launcher_core::curated::{AUDACITY, HANDBRAKE, IINA, KEEPASSXC, KOPIA, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
+
+    match app.id {
+        id if [OBS_STUDIO.id, AUDACITY.id].contains(&id) => Some(13),
+        id if [KOPIA.id, TRANSMISSION.id, IINA.id, KEEPASSXC.id].contains(&id) => Some(12),
+        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id].contains(&id) => Some(11),
+        _ => None,
+    }
+}
+
 /// Some reviewed Apple Silicon packages require a minimum macOS version.
 pub fn recipe_system_supported(app: &CraftApp) -> bool {
     #[cfg(target_os = "macos")]
     {
-        use artcraft_launcher_core::curated::{HANDBRAKE, IINA, KOPIA, MEETILY, OBS_STUDIO, RIZZO_PII, TRANSMISSION};
-
-        let minimum = match app.id {
-            id if id == OBS_STUDIO.id => 13,
-            id if [KOPIA.id, TRANSMISSION.id, IINA.id].contains(&id) => 12,
-            id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id].contains(&id) => 11,
-            _ => return true,
-        };
+        let Some(minimum) = recipe_macos_minimum(app) else { return true };
         static MACOS_MAJOR: std::sync::OnceLock<Option<u16>> = std::sync::OnceLock::new();
         MACOS_MAJOR
             .get_or_init(|| {
@@ -2748,6 +2753,15 @@ fn complete_nightly_install(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[cfg(target_os = "macos")]
+    #[test]
+    fn reviewed_daily_apps_require_their_verified_macos_versions() {
+        use artcraft_launcher_core::curated::{AUDACITY, KEEPASSXC};
+
+        assert_eq!(recipe_macos_minimum(&AUDACITY), Some(13));
+        assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some(12));
+    }
 
     /// A bare app name is never a launchable location, even when the working folder holds a
     /// folder of that name (an app folder beside the launcher in a custom install folder).

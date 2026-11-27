@@ -434,7 +434,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
         })
         .unwrap_or_default();
     Ok(Release {
-        version: version::parse(&tag),
+        version: release_tag_version(repo, &tag),
         name: v["name"].as_str().map(|n| truncate(n, 120)).filter(|n| !n.is_empty()).unwrap_or_else(|| tag.clone()),
         tag,
         published_at: v["published_at"].as_str().and_then(crate::time::parse_rfc3339),
@@ -443,6 +443,10 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
         prerelease: v["prerelease"].as_bool().unwrap_or(false),
         assets,
     })
+}
+
+fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
+    if repo == crate::curated::AUDACITY.repo { version::parse(tag.strip_prefix("Audacity-")?) } else { version::parse(tag) }
 }
 
 // Official package receipts apply only to the original repository, tag and exact asset.
@@ -490,6 +494,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("Rizzo-AI-Academy/rizzo-pii", "v2.2.0") => {
             &[("Rizzo-PII-2.2.0-macOS-arm64.dmg", 197_183_674, "eb732c316dc5a60c84afe5a921162c7abb52575b3fb6e0aaf0c7902642c0e808")]
         }
+        ("audacity/audacity", "Audacity-4.0.1") => {
+            &[("audacity-macOS-4.0.1-arm64.dmg", 50_034_126, "278c8647b78c77af7f07dbd5e7d9bfc950bc14168047b65738716b61d12055ec")]
+        }
+        ("audacity/audacity", "Audacity-4.0.2") => {
+            &[("audacity-macOS-4.0.2-arm64.dmg", 50_030_766, "fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3")]
+        }
+        ("keepassxreboot/keepassxc", "2.7.12") => {
+            &[("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40")]
+        }
+        ("keepassxreboot/keepassxc", "2.8.0") => {
+            &[("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {
@@ -518,7 +534,7 @@ pub fn release_from_sums(repo: &str, tag: &str, sums: &[(String, String)]) -> Re
     assets.push(Asset { name: manifest.into(), size: 0, url: format!("{prefix}{tag}/{manifest}"), sha256: None });
     Release {
         tag: tag.to_string(),
-        version: version::parse(tag),
+        version: release_tag_version(repo, tag),
         name: tag.to_string(),
         published_at: None,
         html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
@@ -935,6 +951,15 @@ mod tests {
         assert_eq!(image.sha256.as_deref(), Some("e72ce88383a32beec9701583c22e298037f7683f9590cea7b3a281f58c2ec2b3"));
         let (dmg, _) = crate::platform::pick_asset(&localsend, &stems, platform, &[crate::PackageKind::Dmg]).unwrap();
         assert_eq!(dmg.size, 52_878_051);
+    }
+
+    #[test]
+    fn audacity_release_tag_is_parsed_for_the_official_repo() {
+        let json = r#"{"tag_name":"Audacity-4.0.2"}"#;
+        let official = parse_github_release(json, crate::curated::AUDACITY.repo).unwrap();
+        assert_eq!(official.version, Some(Version::new(4, 0, 2)));
+        assert_eq!(official.tag, "Audacity-4.0.2");
+        assert!(parse_github_release(json, "example/audacity").unwrap().version.is_none());
     }
 
     #[test]

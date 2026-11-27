@@ -1,5 +1,7 @@
 //! Local-only desktop proof with explicitly enabled, approved native lifecycle operations.
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
+mod catalog_links;
+mod discovery;
 mod favorites;
 mod session;
 #[cfg(target_os = "macos")]
@@ -36,6 +38,10 @@ impl SocialLink {
 fn open_social_link(link: SocialLink) -> Result<(), String> {
     dispatch_social_link(link, artcraft_launcher_native::process::open)
 }
+#[tauri::command]
+fn open_catalog_link(app_id: String, target: String) -> Result<(), String> {
+    catalog_links::open(&app_id, &target)
+}
 fn dispatch_social_link(link: SocialLink, opener: impl FnOnce(&std::ffi::OsStr) -> Result<(), String>) -> Result<(), String> {
     opener(std::ffi::OsStr::new(link.url()))?;
     eprintln!("EXTERNAL_LINK_REQUESTED {}", link.url());
@@ -45,6 +51,10 @@ fn dispatch_social_link(link: SocialLink, opener: impl FnOnce(&std::ffi::OsStr) 
 fn catalog_snapshot() -> Result<serde_json::Value, String> {
     eprintln!("Native catalog requested");
     serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../crates/core/curated.json"))).map_err(|e| e.to_string())
+}
+#[tauri::command]
+fn discovery_data() -> Result<serde_json::Value, String> {
+    discovery::data()
 }
 #[tauri::command]
 fn native_snapshot(state: tauri::State<'_, Mutex<NativeState>>) -> Result<session::Snapshot, String> {
@@ -206,7 +216,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .manage(Mutex::new(state))
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
+            discovery_data,
             open_social_link,
+            open_catalog_link,
             native_snapshot,
             record_visual_metrics,
             request_native_action,

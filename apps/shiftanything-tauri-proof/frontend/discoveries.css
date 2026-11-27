@@ -1,0 +1,14 @@
+.discovery-panel { overflow:auto; width:100%; min-height:0; padding:28px 36px; }
+.discovery-panel h1 { margin:0 0 24px; font-size:30px; }
+.discovery-panel h2, .discovery-panel h3 { margin:0 0 8px; font-size:16px; }
+.discovery-panel p { color:var(--dim); margin:10px 0; }
+.discovery-controls, .discovery-examples, .discovery-actions { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+.discovery-controls input, .discovery-controls select { min-height:34px; border:1px solid var(--bd2); border-radius:5px; background:var(--bg); color:var(--tx); padding:7px 10px; font:inherit; }
+.discovery-controls input[type="search"] { flex:1 1 230px; max-width:650px; }
+.discovery-examples { margin-top:16px; }
+.discovery-results { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%, 315px),1fr)); gap:14px; }
+.discovery-tile { border:1px solid var(--bd2); border-radius:8px; padding:16px; min-width:0; }
+.discovery-rankings { display:grid; gap:14px; margin:28px 0; }
+.kit-choice { display:flex; align-items:center; flex-wrap:wrap; gap:8px; border-top:1px solid var(--bd2); padding:10px 0; margin-top:8px; }
+.kit-choice label { display:flex; gap:6px; align-items:center; }
+.kit-choice p { margin:0; flex-basis:100%; }

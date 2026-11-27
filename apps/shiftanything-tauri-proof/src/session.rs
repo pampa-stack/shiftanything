@@ -175,7 +175,7 @@ impl NativeState {
         if !self.enabled {
             return Err("Read-only proof".into());
         }
-        request.validate_state(&self.inventory())?;
+        validate_ui_request(request, &self.inventory())?;
         if request.operation == Operation::Open
             && request.apps.iter().any(|id| id == "handy")
             && std::path::Path::new("/tmp/com_pais_handy_si.sock").exists()
@@ -199,7 +199,11 @@ impl NativeState {
             if self.pending.is_none()
                 && let Some(request) = automation::take_request()
             {
-                let outcome = if self.results.contains_key(&request.id) { Err("request already processed".into()) } else { self.validate(&request) };
+                let outcome = if self.results.contains_key(&request.id) {
+                    Err("request already processed".into())
+                } else {
+                    request.validate().and_then(|()| self.validate(&request))
+                };
                 match outcome {
                     Ok(()) => {
                         self.results.insert(request.id.clone(), "awaiting approval".into());
@@ -278,4 +282,18 @@ impl NativeState {
         self.backend.send(command);
         Ok(())
     }
+}
+
+fn validate_ui_request(request: &Request, inventory: &Inventory) -> Result<(), String> {
+    if request.operation != Operation::Install || request.apps.len() <= 1 {
+        return request.validate_state(inventory);
+    }
+    let distinct = request.apps.iter().collect::<std::collections::BTreeSet<_>>();
+    if distinct.len() != request.apps.len() || distinct.len() > 32 {
+        return Err("Invalid install selection".into());
+    }
+    for app in &request.apps {
+        Request { id: request.id.clone(), operation: Operation::Install, apps: vec![app.clone()] }.validate_state(inventory)?;
+    }
+    Ok(())
 }

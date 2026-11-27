@@ -1,0 +1,76 @@
+2026-11-27T16:46:05+0100
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 173275296  24959676    88% 3213092 249596760    1%   /System/Volumes/Data
+PASS OFFICIAL SHA512 3e8398d947ab04f374a83ec53d7654116b581d8b1f2470724c95dceb00ba4cf5b3c7ecd36cdb1077185b3be7830fd44f4be7ecef66454865c5ed1c390e0a767c 124651995 https://github.com/wulkano/Kap/releases/download/v3.6.0/Kap-3.6.0-arm64.dmg
+PASS SHA256 0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3 124651995 https://github.com/wulkano/Kap/releases/download/v3.6.0/Kap-3.6.0-arm64.dmg
+v3.6.0	Kap-3.6.0-arm64.dmg	124651995	0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3	https://github.com/wulkano/Kap/releases/download/v3.6.0/Kap-3.6.0-arm64.dmg
+BUNDLE=Kap.app
+CFBundleIdentifier=com.wulkano.kap
+CFBundleShortVersionString=3.6.0
+CFBundleVersion=3.6.0.1846
+CFBundleExecutable=Kap
+LSMinimumSystemVersion=10.12.0
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.6.0/mount/Kap.app/Contents/MacOS/Kap: Mach-O 64-bit executable arm64
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.6.0/mount/Kap.app/Contents/MacOS/Kap (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 11.1
+   ntools 1
+     tool LD
+  version 609.8
+Identifier=com.wulkano.kap
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Wulkano AS (2KEEHXF6R6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=27 Oct 2022 at 20:13:06
+TeamIdentifier=2KEEHXF6R6
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.6.0/mount/Kap.app: accepted
+source=Notarized Developer ID
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.6.0/copy/Kap.app: accepted
+source=Notarized Developer ID
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 173408452  24826520    88% 3213101 248265200    1%   /System/Volumes/Data
+2026-11-27T16:46:28+0100
+PASS PREFLIGHT kap v3.6.0
+2026-11-27T16:46:44+0100
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 173409660  24825312    88% 3213104 248253120    1%   /System/Volumes/Data
+PASS OFFICIAL SHA512 9b400659d9ba855577f821fbe42a4889c7166becfbafccc282b9223dc69171fe17655b498ba6c8322ba2454a9d7c683b0cde25e7bf31da31c3248bd3a233b643 124649861 https://github.com/wulkano/Kap/releases/download/v3.5.5/Kap-3.5.5-arm64.dmg
+PASS SHA256 b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420 124649861 https://github.com/wulkano/Kap/releases/download/v3.5.5/Kap-3.5.5-arm64.dmg
+v3.5.5	Kap-3.5.5-arm64.dmg	124649861	b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420	https://github.com/wulkano/Kap/releases/download/v3.5.5/Kap-3.5.5-arm64.dmg
+BUNDLE=Kap.app
+CFBundleIdentifier=com.wulkano.kap
+CFBundleShortVersionString=3.5.5
+CFBundleVersion=3.5.5.1825
+CFBundleExecutable=Kap
+LSMinimumSystemVersion=10.12.0
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.5.5/mount/Kap.app/Contents/MacOS/Kap: Mach-O 64-bit executable arm64
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.5.5/mount/Kap.app/Contents/MacOS/Kap (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 11.1
+   ntools 1
+     tool LD
+  version 609.8
+Identifier=com.wulkano.kap
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Wulkano AS (2KEEHXF6R6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=11 Aug 2022 at 16:56:25
+TeamIdentifier=2KEEHXF6R6
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.5.5/mount/Kap.app: accepted
+source=Notarized Developer ID
+/private/tmp/shift-kap-air.5CFzf0ba/kap/v3.5.5/copy/Kap.app: accepted
+source=Notarized Developer ID
+Filesystem   1024-blocks      Used Available Capacity iused     ifree %iused  Mounted on
+/dev/disk3s5   239362496 173542956  24692016    88% 3213106 246920160    1%   /System/Volumes/Data
+2026-11-27T16:47:13+0100
+PASS PREFLIGHT kap v3.5.5

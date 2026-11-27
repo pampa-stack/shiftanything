@@ -1,0 +1,10 @@
+Host arm64 macOS 26.6.2; profile /private/tmp/shift-mac-air-batch.abBQbN1k/profile-kap.r3AI4ea3
+PASS OFFICIAL v3.5.5 Dmg https://github.com/wulkano/Kap/releases/download/v3.5.5/Kap-3.5.5-arm64.dmg 124649861 b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420
+PASS OFFICIAL v3.6.0 Dmg https://github.com/wulkano/Kap/releases/download/v3.6.0/Kap-3.6.0-arm64.dmg 124651995 0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3
+NATIVE ORIGIN kap GitHub
+PASS OFFICIAL v3.5.5 Dmg https://github.com/wulkano/Kap/releases/download/v3.5.5/Kap-3.5.5-arm64.dmg 124649861 b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420
+PASS NATIVE kap install: Kap installed: 3.5.5; package_bytes=124649861; elapsed=52.593s
+NATIVE ORIGIN kap GitHub
+PASS OFFICIAL v3.6.0 Dmg https://github.com/wulkano/Kap/releases/download/v3.6.0/Kap-3.6.0-arm64.dmg 124651995 0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3
+PASS NATIVE kap update: Kap updated to 3.6.0; package_bytes=124651995; elapsed=22.014s
+PASS NATIVE kap remove: Kap was removed; package_bytes=0; elapsed=0.110s

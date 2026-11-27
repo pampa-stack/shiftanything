@@ -1,0 +1,19 @@
+commit ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c
+Parent:  1fefc357cdda96112ceef6bafbdb18b6480c4be7daa3de774edb959b30d2071c
+ContentChecksum:  83f454d9746c441f03928893a6c4fc7af3804175a9ead61aaba1372cbffb9ef7
+Date:  2026-10-25 22:28:12 +0000
+
+    update to 0.9.10 (#179) (dcb456dc671e)
+
+    Name: io.github.kolunmi.Bazaar
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Oct 25 23:01:02 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

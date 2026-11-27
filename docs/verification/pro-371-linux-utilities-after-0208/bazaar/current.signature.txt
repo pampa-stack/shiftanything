@@ -1,0 +1,19 @@
+commit ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f
+Parent:  ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c
+ContentChecksum:  4c00f076fe447fa2a212f93cedaa395ad287d6cdf8405b08790a4f60577b8877
+Date:  2026-11-10 20:04:59 +0000
+
+    bump bazaar to version 0.10.0 (#184) (29a6acd4cff5)
+
+    Name: io.github.kolunmi.Bazaar
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 10 21:04:57 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

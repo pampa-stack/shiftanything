@@ -518,6 +518,39 @@
           "source": "https://github.com/aigc-apps/VideoX-Fun/blob/98fffa929bb373edcbfa3620e9aa05cd65a53103/examples/wan2.2/app.py"
         }
       ]
+    },
+    {
+      "id": "game-development",
+      "example": {
+        "it": "Crea il prototipo di un videogioco",
+        "en": "Build a video game prototype"
+      },
+      "match": [
+        ["crea", "videogioc"],
+        ["svilupp", "videogioc"],
+        ["prototip", "videogioc"],
+        ["build", "video game"],
+        ["creat", "video game"],
+        ["make", "a game"],
+        ["game development"],
+        ["game prototype"]
+      ],
+      "exclude": ["game trailer", "trailer del videogioco"],
+      "apps": [{
+        "id": "godot-engine",
+        "reason": {
+          "it": "Editor per sviluppare giochi 2D e 3D e pubblicarli su più piattaforme.",
+          "en": "An editor for creating 2D and 3D games and exporting to multiple platforms."
+        },
+        "source": "https://docs.godotengine.org/en/stable/about/introduction.html"
+      }, {
+        "id": "opengame",
+        "reason": {
+          "it": "Prova un modello giocabile nello studio locale. Per modificarlo con l’AI puoi collegare un agente.",
+          "en": "Try a playable template in the local studio. Connect an agent if you want to edit it with AI."
+        },
+        "source": "https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md"
+      }]
     }
   ]
 }

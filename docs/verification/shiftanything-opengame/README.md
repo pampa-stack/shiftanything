@@ -8,3 +8,5 @@ Prova del 27 novembre 2026 su Apple Silicon in una directory temporanea, dal [co
 - Lo studio è stato avviato seguendo la [guida sorgente](https://github.com/nexu-io/opengame/blob/f17151f3cc7838ddbe13d9b94392e0f983fc341b/docs/opengame-setup.md). GitHub non esponeva una [release binaria ufficiale](https://github.com/nexu-io/opengame/releases). Il test non esercita un installer gestito dal launcher.
 
 Nel launcher Tauri su Mac, la ricerca per nome ha aperto la scheda [in italiano](scheda-it.png) e [in inglese](scheda-en.png), con anteprima della gara, licenza, link GitHub e guida di configurazione. La prova stdio ha trovato OpenGame filtrando per MCP. Il catalogo contiene 531 schede. La matrice di installazione nativa esclude OpenGame.
+
+In Trova app, l’esempio per creare il prototipo di un videogioco mostra Godot Engine tra le app desktop e OpenGame tra le app utilizzabili via browser. Il risultato è stato verificato nella finestra macOS in [italiano](trova-app-it.png) e [inglese](trova-app-en.png).

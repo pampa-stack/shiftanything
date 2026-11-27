@@ -355,7 +355,50 @@ pub const HANDBRAKE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("5X9DE89KYV"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 7] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE];
+/// The open-source Community edition distributed by Zackriya Solutions.
+pub const MEETILY: crate::CraftApp = crate::CraftApp {
+    id: "meetily",
+    name: "Meetily",
+    tagline: "Transcribe and summarize meetings locally",
+    repo: "Zackriya-Solutions/meetily",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [97, 157, 181],
+    ink_light: [47, 87, 106],
+    ink_dark: [161, 221, 238],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Zackriya Solutions",
+    msi_publisher: None,
+    bundle: Some("com.meetily.ai"),
+    site: Some("https://meetily.ai/"),
+    mac_bundle_name: Some("meetily"),
+    mac_team: Some("554AZZ38TB"),
+};
+
+pub const RIZZO_PII: crate::CraftApp = crate::CraftApp {
+    id: "rizzo-pii",
+    name: "Rizzo PII",
+    tagline: "Redact personal information in local documents",
+    repo: "Rizzo-AI-Academy/rizzo-pii",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [109, 174, 140],
+    ink_light: [50, 96, 72],
+    ink_dark: [166, 226, 195],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Rizzo AI Academy",
+    msi_publisher: None,
+    bundle: Some("com.rizzoai.pii-anonymizer"),
+    site: Some("https://rizzo-ai-academy.github.io/rizzo-pii/"),
+    mac_bundle_name: Some("Rizzo PII"),
+    mac_team: Some("5J76G3383Y"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 9] = [HANDY, LOCALSEND, OBS_STUDIO, KOPIA, TRANSMISSION, IINA, HANDBRAKE, MEETILY, RIZZO_PII];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {
     let mut result = [HANDY; crate::SUITE.len() + COMMUNITY_RECIPES.len()];
@@ -492,6 +535,14 @@ mod recipe_tests {
             (super::TRANSMISSION, ["4.1.3", "4.1.4"], ["Transmission-4.1.3.dmg", "Transmission-4.1.4.dmg"], "org.m0k.transmission", "5DPYRBHEAR"),
             (super::IINA, ["v1.5.0", "v1.5.1"], ["IINA.v1.5.0.dmg", "IINA.v1.5.1.dmg"], "com.colliderli.iina", "67CQ77V27R"),
             (super::HANDBRAKE, ["1.11.1", "1.11.2"], ["HandBrake-1.11.1.dmg", "HandBrake-1.11.2.dmg"], "fr.handbrake.HandBrake", "5X9DE89KYV"),
+            (super::MEETILY, ["v0.4.1", "v0.5.0"], ["meetily_0.4.1_aarch64.dmg", "meetily_0.5.0_aarch64.dmg"], "com.meetily.ai", "554AZZ38TB"),
+            (
+                super::RIZZO_PII,
+                ["v2.1.0", "v2.2.0"],
+                ["Rizzo-PII-2.1.0-macOS-arm64.dmg", "Rizzo-PII-2.2.0-macOS-arm64.dmg"],
+                "com.rizzoai.pii-anonymizer",
+                "5J76G3383Y",
+            ),
         ] {
             let native = CraftApp::by_id(app.id).expect("compiled recipe");
             assert_eq!(native.bundle, Some(bundle));
@@ -524,6 +575,9 @@ mod recipe_tests {
             (super::TRANSMISSION, "Transmission-4.1.4-intel.dmg"),
             (super::IINA, "IINA.v1.5.1-nightly.dmg"),
             (super::HANDBRAKE, "HandBrakeCLI-1.11.2.dmg"),
+            (super::MEETILY, "meetily-pro_0.5.0_aarch64.dmg"),
+            (super::MEETILY, "meetily_0.5.0_amd64.AppImage"),
+            (super::RIZZO_PII, "Rizzo-PII-2.2.0-macOS-arm64-offline.dmg"),
         ] {
             assert!(platform::parse_asset_name(other_asset, &[app.id]).is_none());
         }

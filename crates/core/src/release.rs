@@ -478,6 +478,18 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("HandBrake/HandBrake", "1.11.2") => {
             &[("HandBrake-1.11.2.dmg", 47_978_117, "4afe27aaa77a7bbb0dcda1a335d96a5f53649f2649fb84de6982ffecc35de9d7")]
         }
+        ("Zackriya-Solutions/meetily", "v0.4.1") => {
+            &[("meetily_0.4.1_aarch64.dmg", 47_951_342, "16f84b1769619ba3da93bc43e9c1fa3320ce2b00cc9e99225a3d21302770eaf5")]
+        }
+        ("Zackriya-Solutions/meetily", "v0.5.0") => {
+            &[("meetily_0.5.0_aarch64.dmg", 48_053_942, "c7ac63bf80c4085d95388e6c569c95f9a7bcb1b539f3fe964f4522c63eac2ef3")]
+        }
+        ("Rizzo-AI-Academy/rizzo-pii", "v2.1.0") => {
+            &[("Rizzo-PII-2.1.0-macOS-arm64.dmg", 132_561_673, "f94fd21db84e9e355b9bd873c50686ead334e38bebed39ae6daf7f54c336dfe7")]
+        }
+        ("Rizzo-AI-Academy/rizzo-pii", "v2.2.0") => {
+            &[("Rizzo-PII-2.2.0-macOS-arm64.dmg", 197_183_674, "eb732c316dc5a60c84afe5a921162c7abb52575b3fb6e0aaf0c7902642c0e808")]
+        }
         _ => &[],
     };
     receipts.iter().map(move |&(name, size, sha256)| Asset {

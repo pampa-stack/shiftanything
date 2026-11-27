@@ -2043,7 +2043,28 @@ pub const ZOTERO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8LAYR367YV"),
 };
 
-pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 87] = [
+pub const DESKREEN: crate::CraftApp = crate::CraftApp {
+    id: "deskreen",
+    name: "Deskreen Community Edition",
+    tagline: "Share a screen or window with a browser on the same network",
+    repo: "pavlobu/deskreen",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [53, 120, 223],
+    ink_light: [34, 78, 151],
+    ink_dark: [178, 208, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Pavlo Buidenkov",
+    msi_publisher: None,
+    bundle: Some("com.deskreen-ce.app"),
+    site: Some("https://deskreen.com/"),
+    mac_bundle_name: Some("Deskreen CE"),
+    mac_team: Some("3MGY23CG64"),
+};
+
+pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 88] = [
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,
@@ -2131,6 +2152,7 @@ pub(crate) static COMMUNITY_RECIPES: [crate::CraftApp; 87] = [
     FREECAD,
     OPENMAUSBOT,
     ZOTERO,
+    DESKREEN,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

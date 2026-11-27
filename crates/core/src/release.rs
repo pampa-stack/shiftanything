@@ -907,6 +907,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DBEAVER_CE,
         crate::curated::PRUSA_SLICER,
         crate::curated::ZOTERO,
+        crate::curated::DESKREEN,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1578,6 +1579,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506"),
             ("rustdesk-1.5.3-aarch64.dmg", 31_464_911, "e6d30fa1633d772c48935907c208ca4e555a856fb2038af3aaa87a327c29360b"),
         ],
+        ("pavlobu/deskreen", "v3.2.15") => {
+            &[("deskreen-ce-3.2.15-arm64.dmg", 148_740_787, "bfeb75823971706af9a2123a4c212a5244c0a0000f094be703a8125dbdeba3c8")]
+        }
+        ("pavlobu/deskreen", "v3.2.16") => {
+            &[("deskreen-ce-3.2.16-arm64.dmg", 147_505_602, "09a3be94f5fa2afc13e9098b8f6ad1f3285cf41f6f7a0de64a529944398d9177")]
+        }
         ("zotero/zotero", tag) => {
             ZOTERO_DMG_RECEIPTS.iter().find(|&&(reviewed, _)| reviewed == tag).map_or(&[], |(_, receipt)| std::slice::from_ref(receipt))
         }

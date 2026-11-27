@@ -101,6 +101,7 @@
   let pendingId;
   const sizeFormatter = new Intl.NumberFormat(document.documentElement.lang, {maximumFractionDigits: 1});
   const platformLabels = {MacOs:'macOS', Linux:'Linux', Windows:'Windows'};
+  const unavailableSize = it ? 'Dimensione non disponibile' : 'Size unavailable';
   const projectGuide = entry => [entry?.review?.source, entry?.website].find(url => url?.startsWith('https://'));
   const dateFormatter = new Intl.DateTimeFormat(document.documentElement.lang, {
     year:'numeric', month:'short', day:'numeric', timeZone:'UTC'
@@ -125,8 +126,22 @@
     const day = date && Number.isFinite(date.getTime()) ? date.toISOString().slice(0,10) : '';
     const size = live.bytes > 0
       ? `${sizeFormatter.format(live.bytes / 1000000)} MB · ${platformLabels[snapshot.platform.os]}`
-      : it ? 'Dimensione non disponibile' : 'Size unavailable';
+      : unavailableSize;
     return {version:live.version, day, dateLabel:day ? dateFormatter.format(date) : unavailableDate, size};
+  }
+  function documentedSize(appId, os) {
+    if (!platformLabels[os]) return;
+    const entry = catalogById.get(appId);
+    const platform = os.toLowerCase();
+    const flatpak = entry?.distribution?.find(channel =>
+      channel.platform === platform && channel.manager === 'flatpak' && channel.download_size > 0);
+    if (flatpak) return `${sizeFormatter.format(flatpak.download_size / 1000000)} MB · Linux · Flatpak`;
+
+    const size = entry?.release?.packages?.find(pkg => pkg.platform === platform && pkg.size_min > 0);
+    if (!size) return unavailableSize;
+    const low = sizeFormatter.format(size.size_min / 1000000);
+    const high = sizeFormatter.format((size.size_max ?? size.size_min) / 1000000);
+    return `${low === high ? low : low + '–' + high} MB · ${platformLabels[os]}`;
   }
   function applyReleaseDate(output, release) {
     if (!output) return;
@@ -161,14 +176,16 @@
   function updateCatalogReleases(snapshot) {
     let datesChanged = false;
     for (const node of document.querySelectorAll('.catalog-grid .cell[data-app], .catalog-row[data-app]')) {
-      const entry = releasePresentation(snapshot, node.dataset.app);
-      if (!entry) continue;
-      if (node.dataset.release !== entry.day) {
-        node.dataset.release = entry.day;
-        datesChanged = true;
+      const release = releasePresentation(snapshot, node.dataset.app);
+      if (release) {
+        if (node.dataset.release !== release.day) {
+          node.dataset.release = release.day;
+          datesChanged = true;
+        }
+        applyReleaseDate(node.querySelector('.release-meta > div:first-child > div:last-child'), release);
       }
-      applyReleaseDate(node.querySelector('.release-meta > div:first-child > div:last-child'), entry);
-      setText(node.querySelector('.release-meta > div:last-child > div:last-child'), entry.size);
+      const size = release?.size ?? documentedSize(node.dataset.app, snapshot.platform?.os);
+      if (size) setText(node.querySelector('.release-meta > div:last-child > div:last-child'), size);
     }
     if (datesChanged) document.querySelector('[data-catalog]').dispatchEvent(new Event('releases-changed'));
   }

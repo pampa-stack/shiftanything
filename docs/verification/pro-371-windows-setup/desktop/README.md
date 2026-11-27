@@ -21,3 +21,9 @@ La guida Tauri v2 supporta il target Windows MSVC, con linker LLVM e compilatore
 
 - Cache Rust locale limitata ad Apple Silicon sul Mac e Linux x86_64 su VPS2. Nessun launcher Windows x64 trovato nei percorsi di build e nessuna cache SDK. API del repository ha restituito Actions disabilitate e zero artifact.
 - Budget indicativo del cross-build dallo scratch Windows su /mnt/dati. Circa 13,9 GiB disponibili dopo la riserva di 9 GiB all’ultimo controllo. Target Tauri Linux caldo misurato in altri run da 4 a 9 GiB con debug e incremental disabilitati. Lo spazio di SDK, LLVM estratto, download e target Windows richiede un controllo separato prima di avviare la build. Stima non misurata su Windows.
+
+## Ricontrollo alle 06:54 CET
+
+VPS2 aveva 23,891 GiB liberi su `/mnt/dati` e 12,537 GiB di RAM disponibile. Tolta la riserva di 8 GiB per il server, il file della VM avrebbe avuto al massimo 15,891 GiB prima delle altre scritture. La prova precedente ha già raggiunto 16 GiB durante Setup. La RAM era sotto i 12,65 GiB richiesti dal preflight della stessa prova. L'ISO e i componenti della VM sono ancora disponibili.
+
+GitHub Actions risultava disabilitato, con zero runner registrati e zero artifact. Nessuna VM è stata riavviata durante il ricontrollo. Il binario e il pacchetto Windows restano da costruire e provare.

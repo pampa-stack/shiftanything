@@ -1,0 +1,10 @@
+PHASE install
+PASS OFFICIAL v3.12.2 Dmg https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.2/DB.Browser.for.SQLite-arm64-3.12.2.dmg 26445763 0c2076e4479cb9db5c85123cfe9750641f92566694ff9f6c99906321a2c424e8
+PASS OFFICIAL v3.13.1 Dmg https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1.dmg 45618256 a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e
+PASS OFFICIAL v3.12.2 Dmg https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.12.2/DB.Browser.for.SQLite-arm64-3.12.2.dmg 26445763 0c2076e4479cb9db5c85123cfe9750641f92566694ff9f6c99906321a2c424e8
+PASS NATIVE install: DB Browser for SQLite installed: 3.12.2; transferred=26445763; elapsed=22.566s
+PHASE update
+PASS OFFICIAL v3.13.1 Dmg https://github.com/sqlitebrowser/sqlitebrowser/releases/download/v3.13.1/DB.Browser.for.SQLite-v3.13.1.dmg 45618256 a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e
+PASS NATIVE update: DB Browser for SQLite updated to 3.13.1; transferred=45618256; elapsed=36.906s
+PHASE remove
+PASS NATIVE remove: DB Browser for SQLite was removed; transferred=0; elapsed=0.111s

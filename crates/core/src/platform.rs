@@ -375,6 +375,16 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             .find(|asset| crate::release::super_productivity_mac_asset(release, asset))
             .map(|asset| (asset, PackageKind::Dmg));
     }
+    if stems.contains(&crate::curated::DB_BROWSER_SQLITE.id) {
+        if !kinds.contains(&PackageKind::Dmg) {
+            return None;
+        }
+        return release
+            .assets
+            .iter()
+            .find(|asset| crate::release::db_browser_sqlite_mac_asset(release, asset))
+            .map(|asset| (asset, PackageKind::Dmg));
+    }
     if stems.contains(&crate::curated::BLOCKBENCH.id) {
         if !kinds.contains(&PackageKind::Dmg) {
             return None;
@@ -676,6 +686,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::ACTUAL_BUDGET.id,
         crate::curated::APPFLOWY.id,
         crate::curated::BLOCKBENCH.id,
+        crate::curated::DB_BROWSER_SQLITE.id,
         crate::curated::SUPER_PRODUCTIVITY.id,
     ]
     .iter()
@@ -721,6 +732,33 @@ mod tests {
         release.assets[0].url = canonical_url.replace("superProductivity-arm64.dmg", "superProductivity-x64.dmg");
         release.assets[0].name = "superProductivity-x64.dmg".into();
         assert!(!select(&release, platform));
+    }
+
+    #[test]
+    fn db_browser_sqlite_selects_only_version_bound_verified_macos_assets() {
+        use crate::curated::DB_BROWSER_SQLITE;
+        use crate::release::release_from_sums;
+
+        let platform = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, target| pick_asset(release, &[DB_BROWSER_SQLITE.id], target, &[PackageKind::Dmg]).is_some();
+        let mut previous = release_from_sums(DB_BROWSER_SQLITE.repo, "v3.12.2", &[]);
+        assert!(select(&previous, platform));
+        assert!(!select(&previous, Platform { arch: Arch::X64, ..platform }));
+        previous.assets[0].name = "DB.Browser.for.SQLite-3.12.2.dmg".into();
+        assert!(!select(&previous, platform));
+
+        let mut latest = release_from_sums(DB_BROWSER_SQLITE.repo, "v3.13.1", &[]);
+        assert!(select(&latest, platform));
+        latest.assets[0].size += 1;
+        assert!(!select(&latest, platform));
+        latest.assets[0].size -= 1;
+        latest.assets[0].sha256 = Some("a".repeat(64));
+        assert!(!select(&latest, platform));
+        latest.assets[0].name = "DB.Browser.for.SQLite-v3.13.0.dmg".into();
+        latest.assets[0].url = format!("{}v3.13.0/{}", crate::release::download_prefix(DB_BROWSER_SQLITE.repo), latest.assets[0].name);
+        latest.version = crate::version::parse("3.13.0");
+        latest.tag = "v3.13.0".into();
+        assert!(!select(&latest, platform));
     }
 
     #[test]

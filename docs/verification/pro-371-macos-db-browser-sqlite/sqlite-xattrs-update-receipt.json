@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "db-browser-for-sqlite": {
+      "version": "3.13.1",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-sqlitebrowser.VSTrWMYi/home-native-sqlite-xattrs/Applications/DB Browser for SQLite.app",
+      "installed_at": 1795778939,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

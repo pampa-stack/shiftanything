@@ -1222,7 +1222,28 @@ pub const SUPER_PRODUCTIVITY: crate::CraftApp = crate::CraftApp {
     mac_team: Some("363FAFK383"),
 };
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 48] = [
+pub const DB_BROWSER_SQLITE: crate::CraftApp = crate::CraftApp {
+    id: "db-browser-for-sqlite",
+    name: "DB Browser for SQLite",
+    tagline: "Browse and edit SQLite databases locally",
+    repo: "sqlitebrowser/sqlitebrowser",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [66, 133, 190],
+    ink_light: [32, 83, 130],
+    ink_dark: [164, 206, 246],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "DB Browser for SQLite developers",
+    msi_publisher: None,
+    bundle: Some("net.sourceforge.sqlitebrowser"),
+    site: Some("https://sqlitebrowser.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("C34AV33YLK"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 49] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1271,6 +1292,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 48] = [
     RAPIDRAW,
     RUSTDESK,
     SUPER_PRODUCTIVITY,
+    DB_BROWSER_SQLITE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

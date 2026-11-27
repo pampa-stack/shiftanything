@@ -679,6 +679,28 @@ pub fn super_productivity_mac_asset(release: &Release, asset: &Asset) -> bool {
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
 }
 
+const DB_BROWSER_SQLITE_ARM64_3_12_2: &str = "DB.Browser.for.SQLite-arm64-3.12.2.dmg";
+
+/// Older releases separate Apple Silicon from Intel. The original v3.13.0 universal
+/// DMG identifies itself as 3.13.99, so it is deliberately excluded.
+pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            let package_matches = if release.tag == "v3.12.2" {
+                asset.name == DB_BROWSER_SQLITE_ARM64_3_12_2
+            } else {
+                (version.major, version.minor, version.patch) >= (3, 13, 1) && asset.name == format!("DB.Browser.for.SQLite-v{version}.dmg")
+            };
+            version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{version}") && package_matches
+        })
+        && asset.url == format!("{}{}/{}", download_prefix(crate::curated::DB_BROWSER_SQLITE.repo), release.tag, asset.name)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
+        && reviewed_assets(crate::curated::DB_BROWSER_SQLITE.repo, &release.tag)
+            .find(|reviewed| reviewed.name == asset.name)
+            .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
 const SOLVESPACE_MAC_DMG: &str = "SolveSpace.dmg";
 
 /// SolveSpace publishes the same DMG filename under stable tags such as v3.3.
@@ -925,6 +947,13 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("super-productivity/super-productivity", "v20.1.0") => {
             &[(SUPER_PRODUCTIVITY_MAC_DMG, 148_973_846, "fdfb1625603537f0935209b609ba18fba587057ab01139dfe7098968c9a9748c")]
+        }
+        // These older release assets do not carry an API digest: https://download.sqlitebrowser.org/SHA256SUMS.txt
+        ("sqlitebrowser/sqlitebrowser", "v3.12.2") => {
+            &[(DB_BROWSER_SQLITE_ARM64_3_12_2, 26_445_763, "0c2076e4479cb9db5c85123cfe9750641f92566694ff9f6c99906321a2c424e8")]
+        }
+        ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
+            &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
         }
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],

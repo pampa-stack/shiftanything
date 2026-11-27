@@ -47,6 +47,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             artcraft_launcher_core::curated::LAPCE.id,
             artcraft_launcher_core::curated::SOLVESPACE.id,
             artcraft_launcher_core::curated::VIBE.id,
+            artcraft_launcher_core::curated::DB_BROWSER_SQLITE.id,
         ]
         .contains(&id) =>
         {
@@ -600,6 +601,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id {
         return (app.repo == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.repo && release::super_productivity_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::DB_BROWSER_SQLITE.id {
+        return (app.repo == artcraft_launcher_core::curated::DB_BROWSER_SQLITE.repo && release::db_browser_sqlite_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -2412,10 +2418,13 @@ pub mod macos {
         let staging = super::staging_dir(&dir)?;
         let staged = staging.path().join(&bundle);
         let (Some(src_s), Some(staged_s)) = (src.to_str(), staged.to_str()) else { return Err("unusual characters in a path".into()) };
-        // Pinta has detached signatures in the extended attributes of its .NET libraries.
-        // Other recipes omit Finder metadata that would cause strict verification to fail.
-        // The staged copy must pass the same signature and notarization checks in both cases.
-        let args = if app.id == artcraft_launcher_core::curated::PINTA.id {
+        // Pinta's .NET libraries and SQLite Browser 3.12.2's Qt translations store
+        // detached signatures in extended attributes. The staged copy still goes
+        // through the same signature and notarization checks.
+        let sqlite = artcraft_launcher_core::curated::DB_BROWSER_SQLITE;
+        let sqlite_legacy =
+            (app.id, app.repo) == (sqlite.id, sqlite.repo) && expect.version == Some(&artcraft_launcher_core::version::Version::new(3, 12, 2));
+        let args = if app.id == artcraft_launcher_core::curated::PINTA.id || sqlite_legacy {
             ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
         } else {
             ["--norsrc", "--noextattr", "--noacl", src_s, staged_s]

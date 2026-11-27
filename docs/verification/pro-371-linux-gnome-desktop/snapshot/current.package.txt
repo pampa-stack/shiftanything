@@ -1,0 +1,20 @@
+
+Camera - Take pictures and videos
+
+          ID: org.gnome.Snapshot
+         Ref: app/org.gnome.Snapshot/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 51.0
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 6.3 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301
+      Parent: 7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe
+     Subject: Merge pull request #64 from flathub/update-master-bd2ce11 (c6afae56fc88)
+        Date: 2026-09-17 15:35:10 +0000

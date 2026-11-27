@@ -1,0 +1,19 @@
+commit 8a1a93d2335c92f28d54590f2fa1ee60390bbfca4d89a1bcefe3bc688aa75301
+Parent:  7cc41e5fdc76fd0749a459e7acb1975c043d73ebcb996d8f24e15b60e5c98efe
+ContentChecksum:  3dd436f42ddf4e27bcf7de72f56a8c3dd4bb3bfa8e5ac850d6a25f75aae48818
+Date:  2026-09-17 15:35:10 +0000
+
+    Merge pull request #64 from flathub/update-master-bd2ce11 (c6afae56fc88)
+
+    Name: org.gnome.Snapshot
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Sep 17 16:03:30 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

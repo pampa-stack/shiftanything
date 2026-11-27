@@ -469,6 +469,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Copy JSON	JSON-ის კოპირება
 	Copy for VS Code	კოპირება VS Code-ისთვის
 	Copy for Codex (TOML)	კოპირება Codex-ისთვის (TOML)
+	Copy for OpenCode	კოპირება OpenCode-ისთვის
 	Configuration copied.	კონფიგურაცია დაკოპირდა.
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} MCP სერვერებს მხოლოდ გაშვებისას ტვირთავს, ამიტომ Craft აპები გადატვირთვის შემდეგ გამოჩნდება. გადატვირთვა ხურავს {client}-ს, მათ შორის პასუხს, რომელსაც ახლა წერს.
 	Restart {client}	{client}-ის გადატვირთვა

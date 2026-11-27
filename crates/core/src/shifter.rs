@@ -1,4 +1,4 @@
-//! Evidence-based comparisons. Catalog alternatives discover candidates, never prove features.
+//! Evidence-based comparisons across the catalog.
 use std::collections::{BTreeMap, BTreeSet};
 use std::sync::OnceLock;
 
@@ -87,13 +87,6 @@ impl Profile {
     pub fn evidence(&self, app_id: &str, feature: &str) -> Option<&Evidence> {
         self.candidates.iter().find(|candidate| candidate.app_id == app_id)?.evidence.get(feature)
     }
-    pub fn discovers(&self, app: &curated::App) -> bool {
-        self.candidates.iter().any(|candidate| candidate.app_id == app.id)
-            || app.alternatives.iter().any(|name| {
-                let normalized = normalize(name);
-                std::iter::once(&self.name).chain(&self.aliases).any(|alias| normalize(alias) == normalized)
-            })
-    }
     pub fn compare(&self, selected: &[String], required: &[String]) -> Result<Vec<Score>, String> {
         let allowed: BTreeSet<_> = self.features.iter().map(|feature| feature.id.as_str()).collect();
         let selected_set: BTreeSet<_> = selected.iter().map(String::as_str).collect();
@@ -104,8 +97,7 @@ impl Profile {
         if !selected_set.is_subset(&allowed) || !required_set.is_subset(&selected_set) {
             return Err("Unknown feature or required feature outside the selection".into());
         }
-        let mut scores: Vec<_> =
-            curated::apps().iter().filter(|app| self.discovers(app)).map(|app| self.score(&app.id, selected, required)).collect();
+        let mut scores: Vec<_> = curated::apps().iter().map(|app| self.score(&app.id, selected, required)).collect();
         sort_scores(&mut scores);
         Ok(scores)
     }
@@ -132,10 +124,15 @@ fn score_evidence(app_id: &str, selected: &[String], required: &[String], eviden
     score.missing_required = required.iter().filter(|feature| evidence(feature) != Some(State::Supported)).cloned().collect();
     score
 }
+fn catalog_sort_names() -> &'static BTreeMap<&'static str, String> {
+    static NAMES: OnceLock<BTreeMap<&'static str, String>> = OnceLock::new();
+    NAMES.get_or_init(|| curated::apps().iter().map(|app| (app.id.as_str(), normalize(&app.name))).collect())
+}
+
 fn sort_scores(scores: &mut [Score]) {
     scores.sort_by_key(|score| {
-        let name = curated::apps().iter().find(|app| app.id == score.app_id).map_or(score.app_id.as_str(), |app| app.name.as_str());
-        (score.missing_required.len(), std::cmp::Reverse(score.coverage), normalize(name), score.app_id.clone())
+        let (id, name) = catalog_sort_names().get_key_value(score.app_id.as_str()).map_or(("", ""), |(&id, name)| (id, name.as_str()));
+        (score.missing_required.len(), std::cmp::Reverse(score.coverage), name, id)
     });
 }
 pub struct Software<'a> {
@@ -173,16 +170,18 @@ impl Dataset {
     }
     pub fn compare_manual(&self, app_ids: &[String], selected: &[String], required: &[String]) -> Result<Vec<Score>, String> {
         let unique = |ids: &[String]| ids.iter().collect::<BTreeSet<_>>().len() == ids.len();
+        let catalog = catalog_sort_names();
         if !unique(app_ids)
             || !unique(selected)
             || !unique(required)
             || !required.iter().all(|feature| selected.contains(feature))
-            || app_ids.iter().any(|id| !curated::apps().iter().any(|app| app.id == *id))
+            || app_ids.iter().any(|id| !catalog.contains_key(id.as_str()))
         {
             return Err("Unknown app, duplicate IDs, or required feature outside the selection".into());
         }
+        let app_ids: Vec<_> = if app_ids.is_empty() { catalog.keys().copied().collect() } else { app_ids.iter().map(String::as_str).collect() };
         let mut scores: Vec<_> = app_ids
-            .iter()
+            .into_iter()
             .map(|app_id| score_evidence(app_id, selected, required, |feature| self.evidence(app_id, feature).map(|evidence| evidence.state)))
             .collect();
         sort_scores(&mut scores);
@@ -258,7 +257,15 @@ mod tests {
                 }
             }
             let selected: Vec<_> = profile.features.iter().map(|feature| feature.id.clone()).collect();
-            assert!(profile.compare(&selected, &selected).is_ok());
+            let scores = profile.compare(&selected, &selected).unwrap();
+            let all: BTreeSet<_> = scores.iter().map(|score| score.app_id.as_str()).collect();
+            assert_eq!(all, catalog_sort_names().keys().copied().collect());
+            assert!(
+                scores
+                    .iter()
+                    .filter(|score| !profile.candidates.iter().any(|candidate| candidate.app_id == score.app_id))
+                    .all(|score| { score.coverage.is_none() && score.unsupported == 0 && score.unverified == selected.len() })
+            );
             assert!(profile.compare(&["unknown".into()], &[]).is_err());
             assert!(profile.compare(&[], &selected).is_err());
         }
@@ -275,12 +282,12 @@ mod tests {
         let comparison = data().unwrap().software("Figma Design").into_iter().find_map(|suggestion| suggestion.profile).unwrap();
         let migration = vec!["migration".into()];
         let scores = comparison.compare(&migration, &migration).unwrap();
-        let candidates: BTreeSet<_> = scores.iter().map(|score| score.app_id.as_str()).collect();
+        let candidates: BTreeSet<_> = scores.iter().filter(|score| score.coverage.is_some()).map(|score| score.app_id.as_str()).collect();
         assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "penpot"]));
         assert!(scores.iter().all(|score| score.missing_required == migration));
         let doop = scores.iter().find(|score| score.app_id == "doop").unwrap();
         assert_eq!(doop.unsupported, 1);
-        assert!(scores.iter().filter(|score| score.app_id != "doop").all(|score| score.partial == 1));
+        assert!(scores.iter().filter(|score| candidates.contains(score.app_id.as_str()) && score.app_id != "doop").all(|score| score.partial == 1));
 
         let kits = crate::kits::data().unwrap();
         let step = kits.kits.iter().flat_map(|kit| &kit.steps).find(|step| step.paid.iter().any(|name| name == "Figma")).unwrap();

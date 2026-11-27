@@ -471,6 +471,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Copy JSON	JSON másolása
 	Copy for VS Code	Másolás VS Code-hoz
 	Copy for Codex (TOML)	Másolás Codexhez (TOML)
+	Copy for OpenCode	Másolás OpenCode-hoz
 	Configuration copied.	Konfiguráció kimásolva.
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	A(z) {client} csak induláskor tölti be az MCP-kiszolgálóit, ezért a Craft alkalmazások újraindítás után jelennek meg. Az újraindítás bezárja a(z) {client} alkalmazást, a még íródó választ is.
 	Restart {client}	{client} újraindítása

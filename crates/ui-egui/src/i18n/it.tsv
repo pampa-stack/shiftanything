@@ -111,6 +111,7 @@
 	Configuration copied.	Configurazione copiata.
 	Copy JSON	Copia JSON
 	Copy for Codex (TOML)	Copia per Codex (TOML)
+	Copy for OpenCode	Copia per OpenCode
 	Copy for VS Code	Copia per VS Code
 	Copy the configuration and paste it into the client's MCP settings.	Copia la configurazione e incollala nelle impostazioni MCP del client.
 	Couldn't change the font download setting: {e}	Impossibile cambiare il download dei font: {e}

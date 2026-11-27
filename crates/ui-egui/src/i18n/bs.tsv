@@ -401,6 +401,7 @@ materialcraft	Preview materials in 2D and on 3D models.	Pregledajte materijale u
 	Configuration copied.	Konfiguracija je kopirana.
 	Copy JSON	Kopiraj JSON
 	Copy for Codex (TOML)	Kopiraj za Codex (TOML)
+	Copy for OpenCode	Kopiraj za OpenCode
 	Copy for VS Code	Kopiraj za VS Code
 	Copy the configuration and paste it into the client's MCP settings.	Kopirajte konfiguraciju i zalijepite je u MCP postavke klijenta.
 	Download size: {size}	Veličina preuzimanja: {size}

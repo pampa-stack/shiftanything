@@ -13,14 +13,13 @@ pub(crate) struct Workspace {
 struct CatalogEntry {
     id: &'static str,
     name: &'static str,
-    alternatives: &'static [String],
 }
 
 #[tauri::command]
 pub(crate) fn shifter_workspace() -> Result<Workspace, String> {
     let dataset = serde_json::from_str(include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/../../crates/core/shifter.json")))
         .map_err(|error| error.to_string())?;
-    let apps = curated::apps().iter().map(|app| CatalogEntry { id: &app.id, name: &app.name, alternatives: &app.alternatives }).collect();
+    let apps = curated::apps().iter().map(|app| CatalogEntry { id: &app.id, name: &app.name }).collect();
     Ok(Workspace { dataset, apps })
 }
 
@@ -93,6 +92,7 @@ mod tests {
         let profile = Comparison::Profile { profile_id: "photoshop".into() };
         let selected = ["layers", "reversible", "psd", "genfill"].map(String::from);
         let scores = compare_shifter(profile, selected.to_vec(), vec!["genfill".into()])?;
+        assert_eq!(scores.len(), shifter_workspace()?.apps.len());
         let photocraft = scores.iter().find(|score| score.app_id == "photocraft").ok_or("PhotoCraft missing")?;
         assert_eq!(photocraft.coverage, Some(75));
         assert_eq!(photocraft.missing_required, ["genfill"]);
@@ -103,6 +103,11 @@ mod tests {
         assert_eq!(scores[0].coverage, Some(50));
         assert_eq!(scores[0].unverified, 1);
         assert_eq!(scores[0].missing_required, ["custom:0"]);
+
+        let manual = Comparison::Manual { app_ids: vec![] };
+        let scores = compare_shifter(manual, vec![], vec![])?;
+        assert_eq!(scores.len(), shifter_workspace()?.apps.len());
+        assert!(scores.iter().all(|score| score.coverage.is_none()));
         Ok(())
     }
 

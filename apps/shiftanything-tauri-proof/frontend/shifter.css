@@ -19,6 +19,15 @@
 .sh-layout{display:grid;grid-template-columns:minmax(285px, .8fr) minmax(0, 2.4fr);gap:14px;align-items:start}
 .sh-wing{border:1px solid var(--bd);min-width:0;background:var(--surf);border-radius:6px}
 .sh-wing > header{padding:14px 16px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;gap:8px}
+.sh-results-heading{align-items:center;flex-wrap:wrap}
+.sh-results-heading strong{color:var(--tx);font-size:12px}
+.sh-results-summary{display:grid;gap:3px;text-align:right}
+.sh-results-summary span{font-size:11px}
+.sh-result-tools{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;padding:9px 13px;border-bottom:1px solid var(--bd)}
+.sh-result-tools .inp{flex:1 0 min(170px,100%);width:auto;min-width:0}
+.sh-pagination{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sh-pagination .btn{min-height:30px}
+.sh-pagination [data-result-range]{min-width:10ch;text-align:center;color:var(--dim)}
 .sh-features{display:grid}
 .sh-feature{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:11px 12px;border-bottom:1px solid var(--bd)}
 .sh-feature > label{display:flex;align-items:center;gap:7px}

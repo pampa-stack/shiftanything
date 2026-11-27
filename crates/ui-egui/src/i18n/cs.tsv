@@ -438,6 +438,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Copy JSON	Kopírovat JSON
 	Copy for VS Code	Kopírovat pro VS Code
 	Copy for Codex (TOML)	Kopírovat pro Codex (TOML)
+	Copy for OpenCode	Kopírovat pro OpenCode
 	Configuration copied.	Konfigurace zkopírována.
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} načítá své servery MCP jen při spuštění, takže aplikace Craft se objeví až po restartu. Restart zavře {client} včetně odpovědi, kterou právě píše.
 	Restart {client}	Restartovat {client}

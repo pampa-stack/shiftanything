@@ -11,12 +11,11 @@
     noMatch: ['Nessuna corrispondenza. Premi Invio per il confronto manuale.', 'No matches. Press Enter to compare manually.'],
     features: ['Funzioni che usi', 'Features you use'],
     required: ['Indispensabile', 'Essential'],
-    results: ['Alternative open source', 'Open-source alternatives'],
-    candidate: ['Alternativa open source', 'Open-source alternative'],
+    results: ['Confronto con il catalogo', 'Catalog comparison'],
+    candidate: ['Applicazione', 'App'],
     coverage: ['Copertura documentata', 'Documented coverage'],
     essentials: ['Indispensabili', 'Essentials'],
     clearGaps: ['Indispensabili coperti', 'Essentials covered'],
-    noEssentials: ['Nessun indispensabile', 'No essentials selected'],
     missingEssential: ['indispensabile scoperto', 'essential uncovered'],
     missingEssentials: ['indispensabili scoperti', 'essentials uncovered'],
     unverified: ['Non verificato', 'Unverified'],
@@ -30,14 +29,19 @@
     close: ['Chiudi', 'Close'],
     nothing: ['Scegli almeno una funzione per calcolare la copertura.', 'Choose at least one feature to calculate coverage.'],
     empty: ['Cerca un software oppure scegli un confronto pronto.', 'Search for software or choose an existing comparison.'],
-    noCandidates: ['Aggiungi dal catalogo un’app da confrontare.', 'Add an app from the catalog to compare.'],
+    noResults: ['Non ci sono app nel confronto.', 'There are no apps in the comparison.'],
+    noAppMatches: ['Nessuna app corrisponde alla ricerca.', 'No apps match your search.'],
+    findApp: ['Cerca app nel confronto', 'Search apps in comparison'],
+    appCount: ['app nel confronto', 'apps in comparison'],
+    needsSources: ['La copertura appare quando ci sono fonti per le funzioni selezionate.', 'Coverage appears when there are sources for the selected features.'],
+    previousPage: ['Precedente', 'Previous'],
+    nextPage: ['Successiva', 'Next'],
+    resultPages: ['Pagine delle app', 'App result pages'],
+    rangeOf: ['di', 'of'],
     manual: ['Confronto manuale', 'Manual comparison'],
     knownFunction: ['Scegli una funzione', 'Choose a feature'],
     addFunction: ['Aggiungi funzione', 'Add feature'],
     customFunction: ['Scrivi una funzione', 'Enter a feature'],
-    addApp: ['Aggiungi app', 'Add app'],
-    selectApp: ['Scegli un’app del catalogo', 'Choose a catalog app'],
-    remove: ['Rimuovi', 'Remove'],
     about: ['La copertura conta le funzioni selezionate supportate per intero. Fonti controllate il', 'Coverage counts selected features with full support. Sources checked on'],
     customNote: ['La funzione è stata aggiunta manualmente.', 'This feature was added manually.'],
     relatedNote: ['La funzione va verificata per questa app.', 'This feature needs verification for this app.'],
@@ -93,22 +97,31 @@
         </div>
       </section>
       <section class="sh-wing" aria-labelledby="sh-results-title">
-        <header><h2 id="sh-results-title">${labels.results}</h2><span data-comparison-name class="dim"></span></header>
+        <header class="sh-results-heading">
+          <div><h2 id="sh-results-title">${labels.results}</h2><span data-comparison-name class="dim"></span></div>
+          <div class="sh-results-summary"><strong data-result-total class="mono"></strong>
+            <span data-coverage-note class="dim" hidden>${labels.needsSources}</span></div>
+        </header>
+        <div class="sh-result-tools" data-result-tools hidden>
+          <input type="search" class="inp" data-app-search aria-label="${labels.findApp}"
+            placeholder="${labels.findApp}" aria-controls="sh-results-table">
+          <div class="sh-pagination" data-result-pager role="group" aria-label="${labels.resultPages}">
+            <button type="button" class="btn" data-result-previous aria-controls="sh-results-table">${labels.previousPage}</button>
+            <span class="mono" data-result-range></span>
+            <button type="button" class="btn" data-result-next aria-controls="sh-results-table">${labels.nextPage}</button>
+          </div>
+        </div>
+        <p class="sh-empty" data-sh-status role="status"></p>
         <div class="sh-scroll">
-          <table data-results hidden>
+          <table id="sh-results-table" data-results hidden>
             <thead class="mono"><tr>
-              <th scope="col">${labels.candidate}</th><th scope="col">${labels.coverage}</th>
-              <th scope="col">${labels.essentials}</th><th scope="col">${labels.proofs} / ${labels.app}</th>
+              <th scope="col">${labels.candidate}</th><th scope="col" data-coverage-column>${labels.coverage}</th>
+              <th scope="col" data-essentials-column hidden>${labels.essentials}</th><th scope="col">${labels.app} / ${labels.proofs}</th>
             </tr></thead>
             <tbody data-candidates></tbody>
           </table>
         </div>
-        <p class="sh-empty" data-sh-status role="status"></p>
         <p class="sh-announce" data-sh-announce role="status"></p>
-        <div class="sh-manual" data-manual-apps hidden>
-          <form data-add-app><select class="inp" data-catalog-app aria-label="${labels.selectApp}" required></select>
-            <button type="submit" class="btn">${labels.addApp}</button></form>
-        </div>
         <p class="sh-note" data-sh-note hidden>${labels.about} <time></time>.</p>
       </section>
     </div>`;
@@ -129,14 +142,18 @@
   const options = find('software-options');
   const toggle = find('software-toggle');
   const results = find('results');
+  const appSearch = find('app-search');
+  const previousPage = find('result-previous');
+  const nextPage = find('result-next');
+  const pageSize = 12;
   const collator = new Intl.Collator(lang, { sensitivity: 'base' });
+  const { format } = new Intl.NumberFormat(lang);
   const normalize = value => value.replace(/[™®℠]/g, '').normalize('NFKD').replace(/[^\p{L}\p{N}]/gu, '').toLowerCase();
   const activeTab = () => !root.hidden;
   const known = new Map();
   const evidenceByApp = new Map();
   let workspace;
   let profiles = [];
-  let apps = [];
   let byId = new Map();
   let suggestions = [];
   let matches = [];
@@ -144,7 +161,8 @@
   let startingName = '';
   let activeProfile;
   let features = [];
-  let candidates = [];
+  let comparisonResult;
+  let resultPage = 0;
   let customSequence = 0;
   let renderRevision = 0;
   let dialogTrigger;
@@ -175,11 +193,6 @@
     for (const [id, name] of choices) select.add(new Option(name, id));
   }
 
-  function updateAppChoices() {
-    selectOptions(find('catalog-app'), labels.selectApp, apps.filter(app => !candidates.includes(app.id))
-      .map(app => [app.id, app.name]));
-  }
-
   function updateFeatureChoices() {
     selectOptions(find('known-feature'), labels.knownFunction, [...known.values()]
       .filter(feature => !features.some(current => current.key === feature.key))
@@ -196,11 +209,8 @@
     features = (activeProfile?.features ?? []).map(feature => ({
       ...feature, key: activeProfile.id + ':' + feature.id, selected: true, essential: false,
     }));
-    const documented = new Set(activeProfile?.candidates.map(candidate => candidate.app_id));
-    const names = new Set(activeProfile ? [activeProfile.name, ...activeProfile.aliases].map(normalize) : [term]);
-    candidates = apps.filter(app => documented.has(app.id) || app.alternatives.some(name => names.has(normalize(name))))
-      .map(app => app.id);
-    updateAppChoices();
+    appSearch.value = '';
+    resultPage = 0;
     updateFeatureChoices();
     render();
   }
@@ -293,39 +303,75 @@
       identity.append(node('strong', app.name));
       name.append(identity);
 
-      const coverage = node('td', undefined, 'sh-rate');
-      if (score.coverage === null) coverage.textContent = labels.unverified;
-      else coverage.append(node('strong', score.coverage + '%'), node('span', score.supported + '/' + selected.length, 'dim'));
-      const gapCount = score.missing_required.length;
-      const gapText = gapCount ? gapCount + ' ' + (gapCount === 1 ? labels.missingEssential : labels.missingEssentials)
-        : required.length ? labels.clearGaps : labels.noEssentials;
-      const gap = node('td', gapText, gapCount ? 'sh-gap' : 'dim');
-      if (gapCount) gap.title = selected.filter(feature => score.missing_required.includes(activeProfile ? feature.id : feature.key))
-        .map(feature => feature.name[lang]).join(' · ');
+      row.append(name);
+      if (selected.length) {
+        const coverage = node('td', undefined, 'sh-rate');
+        if (score.coverage === null) coverage.append(node('span', '—', 'dim'));
+        else coverage.append(node('strong', score.coverage + '%'), node('span', score.supported + '/' + selected.length, 'dim'));
+        row.append(coverage);
+      }
+      const source = evidenceByApp.get(app.id);
+      const evidenceKey = feature => activeProfile ? feature.id : feature.key;
+      if (required.length) {
+        const gapCount = score.missing_required.length;
+        const hasRequiredProof = selected.some(feature => required.includes(evidenceKey(feature)) && source?.has(feature.key));
+        const gapText = !hasRequiredProof ? '—' : gapCount
+          ? gapCount + ' ' + (gapCount === 1 ? labels.missingEssential : labels.missingEssentials) : labels.clearGaps;
+        const gap = node('td', gapText, gapCount && hasRequiredProof ? 'sh-gap' : 'dim');
+        if (gapCount) gap.title = selected.filter(feature => score.missing_required.includes(evidenceKey(feature)))
+          .map(feature => feature.name[lang]).join(' · ');
+        row.append(gap);
+      }
 
       const actions = node('div', undefined, 'sh-proof-actions');
-      const proofs = button(labels.proofs, event => showProofs(app, selected, event.currentTarget));
-      proofs.setAttribute('aria-label', labels.proofs + ' · ' + app.name);
       const appDetail = button(labels.app);
       appDetail.dataset.appDetail = app.id;
       appDetail.setAttribute('aria-label', labels.app + ' · ' + app.name);
       appDetail.disabled = !document.getElementById('app-detail-' + app.id);
-      actions.append(proofs, appDetail);
-      if (!activeProfile) {
-        const remove = button(labels.remove, () => {
-          candidates = candidates.filter(id => id !== app.id);
-          updateAppChoices();
-          find('catalog-app').focus();
-          render();
-        });
-        remove.setAttribute('aria-label', labels.remove + ' · ' + app.name);
-        actions.append(remove);
+      actions.append(appDetail);
+      if (selected.some(feature => source?.has(feature.key))) {
+        const proofs = button(labels.proofs, event => showProofs(app, selected, event.currentTarget));
+        proofs.setAttribute('aria-label', labels.proofs + ' · ' + app.name);
+        actions.append(proofs);
       }
       const actionCell = node('td');
       actionCell.append(actions);
-      row.append(name, coverage, gap, actionCell);
+      row.append(actionCell);
       rows.append(row);
     }
+  }
+
+  function drawResultPage() {
+    if (!comparisonResult) return;
+    const { scores, selected, required } = comparisonResult;
+    const term = normalize(appSearch.value);
+    const matched = term ? scores.filter(({ app_id }) => {
+      const app = byId.get(app_id);
+      return app && (normalize(app.name).includes(term) || normalize(app.id).includes(term));
+    }) : scores;
+    const lastPage = Math.max(0, Math.ceil(matched.length / pageSize) - 1);
+    resultPage = Math.min(resultPage, lastPage);
+    const start = resultPage * pageSize;
+    const end = Math.min(start + pageSize, matched.length);
+    const total = format(scores.length) + ' ' + labels.appCount;
+    const range = matched.length ? format(start + 1) + '–' + format(end) + ' ' + labels.rangeOf + ' ' + format(matched.length) : '';
+    find('result-total').textContent = total;
+    find('coverage-note').hidden = !selected.length || !matched.some(score => score.coverage === null);
+    find('coverage-column').hidden = selected.length === 0;
+    find('essentials-column').hidden = required.length === 0;
+    find('result-tools').hidden = scores.length === 0;
+    find('result-pager').hidden = matched.length === 0;
+    find('result-range').textContent = range;
+    const focusedPageButton = document.activeElement;
+    previousPage.disabled = resultPage === 0;
+    nextPage.disabled = resultPage === lastPage;
+    if (focusedPageButton === previousPage && previousPage.disabled && !nextPage.disabled) nextPage.focus();
+    if (focusedPageButton === nextPage && nextPage.disabled && !previousPage.disabled) previousPage.focus();
+    find('candidates').replaceChildren();
+    drawRows(matched.slice(start, end), selected, required);
+    results.hidden = matched.length === 0;
+    setStatus(!scores.length ? labels.noResults : !matched.length ? labels.noAppMatches : !selected.length ? labels.nothing : '');
+    find('sh-announce').textContent = range ? total + ' · ' + range : '';
   }
 
   async function render() {
@@ -335,28 +381,29 @@
     find('feature-count').textContent = features.length ? selected.length + ' / ' + features.length : '';
     find('comparison-name').textContent = startingName ? startingName + (manual ? ' · ' + labels.manual : '') : '';
     find('manual').hidden = !manual;
-    find('manual-apps').hidden = !manual;
     drawFeatures();
+    comparisonResult = undefined;
+    find('result-total').textContent = '';
+    find('coverage-note').hidden = true;
+    find('result-tools').hidden = true;
     results.hidden = true;
     find('candidates').replaceChildren();
     find('sh-announce').textContent = '';
 
-    if (!startingName || !selected.length || !candidates.length) {
-      setStatus(!startingName ? labels.empty : !selected.length ? labels.nothing : labels.noCandidates);
+    if (!startingName) {
+      setStatus(labels.empty);
       return;
     }
     setStatus(labels.loading);
     const featureId = feature => activeProfile ? feature.id : feature.key;
     const required = selected.filter(feature => feature.essential).map(featureId);
     const comparison = activeProfile
-      ? { mode: 'profile', profile_id: activeProfile.id } : { mode: 'manual', app_ids: candidates };
+      ? { mode: 'profile', profile_id: activeProfile.id } : { mode: 'manual', app_ids: [] };
     try {
       const scores = await invoke('compare_shifter', { comparison, selected: selected.map(featureId), required });
       if (revision !== renderRevision) return;
-      drawRows(scores, selected, required);
-      results.hidden = !scores.length;
-      setStatus(scores.length ? '' : labels.noCandidates);
-      find('sh-announce').textContent = scores.length ? labels.results + ' · ' + scores.length : '';
+      comparisonResult = { scores, selected, required };
+      drawResultPage();
     } catch {
       if (revision === renderRevision) setStatus(labels.compareError);
     }
@@ -435,6 +482,19 @@
     }
   });
 
+  appSearch.addEventListener('input', () => {
+    resultPage = 0;
+    drawResultPage();
+  });
+  previousPage.addEventListener('click', () => {
+    resultPage--;
+    drawResultPage();
+  });
+  nextPage.addEventListener('click', () => {
+    resultPage++;
+    drawResultPage();
+  });
+
   function onSubmit(form, action) {
     find(form).addEventListener('submit', event => {
       event.preventDefault();
@@ -462,13 +522,6 @@
     updateFeatureChoices();
     render();
   });
-  onSubmit('add-app', () => {
-    const id = find('catalog-app').value;
-    if (!byId.has(id) || candidates.includes(id)) return;
-    candidates.push(id);
-    updateAppChoices();
-    render();
-  });
   dialog.querySelector('[data-sh-close]').addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => dialogTrigger?.focus());
 
@@ -491,8 +544,7 @@
     try {
       const loaded = await invoke('shifter_workspace');
       profiles = loaded.dataset.profiles;
-      apps = loaded.apps.sort((a, b) => collator.compare(a.name, b.name));
-      byId = new Map(apps.map(app => [app.id, app]));
+      byId = new Map(loaded.apps.map(app => [app.id, app]));
       icons = new Map([...catalog.querySelectorAll('.catalog-grid [data-app]')]
         .map(card => [card.dataset.app, card.querySelector('.product-icon')]));
       const names = new Map(loaded.dataset.suggested_software.map(name => [normalize(name), { name, aliases: [name] }]));

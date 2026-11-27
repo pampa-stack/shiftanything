@@ -29,7 +29,7 @@ server = FastMCP(
 )
 
 
-from shifter import compare as compare_evidence, manual_compare, normalize as comparison_normalize
+from shifter import compare as compare_evidence, manual_compare, normalize as comparison_normalize, profile_evidence
 
 SHIFTER_PATH = Path(__file__).resolve().with_name("shifter.json")
 if not SHIFTER_PATH.is_file():
@@ -39,6 +39,18 @@ if not SHIFTER_PATH.is_file():
 def comparison_data():
     MARK_CLIENT()
     return json.loads(SHIFTER_PATH.read_text(encoding="utf-8"))
+
+
+def comparison_results(results, evidence, selected, *, shortlist=False):
+    rows = []
+    for row in results:
+        known = evidence.get(row["app_id"], {})
+        if shortlist:
+            sources = {feature: known.get(feature, {"state": "unverified"}) for feature in selected}
+        else:
+            sources = {feature: known[feature] for feature in selected if feature in known}
+        rows.append(dict(row, evidence=sources))
+    return rows
 
 
 @server.tool(annotations=READ_ONLY, structured_output=True)
@@ -63,16 +75,21 @@ def compare_apps(
 ) -> dict[str, Any]:
     """Compare documented features using an explicitly selected profile, or a manual name.
 
+    Comparisons cover the whole catalog. Manual callers may pass an app_ids shortlist.
     Coverage is rounded half up: supported / ALL selected features. Partial, unsupported,
     and unverified are separate. No percentage for empty selection or all unverified.
-    Alternatives only discover candidates. This tool never installs or changes evidence.
+    Omitted evidence entries are unverified. This tool never installs or changes evidence.
     """
-    data = comparison_data()
-    apps = catalog()
     if any(len(feature) > 240 for feature in [*selected_features, *required_features]):
         return {"error": "invalid_feature"}
-    if len(set(app_ids)) != len(app_ids) or any(app_id not in {app['id'] for app in apps} for app_id in app_ids):
+    if any(len(app_id) > 80 for app_id in app_ids) or len(set(app_ids)) != len(app_ids):
         return {"error": "unknown_or_duplicate_app"}
+    apps = catalog()
+    if app_ids and not set(app_ids) <= {app['id'] for app in apps}:
+        return {"error": "unknown_or_duplicate_app"}
+    data = comparison_data()
+    selection = {"selected_features": selected_features, "required_features": required_features,
+                 "default_evidence_state": "unverified"}
     if profile_id:
         profile = next((profile for profile in data["profiles"] if profile['id'] == profile_id), None)
         if profile is None:
@@ -83,23 +100,17 @@ def compare_apps(
             results = compare_evidence(profile, apps, selected_features, required_features)
         except ValueError as error:
             return {"error": "invalid_selection", "message": str(error)}
-        evidence = {candidate['app_id']: candidate['evidence'] for candidate in profile['candidates']}
+        evidence = profile_evidence(profile)
         return {"profile_id": profile_id, "checked_on": data['checked_on'], "manual": False,
-                "selected_features": selected_features, "required_features": required_features,
-                "results": [dict(row, evidence={feature: evidence.get(row['app_id'], {}).get(feature, {"state": "unverified"})
-                                                for feature in selected_features}) for row in results]}
+                **selection, "results": comparison_results(results, evidence, selected_features)}
     if not software_name.strip():
         return {"error": "select_profile_or_manual_name"}
-    if not app_ids:
-        name = comparison_normalize(software_name)
-        app_ids = [app['id'] for app in apps if any(comparison_normalize(alias) == name for alias in app['alternatives'])]
     try:
         results, evidence = manual_compare(data, apps, app_ids, selected_features, required_features)
     except ValueError as error:
         return {"error": "invalid_selection", "message": str(error)}
     return {"manual": True, "software_name": software_name, "checked_on": data['checked_on'],
-            "results": [dict(row, evidence={feature: evidence.get(row['app_id'], {}).get(feature, {"state": "unverified"})
-                                            for feature in selected_features}) for row in results]}
+            **selection, "results": comparison_results(results, evidence, selected_features, shortlist=bool(app_ids))}
 
 
 
@@ -297,6 +308,8 @@ if __name__ == "__main__":
         parser.error("automation roots must be existing directories")
     if not CATALOG_PATH.resolve(strict=True).is_relative_to(read_root):
         parser.error("catalog is outside automation-read-root")
+    if not SHIFTER_PATH.resolve(strict=True).is_relative_to(read_root):
+        parser.error("comparison data is outside automation-read-root")
     if args.bridge_root:
         bridge = args.bridge_root.resolve(strict=True)
         if args.bridge_root.is_symlink() or not bridge.is_dir() or not bridge.is_relative_to(read_root) or not bridge.is_relative_to(write_root):

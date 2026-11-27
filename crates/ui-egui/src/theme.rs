@@ -252,7 +252,7 @@ pub const COLUMN_GAP: f32 = 32.0;
 /// Padding inside a hairline box: a group of settings, a feature, a release fact.
 pub const BOX_MARGIN: egui::Margin = egui::Margin::symmetric(14, 12);
 /// Below this width the toolbar moves the sort and "Update all" to a second row.
-pub const TOOLBAR_COMPACT_BELOW: f32 = 640.0;
+pub const TOOLBAR_COMPACT_BELOW: f32 = 600.0;
 /// From this width the large dialogs read in two columns.
 pub const DIALOG_COLUMNS_FROM: f32 = 760.0;
 /// From this width the app page reads in two columns (its pictures need the room).

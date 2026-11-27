@@ -452,6 +452,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Configuration copied.	Конфігурацію скопійовано.
 	Copy JSON	Копіювати JSON
 	Copy for Codex (TOML)	Копіювати для Codex (TOML)
+	Copy for OpenCode	Копіювати для OpenCode
 	Copy for VS Code	Копіювати для VS Code
 	Copy the configuration and paste it into the client's MCP settings.	Скопіюйте конфігурацію та вставте її в налаштування MCP клієнта.
 	Downloads running together share your connection, so each one is slower.	Одночасні завантаження ділять пропускну здатність з’єднання, тому кожне з них повільніше.

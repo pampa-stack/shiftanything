@@ -1705,7 +1705,7 @@ mod tests {
             for (query, expected) in [
                 ("Timeshift", if language == "it" { "Non supportato su questo dispositivo" } else { "Not supported on this device" }),
                 ("Handy", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
-                ("restic", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
+                ("Meetily", if language == "it" { "Ricetta da integrare" } else { "Recipe to integrate" }),
                 ("Plane Community", "Self-hosted"),
             ] {
                 let mut h = picker_harness(language, 1440.0);
@@ -1801,15 +1801,16 @@ mod tests {
                 functions.right() < details.left() && details.right() <= 1440.0 && details.bottom() <= 900.0,
                 "functions stay on the left and result actions inside the reference viewport"
             );
-            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
-                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-{language}.png"))).unwrap();
-            }
+            let screenshot = |h: &mut egui_kittest::Harness<'_, _>, name: &str| {
+                if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
+                    h.render().unwrap().save(std::path::Path::new(&dir).join(format!("{name}-{language}.png"))).unwrap();
+                }
+            };
+            screenshot(&mut h, "shifter");
             h.get_by_label(if language == "it" { "Fonti · PhotoCraft" } else { "Sources · PhotoCraft" }).click_accesskit();
             h.run_steps(3);
             assert!(h.query_all_by_label(if language == "it" { "Assente" } else { "Absent" }).next().is_some());
-            if let Some(dir) = std::env::var_os("SHIFTANYTHING_SCREENSHOTS") {
-                h.render().unwrap().save(std::path::Path::new(&dir).join(format!("shifter-sources-{language}.png"))).unwrap();
-            }
+            screenshot(&mut h, "shifter-sources");
             h.key_press(egui::Key::Escape);
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().comparison.sources.is_none());
@@ -1832,9 +1833,12 @@ mod tests {
             h.run_steps(3);
             h.get_by_label(if language == "it" { "Aggiungi" } else { "Add" }).click_accesskit();
             h.run_steps(3);
-            h.get_by_label("PhotoCraft").click_accesskit();
+            let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).type_text("PhotoCraft");
             h.run_steps(3);
-            h.get_by_label(if language == "it" { "Non verificato" } else { "Unverified" });
+            assert!(h.query_all_by_label("—").next().is_some());
+            assert!(h.query_by_label(if language == "it" { "Non verificato" } else { "Unverified" }).is_none());
             h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));

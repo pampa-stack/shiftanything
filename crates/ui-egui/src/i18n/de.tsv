@@ -470,6 +470,7 @@ anicraft	Classic tweens with eight easing presets and custom ease curves, plus s
 	Copy JSON	JSON kopieren
 	Copy for VS Code	Für VS Code kopieren
 	Copy for Codex (TOML)	Für Codex kopieren (TOML)
+	Copy for OpenCode	Für OpenCode kopieren
 	Configuration copied.	Konfiguration kopiert.
 	{client} loads its MCP servers only when it starts, so the Craft apps appear after a restart. Restarting closes {client}, including a reply it is still writing.	{client} lädt seine MCP-Server nur beim Start, daher erscheinen die Craft-Apps erst nach einem Neustart. Der Neustart schließt {client}, auch eine Antwort, die gerade geschrieben wird.
 	Restart {client}	{client} neu starten

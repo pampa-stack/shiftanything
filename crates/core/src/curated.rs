@@ -1012,7 +1012,28 @@ pub const NEXTCLOUD_DESKTOP: crate::CraftApp = crate::CraftApp {
 
 pub const NEXTCLOUD_DESKTOP_RELEASES_REPO: &str = "nextcloud-releases/desktop";
 
-pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 38] = [
+pub const VIBE: crate::CraftApp = crate::CraftApp {
+    id: "vibe-transcribe",
+    name: "Vibe",
+    tagline: "Transcribe audio and video locally",
+    repo: "thewh1teagle/vibe",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [103, 126, 230],
+    ink_light: [54, 68, 157],
+    ink_dark: [181, 190, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Vibe contributors",
+    msi_publisher: None,
+    bundle: Some("github.com.thewh1teagle.vibe"),
+    site: Some("https://thewh1teagle.github.io/vibe/"),
+    mac_bundle_name: Some("vibe"),
+    mac_team: Some("VSTAWC326G"),
+};
+
+pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 39] = [
     HANDY,
     LOCALSEND,
     OBS_STUDIO,
@@ -1042,6 +1063,7 @@ pub(crate) const COMMUNITY_RECIPES: [crate::CraftApp; 38] = [
     PICARD,
     LAPCE,
     VORTA,
+    VIBE,
     SOLVESPACE,
     PENCIL2D,
     OPENSHOT,
@@ -1131,6 +1153,40 @@ mod recipe_tests {
         let minor_release =
             release::release_from_sums(repo, "4.7-stable", &[(asset.sha256.clone().unwrap(), "Godot_v4.7-stable_macos.universal.zip".into())]);
         assert_eq!(minor_release.version_label(), "4.7.0");
+    }
+
+    #[test]
+    fn vibe_recipe_accepts_only_the_official_apple_silicon_dmg() {
+        use crate::{Arch, CraftApp, Os, PackageKind, Platform, platform, release};
+
+        let app = CraftApp::by_id("vibe-transcribe").unwrap();
+        assert_eq!((app.bundle, app.mac_team), (Some("github.com.thewh1teagle.vibe"), Some("VSTAWC326G")));
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (tag, name, size) in [
+            ("v3.3.5", "vibe_3.3.5_aarch64.dmg", 38_715_249),
+            ("v3.3.8", "vibe_3.3.8_aarch64.dmg", 38_640_733),
+        ] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let (asset, kind) = platform::pick_asset(&release, &[app.id], mac, mac.download_kinds()).unwrap();
+            assert_eq!((asset.name.as_str(), asset.size, kind), (name, size, PackageKind::Dmg));
+            for host in [Platform { arch: Arch::X64, ..mac }, Platform { os: Os::Linux, ..mac }, Platform { os: Os::Windows, ..mac }] {
+                assert!(platform::pick_asset(&release, &[app.id], host, host.download_kinds()).is_none());
+            }
+            let different_size = release::Asset { size: size + 1, ..asset.clone() };
+            let bad_checksum = release::Asset { sha256: Some("f".repeat(64)), ..asset.clone() };
+            let no_checksum = release::Asset { sha256: None, ..asset.clone() };
+            let wrong_repo = release::Asset { url: asset.url.replace("thewh1teagle", "mirror"), ..asset.clone() };
+            let intel = release::Asset {
+                name: asset.name.replace("aarch64", "x64"),
+                url: asset.url.replace("aarch64", "x64"),
+                ..asset.clone()
+            };
+            for different in [different_size, bad_checksum, no_checksum, wrong_repo, intel] {
+                assert!(!release::vibe_mac_asset(&release, &different));
+            }
+            let prerelease = release::Release { prerelease: true, ..release.clone() };
+            assert!(!release::vibe_mac_asset(&prerelease, asset));
+        }
     }
 
     #[test]

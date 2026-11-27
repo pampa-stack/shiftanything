@@ -46,6 +46,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             artcraft_launcher_core::curated::KEYCASTR.id,
             artcraft_launcher_core::curated::LAPCE.id,
             artcraft_launcher_core::curated::SOLVESPACE.id,
+            artcraft_launcher_core::curated::VIBE.id,
         ]
         .contains(&id) =>
         {
@@ -582,6 +583,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         return (app.repo == artcraft_launcher_core::curated::KEYCASTR.repo && release::keycastr_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::VIBE.id {
+        return (app.repo == artcraft_launcher_core::curated::VIBE.repo && release::vibe_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::SOLVESPACE.id {
         return (app.repo == artcraft_launcher_core::curated::SOLVESPACE.repo && release::solvespace_mac_asset(release, asset))
@@ -3052,6 +3056,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::VIBE), Some((11, 0)));
         let vorta = recipe_macos_minimum(&artcraft_launcher_core::curated::VORTA).unwrap();
         assert_eq!(vorta, (14, 4));
         for (version, supported) in [("14.3.9", false), ("14.4", true), ("14.4.1", true), ("15.0", true), ("14", false), ("14.err", false)] {

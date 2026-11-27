@@ -45,3 +45,14 @@ The catalog has no native Logseq recipe. The original repository's latest channe
 ## OpenHands Agent Canvas
 
 The [1.46.0](https://github.com/OpenHands/OpenHands/releases/tag/v1.46.0) official Universal DMG matched its published SHA-256 and contained a Universal Electron main executable. macOS reported no Developer ID team and rejected the bundle in deep, strict code-signature verification. The app stayed outside the verified Mac set.
+
+## Paseo desktop
+
+The Apple Silicon package cycle passed on 27 November 2026 for the Apache-2.0 desktop edition. The native installer downloaded the official DMGs, verified their size and SHA-256, checked Developer ID team `99ZMJMKU9Y`, bundle `sh.paseo.desktop` and notarization, installed 0.17.6, replaced it with 0.18.0, and moved the updated ARM64 bundle into a temporary Trash. Both bundles declare macOS 13.0 as the minimum. The synthetic profile marker survived, and the temporary profile and downloads were removed. [0.17.6 release](https://github.com/getpaseo/paseo/releases/tag/v0.17.6) · [0.18.0 release](https://github.com/getpaseo/paseo/releases/tag/v0.18.0)
+
+| Release | Official asset | Bytes | SHA-256 |
+| --- | --- | ---: | --- |
+| 0.17.6 | `Paseo-0.17.6-arm64.dmg` | 190151170 | `3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5` |
+| 0.18.0 | `Paseo-0.18.0-arm64.dmg` | 190247198 | `2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91` |
+
+The initial 0.18.0 assessment hit the 60-second Gatekeeper limit. The repeat passed with Gatekeeper enabled and the existing 180-second bound for large bundles applied to Paseo. Both release lookup paths use the exact reviewed macOS assets. This test covers the package lifecycle. The desktop window and agent connections were outside the test.

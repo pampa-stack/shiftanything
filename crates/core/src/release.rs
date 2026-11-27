@@ -809,6 +809,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::JAN,
         crate::curated::DEEPTUTOR,
         crate::curated::OPENWORK_DESKTOP,
+        crate::curated::PASEO,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1228,6 +1229,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("different-ai/openwork", "v0.18.73") => {
             &[("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b")]
         }
+        ("getpaseo/paseo", "v0.17.6") => {
+            &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]
+        }
+        ("getpaseo/paseo", "v0.18.0") => {
+            &[("Paseo-0.18.0-arm64.dmg", 190_247_198, "2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91")]
+        }
         ("siyuan-note/siyuan", "v3.8.11") => {
             &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
         }
@@ -1558,6 +1565,29 @@ mod tests {
                 assert_eq!(pick(&release, mac), None, "{edition}");
             }
         }
+    }
+
+    #[test]
+    fn paseo_uses_only_reviewed_apple_silicon_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::PASEO, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[PASEO.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        for tag in ["v0.17.6", "v0.18.0"] {
+            let expected = reviewed_assets(PASEO.repo, tag).next().unwrap();
+            let api = serde_json::json!({
+                "tag_name": tag,
+                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+            });
+            let mut release = parse_github_release(&api.to_string(), PASEO.repo).unwrap();
+            assert_eq!(pick(&release, mac), Some(expected.clone()));
+            assert_eq!(pick(&release_from_sums(PASEO.repo, tag, &[]), mac), Some(expected));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+            release.prerelease = true;
+            assert_eq!(pick(&release, mac), None);
+        }
+        assert_eq!(pick(&release_from_sums(PASEO.repo, "v0.18.1", &[]), mac), None);
     }
 
     #[test]

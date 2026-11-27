@@ -105,6 +105,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::OPENCHAMBER.id,
                 recipe::OPENCODE.id,
                 recipe::OPENSCREEN.id,
+                recipe::PASEO.id,
                 recipe::PICARD.id,
                 recipe::SIYUAN.id,
                 recipe::SUPER_PRODUCTIVITY.id,

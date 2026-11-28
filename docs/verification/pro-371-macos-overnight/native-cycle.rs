@@ -125,6 +125,7 @@ fn main() -> Result<(), String> {
             "deepchat",
             "alttab",
             "amethyst",
+            "dockdoor",
             "linearmouse",
             "loop-macos",
             "dyad",

@@ -1122,6 +1122,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::UTM,
         crate::curated::OPENMTP,
         crate::curated::FREEPLANE,
+        crate::curated::DOCKDOOR,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1154,6 +1155,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
                 || (app.id, app.repo) == (crate::curated::EASYDICT.id, crate::curated::EASYDICT.repo)
+                || (app.id, app.repo) == (crate::curated::DOCKDOOR.id, crate::curated::DOCKDOOR.repo)
                 || app.uses_zotero_releases()
                 || app.uses_blender_releases()
                 || app.uses_gimp_releases()
@@ -1732,6 +1734,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ianyh/Amethyst", "v0.25.0") => &[("Amethyst.zip", 7_480_074, "cbdcab38c14e5b1cb359537faf0f274b7d77aeb2d3cfef1982866e2084880437")],
         ("ianyh/Amethyst", "v0.25.1") => &[("Amethyst.zip", 7_597_173, "ab1a290a40bb4d31bf589f74246683660789a2c988110aadc6d7e2c24a7f7835")],
+        ("ejbills/DockDoor", "1.42.4") => &[("DockDoor.dmg", 22_828_534, "3c48963f50e6aa854a9e6d5faf12ba38c2e082e4c6ab13a1438f76df0a7eec69")],
+        ("ejbills/DockDoor", "1.42.5") => &[("DockDoor.dmg", 22_832_758, "dced8f338319ab22e49101b00d44cbac79c33ab96c16abc2414abcf1c0825021")],
         ("linearmouse/linearmouse", "v0.12.0") => {
             &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
         }

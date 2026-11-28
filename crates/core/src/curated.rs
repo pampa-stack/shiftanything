@@ -2177,6 +2177,27 @@ pub const AMETHYST: crate::CraftApp = crate::CraftApp {
     mac_team: Some("82P2XLB4UH"),
 };
 
+pub const DOCKDOOR: crate::CraftApp = crate::CraftApp {
+    id: "dockdoor",
+    name: "DockDoor Free",
+    tagline: "Preview open windows from the macOS Dock",
+    repo: "ejbills/DockDoor",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ethan Bills",
+    msi_publisher: None,
+    bundle: Some("com.ethanbills.DockDoor"),
+    site: Some("https://dockdoor.net/"),
+    mac_bundle_name: Some("DockDoor"),
+    mac_team: Some("2Q775S63Q3"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2866,6 +2887,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MACCY,
     ALT_TAB,
     AMETHYST,
+    DOCKDOOR,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

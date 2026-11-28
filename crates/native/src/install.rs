@@ -110,6 +110,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::BLENDER.id,
                 recipe::CODEEDIT.id,
                 recipe::DEEPTUTOR.id,
+                recipe::DOCKDOOR.id,
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,
                 recipe::LOCALAI.id,

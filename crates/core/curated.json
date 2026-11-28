@@ -34325,8 +34325,8 @@
     "level": "avanz",
     "category": "sistema",
     "description": {
-      "it": "Scarica firmware e installer ufficiali di macOS con un’interfaccia grafica.",
-      "en": "Download official macOS firmware and installers from a graphical interface."
+      "it": "Trova e scarica firmware e installer di macOS dai cataloghi Apple. Filtra le versioni compatibili con il tuo Mac, includi le beta e salva l’elenco in CSV, JSON o YAML.",
+      "en": "Find and download macOS firmware and installers from Apple’s catalogs. Filter for versions compatible with your Mac, include beta releases, and export the list as CSV, JSON, or YAML."
     },
     "alternatives": [],
     "license": "MIT",
@@ -34338,12 +34338,14 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/ninxsoft/Mist/main/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
-    "screenshots": [],
+    "logo": "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/README%20Resources/Example.png"
+    ],
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/ninxsoft/Mist#readme"
+      "date": "2026-11-28",
+      "source": "https://github.com/ninxsoft/Mist/blob/v0.40/README.md#features"
     },
     "stars": {
       "count": 5442,
@@ -34366,7 +34368,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/ninxsoft/Mist#readme"
+    "media_source": "https://github.com/ninxsoft/Mist/blob/v0.40/README.md"
   },
   {
     "id": "finicky",

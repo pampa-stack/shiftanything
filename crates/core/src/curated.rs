@@ -2870,6 +2870,27 @@ pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6UR4H85SA2"),
 };
 
+pub const MIST: crate::CraftApp = crate::CraftApp {
+    id: "mist",
+    name: "Mist",
+    tagline: "Download official macOS firmware and installers",
+    repo: "ninxsoft/Mist",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [77, 128, 223],
+    ink_light: [40, 67, 127],
+    ink_dark: [164, 192, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Nindi Gill",
+    msi_publisher: None,
+    bundle: Some("com.ninxsoft.mist"),
+    site: None,
+    mac_bundle_name: None,
+    mac_team: Some("7K3HVCLV7Z"),
+};
+
 pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
     id: "freeplane",
     name: "Freeplane",
@@ -3018,6 +3039,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     EASYDICT,
     UTM,
     OPENMTP,
+    MIST,
     FREEPLANE,
 ];
 

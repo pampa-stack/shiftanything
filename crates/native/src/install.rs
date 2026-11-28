@@ -85,6 +85,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::KOPIA.id,
                 recipe::LOSSLESSCUT.id,
                 recipe::MAGPIE.id,
+                recipe::MIST.id,
                 recipe::NAPS2.id,
                 recipe::NEOVIDE.id,
                 recipe::OPENMAUSBOT.id,
@@ -3584,6 +3585,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DESKREEN), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MIST), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));

@@ -1,0 +1,18 @@
+PASS PREFLIGHT mist v0.30
+PASS PREFLIGHT mist v0.40
+/dev/disk3s5   482797652 423617400  11147860    98% 6590299 111478600    6%   /System/Volumes/Data
+OFFICIAL INDEX mist v0.30 digest=published
+OFFICIAL INDEX mist v0.40 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v0.30 Dmg https://github.com/ninxsoft/Mist/releases/download/v0.30/Mist.0.30.dmg 14906897 2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1
+PASS OFFICIAL v0.40 Dmg https://github.com/ninxsoft/Mist/releases/download/v0.40/Mist.0.40.dmg 15997728 889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8
+NATIVE ORIGIN mist GitHub
+PASS OFFICIAL v0.30 Dmg https://github.com/ninxsoft/Mist/releases/download/v0.30/Mist.0.30.dmg 14906897 2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1
+PASS NATIVE mist install: Mist installed: 0.30.0; package_bytes=14906897; elapsed=21.285s
+NATIVE ORIGIN mist GitHub
+PASS OFFICIAL v0.40 Dmg https://github.com/ninxsoft/Mist/releases/download/v0.40/Mist.0.40.dmg 15997728 889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8
+PASS NATIVE mist update: Mist updated to 0.40.0; package_bytes=15997728; elapsed=7.496s
+PASS NATIVE mist remove: Mist was removed; package_bytes=0; elapsed=0.105s
+PASS NATIVE CYCLE mist (v0.30 → v0.40), private Trash and synthetic data preserved

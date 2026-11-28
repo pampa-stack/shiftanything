@@ -1,0 +1,32 @@
+2026-11-28T04:31:00+0100
+/dev/disk3s5   482797652 423593752  11171508    98% 6590291 111715080    6%   /System/Volumes/Data
+ARTIFACT 889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8 15997728 https://github.com/ninxsoft/Mist/releases/download/v0.40/Mist.0.40.dmg
+BUNDLE=Mist.app
+CFBundleIdentifier=com.ninxsoft.mist
+CFBundleShortVersionString=0.40
+CFBundleVersion=0.40
+CFBundleExecutable=Mist
+LSMinimumSystemVersion=12.0
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/mist/v0.40/mount/Mist.app/Contents/MacOS/Mist: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/mist/v0.40/mount/Mist.app/Contents/MacOS/Mist (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/mist/v0.40/mount/Mist.app/Contents/MacOS/Mist (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/mist/v0.40/mount/Mist.app/Contents/MacOS/Mist (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.0
+   ntools 1
+     tool LD
+  version 1221.4
+Identifier=com.ninxsoft.mist
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Nindi Gill (7K3HVCLV7Z)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=7 Jul 2026 at 20:11:28
+TeamIdentifier=7K3HVCLV7Z
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/mist/v0.40/mount/Mist.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT mist v0.40

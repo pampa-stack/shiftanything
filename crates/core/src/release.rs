@@ -1160,6 +1160,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::EASYDICT,
         crate::curated::UTM,
         crate::curated::OPENMTP,
+        crate::curated::MIST,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
@@ -1185,6 +1186,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
+            } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
+                version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::VIRTUALBUDDY.id, crate::curated::VIRTUALBUDDY.repo) {
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
             } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
@@ -1474,6 +1477,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ganeshrvel/openmtp", "v3.3.0") => {
             &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
         }
+        ("ninxsoft/Mist", "v0.30") => &[("Mist.0.30.dmg", 14_906_897, "2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1")],
+        ("ninxsoft/Mist", "v0.40") => &[("Mist.0.40.dmg", 15_997_728, "889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8")],
         ("freeplane/freeplane", "release-1.13.3") => {
             &[("Freeplane-1.13.3-apple.dmg", 144_017_558, "f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347")]
         }

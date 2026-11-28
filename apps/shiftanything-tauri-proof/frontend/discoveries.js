@@ -229,7 +229,7 @@
       (index < 7 ? examples : moreExamples).append(chip);
       return {phrase:normalize(example), chip};
     });
-    if (moreExamples.childElementCount) examples.append(moreExamples, more);
+    if (moreExamples.childElementCount) examples.append(more, moreExamples);
     renderFind = () => {
       const phrase = normalize(query.value);
       for (const example of chips) example.chip.setAttribute('aria-pressed', String(phrase === example.phrase));

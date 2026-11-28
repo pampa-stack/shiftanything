@@ -1,0 +1,19 @@
+commit f1ce4e23f4bf01b240722c60d67f3617f8d92ef9a8074b01ee2a9275655fbf83
+Parent:  1740b1778ef2c71d83b04aa55bc340d30f1c1b104d532d49922d901061d7455d
+ContentChecksum:  aad730d5c7148f1219d344105f4a7c8278dde3916e16fc489ff53f3c411bc321
+Date:  2026-11-07 02:33:55 +0000
+
+    Merge pull request #35 from flathub/v2.7.2 (0fa40b0a31dd)
+
+    Name: org.onionshare.OnionShare
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov  7 03:00:58 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

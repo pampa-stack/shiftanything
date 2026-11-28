@@ -1,0 +1,2 @@
+/home/qa/sha.wBttKSXF/profiles/onionshare-composited/data/flatpak/app/org.onionshare.OnionShare/x86_64/stable/2894ff5933e3b9d953bbe7c2f580d4a223bb09fe4f603fc0b3175a94f38dec2f/export/share/applications/org.onionshare.OnionShare.desktop
+/home/qa/sha.wBttKSXF/profiles/onionshare-composited/data/flatpak/app/org.onionshare.OnionShare/x86_64/stable/2894ff5933e3b9d953bbe7c2f580d4a223bb09fe4f603fc0b3175a94f38dec2f/export/share/icons/hicolor/scalable/apps/org.onionshare.OnionShare.svg

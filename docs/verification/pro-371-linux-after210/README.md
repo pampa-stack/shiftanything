@@ -147,3 +147,9 @@ Il 28 novembre il backend di `77a74f9` con la ricetta candidata ha installato, a
 ### Blender
 
 Il ciclo nativo del 28 novembre ha installato il pacchetto comunitario su Ubuntu 24.04 x64, ha aperto Blender 5.1.2, aggiornato a 5.3.0 e rimosso l'app preservando il file sintetico. Le due revisioni hanno una firma Flathub valida. Le schermate mostrano l'avvio con rendering software nella VM isolata. Il risultato riguarda il ciclo del pacchetto e l'avvio dell'interfaccia. [Flathub](https://flathub.org/apps/org.blender.Blender) · [Prima](blender/previous.png) · [Dopo](blender/current.png) · [Log](blender/lifecycle.log)
+
+## OnionShare 2.7.2 → 2.7.3
+
+Il 28 novembre il backend di `9cb321f` con la ricetta candidata ha installato il Flatpak su Ubuntu 24.04 x64 in una VM isolata su AX42. Ha aperto la versione 2.7.2, applicato l’aggiornamento alla 2.7.3, aperto la nuova versione e rimosso il pacchetto. Entrambe le revisioni hanno una firma Flathub valida. Il file sintetico è rimasto al suo posto e la voce di menu è stata rimossa. Le schermate mostrano la finestra iniziale con la connessione automatica disattivata. Il test ha isolato la rete e non ha avviato una connessione Tor o condiviso file. [Guida ufficiale](https://docs.onionshare.org/2.7/en/install.html) · [Manifest Flathub](https://github.com/flathub/org.onionshare.OnionShare/blob/9c247984c9faf7dab4cab16d28a052dadd0a67b9/org.onionshare.OnionShare.yaml) · [Prima](onionshare/previous.png) · [Dopo](onionshare/current.png) · [Log](onionshare/lifecycle.log)
+
+Per riprodurre, avviare il runner con un `HOME` privato breve dentro il guest. Il primo tentativo aveva superato la lunghezza del percorso Unix per il socket PKCS#11 generato da Flatpak. Il secondo ha usato `SHIFT_QA_COMPOSITOR=on` e un `HOME` con prefisso `/home/qa/sha.`.

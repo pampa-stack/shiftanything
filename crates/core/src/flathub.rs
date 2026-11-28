@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 211] = [
+pub const RECIPES: [(&str, &str); 212] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -121,6 +121,7 @@ pub const RECIPES: [(&str, &str); 211] = [
     ("video-trimmer", "org.gnome.gitlab.YaLTeR.VideoTrimmer"),
     ("gnome-connections", "org.gnome.Connections"),
     ("gnome-contacts", "org.gnome.Contacts"),
+    ("onionshare", "org.onionshare.OnionShare"),
     ("tokodon", "org.kde.tokodon"),
     ("neochat", "org.kde.neochat"),
     ("workbench", "re.sonny.Workbench"),
@@ -351,6 +352,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "video-trimmer" => "https://gitlab.gnome.org/YaLTeR/video-trimmer",
         "gnome-connections" => "https://gitlab.gnome.org/GNOME/connections",
         "gnome-contacts" => "https://gitlab.gnome.org/GNOME/gnome-contacts",
+        "onionshare" => "https://github.com/onionshare/onionshare",
         "tokodon" => "https://invent.kde.org/network/tokodon",
         "neochat" => "https://invent.kde.org/network/neochat",
         "workbench" => "https://workbench.sonny.re/source",

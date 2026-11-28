@@ -3017,6 +3017,27 @@ pub const MONITORCONTROL: crate::CraftApp = crate::CraftApp {
     mac_team: Some("299YSU96J7"),
 };
 
+pub const GNUCASH: crate::CraftApp = crate::CraftApp {
+    id: "gnucash",
+    name: "GnuCash",
+    tagline: "Manage personal and small business finances with double-entry bookkeeping",
+    repo: "Gnucash/gnucash",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [51, 116, 70],
+    ink_light: [33, 70, 45],
+    ink_dark: [147, 218, 167],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "GnuCash Project",
+    msi_publisher: None,
+    bundle: Some("org.gnucash.Gnucash"),
+    site: Some("https://www.gnucash.org/"),
+    mac_bundle_name: Some("Gnucash"),
+    mac_team: Some("Y9EHT5WMK7"),
+};
+
 pub const MACSHOT: crate::CraftApp = crate::CraftApp {
     id: "macshot",
     name: "macshot",
@@ -3193,6 +3214,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MIST,
     COTEDITOR,
     MONITORCONTROL,
+    GNUCASH,
     MACSHOT,
     FREEPLANE,
 ];

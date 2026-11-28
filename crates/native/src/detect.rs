@@ -280,7 +280,7 @@ pub mod macos {
     }
 
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
-        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, PRUSA_SLICER};
+        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, GNUCASH, PRUSA_SLICER};
 
         if app.uses_kdenlive_releases() {
             return artcraft_launcher_core::release::kdenlive_mac_version(text);
@@ -291,6 +291,16 @@ pub mod macos {
         if (app.id, app.repo) == (PRUSA_SLICER.id, PRUSA_SLICER.repo) {
             let label = text.strip_prefix("PrusaSlicer ").unwrap_or(text).strip_prefix("PrusaSlicer-")?;
             return artcraft_launcher_core::release::prusa_slicer_version(label);
+        }
+        // GnuCash appends a numeric macOS package revision to its two-component release tag.
+        if (app.id, app.repo) == (GNUCASH.id, GNUCASH.repo)
+            && let Some((tag, revision)) = text.rsplit_once('-')
+            && !revision.is_empty()
+            && revision.bytes().all(|byte| byte.is_ascii_digit())
+            && let Some(parsed) = version::parse(tag)
+            && tag == format!("{}.{}", parsed.major, parsed.minor)
+        {
+            return Some(parsed);
         }
 
         // Stable DOSBox Staging bundles append the five-character git commit (e.g. 0.83.1-8888e).
@@ -325,11 +335,13 @@ pub mod macos {
 
     #[test]
     fn reviewed_bundle_versions_match_their_publisher_tags() {
-        use artcraft_launcher_core::curated::{DBEAVER_CE, PRUSA_SLICER};
+        use artcraft_launcher_core::curated::{DBEAVER_CE, GNUCASH, PRUSA_SLICER};
 
         for (app, text, label) in [
             (DBEAVER_CE, "26.2.5", "26.2.5"),
             (DBEAVER_CE, "26.2.5.2", "26.2.5.2"),
+            (GNUCASH, "5.16-3", "5.16.0"),
+            (GNUCASH, "5.17-1", "5.17.0"),
             (PRUSA_SLICER, "PrusaSlicer PrusaSlicer-2.9.7", "2.9.7"),
             (PRUSA_SLICER, "PrusaSlicer-2.9.6", "2.9.6"),
         ] {
@@ -337,6 +349,7 @@ pub mod macos {
         }
         assert!(bundle_version(&DBEAVER_CE, "26.2.5.2.1").is_none());
         assert!(bundle_version(&PRUSA_SLICER, "PrusaSlicer-2.9.7-rc.1").is_none());
+        assert_eq!(bundle_version(&GNUCASH, "5.17-rc.1").as_ref().map(version::label).as_deref(), Some("5.17.0-rc.1"));
     }
 
     #[test]

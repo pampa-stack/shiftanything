@@ -120,7 +120,7 @@ fn main() -> Result<(), String> {
     let app = CraftApp::by_id(id).ok_or("no native recipe")?;
     let home = PathBuf::from(std::env::var_os("HOME").ok_or("HOME missing")?).canonicalize().map_err(|error| error.to_string())?;
     let parent = home.parent().ok_or("no proof scratch path")?;
-    if !parent.starts_with("/private/tmp")
+    if ![Path::new("/private/tmp"), Path::new("/Volumes/T7-Backup")].iter().any(|root| parent.parent() == Some(*root))
         || !parent.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("shift-air-overnight."))
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
@@ -165,6 +165,7 @@ fn main() -> Result<(), String> {
             "mist",
             "coteditor",
             "monitorcontrol",
+            "gnucash",
             "macshot",
             "signal-desktop",
             "firefox",

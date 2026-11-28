@@ -1,0 +1,30 @@
+2026-11-28T06:44:19+0100
+/dev/disk3s5   482797652 424779704  11034276    98% 6610952 110342760    6%   /System/Volumes/Data
+ARTIFACT adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32 180289229 https://github.com/Gnucash/gnucash/releases/download/5.17/Gnucash-Arm-5.17-1.dmg
+BUNDLE=Gnucash.app
+CFBundleIdentifier=org.gnucash.Gnucash
+CFBundleShortVersionString=5.17-1
+CFBundleVersion=5.17-1
+CFBundleExecutable=Gnucash
+LSMinimumSystemVersion=11.0
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/gnucash/5.17/mount/Gnucash.app/Contents/MacOS/Gnucash: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/gnucash/5.17/mount/Gnucash.app/Contents/MacOS/Gnucash (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.2
+   ntools 1
+     tool LD
+  version 1230.1
+Identifier=org.gnucash.Gnucash
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: John D Ralls (Y9EHT5WMK7)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=27 Sep 2026 at 01:18:13
+TeamIdentifier=Y9EHT5WMK7
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/gnucash/5.17/mount/Gnucash.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT gnucash 5.17

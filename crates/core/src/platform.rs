@@ -961,6 +961,7 @@ mod tests {
             (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),
             (crate::curated::SUNSHINE, ["v2026.906.222525", "v2026.914.233613"]),
             (crate::curated::OPENTTD, ["15.2", "15.3"]),
+            (crate::curated::GNUCASH, ["5.16", "5.17"]),
             (crate::curated::RECTANGLE, ["v2.0.4", "v2.0.5"]),
             (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),
             (crate::curated::BLENDER, ["5.2.5", "5.3.0"]),

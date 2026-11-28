@@ -1,0 +1,18 @@
+PASS PREFLIGHT gnucash 5.16
+PASS PREFLIGHT gnucash 5.17
+/dev/disk7s1   976557744 954883580  21471860    98% 6491095 214718600    3%   /Volumes/T7-Backup
+OFFICIAL INDEX gnucash 5.16 digest=published
+OFFICIAL INDEX gnucash 5.17 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL 5.16 Dmg https://github.com/Gnucash/gnucash/releases/download/5.16/Gnucash-Arm-5.16-3.dmg 180283562 26ae2e340edf2a58fdb906962cc48eb4ec1cf1a7b5862b72108f9a5401fd664b
+PASS OFFICIAL 5.17 Dmg https://github.com/Gnucash/gnucash/releases/download/5.17/Gnucash-Arm-5.17-1.dmg 180289229 adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32
+NATIVE ORIGIN gnucash GitHub
+PASS OFFICIAL 5.16 Dmg https://github.com/Gnucash/gnucash/releases/download/5.16/Gnucash-Arm-5.16-3.dmg 180283562 26ae2e340edf2a58fdb906962cc48eb4ec1cf1a7b5862b72108f9a5401fd664b
+PASS NATIVE gnucash install: GnuCash installed: 5.16.0; package_bytes=180283562; elapsed=42.947s
+NATIVE ORIGIN gnucash GitHub
+PASS OFFICIAL 5.17 Dmg https://github.com/Gnucash/gnucash/releases/download/5.17/Gnucash-Arm-5.17-1.dmg 180289229 adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32
+PASS NATIVE gnucash update: GnuCash updated to 5.17.0; package_bytes=180289229; elapsed=56.254s
+PASS NATIVE gnucash remove: GnuCash was removed; package_bytes=0; elapsed=0.133s
+PASS NATIVE CYCLE gnucash (5.16 → 5.17), private Trash and synthetic data preserved

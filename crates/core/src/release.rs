@@ -1241,6 +1241,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MIST,
         crate::curated::COTEDITOR,
         crate::curated::MONITORCONTROL,
+        crate::curated::GNUCASH,
         crate::curated::MACSHOT,
         crate::curated::SIGNAL_DESKTOP,
         crate::curated::FIREFOX,
@@ -1281,7 +1282,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release.tag == format!("release-{version}")
             } else if (app.id, app.repo) == (crate::curated::MACVIM.id, crate::curated::MACVIM.repo) {
                 release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
-            } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
+            } else if [crate::curated::OPENTTD, crate::curated::GNUCASH].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
                 version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
@@ -1594,6 +1595,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("MonitorControl/MonitorControl", "v4.4.0") => {
             &[("MonitorControl.4.4.0.dmg", 20_391_423, "e058da598b92f6ca674f4398c0b6fa49b3b5567ccfddccf6c6a5b23c5c625612")]
         }
+        ("Gnucash/gnucash", "5.16") => &[("Gnucash-Arm-5.16-3.dmg", 180_283_562, "26ae2e340edf2a58fdb906962cc48eb4ec1cf1a7b5862b72108f9a5401fd664b")],
+        ("Gnucash/gnucash", "5.17") => &[("Gnucash-Arm-5.17-1.dmg", 180_289_229, "adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32")],
         ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
         ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],
         ("freeplane/freeplane", "release-1.13.3") => {

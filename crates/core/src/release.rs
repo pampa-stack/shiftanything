@@ -791,11 +791,27 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     use crate::curated::{
-        DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
+        DESKREEN, DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCHAMBER, OPENCODE, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE,
+        ULTIMAKER_CURA, VOICE_STUDIO,
     };
 
-    const RECIPES: &[crate::CraftApp] =
-        &[DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
+    const RECIPES: &[crate::CraftApp] = &[
+        DESKREEN,
+        DUST3D,
+        DYAD,
+        MISTER_DOWNLOAD_MANAGER,
+        OPEN_PENCIL,
+        OPENCHAMBER,
+        OPENCODE,
+        ORCA,
+        PASEO,
+        RAWTHERAPEE,
+        RECORDLY,
+        SNIFFNET,
+        T3_CODE,
+        ULTIMAKER_CURA,
+        VOICE_STUDIO,
+    ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1831,12 +1847,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("kando-menu/kando", "v3.0.1") => {
             &[("Kando-3.0.1-arm64.dmg", 154_825_532, "da33fde36a63766e1d646c5ebfaaf62865dcb764b835c0c38873d18c45d642c2")]
         }
-        ("webadderallorg/Recordly", "v1.3.3") => {
-            &[("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5")]
-        }
-        ("webadderallorg/Recordly", "v1.4.0") => {
-            &[("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4")]
-        }
+        ("webadderallorg/Recordly", "v1.3.3") => &[
+            ("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5"),
+            ("Recordly-linux-x64.AppImage", 237_379_502, "45828b49bfddf6e2f746cd4a7d1f2e118195f1a45af7c0d922c2ac6bbf598f7a"),
+        ],
+        ("webadderallorg/Recordly", "v1.4.0") => &[
+            ("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4"),
+            ("Recordly-linux-x64.AppImage", 204_317_716, "37b16c416ee9970e0117a9839abe0b7e024f3f02db767f1a6122528b84704a41"),
+        ],
         ("VSCodium/vscodium", "1.143.17183") => {
             &[("VSCodium.arm64.1.143.17183.dmg", 206_695_167, "b6cb6359484dfdbc1989528ab4e7429c68bf555f3853173801e9293ce282e902")]
         }
@@ -1855,12 +1873,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ankitects/anki", "26.09.4") => {
             &[("anki-26.09.4-mac-apple.dmg", 228_182_839, "527b968b88d54cb0308d1de7a1ee193109863546e1cb62dcd016bd93bd816684")]
         }
-        ("openchamber/openchamber", "v2.8.0") => {
-            &[("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9")]
-        }
-        ("openchamber/openchamber", "v2.8.1") => {
-            &[("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217")]
-        }
+        ("openchamber/openchamber", "v2.8.0") => &[
+            ("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9"),
+            ("OpenChamber-2.8.0-linux-x86_64.AppImage", 180_823_904, "215ded1fdf87d610889b27e4f076bc6878f607346bda58cee5e29f548ff5a55c"),
+        ],
+        ("openchamber/openchamber", "v2.8.1") => &[
+            ("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217"),
+            ("OpenChamber-2.8.1-linux-x86_64.AppImage", 181_496_363, "4d6de636a9611e673ce6eea6cc9cf5e2dce2f2e20f0304e3eb46de8b4f62955e"),
+        ],
         ("osaurus-ai/osaurus", "1.0.12") => {
             &[("Osaurus-1.0.12.dmg", 126_257_063, "181b5f527f30bcde1ffa73f08d6cda4d720c3e26284d3197ca2d7449af10dd4d")]
         }
@@ -1994,12 +2014,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506"),
             ("rustdesk-1.5.3-aarch64.dmg", 31_464_911, "e6d30fa1633d772c48935907c208ca4e555a856fb2038af3aaa87a327c29360b"),
         ],
-        ("pavlobu/deskreen", "v3.2.15") => {
-            &[("deskreen-ce-3.2.15-arm64.dmg", 148_740_787, "bfeb75823971706af9a2123a4c212a5244c0a0000f094be703a8125dbdeba3c8")]
-        }
-        ("pavlobu/deskreen", "v3.2.16") => {
-            &[("deskreen-ce-3.2.16-arm64.dmg", 147_505_602, "09a3be94f5fa2afc13e9098b8f6ad1f3285cf41f6f7a0de64a529944398d9177")]
-        }
+        ("pavlobu/deskreen", "v3.2.15") => &[
+            ("deskreen-ce-3.2.15-arm64.dmg", 148_740_787, "bfeb75823971706af9a2123a4c212a5244c0a0000f094be703a8125dbdeba3c8"),
+            ("deskreen-ce-3.2.15-x86_64.AppImage", 155_298_417, "cbabe91564be48733659675a6876ce869f4fa987d96a16de0fa6a2c2b77b2720"),
+        ],
+        ("pavlobu/deskreen", "v3.2.16") => &[
+            ("deskreen-ce-3.2.16-arm64.dmg", 147_505_602, "09a3be94f5fa2afc13e9098b8f6ad1f3285cf41f6f7a0de64a529944398d9177"),
+            ("deskreen-ce-3.2.16-x86_64.AppImage", 155_306_590, "25c54a448344587257ce977288c4b3c7e729fc1cc7061ad7471622cd09a47ab2"),
+        ],
         ("zotero/zotero", tag) => {
             ZOTERO_DMG_RECEIPTS.iter().find(|&&(reviewed, _)| reviewed == tag).map_or(&[], |(_, receipt)| std::slice::from_ref(receipt))
         }

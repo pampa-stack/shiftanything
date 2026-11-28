@@ -1,0 +1,27 @@
+HOST Linux x86_64
+UTC 2026-11-28T01:37:08+00:00
+PROFILE /var/tmp/shift-official-linux-profile.openchamber.J63f63HU
+OFFICIAL openchamber/openchamber 2.8.0 180823904 sha256=215ded1fdf87d610889b27e4f076bc6878f607346bda58cee5e29f548ff5a55c
+PASS openchamber install 4700ms: OpenChamber installed: 2.8.0
+Exec="/fixture/home/Applications/OpenChamber-2.8.0-linux-x86_64.AppImage" %F
+1280 800
+PASS openchamber launch-old 0ms: Launch request accepted
+X11_WINDOW phase=launch-old title=OpenChamber
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1279x799
+X11_CAPTURED phase=launch-old
+OFFICIAL openchamber/openchamber 2.8.1 181496363 sha256=4d6de636a9611e673ce6eea6cc9cf5e2dce2f2e20f0304e3eb46de8b4f62955e
+PASS openchamber update 4104ms: OpenChamber updated to 2.8.1
+Exec="/fixture/home/Applications/OpenChamber-2.8.1-linux-x86_64.AppImage" %F
+1280 800
+PASS openchamber launch 0ms: Launch request accepted
+X11_WINDOW phase=launch title=OpenChamber
+Window 2097154
+  Position: 0,0 (screen: 0)
+  Geometry: 1279x799
+X11_CAPTURED phase=launch
+PASS openchamber uninstall 120ms: OpenChamber was removed
+PASS openchamber install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 18
+Temporary profile removed; test exit=0

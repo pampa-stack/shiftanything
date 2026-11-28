@@ -1,0 +1,19 @@
+commit de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779
+Parent:  00eb325286a81bce76676547dfeb912cd421f509d16be18d4a3b840be57a64d3
+ContentChecksum:  b40c7572a1c861f6c352e9072207edd791aa952ced3b483ebab87fa5e85f93b0
+Date:  2026-08-24 22:34:41 +0000
+
+    Update to 3.5.1 (0807c3aadb2f)
+
+    Name: org.gnome.Rhythmbox3
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Aug 24 23:00:59 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

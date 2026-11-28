@@ -1,0 +1,73 @@
+2026-11-28T12:27:06+00:00 frescobaldi AVAILABLE 24509992960
+frescobaldi before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+frescobaldi JobFinished: Ok("Flathub app installed")
+frescobaldi after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:28:02+00:00 frescobaldi current-install 007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee
+/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee/export/share/applications/org.frescobaldi.Frescobaldi.desktop
+/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee/export/share/icons/hicolor/scalable/apps/org.frescobaldi.Frescobaldi.svg
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
+Installing runtime/org.kde.Platform.Locale/x86_64/6.10
+Installing runtime/org.kde.Platform/x86_64/6.10
+Updating app/org.frescobaldi.Frescobaldi/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:29:14+00:00 frescobaldi previous 47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5
+frescobaldi before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: false, can_open: true }
+frescobaldi JobFinished: Err("Approved action rejected: native installation state changed")
+frescobaldi JobFinished: Err("This Flatpak is managed outside the launcher")
+frescobaldi after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=12845 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=12870 comm="flatpak run --user --command=sh app/org.frescobald" label="flatpak (unconfined)")
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=12870 comm="flatpak run --user --command=sh app/org.frescobald" label="flatpak (unconfined)")
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=12961 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+frescobaldi before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=13084 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[9314]: [session uid=1000 pid=9314] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=13155 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:13162): dbind-WARNING **: 12:29:17.297: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:13155): xdg-desktop-portal-WARNING **: 12:29:17.321: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13155): xdg-desktop-portal-WARNING **: 12:29:17.321: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13155): xdg-desktop-portal-WARNING **: 12:29:17.322: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13155): xdg-desktop-portal-WARNING **: 12:29:17.327: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[9314]: [session uid=1000 pid=9314] Successfully activated service 'org.freedesktop.portal.Desktop'
+frescobaldi JobFinished: Ok("Launch request accepted")
+frescobaldi after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.frescobaldi.Frescobaldi
+2026-11-28T12:29:27+00:00 frescobaldi previous GUI WM_NAME(COMPOUND_TEXT) = "Untitled – Frescobaldi"
+WM_CLASS(STRING) = "frescobaldi", "frescobaldi"
+2026-11-28T12:29:27+00:00 frescobaldi AVAILABLE 15307132928
+frescobaldi before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: true, can_remove: true, can_open: true }
+frescobaldi JobFinished: Ok("Flathub app updated")
+frescobaldi after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:29:32+00:00 frescobaldi current 007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee
+/home/qa/profiles/frescobaldi-after210/.var/app/org.frescobaldi.Frescobaldi/fixture.txt: OK
+frescobaldi before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: true, can_open: true }
+frescobaldi JobFinished: Ok("Launch request accepted")
+frescobaldi after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.frescobaldi.Frescobaldi
+2026-11-28T12:29:42+00:00 frescobaldi current GUI WM_NAME(COMPOUND_TEXT) = "Untitled – Frescobaldi"
+WM_CLASS(STRING) = "frescobaldi", "frescobaldi"
+frescobaldi before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 0, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/frescobaldi-after210/data/flatpak/app/org.frescobaldi.Frescobaldi/x86_64/stable/007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee", package: Some("org.frescobaldi.Frescobaldi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.0.7"), update_available: false, can_remove: true, can_open: true }
+frescobaldi JobFinished: Ok("Flathub app removed")
+frescobaldi after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/frescobaldi-after210/.var/app/org.frescobaldi.Frescobaldi/fixture.txt: OK
+2026-11-28T12:29:43+00:00 frescobaldi PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:29:44+00:00 frescobaldi EXIT 0 remove
+
+(xfconfd:12889): xfconfd-WARNING **: 12:29:44.966: Name org.xfce.Xfconf lost on the message dbus, exiting.

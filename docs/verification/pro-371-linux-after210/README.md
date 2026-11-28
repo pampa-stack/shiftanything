@@ -81,6 +81,16 @@ Il Flatpak di Parabolic è abilitato su Linux x64 dopo installazione, apertura d
 
 Kopia è abilitato su Linux x64 via Flathub. Il backend ha installato, aperto, aggiornato e rimosso il pacchetto comunitario firmato. Entrambe le revisioni riportano 0.23.1. [Prova e limiti](kopia/README.md)
 
+## Scribus, Frescobaldi e Rhythmbox
+
+Il backend di `2a8c92b` con le ricette candidate ha installato, aperto, aggiornato e rimosso i pacchetti firmati Flathub in profili isolati su Ubuntu 24.04 x64. Sono stati acquisiti screenshot prima e dopo, e la rimozione ha preservato i dati sintetici.
+
+- **Scribus 1.6.4 → 1.6.5.** Finestra principale aperta. Il dialogo Nuovo documento appare nero sul display virtuale. [Flathub](https://flathub.org/apps/net.scribus.Scribus) · [Prima](scribus/previous.png) · [Dopo](scribus/current.png) · [Log](scribus/lifecycle.log)
+- **Frescobaldi 4.0.7.** Due revisioni firmate con runtime KDE 6.10 e 6.11. Entrambe hanno aperto l’editor. [Flathub](https://flathub.org/apps/org.frescobaldi.Frescobaldi) · [Prima](frescobaldi/previous.png) · [Dopo](frescobaldi/current.png) · [Log](frescobaldi/lifecycle.log)
+- **Rhythmbox 3.5.1.** Due revisioni firmate della stessa versione. Entrambe hanno aperto la libreria. Riproduzione audio fuori dalla prova. [Flathub](https://flathub.org/apps/org.gnome.Rhythmbox3) · [Prima](rhythmbox/previous.png) · [Dopo](rhythmbox/current.png) · [Log](rhythmbox/lifecycle.log)
+- **Sigil 2.8.5 → 2.8.6.** Ripetuto il ciclo del pacchetto Linux già abilitato. Entrambe le versioni hanno aperto l’editor. [Flathub](https://flathub.org/apps/com.sigil_ebook.Sigil) · [Prima](sigil/previous.png) · [Dopo](sigil/current.png) · [Log](sigil/lifecycle.log)
+- **Qtractor e Frog.** Restano da verificare. Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Log Frog](frog/lifecycle.log)
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.

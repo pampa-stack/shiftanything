@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 189] = [
+pub const RECIPES: [(&str, &str); 192] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -191,6 +191,9 @@ pub const RECIPES: [(&str, &str); 189] = [
     ("fontforge", "org.fontforge.FontForge"),
     ("material-maker", "io.github.RodZill4.Material-Maker"),
     ("geany", "org.geany.Geany"),
+    ("scribus", "net.scribus.Scribus"),
+    ("frescobaldi", "org.frescobaldi.Frescobaldi"),
+    ("rhythmbox", "org.gnome.Rhythmbox3"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -340,6 +343,9 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "kstars" => "https://invent.kde.org/education/kstars",
         "freetube" => "https://github.com/FreeTubeApp/FreeTube",
         "sigil" => "https://github.com/Sigil-Ebook/Sigil",
+        "scribus" => "https://wiki.scribus.net/canvas/Checking_out_SVN",
+        "frescobaldi" => "https://github.com/frescobaldi/frescobaldi",
+        "rhythmbox" => "https://gitlab.gnome.org/GNOME/rhythmbox",
         "dosbox-x" => "https://github.com/joncampbell123/dosbox-x",
         "jellyfin-desktop" => "https://github.com/jellyfin/jellyfin-desktop",
         "cloudcompare" => "https://github.com/CloudCompare/CloudCompare",

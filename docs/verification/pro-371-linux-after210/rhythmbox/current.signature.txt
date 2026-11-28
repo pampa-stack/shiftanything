@@ -1,0 +1,19 @@
+commit 33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877
+Parent:  de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779
+ContentChecksum:  925e4b189129f6ec8371a83115e36d1c8f966a5d2da94b99c6419fd240a7a878
+Date:  2026-11-13 08:42:32 +0000
+
+    Update submodule shared-modules to 785a5394b6e4 (23b55874c880)
+
+    Name: org.gnome.Rhythmbox3
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 09:00:11 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

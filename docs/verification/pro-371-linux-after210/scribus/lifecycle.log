@@ -1,0 +1,86 @@
+2026-11-28T12:24:51+00:00 scribus AVAILABLE 27411181568
+scribus before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+scribus JobFinished: Ok("Flathub app installed")
+scribus after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:03+00:00 scribus current-install b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/applications/net.scribus.Scribus.desktop
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/icons/hicolor/128x128/apps/net.scribus.Scribus.png
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/icons/hicolor/16x16/apps/net.scribus.Scribus.png
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/icons/hicolor/256x256/apps/net.scribus.Scribus.png
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/icons/hicolor/32x32/apps/net.scribus.Scribus.png
+/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5/export/share/icons/hicolor/512x512/apps/net.scribus.Scribus.png
+Updating app/net.scribus.Scribus/x86_64/stable
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/scribus-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/scribus-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:14+00:00 scribus previous 81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f
+scribus before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f", package: Some("net.scribus.Scribus"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.4"), update_available: false, can_remove: false, can_open: true }
+scribus JobFinished: Err("Approved action rejected: native installation state changed")
+scribus JobFinished: Err("This Flatpak is managed outside the launcher")
+scribus after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f", package: Some("net.scribus.Scribus"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=6479 comm="xfwm4 --compositor=off --display=:84" label="unconfined")
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=6493 comm="flatpak run --user --command=sh app/net.scribus.Sc" label="flatpak (unconfined)")
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=6493 comm="flatpak run --user --command=sh app/net.scribus.Sc" label="flatpak (unconfined)")
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=6524 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+scribus before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.4"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=6641 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[4833]: [session uid=1000 pid=4833] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=6649 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:6656): dbind-WARNING **: 12:26:16.526: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:6649): xdg-desktop-portal-WARNING **: 12:26:16.576: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6649): xdg-desktop-portal-WARNING **: 12:26:16.576: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6649): xdg-desktop-portal-WARNING **: 12:26:16.577: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6649): xdg-desktop-portal-WARNING **: 12:26:16.582: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[4833]: [session uid=1000 pid=4833] Successfully activated service 'org.freedesktop.portal.Desktop'
+scribus JobFinished: Ok("Launch request accepted")
+scribus after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.4"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.scribus.Scribus
+2026-11-28T12:26:47+00:00 scribus previous GUI WM_NAME(STRING) = "Scribus 1.6.4"
+WM_CLASS(STRING) = "scribus", "scribus"
+2026-11-28T12:26:47+00:00 scribus AVAILABLE 21844799488
+scribus before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.4"), update_available: true, can_remove: true, can_open: true }
+scribus JobFinished: Ok("Flathub app updated")
+scribus after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:50+00:00 scribus current b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5
+/home/qa/profiles/scribus-after210/.var/app/net.scribus.Scribus/fixture.txt: OK
+scribus before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: true, can_open: true }
+scribus JobFinished: Ok("Launch request accepted")
+scribus after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.scribus.Scribus
+2026-11-28T12:27:21+00:00 scribus current GUI WM_NAME(STRING) = "Scribus 1.6.5"
+WM_CLASS(STRING) = "scribus", "scribus"
+scribus before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/scribus-after210/data/flatpak/app/net.scribus.Scribus/x86_64/stable/b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5", package: Some("net.scribus.Scribus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: true, can_open: true }
+scribus JobFinished: Ok("Flathub app removed")
+scribus after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/scribus-after210/.var/app/net.scribus.Scribus/fixture.txt: OK
+2026-11-28T12:27:26+00:00 scribus PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:27:36+00:00 scribus EXIT 0 remove
+
+(xfconfd:6504): xfconfd-WARNING **: 12:27:36.224: Name org.xfce.Xfconf lost on the message dbus, exiting.

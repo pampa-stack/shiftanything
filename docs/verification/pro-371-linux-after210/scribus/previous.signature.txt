@@ -1,0 +1,19 @@
+commit 81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f
+Parent:  4cd22aef4e17eed052ab416b799e7075ff16f99ab31d6a9431f48cdcafbd7064
+ContentChecksum:  b7c2df56071be56d408cd5878fade0380602d2b5d5f448b155dcff3d48a9834d
+Date:  2025-12-22 22:52:44 +0000
+
+    Update runtime to 5.15-25.08 (64c29ce5615e)
+
+    Name: net.scribus.Scribus
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Mon Dec 22 23:00:20 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,19 @@
+commit b1a2125431f94aff7e08dedb570626aca1f3dbf869c22c07474f06f9e88df3d5
+Parent:  81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f
+ContentChecksum:  f88c2777251842c05ebbdc72e2ce7226c5ed2d5020b83db99b6fb7e6330a421f
+Date:  2026-03-13 00:30:18 +0000
+
+    Update scribus to 1.6.5 (c98cd79c08fc)
+
+    Name: net.scribus.Scribus
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Mar 13 01:00:24 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

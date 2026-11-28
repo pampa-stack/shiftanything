@@ -1,0 +1,20 @@
+
+Frescobaldi - Write beautiful music sheets
+
+          ID: org.frescobaldi.Frescobaldi
+         Ref: app/org.frescobaldi.Frescobaldi/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.0.7
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 497.6 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee
+      Parent: 47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5
+     Subject: Update to runtime 6.11 (81c6e6aae6fa)
+        Date: 2026-07-24 20:47:55 +0000

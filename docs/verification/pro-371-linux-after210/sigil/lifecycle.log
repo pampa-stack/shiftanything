@@ -1,0 +1,81 @@
+2026-11-28T12:24:52+00:00 sigil AVAILABLE 27411025920
+sigil before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+sigil JobFinished: Ok("Flathub app installed")
+sigil after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:15+00:00 sigil current-install dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/applications/com.sigil_ebook.Sigil.desktop
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/128x128/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/16x16/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/256x256/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/32x32/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/48x48/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/512x512/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/64x64/apps/com.sigil_ebook.Sigil.png
+/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3/export/share/icons/hicolor/scalable/apps/com.sigil_ebook.Sigil.svg
+Updating app/com.sigil_ebook.Sigil/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:17+00:00 sigil previous 3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07
+sigil before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07", package: Some("com.sigil_ebook.Sigil"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.5"), update_available: false, can_remove: false, can_open: true }
+sigil JobFinished: Err("Approved action rejected: native installation state changed")
+sigil JobFinished: Err("This Flatpak is managed outside the launcher")
+sigil after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07", package: Some("com.sigil_ebook.Sigil"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.5"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=6866 comm="xfwm4 --compositor=off --display=:82" label="unconfined")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=6879 comm="flatpak run --user --command=sh app/com.sigil_eboo" label="flatpak (unconfined)")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=6879 comm="flatpak run --user --command=sh app/com.sigil_eboo" label="flatpak (unconfined)")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=6911 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+sigil before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.5"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=7040 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=7048 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:7055): dbind-WARNING **: 12:26:18.674: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:7048): xdg-desktop-portal-WARNING **: 12:26:18.703: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7048): xdg-desktop-portal-WARNING **: 12:26:18.704: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7048): xdg-desktop-portal-WARNING **: 12:26:18.704: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7048): xdg-desktop-portal-WARNING **: 12:26:18.709: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[4922]: [session uid=1000 pid=4922] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=7040 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4922]: [session uid=1000 pid=4922] Successfully activated service 'org.freedesktop.portal.Flatpak'
+sigil JobFinished: Ok("Launch request accepted")
+sigil after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.5"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.sigil_ebook.Sigil
+com.sigil_ebook.Sigil
+2026-11-28T12:26:28+00:00 sigil previous GUI WM_NAME(STRING) = "untitled.epub - epub3.0 - Sigil [std]"
+WM_CLASS(STRING) = "sigil", "sigil"
+2026-11-28T12:26:28+00:00 sigil AVAILABLE 18222653440
+sigil before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.5"), update_available: true, can_remove: true, can_open: true }
+sigil JobFinished: Ok("Flathub app updated")
+sigil after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:26:30+00:00 sigil current dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3
+/home/qa/profiles/sigil-after210/.var/app/com.sigil_ebook.Sigil/fixture.txt: OK
+sigil before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.6"), update_available: false, can_remove: true, can_open: true }
+sigil JobFinished: Ok("Launch request accepted")
+sigil after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.6"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.sigil_ebook.Sigil
+com.sigil_ebook.Sigil
+2026-11-28T12:26:41+00:00 sigil current GUI WM_NAME(STRING) = "untitled.epub - epub3.0 - Sigil [std]"
+WM_CLASS(STRING) = "sigil", "sigil"
+sigil before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 8, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/sigil-after210/data/flatpak/app/com.sigil_ebook.Sigil/x86_64/stable/dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3", package: Some("com.sigil_ebook.Sigil"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.8.6"), update_available: false, can_remove: true, can_open: true }
+sigil JobFinished: Ok("Flathub app removed")
+sigil after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/sigil-after210/.var/app/com.sigil_ebook.Sigil/fixture.txt: OK
+2026-11-28T12:26:42+00:00 sigil PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:26:45+00:00 sigil EXIT 0 remove
+
+(xfconfd:6891): xfconfd-WARNING **: 12:26:45.104: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,0 +1,19 @@
+commit dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3
+Parent:  3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07
+ContentChecksum:  56773e11e77c441110f57ee5878e60f08ff623ff15b3b2b327a42efe650efaa1
+Date:  2026-11-16 14:50:01 +0000
+
+    Merge pull request #78 from flathub/update-version (460fb6bc0b09)
+
+    Name: com.sigil_ebook.Sigil
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 16 15:05:35 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,31 @@
+2026-11-28T09:26:53+0100
+ruffle-0.7.0-macos-universal.tar.gz: OK
+ARTIFACT 07f957c29c0be6874d10c7e12b493bbe41ecbfc9623b00af84a064fa9205e616 33271249 https://github.com/ruffle-rs/ruffle/releases/download/v0.7.0/ruffle-0.7.0-macos-universal.tar.gz
+CFBundleIdentifier=rs.ruffle.ruffle
+CFBundleShortVersionString=0.7.0
+CFBundleVersion=0.7.0
+CFBundleExecutable=ruffle
+LSMinimumSystemVersion=
+payload/Ruffle.app/Contents/MacOS/ruffle: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+payload/Ruffle.app/Contents/MacOS/ruffle (for architecture x86_64):	Mach-O 64-bit executable x86_64
+payload/Ruffle.app/Contents/MacOS/ruffle (for architecture arm64):	Mach-O 64-bit executable arm64
+payload/Ruffle.app/Contents/MacOS/ruffle (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=rs.ruffle.ruffle
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Ruffle LLC (H22337M38N)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=7 Oct 2026 at 11:22:41
+TeamIdentifier=H22337M38N
+PASS RUFFLE v0.7.0
+payload/Ruffle.app: accepted
+source=Notarized Developer ID

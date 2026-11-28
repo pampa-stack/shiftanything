@@ -171,3 +171,12 @@ The official Apple Silicon DMGs for Jellyfin Media Player 1.11.1 and 1.12.0 pass
 The native backend installed 1.11.1, updated it to 1.12.0 and removed the bundle into the private Trash while retaining synthetic data. The two asset receipts record the downloaded sizes and measured SHA-256 values. The GUI was outside the scope of the background SSH test. [Cycle](jellyfin-desktop-native.log) · [Previous asset](jellyfin-desktop-v1.11.1.log) · [Current asset](jellyfin-desktop-v1.12.0.log)
 
 Save the two official GitHub expanded asset pages as `jellyfin-desktop-v1.11.1-assets.html` and `jellyfin-desktop-v1.12.0-assets.html` and reproduce each asset receipt with `preflight.sh`. Run `bash run-native.sh jellyfin-desktop jellyfin/jellyfin-desktop "Jellyfin Media Player" v1.11.1 v1.12.0`.
+
+## Ruffle and AionUi package checks
+
+On the Air (macOS 26.6.2), all five packages passed strict signature checks and Gatekeeper reported `Notarized Developer ID`. The package inspections did not launch the apps or run the launcher lifecycle.
+
+- Ruffle's 0.7.0, 0.7.1 and 0.8.0 archives contained the signed universal bundle `rs.ruffle.ruffle`, published by Ruffle LLC (`H22337M38N`). The arm64 slice requires macOS 11.0. The launcher still needs a macOS recipe that stages the exact upstream tarball and verifies the bundle before copying it. [0.7.0](ruffle-v0.7.0.log) · [0.7.1](ruffle-v0.7.1.log) · [0.8.0](ruffle-v0.8.0.log) · [Upstream 0.8.0 assets](https://github.com/ruffle-rs/ruffle/releases/expanded_assets/v0.8.0)
+- The publisher's download server supplied both AionUi Apple Silicon DMGs. Their bundle was `com.aionui.app`, signed by AionUi Inc. (`52JQX2HUSC`), with a minimum of macOS 11.0. The GitHub tag alone does not supply these DMGs. The 2.2.1 digest was measured from the publisher's download. The 2.2.2 digest also matched the Homebrew cask receipt. [2.2.1](aionui-v2.2.1.log) · [2.2.2](aionui-v2.2.2.log) · [Publisher downloads](https://www.aionui.com/download/) · [Homebrew receipt](https://formulae.brew.sh/cask/aionui)
+
+Copy `preflight-ruffle.sh` or `preflight.sh` into a fresh marked Air scratch directory. Run the Ruffle script with the tag, byte count and SHA-256 shown in its receipt. Run the DMG script with the package filename, URL and byte count from the AionUi receipt. For the latest AionUi DMG, supply the cask digest as the final argument.

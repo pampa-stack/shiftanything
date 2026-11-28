@@ -73,6 +73,9 @@ pub enum PackageKind {
     Flatpak,
     /// Linux or FreeBSD tarball (`bin/<app>`, `share/…`).
     TarGz,
+    /// Linux xz-compressed tarball holding one self-contained app folder. No recipe selects it
+    /// yet: see [`crate::pending`].
+    TarXz,
 }
 
 impl PackageKind {
@@ -91,6 +94,7 @@ impl PackageKind {
             Self::ArchPkg => "Arch package (.pkg.tar.zst)",
             Self::Flatpak => "Flatpak bundle",
             Self::TarGz => "Tarball (.tar.gz)",
+            Self::TarXz => "Tarball (.tar.xz)",
         }
     }
 
@@ -107,6 +111,7 @@ impl PackageKind {
             Self::ArchPkg => ".pkg.tar.zst",
             Self::Flatpak => ".flatpak",
             Self::MacTarGz | Self::TarGz => ".tar.gz",
+            Self::TarXz => ".tar.xz",
             Self::MacTarXz => ".txz",
         }
     }

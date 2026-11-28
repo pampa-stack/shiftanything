@@ -397,6 +397,17 @@ fn install_at_with_profile(
     #[allow(unused_variables)] lease: Option<&crate::nightly_transaction::Lease>,
 ) -> Result<Option<Record>, String> {
     let InstallRequest { app, release, asset, kind, existing, previous, signature } = request;
+    if kind == PackageKind::TarXz {
+        // No recipe selects this kind yet (see `artcraft_launcher_core::pending`). If one ever
+        // does, only the reviewed Umi-OCR archive gets through.
+        let umi = artcraft_launcher_core::curated::UMI_OCR;
+        if !cfg!(all(target_os = "linux", target_arch = "x86_64"))
+            || (app.id, app.repo) != (umi.id, umi.repo)
+            || !artcraft_launcher_core::pending::umi_ocr_asset(release, asset)
+        {
+            return Err("This archive has not been verified for this system.".into());
+        }
+    }
     if kind == PackageKind::MacTarGz {
         let ruffle = artcraft_launcher_core::curated::RUFFLE;
         if !cfg!(all(target_os = "macos", target_arch = "aarch64"))
@@ -698,6 +709,11 @@ fn install_at_with_profile(
         PackageKind::TarGz => freebsd::install_tree(app, &file, job.paths).map(|(bin, files, root)| Some(record(&version, kind, bin, files, root))),
         #[cfg(target_os = "linux")]
         PackageKind::TarGz => linux::install_tree(app, &file, job.paths).map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "linux")]
+        PackageKind::TarXz => match artcraft_launcher_core::pending::archive_layout(app.id) {
+            Some(layout) => archive_tree::install(app, &file, layout, job.paths).map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+            None => Err("This archive has not been verified for this system.".into()),
+        },
         other => Err(format!("{} isn't supported on this system", other.label())),
     };
     match &result {
@@ -1469,6 +1485,14 @@ pub fn uninstall(
         // app's settings (`home/`) alone, so a reinstall finds its projects where they were.
         #[cfg(target_os = "linux")]
         InstallSource::Launcher if record.is_some_and(|r| r.kind == PackageKind::TarGz) => linux::remove_tree(app, paths),
+        // A folder unpacked from a reviewed .tar.xz: everything goes except the settings files.
+        #[cfg(target_os = "linux")]
+        InstallSource::Launcher if record.is_some_and(|r| r.kind == PackageKind::TarXz) => {
+            match artcraft_launcher_core::pending::archive_layout(app.id) {
+                Some(layout) => archive_tree::remove(app, layout, paths),
+                None => Err("the launcher has no recipe for this archive".into()),
+            }
+        }
         #[cfg(target_os = "linux")]
         InstallSource::Launcher => remove_appimage(app, &path, record),
         other => Err(format!("{} can't be removed from here", other.label())),
@@ -2352,6 +2376,9 @@ pub(crate) mod linux {
         }
     }
 }
+
+#[cfg(target_os = "linux")]
+mod archive_tree;
 
 #[cfg(target_os = "macos")]
 pub(crate) mod macos_verify;

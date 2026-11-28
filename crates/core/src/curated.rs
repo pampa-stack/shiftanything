@@ -787,6 +787,28 @@ pub const TERMIX: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2CPC5YZYFN"),
 };
 
+/// Written but not in [`COMMUNITY_RECIPES`]: see [`crate::pending`].
+pub const UMI_OCR: crate::CraftApp = crate::CraftApp {
+    id: "umi-ocr",
+    name: "Umi-OCR",
+    tagline: "Offline OCR for images, screenshots and PDFs",
+    repo: "hiroi-sora/Umi-OCR",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [214, 110, 141],
+    ink_light: [128, 44, 72],
+    ink_dark: [244, 176, 197],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Hiroi Sora",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://github.com/hiroi-sora/Umi-OCR"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const NEOVIDE: crate::CraftApp = crate::CraftApp {
     id: "neovide",
     name: "Neovide",

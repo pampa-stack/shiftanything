@@ -40,7 +40,36 @@
     const app = detail.closest('.app');
     const toolbar = app.querySelector('.bar');
     const back = toolbar.querySelector('[data-close-detail]');
+    const language = document.documentElement.lang === 'it' ? 'it' : 'en';
+    const appDetails = import('./app-details.js').then(module => module.default, () => null);
     let origin;
+
+    function renderCapabilities(id) {
+      const description = detailContent.querySelector('.detail-description');
+      const sidebar = detailContent.querySelector('.deets');
+      if (!description || !sidebar) return;
+
+      const section = document.createElement('section');
+      section.className = 'card detail-capabilities';
+      section.setAttribute('aria-labelledby', 'detail-capabilities-heading');
+      const heading = document.createElement('h2');
+      heading.id = 'detail-capabilities-heading';
+      heading.className = 'h';
+      heading.textContent = language === 'it' ? 'Cosa puoi fare' : 'What you can do';
+      section.append(heading, description);
+      sidebar.prepend(section);
+
+      appDetails.then(entries => {
+        if (!section.isConnected || !entries || !Object.hasOwn(entries, id)) return;
+        const list = document.createElement('ul');
+        for (const feature of entries[id][language]) {
+          const item = document.createElement('li');
+          item.textContent = feature;
+          list.append(item);
+        }
+        section.append(list);
+      });
+    }
 
     function closeDetail(restoreFocus) {
       if (detail.hidden) return;
@@ -78,6 +107,7 @@
       const surface = button.closest('main');
       origin = {button, surface, scrollTop:surface?.scrollTop ?? 0};
       detailContent.replaceChildren(template.content.cloneNode(true));
+      renderCapabilities(button.dataset.appDetail);
       updateHearts();
       detail.hidden = back.hidden = false;
       app.setAttribute('data-detail-active', '');

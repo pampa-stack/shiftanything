@@ -1,3 +1,8 @@
+.detail-capabilities .h { margin:0; }
+.detail-capabilities .detail-description { font-size:13px; line-height:1.5; }
+.detail-capabilities ul { display:grid; gap:6px; margin:0; padding-inline-start:17px; font-size:13px; line-height:1.5; }
+.detail-capabilities li::marker { color:var(--acc); }
+
 /* Requested adjustments to the approved Promptica template: one card height per breakpoint. */
 .bar .seg > * { text-transform:uppercase; }
 .catalog-grid .cell { height:400px; display:grid; grid-template-rows:66px 134px 19px 16px 40px 47px; gap:9px; align-content:start; }

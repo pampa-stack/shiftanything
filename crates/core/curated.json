@@ -28788,7 +28788,7 @@
       "kind": "api",
       "source": "https://docs.invidious.io/api/"
     },
-    "logo": "https://avatars.githubusercontent.com/u/68407447?v=4&s=128",
+    "logo": "https://raw.githubusercontent.com/iv-org/invidious/0f5e4945b3c762e5cdd49b61c8ce11b48fe483d7/assets/invidious-colored-vector.svg",
     "screenshots": [
       "https://raw.githubusercontent.com/iv-org/invidious/0f5e4945b3c762e5cdd49b61c8ce11b48fe483d7/screenshots/01_player.png"
     ],
@@ -30078,7 +30078,7 @@
       "kind": "api",
       "source": "https://goharbor.io/docs/main/working-with-projects/using-api-explorer/"
     },
-    "logo": "https://raw.githubusercontent.com/goharbor/website/main/static/img/icons/harbor-logo-white.svg",
+    "logo": "https://raw.githubusercontent.com/goharbor/website/f592bafad330584e5ddaaf0ba05ab44ac751e73e/static/img/logos/harbor-icon-color.png",
     "screenshots": [
       "https://goharbor.io/docs/main/img/project-configuration.png",
       "https://goharbor.io/docs/main/img/new-search.png"
@@ -32642,8 +32642,8 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
-    "media_source": null,
+    "logo": "https://raw.githubusercontent.com/nikitabobko/AeroSpace/056676ab02c05d2526f4ffb7022940a1111bdeea/resources/Assets.xcassets/AppIcon.appiconset/icon.png",
+    "media_source": "https://nikitabobko.github.io/AeroSpace/guide",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -32965,8 +32965,8 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
-    "media_source": null,
+    "logo": "https://raw.githubusercontent.com/gnachman/iTerm2/7149665183dc55a012567a3e8fcc9214974dba33/images/AppIcon.png",
+    "media_source": "https://github.com/gnachman/iTerm2/blob/7149665183dc55a012567a3e8fcc9214974dba33/README.md",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -33004,7 +33004,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
+    "logo": "https://raw.githubusercontent.com/matryer/xbar/d624239058997c80118eaebe2e7f8331b3c765e0/app/build/appicon.png",
     "screenshots": [
       "https://raw.githubusercontent.com/matryer/xbar/main/xbarapp.com/public/img/xbar-menu-preview.png"
     ],
@@ -33324,8 +33324,8 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "",
-    "media_source": null,
+    "logo": "https://felixkratz.github.io/SketchyBar/img/logo.svg",
+    "media_source": "https://felixkratz.github.io/SketchyBar/",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -33469,7 +33469,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/TheBoredTeam/boring.notch/main/boringNotch/Assets.xcassets/AppIcon.appiconset/notch-stage-icon2%202.png",
+    "logo": "https://raw.githubusercontent.com/TheBoredTeam/boring.notch/main/boringNotch/Assets.xcassets/AppIcon.appiconset/notch-stage-icon2%207.png",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",
@@ -34307,7 +34307,7 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/johnste/finicky/main/packages/finicky-ui/public/finicky-logo.png",
+    "logo": "https://raw.githubusercontent.com/johnste/finicky/678bb135599c063f7fc8f0ce9d6f1e22bcb7df6b/packages/finicky-ui/public/finicky-icon.png",
     "screenshots": [],
     "review": {
       "method": "fonti_ufficiali",

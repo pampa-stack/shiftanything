@@ -2,7 +2,7 @@
 
 Obiettivo: portare `python3 packaging/release-notes.py HEAD --previous db42c75` da 14/20 a 20/20 o più. Il 28 novembre 2026 il conteggio su `e636831` è 14/20 (Mac con chip Apple +6, Linux x64 +8). Servono almeno 6 cicli chiusi in più, meglio 8.
 
-Nessun ciclo di questo lotto è ancora stato eseguito. `verified-platforms.json` non è stato toccato. Il manifest sale solo con la prova del ciclo nello stesso commit: log, PNG letti, hash.
+Il manifest sale solo con la prova del ciclo nello stesso commit: log, PNG letti, hash. I cicli chiusi sono nella sezione [Cicli eseguiti](#cicli-eseguiti).
 
 Le ricette esistono già come codice spento in `crates/core/src/pending.rs`, fuori da ogni tabella viva (`flathub::RECIPES`, elenco AppImage verificate, `COMMUNITY_RECIPES`, formati predefiniti di Linux). Un test fallisce se un candidato compare in una tabella viva o nel manifest Linux prima del tempo.
 
@@ -65,3 +65,11 @@ Manca per accenderla: la scelta del pacchetto (nessun asset diventa `TarXz` oggi
 VPS2 non ha Flatpak, sudo né namespace utente, il guest QA vive sull'AX42 e l'Air rifiuta il login da qui. I cicli aspettano l'accesso a quegli host.
 
 Controlli su VPS2 con il codice spento: `cargo fmt --all --check` verde; `cargo clippy -D warnings` su core e native verde, dopo la correzione del lint `byte_char_slices` in `flatpak.rs`; test di core 187 passati e 1 ignorato, di native 653 passati e 4 ignorati (gli ignorati c'erano già). `tauri-proof` non si compila su VPS2 perché mancano le librerie di sviluppo GTK e non c'è sudo: va controllato su una macchina che le ha.
+
+## Cicli eseguiti
+
+Guest Ubuntu 24.04 x64 usa e getta su AX42 (`/var/tmp/shift-beta021-guest.*`, 8 vCPU, 12 GiB), creato con lo stesso schema di after210. Il backend è quello di questo ramo con la ricetta accesa, compilato nel guest. Le aperture usano il solo loopback.
+
+### Bruno su Linux x64
+
+Il 28 novembre NativeBackend ha installato Bruno da Flathub, portato il pacchetto alla revisione firmata `acc13d37…`, aggiornato alla revisione firmata `1bca9c49…` e rimosso l'app. Le due revisioni sono entrambe v4.3.0: la più recente è la ricostruzione che annulla la v4.4.0 ritirata, quindi l'aggiornamento cambia il pacchetto e non il numero di versione. Il file sintetico è rimasto e la voce di menu è sparita. Il profilo QA toglie a Bruno l'accesso alla cartella home (`!host:reset`): la collezione di esempio creata alla prima apertura sta in una home temporanea del sandbox, per questo dopo l'aggiornamento compare «Failed to open». La licenza del repository è MIT (`license.md`); Flathub indica «proprietaria» perché il pacchetto scarica il binario ufficiale come extra-data. [Flathub](https://flathub.org/apps/com.usebruno.Bruno) · [Prima](bruno/previous.png) · [Dopo](bruno/current.png) · [Log](bruno/lifecycle.log)

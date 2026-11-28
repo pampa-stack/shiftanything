@@ -1,0 +1,69 @@
+2026-11-28T19:10:59+00:00 bruno AVAILABLE 77248880640
+bruno before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+bruno JobFinished: Ok("Flathub app installed")
+bruno after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:13:16+00:00 bruno current-install 1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3
+/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3/export/share/applications/com.usebruno.Bruno.desktop
+/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3/export/share/icons/hicolor/512x512/apps/com.usebruno.Bruno.png
+Updating app/com.usebruno.Bruno/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:13:36+00:00 bruno previous acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5
+bruno before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5", package: Some("com.usebruno.Bruno"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: false, can_open: true }
+bruno JobFinished: Err("Approved action rejected: native installation state changed")
+bruno JobFinished: Err("This Flatpak is managed outside the launcher")
+bruno after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5", package: Some("com.usebruno.Bruno"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=16659 comm="xfwm4 --compositor=off --display=:81" label="unconfined")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=16693 comm="flatpak run --user --command=sh app/com.usebruno.B" label="flatpak (unconfined)")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=16693 comm="flatpak run --user --command=sh app/com.usebruno.B" label="flatpak (unconfined)")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=16719 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+bruno before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.13' (uid=1000 pid=16904 comm="xdg-dbus-proxy --args=35" label="flatpak (unconfined)")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.portal.Flatpak'
+bruno JobFinished: Ok("Launch request accepted")
+bruno after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.17' (uid=1000 pid=16904 comm="xdg-dbus-proxy --args=35" label="flatpak (unconfined)")
+dbus-daemon[13228]: [session uid=1000 pid=13228] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.19' (uid=1000 pid=17008 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+(xdg-desktop-portal-gtk:17022): dbind-WARNING **: 19:13:40.407: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+(/usr/libexec/xdg-desktop-portal:17008): xdg-desktop-portal-WARNING **: 19:13:40.429: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:17008): xdg-desktop-portal-WARNING **: 19:13:40.429: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:17008): xdg-desktop-portal-WARNING **: 19:13:40.429: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00554.472804] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00554.472860] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+(/usr/libexec/xdg-desktop-portal:17008): xdg-desktop-portal-WARNING **: 19:13:40.435: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[13228]: [session uid=1000 pid=13228] Successfully activated service 'org.freedesktop.portal.Desktop'
+  Map State: IsViewable
+com.usebruno.Bruno
+com.usebruno.Bruno
+2026-11-28T19:13:53+00:00 bruno previous GUI WM_NAME(UTF8_STRING) = "Bruno"
+WM_CLASS(STRING) = "bruno", "bruno"
+2026-11-28T19:13:53+00:00 bruno AVAILABLE 61175414784
+bruno before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: true, can_remove: true, can_open: true }
+bruno JobFinished: Ok("Flathub app updated")
+bruno after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:14:08+00:00 bruno current 1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3
+/home/qa/profiles/bruno-after210/.var/app/com.usebruno.Bruno/fixture.txt: OK
+bruno before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: true, can_open: true }
+bruno JobFinished: Ok("Launch request accepted")
+bruno after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.usebruno.Bruno
+com.usebruno.Bruno
+2026-11-28T19:14:21+00:00 bruno current GUI WM_NAME(UTF8_STRING) = "Bruno"
+WM_CLASS(STRING) = "bruno", "bruno"
+bruno before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3", package: Some("com.usebruno.Bruno"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v4.3.0"), update_available: false, can_remove: true, can_open: true }
+bruno JobFinished: Ok("Flathub app removed")
+bruno after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/bruno-after210/.var/app/com.usebruno.Bruno/fixture.txt: OK
+2026-11-28T19:14:21+00:00 bruno PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T19:14:24+00:00 bruno EXIT 0 remove

@@ -16678,7 +16678,18 @@
           "size_max": 214743274
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.usebruno.Bruno",
+        "source": "https://flathub.org/apps/com.usebruno.Bruno",
+        "download_size": 193152391,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.usebruno.Bruno",
+        "download_size_checked": "2026-11-28"
+      }
+    ]
   },
   {
     "id": "dbeaver-ce",

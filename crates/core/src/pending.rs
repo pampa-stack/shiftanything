@@ -16,9 +16,8 @@ pub struct FlatpakCandidate {
     pub upstream: &'static str,
 }
 
-/// Six Flathub recipes waiting for their cycle on Ubuntu 24.04 x64.
-pub const FLATPAK: [FlatpakCandidate; 6] = [
-    FlatpakCandidate { id: "bruno", flatpak: "com.usebruno.Bruno", upstream: "https://github.com/usebruno/bruno" },
+/// Flathub recipes still waiting for their cycle on Ubuntu 24.04 x64.
+pub const FLATPAK: [FlatpakCandidate; 5] = [
     FlatpakCandidate { id: "cutter", flatpak: "re.rizin.cutter", upstream: "https://github.com/rizinorg/cutter" },
     FlatpakCandidate { id: "trayscale", flatpak: "dev.deedles.Trayscale", upstream: "https://github.com/DeedleFake/trayscale" },
     FlatpakCandidate { id: "angryip", flatpak: "org.angryip.ipscan", upstream: "https://github.com/angryip/ipscan" },

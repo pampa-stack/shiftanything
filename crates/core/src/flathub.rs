@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 217] = [
+pub const RECIPES: [(&str, &str); 218] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -219,6 +219,7 @@ pub const RECIPES: [(&str, &str); 217] = [
     ("liferea", "net.sourceforge.liferea"),
     ("warehouse", "io.github.flattool.Warehouse"),
     ("wxmaxima", "io.github.wxmaxima_developers.wxMaxima"),
+    ("bruno", "com.usebruno.Bruno"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -454,6 +455,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "bespoke-synth" => "https://github.com/BespokeSynth/BespokeSynth",
         "zulip" => "https://github.com/zulip/zulip-desktop",
         "vlc" => "https://code.videolan.org/videolan/vlc",
+        "bruno" => "https://github.com/usebruno/bruno",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

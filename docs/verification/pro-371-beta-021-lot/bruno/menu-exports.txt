@@ -1,0 +1,2 @@
+/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3/export/share/applications/com.usebruno.Bruno.desktop
+/home/qa/profiles/bruno-after210/data/flatpak/app/com.usebruno.Bruno/x86_64/stable/1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3/export/share/icons/hicolor/512x512/apps/com.usebruno.Bruno.png

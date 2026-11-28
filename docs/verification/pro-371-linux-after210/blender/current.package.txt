@@ -1,0 +1,20 @@
+
+Blender - Free and open source 3D creation suite
+
+          ID: org.blender.Blender
+         Ref: app/org.blender.Blender/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 5.3
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 1.2 GB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c
+      Parent: f97247d9e87dca0bc28c6a01e51cd6425cf8b21c636d28514898b7315b21d521
+     Subject: Add mirror-url-templates to x-checker-data (a0cc252f8890)
+        Date: 2026-11-13 22:11:16 +0000

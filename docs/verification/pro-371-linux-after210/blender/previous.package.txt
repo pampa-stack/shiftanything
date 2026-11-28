@@ -1,0 +1,20 @@
+
+Blender - Free and open source 3D creation suite
+
+          ID: org.blender.Blender
+         Ref: app/org.blender.Blender/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 5.1
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 1.2 GB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f
+      Parent: 73e9139b95a7796dce8a71ba6479aa762d72592d2fd6a5dd2e406f8813c8233b
+     Subject: Merge pull request #235 from flathub/update-master-792b5de (c5471a0fc250)
+        Date: 2026-05-23 14:10:57 +0000

@@ -141,3 +141,7 @@ Nel medesimo guest, Qtractor ha completato installazione, aggiornamento e rimozi
 ## Mullvad Browser su Linux x64
 
 Il 28 novembre il backend di `77a74f9` con la ricetta candidata ha installato, aperto, aggiornato e rimosso il pacchetto comunitario Flatpak in un guest Ubuntu 24.04 x64 isolato su AX42. Entrambe le revisioni hanno una firma Flathub valida. I PNG mostrano l’apertura di Mullvad Browser 16.0.2 e la conferma dell’aggiornamento a 16.0.3. Il ciclo conserva un file sintetico ed elimina la voce del menu alla rimozione. Durante l’apertura il guest usa il solo loopback. Per riprodurre la prova usare `SHIFT_QA_COMPOSITOR=on`. [Flathub](https://flathub.org/apps/net.mullvad.MullvadBrowser) · [Prima](mullvad-browser/previous.png) · [Dopo](mullvad-browser/current.png) · [Log](mullvad-browser/lifecycle.log)
+
+### Blender
+
+Il ciclo nativo del 28 novembre ha installato il pacchetto comunitario su Ubuntu 24.04 x64, ha aperto Blender 5.1.2, aggiornato a 5.3.0 e rimosso l'app preservando il file sintetico. Le due revisioni hanno una firma Flathub valida. Le schermate mostrano l'avvio con rendering software nella VM isolata. Il risultato riguarda il ciclo del pacchetto e l'avvio dell'interfaccia. [Flathub](https://flathub.org/apps/org.blender.Blender) · [Prima](blender/previous.png) · [Dopo](blender/current.png) · [Log](blender/lifecycle.log)

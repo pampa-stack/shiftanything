@@ -1,0 +1,19 @@
+commit 3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c
+Parent:  f97247d9e87dca0bc28c6a01e51cd6425cf8b21c636d28514898b7315b21d521
+ContentChecksum:  d506f3d0f220c93594dc95173a709ea67e171cd918722b116efe2b814fcb24ec
+Date:  2026-11-13 22:11:16 +0000
+
+    Add mirror-url-templates to x-checker-data (a0cc252f8890)
+
+    Name: org.blender.Blender
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 23:02:33 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

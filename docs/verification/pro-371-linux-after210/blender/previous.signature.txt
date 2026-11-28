@@ -1,0 +1,19 @@
+commit 9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f
+Parent:  73e9139b95a7796dce8a71ba6479aa762d72592d2fd6a5dd2e406f8813c8233b
+ContentChecksum:  f94069eb13f5bf20377018abcb9a4805a9fdb8a9baf8fc8de0017fbe7b246c7b
+Date:  2026-05-23 14:10:57 +0000
+
+    Merge pull request #235 from flathub/update-master-792b5de (c5471a0fc250)
+
+    Name: org.blender.Blender
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat May 23 15:02:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

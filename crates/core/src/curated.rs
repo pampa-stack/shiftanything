@@ -200,7 +200,7 @@ mod tests {
         let mut ids = std::collections::HashSet::new();
         for app in apps {
             assert!(ids.insert(app.id.clone()), "duplicate catalog identity");
-            assert!(!["prompticraft", "eyecraft", "oneshotanything"].contains(&app.id.as_str()));
+            assert!(!["prompticraft", "eyecraft", "oneshotanything", "airi"].contains(&app.id.as_str()));
         }
     }
 
@@ -2387,27 +2387,6 @@ pub const OPENTTD: crate::CraftApp = crate::CraftApp {
     mac_team: Some("475CDUM4UL"),
 };
 
-pub const AIRI: crate::CraftApp = crate::CraftApp {
-    id: "airi",
-    name: "AIRI",
-    tagline: "An interactive voice companion that can run locally",
-    repo: "moeru-ai/airi",
-    former_repo: None,
-    former_ids: &[],
-    former_names: &[],
-    former_bundles: &[],
-    color: [174, 77, 123],
-    ink_light: [129, 42, 89],
-    ink_dark: [241, 173, 208],
-    kind: crate::catalog::AppKind::Community,
-    publisher: "MOERU AI LTD",
-    msi_publisher: None,
-    bundle: Some("ai.moeru.airi"),
-    site: Some("https://airi.moeru.ai/"),
-    mac_bundle_name: Some("airi"),
-    mac_team: Some("433DLLA855"),
-};
-
 pub const SUNSHINE: crate::CraftApp = crate::CraftApp {
     id: "sunshine",
     name: "Sunshine",
@@ -2818,7 +2797,6 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MISTER_DOWNLOAD_MANAGER,
     MOONLIGHT,
     SUNSHINE,
-    AIRI,
     OPENTTD,
     RECTANGLE,
     CODEEDIT,

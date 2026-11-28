@@ -2954,6 +2954,113 @@
           "source": "https://docs.nextcloud.com/server/stable/user_manual/en/groupware/calendar.html"
         }
       ]
+    },
+    {
+      "id": "mind-map",
+      "example": {
+        "it": "Creare una mappa mentale",
+        "en": "Draw a mind map"
+      },
+      "match": [
+        [
+          "mapp",
+          "mental"
+        ],
+        [
+          "mind map"
+        ],
+        [
+          "mindmap"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "freeplane",
+          "reason": {
+            "it": "Collega idee, note e documenti in una mappa mentale a rami.",
+            "en": "Connect ideas, notes, and documents in a branching mind map."
+          },
+          "source": "https://docs.freeplane.org/"
+        }
+      ]
+    },
+    {
+      "id": "share-keyboard-mouse",
+      "example": {
+        "it": "Condividere tastiera e mouse tra due computer",
+        "en": "Share my keyboard and mouse between computers"
+      },
+      "match": [
+        [
+          "condivid",
+          "tastier",
+          "mouse"
+        ],
+        [
+          "tastier",
+          "mouse",
+          "computer"
+        ],
+        [
+          "share",
+          "keyboard",
+          "mouse"
+        ],
+        [
+          "keyboard",
+          "mouse",
+          "comput"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "deskflow",
+          "reason": {
+            "it": "Controlla più computer sulla stessa rete con un’unica tastiera e un unico mouse.",
+            "en": "Control computers on the same network with one keyboard and mouse."
+          },
+          "source": "https://github.com/deskflow/deskflow"
+        }
+      ]
+    },
+    {
+      "id": "usb-android-transfer",
+      "example": {
+        "it": "Trasferire file da Android al Mac via USB",
+        "en": "Transfer files from Android to Mac over USB"
+      },
+      "match": [
+        [
+          "android",
+          "usb",
+          "file"
+        ],
+        [
+          "android",
+          "mac",
+          "mtp"
+        ],
+        [
+          "android",
+          "mac",
+          "trasfer"
+        ],
+        [
+          "android",
+          "mac",
+          "transfer"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "openmtp",
+          "reason": {
+            "it": "Copia file tra telefoni Android e Mac attraverso il cavo USB.",
+            "en": "Copy files between Android phones and Mac over USB."
+          },
+          "source": "https://openmtp.ganeshrvel.com/"
+        }
+      ]
     }
   ]
 }

@@ -3,7 +3,15 @@
 fn main() -> Result<(), String> {
     use artcraft_launcher_native::{http::Http, paths::Paths, screenshots};
     use std::io::Write;
-    let output = std::path::PathBuf::from(std::env::args_os().nth(1).ok_or("supply a new temporary output directory")?);
+    let mut arguments = std::env::args_os().skip(1);
+    let output = std::path::PathBuf::from(arguments.next().ok_or("supply a new temporary output directory")?);
+    let requested = arguments.map(|value| value.into_string().map_err(|_| "catalog ID must be text".to_string())).collect::<Result<Vec<_>, _>>()?;
+    let render_default_gallery = requested.is_empty();
+    let ids = if render_default_gallery {
+        vec!["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"]
+    } else {
+        requested.iter().map(String::as_str).collect()
+    };
     std::fs::create_dir(&output).map_err(|error| error.to_string())?;
     let config_root = output.join("automation");
     let config = artcraft_launcher_native::automation::configuration_in(&config_root)?;
@@ -13,7 +21,7 @@ fn main() -> Result<(), String> {
     let paths = Paths::under(&output.join("profile"));
     let mut online = Vec::new();
     let mut offline = Vec::new();
-    for id in ["photocraft", "handy", "meetily", "rizzo-pii", "normcap", "libreoffice"] {
+    for id in ids {
         let app = artcraft_launcher_core::curated::apps().iter().find(|app| app.id == id).ok_or("unknown recipe")?;
         let mut errors = Vec::new();
         screenshots::fetch_catalog(Some(&http), &paths, app, |key, result| {
@@ -44,8 +52,10 @@ fn main() -> Result<(), String> {
         }
         println!("PASS {id}: real native download, image budget and offline cache");
     }
-    render_media(&output, &online, "online")?;
-    render_media(&output, &offline, "offline")?;
+    if render_default_gallery {
+        render_media(&output, &online, "online")?;
+        render_media(&output, &offline, "offline")?;
+    }
     Ok(())
 }
 

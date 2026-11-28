@@ -948,7 +948,6 @@ mod tests {
             (crate::curated::DESKREEN, ["v3.2.15", "v3.2.16"]),
             (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),
             (crate::curated::SUNSHINE, ["v2026.906.222525", "v2026.914.233613"]),
-            (crate::curated::AIRI, ["v0.15.2", "v0.15.4"]),
             (crate::curated::OPENTTD, ["15.2", "15.3"]),
             (crate::curated::RECTANGLE, ["v2.0.4", "v2.0.5"]),
             (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),

@@ -152,6 +152,8 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
         "https://getartcraft.com/",
         "https://dl.flathub.org/",
         "https://paseo.sh/",
+        "https://docs.freeplane.org/images/",
+        "https://deskflow.org/screenshots/",
         "https://uptime.kuma.pet/",
         "https://getsharex.com/",
         "https://media.docs.plane.so/",

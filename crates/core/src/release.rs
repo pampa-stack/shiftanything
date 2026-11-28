@@ -1102,7 +1102,6 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPEN_PENCIL,
         crate::curated::OPEN_WHISPR,
         crate::curated::SUNSHINE,
-        crate::curated::AIRI,
         crate::curated::OPENTTD,
         crate::curated::RECTANGLE,
         crate::curated::CODEEDIT,
@@ -1774,12 +1773,6 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("Ranchero-Software/NetNewsWire", "mac-7.3.1") => {
             &[("NetNewsWire7.3.1.zip", 10_473_901, "280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9")]
-        }
-        ("moeru-ai/airi", "v0.15.2") => {
-            &[("AIRI-0.15.2-darwin-arm64.dmg", 610_350_997, "a44156b7810b7f54e74d8b6c28bb757a4af8ff17c75b7b854804b3a971fa1e3a")]
-        }
-        ("moeru-ai/airi", "v0.15.4") => {
-            &[("AIRI-0.15.4-darwin-arm64.dmg", 610_837_143, "d2ebfbfed06a8d1df2195520faeddbe7ffef87a2003bb00717f04228530c4617")]
         }
         ("SunshineStream/Sunshine", "v2026.906.222525") => {
             &[("Sunshine-macOS-arm64.dmg", 40_287_527, "b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a")]

@@ -2375,14 +2375,6 @@
       "source_sha256": "ed28cd9c62efe388f37f4ef91f6f4580b37f919db3cd1b6e6e6e2067b3d4f15f"
     },
     {
-      "app": "airi",
-      "slot": "logo",
-      "source": "https://raw.githubusercontent.com/moeru-ai/airi/main/apps/stage-tamagotchi/build/icon.png",
-      "file": "media/airi-logo.png",
-      "sha256": "c5bbb0e8060b818058bfcbd8228fbbcaf40d7fd8e186300df680ed508587644f",
-      "source_sha256": "52ae9c86881ecb54f979b54a2d8d42e0fc80db7c6d795a0d4be5534df4106744"
-    },
-    {
       "app": "subtitle-edit",
       "slot": "logo",
       "source": "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/src/ui/Assets/SE.png",

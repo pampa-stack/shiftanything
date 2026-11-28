@@ -20124,68 +20124,6 @@
     }
   },
   {
-    "id": "airi",
-    "name": "AIRI",
-    "repo": "https://github.com/moeru-ai/airi",
-    "author": "Moeru AI / AIRI contributors",
-    "level": "avanz",
-    "category": "agenti",
-    "description": {
-      "it": "Companion vocale desktop con avatar configurabile e supporto a modelli locali. La cattura dello schermo è una funzione sperimentale del pannello Developer.",
-      "en": "Desktop voice companion with a configurable avatar and local model support. Screen capture is experimental in the Developer panel."
-    },
-    "alternatives": [],
-    "license": "MIT",
-    "license_url": "https://github.com/moeru-ai/airi/blob/main/LICENSE",
-    "website": "https://airi.moeru.ai/",
-    "releases": "https://github.com/moeru-ai/airi/releases",
-    "delivery": "desktop",
-    "agent": {
-      "kind": "unknown",
-      "source": null
-    },
-    "logo": "https://raw.githubusercontent.com/moeru-ai/airi/main/apps/stage-tamagotchi/build/icon.png",
-    "screenshots": [],
-    "media_source": "https://github.com/moeru-ai/airi-docs/tree/main/content/public/brand",
-    "review": {
-      "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://airi.moeru.ai/docs/en/docs/manual/tamagotchi/setup-and-use/"
-    },
-    "stars": {
-      "count": 51825,
-      "source": "https://github.com/moeru-ai/airi/stargazers",
-      "date": "2026-11-27"
-    },
-    "platform_support": {
-      "linux": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
-      "macos": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
-      "windows": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4"
-    },
-    "release": {
-      "version": "v0.15.4",
-      "date": "2026-11-12",
-      "source": "https://github.com/moeru-ai/airi/releases/tag/v0.15.4",
-      "packages": [
-        {
-          "platform": "linux",
-          "size_min": 462714609,
-          "size_max": 582774608
-        },
-        {
-          "platform": "macos",
-          "size_min": 610837143,
-          "size_max": 620339652
-        },
-        {
-          "platform": "windows",
-          "size_min": 494424736,
-          "size_max": 494424736
-        }
-      ]
-    }
-  },
-  {
     "id": "subtitle-edit",
     "name": "Subtitle Edit",
     "repo": "https://github.com/SubtitleEdit/subtitleedit",
@@ -34637,5 +34575,196 @@
       ]
     },
     "media_source": "https://github.com/syncthing/syncthing-macos#readme"
+  },
+  {
+    "id": "freeplane",
+    "name": "Freeplane",
+    "repo": "https://github.com/freeplane/freeplane",
+    "author": "Freeplane contributors",
+    "level": "base",
+    "category": "note",
+    "description": {
+      "it": "Organizza progetti e appunti in mappe mentali. Collega i nodi con frecce e link, aggiungi note e filtra la mappa per concentrarti su un ramo.",
+      "en": "Organize projects and notes as mind maps. Connect nodes with arrows and links, add notes, and filter a map to focus on a branch."
+    },
+    "alternatives": [
+      "Xmind",
+      "MindMeister"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/freeplane/freeplane/blob/release-1.13.5/license.txt",
+    "website": "https://docs.freeplane.org/",
+    "releases": "https://github.com/freeplane/freeplane/releases/tag/release-1.13.5",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/freeplane/freeplane/release-1.13.5/freeplane/src/editor/resources/images/Freeplane_frame_icon_256x256.png",
+    "screenshots": [
+      "https://docs.freeplane.org/images/ui.png"
+    ],
+    "media_source": "https://docs.freeplane.org/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://docs.freeplane.org/"
+    },
+    "stars": {
+      "count": 4547,
+      "source": "https://github.com/freeplane/freeplane/stargazers",
+      "date": "2026-11-28"
+    },
+    "platform_support": {
+      "macos": "https://github.com/freeplane/freeplane/releases/tag/release-1.13.5",
+      "linux": "https://github.com/freeplane/freeplane/releases/tag/release-1.13.5",
+      "windows": "https://github.com/freeplane/freeplane/releases/tag/release-1.13.5"
+    },
+    "release": {
+      "version": "release-1.13.5",
+      "date": "2026-11-11",
+      "source": "https://github.com/freeplane/freeplane/releases/tag/release-1.13.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 147343258,
+          "size_max": 148794806
+        },
+        {
+          "platform": "linux",
+          "size_min": 74814052,
+          "size_max": 74814052
+        },
+        {
+          "platform": "windows",
+          "size_min": 110605856,
+          "size_max": 110605856
+        }
+      ]
+    }
+  },
+  {
+    "id": "deskflow",
+    "name": "Deskflow",
+    "repo": "https://github.com/deskflow/deskflow",
+    "author": "Deskflow contributors",
+    "level": "avanz",
+    "category": "rete",
+    "description": {
+      "it": "Condividi tastiera, mouse e appunti tra computer sulla rete locale. Disponi gli schermi nella finestra di configurazione e passa da un computer all’altro spostando il puntatore oltre il bordo.",
+      "en": "Share your keyboard, mouse, and clipboard with computers on your local network. Arrange screens in the settings and move the pointer across a screen edge to switch computers."
+    },
+    "alternatives": [
+      "Synergy",
+      "ShareMouse"
+    ],
+    "license": "GPL-2.0",
+    "license_url": "https://github.com/deskflow/deskflow/blob/v1.27.0/LICENSE",
+    "website": "https://deskflow.org/",
+    "releases": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/deskflow/deskflow/v1.27.0/deploy/linux/org.deskflow.deskflow.png",
+    "screenshots": [
+      "https://deskflow.org/screenshots/deskflow-client.png"
+    ],
+    "media_source": "https://github.com/deskflow/deskflow",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://github.com/deskflow/deskflow"
+    },
+    "stars": {
+      "count": 31810,
+      "source": "https://github.com/deskflow/deskflow/stargazers",
+      "date": "2026-11-28"
+    },
+    "platform_support": {
+      "macos": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+      "linux": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+      "windows": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0"
+    },
+    "release": {
+      "version": "v1.27.0",
+      "date": "2026-10-01",
+      "source": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 27967013,
+          "size_max": 29145871
+        },
+        {
+          "platform": "linux",
+          "size_min": 1023536,
+          "size_max": 1182648
+        },
+        {
+          "platform": "windows",
+          "size_min": 14532500,
+          "size_max": 15953799
+        }
+      ]
+    }
+  },
+  {
+    "id": "openmtp",
+    "name": "OpenMTP",
+    "repo": "https://github.com/ganeshrvel/openmtp",
+    "author": "Ganesh Rathinavel",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Trasferisci file via USB tra Mac e Android. Sfoglia le cartelle affiancate, trascina più file insieme e segui l’avanzamento della copia.",
+      "en": "Transfer files over USB between Mac and Android. Browse folders side by side, drag and drop multiple files, and follow transfer progress."
+    },
+    "alternatives": [
+      "Commander One",
+      "Android File Transfer"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/ganeshrvel/openmtp/blob/v3.3.0/LICENSE",
+    "website": "https://openmtp.ganeshrvel.com/",
+    "releases": "https://github.com/ganeshrvel/openmtp/releases/tag/v3.3.0",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/ganeshrvel/openmtp/v3.3.0/build/icons/256x256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/ganeshrvel/openmtp/v3.3.0/blobs/images/file-explorer.png",
+      "https://raw.githubusercontent.com/ganeshrvel/openmtp/v3.3.0/blobs/images/file-transfer.png"
+    ],
+    "media_source": "https://openmtp.ganeshrvel.com/",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://openmtp.ganeshrvel.com/"
+    },
+    "stars": {
+      "count": 7801,
+      "source": "https://github.com/ganeshrvel/openmtp/stargazers",
+      "date": "2026-11-28"
+    },
+    "platform_support": {
+      "macos": "https://github.com/ganeshrvel/openmtp/releases/tag/v3.3.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "v3.3.0",
+      "date": "2026-08-22",
+      "source": "https://github.com/ganeshrvel/openmtp/releases/tag/v3.3.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 126208067,
+          "size_max": 128156626
+        }
+      ]
+    }
   }
 ]

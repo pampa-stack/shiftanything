@@ -40,6 +40,16 @@
     "reason": "not_notarized"
   },
   {
+    "id": "gpt4all",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0",
+    "asset_url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.10.0/gpt4all-installer-macos-v3.10.0.dmg",
+    "sha256": "d0d98ab465de516af6d50fc013abbf9a8967274f2d171bbf69198873ce255b5f",
+    "bytes": 319600812,
+    "checked_at": "2026-11-28",
+    "reason": "intel_installer_only"
+  },
+  {
     "id": "nuclear",
     "target": "macos-arm64",
     "release_source": "https://github.com/nukeop/nuclear/releases/tag/player%401.56.4",

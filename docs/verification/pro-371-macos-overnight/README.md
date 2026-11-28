@@ -155,3 +155,5 @@ For Craft Anything, save the official GitHub expanded asset pages and the matchi
 
 
 For Sloth, save the published GitHub expanded assets as `sloth-3.5-assets.html` and `sloth-3.6-assets.html`. Verify size, SHA-256, bundle identifier, version, ARM64 slice, signing identity and notarization for each ZIP, then save the preflight output as `sloth-3.5.log` and `sloth-3.6.log`. Execute `bash run-native.sh sloth sveinbjornt/Sloth Sloth 3.5 3.6` in the dedicated scratch directory with the native cycle binary.
+
+The GPT4All v3.9.0 and v3.10.0 macOS DMGs both mounted read-only. Each contained `gpt4all-installer-darwin.app`, an Intel-only installer with bundle ID `com.yourcompany.installerbase` and version `4.8.1`. The Apple Silicon direct-copy recipe requires the application bundle, so this check stopped before running the installer and added no verified cycle. The latest package receipt records the downloaded file's measured size and SHA-256.

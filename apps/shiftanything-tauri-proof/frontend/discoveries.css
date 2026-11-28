@@ -102,3 +102,16 @@
 @media (max-width:740px) {
   .kits-panel { padding:15px; }
 }
+/* Commands: accent colour from the theme token, an icon and their own place, so they never read as a filter. */
+.btn.btn-command { display:inline-flex; align-items:center; gap:6px; border-color:var(--acc); color:var(--acc); font-weight:700; }
+.btn.btn-command:hover { background:var(--surf3); border-color:var(--acc); color:var(--acc); }
+.btn.btn-command:focus-visible { outline:2px solid var(--acc); outline-offset:2px; }
+.btn.btn-command[aria-pressed="true"] { background:var(--acc); border-color:var(--acc); color:var(--bg); }
+.btn-command svg { width:12px; height:12px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.btn-command[aria-expanded="true"] svg { transform:rotate(180deg); }
+.discovery-examples .btn-command { margin-inline-start:4px; }
+.kit-controls.discovery-controls { grid-template-columns:minmax(0, 34rem) auto; max-width:none; align-items:end; justify-content:start; }
+.kit-controls .btn-command { min-height:40px; padding-inline:14px; }
+@media (max-width:640px) {
+  .kit-controls.discovery-controls { grid-template-columns:minmax(0, 1fr) auto; }
+}

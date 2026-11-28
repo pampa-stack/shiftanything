@@ -4711,9 +4711,9 @@ mod tests {
         }
     }
 
-    const APP: &str = "texturecraft";
+    const APP: &str = "deckcraft";
 
-    /// A TextureCraft release with one file per platform and format, so whichever this machine
+    /// A DeckCraft release with one file per platform and format, so whichever this machine
     /// installs is there.
     fn release(version: &str) -> Release {
         let suffixes = ["-portable.zip", ".tar.gz", ".msi", ".dmg", ".AppImage", ".deb", ".rpm", ".flatpak"];
@@ -4747,7 +4747,7 @@ mod tests {
         let msi = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Msi,
-            location: r"C:\Apps\TextureCraft\texturecraft.exe".into(),
+            location: r"C:\Apps\DeckCraft\deckcraft.exe".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4757,7 +4757,7 @@ mod tests {
         let launcher = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Launcher,
-            location: r"D:\Craft Apps\TextureCraft\texturecraft.exe".into(),
+            location: r"D:\Craft Apps\DeckCraft\deckcraft.exe".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4796,7 +4796,7 @@ mod tests {
         let existing = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Deb,
-            location: "/usr/bin/texturecraft".into(),
+            location: "/usr/bin/deckcraft".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -5036,7 +5036,7 @@ mod tests {
         publish_latest(app, LatestRelease::Found(stable("0.5.0")), Origin::GitHub, &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["latest"], "nothing installed: no answer");
 
-        publish_detected(app, Some(copy_of("0.4.0", InstallSource::Launcher, "/Applications/TextureCraft.app")), &backend.shared, Some(platform));
+        publish_detected(app, Some(copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app")), &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["installable true", "detected"]);
 
         let mut windows_only = stable("0.6.0");
@@ -5098,7 +5098,7 @@ mod tests {
         let mut backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/TextureCraft.app"));
+        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app"));
         let installable = |events: Vec<Event>| told(events).into_iter().filter(|t| t.starts_with("installable")).collect::<Vec<_>>();
 
         report_partial(app, &backend.shared, &backend.paths, Some(platform));
@@ -5120,7 +5120,7 @@ mod tests {
         let asked = Instant::now().checked_sub(SYSTEM_KINDS_FOR * 2).unwrap_or_else(Instant::now);
         *backend.shared.system.lock().unwrap() = Some((asked, install::SystemKinds { available: vec![PackageKind::Dmg], can_pacman: false }));
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/TextureCraft.app"));
+        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app"));
 
         let answer = {
             let _reporting = backend.shared.reporting.lock().unwrap();
@@ -5140,7 +5140,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
-        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/TextureCraft.app");
+        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app");
         publish_detected(app, Some(installed.clone()), &backend.shared, Some(platform));
         let shared = backend.shared.clone();
         let publisher = std::thread::spawn(move || {
@@ -5178,7 +5178,7 @@ mod tests {
         let mut backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/TextureCraft.app");
+        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app");
 
         publish_detected(app, Some(installed.clone()), &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["installable true", "detected"]);
@@ -5201,7 +5201,7 @@ mod tests {
         // Nothing this system could download: only `flatpak update` can say yes.
         system_installs(&backend, Vec::new());
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.5.0"));
-        let flatpark = Installed { externally_managed: true, ..copy_of("0.5.0", InstallSource::Flatpak, "ai.storyteller.texturecraft") };
+        let flatpark = Installed { externally_managed: true, ..copy_of("0.5.0", InstallSource::Flatpak, "ai.storyteller.deckcraft") };
         let options = BackendOptions::default();
         assert_eq!(repository_update(app, Some(&flatpark), &options).map(|u| u.is_ok()), Some(cfg!(target_os = "linux")));
 
@@ -5358,7 +5358,7 @@ mod tests {
         assert!(!ids.iter().any(|id| backend.shared.jobs.lock().unwrap().contains_key(*id)), "and the jobs are free again");
     }
 
-    /// Wherever the tests run: with or without a TextureCraft installed on the machine (here a
+    /// Wherever the tests run: with or without a DeckCraft installed on the machine (here a
     /// stubbed host Flatpak, newer than any release the backend knows), JobFinished observers see
     /// the job's final busy state and download plan.
     #[test]
@@ -5369,8 +5369,8 @@ mod tests {
         let host_flatpak = || Installed {
             version: version::parse("99.0.0"),
             source: InstallSource::Flatpak,
-            location: "ai.storyteller.texturecraft".into(),
-            package: Some("ai.storyteller.texturecraft".into()),
+            location: "ai.storyteller.deckcraft".into(),
+            package: Some("ai.storyteller.deckcraft".into()),
             externally_managed: false,
             origin: None,
             installation: Some("system".into()),
@@ -5506,7 +5506,7 @@ mod tests {
             Installed {
                 version: None,
                 source: InstallSource::Msi,
-                location: r"C:\Apps\TextureCraft\texturecraft.exe".into(),
+                location: r"C:\Apps\DeckCraft\deckcraft.exe".into(),
                 package: None,
                 externally_managed: false,
                 origin: None,

@@ -129,6 +129,7 @@
   "linux": {
     "x64": [
       "activitywatch",
+      "actual",
       "anicraft",
       "anki",
       "apostrophe",
@@ -250,6 +251,7 @@
       "mumble",
       "musescore",
       "musicbrainz-picard",
+      "natron",
       "neochat",
       "nextcloud-desktop",
       "nicotine",

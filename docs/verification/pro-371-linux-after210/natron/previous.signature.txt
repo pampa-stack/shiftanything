@@ -1,0 +1,19 @@
+commit f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f
+Parent:  7826fb4b86237d97df0596c4b124734bfa683713819de8fb310eb192628c6df8
+ContentChecksum:  7e943f7564032edc2209c2b29d43809894a42a8de5865c251e7156f1857955bd
+Date:  2026-01-10 01:11:40 +0000
+
+    Use only-arches (50b8f9dbd91e)
+
+    Name: fr.natron.Natron
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat Jan 10 02:02:24 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

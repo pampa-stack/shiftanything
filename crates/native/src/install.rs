@@ -98,6 +98,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::RECORDLY.id,
                 recipe::SHOTCUT.id,
                 recipe::STATS.id,
+                recipe::STELLARIUM.id,
                 recipe::TERMIX.id,
                 recipe::SWIFTBAR.id,
                 recipe::ALT_TAB.id,
@@ -733,6 +734,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         return (app.repo == artcraft_launcher_core::curated::NETNEWSWIRE.repo && release::netnewswire_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
+    }
+    let stellarium = artcraft_launcher_core::curated::STELLARIUM;
+    if app.id == stellarium.id {
+        return (app.repo == stellarium.repo && release::stellarium_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id {
         return (app.repo == artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.repo && release::super_productivity_mac_asset(release, asset))
@@ -2413,14 +2418,15 @@ pub mod macos {
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
         use artcraft_launcher_core::curated::{
-            ALT_TAB, AMETHYST, DYAD, GITHUB_DESKTOP, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, SWIFTBAR,
+            ALT_TAB, AMETHYST, DYAD, GITHUB_DESKTOP, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, STELLARIUM, SWIFTBAR,
         };
 
         let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id)
             || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo)
             || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo)
             || app.uses_iterm2_releases()
-            || (app.id, app.repo) == (GITHUB_DESKTOP.id, GITHUB_DESKTOP.repo);
+            || (app.id, app.repo) == (GITHUB_DESKTOP.id, GITHUB_DESKTOP.repo)
+            || (app.id, app.repo) == (STELLARIUM.id, STELLARIUM.repo);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2503,8 +2509,14 @@ pub mod macos {
 
     const DEFAULT_ZIP_BYTES: u64 = 768 * 1024 * 1024;
 
-    fn max_extracted_zip_bytes(bundle: &str, framework_links: bool) -> u64 {
-        if framework_links && bundle == "GitHub Desktop.app" { 1_211_690_181 } else { DEFAULT_ZIP_BYTES }
+    fn zip_extraction_limits(bundle: &str, framework_links: bool) -> (usize, u64) {
+        // These exact signed archives exceed the generic limits. Their recipes pin the bytes.
+        match (framework_links, bundle) {
+            (true, "GitHub Desktop.app") => (4096, 1_211_690_181),
+            (true, "iTerm.app") => (4500, DEFAULT_ZIP_BYTES),
+            (true, "Stellarium.app") => (4473, 877_976_263),
+            _ => (4096, DEFAULT_ZIP_BYTES),
+        }
     }
 
     fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str, framework_links: bool) -> Result<(), String> {
@@ -2512,9 +2524,7 @@ pub mod macos {
         use std::os::unix::fs::PermissionsExt;
         use std::path::Component;
 
-        // The signed iTerm2 package has 4,216 ZIP entries; its recipe binds the exact bytes.
-        let max_files = if framework_links && bundle == "iTerm.app" { 4500 } else { 4096 };
-        let max_extracted_bytes = max_extracted_zip_bytes(bundle, framework_links);
+        let (max_files, max_extracted_bytes) = zip_extraction_limits(bundle, framework_links);
         let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
         if file.metadata().map_err(|e| e.to_string())?.len() > DEFAULT_ZIP_BYTES {
             return Err("The app ZIP is too large.".into());
@@ -2561,8 +2571,14 @@ pub mod macos {
             let mirrored_metadata = hidden_bar_metadata || swiftbar_metadata;
             let dyad_git_root = dyad_git_link_root(bundle, relative);
             let is_dyad_git_link = dyad_git_root.is_some();
-            let link_root =
-                if framework_links && file_type == 0o120000 && !entry.is_dir() { framework_root(bundle, relative).or(dyad_git_root) } else { None };
+            let stellarium_target = stellarium_library_link(bundle, relative);
+            let link_root = if framework_links && file_type == 0o120000 && !entry.is_dir() {
+                framework_root(bundle, relative)
+                    .or(dyad_git_root)
+                    .or_else(|| stellarium_target.map(|_| Path::new(bundle).join("Contents/Frameworks")))
+            } else {
+                None
+            };
             if name.contains(['\\', ':'])
                 || name.chars().any(char::is_control)
                 || name.split('/').any(|part| part == "." || part == "..")
@@ -2610,6 +2626,7 @@ pub mod macos {
                     || target.split('/').any(|part| part.is_empty() || part == "." || part == "..")
                     || !Path::new(&target).components().all(|part| matches!(part, Component::Normal(_)))
                     || (is_dyad_git_link && !matches!(target.as_str(), "git" | "git-remote-http"))
+                    || stellarium_target.is_some_and(|expected| target != expected)
                 {
                     return Err("The app ZIP contains an invalid link target.".into());
                 }
@@ -2645,6 +2662,18 @@ pub mod macos {
             return None;
         }
         Some(roots.join(framework))
+    }
+
+    fn stellarium_library_link(bundle: &str, relative: &Path) -> Option<&'static str> {
+        if bundle != "Stellarium.app" || relative.parent()? != Path::new("Stellarium.app/Contents/Frameworks") {
+            return None;
+        }
+        // The reviewed archives ship these two names for one signed library.
+        match relative.file_name()?.to_str()? {
+            "libShowMySky-Qt6.dylib" => Some("libShowMySky-Qt6.15.dylib"),
+            "libShowMySky-Qt6.15.dylib" => Some("libShowMySky-Qt6.15.0.0.dylib"),
+            _ => None,
+        }
     }
 
     fn dyad_git_link_root(bundle: &str, relative: &Path) -> Option<PathBuf> {
@@ -2685,10 +2714,49 @@ pub mod macos {
 
     #[cfg(test)]
     #[test]
-    fn github_desktop_zip_has_only_its_reviewed_extraction_budget() {
-        assert_eq!(max_extracted_zip_bytes("GitHub Desktop.app", true), 1_211_690_181);
-        assert_eq!(max_extracted_zip_bytes("GitHub Desktop.app", false), DEFAULT_ZIP_BYTES);
-        assert_eq!(max_extracted_zip_bytes("Other.app", true), DEFAULT_ZIP_BYTES);
+    fn stellarium_zip_preserves_only_the_reviewed_library_aliases() {
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("stellarium.zip");
+        let lib = "Stellarium.app/Contents/Frameworks";
+        for (index, (alias, target, framework_links, accepted)) in [
+            ("libShowMySky-Qt6.dylib", "libShowMySky-Qt6.15.dylib", true, true),
+            ("libShowMySky-Qt6.dylib", "other.dylib", true, false),
+            ("unreviewed.dylib", "libShowMySky-Qt6.15.dylib", true, false),
+            ("libShowMySky-Qt6.dylib", "libShowMySky-Qt6.15.dylib", false, false),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            for name in ["libShowMySky-Qt6.15.0.0.dylib", "other.dylib"] {
+                writer.start_file(format!("{lib}/{name}"), SimpleFileOptions::default()).unwrap();
+            }
+            writer.add_symlink(format!("{lib}/libShowMySky-Qt6.15.dylib"), "libShowMySky-Qt6.15.0.0.dylib", SimpleFileOptions::default()).unwrap();
+            writer.add_symlink(format!("{lib}/{alias}"), target, SimpleFileOptions::default()).unwrap();
+            writer.finish().unwrap();
+            assert_eq!(extract_app_zip(&archive, &output, "Stellarium.app", framework_links).is_ok(), accepted, "{alias} -> {target}");
+            if accepted {
+                assert_eq!(
+                    output.join(lib).join(alias).canonicalize().unwrap(),
+                    output.join(lib).join("libShowMySky-Qt6.15.0.0.dylib").canonicalize().unwrap()
+                );
+            }
+        }
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn special_zip_limits_require_the_reviewed_framework_layout() {
+        assert_eq!(zip_extraction_limits("GitHub Desktop.app", true), (4096, 1_211_690_181));
+        assert_eq!(zip_extraction_limits("Stellarium.app", true), (4473, 877_976_263));
+        for bundle in ["GitHub Desktop.app", "Stellarium.app"] {
+            assert_eq!(zip_extraction_limits(bundle, false), (4096, DEFAULT_ZIP_BYTES));
+        }
+        assert_eq!(zip_extraction_limits("Other.app", true), (4096, DEFAULT_ZIP_BYTES));
     }
 
     #[cfg(test)]

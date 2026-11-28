@@ -1,0 +1,5 @@
+ARTIFACT 919579d2e5537089796e7fb925d8f2d07926dae657a147b60cb756cb391aba8b 552945699 https://github.com/Stellarium/stellarium/releases/download/v26.3/Stellarium-26.3-qt6-macOS.zip
+entries 4473 unpacked bytes 877976263
+root distribution {'Stellarium.app': 4473} entry kinds {16384: 366, 32768: 4036, 40960: 71}
+out-of-bundle entries 0 []
+symlinks 71 [('Stellarium.app/Contents/Frameworks/QtVirtualKeyboardQml.framework/QtVirtualKeyboardQml', 'Versions/Current/QtVirtualKeyboardQml'), ('Stellarium.app/Contents/Frameworks/QtVirtualKeyboardQml.framework/Resources', 'Versions/Current/Resources'), ('Stellarium.app/Contents/Frameworks/QtVirtualKeyboardQml.framework/Versions/Current', 'A'), ('Stellarium.app/Contents/Frameworks/QtQmlMeta.framework/Resources', 'Versions/Current/Resources')] unsupported []

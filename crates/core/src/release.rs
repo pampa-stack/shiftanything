@@ -1451,6 +1451,14 @@ pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::NETNEWSWIRE.repo, &release.tag).any(|reviewed| reviewed == *asset)
 }
 
+pub fn stellarium_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.patch == 0 && version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{}.{}", version.major, version.minor)
+        })
+        && reviewed_assets(crate::curated::STELLARIUM.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 fn picard_version(tag: &str) -> Option<Version> {
     let label = tag.strip_prefix("release-")?;
     let version = Version::parse(label).ok()?;
@@ -1603,6 +1611,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("Floorp-Projects/Floorp", "v12.21.2") => {
             &[("floorp-macOS-universal.dmg", 262_628_533, "3a6a7b4b38d300ed1f38a38a42127a4d26502e14e4308713af31ac4af4083c7f")]
+        }
+        ("Stellarium/stellarium", "v26.2") => {
+            &[("Stellarium-26.2-qt6-macOS.zip", 540_774_033, "960cdf1526a2989d213bc2c75f4b5747fd77f5a580345286a4913825ad192978")]
+        }
+        ("Stellarium/stellarium", "v26.3") => {
+            &[("Stellarium-26.3-qt6-macOS.zip", 552_945_699, "919579d2e5537089796e7fb925d8f2d07926dae657a147b60cb756cb391aba8b")]
         }
         ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
         ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],

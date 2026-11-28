@@ -167,6 +167,7 @@ fn main() -> Result<(), String> {
             "monitorcontrol",
             "gnucash",
             "floorp",
+            "stellarium",
             "macshot",
             "signal-desktop",
             "firefox",

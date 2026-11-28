@@ -1,0 +1,17 @@
+PASS PREFLIGHT stellarium v26.2
+PASS PREFLIGHT stellarium v26.3
+OFFICIAL INDEX stellarium v26.2 digest=published
+OFFICIAL INDEX stellarium v26.3 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v26.2 MacZip https://github.com/Stellarium/stellarium/releases/download/v26.2/Stellarium-26.2-qt6-macOS.zip 540774033 960cdf1526a2989d213bc2c75f4b5747fd77f5a580345286a4913825ad192978
+PASS OFFICIAL v26.3 MacZip https://github.com/Stellarium/stellarium/releases/download/v26.3/Stellarium-26.3-qt6-macOS.zip 552945699 919579d2e5537089796e7fb925d8f2d07926dae657a147b60cb756cb391aba8b
+NATIVE ORIGIN stellarium GitHub
+PASS OFFICIAL v26.2 MacZip https://github.com/Stellarium/stellarium/releases/download/v26.2/Stellarium-26.2-qt6-macOS.zip 540774033 960cdf1526a2989d213bc2c75f4b5747fd77f5a580345286a4913825ad192978
+PASS NATIVE stellarium install: Stellarium installed: 26.2.0; package_bytes=540774033; elapsed=349.180s
+NATIVE ORIGIN stellarium GitHub
+PASS OFFICIAL v26.3 MacZip https://github.com/Stellarium/stellarium/releases/download/v26.3/Stellarium-26.3-qt6-macOS.zip 552945699 919579d2e5537089796e7fb925d8f2d07926dae657a147b60cb756cb391aba8b
+PASS NATIVE stellarium update: Stellarium updated to 26.3.0; package_bytes=552945699; elapsed=208.748s
+PASS NATIVE stellarium remove: Stellarium was removed; package_bytes=0; elapsed=0.126s
+PASS NATIVE CYCLE stellarium (v26.2 → v26.3), private Trash and synthetic data preserved

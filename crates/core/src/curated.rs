@@ -3059,6 +3059,27 @@ pub const FLOORP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("DV2U35YBHT"),
 };
 
+pub const STELLARIUM: crate::CraftApp = crate::CraftApp {
+    id: "stellarium",
+    name: "Stellarium",
+    tagline: "Explore the night sky from a desktop planetarium",
+    repo: "Stellarium/stellarium",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [57, 81, 171],
+    ink_light: [32, 48, 103],
+    ink_dark: [164, 181, 243],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Stellarium team",
+    msi_publisher: None,
+    bundle: Some("org.stellarium.Stellarium"),
+    site: Some("https://stellarium.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("3WW8XR23DF"),
+};
+
 pub const MACSHOT: crate::CraftApp = crate::CraftApp {
     id: "macshot",
     name: "macshot",
@@ -3237,6 +3258,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MONITORCONTROL,
     GNUCASH,
     FLOORP,
+    STELLARIUM,
     MACSHOT,
     FREEPLANE,
 ];

@@ -1,0 +1,27 @@
+/dev/disk3s5   482797652 425593384  10220572    98% 6614188 102205720    6%   /System/Volumes/Data
+ARTIFACT 960cdf1526a2989d213bc2c75f4b5747fd77f5a580345286a4913825ad192978 540774033 https://github.com/Stellarium/stellarium/releases/download/v26.2/Stellarium-26.2-qt6-macOS.zip
+CFBundleIdentifier=org.stellarium.Stellarium
+CFBundleShortVersionString=26.2.0
+CFBundleVersion=26.2.0
+CFBundleExecutable=stellarium
+LSMinimumSystemVersion=12.0
+<temporary>/Stellarium.app/Contents/MacOS/stellarium (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.stellarium.Stellarium
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Alexander Wolf (3WW8XR23DF)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=24 Jun 2026 at 20:14:40
+TeamIdentifier=3WW8XR23DF
+<temporary>/Stellarium.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT stellarium v26.2

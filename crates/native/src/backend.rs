@@ -3542,16 +3542,22 @@ mod tests {
     }
 
     #[test]
-    fn floorp_uses_publisher_releases_on_macos_and_keeps_flathub_on_linux() {
-        use artcraft_launcher_core::{Arch, curated::FLOORP, nightly::InstallChannel};
+    fn verified_github_apps_keep_their_flathub_route_on_linux() {
+        use artcraft_launcher_core::{
+            Arch,
+            curated::{FLOORP, STELLARIUM},
+            nightly::InstallChannel,
+        };
 
         let feed = Feed::default();
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        assert_eq!(release_origin(&FLOORP), Origin::GitHub);
-        assert_eq!(release_query(Some(&feed), &FLOORP).repo, FLOORP.repo);
-        assert!(routes_to_flathub(FLOORP.id, Some(linux), InstallChannel::Stable));
-        assert!(!routes_to_flathub(FLOORP.id, Some(mac), InstallChannel::Stable));
+        for app in [FLOORP, STELLARIUM] {
+            assert_eq!(release_origin(&app), Origin::GitHub);
+            assert_eq!(release_query(Some(&feed), &app).repo, app.repo);
+            assert!(routes_to_flathub(app.id, Some(linux), InstallChannel::Stable));
+            assert!(!routes_to_flathub(app.id, Some(mac), InstallChannel::Stable));
+        }
     }
 
     #[test]

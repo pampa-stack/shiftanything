@@ -1,0 +1,19 @@
+commit 6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2
+Parent:  217ba6e4f56b11e52bbce5484cb0a329077a764375745a78b7d523300d8bc940
+ContentChecksum:  b4535b10f137af84f581316f7e00ca3cc47487853d40768371274d0450b3d8ed
+Date:  2026-11-03 12:59:26 +0000
+
+    v1.13.4 (bd829d927823)
+
+    Name: org.freeplane.App
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov  3 14:00:37 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

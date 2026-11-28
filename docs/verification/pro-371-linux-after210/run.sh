@@ -80,6 +80,12 @@ open_gui() {
             xdotool mousemove --window "$dialog" "$((width / 2))" "$((height - 20))" click 1
             timeout 20 xdotool search --sync --onlyvisible --name '^Untitled' >/dev/null
             ;;
+        freeplane)
+            if dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^Select template$' | sed -n '1p'); then
+                xdotool windowactivate --sync "$dialog" key Return
+                sleep 4
+            fi
+            ;;
     esac
     for ((attempt=0;attempt<110;attempt++)); do
         xwininfo -root -tree > "$out/$phase.window-tree.txt"

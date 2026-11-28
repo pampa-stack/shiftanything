@@ -48,6 +48,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::CRYPTOMATOR.id,
                 recipe::DB_BROWSER_SQLITE.id,
                 recipe::DESKREEN.id,
+                recipe::FLOORP.id,
                 recipe::GNUCASH.id,
                 recipe::HANDBRAKE.id,
                 recipe::INVOKE_COMMUNITY.id,

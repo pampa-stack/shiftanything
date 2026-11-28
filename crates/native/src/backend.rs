@@ -3542,6 +3542,19 @@ mod tests {
     }
 
     #[test]
+    fn floorp_uses_publisher_releases_on_macos_and_keeps_flathub_on_linux() {
+        use artcraft_launcher_core::{Arch, curated::FLOORP, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(release_origin(&FLOORP), Origin::GitHub);
+        assert_eq!(release_query(Some(&feed), &FLOORP).repo, FLOORP.repo);
+        assert!(routes_to_flathub(FLOORP.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(FLOORP.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
     fn gimp_uses_its_official_index_on_macos_and_keeps_flathub_on_linux() {
         use artcraft_launcher_core::{Arch, curated::GIMP, nightly::InstallChannel};
 

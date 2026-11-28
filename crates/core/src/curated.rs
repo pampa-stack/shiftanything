@@ -3038,6 +3038,27 @@ pub const GNUCASH: crate::CraftApp = crate::CraftApp {
     mac_team: Some("Y9EHT5WMK7"),
 };
 
+pub const FLOORP: crate::CraftApp = crate::CraftApp {
+    id: "floorp",
+    name: "Floorp",
+    tagline: "Browse with a customizable Firefox-based browser",
+    repo: "Floorp-Projects/Floorp",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [66, 99, 214],
+    ink_light: [35, 56, 130],
+    ink_dark: [158, 178, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ablaze",
+    msi_publisher: None,
+    bundle: Some("app.floorp.Floorp"),
+    site: Some("https://floorp.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("DV2U35YBHT"),
+};
+
 pub const MACSHOT: crate::CraftApp = crate::CraftApp {
     id: "macshot",
     name: "macshot",
@@ -3215,6 +3236,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     COTEDITOR,
     MONITORCONTROL,
     GNUCASH,
+    FLOORP,
     MACSHOT,
     FREEPLANE,
 ];

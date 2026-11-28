@@ -1242,6 +1242,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::COTEDITOR,
         crate::curated::MONITORCONTROL,
         crate::curated::GNUCASH,
+        crate::curated::FLOORP,
         crate::curated::MACSHOT,
         crate::curated::SIGNAL_DESKTOP,
         crate::curated::FIREFOX,
@@ -1597,6 +1598,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("Gnucash/gnucash", "5.16") => &[("Gnucash-Arm-5.16-3.dmg", 180_283_562, "26ae2e340edf2a58fdb906962cc48eb4ec1cf1a7b5862b72108f9a5401fd664b")],
         ("Gnucash/gnucash", "5.17") => &[("Gnucash-Arm-5.17-1.dmg", 180_289_229, "adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32")],
+        ("Floorp-Projects/Floorp", "v12.21.1") => {
+            &[("floorp-macOS-universal.dmg", 260_513_224, "e3520c1f553319ff704a821cbcc72dae49e544459843ba2e8fadaff8ce370629")]
+        }
+        ("Floorp-Projects/Floorp", "v12.21.2") => {
+            &[("floorp-macOS-universal.dmg", 262_628_533, "3a6a7b4b38d300ed1f38a38a42127a4d26502e14e4308713af31ac4af4083c7f")]
+        }
         ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
         ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],
         ("freeplane/freeplane", "release-1.13.3") => {

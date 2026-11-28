@@ -166,6 +166,7 @@ fn main() -> Result<(), String> {
             "coteditor",
             "monitorcontrol",
             "gnucash",
+            "floorp",
             "macshot",
             "signal-desktop",
             "firefox",

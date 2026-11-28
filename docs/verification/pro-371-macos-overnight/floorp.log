@@ -1,0 +1,18 @@
+PASS PREFLIGHT floorp v12.21.1
+PASS PREFLIGHT floorp v12.21.2
+/dev/disk3s5   482797652 425085416  10728540    98% 6612342 107285400    6%   /System/Volumes/Data
+OFFICIAL INDEX floorp v12.21.1 digest=published
+OFFICIAL INDEX floorp v12.21.2 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v12.21.1 Dmg https://github.com/Floorp-Projects/Floorp/releases/download/v12.21.1/floorp-macOS-universal.dmg 260513224 e3520c1f553319ff704a821cbcc72dae49e544459843ba2e8fadaff8ce370629
+PASS OFFICIAL v12.21.2 Dmg https://github.com/Floorp-Projects/Floorp/releases/download/v12.21.2/floorp-macOS-universal.dmg 262628533 3a6a7b4b38d300ed1f38a38a42127a4d26502e14e4308713af31ac4af4083c7f
+NATIVE ORIGIN floorp GitHub
+PASS OFFICIAL v12.21.1 Dmg https://github.com/Floorp-Projects/Floorp/releases/download/v12.21.1/floorp-macOS-universal.dmg 260513224 e3520c1f553319ff704a821cbcc72dae49e544459843ba2e8fadaff8ce370629
+PASS NATIVE floorp install: Floorp installed: 12.21.1; package_bytes=260513224; elapsed=89.065s
+NATIVE ORIGIN floorp GitHub
+PASS OFFICIAL v12.21.2 Dmg https://github.com/Floorp-Projects/Floorp/releases/download/v12.21.2/floorp-macOS-universal.dmg 262628533 3a6a7b4b38d300ed1f38a38a42127a4d26502e14e4308713af31ac4af4083c7f
+PASS NATIVE floorp update: Floorp updated to 12.21.2; package_bytes=262628533; elapsed=47.588s
+PASS NATIVE floorp remove: Floorp was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE floorp (v12.21.1 → v12.21.2), private Trash and synthetic data preserved

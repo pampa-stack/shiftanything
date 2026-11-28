@@ -135,7 +135,8 @@ pub(super) fn finish(app: &AppHandle, staged: Staged) -> Result<(), &'static str
 
 #[cfg(any(windows, test))]
 fn nsis_setup(bytes: &[u8]) -> bool {
-    // A PE image carrying the NSIS first-header signature.
+    // A PE image carrying the NSIS first-header signature. This only filters the format:
+    // the plugin's minisign check of the signed version is what authenticates the package.
     const NSIS: &[u8] = b"\xEF\xBE\xAD\xDENullsoftInst";
     bytes.starts_with(b"MZ") && bytes.windows(NSIS.len()).any(|window| window == NSIS)
 }

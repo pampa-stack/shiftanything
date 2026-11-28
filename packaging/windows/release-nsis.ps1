@@ -60,7 +60,7 @@ $built = Join-Path $release "bundle\nsis\ShiftAnything_${version}_x64-setup.exe"
 $exe = Join-Path $release 'ShiftAnything.exe'
 foreach ($file in $built, $exe) {
   $info = (Get-Item -LiteralPath $file).VersionInfo
-  if (-not $info.ProductVersion.StartsWith($version) -or $info.ProductName -ne 'ShiftAnything') { throw "Unexpected product or version: $file" }
+  if ($info.ProductVersion -ne $version -or $info.ProductName -ne 'ShiftAnything') { throw "Unexpected product or version: $file" }
 }
 $setup = Join-Path $output "ShiftAnything-$version-windows-x64-setup.exe"
 Copy-Item -LiteralPath $built -Destination $setup

@@ -62,9 +62,9 @@ Manca per accenderla: la scelta del pacchetto (nessun asset diventa `TarXz` oggi
 
 ## Stato dell'ambiente
 
-VPS2 non ha Flatpak, sudo né namespace utente, il guest QA vive sull'AX42 e l'Air rifiuta il login da qui. I cicli aspettano l'accesso a quegli host.
+Il 28 novembre i cicli sono girati su AX42, nel guest descritto sotto. Risultato: `python3 packaging/release-notes.py HEAD --previous db42c75` passa con 21 verifiche nuove (Mac con chip Apple +6, Linux x64 +15). Sette cicli chiusi: Bruno, Cutter, Trayscale, OpenTabletDriver, Angry IP Scanner, Termix e la riserva OpenWhispr. OpenUtau è scartato: su Flathub la sua storia ha una sola revisione, quindi l'aggiornamento non si può provare, e la ricetta resta in `pending::FLATPAK`. Umi-OCR resta spento: manca ancora il codice per scegliere l'archivio, riconoscere la cartella installata e creare la voce di menu.
 
-Controlli su VPS2 con il codice spento: `cargo fmt --all --check` verde; `cargo clippy -D warnings` su core e native verde, dopo la correzione del lint `byte_char_slices` in `flatpak.rs`; test di core 187 passati e 1 ignorato, di native 653 passati e 4 ignorati (gli ignorati c'erano già). `tauri-proof` non si compila su VPS2 perché mancano le librerie di sviluppo GTK e non c'è sudo: va controllato su una macchina che le ha.
+Controlli nel guest sul codice finale: `cargo fmt --all --check` verde; `cargo clippy -D warnings` su core, native e `shiftanything-tauri-proof` verde; test di core 187 passati e 1 ignorato, di native 654 passati e 4 ignorati, di `shiftanything-tauri-proof` 23 passati. Gli ignorati c'erano già. Un primo giro dei test di native, lanciato mentre giravano i cicli, aveva dato 2 fallimenti che il log sovrascritto non conserva; i due giri successivi sono verdi.
 
 ## Cicli eseguiti
 

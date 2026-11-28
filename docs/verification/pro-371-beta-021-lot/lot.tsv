@@ -1,12 +1,12 @@
 slug	catalog_id	fonte	stelle	pacchetto	stato
-bruno	bruno	Flathub verificato (com.usebruno.Bruno)	48588	Flatpak x86_64, runtime Freedesktop 25.08, ultima v4.3.0	da provare
-cutter	cutter	Flathub verificato (re.rizin.cutter)	20273	Flatpak x86_64, runtime KDE 6.11, ultima 2.5.0	da provare
-trayscale	trayscale	Flathub verificato (dev.deedles.Trayscale)	1094	Flatpak x86_64, runtime GNOME 51, ultima v0.21.0	da provare
-angryip	angryip	Flathub comunitario (org.angryip.ipscan)	5216	Flatpak x86_64, runtime Freedesktop 26.08, ultima 3.10.0	da provare
-opentabletdriver	opentabletdriver	Flathub comunitario (net.opentabletdriver.OpenTabletDriver)	4293	Flatpak x86_64, runtime Freedesktop 26.08, ultima v0.6.8.1	da provare
-openutau	openutau	Flathub comunitario (com.openutau.OpenUtau)	4656	Flatpak x86_64, runtime Freedesktop 26.08, ultima 0.1.576	da provare
+bruno	bruno	Flathub verificato (com.usebruno.Bruno)	48588	Flatpak x86_64, runtime Freedesktop 25.08, ultima v4.3.0	verificato 28 nov
+cutter	cutter	Flathub verificato (re.rizin.cutter)	20273	Flatpak x86_64, runtime KDE 6.11, ultima 2.5.0	verificato 28 nov
+trayscale	trayscale	Flathub verificato (dev.deedles.Trayscale)	1094	Flatpak x86_64, runtime GNOME 51, ultima v0.21.0	verificato 28 nov
+angryip	angryip	Flathub comunitario (org.angryip.ipscan)	5216	Flatpak x86_64, runtime Freedesktop 26.08, ultima 3.10.0	verificato 28 nov
+opentabletdriver	opentabletdriver	Flathub comunitario (net.opentabletdriver.OpenTabletDriver)	4293	Flatpak x86_64, runtime Freedesktop 26.08, ultima v0.6.8.1	verificato 28 nov
+openutau	openutau	Flathub comunitario (com.openutau.OpenUtau)	4656	Flatpak x86_64, runtime Freedesktop 26.08, ultima 0.1.576	scartato: su Flathub una sola revisione, aggiornamento non provabile
 umi-ocr	umi-ocr	Archivio ufficiale GitHub v2.1.5	49017	Umi-OCR_Linux_Paddle_2.1.5.tar.xz, 277369884 byte, SHA-256 7ff32e5dc818d67171820545100433c86e7e71155f9bad0851fad2ced9588f9b	preflight passato, ricetta da scrivere
-termix	termix	AppImage ufficiale GitHub (v26.11.2 e v26.11.3)	16133	termix_linux_x64_appimage.AppImage, 263185084 e 269939874 byte	da provare, già verificato su Mac
+termix	termix	AppImage ufficiale GitHub (v26.11.2 e v26.11.3)	16133	termix_linux_x64_appimage.AppImage, 263185084 e 269939874 byte	verificato 28 nov
 esearch	esearch	AppImage ufficiale GitHub (15.7.1 e 15.8.0)	7503	eSearch-15.x-linux-x64.AppImage, 380012185 e 381275079 byte	riserva
-openwhispr	openwhispr	AppImage ufficiale GitHub (1.12.1 e 1.12.2)	12277	OpenWhispr-1.x-linux-x86_64.AppImage, 562510821 e 562555582 byte	riserva, già verificato su Mac
+openwhispr	openwhispr	AppImage ufficiale GitHub (1.12.1 e 1.12.2)	12277	OpenWhispr-1.x-linux-x86_64.AppImage, 562510821 e 562555582 byte	verificato 28 nov (riserva)
 restic-browser	restic-browser	Zip con AppImage ufficiale GitHub (v0.3.2 e v0.3.3)	1330	Restic-Browser-v0.3.x-linux-appimage.zip, 71741518 e 80201028 byte	riserva

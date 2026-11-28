@@ -13725,6 +13725,73 @@
     }
   },
   {
+    "id": "logseq-db",
+    "name": "Logseq DB",
+    "repo": "https://github.com/logseq/logseq",
+    "author": "Logseq",
+    "level": "base",
+    "category": "note",
+    "description": {
+      "it": "Organizza note e attività in un database locale con collegamenti tra blocchi, ricerca e viste a grafo. Edizione beta del progetto Logseq.",
+      "en": "Organize notes and tasks in a local database with linked blocks, search and graph views. Beta edition of the Logseq project."
+    },
+    "alternatives": [
+      "Obsidian",
+      "Roam Research"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/logseq/logseq/blob/2.0.2/LICENSE.md",
+    "website": "https://logseq.com/",
+    "releases": "https://github.com/logseq/logseq/releases/tag/2.0.2",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "cli",
+      "source": "https://discuss.logseq.com/t/whats-new-with-logseq-db-may-16th-2026/35020"
+    },
+    "logo": "https://raw.githubusercontent.com/logseq/logseq/2.0.2/resources/icons/logseq_big_sur.png",
+    "screenshots": [
+      "https://discuss.logseq.com/uploads/default/original/3X/6/d/6d347bf46e1b42f50fd233d365883f3b1dc22b36.png",
+      "https://discuss.logseq.com/uploads/default/original/3X/4/a/4a3a433ceb2bed0ac60527c96d75ce5077460be8.jpeg"
+    ],
+    "media_source": "https://discuss.logseq.com/t/whats-new-with-logseq-db-may-16th-2026/35020",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://github.com/logseq/logseq/releases/tag/2.0.2"
+    },
+    "release": {
+      "version": "2.0.2",
+      "date": "2026-10-07",
+      "source": "https://github.com/logseq/logseq/releases/tag/2.0.2",
+      "packages": [
+        {
+          "platform": "linux",
+          "size_min": 175568138,
+          "size_max": 175847888
+        },
+        {
+          "platform": "macos",
+          "size_min": 170943355,
+          "size_max": 177591867
+        },
+        {
+          "platform": "windows",
+          "size_min": 147426600,
+          "size_max": 152653328
+        }
+      ]
+    },
+    "screenshot_credits": [
+      "Markdown Mirror · Logseq",
+      "Graph View · Logseq"
+    ],
+    "stars": {
+      "count": 45735,
+      "source": "https://github.com/logseq/logseq/stargazers",
+      "date": "2026-11-28"
+    }
+  },
+  {
     "id": "trilium",
     "name": "Trilium Notes",
     "repo": "https://github.com/TriliumNext/Trilium",

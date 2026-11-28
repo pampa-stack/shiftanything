@@ -114,7 +114,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             (12, 0),
         ),
         (&[recipe::SLOTH.id], (11, 5)),
-        (&[recipe::WWDC.id], (12, 0)),
+        (&[recipe::WWDC.id, recipe::LOGSEQ_DB.id], (12, 0)),
         (&[recipe::RUSTDESK.id, recipe::MACSHOT.id], (12, 3)),
         (
             &[
@@ -3071,6 +3071,38 @@ pub mod macos {
     }
 
     /// Copies the `.app` from a mounted or extracted package, verifies it and swaps it into Applications.
+    #[cfg(test)]
+    #[test]
+    fn logseq_db_cannot_replace_a_file_edition_bundle() {
+        let root = tempfile::tempdir().unwrap();
+        let mount = root.path().join("mount");
+        let destination = root.path().join("Applications");
+        let make_bundle = |parent: &Path, version: &str| {
+            let path = parent.join("Logseq.app");
+            let contents = path.join("Contents");
+            std::fs::create_dir_all(&contents).unwrap();
+            let plist = plist::Dictionary::from_iter([
+                ("CFBundleIdentifier", plist::Value::String("com.logseq.logseq".into())),
+                ("CFBundleShortVersionString", plist::Value::String(version.into())),
+            ]);
+            plist::Value::Dictionary(plist).to_file_xml(contents.join("Info.plist")).unwrap();
+            path
+        };
+        let legacy = make_bundle(&destination, "0.10.15");
+        make_bundle(&mount, "2.0.2");
+        let old_plist = std::fs::read(legacy.join("Contents/Info.plist")).unwrap();
+        let rejected = copy_app(
+            &artcraft_launcher_core::curated::LOGSEQ_DB,
+            &mount,
+            None,
+            Some(&destination),
+            Some(&legacy),
+            &Expect { team: None, version: None },
+        );
+        assert!(rejected.unwrap_err().contains("already exists"));
+        assert_eq!(std::fs::read(legacy.join("Contents/Info.plist")).unwrap(), old_plist);
+    }
+
     fn copy_app(
         app: &CraftApp,
         mount: &Path,
@@ -3105,7 +3137,11 @@ pub mod macos {
         {
             return Err(format!("{} already exists and wasn't installed by ArtCraft Launcher", dest.display()));
         }
-        if approved_replace.is_none_or(|approved| approved != dest)
+        let logseq_db = artcraft_launcher_core::curated::LOGSEQ_DB;
+        // The file edition shares the bundle name and ID. A generic overwrite confirmation is
+        // not permission to replace it with the database edition.
+        let protect_logseq_edition = (app.id, app.repo) == (logseq_db.id, logseq_db.repo);
+        if (protect_logseq_edition || approved_replace.is_none_or(|approved| approved != dest))
             && std::fs::symlink_metadata(&dest).is_ok()
             && (std::fs::symlink_metadata(&dest).is_ok_and(|m| m.file_type().is_symlink()) || crate::detect::macos::read_bundle(app, &dest).is_none())
         {
@@ -3850,39 +3886,44 @@ mod tests {
     #[cfg(target_os = "macos")]
     #[test]
     fn reviewed_daily_apps_require_their_verified_macos_versions() {
-        use artcraft_launcher_core::curated::{AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, JOPLIN, KEEPASSXC, SHOTCUT, STATS, WHISPERING, ZED};
+        use artcraft_launcher_core::curated;
 
-        assert_eq!(recipe_macos_minimum(&AUDACITY), Some((13, 0)));
-        assert_eq!(recipe_macos_minimum(&KEEPASSXC), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&JOPLIN), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&SHOTCUT), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&ZED), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&DRAWIO), Some((13, 0)));
-        assert_eq!(recipe_macos_minimum(&STATS), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&WHISPERING), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&ENTE_AUTH), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&CRYPTOMATOR), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DESKREEN), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MIST), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::COTEDITOR), Some((26, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::INVOKE_COMMUNITY), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::RASPBERRY_PI_IMAGER), Some((13, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::WWDC), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PIKA_COLOR), Some((14, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MUSESCORE), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::VIBE), Some((11, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::ACTUAL_BUDGET), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::APPFLOWY), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::BLOCKBENCH), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DOSBOX_STAGING), Some((12, 0)));
-        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::OPENSCREEN), Some((13, 0)));
-        let vorta = recipe_macos_minimum(&artcraft_launcher_core::curated::VORTA).unwrap();
-        assert_eq!(vorta, (14, 4));
+        for (app, minimum) in [
+            (curated::AUDACITY, (13, 0)),
+            (curated::KEEPASSXC, (12, 0)),
+            (curated::JOPLIN, (12, 0)),
+            (curated::SHOTCUT, (12, 0)),
+            (curated::ZED, (12, 0)),
+            (curated::DRAWIO, (13, 0)),
+            (curated::STATS, (12, 0)),
+            (curated::WHISPERING, (11, 0)),
+            (curated::ENTE_AUTH, (12, 0)),
+            (curated::CRYPTOMATOR, (11, 0)),
+            (curated::DESKREEN, (11, 0)),
+            (curated::NEOVIDE, (12, 0)),
+            (curated::MIST, (12, 0)),
+            (curated::COTEDITOR, (26, 0)),
+            (curated::INVOKE_COMMUNITY, (11, 0)),
+            (curated::KEYCASTR, (11, 0)),
+            (curated::PICARD, (13, 0)),
+            (curated::RASPBERRY_PI_IMAGER, (13, 0)),
+            (curated::WWDC, (12, 0)),
+            (curated::PIKA_COLOR, (14, 0)),
+            (curated::LAPCE, (11, 0)),
+            (curated::MUSESCORE, (11, 0)),
+            (curated::SOLVESPACE, (11, 0)),
+            (curated::VIBE, (11, 0)),
+            (curated::ACTUAL_BUDGET, (12, 0)),
+            (curated::APPFLOWY, (12, 0)),
+            (curated::BLOCKBENCH, (12, 0)),
+            (curated::DOSBOX_STAGING, (12, 0)),
+            (curated::OPENSCREEN, (13, 0)),
+            (curated::LOGSEQ_DB, (12, 0)),
+            (curated::VORTA, (14, 4)),
+        ] {
+            assert_eq!(recipe_macos_minimum(&app), Some(minimum), "{}", app.name);
+        }
+        let vorta = recipe_macos_minimum(&curated::VORTA).unwrap();
         for (version, supported) in [("14.3.9", false), ("14.4", true), ("14.4.1", true), ("15.0", true), ("14", false), ("14.err", false)] {
             assert_eq!(macos_major_minor(version).is_some_and(|current| current >= vorta), supported);
         }

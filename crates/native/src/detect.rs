@@ -271,8 +271,14 @@ pub mod macos {
                 .chain(["CFBundleShortVersionString", "CFBundleVersion"])
                 .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()))
         };
+        let version = text.and_then(|text| bundle_version(app, text));
+        let logseq_db = artcraft_launcher_core::curated::LOGSEQ_DB;
+        // The legacy file edition and the database edition share an identifier and bundle name.
+        if curated == (logseq_db.id, logseq_db.repo) && !version.as_ref().is_some_and(|version| version.major >= 2) {
+            return None;
+        }
         Some(Installed {
-            version: text.and_then(|text| bundle_version(app, text)),
+            version,
             source: InstallSource::MacApp,
             location: path.display().to_string(),
             package: None,
@@ -369,6 +375,24 @@ pub mod macos {
         assert!(bundle_version(&HANDY, "12.21.2@160.0.1").is_none());
         assert!(bundle_version(&PRUSA_SLICER, "PrusaSlicer-2.9.7-rc.1").is_none());
         assert_eq!(bundle_version(&GNUCASH, "5.17-rc.1").as_ref().map(version::label).as_deref(), Some("5.17.0-rc.1"));
+    }
+
+    #[test]
+    fn logseq_db_detection_leaves_file_edition_bundles_alone() {
+        use artcraft_launcher_core::curated::LOGSEQ_DB;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("Logseq.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        for (label, expected) in [("0.10.15", false), ("1.0.0", false), ("", false), ("invalid", false), ("2.0.2", true)] {
+            let dict = plist::Dictionary::from_iter([
+                ("CFBundleIdentifier", plist::Value::String("com.logseq.logseq".into())),
+                ("CFBundleShortVersionString", plist::Value::String(label.into())),
+            ]);
+            plist::Value::Dictionary(dict).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&LOGSEQ_DB, &bundle).is_some(), expected, "{label}");
+        }
     }
 
     #[test]

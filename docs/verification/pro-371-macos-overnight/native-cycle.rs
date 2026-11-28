@@ -183,6 +183,7 @@ fn main() -> Result<(), String> {
             "scummvm",
             "wwdc",
             "pika-color",
+            "logseq-db",
             "freeplane",
         ]
         .contains(&app.id)
@@ -244,11 +245,16 @@ fn main() -> Result<(), String> {
         return Err(format!("Unexpected initial location {installed:?}"));
     }
 
-    if matches!(id.as_str(), "wwdc" | "pika-color")
+    if matches!(id.as_str(), "wwdc" | "pika-color" | "logseq-db")
         && phase == "open"
         && initial.as_deref().is_some_and(|installed| installed == before.version() || installed == after.version())
     {
-        backend.send(Command::Launch { app: id.clone(), args: Vec::new() });
+        let args = if id == "logseq-db" {
+            vec![format!("--user-data-dir={}", home.join("logseq-user-data").display())]
+        } else {
+            Vec::new()
+        };
+        backend.send(Command::Launch { app: id.clone(), args });
         let result = wait_for(&mut backend, |event| match event {
             Event::JobFinished { app, result } if app == *id => Some(result),
             _ => None,

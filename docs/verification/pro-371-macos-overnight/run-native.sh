@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager|wwdc|pika-color) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager|wwdc|pika-color|logseq-db) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -225,6 +225,7 @@ for tag in (old, new):
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
             'pika-color': r'\d+\.\d+\.\d+',
+            'logseq-db': r'2\.0\.[12]',
             'sloth': r'\d+\.\d+',
             'macvim': r'release-\d+',
             'github-desktop': r'release-\d+\.\d+\.\d+',
@@ -332,7 +333,7 @@ fi
 for phase in "${phases[@]}"; do
     run_phase "$phase"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
-    if [[ ( "$id" == wwdc || "$id" == pika-color ) && "$phase" != remove ]]; then
+    if [[ ( "$id" == wwdc || "$id" == pika-color || "$id" == logseq-db ) && "$phase" != remove ]]; then
         if /usr/bin/pgrep -x "$app" >/dev/null; then
             printf 'A process named %s is already running. Leaving it alone.\n' "$app" >&2
             exit 1

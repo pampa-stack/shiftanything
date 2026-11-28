@@ -3080,6 +3080,27 @@ pub const WWDC: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8C7439RJLG"),
 };
 
+pub const LOGSEQ_DB: crate::CraftApp = crate::CraftApp {
+    id: "logseq-db",
+    name: "Logseq DB",
+    tagline: "Organize linked notes and tasks in a local database",
+    repo: "logseq/logseq",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [47, 126, 141],
+    ink_light: [17, 89, 103],
+    ink_dark: [119, 214, 227],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Logseq Inc.",
+    msi_publisher: None,
+    bundle: Some("com.logseq.logseq"),
+    site: Some("https://logseq.com/"),
+    mac_bundle_name: Some("Logseq"),
+    mac_team: Some("K378MFWK59"),
+};
+
 pub const PIKA_COLOR: crate::CraftApp = crate::CraftApp {
     id: "pika-color",
     name: "Pika",
@@ -3449,6 +3470,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     RASPBERRY_PI_IMAGER,
     WWDC,
     PIKA_COLOR,
+    LOGSEQ_DB,
     OPENMTP,
     INVOKE_COMMUNITY,
     MIST,

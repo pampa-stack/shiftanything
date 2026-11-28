@@ -1283,6 +1283,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::RASPBERRY_PI_IMAGER,
         crate::curated::WWDC,
         crate::curated::PIKA_COLOR,
+        crate::curated::LOGSEQ_DB,
         crate::curated::OPENMTP,
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
@@ -1338,7 +1339,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
                 version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
-            } else if (app.id, app.repo) == (crate::curated::PIKA_COLOR.id, crate::curated::PIKA_COLOR.repo) {
+            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 release.tag == version.to_string()
             } else if [crate::curated::VIRTUALBUDDY, crate::curated::WWDC].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
@@ -1975,6 +1976,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("insidegui/WWDC", "7.4.2") => &[("WWDC_v7.4.2-1040.dmg", 18_563_919, "023abb817eb971eb514c27c53a0e1fb55913e680e7293742201ed0a69df6faa5")],
         ("insidegui/WWDC", "7.5") => &[("WWDC_v7.5-1044.dmg", 19_325_975, "539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c")],
+        ("logseq/logseq", "2.0.1") => {
+            &[("Logseq-darwin-arm64-2.0.1.dmg", 168_847_627, "b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd")]
+        }
+        ("logseq/logseq", "2.0.2") => {
+            &[("Logseq-darwin-arm64-2.0.2.dmg", 177_591_867, "b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314")]
+        }
         ("superhighfives/pika", "2.0.2") => &[("Pika-2.0.2.dmg", 8_509_840, "03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734")],
         ("superhighfives/pika", "2.0.3") => &[("Pika-2.0.3.dmg", 8_613_124, "0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f")],
         ("ruffle-rs/ruffle", "v0.7.1") => {
@@ -2574,6 +2581,26 @@ mod tests {
             assert_eq!(select(&release, mac), None);
         }
         assert_eq!(select(&release_from_sums(PIKA_COLOR.repo, "2.0.4", &[]), mac), None);
+    }
+
+    #[test]
+    fn logseq_db_selects_only_reviewed_database_edition_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::LOGSEQ_DB};
+
+        let arm = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[LOGSEQ_DB.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.0.1", "2.0.2"] {
+            let mut release = release_from_sums(LOGSEQ_DB.repo, tag, &[]);
+            assert_eq!(select(&release, arm), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, Platform { arch: Arch::X64, ..arm }), None);
+            release.assets[0].sha256 = None;
+            assert_eq!(select(&release, arm), None);
+        }
+        for tag in ["0.10.15", "2.0.3"] {
+            assert_eq!(select(&release_from_sums(LOGSEQ_DB.repo, tag, &[]), arm), None);
+        }
     }
 
     #[test]

@@ -1,0 +1,1 @@
+Exec="/fixture/home/Applications/OpenWhispr-1.12.2-linux-x86_64.AppImage" %F

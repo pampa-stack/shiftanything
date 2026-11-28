@@ -30181,6 +30181,14 @@
         }
       ]
     },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.mullvad.MullvadBrowser",
+        "source": "https://flathub.org/apps/net.mullvad.MullvadBrowser"
+      }
+    ],
     "platform_support": {
       "linux": "https://mullvad.net/en/help/install-mullvad-browser",
       "macos": "https://mullvad.net/en/help/install-mullvad-browser",

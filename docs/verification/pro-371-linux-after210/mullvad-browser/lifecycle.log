@@ -1,0 +1,76 @@
+2026-11-28T13:45:50+00:00 mullvad-browser AVAILABLE 52275179520
+mullvad-browser before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+mullvad-browser JobFinished: Ok("Flathub app installed")
+mullvad-browser after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:45:54+00:00 mullvad-browser current-install 66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c
+/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c/export/share/applications/net.mullvad.MullvadBrowser.desktop
+/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c/export/share/icons/hicolor/scalable/apps/net.mullvad.MullvadBrowser.svg
+Updating app/net.mullvad.MullvadBrowser/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:46:04+00:00 mullvad-browser previous eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57
+mullvad-browser before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57", package: Some("net.mullvad.MullvadBrowser"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.2"), update_available: false, can_remove: false, can_open: true }
+mullvad-browser JobFinished: Err("Approved action rejected: native installation state changed")
+mullvad-browser JobFinished: Err("This Flatpak is managed outside the launcher")
+mullvad-browser after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57", package: Some("net.mullvad.MullvadBrowser"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.2"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5332 comm="xfwm4 --compositor=on --display=:74" label="unconfined")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5345 comm="flatpak run --user --command=sh app/net.mullvad.Mu" label="flatpak (unconfined)")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=5345 comm="flatpak run --user --command=sh app/net.mullvad.Mu" label="flatpak (unconfined)")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=5371 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+mullvad-browser before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.2"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=5470 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.17' (uid=1000 pid=5525 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:5535): dbind-WARNING **: 13:46:05.890: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:5525): xdg-desktop-portal-WARNING **: 13:46:05.906: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5525): xdg-desktop-portal-WARNING **: 13:46:05.907: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5525): xdg-desktop-portal-WARNING **: 13:46:05.907: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5525): xdg-desktop-portal-WARNING **: 13:46:05.911: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[4988]: [session uid=1000 pid=4988] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.20' (uid=1000 pid=5470 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[4988]: [session uid=1000 pid=4988] Successfully activated service 'org.freedesktop.portal.Flatpak'
+mullvad-browser JobFinished: Ok("Launch request accepted")
+mullvad-browser after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.2"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.mullvad.MullvadBrowser
+net.mullvad.MullvadBrowser
+net.mullvad.MullvadBrowser
+2026-11-28T13:46:15+00:00 mullvad-browser previous GUI WM_NAME(STRING) = "Mullvad Browser"
+WM_CLASS(STRING) = "Navigator", "Mullvad Browser"
+2026-11-28T13:46:15+00:00 mullvad-browser AVAILABLE 51903123456
+mullvad-browser before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.2"), update_available: true, can_remove: true, can_open: true }
+mullvad-browser JobFinished: Ok("Flathub app updated")
+mullvad-browser after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:46:19+00:00 mullvad-browser current 66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c
+/home/qa/profiles/mullvad-browser-composited/.var/app/net.mullvad.MullvadBrowser/fixture.txt: OK
+mullvad-browser before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.3"), update_available: false, can_remove: true, can_open: true }
+mullvad-browser JobFinished: Ok("Launch request accepted")
+mullvad-browser after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.mullvad.MullvadBrowser
+net.mullvad.MullvadBrowser
+net.mullvad.MullvadBrowser
+2026-11-28T13:46:29+00:00 mullvad-browser current GUI WM_NAME(STRING) = "Mullvad Browser"
+WM_CLASS(STRING) = "Navigator", "Mullvad Browser"
+mullvad-browser before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 16, minor: 0, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/mullvad-browser-composited/data/flatpak/app/net.mullvad.MullvadBrowser/x86_64/stable/66e4444af479100591a275e4c9ca868de648c34729bc889f748acf1a5fe5cc3c", package: Some("net.mullvad.MullvadBrowser"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("16.0.3"), update_available: false, can_remove: true, can_open: true }
+mullvad-browser JobFinished: Ok("Flathub app removed")
+mullvad-browser after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/mullvad-browser-composited/.var/app/net.mullvad.MullvadBrowser/fixture.txt: OK
+2026-11-28T13:46:30+00:00 mullvad-browser PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:46:30+00:00 mullvad-browser EXIT 0 remove
+
+(xfconfd:5357): xfconfd-WARNING **: 13:46:30.578: Name org.xfce.Xfconf lost on the message dbus, exiting.

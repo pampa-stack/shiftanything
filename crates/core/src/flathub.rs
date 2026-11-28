@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 208] = [
+pub const RECIPES: [(&str, &str); 209] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -195,6 +195,7 @@ pub const RECIPES: [(&str, &str); 208] = [
     ("frescobaldi", "org.frescobaldi.Frescobaldi"),
     ("rhythmbox", "org.gnome.Rhythmbox3"),
     ("frog", "com.github.tenderowl.frog"),
+    ("mullvad-browser", "net.mullvad.MullvadBrowser"),
     ("alpaca", "com.jeffser.Alpaca"),
     ("jamovi", "org.jamovi.jamovi"),
     ("lazpaint", "io.github.bgrabitmap.LazPaint"),
@@ -363,6 +364,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "frescobaldi" => "https://github.com/frescobaldi/frescobaldi",
         "rhythmbox" => "https://gitlab.gnome.org/GNOME/rhythmbox",
         "frog" => "https://github.com/TenderOwl/Frog",
+        "mullvad-browser" => "https://github.com/mullvad/mullvad-browser",
         "alpaca" => "https://github.com/Jeffser/Alpaca",
         "jamovi" => "https://github.com/jamovi/jamovi",
         "lazpaint" => "https://github.com/bgrabitmap/lazpaint",

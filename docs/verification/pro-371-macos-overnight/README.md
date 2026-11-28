@@ -188,3 +188,7 @@ On 28 November 2026, the Air on macOS 26.6.2 installed 2.2.1, detected and appli
 The Mac recipe accepts the two reviewed DMGs and requires the publisher's Developer ID signature. A later GitHub tag can be discovered before its DMG is reviewed, in which case that version has no in-app installer. [Release notes](https://github.com/iOfficeAI/AionUi/releases) · [Publisher feed](https://static.aionui.com/releases/latest-arm64-mac.yml) · [Native log](aionui-native.log)
 
 Copy the two preflight logs and the publisher feed (as `aionui-macos-feed.yml`) to the marked directory alongside the compiled `native-cycle` and `run-native.sh`. Run `bash run-native.sh aionui iOfficeAI/AionUi AionUi v2.2.1 v2.2.2` while the feed advertises 2.2.2.
+
+### Czkawka 12.0.2 on Apple Silicon
+
+Both GUI downloads matched their published SHA-256 values. The GTK build is a bare ARM64 executable. The Krokiet archive contains an ARM64 executable and backend launch scripts. Both executables use linker ad hoc signatures without a Developer ID Team and Gatekeeper rejected both on macOS 26.6.2. This was a package inspection without launching either binary. The catalog points to the upstream releases for Mac while the verified Flathub recipe stays available on Linux. [Publisher assets](https://github.com/qarmin/czkawka/releases/expanded_assets/12.0.2) · [Package log](czkawka-macos-package.log)

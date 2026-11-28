@@ -4714,8 +4714,13 @@
     "license": "MIT",
     "license_url": "https://flathub.org/apps/com.github.qarmin.czkawka",
     "website": "https://github.com/qarmin/czkawka",
-    "releases": "https://flathub.org/apps/com.github.qarmin.czkawka",
+    "releases": "https://github.com/qarmin/czkawka/releases",
     "delivery": "desktop",
+    "platform_support": {
+      "linux": "https://flathub.org/apps/com.github.qarmin.czkawka",
+      "macos": "https://github.com/qarmin/czkawka/releases/expanded_assets/12.0.2",
+      "windows": "https://github.com/qarmin/czkawka/releases/expanded_assets/12.0.2"
+    },
     "agent": {
       "kind": "unknown",
       "source": null

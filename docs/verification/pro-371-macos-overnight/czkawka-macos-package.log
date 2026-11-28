@@ -1,0 +1,30 @@
+2026-11-28T09:51:54+01:00
+26.6.2
+assessments enabled
+mac_czkawka_gui_arm64: OK
+https://github.com/qarmin/czkawka/releases/download/12.0.2/mac_czkawka_gui_arm64 29901968 3c9f1aac6479a7851cf308b185529d192b17a80f535927224ae1301c7f3d2933
+mac_czkawka_gui_arm64: Mach-O 64-bit executable arm64
+Identifier=czkawka_gui-5ae9ce30c7a776df
+Format=Mach-O thin (arm64)
+CodeDirectory v=20400 size=231928 flags=0x20002(adhoc,linker-signed) hashes=7244+0 location=embedded
+Signature=adhoc
+TeamIdentifier=not set
+GATEKEEPER rejected
+mac_czkawka_gui_arm64: rejected
+mac_krokiet_all_backends_arm64.zip: OK
+https://github.com/qarmin/czkawka/releases/download/12.0.2/mac_krokiet_all_backends_arm64.zip 29354182 b7514b5963b585bb6e103534ef4e2ec883b2f1a135a2c74323f413f3c7d260f5
+mac_krokiet_all_backends_arm64.zip: Zip archive data, at least v2.0 to extract, compression method=deflate
+krokiet
+krokiet_femtovg_wgpu.sh
+krokiet_winit_femtovg.sh
+krokiet_winit_skia_opengl.sh
+krokiet_winit_skia_vulkan.sh
+krokiet_winit_software.sh
+krokiet: Mach-O 64-bit executable arm64
+Identifier=krokiet-0e13f186c000e402
+Format=Mach-O thin (arm64)
+CodeDirectory v=20400 size=555864 flags=0x20002(adhoc,linker-signed) hashes=17367+0 location=embedded
+Signature=adhoc
+TeamIdentifier=not set
+krokiet: rejected
+GATEKEEPER rejected

@@ -1,0 +1,20 @@
+
+Passwords and Keys - Manage your passwords and encryption keys
+
+          ID: org.gnome.seahorse.Application
+         Ref: app/org.gnome.seahorse.Application/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 47.0
+     License: GPL-2.0+ and LGPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 5.3 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341
+      Parent: 5ff4679e37368a866f9a62c34dd2d065c06f0f8f318d80a760b0c86dc10774cb
+     Subject: fix build with gpgme 2.0 (129d86387e01)
+        Date: 2025-09-28 03:48:26 +0000

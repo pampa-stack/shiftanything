@@ -204,6 +204,7 @@ fn main() -> Result<(), String> {
             "vorssaint",
             "onionshare",
             "zulip",
+            "aiderdesk",
             "freeplane",
         ]
         .contains(&app.id)

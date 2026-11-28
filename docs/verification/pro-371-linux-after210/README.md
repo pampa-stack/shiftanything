@@ -89,7 +89,7 @@ Il backend di `2a8c92b` con le ricette candidate ha installato, aperto, aggiorna
 - **Frescobaldi 4.0.7.** Due revisioni firmate con runtime KDE 6.10 e 6.11. Entrambe hanno aperto l’editor. [Flathub](https://flathub.org/apps/org.frescobaldi.Frescobaldi) · [Prima](frescobaldi/previous.png) · [Dopo](frescobaldi/current.png) · [Log](frescobaldi/lifecycle.log)
 - **Rhythmbox 3.5.1.** Due revisioni firmate della stessa versione. Entrambe hanno aperto la libreria. Riproduzione audio fuori dalla prova. [Flathub](https://flathub.org/apps/org.gnome.Rhythmbox3) · [Prima](rhythmbox/previous.png) · [Dopo](rhythmbox/current.png) · [Log](rhythmbox/lifecycle.log)
 - **Sigil 2.8.5 → 2.8.6.** Ripetuto il ciclo del pacchetto Linux già abilitato. Entrambe le versioni hanno aperto l’editor. [Flathub](https://flathub.org/apps/com.sigil_ebook.Sigil) · [Prima](sigil/previous.png) · [Dopo](sigil/current.png) · [Log](sigil/lifecycle.log)
-- **Qtractor e Frog.** Restano da verificare. Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Prima prova Frog](frog/earlier-window-detection.log)
+- **Prime prove di Qtractor e Frog.** Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Prima prova Frog](frog/earlier-window-detection.log)
 
 ## Nove app Flathub su Linux x64
 
@@ -118,7 +118,7 @@ Su Ubuntu 24.04 x64 in un guest AX42 isolato, il backend di `70c6845` con le ric
 - **Scilab 2027.0.0.** Due revisioni firmate hanno aperto la console. Alcuni pannelli laterali risultano neri nel display virtuale. [Flathub](https://flathub.org/apps/org.scilab.Scilab) · [Prima](scilab/previous.png) · [Dopo](scilab/current.png) · [Log](scilab/lifecycle.log)
 - **Sweet Home 3D 7.5.** Due revisioni firmate hanno aperto l’editor delle planimetrie. [Flathub](https://flathub.org/apps/com.sweethome3d.Sweethome3d) · [Prima](sweethome3d/previous.png) · [Dopo](sweethome3d/current.png) · [Log](sweethome3d/lifecycle.log)
 
-Bespoke Synth si apre ma mostra un errore di inizializzazione audio nel guest. Resta fuori dalle ricette abilitate. Per riprodurre i sei cicli usare `SHIFT_QA_COMPOSITOR=on` con un display libero per ciascun processo.
+Il primo giro di Bespoke Synth mostra un errore audio. [La prova con uscita virtuale](#bespoke-synth-su-linux-x64) è riportata sotto. Per riprodurre i sei cicli usare `SHIFT_QA_COMPOSITOR=on` con un display libero per ciascun processo.
 
 ## Riproduzione
 
@@ -138,7 +138,7 @@ Per GNOME Contacts installare anche `evolution-data-server` nel guest pulito. La
 
 Il 28 novembre NativeBackend ha installato, aggiornato e rimosso due revisioni firmate di Frog 1.6.0 in una VM Ubuntu 24.04 x64 su AX42. Entrambe mostrano la schermata OCR. Il test di apertura ha riconosciuto la finestra X11 con il nome del processo Python e ha verificato l’ID del pacchetto Flatpak in esecuzione. L’aggiornamento ha preservato il file sintetico e la rimozione ha eliminato la voce di menu. L’estrazione del testo resta fuori da questa prova. [Flathub](https://flathub.org/apps/com.github.tenderowl.frog) · [Prima](frog/previous.png) · [Dopo](frog/current.png) · [Log](frog/lifecycle.log)
 
-Nel medesimo guest, Qtractor ha completato installazione, aggiornamento e rimozione, ma l’editor segnala che il motore audio/MIDI richiede JACK e il sequencer ALSA. Yakuake si è chiusa con codice 139 durante l’avvio della revisione precedente. Entrambe restano fuori dall’elenco delle ricette abilitate.
+Nel primo giro Qtractor ha completato le operazioni sul pacchetto e mostrato un errore di inizializzazione del motore audio/MIDI. [La prova con PipeWire e ALSA virtuali](#qtractor-e-passwords-and-keys-su-linux-x64) è riportata sotto. Yakuake si è chiusa con codice 139 durante l’avvio della revisione precedente e resta fuori dalle ricette abilitate.
 
 ## Mullvad Browser su Linux x64
 
@@ -163,3 +163,14 @@ Il 28 novembre, su una VM Ubuntu 24.04 x64 isolata, NativeBackend ha installato 
 Il primo ciclo ha mostrato un errore audio all’apertura. Il 28 novembre la prova ripetuta su Ubuntu 24.04 x64 con PulseAudio privato e un’uscita virtuale ha aperto l’editor in entrambe le revisioni firmate di Bespoke Synth 1.3.0. NativeBackend ha installato la revisione precedente, applicato l’aggiornamento al runtime Freedesktop 25.08 e rimosso il pacchetto preservando i dati sintetici. La revisione precedente con runtime 24.08 è stata usata solo nel guest di prova. Il ciclo verifica gestione del pacchetto e apertura con audio virtuale. [Flathub](https://flathub.org/apps/com.bespokesynth.BespokeSynth) · [Prima](bespoke-synth/previous.png) · [Dopo](bespoke-synth/current.png) · [Log](bespoke-synth/lifecycle.log)
 
 Per riprodurre, installare `pulseaudio` e `pulseaudio-utils` nel guest di prova e usare `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh bespoke-synth 94`.
+
+## Qtractor e Passwords and Keys su Linux x64
+
+Il 28 novembre il backend di `e3faf0a` con le due ricette candidate ha installato, aperto, aggiornato e rimosso entrambi i Flatpak su una VM AX42 con Ubuntu 24.04. Le revisioni hanno una firma Flathub valida. Le prove di avvio hanno usato il solo loopback. Dopo la rimozione i dati sintetici erano ancora presenti e le voci di menu erano scomparse.
+
+- **Qtractor 1.6.5 → 1.7.0.** Entrambi gli editor hanno avviato una sessione con un sink PipeWire privato e un sequencer ALSA virtuale nel guest. Le finestre mostrano anche l’avviso ALSA per l’assenza di una scheda fisica. Il messaggio del runner su `/dev/snd` era condiviso con Easy Effects e improprio per Qtractor, che ha verificato l’accesso al sequencer. Il test copre il ciclo del pacchetto e l’apertura dell’editor. Per riprodurre usare il runner con `SHIFT_QA_COMPOSITOR=on`, il file `easyeffects-pipewire.sh` e un utente di prova del guest con accesso a `/dev/snd/seq`. [Flathub](https://flathub.org/apps/org.rncbc.qtractor) · [Prima](qtractor-pipewire/previous.png) · [Dopo](qtractor-pipewire/current.png) · [Log](qtractor-pipewire/lifecycle.log)
+- **Passwords and Keys.** Due revisioni comunitarie della versione 47.0, da GNOME Platform 49 a 50. Entrambe le finestre mostrano una raccolta GnuPG vuota. Il test usa un profilo temporaneo e verifica il ciclo del pacchetto e l’apertura della GUI. [Flathub](https://flathub.org/apps/org.gnome.seahorse.Application) · [Prima](passwords-and-keys/previous.png) · [Dopo](passwords-and-keys/current.png) · [Log](passwords-and-keys/lifecycle.log)
+
+### Preflight NAPS2 su Ubuntu x64
+
+I DEB ufficiali 8.6.0 e 8.6.1 corrispondono per dimensione e SHA-256 alle ricevute GitHub. Entrambi dichiarano architettura amd64 e dipendenza da `libsane1`, e contengono l’eseguibile e la voce desktop. Il guest ha ispezionato gli archivi senza installarli. Il conteggio Linux richiede ancora il ciclo nativo. [Rilasci ufficiali](https://github.com/cyanfish/naps2/releases) · [Ricevute e preflight](naps2-preflight.log)

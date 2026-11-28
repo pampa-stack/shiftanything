@@ -154,6 +154,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::VOICE_STUDIO.id,
                 recipe::ZETTLR.id,
                 recipe::ZULIP.id,
+                recipe::AIDER_DESK.id,
             ],
             (13, 0),
         ),
@@ -5658,8 +5659,8 @@ mod tests {
             let image = dmg(dir.path(), "0.6.0");
             let placed = install_dmg(photocraft(), &image, None, Some(&apps), None, &expect).unwrap();
             let executable = placed.join("Contents/MacOS/PhotoCraft");
-            // Own executable fixture: launch proof is a file in the temporary profile.
-            std::fs::write(&executable, "#!/bin/sh\nprintf launched > \"$1\"\n").unwrap();
+            // Publish the launch marker once its contents are complete.
+            std::fs::write(&executable, "#!/bin/sh\nprintf launched > \"$1.tmp\" && mv \"$1.tmp\" \"$1\"\n").unwrap();
             std::fs::set_permissions(&executable, std::fs::Permissions::from_mode(0o755)).unwrap();
             let marker = dir.path().join("launched");
             crate::process::launch_binary(&executable, &[marker.display().to_string()]).unwrap();

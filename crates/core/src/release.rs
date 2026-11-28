@@ -1247,6 +1247,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::VORSSAINT,
         crate::curated::ONIONSHARE,
         crate::curated::ZULIP,
+        crate::curated::AIDER_DESK,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1676,6 +1677,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("magiksoft/aider-desk", "v0.92.0") => {
+            &[("aider-desk-0.92.0-macos-arm64.dmg", 339_492_455, "9472c4afd8bbe5bb3b15f730e151090b7c2559d5398c8321d9ddf7c85aae6cc6")]
+        }
+        ("magiksoft/aider-desk", "v0.93.0") => {
+            &[("aider-desk-0.93.0-macos-arm64.dmg", 338_687_954, "b166d37fc423172df8f38e6b2af44baa216d470f82241b0fe8cb4af6c47b25a8")]
+        }
         ("zulip/zulip-desktop", "v5.14.2") => {
             &[("Zulip-5.14.2-arm64.dmg", 123_295_839, "e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776")]
         }

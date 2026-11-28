@@ -1696,6 +1696,27 @@ pub const ZULIP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("66KHCWMEYB"),
 };
 
+pub const AIDER_DESK: crate::CraftApp = crate::CraftApp {
+    id: "aiderdesk",
+    name: "AiderDesk",
+    tagline: "Desktop workspace for AI-assisted coding",
+    repo: "magiksoft/aider-desk",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [76, 126, 205],
+    ink_light: [31, 67, 129],
+    ink_dark: [178, 207, 252],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Magiksoft s.r.o.",
+    msi_publisher: None,
+    bundle: Some("eu.magiksoft.aiderdesk"),
+    site: Some("https://github.com/magiksoft/aider-desk"),
+    mac_bundle_name: Some("aider-desk"),
+    mac_team: Some("S585J6UY5L"),
+};
+
 pub const OPENBOARD: crate::CraftApp = crate::CraftApp {
     id: "openboard",
     name: "OpenBoard",
@@ -3623,6 +3644,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     VORSSAINT,
     ONIONSHARE,
     ZULIP,
+    AIDER_DESK,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

@@ -3,6 +3,7 @@
     "arm64": [
       "activitywatch",
       "actual",
+      "aiderdesk",
       "aionui",
       "alttab",
       "amethyst",
@@ -363,6 +364,7 @@
       "papers",
       "parabolic",
       "paseo",
+      "passwords-and-keys",
       "pdf4qt",
       "pdfarranger",
       "pdfcraft",
@@ -378,6 +380,7 @@
       "qbittorrent",
       "qgis",
       "qownnotes",
+      "qtractor",
       "qview",
       "rapidraw",
       "raspberry-pi-imager",

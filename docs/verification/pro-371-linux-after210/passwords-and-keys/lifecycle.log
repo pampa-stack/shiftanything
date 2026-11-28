@@ -1,0 +1,82 @@
+2026-11-28T15:54:30+00:00 passwords-and-keys AVAILABLE 34523090944
+passwords-and-keys before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+passwords-and-keys JobFinished: Ok("Flathub app installed")
+passwords-and-keys after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:16+00:00 passwords-and-keys current-install 0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/applications/org.gnome.seahorse.Application.desktop
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/icons/hicolor/scalable/apps/org.gnome.seahorse.Application.svg
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/icons/hicolor/symbolic/apps/org.gnome.seahorse.Application.svg
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Updating app/org.gnome.seahorse.Application/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:33+00:00 passwords-and-keys previous cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341
+passwords-and-keys before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341", package: Some("org.gnome.seahorse.Application"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: false, can_open: true }
+passwords-and-keys JobFinished: Err("Approved action rejected: native installation state changed")
+passwords-and-keys JobFinished: Err("This Flatpak is managed outside the launcher")
+passwords-and-keys after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341", package: Some("org.gnome.seahorse.Application"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=41264 comm="xfwm4 --compositor=on --display=:82" label="unconfined")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=41277 comm="flatpak run --user --command=sh app/org.gnome.seah" label="flatpak (unconfined)")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=41277 comm="flatpak run --user --command=sh app/org.gnome.seah" label="flatpak (unconfined)")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=41303 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+passwords-and-keys before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=41402 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=41413 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:41419): dbind-WARNING **: 15:55:35.210: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:41413): xdg-desktop-portal-WARNING **: 15:55:35.225: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:41413): xdg-desktop-portal-WARNING **: 15:55:35.226: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:41413): xdg-desktop-portal-WARNING **: 15:55:35.226: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:41413): xdg-desktop-portal-WARNING **: 15:55:35.232: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.20' (uid=1000 pid=41402 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.portal.Flatpak'
+dbus-daemon[39884]: [session uid=1000 pid=39884] Activating service name='org.freedesktop.secrets' requested by ':1.14' (uid=1000 pid=41402 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+** Message: 15:55:35.554: couldn't access control socket: <qa-root>/profiles/passwords-and-keys-composited/runtime/keyring/control: No such file or directory
+discover_other_daemon: 0dbus-daemon[39884]: [session uid=1000 pid=39884] Successfully activated service 'org.freedesktop.secrets'
+passwords-and-keys JobFinished: Ok("Launch request accepted")
+passwords-and-keys after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.seahorse.Application
+org.gnome.seahorse.Application
+org.gnome.seahorse.Application
+2026-11-28T15:55:51+00:00 passwords-and-keys previous GUI WM_NAME(STRING) = "Passwords and Keys"
+WM_CLASS(STRING) = "org.gnome.seahorse.Application", "Seahorse"
+2026-11-28T15:55:51+00:00 passwords-and-keys AVAILABLE 28345610240
+passwords-and-keys before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: true, can_remove: true, can_open: true }
+passwords-and-keys JobFinished: Ok("Flathub app updated")
+passwords-and-keys after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:53+00:00 passwords-and-keys current 0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610
+<qa-root>/profiles/passwords-and-keys-composited/.var/app/org.gnome.seahorse.Application/fixture.txt: OK
+passwords-and-keys before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: true, can_open: true }
+passwords-and-keys JobFinished: Ok("Launch request accepted")
+passwords-and-keys after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.seahorse.Application
+org.gnome.seahorse.Application
+org.gnome.seahorse.Application
+2026-11-28T15:56:09+00:00 passwords-and-keys current GUI WM_NAME(STRING) = "Passwords and Keys"
+WM_CLASS(STRING) = "org.gnome.seahorse.Application", "Seahorse"
+passwords-and-keys before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 47, minor: 0, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610", package: Some("org.gnome.seahorse.Application"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("47.0"), update_available: false, can_remove: true, can_open: true }
+passwords-and-keys JobFinished: Ok("Flathub app removed")
+passwords-and-keys after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+<qa-root>/profiles/passwords-and-keys-composited/.var/app/org.gnome.seahorse.Application/fixture.txt: OK
+2026-11-28T15:56:10+00:00 passwords-and-keys PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T15:56:11+00:00 passwords-and-keys EXIT 0 remove
+
+(xfconfd:41289): xfconfd-WARNING **: 15:56:11.083: Name org.xfce.Xfconf lost on the message dbus, exiting.

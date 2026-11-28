@@ -1,0 +1,3 @@
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/applications/org.rncbc.qtractor.desktop
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/icons/hicolor/32x32/apps/org.rncbc.qtractor.png
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/icons/hicolor/scalable/apps/org.rncbc.qtractor.svg

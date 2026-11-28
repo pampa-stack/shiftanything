@@ -28,6 +28,9 @@ case "$id" in
     onionshare)
         repo=onionshare/onionshare app=OnionShare bundle_id=OnionShare team=G762K6CH36
         ;;
+    aiderdesk)
+        repo=magiksoft/aider-desk app=aider-desk bundle_id=eu.magiksoft.aiderdesk team=S585J6UY5L
+        ;;
     zulip)
         repo=zulip/zulip-desktop app=Zulip bundle_id=org.zulip.zulip-electron team=66KHCWMEYB
         ;;

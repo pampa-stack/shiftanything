@@ -1,0 +1,19 @@
+commit cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341
+Parent:  5ff4679e37368a866f9a62c34dd2d065c06f0f8f318d80a760b0c86dc10774cb
+ContentChecksum:  256dcada4ae92298531ad739e7e7fae7d1b1150142f94154cc6dec0362731e3c
+Date:  2025-09-28 03:48:26 +0000
+
+    fix build with gpgme 2.0 (129d86387e01)
+
+    Name: org.gnome.seahorse.Application
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Sun Sep 28 04:00:18 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

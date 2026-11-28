@@ -30,7 +30,7 @@ export XDG_CACHE_HOME=$HOME/cache XDG_STATE_HOME=$HOME/state XDG_RUNTIME_DIR=$HO
 export FLATPAK_USER_DIR=$XDG_DATA_HOME/flatpak FLATPAK_CONFIG_DIR=$XDG_CONFIG_HOME/flatpak-system
 export FLATPAK_SYSTEM_DIR=$HOME/system-flatpak
 export DISPLAY=:$display_number XAUTHORITY=$XDG_RUNTIME_DIR/xauth
-if [[ "$slug" == easyeffects ]]; then
+if [[ "$slug" == easyeffects || "$slug" == qtractor ]]; then
     # Flatpak exports xdg-run from the canonical runtime directory in this guest.
     XDG_RUNTIME_DIR=/run/user/$(id -u)
     export XDG_RUNTIME_DIR
@@ -76,14 +76,20 @@ verify() {
 
 open_gui() {
     local phase=$1 window='' candidate verify_window='' dialog width height
-    if [[ "$slug" == easyeffects ]]; then
+    if [[ "$slug" == easyeffects || "$slug" == qtractor ]]; then
         # shellcheck disable=SC2016
         flatpak run --user --command=sh "$ref" -c '
             test -S "$XDG_RUNTIME_DIR/$PIPEWIRE_REMOTE" || { echo "Missing private PipeWire socket"; exit 1; }
             test ! -e "$XDG_RUNTIME_DIR/pipewire-0" || { echo "Unexpected default PipeWire socket"; exit 1; }
-            test ! -e /dev/snd || { echo "Unexpected ALSA device directory"; exit 1; }
         '
-        say "$phase sandbox sees the private PipeWire socket and no /dev/snd"
+        say "$phase sandbox sees the private PipeWire socket"
+    fi
+    if [[ "$slug" == easyeffects ]]; then
+        flatpak run --user --command=sh "$ref" -c 'test ! -e /dev/snd'
+    fi
+    if [[ "$slug" == qtractor ]]; then
+        flatpak run --user --command=sh "$ref" -c 'test -r /dev/snd/seq && test -w /dev/snd/seq'
+        pw-cli ls Node | grep -F 'node.name = "shift-qa-output"'
     fi
     flatpak run --user --command=sh "$ref" -c 'readlink /proc/self/ns/net; cat /proc/net/dev' > "$out/$phase.network.txt"
     test "$(head -1 "$out/$phase.network.txt")" != "$(readlink /proc/self/ns/net)"
@@ -248,7 +254,7 @@ flags+=(--no-talk-name=org.freedesktop.Flatpak)
 if [[ "$slug" == parabolic ]]; then
     flags+=(--no-talk-name=org.freedesktop.secrets)
 fi
-if [[ "$slug" == easyeffects ]]; then
+if [[ "$slug" == easyeffects || "$slug" == qtractor ]]; then
     # shellcheck source=/dev/null
     source "$guest_home/easyeffects-pipewire.sh"
     flags+=(--nofilesystem=xdg-run/pipewire-0 "--filesystem=xdg-run/$PIPEWIRE_REMOTE:ro" "--env=PIPEWIRE_REMOTE=$PIPEWIRE_REMOTE")
@@ -272,7 +278,7 @@ if [[ "$slug" == ardour || "$slug" == famistudio || "$slug" == hydrogen || "$slu
 else
     flags+=(--nosocket=pulseaudio)
 fi
-if [[ "$slug" == famistudio ]]; then
+if [[ "$slug" == famistudio || "$slug" == qtractor ]]; then
     # The disposable guest provides only a virtual ALSA sequencer and null output.
     test -r /dev/snd/seq && test -w /dev/snd/seq
     flags+=(--device=all)

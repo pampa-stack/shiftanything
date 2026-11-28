@@ -1,0 +1,3 @@
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/applications/org.gnome.seahorse.Application.desktop
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/icons/hicolor/scalable/apps/org.gnome.seahorse.Application.svg
+<qa-root>/profiles/passwords-and-keys-composited/data/flatpak/app/org.gnome.seahorse.Application/x86_64/stable/0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610/export/share/icons/hicolor/symbolic/apps/org.gnome.seahorse.Application.svg

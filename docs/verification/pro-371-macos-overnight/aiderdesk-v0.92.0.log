@@ -1,0 +1,30 @@
+2026-11-28T16:48:19+0100
+/dev/disk3s5   239362496 174643668  23591252    89% 3239384 235912520    1%   /System/Volumes/Data
+ARTIFACT 9472c4afd8bbe5bb3b15f730e151090b7c2559d5398c8321d9ddf7c85aae6cc6 339492455 https://github.com/magiksoft/aider-desk/releases/download/v0.92.0/aider-desk-0.92.0-macos-arm64.dmg
+BUNDLE=aider-desk.app
+CFBundleIdentifier=eu.magiksoft.aiderdesk
+CFBundleShortVersionString=0.92.0
+CFBundleVersion=0.92.0
+CFBundleExecutable=aider-desk
+LSMinimumSystemVersion=13.0
+<read-only-mount>/aider-desk.app/Contents/MacOS/aider-desk: Mach-O 64-bit executable arm64
+<read-only-mount>/aider-desk.app/Contents/MacOS/aider-desk (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=eu.magiksoft.aiderdesk
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Magiksoft s.r.o. (S585J6UY5L)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=15 Nov 2026 at 20:19:00
+TeamIdentifier=S585J6UY5L
+<read-only-mount>/aider-desk.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT aiderdesk v0.92.0

@@ -1,0 +1,132 @@
+2026-11-28T15:54:30+00:00 qtractor AVAILABLE 34514956288
+qtractor before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+qtractor JobFinished: Ok("Flathub app installed")
+qtractor after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:24+00:00 qtractor current-install b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/applications/org.rncbc.qtractor.desktop
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/icons/hicolor/32x32/apps/org.rncbc.qtractor.png
+<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a/export/share/icons/hicolor/scalable/apps/org.rncbc.qtractor.svg
+Updating app/org.rncbc.qtractor/x86_64/stable
+
+Note that '<qa-root>/profiles/qtractor-composited/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- <qa-root>/profiles/qtractor-composited/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:26+00:00 qtractor previous 4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96
+qtractor before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96", package: Some("org.rncbc.qtractor"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: false, can_open: true }
+qtractor JobFinished: Err("Approved action rejected: native installation state changed")
+qtractor JobFinished: Err("This Flatpak is managed outside the launcher")
+qtractor after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96", package: Some("org.rncbc.qtractor"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: false, can_remove: false, can_open: true })
+pipewire
+Compiled with libpipewire 1.0.5
+Linked with libpipewire 1.0.5
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.xfce.Xfconf' requested by ':1.7' (uid=1000 pid=40806 comm="xfwm4 --compositor=on --display=:83" label="unconfined")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.xfce.Xfconf'
+    node.name = "shift-qa-output"
+    node.name = "shift-qa-input"
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.Flatpak' requested by ':1.11' (uid=1000 pid=40848 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.11' (uid=1000 pid=40848 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.13' (uid=1000 pid=40870 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+2026-11-28T15:55:27+00:00 qtractor previous sandbox sees the private PipeWire socket and no /dev/snd
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.16' (uid=1000 pid=40892 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.portal.Error.Failed: Can't mount path /run/user/1000/doc
+    node.name = "shift-qa-output"
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.20' (uid=1000 pid=40915 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+qtractor before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.24' (uid=1000 pid=41006 comm="flatpak run --user app/org.rncbc.qtractor/x86_64/s" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.27' (uid=1000 pid=41021 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.28' (uid=1000 pid=41029 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.28' (uid=1000 pid=41029 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:41046): dbind-WARNING **: 15:55:28.065: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:41029): xdg-desktop-portal-WARNING **: 15:55:28.083: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:41029): xdg-desktop-portal-WARNING **: 15:55:28.083: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:41029): xdg-desktop-portal-WARNING **: 15:55:28.083: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Desktop'
+
+(/usr/libexec/xdg-desktop-portal:41029): xdg-desktop-portal-WARNING **: 15:55:28.234: Realtime error: Could not map tid: Process ids could not be found: 12
+qtractor JobFinished: Ok("Launch request accepted")
+qtractor after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.rncbc.qtractor
+2026-11-28T15:55:38+00:00 qtractor previous GUI WM_NAME(STRING) = "Untitled1"
+WM_CLASS(STRING) = "qtractor.bin", "Qtractor"
+2026-11-28T15:55:38+00:00 qtractor AVAILABLE 28332560384
+qtractor before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 5 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.5"), update_available: true, can_remove: true, can_open: true }
+qtractor JobFinished: Ok("Flathub app updated")
+qtractor after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:55:39+00:00 qtractor current b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a
+<qa-root>/profiles/qtractor-composited/.var/app/org.rncbc.qtractor/fixture.txt: OK
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.36' (uid=1000 pid=41946 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.portal.Error.Failed: Can't mount path /run/user/1000/doc
+2026-11-28T15:55:39+00:00 qtractor current sandbox sees the private PipeWire socket and no /dev/snd
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.40' (uid=1000 pid=41970 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.portal.Error.Failed: Can't mount path /run/user/1000/doc
+    node.name = "shift-qa-output"
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.44' (uid=1000 pid=41994 comm="flatpak run --user --command=sh app/org.rncbc.qtra" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+F: Can't get document portal: GDBus.Error:org.freedesktop.portal.Error.Failed: Can't mount path /run/user/1000/doc
+qtractor before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[40035]: [session uid=1000 pid=40035] Activating service name='org.freedesktop.portal.Documents' requested by ':1.48' (uid=1000 pid=42070 comm="flatpak run --user app/org.rncbc.qtractor/x86_64/s" label="flatpak (unconfined)")
+dbus-daemon[40035]: [session uid=1000 pid=40035] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: mount failed: Operation not permitted
+error: fuse init failed: Can't mount path /run/user/1000/doc
+
+(/usr/libexec/xdg-desktop-portal:41029): xdg-desktop-portal-WARNING **: 15:55:40.500: Realtime error: Could not map tid: Process ids could not be found: 12
+qtractor JobFinished: Ok("Launch request accepted")
+qtractor after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.rncbc.qtractor
+2026-11-28T15:55:50+00:00 qtractor current GUI WM_NAME(STRING) = "Untitled1"
+WM_CLASS(STRING) = "qtractor.bin", "Qtractor"
+qtractor before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 0 }), source: Flatpak, location: "<qa-root>/profiles/qtractor-composited/data/flatpak/app/org.rncbc.qtractor/x86_64/stable/b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a", package: Some("org.rncbc.qtractor"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.0"), update_available: false, can_remove: true, can_open: true }
+qtractor JobFinished: Ok("Flathub app removed")
+qtractor after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+<qa-root>/profiles/qtractor-composited/.var/app/org.rncbc.qtractor/fixture.txt: OK
+2026-11-28T15:55:51+00:00 qtractor PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T15:55:53+00:00 qtractor EXIT 0 remove
+
+(xfconfd:40823): xfconfd-WARNING **: 15:55:53.467: Name org.xfce.Xfconf lost on the message dbus, exiting.

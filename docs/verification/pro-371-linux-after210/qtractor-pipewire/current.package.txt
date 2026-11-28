@@ -1,0 +1,20 @@
+
+Qtractor - An Audio/MIDI multi-track sequencer
+
+          ID: org.rncbc.qtractor
+         Ref: app/org.rncbc.qtractor/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.7.0
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 15.8 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a
+      Parent: 4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96
+     Subject: Merge pull request #81 from flathub/rncbc-v1.7.0-release-patch-1 (331684a5e5a5)
+        Date: 2026-11-13 10:38:27 +0000

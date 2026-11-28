@@ -24,7 +24,7 @@ context.objects = [
 ]
 PW
 # Use one named socket and never the guest desktop's default audio daemon.
-export PIPEWIRE_CORE=pipewire-shift-easyeffects-$$
+export PIPEWIRE_CORE=pipewire-shift-$slug-$$
 export PIPEWIRE_REMOTE=$PIPEWIRE_CORE
 test ! -e "$XDG_RUNTIME_DIR/$PIPEWIRE_REMOTE"
 pipewire --version

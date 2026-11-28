@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v0.92.0 Dmg https://github.com/magiksoft/aider-desk/releases/download/v0.92.0/aider-desk-0.92.0-macos-arm64.dmg 339492455 9472c4afd8bbe5bb3b15f730e151090b7c2559d5398c8321d9ddf7c85aae6cc6
+PASS OFFICIAL v0.93.0 Dmg https://github.com/magiksoft/aider-desk/releases/download/v0.93.0/aider-desk-0.93.0-macos-arm64.dmg 338687954 b166d37fc423172df8f38e6b2af44baa216d470f82241b0fe8cb4af6c47b25a8
+NATIVE ORIGIN aiderdesk GitHub
+PASS OFFICIAL v0.92.0 Dmg https://github.com/magiksoft/aider-desk/releases/download/v0.92.0/aider-desk-0.92.0-macos-arm64.dmg 339492455 9472c4afd8bbe5bb3b15f730e151090b7c2559d5398c8321d9ddf7c85aae6cc6
+PASS NATIVE aiderdesk install: AiderDesk installed: 0.92.0; package_bytes=339492455; elapsed=61.558s
+<test-profile>/Applications/aider-desk.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Magiksoft s.r.o. (S585J6UY5L)
+0.92.0
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN aiderdesk GitHub
+PASS OFFICIAL v0.93.0 Dmg https://github.com/magiksoft/aider-desk/releases/download/v0.93.0/aider-desk-0.93.0-macos-arm64.dmg 338687954 b166d37fc423172df8f38e6b2af44baa216d470f82241b0fe8cb4af6c47b25a8
+PASS NATIVE aiderdesk update: AiderDesk updated to 0.93.0; package_bytes=338687954; elapsed=53.299s
+<test-profile>/Applications/aider-desk.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Magiksoft s.r.o. (S585J6UY5L)
+0.93.0
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE aiderdesk remove: AiderDesk was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE aiderdesk, private Trash and synthetic data preserved

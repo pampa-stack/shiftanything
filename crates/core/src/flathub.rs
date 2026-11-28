@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 215] = [
+pub const RECIPES: [(&str, &str); 217] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -197,6 +197,8 @@ pub const RECIPES: [(&str, &str); 215] = [
     ("frescobaldi", "org.frescobaldi.Frescobaldi"),
     ("rhythmbox", "org.gnome.Rhythmbox3"),
     ("frog", "com.github.tenderowl.frog"),
+    ("qtractor", "org.rncbc.qtractor"),
+    ("passwords-and-keys", "org.gnome.seahorse.Application"),
     ("bespoke-synth", "com.bespokesynth.BespokeSynth"),
     ("zulip", "org.zulip.Zulip"),
     ("vlc", "org.videolan.VLC"),
@@ -447,6 +449,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "fontforge" => "https://github.com/fontforge/fontforge",
         "material-maker" => "https://github.com/RodZill4/material-maker",
         "geany" => "https://github.com/geany/geany",
+        "qtractor" => "https://github.com/rncbc/qtractor",
+        "passwords-and-keys" => "https://gitlab.gnome.org/GNOME/seahorse",
         "bespoke-synth" => "https://github.com/BespokeSynth/BespokeSynth",
         "zulip" => "https://github.com/zulip/zulip-desktop",
         "vlc" => "https://code.videolan.org/videolan/vlc",

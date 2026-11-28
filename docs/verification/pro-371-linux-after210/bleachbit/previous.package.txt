@@ -1,0 +1,20 @@
+
+BleachBit - Free space and maintain privacy
+
+          ID: org.bleachbit.BleachBit
+         Ref: app/org.bleachbit.BleachBit/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: v6.0.5
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 9.3 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0
+      Parent: f9e593392919d2a1cab9770a6fd7bb432a1513f77ab123bfa0b2c15896dafa95
+     Subject: Update runtime version to 51 (#49) (a88f11ee44e8)
+        Date: 2026-10-10 18:19:48 +0000

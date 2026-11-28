@@ -30777,7 +30777,15 @@
       "windows": "https://www.bleachbit.org/download/windows",
       "linux": "https://www.bleachbit.org/download/linux"
     },
-    "platform_scope_complete": true
+    "platform_scope_complete": true,
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.bleachbit.BleachBit",
+        "source": "https://flathub.org/apps/org.bleachbit.BleachBit"
+      }
+    ]
   },
   {
     "id": "infisical",

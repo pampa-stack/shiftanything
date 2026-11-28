@@ -1,0 +1,28 @@
+2026-11-28T03:10:57+0100
+/dev/disk3s5   239362496 180619852  17615196    92% 3290950 176151960    2%   /System/Volumes/Data
+ARTIFACT 109885a01fb229bb7789469d79f04227561a4d91b3700dd7b958261449623981 147305756 https://github.com/freeplane/freeplane/releases/download/release-1.13.4/Freeplane-1.13.4-apple.dmg
+BUNDLE=Freeplane.app
+CFBundleIdentifier=org.freeplane.launcher
+CFBundleShortVersionString=1.13.4
+CFBundleVersion=1.13.4
+CFBundleExecutable=Freeplane
+LSMinimumSystemVersion=10.11
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/freeplane/release-1.13.4/mount/Freeplane.app/Contents/MacOS/Freeplane: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/freeplane/release-1.13.4/mount/Freeplane.app/Contents/MacOS/Freeplane (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=org.freeplane.launcher
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Dimitry Polivaev (CSHVD99Y7K)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=30 Oct 2026 at 14:16:24
+TeamIdentifier=CSHVD99Y7K
+test-requirement: code failed to satisfy specified code requirement(s)

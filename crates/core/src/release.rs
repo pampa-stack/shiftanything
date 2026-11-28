@@ -696,6 +696,8 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         kdenlive_mac_version(tag)
     } else if repo == crate::curated::AUDACITY.repo {
         version::parse(tag.strip_prefix("Audacity-")?)
+    } else if repo == crate::curated::FREEPLANE.repo {
+        version::parse(tag.strip_prefix("release-")?)
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
     } else if repo == crate::curated::TERMIX.repo {
@@ -1119,6 +1121,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::EASYDICT,
         crate::curated::UTM,
         crate::curated::OPENMTP,
+        crate::curated::FREEPLANE,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1135,6 +1138,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 kdenlive_mac_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
                 release.tag == format!("version_{version}")
+            } else if (app.id, app.repo) == (crate::curated::FREEPLANE.id, crate::curated::FREEPLANE.repo) {
+                release.tag == format!("release-{version}")
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::VIRTUALBUDDY.id, crate::curated::VIRTUALBUDDY.repo) {
@@ -1394,6 +1399,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ganeshrvel/openmtp", "v3.3.0") => {
             &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
+        }
+        ("freeplane/freeplane", "release-1.13.3") => {
+            &[("Freeplane-1.13.3-apple.dmg", 144_017_558, "f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347")]
+        }
+        ("freeplane/freeplane", "release-1.13.5") => {
+            &[("Freeplane-1.13.5-apple.dmg", 147_343_258, "14e0badf46ac98aa3919503700772c66c02b59c0bba4711c370d149838d6acfb")]
         }
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]

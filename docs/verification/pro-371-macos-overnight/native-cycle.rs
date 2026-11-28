@@ -23,7 +23,7 @@ impl<'a> Package<'a> {
         let label = match self.tag {
             "5.3.4.1" => "5.3.4",
             "v5.0.9-2" => "5.0.9",
-            tag => tag.trim_start_matches("mac-"),
+            tag => tag.trim_start_matches("mac-").trim_start_matches("release-"),
         };
         let version = if self.name.starts_with("kdenlive-") {
             artcraft_launcher_core::release::kdenlive_mac_version(label)
@@ -134,6 +134,7 @@ fn main() -> Result<(), String> {
             "easydict",
             "utm",
             "openmtp",
+            "freeplane",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

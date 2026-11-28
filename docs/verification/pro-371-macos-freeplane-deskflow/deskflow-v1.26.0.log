@@ -1,0 +1,4 @@
+2026-11-28T03:10:43+0100
+/dev/disk3s5   239362496 180561548  17673500    92% 3290939 176735000    2%   /System/Volumes/Data
+ARTIFACT bae6befc2c3119de3d751c1200aab30af3efa5496e91d5ca1029cc388eea69c5 28361858 https://github.com/deskflow/deskflow/releases/download/v1.26.0/deskflow-1.26.0-macos-arm64.dmg
+hdiutil: attach canceled

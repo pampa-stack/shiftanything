@@ -962,6 +962,7 @@ mod tests {
             (crate::curated::EASYDICT, ["2.25.0", "2.26.0"]),
             (crate::curated::UTM, ["v5.0.8", "v5.0.9-2"]),
             (crate::curated::OPENMTP, ["v3.2.25", "v3.3.0"]),
+            (crate::curated::FREEPLANE, ["release-1.13.3", "release-1.13.5"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
@@ -1017,6 +1018,21 @@ mod tests {
                 assert!(!selects(&untrusted, host));
             }
         }
+    }
+
+    #[test]
+    fn freeplane_cannot_select_the_unnotarized_intermediate_release() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let app = crate::curated::FREEPLANE;
+        let mut release = crate::release::release_from_sums(app.repo, "release-1.13.4", &[]);
+        let name = "Freeplane-1.13.4-apple.dmg";
+        release.assets.push(Asset {
+            name: name.into(),
+            size: 147_305_756,
+            url: format!("{}{}/{name}", crate::release::download_prefix(app.repo), release.tag),
+            sha256: Some("109885a01fb229bb7789469d79f04227561a4d91b3700dd7b958261449623981".into()),
+        });
+        assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
     }
 
     #[test]

@@ -2723,6 +2723,27 @@ pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6UR4H85SA2"),
 };
 
+pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
+    id: "freeplane",
+    name: "Freeplane",
+    tagline: "Create mind maps to organize ideas and notes",
+    repo: "freeplane/freeplane",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [100, 151, 85],
+    ink_light: [54, 90, 43],
+    ink_dark: [170, 214, 156],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Dimitry Polivaev",
+    msi_publisher: None,
+    bundle: Some("org.freeplane.launcher"),
+    site: Some("https://docs.freeplane.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("CSHVD99Y7K"),
+};
+
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GHOST_DOWNLOADER,
     HANDY,
@@ -2843,6 +2864,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     EASYDICT,
     UTM,
     OPENMTP,
+    FREEPLANE,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

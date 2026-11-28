@@ -5382,6 +5382,13 @@ fn work_kits_surveys_details_and_comparison_work_in_both_languages() {
         snapshot(&mut h, &format!("kits-architect-{language}"));
         h.get_by_label(ranking).click_accesskit();
         h.run_steps(4);
+        // The first tab is generated from SH*FTER, so paid software without a survey still has a row.
+        let confirmed = if language == "it" { "Alternative libere confermate" } else { "Confirmed open source alternatives" };
+        assert!(h.get_all_by_label(confirmed).count() >= 2, "tab and heading name what is counted");
+        h.get_by_label(&format!("{compare} · Adobe Acrobat Pro"));
+        snapshot(&mut h, &format!("kits-confirmed-{language}"));
+        h.get_by_label(if language == "it" { "Design · Italia" } else { "Design · Italy" }).click_accesskit();
+        h.run_steps(3);
         h.get_by_label("POLI.design · Experience Design Academy");
         snapshot(&mut h, &format!("kits-ranking-{language}"));
         h.get_by_label(if language == "it" { "Architettura · AIBD" } else { "Architecture · AIBD" }).click_accesskit();
@@ -5395,9 +5402,19 @@ fn work_kits_surveys_details_and_comparison_work_in_both_languages() {
         snapshot(&mut h, &format!("kits-ranking-moss-{language}"));
         h.get_by_label("Designer").click_accesskit();
         h.run_steps(3);
-        h.get_all_by_label(compare).next().unwrap().click_accesskit();
+        h.get_by_label(&format!("{compare} · Adobe Photoshop")).click_accesskit();
         h.run_steps(4);
         assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Shifter);
         h.get_by_label(if language == "it" { "Funzioni da confrontare" } else { "Features to compare" });
+        // A paid product that had no SH*FTER profile before the kits were cross-checked.
+        h.get_by_label(kits).click_accesskit();
+        h.run_steps(3);
+        h.get_by_label(architect).click_accesskit();
+        h.run_steps(4);
+        h.get_by_label(&format!("{compare} · AutoCAD")).click_accesskit();
+        h.run_steps(4);
+        assert_eq!(h.state().as_ref().unwrap().page(), artcraft_launcher_ui_egui::Page::Shifter);
+        h.get_by_label("LibreCAD");
+        snapshot(&mut h, &format!("shifter-autocad-{language}"));
     }
 }

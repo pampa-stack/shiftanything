@@ -90,6 +90,12 @@ impl Profile {
         let query = normalize(query);
         !query.is_empty() && std::iter::once(&self.name).chain(&self.aliases).any(|name| normalize(name).contains(&query))
     }
+    /// True when the app has confirmed support for at least one documented feature.
+    pub fn confirms(&self, app_id: &str) -> bool {
+        self.candidates
+            .iter()
+            .any(|candidate| candidate.app_id == app_id && candidate.evidence.values().any(|evidence| evidence.state == State::Supported))
+    }
     pub fn evidence(&self, app_id: &str, feature: &str) -> Option<&Evidence> {
         self.candidates.iter().find(|candidate| candidate.app_id == app_id)?.evidence.get(feature)
     }
@@ -162,6 +168,33 @@ impl Dataset {
                 query.is_empty() || normalize(software.name).contains(&query) || software.profile.is_some_and(|profile| profile.matches(&query))
             })
             .collect()
+    }
+
+    /// Exact product match on a name or alias, for links from curated lists such as the work kits.
+    pub fn profile_named(&self, name: &str) -> Option<&Profile> {
+        let name = normalize(name);
+        self.profiles.iter().find(|profile| std::iter::once(&profile.name).chain(&profile.aliases).any(|known| normalize(known) == name))
+    }
+
+    /// One row per profile: the catalog apps with at least one confirmed feature, most first.
+    /// It counts documented alternatives; it does not measure popularity or quality.
+    pub fn confirmed_alternatives(&self) -> Vec<(&Profile, Vec<&str>)> {
+        let catalog = catalog_sort_names();
+        let mut rows: Vec<_> = self
+            .profiles
+            .iter()
+            .map(|profile| {
+                let apps = profile
+                    .candidates
+                    .iter()
+                    .map(|candidate| candidate.app_id.as_str())
+                    .filter(|app_id| catalog.contains_key(app_id) && profile.confirms(app_id))
+                    .collect::<BTreeSet<_>>();
+                (profile, apps.into_iter().collect::<Vec<_>>())
+            })
+            .collect();
+        rows.sort_by_cached_key(|(profile, apps)| (std::cmp::Reverse(apps.len()), normalize(&profile.name)));
+        rows
     }
 
     /// Explicit qualified IDs reuse evidence; free labels never acquire evidence by name.

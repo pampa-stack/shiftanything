@@ -60,6 +60,33 @@ mod tests {
     use std::collections::BTreeSet;
 
     #[test]
+    fn every_paid_product_in_a_kit_is_in_shifter_and_the_ranking_with_its_kit_alternatives() {
+        let shifter = crate::shifter::data().unwrap();
+        let ranked: std::collections::BTreeMap<_, _> =
+            shifter.confirmed_alternatives().into_iter().map(|(profile, apps)| (profile.id.as_str(), apps.len())).collect();
+        assert_eq!(ranked.len(), shifter.profiles.len(), "every SH*FTER profile has one ranking row");
+        let mut gaps = BTreeSet::new();
+        for step in data().unwrap().kits.iter().flat_map(|kit| &kit.steps) {
+            let profiles: Vec<_> = step.paid.iter().filter_map(|paid| shifter.profile_named(paid)).collect();
+            for paid in step.paid.iter().filter(|paid| shifter.profile_named(paid).is_none()) {
+                gaps.insert(format!("{paid}: no profile"));
+            }
+            // A stage can list several paid products: each alternative must be confirmed against one of them.
+            for option in step.options.iter().filter(|option| !profiles.iter().any(|profile| profile.confirms(&option.app))) {
+                gaps.insert(format!("{}: {} unconfirmed", step.paid.join(", "), option.app));
+            }
+            for profile in profiles.iter().filter(|profile| !step.options.iter().any(|option| profile.confirms(&option.app))) {
+                gaps.insert(format!("{}: no kit alternative confirmed", profile.name));
+            }
+            for profile in profiles.iter().filter(|profile| ranked.get(profile.id.as_str()).is_none_or(|apps| *apps == 0)) {
+                gaps.insert(format!("{}: missing from the ranking", profile.name));
+            }
+            assert!(step.compare.as_deref().is_none_or(|id| profiles.iter().any(|profile| profile.id == id)));
+        }
+        assert!(gaps.is_empty(), "{} gaps between kits and SH*FTER: {gaps:#?}", gaps.len());
+    }
+
+    #[test]
     fn kits_only_offer_catalog_apps_and_documented_comparisons() {
         let catalog: BTreeSet<_> = crate::curated::apps().iter().map(|app| app.id.as_str()).collect();
         let profiles: BTreeSet<_> = crate::shifter::data().unwrap().profiles.iter().map(|profile| profile.id.as_str()).collect();

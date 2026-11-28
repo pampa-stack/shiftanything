@@ -2156,6 +2156,27 @@ pub const ALT_TAB: crate::CraftApp = crate::CraftApp {
     mac_team: Some("QXD7GW8FHY"),
 };
 
+pub const AMETHYST: crate::CraftApp = crate::CraftApp {
+    id: "amethyst",
+    name: "Amethyst",
+    tagline: "Arrange windows automatically in tiling layouts",
+    repo: "ianyh/Amethyst",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ian Ynda-Hummel",
+    msi_publisher: None,
+    bundle: Some("com.amethyst.Amethyst"),
+    site: Some("https://ianyh.com/amethyst/"),
+    mac_bundle_name: None,
+    mac_team: Some("82P2XLB4UH"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2844,6 +2865,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     CODEEDIT,
     MACCY,
     ALT_TAB,
+    AMETHYST,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

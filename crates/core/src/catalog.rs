@@ -210,6 +210,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::MACCY.id, crate::curated::MACCY.repo)
             || (self.id, self.repo) == (crate::curated::NETNEWSWIRE.id, crate::curated::NETNEWSWIRE.repo)
             || (self.id, self.repo) == (crate::curated::ALT_TAB.id, crate::curated::ALT_TAB.repo)
+            || (self.id, self.repo) == (crate::curated::AMETHYST.id, crate::curated::AMETHYST.repo)
             || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
             || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)
             || (self.id, self.repo) == (crate::curated::HAMMERSPOON.id, crate::curated::HAMMERSPOON.repo)

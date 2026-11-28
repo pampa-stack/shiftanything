@@ -124,6 +124,7 @@ fn main() -> Result<(), String> {
             "openwhispr",
             "deepchat",
             "alttab",
+            "amethyst",
             "linearmouse",
             "loop-macos",
             "dyad",

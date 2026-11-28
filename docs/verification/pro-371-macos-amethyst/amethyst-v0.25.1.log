@@ -1,0 +1,50 @@
+ARTIFACT ab1a290a40bb4d31bf589f74246683660789a2c988110aadc6d7e2c24a7f7835 7597173 https://github.com/ianyh/Amethyst/releases/download/v0.25.1/Amethyst.zip
+CFBundleIdentifier=com.amethyst.Amethyst
+CFBundleShortVersionString=0.25.1
+CFBundleVersion=131
+LSMinimumSystemVersion=12
+/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app/Contents/MacOS/Amethyst: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app/Contents/MacOS/Amethyst (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app/Contents/MacOS/Amethyst (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app/Contents/MacOS/Amethyst (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Executable=/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app/Contents/MacOS/Amethyst
+Identifier=com.amethyst.Amethyst
+Format=app bundle with Mach-O universal (x86_64 arm64)
+CodeDirectory v=20500 size=16449 flags=0x10000(runtime) hashes=503+7 location=embedded
+VersionPlatform=1
+VersionMin=786432
+VersionSDK=1769984
+Hash type=sha256 size=32
+CandidateCDHash sha256=ab74605eed6d0f3f3131db4efb7202898ff40e88
+CandidateCDHashFull sha256=ab74605eed6d0f3f3131db4efb7202898ff40e88280ba3a2308c005882e2a944
+Hash choices=sha256
+CMSDigest=ab74605eed6d0f3f3131db4efb7202898ff40e88280ba3a2308c005882e2a944
+CMSDigestType=2
+Executable Segment base=0
+Executable Segment limit=3129344
+Executable Segment flags=0x1
+Page size=16384
+CDHash=ab74605eed6d0f3f3131db4efb7202898ff40e88
+Signature size=8932
+Authority=Developer ID Application: Ian Ynda-Hummel (82P2XLB4UH)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=21 Nov 2026 at 22:20:37
+Notarization Ticket=stapled
+Info.plist entries=29
+TeamIdentifier=82P2XLB4UH
+Runtime Version=27.2.0
+Sealed Resources version=2 rules=13 files=44
+Internal requirements count=1 size=216
+/private/tmp/shift-air-overnight.b5lMSgK6/amethyst-180qcwha/extracted/Amethyst.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT amethyst v0.25.1

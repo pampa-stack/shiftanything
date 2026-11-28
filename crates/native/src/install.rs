@@ -94,6 +94,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::STATS.id,
                 recipe::TERMIX.id,
                 recipe::ALT_TAB.id,
+                recipe::AMETHYST.id,
                 recipe::TRANSMISSION.id,
                 recipe::UPSCAYL.id,
                 recipe::VSCODIUM.id,
@@ -685,6 +686,11 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::ALT_TAB.id {
         return (app.repo == artcraft_launcher_core::curated::ALT_TAB.repo && release::alt_tab_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::AMETHYST.id {
+        return (app.repo == artcraft_launcher_core::curated::AMETHYST.repo && release::amethyst_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -2350,9 +2356,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{ALT_TAB, DYAD, HAMMERSPOON, ICE, KEYCASTR, MACCY, NETNEWSWIRE};
+        use artcraft_launcher_core::curated::{ALT_TAB, AMETHYST, DYAD, HAMMERSPOON, ICE, KEYCASTR, MACCY, NETNEWSWIRE};
 
-        let framework_links = [ALT_TAB.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
+        let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }

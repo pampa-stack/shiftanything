@@ -1249,6 +1249,12 @@ pub fn alt_tab_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::ALT_TAB.repo, &release.tag).any(|reviewed| reviewed == *asset)
 }
 
+pub fn amethyst_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::AMETHYST.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
@@ -1724,6 +1730,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("lwouis/alt-tab-macos", "v11.10.2") => {
             &[("AltTab-11.10.2.zip", 4_885_500, "5a2a821a83be1092df0f63d2403359ef2f7d52ad39cec36d930e4c7554cc045b")]
         }
+        ("ianyh/Amethyst", "v0.25.0") => &[("Amethyst.zip", 7_480_074, "cbdcab38c14e5b1cb359537faf0f274b7d77aeb2d3cfef1982866e2084880437")],
+        ("ianyh/Amethyst", "v0.25.1") => &[("Amethyst.zip", 7_597_173, "ab1a290a40bb4d31bf589f74246683660789a2c988110aadc6d7e2c24a7f7835")],
         ("linearmouse/linearmouse", "v0.12.0") => {
             &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
         }

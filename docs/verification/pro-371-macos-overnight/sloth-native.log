@@ -1,0 +1,18 @@
+PASS PREFLIGHT sloth 3.5
+PASS PREFLIGHT sloth 3.6
+/dev/disk3s5   239362496 171656936  26578040    87% 3190895 265780400    1%   /System/Volumes/Data
+OFFICIAL INDEX sloth 3.5 digest=published
+OFFICIAL INDEX sloth 3.6 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 3.5 MacZip https://github.com/sveinbjornt/Sloth/releases/download/3.5/sloth-3.5.zip 1348310 ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5
+PASS OFFICIAL 3.6 MacZip https://github.com/sveinbjornt/Sloth/releases/download/3.6/sloth-3.6.zip 1343658 d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6
+NATIVE ORIGIN sloth GitHub
+PASS OFFICIAL 3.5 MacZip https://github.com/sveinbjornt/Sloth/releases/download/3.5/sloth-3.5.zip 1348310 ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5
+PASS NATIVE sloth install: Sloth installed: 3.5.0; package_bytes=1348310; elapsed=20.358s
+NATIVE ORIGIN sloth GitHub
+PASS OFFICIAL 3.6 MacZip https://github.com/sveinbjornt/Sloth/releases/download/3.6/sloth-3.6.zip 1343658 d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6
+PASS NATIVE sloth update: Sloth updated to 3.6.0; package_bytes=1343658; elapsed=9.639s
+PASS NATIVE sloth remove: Sloth was removed; package_bytes=0; elapsed=0.109s
+PASS NATIVE CYCLE sloth (3.5 → 3.6), private Trash and synthetic data preserved

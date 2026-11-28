@@ -110,6 +110,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             ],
             (12, 0),
         ),
+        (&[recipe::SLOTH.id], (11, 5)),
         (&[recipe::RUSTDESK.id, recipe::MACSHOT.id], (12, 3)),
         (
             &[
@@ -720,6 +721,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     let hidden_bar = artcraft_launcher_core::curated::HIDDEN_BAR;
     if app.id == hidden_bar.id {
         return (app.repo == hidden_bar.repo && release::hidden_bar_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    let sloth = artcraft_launcher_core::curated::SLOTH;
+    if app.id == sloth.id {
+        return (app.repo == sloth.repo && release::sloth_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     let swiftbar = artcraft_launcher_core::curated::SWIFTBAR;
     if app.id == swiftbar.id {
@@ -2430,7 +2435,7 @@ pub mod macos {
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
         use artcraft_launcher_core::curated::{
-            ALT_TAB, AMETHYST, DYAD, GITHUB_DESKTOP, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, STELLARIUM, SWIFTBAR,
+            ALT_TAB, AMETHYST, DYAD, GITHUB_DESKTOP, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, SLOTH, STELLARIUM, SWIFTBAR,
         };
 
         let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id)
@@ -2439,7 +2444,8 @@ pub mod macos {
             || app.uses_iterm2_releases()
             || app.uses_itsycal_releases()
             || (app.id, app.repo) == (GITHUB_DESKTOP.id, GITHUB_DESKTOP.repo)
-            || (app.id, app.repo) == (STELLARIUM.id, STELLARIUM.repo);
+            || (app.id, app.repo) == (STELLARIUM.id, STELLARIUM.repo)
+            || (app.id, app.repo) == (SLOTH.id, SLOTH.repo);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }

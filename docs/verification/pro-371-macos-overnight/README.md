@@ -33,6 +33,10 @@ On 28 November 2026, the native backend followed the [publisher’s appcast](htt
 
 The appcast also lists the 0.29.0 ARM64 package for macOS 27. Its signature and notarization passed preflight. On macOS 27 the launcher reports 0.29.0 without an install action until that package passes the native cycle. Intel installation and GUI launch are outside this evidence. [0.29.0 preflight](itsycal-0.29.0.log)
 
+### Sloth
+
+On 28 November 2026, the native backend installed [Sloth 3.5](https://github.com/sveinbjornt/Sloth/releases/tag/3.5), updated it to [3.6](https://github.com/sveinbjornt/Sloth/releases/tag/3.6) and removed it in an isolated MacBook Air Apple Silicon profile. Both official ZIPs matched their published SHA-256, contained ARM64 binaries, and passed strict code signature and notarization checks with team `5WX26Y89JP`. The archive extractor used its existing framework link validation for Sparkle. The cycle preserved a synthetic data file and sent the bundle to the private Trash. The test did not exercise the GUI. [3.5 preflight](sloth-3.5.log) · [3.6 preflight](sloth-3.6.log) · [Cycle log](sloth-native.log)
+
 ### Craft Anything
 
 On 28 November 2026, the native backend installed [Craft Anything 0.6.0](https://github.com/storytold/craft-anything/releases/tag/v0.6.0), detected [0.6.1](https://github.com/storytold/craft-anything/releases/tag/v0.6.1) through the ArtCraft release feed, updated it and moved the updated app to the private Trash. The Apple Silicon test ran on macOS 26.4. Both downloads matched the published SHA-256 and passed strict signature, architecture and notarization checks for bundle `ai.storyteller.craft-anything`, team `DJ6XS33FX8`. The synthetic user data survived. The macOS recipe selects the reviewed DMGs and requires macOS 11.0. This proof covers the package lifecycle. See [cycle](craft-anything.log), [0.6.0 preflight](craft-anything-v0.6.0.log) and [0.6.1 preflight](craft-anything-v0.6.1.log). The Linux GUI and package cycle are documented in [the Linux proof](../pro-371-linux-appimage-four/README.md).
@@ -148,3 +152,6 @@ For Firefox, save Mozilla's stable index as `firefox-versions.json` and the `SHA
 For Element, save the official macOS package index as `element-index.html`. Preflight the two exact universal DMG links and run `bash run-native.sh element element-hq/element-web Element 1.12.35 1.12.36`.
 
 For Craft Anything, save the official GitHub expanded asset pages and the matching preflight logs as `craft-anything-v0.6.{0,1}-assets.html` and `craft-anything-v0.6.{0,1}.log`. Run `bash run-native.sh craft-anything storytold/craft-anything "Craft Anything" v0.6.0 v0.6.1`.
+
+
+For Sloth, save the published GitHub expanded assets as `sloth-3.5-assets.html` and `sloth-3.6-assets.html`. Verify size, SHA-256, bundle identifier, version, ARM64 slice, signing identity and notarization for each ZIP, then save the preflight output as `sloth-3.5.log` and `sloth-3.6.log`. Execute `bash run-native.sh sloth sveinbjornt/Sloth Sloth 3.5 3.6` in the dedicated scratch directory with the native cycle binary.

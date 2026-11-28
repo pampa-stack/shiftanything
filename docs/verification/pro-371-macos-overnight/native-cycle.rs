@@ -151,6 +151,7 @@ fn main() -> Result<(), String> {
             "macvim",
             "hidden-bar",
             "swiftbar",
+            "sloth",
             "iterm2",
             "itsycal",
             "github-desktop",

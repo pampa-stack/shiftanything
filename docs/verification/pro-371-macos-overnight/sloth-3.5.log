@@ -1,0 +1,25 @@
+ARTIFACT ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5 1348310 https://github.com/sveinbjornt/Sloth/releases/download/3.5/sloth-3.5.zip
+CFBundleIdentifier=org.sveinbjorn.Sloth
+CFBundleShortVersionString=3.5
+CFBundleVersion=368
+LSMinimumSystemVersion=11.5
+/private/tmp/shift-air-overnight.4MC9X1F0/sloth-check.GgsCkORB/files/Sloth.app/Contents/MacOS/Sloth (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.5
+      sdk 26.1
+   ntools 1
+     tool LD
+  version 1230.1
+Identifier=org.sveinbjorn.Sloth
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Sveinbjorn Thordarson (5WX26Y89JP)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=15 Nov 2025 at 08:25:16
+TeamIdentifier=5WX26Y89JP
+/private/tmp/shift-air-overnight.4MC9X1F0/sloth-check.GgsCkORB/files/Sloth.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT sloth 3.5

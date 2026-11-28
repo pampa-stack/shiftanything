@@ -249,6 +249,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::AMETHYST.id, crate::curated::AMETHYST.repo)
             || (self.id, self.repo) == (crate::curated::HIDDEN_BAR.id, crate::curated::HIDDEN_BAR.repo)
             || (self.id, self.repo) == (crate::curated::SWIFTBAR.id, crate::curated::SWIFTBAR.repo)
+            || (self.id, self.repo) == (crate::curated::SLOTH.id, crate::curated::SLOTH.repo)
             || self.uses_iterm2_releases()
             || self.uses_itsycal_releases()
             || (self.id, self.repo) == (crate::curated::GITHUB_DESKTOP.id, crate::curated::GITHUB_DESKTOP.repo)

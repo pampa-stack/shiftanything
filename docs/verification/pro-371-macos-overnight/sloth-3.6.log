@@ -1,0 +1,25 @@
+ARTIFACT d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6 1343658 https://github.com/sveinbjornt/Sloth/releases/download/3.6/sloth-3.6.zip
+CFBundleIdentifier=org.sveinbjorn.Sloth
+CFBundleShortVersionString=3.6
+CFBundleVersion=392
+LSMinimumSystemVersion=11.5
+/private/tmp/shift-air-overnight.4MC9X1F0/sloth-check.GspNgq3n/files/Sloth.app/Contents/MacOS/Sloth (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.5
+      sdk 26.4
+   ntools 1
+     tool LD
+  version 1266.8
+Identifier=org.sveinbjorn.Sloth
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Sveinbjorn Thordarson (5WX26Y89JP)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=22 Apr 2026 at 17:14:22
+TeamIdentifier=5WX26Y89JP
+/private/tmp/shift-air-overnight.4MC9X1F0/sloth-check.GspNgq3n/files/Sloth.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT sloth 3.6

@@ -2303,6 +2303,27 @@ pub const HIDDEN_BAR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W777S7V8TN"),
 };
 
+pub const SLOTH: crate::CraftApp = crate::CraftApp {
+    id: "sloth",
+    name: "Sloth",
+    tagline: "Inspect open files and sockets by process",
+    repo: "sveinbjornt/Sloth",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [255, 209, 85],
+    ink_light: [126, 83, 30],
+    ink_dark: [255, 213, 109],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Sveinbjorn Thordarson",
+    msi_publisher: None,
+    bundle: Some("org.sveinbjorn.Sloth"),
+    site: Some("https://github.com/sveinbjornt/Sloth"),
+    mac_bundle_name: None,
+    mac_team: Some("5WX26Y89JP"),
+};
+
 pub const SWIFTBAR: crate::CraftApp = crate::CraftApp {
     id: "swiftbar",
     name: "SwiftBar",
@@ -3248,6 +3269,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MACVIM,
     HIDDEN_BAR,
     SWIFTBAR,
+    SLOTH,
     GITHUB_DESKTOP,
     ITERM2,
     ITSYCAL,

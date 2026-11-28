@@ -1449,6 +1449,12 @@ pub fn hidden_bar_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::HIDDEN_BAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+pub fn sloth_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && version::parse(&release.tag).is_some_and(|version| release.version.as_ref() == Some(&version))
+        && reviewed_assets(crate::curated::SLOTH.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
 pub fn swiftbar_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
@@ -2017,6 +2023,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("consolelabs/hidden", "v1.13.4") => {
             &[("Hidden-Bar-v1.13.4-macos.zip", 2_757_264, "3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09")]
         }
+        ("sveinbjornt/Sloth", "3.5") => &[("sloth-3.5.zip", 1_348_310, "ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5")],
+        ("sveinbjornt/Sloth", "3.6") => &[("sloth-3.6.zip", 1_343_658, "d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6")],
         ("swiftbar/SwiftBar", "v2.1.0") => {
             &[("SwiftBar.v2.1.0.b594.zip", 2_989_039, "54b425256f449dd90f8d167993cc65c3673bcd44d206e1aaf641a09fb58bc0da")]
         }

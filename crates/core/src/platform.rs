@@ -356,7 +356,7 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 16] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 17] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
@@ -366,6 +366,7 @@ fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
         (curated::AMETHYST.id, PackageKind::MacZip, release::amethyst_mac_asset),
         (curated::HIDDEN_BAR.id, PackageKind::MacZip, release::hidden_bar_mac_asset),
         (curated::SWIFTBAR.id, PackageKind::MacZip, release::swiftbar_mac_asset),
+        (curated::SLOTH.id, PackageKind::MacZip, release::sloth_mac_asset),
         (curated::GITHUB_DESKTOP.id, PackageKind::MacZip, release::github_desktop_mac_asset),
         (curated::ITERM2.id, PackageKind::MacZip, release::iterm2_mac_asset),
         (curated::ITSYCAL.id, PackageKind::MacZip, release::itsycal_mac_asset),
@@ -782,6 +783,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::AMETHYST.id,
         crate::curated::HIDDEN_BAR.id,
         crate::curated::SWIFTBAR.id,
+        crate::curated::SLOTH.id,
         crate::curated::GITHUB_DESKTOP.id,
         crate::curated::ITERM2.id,
         crate::curated::ITSYCAL.id,
@@ -1111,6 +1113,7 @@ mod tests {
             (crate::curated::AMETHYST, ["v0.25.0", "v0.25.1"]),
             (crate::curated::HIDDEN_BAR, ["v1.13.3", "v1.13.4"]),
             (crate::curated::SWIFTBAR, ["v2.1.0", "v2.1.1"]),
+            (crate::curated::SLOTH, ["3.5", "3.6"]),
             (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
             (crate::curated::DYAD, ["v1.23.0", "v1.24.0"]),
             (crate::curated::HAMMERSPOON, ["1.1.0", "1.1.1"]),

@@ -42,14 +42,26 @@ Ogni criterio ha la sua prova scritta nel rapporto finale.
 
 1. `release-notes.py` sul commit di release esce 0 con almeno 20 verifiche nuove rispetto a `db42c75`.
 2. `Cargo.toml` e `tauri.conf.json` dicono 0.21.0 nello stesso commit; `--version` del binario Mac e di quello Linux dice 0.21.0.
-3. Il DMG passa `spctl -a -t open --context context:primary-signature`, `stapler validate` e la verifica di `release-dmg.sh`; l'app copiata dal DMG si apre su un Mac Apple Silicon (screenshot letto).
+3. Il DMG passa la verifica di `release-dmg.sh` sul Pro. La prova di Gatekeeper si rifà sull'**Air**, che non ha firmato nulla: il DMG si scarica con l'attributo di quarantena (`xattr -p com.apple.quarantine` presente), poi `spctl -a -t open --context context:primary-signature`, `xcrun stapler validate`, copia in Applicazioni e apertura con l'app senza avvisi (screenshot letto).
 4. Il DEB si installa su Ubuntu 24.04 x64 e l'archivio `.tar.gz` si avvia su una distribuzione diversa da Ubuntu (Fedora o Debian), con screenshot letti.
 5. `latest.json` ha solo `darwin-aarch64` e `linux-x86_64-deb`, con firme che `package-tauri-updater.sh` verifica; nessuna voce Windows.
-6. Aggiornamento dal vivo dalla 0.20.9 alla 0.21.0 su Mac e su Linux, dalla bozza o dalla release, con screenshot prima e dopo letti.
-7. Catture reali IT/EN dalla build 0.21 (Catalogo, SH*FTER, Trova app, Kit di lavoro, Le mie app) in WebP, con gli stessi byte nei README IT/EN e nella landing promptica.it/shiftanything.
+6. Aggiornamento dalla 0.20.9 alla 0.21.0 su Mac e su Linux, in due tempi, con screenshot prima e dopo letti:
+   - **Prima della pubblicazione.** L'app legge `latest.json` da un indirizzo fissato in compilazione (`SHIFT_LAUNCHER_UPDATE_ENDPOINT` in `launcher_update/signed.rs`); nella 0.20.9 pubblicata è `https://github.com/pampa-stack/shiftanything/releases/latest/download/latest.json`, che non vede le bozze. L'indirizzo deve essere HTTPS e il certificato si controlla con il portachiavi del sistema (`rustls-platform-verifier`). Quindi: una build di prova della 0.20.9 da `db42c75`, uguale tranne `SHIFT_LAUNCHER_UPDATE_ENDPOINT=https://ax42.tail680f56.ts.net:8443/latest.json`, installata sull'Air e nel guest Linux. Sull'AX42 `tailscale serve` (solo dentro la rete Tailscale, mai `funnel`) serve una cartella con una copia di `latest.json` i cui indirizzi puntano agli stessi file firmati della 0.21.0, copiati byte per byte (hash confrontati con `SHA256SUMS.txt`). La build di prova non esce mai dalle macchine di prova; la build pubblicata usa l'indirizzo di GitHub, controllato con `--check-update-channel` o l'equivalente `check_packaged_channel` prima del caricamento. Finita la prova, `tailscale serve reset` sulla porta 8443.
+   - **Dopo la pubblicazione.** Dalla 0.20.9 pubblicata, installata da zero sull'Air e nel guest Linux, aggiornamento dal vivo alla 0.21.0, con il tag di rollback già pronto.
+7. Catture reali IT/EN dalla build 0.21 (Catalogo, SH*FTER, Trova app, Kit di lavoro, Le mie app) in WebP, con gli stessi byte nei README IT/EN e nella landing promptica.it/shiftanything (vedi «Landing»).
 8. Bozza GitHub con `--target`, file scaricati di nuovo e confrontati con `SHA256SUMS.txt` prima di pubblicare.
 9. Le 5 prove prima della pubblicazione: pipeline a 9 fasi; revisione di un modello di un'altra famiglia con link al commento e 0 problemi gravi aperti; `cargo fmt --all --check`, clippy `-D warnings` e test di core, native e tauri-proof verdi, con i fallimenti preesistenti elencati a parte; prova dal vivo (download anonimo dalla landing su desktop e telefono, aggiornamento su Mac e Linux); tag di rollback prima del merge e `--match-head-commit`.
 10. Riepilogo a SHIFTANYTHING - MAIN con link a release, landing e screenshot.
+
+## Landing
+
+La landing sta nel repo `pampa-stack/promptica-it` (ramo predefinito `main`, Next.js su Vercel), non in questo. Per la 0.20.9 sono servite due PR: [#591](https://github.com/pampa-stack/promptica-it/pull/591) (quattro schermate in `public/shiftanything/0.20.9/` e `app/shiftanything/page.tsx`) e [#592](https://github.com/pampa-stack/promptica-it/pull/592) (Le mie app, con `shiftanything.module.css`). Per la 0.21 si fa lo stesso:
+
+1. Ramo `f/shiftanything-021-screenshots` in un worktree di quel repo; WebP in `public/shiftanything/0.21.0/`, con la versione nell'indirizzo per il rinnovo della cache, e gli stessi byte dei README di questo repo.
+2. `app/shiftanything/page.tsx` punta alle nuove immagini; versione, peso e download continuano a venire da GitHub.
+3. PR verso `main` con il commit e il deployment Vercel di ritorno indietro scritti nella descrizione, come nella #591; anteprima Vercel controllata su desktop e telefono con screenshot letti.
+4. Revisione di un modello di un'altra famiglia sulla PR della landing, con link al commento e 0 problemi gravi.
+5. La PR della landing si unisce solo dopo la pubblicazione della release 0.21.0 e solo con le sue 5 prove; il download anonimo dalla landing in produzione chiude il criterio 9.
 
 ## Fuori da questo lavoro
 

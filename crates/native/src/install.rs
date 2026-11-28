@@ -2348,9 +2348,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{ALT_TAB, KEYCASTR, MACCY, NETNEWSWIRE};
+        use artcraft_launcher_core::curated::{ALT_TAB, DYAD, HAMMERSPOON, KEYCASTR, MACCY, NETNEWSWIRE};
 
-        let framework_links = [ALT_TAB.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
+        let framework_links = [ALT_TAB.id, DYAD.id, HAMMERSPOON.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2472,7 +2472,10 @@ pub mod macos {
                 );
             let appledouble =
                 loop_sidecar || (framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._")));
-            let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
+            let dyad_git_root = dyad_git_link_root(bundle, relative);
+            let is_dyad_git_link = dyad_git_root.is_some();
+            let link_root =
+                if framework_links && file_type == 0o120000 && !entry.is_dir() { framework_root(bundle, relative).or(dyad_git_root) } else { None };
             if name.contains(['\\', ':'])
                 || name.chars().any(char::is_control)
                 || name.split('/').any(|part| part == "." || part == "..")
@@ -2481,7 +2484,7 @@ pub mod macos {
                     && !netnewswire_sidecar
                     && !loop_sidecar)
                 || (appledouble && (file_type != 0o100000 || entry.is_dir()))
-                || (!matches!(file_type, 0 | 0o100000 | 0o040000) && framework.is_none())
+                || (!matches!(file_type, 0 | 0o100000 | 0o040000) && link_root.is_none())
                 || (file_type == 0o040000 && !entry.is_dir())
                 || (relative == Path::new(bundle) && !entry.is_dir())
                 || !entries.insert(relative.to_string_lossy().to_lowercase())
@@ -2505,7 +2508,7 @@ pub mod macos {
             }
             let parent = output.parent().ok_or("The app ZIP has no bundle folder.")?;
             std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
-            if let Some(framework) = framework {
+            if let Some(link_root) = link_root {
                 // Write the ordinary files and prepare every parent directory before making any links.
                 // Nothing from this or a later archive entry can be written through a link.
                 let mut target = String::new();
@@ -2516,10 +2519,11 @@ pub mod macos {
                     || target.chars().any(char::is_control)
                     || target.split('/').any(|part| part.is_empty() || part == "." || part == "..")
                     || !Path::new(&target).components().all(|part| matches!(part, Component::Normal(_)))
+                    || (is_dyad_git_link && !matches!(target.as_str(), "git" | "git-remote-http"))
                 {
-                    return Err("The app ZIP contains an invalid framework link target.".into());
+                    return Err("The app ZIP contains an invalid link target.".into());
                 }
-                links.push((output, target, unpacked.join(framework)));
+                links.push((output, target, unpacked.join(link_root)));
                 continue;
             }
             let mut file = std::fs::OpenOptions::new().write(true).create_new(true).open(output).map_err(|e| e.to_string())?;
@@ -2531,11 +2535,11 @@ pub mod macos {
         for (link, target, _) in &links {
             std::os::unix::fs::symlink(target, link).map_err(|e| e.to_string())?;
         }
-        for (link, _, framework) in links {
-            let resolved = std::fs::canonicalize(link).map_err(|e| format!("The app ZIP contains an unresolved framework link ({e})."))?;
-            let framework = std::fs::canonicalize(framework).map_err(|e| e.to_string())?;
-            if !resolved.starts_with(framework) {
-                return Err("The app ZIP contains a link outside its framework.".into());
+        for (link, _, link_root) in links {
+            let resolved = std::fs::canonicalize(link).map_err(|e| format!("The app ZIP contains an unresolved link ({e})."))?;
+            let link_root = std::fs::canonicalize(link_root).map_err(|e| e.to_string())?;
+            if !resolved.starts_with(link_root) {
+                return Err("The app ZIP contains a link outside its permitted directory.".into());
             }
         }
         Ok(())
@@ -2551,6 +2555,42 @@ pub mod macos {
             return None;
         }
         Some(roots.join(framework))
+    }
+
+    fn dyad_git_link_root(bundle: &str, relative: &Path) -> Option<PathBuf> {
+        let root = Path::new("dyad.app/Contents/Resources/git/libexec/git-core");
+        let name = relative.file_name()?.to_str()?;
+        (bundle == "dyad.app" && relative.parent() == Some(root) && name.starts_with("git-") && name != "git-remote-http").then(|| root.to_path_buf())
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn dyad_zip_confines_bundled_git_links() {
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("app.zip");
+        let git = "dyad.app/Contents/Resources/git/libexec/git-core";
+        for (index, (link, target, accepted)) in [
+            (format!("{git}/git-fetch"), "git", true),
+            (format!("{git}/git-fetch"), "../git", false),
+            (format!("{git}/git-fetch"), "other", false),
+            (format!("{git}/subdir/git-fetch"), "git", false),
+            (format!("{git}/git-remote-http"), "git", false),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            for name in ["git", "other"] {
+                writer.start_file(format!("{git}/{name}"), SimpleFileOptions::default()).unwrap();
+            }
+            writer.add_symlink(&link, target, SimpleFileOptions::default()).unwrap();
+            writer.finish().unwrap();
+            assert_eq!(extract_app_zip(&archive, &output, "dyad.app", true).is_ok(), accepted, "{link} -> {target}");
+        }
     }
 
     #[cfg(test)]

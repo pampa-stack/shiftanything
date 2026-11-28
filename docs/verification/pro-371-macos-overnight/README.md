@@ -56,3 +56,5 @@ For Subtitle Edit, save the official expanded asset pages as `subtitle-edit-v5.3
 For OpenWhispr, save the official expanded asset pages as `openwhispr-v1.12.1-assets.html` and `openwhispr-v1.12.2-assets.html`. Run `bash run-native.sh openwhispr OpenWhispr/openwhispr OpenWhispr v1.12.1 v1.12.2`.
 
 For DeepChat, save the official expanded asset pages as `deepchat-v1.1.3-assets.html` and `deepchat-v1.1.4-assets.html`. Run `bash run-native.sh deepchat ThinkInAIXYZ/deepchat DeepChat v1.1.3 v1.1.4`.
+
+For Dyad, Finicky and Hammerspoon, save each official GitHub expanded asset page and preflight log using the same names as for DeepChat. Run `bash run-native.sh dyad dyad-sh/dyad dyad v1.23.0 v1.24.0`, `bash run-native.sh finicky johnste/finicky Finicky v4.2.1 v4.2.2` and `bash run-native.sh hammerspoon Hammerspoon/hammerspoon Hammerspoon 1.1.0 1.1.1`.

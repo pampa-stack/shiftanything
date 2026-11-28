@@ -356,13 +356,15 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 6] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 8] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
         (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
         (curated::ALT_TAB.id, PackageKind::MacZip, release::alt_tab_mac_asset),
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
+        (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
+        (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
     ];
     recipes.into_iter().find(|(id, _, _)| stems.contains(id)).map(|(_, kind, matches_asset)| (kind, matches_asset))
 }
@@ -765,6 +767,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::NETNEWSWIRE.id,
         crate::curated::ALT_TAB.id,
         crate::curated::LOOP.id,
+        crate::curated::DYAD.id,
+        crate::curated::HAMMERSPOON.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
@@ -957,6 +961,7 @@ mod tests {
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::LINEAR_MOUSE, ["v0.12.0", "v0.13.0"]),
+            (crate::curated::FINICKY, ["v4.2.1", "v4.2.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
             (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
@@ -1015,6 +1020,8 @@ mod tests {
             (crate::curated::MACCY, ["2.7.1", "2.8.0"]),
             (crate::curated::ALT_TAB, ["v11.10.1", "v11.10.2"]),
             (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
+            (crate::curated::DYAD, ["v1.23.0", "v1.24.0"]),
+            (crate::curated::HAMMERSPOON, ["1.1.0", "1.1.1"]),
         ] {
             let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
             for tag in tags {

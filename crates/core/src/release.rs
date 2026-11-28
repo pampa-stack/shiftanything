@@ -1086,6 +1086,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::RECTANGLE,
         crate::curated::CODEEDIT,
         crate::curated::LINEAR_MOUSE,
+        crate::curated::FINICKY,
         crate::curated::BLENDER,
         crate::curated::GIMP,
         crate::curated::KRITA,
@@ -1218,6 +1219,18 @@ pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
         && reviewed_assets(crate::curated::LOOP.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn dyad_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::DYAD.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn hammerspoon_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::HAMMERSPOON.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
 pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
@@ -1662,6 +1675,20 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("mrkai77/Loop", "1.4.1") => &[("Loop.zip", 33_816_818, "ed617a58b1c204257fd76eff1fd405db8305a9c2159396a052613a86544ef6e8")],
         ("mrkai77/Loop", "1.4.2") => &[("Loop.zip", 24_046_630, "514e97faab3843cdfb8b1859b91333704639a1a2ce580e4f684d75efe007d386")],
+        ("dyad-sh/dyad", "v1.23.0") => {
+            &[("dyad-darwin-arm64-1.23.0.zip", 130_606_146, "50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15")]
+        }
+        ("dyad-sh/dyad", "v1.24.0") => {
+            &[("dyad-darwin-arm64-1.24.0.zip", 130_496_464, "edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb")]
+        }
+        ("johnste/finicky", "v4.2.1") => &[("Finicky.dmg", 28_569_559, "4b6008735a2885d0ae6135ba0eaefa3e0fc4e8d84d0b6166bd79cc732e6091cc")],
+        ("johnste/finicky", "v4.2.2") => &[("Finicky.dmg", 28_569_676, "5f0020782c9075d27411d6083d7be8663891e3146c86eafad118c44acc12208f")],
+        ("Hammerspoon/hammerspoon", "1.1.0") => {
+            &[("Hammerspoon-1.1.0.zip", 9_879_298, "39ef907b7984f6cd38778d5bee3772abac8be6b48aa46a1ff5d7adccd41e73b5")]
+        }
+        ("Hammerspoon/hammerspoon", "1.1.1") => {
+            &[("Hammerspoon-1.1.1.zip", 9_704_557, "11bb1c90faf5427f37c7bd4fe7eab9774ae43e1d5cb020c5b3088dac32849efa")]
+        }
         ("blender/blender", "5.2.5") => {
             &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
         }

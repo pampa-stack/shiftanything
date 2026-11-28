@@ -122,6 +122,9 @@ fn main() -> Result<(), String> {
             "alttab",
             "linearmouse",
             "loop-macos",
+            "dyad",
+            "finicky",
+            "hammerspoon",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

@@ -13,7 +13,8 @@
   <a href="README.md">English</a>
 </p>
 
-![Catalogo di Sh*ftAnything con anteprime, filtri e pulsanti di installazione](docs/screenshots/shiftanything-catalog.webp)
+<!-- Screenshots captured from the published Sh*ftAnything 0.20.9 Linux desktop package. -->
+![Catalogo di Sh*ftAnything con anteprime, filtri e pulsanti di installazione](docs/screenshots/shiftanything-catalog-it.webp)
 
 ## Scarica
 
@@ -36,15 +37,15 @@ Scarica il pacchetto dalla [landing di Sh*ftAnything](https://promptica.it/shift
 
 ### Confronta le funzioni con SH\*FTER
 
-![SH*FTER confronta quattro alternative a Photoshop con copertura documentata e fonti](docs/screenshots/shiftanything-shifter.webp)
+![SH*FTER confronta quattro alternative a Photoshop con copertura documentata e fonti](docs/screenshots/shiftanything-shifter-it.webp)
 
 ### Descrivi quello che vuoi fare
 
-![Trova app suggerisce programmi di dettatura per Linux](docs/screenshots/shiftanything-find-apps.webp)
+![Trova app suggerisce programmi di dettatura per Linux](docs/screenshots/shiftanything-find-apps-it.webp)
 
 ### Parti da un Kit di lavoro
 
-![Il Kit Designer raggruppa alternative open source per fase, dal ritocco alla prototipazione](docs/screenshots/shiftanything-workflow-kits.webp)
+![Il Kit Designer raggruppa alternative open source per fase, dal ritocco alla prototipazione](docs/screenshots/shiftanything-workflow-kits-it.webp)
 
 ## Contribuisci
 

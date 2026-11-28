@@ -13,6 +13,7 @@
   <a href="README.it.md">Italiano</a>
 </p>
 
+<!-- Screenshots captured from the published Sh*ftAnything 0.20.9 Linux desktop package. -->
 ![Sh*ftAnything catalog with app previews, filters and install buttons](docs/screenshots/shiftanything-catalog.webp)
 
 ## Download

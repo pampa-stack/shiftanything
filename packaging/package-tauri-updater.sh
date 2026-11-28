@@ -9,7 +9,7 @@ usage() {
   printf '%s\n' 'Usage: package-tauri-updater.sh VERSION DMG DMG_SHA256 DEB DEB_SHA256 WINDOWS_SETUP WINDOWS_SHA256 RELEASE_OWNER/REPO NEW_OUTPUT_DIRECTORY' \
     'Requires APPLE_TEAM_ID and a preconfigured TAURI_SIGNING_PRIVATE_KEY_PATH.' \
     'WINDOWS_SETUP comes from packaging/windows/release-nsis.ps1, WINDOWS_SHA256 from its windows-receipt.json.' \
-    'If set, SHIFT_LAUNCHER_UPDATE_PUBKEY must match all updater signatures.'
+    'SHIFT_LAUNCHER_UPDATE_PUBKEY, the key compiled into the launchers, must match all updater signatures.'
 }
 fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
 if [[ $# = 1 && ( "$1" = --help || "$1" = -h ) ]]; then usage; exit 0; fi
@@ -31,6 +31,7 @@ output=$9
 [[ "$(uname -s)" = Darwin && "$(uname -m)" = arm64 ]] || fail 'Run this tool on macOS Apple Silicon.'
 [[ -f "$input_dmg" && -f "$input_deb" && -f "$input_setup" ]] || fail 'All three packages must exist.'
 [[ "${APPLE_TEAM_ID:-}" =~ ^[A-Z0-9]{10}$ ]] || fail 'Configure the Apple Developer signing team.'
+[[ -n "${SHIFT_LAUNCHER_UPDATE_PUBKEY:-}" ]] || fail 'Set SHIFT_LAUNCHER_UPDATE_PUBKEY to the updater public key compiled into the launchers.'
 [[ "${TAURI_SIGNING_PRIVATE_KEY_PATH:-}" = /* && -f "$TAURI_SIGNING_PRIVATE_KEY_PATH" && -r "$TAURI_SIGNING_PRIVATE_KEY_PATH" ]] \
   || fail 'Configure the existing Tauri signing key file by absolute path.'
 [[ ! -e "$output" && ! -L "$output" ]] || fail 'Choose a fresh output directory.'
@@ -148,15 +149,13 @@ import sys
 
 assets = Path(sys.argv[1])
 repo, version, mac_name, linux_name, windows_name = sys.argv[2:]
-public = os.environ.get("SHIFT_LAUNCHER_UPDATE_PUBKEY")
-public_record = None
-if public:
-    lines = base64.b64decode(public.strip(), validate=True).decode("utf-8").splitlines()
-    if len(lines) != 2:
-        sys.exit("Unexpected Tauri public key format.")
-    public_record = base64.b64decode(lines[1], validate=True)
-    if len(public_record) != 42:
-        sys.exit("Unexpected Tauri public key record.")
+public = os.environ["SHIFT_LAUNCHER_UPDATE_PUBKEY"]
+lines = base64.b64decode(public.strip(), validate=True).decode("utf-8").splitlines()
+if len(lines) != 2:
+    sys.exit("Unexpected Tauri public key format.")
+public_record = base64.b64decode(lines[1], validate=True)
+if len(public_record) != 42:
+    sys.exit("Unexpected Tauri public key record.")
 platforms = {}
 key_ids = set()
 for target, name in [("darwin-aarch64", mac_name), ("linux-x86_64-deb", linux_name), ("windows-x86_64", windows_name)]:
@@ -169,7 +168,7 @@ for target, name in [("darwin-aarch64", mac_name), ("linux-x86_64-deb", linux_na
         sys.exit(f"Unexpected Tauri signature record for {target}.")
     key_id = record[2:10]
     key_ids.add(key_id)
-    if public_record is not None and key_id != public_record[2:10]:
+    if key_id != public_record[2:10]:
         sys.exit(f"The Tauri signing key for {target} does not match the configured updater public key.")
     platforms[target] = {"signature": signature, "url": f"https://github.com/{repo}/releases/download/v{version}/{name}"}
 if len(key_ids) != 1:

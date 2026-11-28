@@ -275,7 +275,7 @@ fn apply(_exe: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
 }
 
 #[cfg(windows)]
-const UNINSTALL_KEY: &str = r"HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\ShiftAnything";
+const UNINSTALL_KEY: &str = concat!(r"HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\", env!("SHIFT_WINDOWS_PRODUCT"));
 
 /// Only the per-user NSIS installation registered for this exact executable and version can update itself.
 #[cfg(windows)]

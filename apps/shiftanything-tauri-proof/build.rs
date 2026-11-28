@@ -11,6 +11,14 @@ fn main() {
     if os == "macos" || os == "linux" || (os == "windows" && std::env::var_os("CARGO_FEATURE_WINDOWS_LIFECYCLE").is_some()) {
         println!("cargo::rustc-cfg=signed_updates");
     }
+    // Windows does not allow * in file names: tauri.windows.json is the one source of the Windows product name,
+    // which the NSIS setup uses for the install folder and the uninstall registry key.
+    println!("cargo:rerun-if-changed=tauri.windows.json");
+    let windows = fs::read_to_string("tauri.windows.json").expect("read Windows Tauri config");
+    let windows = serde_json::from_str::<serde_json::Value>(&windows).expect("parse Windows Tauri config");
+    let product = windows["productName"].as_str().expect("Windows productName");
+    assert_eq!(windows["mainBinaryName"].as_str(), Some(product), "Windows mainBinaryName must equal productName");
+    println!("cargo::rustc-env=SHIFT_WINDOWS_PRODUCT={product}");
     tauri_build::build()
 }
 

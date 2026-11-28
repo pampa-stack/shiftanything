@@ -141,6 +141,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::OPENSCREEN.id,
                 recipe::PASEO.id,
                 recipe::PICARD.id,
+                recipe::RASPBERRY_PI_IMAGER.id,
                 recipe::SIYUAN.id,
                 recipe::SIGNAL_DESKTOP.id,
                 recipe::SUPER_PRODUCTIVITY.id,
@@ -3867,6 +3868,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::INVOKE_COMMUNITY), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::RASPBERRY_PI_IMAGER), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MUSESCORE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));

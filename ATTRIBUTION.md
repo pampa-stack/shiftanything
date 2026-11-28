@@ -161,3 +161,5 @@ The catalog galleries for Excalidraw, Home Assistant, Jellyfin, Langflow, Record
 The Grafana OSS, RAGFlow and Umami galleries use official previews published by Grafana Labs, InfiniFlow and Umami Software. The catalog records the original URLs used for runtime downloads. The native fallback uses the same rasterized Grafana and RAGFlow marks as the Tauri catalog, with their original SVG sources and PNG checksums recorded in both media manifests.
 
 The Rectangle, Ice, Maccy and iTerm2 galleries use images published by their maintainers. The GitHub Desktop gallery uses examples published in GitHub Docs. The launcher downloads the images listed in `crates/core/curated.json` into its local cache. No copies are bundled.
+
+The Duplicati and Plakar Community galleries link to images from their official documentation repositories. The Apache Guacamole gallery uses the screenshots from the Apache Software Foundation's 1.6.0 manual. The catalog records the official source pages and the exact images the launcher fetches.

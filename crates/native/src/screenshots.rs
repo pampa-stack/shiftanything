@@ -188,6 +188,8 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
         "https://iterm2.com/img/screenshots/find.png",
         "https://docs.github.com/assets/cb-66158/images/help/desktop/diff-selection.png",
         "https://docs.github.com/assets/cb-16555/images/help/desktop/commit-all.png",
+        "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-home-screen.png",
+        "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-client-interface.png",
     ];
     if !reviewed_pictures.contains(&url) && !allowed.iter().any(|base| url.starts_with(base)) {
         return Err("Unapproved catalog media origin".into());

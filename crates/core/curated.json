@@ -22363,8 +22363,8 @@
     "level": "base",
     "category": "backup",
     "description": {
-      "it": "Backup incrementali da dashboard con destinazioni locali e remote",
-      "en": "Dashboard for incremental backups to local and remote destinations"
+      "it": "Il client open source pianifica backup incrementali e permette di ripristinare singoli file dalla dashboard locale. Puoi scegliere cosa salvare, cifrare le copie e conservarle su un disco, un NAS o uno spazio remoto a tua scelta.",
+      "en": "Schedule incremental backups and restore individual files from the open-source client’s local dashboard. Choose what to back up, encrypt your copies, and store them on a drive, a NAS, or remote storage you control."
     },
     "alternatives": [
       "Arq"
@@ -22379,8 +22379,12 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/duplicati/duplicati/0fe4eba7c017dbca80b38c1fb3c031618bad6ac8/ReleaseBuilder/Resources/Synology/PACKAGE_ICON_256.PNG",
-    "screenshots": [],
-    "media_source": "https://github.com/duplicati/duplicati/blob/0fe4eba7c017dbca80b38c1fb3c031618bad6ac8/ReleaseBuilder/Resources/Synology/PACKAGE_ICON_256.PNG",
+    "screenshots": [
+      "https://raw.githubusercontent.com/duplicati/documentation/aa17e39ef69e92c0fdeccaf9d5b420dd894c76b0/.gitbook/assets/setup-backup-source-data-light.png",
+      "https://raw.githubusercontent.com/duplicati/documentation/aa17e39ef69e92c0fdeccaf9d5b420dd894c76b0/.gitbook/assets/setup-backup-destination-light.png",
+      "https://raw.githubusercontent.com/duplicati/documentation/aa17e39ef69e92c0fdeccaf9d5b420dd894c76b0/.gitbook/assets/setup-backup-schedule-light.png"
+    ],
+    "media_source": "https://docs.duplicati.com/getting-started/set-up-a-backup-in-the-ui",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -28671,8 +28675,8 @@
     "level": "avanz",
     "category": "backup",
     "description": {
-      "it": "Backup e istantanee con interfaccia web locale per consultare le versioni e ripristinare file.",
-      "en": "Backup and snapshots with a local web interface for browsing versions and restoring files."
+      "it": "Consulta la cronologia dei backup dalla dashboard locale di Plakar Community. Apri un’istantanea per sfogliare i file, controllarne il contenuto e scegliere cosa ripristinare.",
+      "en": "Browse backup history in Plakar Community’s local dashboard. Open a snapshot to browse files, preview their contents, and choose what to restore."
     },
     "alternatives": [
       "Arq Backup"
@@ -28687,8 +28691,11 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/PlakarKorp/plakar/59514bf7faddb9e48cc522e3e5ffecbee032a02f/docs/assets/Plakar_Logo_Simple_Primary.png",
-    "screenshots": [],
-    "media_source": "https://github.com/PlakarKorp/plakar",
+    "screenshots": [
+      "https://raw.githubusercontent.com/PlakarKorp/plakar.io/a6e41e01a2ac24657385f4d0666ecbf46cd178f0/content/docs/community/main/guides/images/plakar-ui-dashboard.png",
+      "https://raw.githubusercontent.com/PlakarKorp/plakar.io/a6e41e01a2ac24657385f4d0666ecbf46cd178f0/content/docs/community/main/guides/images/preview-snapshot-data.png"
+    ],
+    "media_source": "https://www.plakar.io/docs/community/main/guides/using-plakar-ui/",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -33010,7 +33017,19 @@
     "platform_support": {
       "macos": "https://iterm2.com/downloads.html"
     },
-    "platform_scope_complete": true
+    "platform_scope_complete": true,
+    "release": {
+      "version": "3.7.9",
+      "date": "2026-11-20",
+      "source": "https://iterm2.com/downloads.html",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 78118306,
+          "size_max": 78118306
+        }
+      ]
+    }
   },
   {
     "id": "xbar",

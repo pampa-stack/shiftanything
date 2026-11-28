@@ -1,0 +1,19 @@
+commit 572106b0d808c970f40d28f877434d812e323891842aa93c448cc22b51cfb107
+Parent:  13a823f60bad0974c23f14c31808f9458adcc2c4571b4161793c92bd5c21d208
+ContentChecksum:  871aa2fb8045df91248e2e47150e209eeb2f8fcf9fb0e6df7b2659592e6a28eb
+Date:  2026-05-20 22:03:28 +0000
+
+    Merge pull request #9 from flathub/update-3-2 (82846646eee1)
+
+    Name: com.solvespace.SolveSpace
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Wed May 20 23:08:01 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

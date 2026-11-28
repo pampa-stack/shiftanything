@@ -138,7 +138,7 @@ mod linux {
 
         fn command(&self) -> Command {
             let mut command = process::flatpak_command();
-            command.env("LC_ALL", "C").env("FLATPAK_USER_DIR", &self.data);
+            command.env("FLATPAK_USER_DIR", &self.data);
             if let Some(profile) = &self.profile {
                 command
                     .env("HOME", profile)
@@ -152,12 +152,18 @@ mod linux {
             command
         }
 
+        fn maintenance_command(&self) -> Command {
+            let mut command = self.command();
+            command.env("LC_ALL", "C");
+            command
+        }
+
         fn query(&self, args: &[&str], timeout: Duration) -> Result<String, String> {
             #[cfg(test)]
             if let Some(query) = &self.query_stub {
                 return query(args, timeout);
             }
-            let mut command = self.command();
+            let mut command = self.maintenance_command();
             command.args(args);
             process::run_command(command, "flatpak", timeout)
         }
@@ -206,7 +212,7 @@ mod linux {
                 let descriptor = scratch.path().join("flathub.flatpakrepo");
                 std::fs::write(&descriptor, contents).map_err(|e| e.to_string())?;
                 stop.check()?;
-                let mut command = self.command();
+                let mut command = self.maintenance_command();
                 command.args(["remote-add", "--user", REMOTE]).arg(descriptor);
                 process::run_command(command, "flatpak", NETWORK_TIMEOUT)?;
             }
@@ -358,6 +364,8 @@ mod linux {
                 if !exported_gui(&self.location(&reference, deployed)?, id) {
                     return Err("No verified desktop entry for this Flatpak".into());
                 }
+                // A desktop app inherits the session locale. Forcing C here prevents GTK apps
+                // such as SolveSpace from starting because they require a UTF-8 locale.
                 let mut command = self.command();
                 command.args(["run", &scope_arg(&deployed.scope), &reference]);
                 // The Octave Flatpak runs the CLI by default, unlike its desktop entry.
@@ -400,7 +408,7 @@ mod linux {
                 stop.check()?;
                 return Ok(at_start);
             }
-            let mut command = self.command();
+            let mut command = self.maintenance_command();
             match action {
                 Action::Install => command.args(["install", "--user", "--noninteractive", "--assumeyes", REMOTE, &reference]),
                 Action::Update => command
@@ -585,6 +593,14 @@ mod linux {
 
         const STABLE: &str = "app/org.gnome.Papers/x86_64/stable";
         const COMMIT: &str = "dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c";
+
+        #[test]
+        fn flatpak_desktop_inherits_session_locale_while_maintenance_uses_c() {
+            let scratch = tempfile::tempdir().unwrap();
+            let flatpak = UserFlatpak { data: scratch.path().join("flatpak"), profile: None, query_stub: None };
+            assert!(!flatpak.command().get_envs().any(|(name, _)| name == "LC_ALL"));
+            assert!(flatpak.maintenance_command().get_envs().any(|(name, value)| name == "LC_ALL" && value == Some("C".as_ref())));
+        }
 
         #[test]
         fn flatpak_status_can_display_a_four_component_version_label() {

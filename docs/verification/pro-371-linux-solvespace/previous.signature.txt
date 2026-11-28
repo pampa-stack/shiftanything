@@ -1,0 +1,19 @@
+commit 13a823f60bad0974c23f14c31808f9458adcc2c4571b4161793c92bd5c21d208
+Parent:  4b751a1d7b985f1bd8b54ea59584739d2ac0d890aa219e74a5fe64c7aaa69f8e
+ContentChecksum:  a5da86da1db1555d39be2333b176c00544c80a8b0fb11ba86879b12fe3d9523a
+Date:  2025-11-10 19:37:23 +0000
+
+    Merge pull request #5 from flathub/bump-sdk-to-25 (2b1cfa66897c)
+
+    Name: com.solvespace.SolveSpace
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 11 02:36:48 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

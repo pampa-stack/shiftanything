@@ -1610,6 +1610,27 @@ pub const AIONUI: crate::CraftApp = crate::CraftApp {
     mac_team: Some("52JQX2HUSC"),
 };
 
+pub const SCUMMVM: crate::CraftApp = crate::CraftApp {
+    id: "scummvm",
+    name: "ScummVM",
+    tagline: "Play classic adventure games using their original data files",
+    repo: "scummvm/scummvm",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [163, 197, 107],
+    ink_light: [42, 70, 25],
+    ink_dark: [200, 226, 154],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "The ScummVM Team",
+    msi_publisher: None,
+    bundle: Some("org.scummvm.app"),
+    site: Some("https://www.scummvm.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("W5BM726PG6"),
+};
+
 pub const UPSCAYL: crate::CraftApp = crate::CraftApp {
     id: "upscayl",
     name: "Upscayl",
@@ -3230,6 +3251,7 @@ pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     AIONUI,
     RUFFLE,
+    SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,

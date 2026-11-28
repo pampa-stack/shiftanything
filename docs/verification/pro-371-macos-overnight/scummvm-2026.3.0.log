@@ -1,0 +1,32 @@
+2026-11-28T10:16:29+0100
+/dev/disk3s5   482797652 426923712   8890144    98% 6637735 88901440    7%   /System/Volumes/Data
+ARTIFACT d483f41a67d389a3bf50832b9a1a054fbeded56fc148216e4f84a06d330d2172 163659840 https://downloads.scummvm.org/frs/scummvm/2026.3.0/scummvm-2026.3.0-macosx.dmg
+BUNDLE=ScummVM.app
+CFBundleIdentifier=org.scummvm.app
+CFBundleShortVersionString=2026.3.0
+CFBundleVersion=2026.3.0
+CFBundleExecutable=scummvm
+LSMinimumSystemVersion=
+/private/tmp/shift-air-overnight.iu85Cd02/preflight/scummvm/2026.3.0/mount/ScummVM.app/Contents/MacOS/scummvm: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.iu85Cd02/preflight/scummvm/2026.3.0/mount/ScummVM.app/Contents/MacOS/scummvm (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.iu85Cd02/preflight/scummvm/2026.3.0/mount/ScummVM.app/Contents/MacOS/scummvm (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.iu85Cd02/preflight/scummvm/2026.3.0/mount/ScummVM.app/Contents/MacOS/scummvm (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.2
+   ntools 1
+     tool LD
+  version 1230.1
+Identifier=org.scummvm.app
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Eugene Sandulenko (W5BM726PG6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=20 Jun 2026 at 22:01:38
+TeamIdentifier=W5BM726PG6
+/private/tmp/shift-air-overnight.iu85Cd02/preflight/scummvm/2026.3.0/mount/ScummVM.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT scummvm 2026.3.0

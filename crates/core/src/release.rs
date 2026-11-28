@@ -106,6 +106,7 @@ pub const SIGNAL_MAC_FEED: &str = "https://updates.signal.org/desktop/latest-mac
 pub const ELEMENT_RELEASES_URL: &str = "https://packages.element.io/desktop/install/macos/index.html";
 pub const ELEMENT_DMG_URL: &str = "https://packages.element.io/desktop/install/macos/";
 pub const AIONUI_DMG_URL: &str = "https://static.aionui.com/releases/";
+pub const SCUMMVM_DMG_URL: &str = "https://downloads.scummvm.org/frs/scummvm/";
 
 pub fn element_mac_release(tag: &str) -> Option<Release> {
     let version = version::parse(tag)?;
@@ -815,7 +816,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
         })
         .unwrap_or_default();
     // These publishers keep the reviewed macOS images in their own release archives.
-    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo, crate::curated::AIONUI.repo].contains(&repo) {
+    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo, crate::curated::AIONUI.repo, crate::curated::SCUMMVM.repo].contains(&repo) {
         for asset in reviewed_assets(repo, &tag) {
             assets.retain(|other| other.name != asset.name);
             assets.push(asset);
@@ -1244,6 +1245,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::AIONUI,
+        crate::curated::SCUMMVM,
         crate::curated::JAN,
         crate::curated::DEEPTUTOR,
         crate::curated::OPENWORK_DESKTOP,
@@ -1958,6 +1960,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("iOfficeAI/AionUi", "v2.2.2") => {
             &[("AionUi-2.2.2-mac-arm64.dmg", 290_125_639, "813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253")]
         }
+        ("scummvm/scummvm", "v2026.3.0") => {
+            &[("scummvm-2026.3.0-macosx.dmg", 163_659_840, "d483f41a67d389a3bf50832b9a1a054fbeded56fc148216e4f84a06d330d2172")]
+        }
+        ("scummvm/scummvm", "v2026.4.0") => {
+            &[("scummvm-2026.4.0-macosx.dmg", 169_280_944, "5614527fa57ffce14773c69923b96eeb7b1b135bcd96bfe74640ca341cad4598")]
+        }
         ("upscayl/upscayl", "v2.11.5") => {
             &[("upscayl-2.11.5-mac.dmg", 351_772_230, "abf7b625641560cfa180dd1b2b0864138559d29f2a3d0f9951e5034496ce8dac")]
         }
@@ -2400,8 +2408,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
     receipts.iter().filter_map(move |&(name, size, sha256)| {
         let url = if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
-        } else if repo == crate::curated::AIONUI.repo {
-            format!("{AIONUI_DMG_URL}{}/{name}", tag.strip_prefix('v')?)
+        } else if repo == crate::curated::AIONUI.repo || repo == crate::curated::SCUMMVM.repo {
+            let base = if repo == crate::curated::AIONUI.repo { AIONUI_DMG_URL } else { SCUMMVM_DMG_URL };
+            format!("{base}{}/{name}", tag.strip_prefix('v')?)
         } else if repo == crate::curated::OPENTTD.repo {
             format!("{OPENTTD_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::ZOTERO.repo {
@@ -2539,18 +2548,28 @@ mod tests {
     }
 
     #[test]
-    fn aionui_github_release_resolves_only_reviewed_publisher_downloads() {
-        let repo = crate::curated::AIONUI.repo;
-        let release = release_from_value(&serde_json::json!({"tag_name": "v2.2.2", "assets": []}), repo).unwrap();
-        let [asset] = release.assets.as_slice() else { panic!("expected one reviewed DMG") };
-        assert_eq!(asset.url, "https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg");
-        assert_eq!(asset.size, 290_125_639);
-        assert!(qualified_mac_dmg_asset(&crate::curated::AIONUI, &release, asset));
-        assert!(release_from_sums(repo, "v2.2.2", &[]).assets.contains(asset));
+    fn github_release_resolves_only_reviewed_publisher_downloads() {
+        for (app, tag, newer_tag, url, size) in [
+            (crate::curated::AIONUI, "v2.2.2", "v2.2.3", "https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg", 290_125_639),
+            (
+                crate::curated::SCUMMVM,
+                "v2026.4.0",
+                "v2026.5.0",
+                "https://downloads.scummvm.org/frs/scummvm/2026.4.0/scummvm-2026.4.0-macosx.dmg",
+                169_280_944,
+            ),
+        ] {
+            let release = release_from_value(&serde_json::json!({"tag_name": tag, "assets": []}), app.repo).unwrap();
+            let [asset] = release.assets.as_slice() else { panic!("expected one reviewed DMG") };
+            assert_eq!(asset.url, url);
+            assert_eq!(asset.size, size);
+            assert!(qualified_mac_dmg_asset(&app, &release, asset));
+            assert!(release_from_sums(app.repo, tag, &[]).assets.contains(asset));
 
-        let newer = release_from_value(&serde_json::json!({"tag_name": "v2.2.3", "assets": []}), repo).unwrap();
-        assert!(newer.assets.is_empty());
-        assert!(!release_from_sums(repo, "v2.2.3", &[]).assets.iter().any(|asset| asset.name.ends_with(".dmg")));
+            let newer = release_from_value(&serde_json::json!({"tag_name": newer_tag, "assets": []}), app.repo).unwrap();
+            assert!(newer.assets.is_empty());
+            assert!(!release_from_sums(app.repo, newer_tag, &[]).assets.iter().any(|asset| asset.name.ends_with(".dmg")));
+        }
     }
 
     #[test]

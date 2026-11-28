@@ -11,12 +11,14 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
     [[ "$id" != inks ]] || log_id=inkscape
-    if [[ "$id" == ruffle ]]; then
+    if [[ "$id" == scummvm ]]; then
+        grep -x -F "PASS PREFLIGHT $log_id ${tag#v}" "$log_id-${tag#v}.log"
+    elif [[ "$id" == ruffle ]]; then
         grep -x -F "PASS RUFFLE $tag" "$log_id-$tag.log"
     else
         grep -x -F "PASS PREFLIGHT $log_id $tag" "$log_id-$tag.log"
@@ -37,7 +39,8 @@ log_id = {'openpencil': 'open-pencil', 'inks': 'inkscape'}.get(app_id, app_id)
 tsv = []
 releases = []
 for tag in (old, new):
-    [digest, size, url] = re.search(r'^ARTIFACT ([a-f0-9]{64}) (\d+) (https://\S+)$', Path(f'{log_id}-{tag}.log').read_text(), re.M).groups()
+    proof_tag = tag.removeprefix('v') if app_id == 'scummvm' else tag
+    [digest, size, url] = re.search(r'^ARTIFACT ([a-f0-9]{64}) (\d+) (https://\S+)$', Path(f'{log_id}-{proof_tag}.log').read_text(), re.M).groups()
     name = url.rsplit('/', 1)[-1]
     if app_id == 'inks':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
@@ -97,6 +100,16 @@ for tag in (old, new):
             [asset] = [block for block in feed.split('  - url: ') if block.startswith(name + '\n')]
             assert re.search(r'^    size: (\d+)$', asset, re.M)[1] == size
         published_digests = set()
+    elif app_id == 'scummvm':
+        assert repo == 'scummvm/scummvm'
+        assert re.fullmatch(r'v\d{4}\.\d+\.\d+', tag)
+        version = tag.removeprefix('v')
+        assert name == f'scummvm-{version}-macosx.dmg'
+        assert url == f'https://downloads.scummvm.org/frs/scummvm/{version}/{name}'
+        assert Path(f'{name}.sha256').read_text().strip() == digest
+        if tag == new:
+            assert url in Path('scummvm-downloads.html').read_text()
+        published_digests = {digest}
     elif app_id == 'element':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         name = f'Element-{tag}-universal.dmg'
@@ -302,7 +315,7 @@ fi
 for phase in "${phases[@]}"; do
     run_phase "$phase"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
-    if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks ) && "$phase" != remove ]]; then
+    if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks || "$id" == scummvm ) && "$phase" != remove ]]; then
         python3 - "$id" "$profile" "$phase" "$old" "$new" <<'PYLAUNCH'
 from pathlib import Path
 import re, subprocess, sys
@@ -310,6 +323,7 @@ app_id, profile, phase, old, new = sys.argv[1:]
 version = old if phase == 'install' else new
 bundle, binary, args = {
     'openttd': ('OpenTTD', 'openttd', ['-h']),
+    'scummvm': ('ScummVM', 'scummvm', ['--version']),
     'blender': ('Blender', 'Blender', ['--version']),
     'gimp': ('GIMP', 'gimp-3.2', ['--version']),
     'vlc': ('VLC', 'VLC', ['-I', 'dummy', '--no-plugins-cache', '--version']),
@@ -319,9 +333,11 @@ executable = Path(profile) / f'Applications/{bundle}.app/Contents/MacOS/{binary}
 command = ['/usr/bin/sandbox-exec', '-p', '(version 1) (allow default) (deny network*) (deny file-write*)', str(executable), *args]
 env = {'HOME': profile, 'CFFIXED_USER_HOME': profile, 'TMPDIR': f'{profile}/tmp', 'PATH': '/usr/bin:/bin'}
 output = subprocess.run(command, env=env, check=True, capture_output=True, text=True, timeout=15).stdout
-assert re.search(rf'\b{re.escape(version.removeprefix("v"))}\b', output.splitlines()[0]), output[:160]
+lines = output.splitlines()
+version_line = next((line for line in lines if line.startswith('ScummVM ')), '') if app_id == 'scummvm' else lines[0]
+assert re.search(rf'\b{re.escape(version.removeprefix("v"))}\b', version_line), output[:160]
 command_label = ' '.join(args)
-print(f'PASS CLI {binary} {command_label}: {output.splitlines()[0]}')
+print(f'PASS CLI {binary} {command_label}: {version_line}')
 PYLAUNCH
     fi
 done

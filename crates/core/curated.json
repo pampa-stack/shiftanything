@@ -9663,8 +9663,11 @@
     "license": "GPL-3.0-or-later",
     "license_url": "https://github.com/scummvm/scummvm/blob/master/COPYING",
     "website": "https://www.scummvm.org",
-    "releases": "https://flathub.org/apps/org.scummvm.ScummVM",
+    "releases": "https://www.scummvm.org/downloads/",
     "delivery": "desktop",
+    "platform_support": {
+      "macos": "https://www.scummvm.org/downloads/"
+    },
     "agent": {
       "kind": "cli",
       "source": "https://docs.scummvm.org/en/latest/advanced_topics/command_line.html"
@@ -9700,8 +9703,14 @@
     "release": {
       "version": "2026.4.0",
       "date": "2026-10-11",
-      "source": "https://flathub.org/apps/org.scummvm.ScummVM",
-      "packages": []
+      "source": "https://www.scummvm.org/downloads/",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 169280944,
+          "size_max": 169280944
+        }
+      ]
     },
     "stars": {
       "count": 2907,

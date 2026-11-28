@@ -1,0 +1,2 @@
+/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f/export/share/applications/io.github.hydrusnetwork.hydrus.desktop
+/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f/export/share/icons/hicolor/128x128/apps/io.github.hydrusnetwork.hydrus.png

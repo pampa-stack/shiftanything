@@ -816,6 +816,7 @@ mod tests {
         let windows = Platform { os: Os::Windows, arch: Arch::X64 };
         for (id, releases) in [
             ("photocraft", [("v0.23.0", "photocraft-0.23.0-windows-x64.msi"), ("v0.23.1", "photocraft-0.23.1-windows-x64.msi")]),
+            ("texturecraft", [("v0.6.0", "texturecraft-0.6.0-windows-x64.msi"), ("v0.6.1", "texturecraft-0.6.1-windows-x64.msi")]),
             ("wordcraft", [("v0.18.0", "wordcraft-0.18.0-windows-x64.msi"), ("v0.19.1", "wordcraft-0.19.1-windows-x64.msi")]),
             ("keepassxc", [("2.7.12", "KeePassXC-2.7.12-Win64.msi"), ("2.8.0", "KeePassXC-2.8.0-x64.msi")]),
             ("drawio", [("v31.5.2", "draw.io-31.5.2.msi"), ("v32.7.4", "draw.io-32.7.4.msi")]),
@@ -1298,8 +1299,9 @@ mod tests {
     fn texturecraft_selects_published_desktop_assets() {
         let release =
             crate::release::parse_github_release(include_str!("../tests/fixtures/texturecraft-release.json"), "storytold/texturecraft").unwrap();
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        assert!(pick_asset(&release, &["texturecraft"], windows, &[PackageKind::Msi]).is_none());
         for (os, kind, expected) in [
-            (Os::Windows, PackageKind::Msi, "texturecraft-0.1.0-windows-x64.msi"),
             (Os::MacOs, PackageKind::Dmg, "texturecraft-0.1.0-macos-universal.dmg"),
             (Os::Linux, PackageKind::Flatpak, "texturecraft-0.1.0-linux-x86_64.flatpak"),
         ] {

@@ -1381,6 +1381,7 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
 pub fn reviewed_windows_msi_repo(id: &str) -> Option<&'static str> {
     match id {
         "photocraft" => Some("storytold/photocraft"),
+        "texturecraft" => Some("storytold/texturecraft"),
         "wordcraft" => Some("storytold/wordcraft"),
         "keepassxc" => Some(crate::curated::KEEPASSXC.repo),
         "drawio" => Some(crate::curated::DRAWIO.repo),
@@ -1610,6 +1611,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d"),
             ("photocraft-0.23.1-windows-x64.msi", 118_427_648, "de757802d8a12a41718ba24248c281d83f3bbecd64c5230f46f10c7f62070671"),
         ],
+        ("storytold/texturecraft", "v0.6.0") => {
+            &[("texturecraft-0.6.0-windows-x64.msi", 35_454_976, "9da7b303ac4027c2972aad655b9c89b294bb70c23758962f3a31310c8e8339d0")]
+        }
+        ("storytold/texturecraft", "v0.6.1") => {
+            &[("texturecraft-0.6.1-windows-x64.msi", 35_463_168, "c06fb85f81a1568b02d50bdacea197450a18825f1d113f2d0c88d9cdd1462eed")]
+        }
         ("storytold/wordcraft", "v0.18.0") => {
             &[("wordcraft-0.18.0-windows-x64.msi", 95_031_296, "8a0bed4ddd40a96f6d7439a3bc7d9bebefe2507066b96ced67f4ef954174012c")]
         }

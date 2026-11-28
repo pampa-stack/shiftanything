@@ -80,6 +80,16 @@
     "reason": "intel_installer_only"
   },
   {
+    "id": "mixxx-dj-software",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/mixxx",
+    "asset_url": "https://downloads.mixxx.org/releases/2.5.6/mixxx-2.5.6-macosarm.dmg",
+    "sha256": "f724cd8b0048a60963f11694acbffb2438a89c1cf732117559ac3031f8486e27",
+    "bytes": 65741985,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
     "id": "mpv",
     "target": "macos-arm64",
     "release_source": "https://github.com/mpv-player/mpv/releases/tag/v0.42.0",
@@ -108,6 +118,26 @@
     "bytes": 180284302,
     "checked_at": "2026-11-28",
     "reason": "intel_only"
+  },
+  {
+    "id": "quickrecorder",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/lihaoyun6/QuickRecorder/releases/tag/1.6.9",
+    "asset_url": "https://github.com/lihaoyun6/QuickRecorder/releases/download/1.6.9/QuickRecorder_v1.6.9.dmg",
+    "sha256": "5a5901ff071a8a081c13224ffa8fa749c73e107b05b856b37e4368ac03d70ed0",
+    "bytes": 4651431,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "rapidraw",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/CyberTimon/RapidRAW/releases/tag/v1.7.1",
+    "asset_url": "https://github.com/CyberTimon/RapidRAW/releases/download/v1.7.1/02_RapidRAW_v1.7.1_macos-15_aarch64.dmg",
+    "sha256": "14f06525f3455518a09788271b000bc7abb4a90277c93726b11470ae77848c3f",
+    "bytes": 37254064,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
   },
   {
     "id": "sniffnet",

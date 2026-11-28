@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -111,6 +111,7 @@ for tag in (old, new):
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
             'hammerspoon': r'\d+\.\d+\.\d+',
+            'ice': r'\d+\.\d+\.\d+',
             'loop-macos': r'\d+\.\d+\.\d+',
             'netnewswire': r'mac-\d+\.\d+(?:\.\d+)?',
         }.get(app_id, r'v\d+\.\d+\.\d+')
@@ -119,7 +120,7 @@ for tag in (old, new):
         html = Path(f'{app_id}-{tag}-assets.html').read_text()
         [block] = [item for item in html.split('</li>') if f'href="/{repo}/releases/download/{tag}/{name}"' in item]
         published_digests = set(re.findall(r'sha256:([a-f0-9]{64})', block))
-        if (app_id, tag) == ("moonlight", "v6.1.0"):
+        if (app_id, tag) in {("moonlight", "v6.1.0"), ("ice", "0.11.11"), ("ice", "0.11.12")}:
             assert not published_digests
         else:
             assert published_digests == {digest}, published_digests

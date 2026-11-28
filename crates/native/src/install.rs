@@ -2348,9 +2348,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{ALT_TAB, DYAD, HAMMERSPOON, KEYCASTR, MACCY, NETNEWSWIRE};
+        use artcraft_launcher_core::curated::{ALT_TAB, DYAD, HAMMERSPOON, ICE, KEYCASTR, MACCY, NETNEWSWIRE};
 
-        let framework_links = [ALT_TAB.id, DYAD.id, HAMMERSPOON.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
+        let framework_links = [ALT_TAB.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }

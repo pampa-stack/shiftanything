@@ -356,7 +356,7 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 8] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 9] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
@@ -365,6 +365,7 @@ fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
         (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
         (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
+        (curated::ICE.id, PackageKind::MacZip, release::ice_mac_asset),
     ];
     recipes.into_iter().find(|(id, _, _)| stems.contains(id)).map(|(_, kind, matches_asset)| (kind, matches_asset))
 }
@@ -770,6 +771,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::LOOP.id,
         crate::curated::DYAD.id,
         crate::curated::HAMMERSPOON.id,
+        crate::curated::ICE.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
@@ -1023,6 +1025,7 @@ mod tests {
             (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
             (crate::curated::DYAD, ["v1.23.0", "v1.24.0"]),
             (crate::curated::HAMMERSPOON, ["1.1.0", "1.1.1"]),
+            (crate::curated::ICE, ["0.11.11", "0.11.12"]),
         ] {
             let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
             for tag in tags {

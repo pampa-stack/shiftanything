@@ -2282,6 +2282,27 @@ pub const HAMMERSPOON: crate::CraftApp = crate::CraftApp {
     mac_team: Some("VQCYSNZB89"),
 };
 
+pub const ICE: crate::CraftApp = crate::CraftApp {
+    id: "ice",
+    name: "Ice",
+    tagline: "Hide and organize macOS menu bar icons",
+    repo: "jordanbaird/Ice",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Jordan Baird",
+    msi_publisher: None,
+    bundle: Some("com.jordanbaird.Ice"),
+    site: Some("https://icemenubar.app"),
+    mac_bundle_name: None,
+    mac_team: Some("K2ATHQPJDP"),
+};
+
 pub const RECTANGLE: crate::CraftApp = crate::CraftApp {
     id: "rectangle",
     name: "Rectangle",
@@ -2746,6 +2767,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SNIFFNET,
     FINICKY,
     HAMMERSPOON,
+    ICE,
     BLENDER,
     GIMP,
     NETNEWSWIRE,

@@ -213,6 +213,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
             || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)
             || (self.id, self.repo) == (crate::curated::HAMMERSPOON.id, crate::curated::HAMMERSPOON.repo)
+            || (self.id, self.repo) == (crate::curated::ICE.id, crate::curated::ICE.repo)
         {
             crate::PackageKind::MacZip
         } else {

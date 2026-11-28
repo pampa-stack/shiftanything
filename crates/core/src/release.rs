@@ -1236,6 +1236,12 @@ pub fn hammerspoon_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::HAMMERSPOON.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+pub fn ice_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::ICE.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && netnewswire_mac_version(&release.tag).as_ref() == release.version.as_ref()
@@ -1700,6 +1706,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("Hammerspoon/hammerspoon", "1.1.1") => {
             &[("Hammerspoon-1.1.1.zip", 9_704_557, "11bb1c90faf5427f37c7bd4fe7eab9774ae43e1d5cb020c5b3088dac32849efa")]
         }
+        ("jordanbaird/Ice", "0.11.11") => &[("Ice.zip", 3_478_127, "21ea5ffa614def29bb699bb7c6725526840d0d999216fb75e504c6757b6f49cb")],
+        ("jordanbaird/Ice", "0.11.12") => &[("Ice.zip", 3_497_507, "d770e81597566dd2d2363feb350f808c7a92e363df95c51e48140eb30e452cc9")],
         ("blender/blender", "5.2.5") => {
             &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
         }

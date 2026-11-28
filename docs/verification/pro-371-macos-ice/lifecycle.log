@@ -1,0 +1,14 @@
+PASS PREFLIGHT ice 0.11.11
+PASS PREFLIGHT ice 0.11.12
+OFFICIAL INDEX ice 0.11.11 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX ice 0.11.12 digest=computed, signer/notarization corroborated
+PASS OFFICIAL 0.11.11 MacZip https://github.com/jordanbaird/Ice/releases/download/0.11.11/Ice.zip 3478127 21ea5ffa614def29bb699bb7c6725526840d0d999216fb75e504c6757b6f49cb
+PASS OFFICIAL 0.11.12 MacZip https://github.com/jordanbaird/Ice/releases/download/0.11.12/Ice.zip 3497507 d770e81597566dd2d2363feb350f808c7a92e363df95c51e48140eb30e452cc9
+NATIVE ORIGIN ice GitHub
+PASS OFFICIAL 0.11.11 MacZip https://github.com/jordanbaird/Ice/releases/download/0.11.11/Ice.zip 3478127 21ea5ffa614def29bb699bb7c6725526840d0d999216fb75e504c6757b6f49cb
+PASS NATIVE ice install: Ice installed: 0.11.11; package_bytes=3478127; elapsed=16.359s
+NATIVE ORIGIN ice GitHub
+PASS OFFICIAL 0.11.12 MacZip https://github.com/jordanbaird/Ice/releases/download/0.11.12/Ice.zip 3497507 d770e81597566dd2d2363feb350f808c7a92e363df95c51e48140eb30e452cc9
+PASS NATIVE ice update: Ice updated to 0.11.12; package_bytes=3497507; elapsed=4.615s
+PASS NATIVE ice remove: Ice was removed; package_bytes=0; elapsed=0.108s
+PASS NATIVE CYCLE ice (0.11.11 → 0.11.12), private Trash and synthetic data preserved

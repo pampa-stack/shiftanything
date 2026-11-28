@@ -5,6 +5,12 @@ use std::{
 
 fn main() {
     check_catalog();
+    // Signed launcher updates exist where an installed package can be replaced safely.
+    println!("cargo::rustc-check-cfg=cfg(signed_updates)");
+    let os = std::env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
+    if os == "macos" || os == "linux" || (os == "windows" && std::env::var_os("CARGO_FEATURE_WINDOWS_LIFECYCLE").is_some()) {
+        println!("cargo::rustc-cfg=signed_updates");
+    }
     tauri_build::build()
 }
 

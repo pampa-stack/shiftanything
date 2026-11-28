@@ -1,5 +1,5 @@
 //! Publisher-signed updates of the launcher itself. Catalog app updates are separate.
-#[cfg(any(target_os = "macos", target_os = "linux"))]
+#[cfg(signed_updates)]
 mod signed;
 
 use crate::session::NativeState;
@@ -11,9 +11,9 @@ const EVENT: &str = "shift-launcher-update";
 pub(crate) const RESTART_EXIT_CODE: i32 = 75;
 
 pub(crate) fn check_packaged_channel() -> Result<(), &'static str> {
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     return signed::check_packaged_channel();
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    #[cfg(not(signed_updates))]
     Err("installation_unsupported")
 }
 
@@ -47,8 +47,10 @@ pub(crate) struct Snapshot {
 
 struct Inner {
     snapshot: Snapshot,
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     pending: Option<tauri_plugin_updater::Update>,
+    #[cfg(signed_updates)]
+    staged: Option<signed::Staged>,
 }
 
 impl Inner {
@@ -63,28 +65,30 @@ impl Inner {
 
 pub(crate) struct LauncherUpdater {
     inner: Mutex<Inner>,
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     channel: Result<signed::Channel, &'static str>,
 }
 
 pub(crate) fn configure(context: &mut tauri::Context<Wry>, isolated: bool) -> LauncherUpdater {
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     let channel = signed::configure(context, isolated);
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    #[cfg(not(signed_updates))]
     let _ = isolated;
     LauncherUpdater {
         inner: Mutex::new(Inner {
             snapshot: Snapshot { current: context.package_info().version.to_string(), available: None, status: Status::Idle, error: None },
-            #[cfg(any(target_os = "macos", target_os = "linux"))]
+            #[cfg(signed_updates)]
             pending: None,
+            #[cfg(signed_updates)]
+            staged: None,
         }),
-        #[cfg(any(target_os = "macos", target_os = "linux"))]
+        #[cfg(signed_updates)]
         channel,
     }
 }
 
 pub(crate) fn start(app: &AppHandle) -> tauri::Result<()> {
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     if app.state::<LauncherUpdater>().channel.is_ok() {
         app.plugin(tauri_plugin_updater::Builder::new().build())?;
         let _ = check(app);
@@ -96,7 +100,7 @@ pub(crate) fn start(app: &AppHandle) -> tauri::Result<()> {
             }
         });
     }
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    #[cfg(not(signed_updates))]
     let _ = app;
     Ok(())
 }
@@ -118,9 +122,9 @@ fn check(app: &AppHandle) -> Result<Snapshot, String> {
         return Ok(inner.snapshot.clone());
     }
     inner.snapshot.available = None;
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    #[cfg(not(signed_updates))]
     return Ok(inner.change(app, Status::Error, Some("installation_unsupported")));
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     {
         let channel = match &state.channel {
             Ok(channel) => channel.clone(),
@@ -162,9 +166,9 @@ pub(crate) fn launcher_update_install(app: AppHandle) -> Result<Snapshot, String
     if matches!(inner.snapshot.status, Status::Checking | Status::Downloading | Status::Ready | Status::RestartPending | Status::Restarting) {
         return Ok(inner.snapshot.clone());
     }
-    #[cfg(not(any(target_os = "macos", target_os = "linux")))]
+    #[cfg(not(signed_updates))]
     return Ok(inner.change(&app, Status::Error, Some("installation_unsupported")));
-    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[cfg(signed_updates)]
     {
         let Some(update) = inner.pending.take() else {
             if matches!(inner.snapshot.status, Status::Error) {
@@ -180,10 +184,13 @@ pub(crate) fn launcher_update_install(app: AppHandle) -> Result<Snapshot, String
             let Ok(mut inner) = state.inner.lock() else {
                 return;
             };
-            if let Err(error) = result {
-                inner.snapshot.available = None;
-                inner.change(&handle, Status::Error, Some(error));
-                return;
+            match result {
+                Ok(staged) => inner.staged = Some(staged),
+                Err(error) => {
+                    inner.snapshot.available = None;
+                    inner.change(&handle, Status::Error, Some(error));
+                    return;
+                }
             }
             inner.change(&handle, Status::RestartPending, None);
             drop(inner);
@@ -221,9 +228,28 @@ fn restart_when_idle(handle: AppHandle) {
                 }
             };
             if idle {
-                if let Ok(mut inner) = state.inner.lock() {
-                    inner.change(&handle, Status::Restarting, None);
+                #[cfg(signed_updates)]
+                {
+                    let staged = match state.inner.lock() {
+                        Ok(mut inner) => {
+                            inner.change(&handle, Status::Restarting, None);
+                            inner.staged.take()
+                        }
+                        Err(_) => None,
+                    };
+                    let result = staged.ok_or("restart_failed").and_then(|staged| signed::finish(&handle, staged));
+                    if let Err(error) = result {
+                        // The setup did not start: the current version keeps running.
+                        if let Ok(mut native) = native.lock() {
+                            native.cancel_restart();
+                        }
+                        if let Ok(mut inner) = state.inner.lock() {
+                            inner.snapshot.available = None;
+                            inner.change(&handle, Status::Error, Some(error));
+                        }
+                    }
                 }
+                #[cfg(not(signed_updates))]
                 handle.exit(RESTART_EXIT_CODE);
                 return;
             }

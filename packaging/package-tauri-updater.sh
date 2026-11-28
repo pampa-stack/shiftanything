@@ -1,31 +1,35 @@
 #!/usr/bin/env bash
-# Create signed updater assets locally from the verified release DMG and DEB.
+# Create signed updater assets locally from the verified release DMG, DEB and Windows NSIS setup.
 set -euo pipefail
 umask 077
 export LC_ALL=C
 unset TAURI_SIGNING_PRIVATE_KEY TAURI_SIGNING_PRIVATE_KEY_PASSWORD
 
 usage() {
-  printf '%s\n' 'Usage: package-tauri-updater.sh VERSION DMG DMG_SHA256 DEB DEB_SHA256 RELEASE_OWNER/REPO NEW_OUTPUT_DIRECTORY' \
+  printf '%s\n' 'Usage: package-tauri-updater.sh VERSION DMG DMG_SHA256 DEB DEB_SHA256 WINDOWS_SETUP WINDOWS_SHA256 RELEASE_OWNER/REPO NEW_OUTPUT_DIRECTORY' \
     'Requires APPLE_TEAM_ID and a preconfigured TAURI_SIGNING_PRIVATE_KEY_PATH.' \
-    'If set, SHIFT_LAUNCHER_UPDATE_PUBKEY must match both updater signatures.'
+    'WINDOWS_SETUP comes from packaging/windows/release-nsis.ps1, WINDOWS_SHA256 from its windows-receipt.json.' \
+    'If set, SHIFT_LAUNCHER_UPDATE_PUBKEY must match all updater signatures.'
 }
 fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
 if [[ $# = 1 && ( "$1" = --help || "$1" = -h ) ]]; then usage; exit 0; fi
-[[ $# = 7 ]] || { usage >&2; exit 2; }
+[[ $# = 9 ]] || { usage >&2; exit 2; }
 version=$1
 input_dmg=$2
 expected_dmg_hash=$3
 input_deb=$4
 expected_deb_hash=$5
-repo=$6
-output=$7
+input_setup=$6
+expected_setup_hash=$7
+repo=$8
+output=$9
 [[ "$version" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]] || fail 'Expected a three-part stable version.'
-[[ "$expected_dmg_hash" =~ ^[a-f0-9]{64}$ && "$expected_deb_hash" =~ ^[a-f0-9]{64}$ ]] || fail 'Provide both release receipt SHA-256 values in lowercase.'
+[[ "$expected_dmg_hash" =~ ^[a-f0-9]{64}$ && "$expected_deb_hash" =~ ^[a-f0-9]{64}$ && "$expected_setup_hash" =~ ^[a-f0-9]{64}$ ]] \
+  || fail 'Provide the three release receipt SHA-256 values in lowercase.'
 [[ "$repo" =~ ^[A-Za-z0-9]([A-Za-z0-9-]{0,37}[A-Za-z0-9])?/[A-Za-z0-9][A-Za-z0-9._-]{0,99}$ ]] \
   || fail 'Provide the approved GitHub release owner and repository as OWNER/REPO.'
 [[ "$(uname -s)" = Darwin && "$(uname -m)" = arm64 ]] || fail 'Run this tool on macOS Apple Silicon.'
-[[ -f "$input_dmg" && -f "$input_deb" ]] || fail 'Both packages must exist.'
+[[ -f "$input_dmg" && -f "$input_deb" && -f "$input_setup" ]] || fail 'All three packages must exist.'
 [[ "${APPLE_TEAM_ID:-}" =~ ^[A-Z0-9]{10}$ ]] || fail 'Configure the Apple Developer signing team.'
 [[ "${TAURI_SIGNING_PRIVATE_KEY_PATH:-}" = /* && -f "$TAURI_SIGNING_PRIVATE_KEY_PATH" && -r "$TAURI_SIGNING_PRIVATE_KEY_PATH" ]] \
   || fail 'Configure the existing Tauri signing key file by absolute path.'
@@ -44,6 +48,7 @@ app_id=it.promptica.shiftanything
 mac_name="ShiftAnything-$version-macos-arm64.app.tar.gz"
 linux_name="ShiftAnything-$version-linux-amd64.deb"
 portable_name="ShiftAnything-$version-linux-amd64.tar.gz"
+windows_name="ShiftAnything-$version-windows-x64-setup.exe"
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 # shellcheck source=macos/check-bundle.sh
 . "$here/macos/check-bundle.sh"
@@ -69,11 +74,16 @@ mkdir "$mount" "$work/extracted" "$work/assets"
 assets="$work/assets"
 dmg="$work/source.dmg"
 deb="$assets/$linux_name"
+setup="$assets/$windows_name"
 cp -- "$input_dmg" "$dmg"
 cp -- "$input_deb" "$deb"
+cp -- "$input_setup" "$setup"
 sha256() { shasum -a 256 < "$1" | awk '{print $1}'; }
-[[ "$(sha256 "$dmg")" = "$expected_dmg_hash" && "$(sha256 "$deb")" = "$expected_deb_hash" ]] \
+[[ "$(sha256 "$dmg")" = "$expected_dmg_hash" && "$(sha256 "$deb")" = "$expected_deb_hash" && "$(sha256 "$setup")" = "$expected_setup_hash" ]] \
   || fail 'A package does not match its release receipt.'
+# Windows checks Authenticode in release-nsis.ps1. Here the setup must be the NSIS build of this product and version.
+python3 "$here/windows/check-setup.py" "$setup" "$version" || fail 'The Windows setup is not the ShiftAnything NSIS installer for this version.'
+printf 'PASS Windows NSIS setup identity and version\n'
 
 assess() {
   local result
@@ -128,7 +138,8 @@ sign() {
 }
 sign "$assets/$mac_name"
 sign "$deb"
-python3 - "$assets" "$repo" "$version" "$mac_name" "$linux_name" <<'PY'
+sign "$setup"
+python3 - "$assets" "$repo" "$version" "$mac_name" "$linux_name" "$windows_name" <<'PY'
 import base64
 import json
 import os
@@ -136,7 +147,7 @@ from pathlib import Path
 import sys
 
 assets = Path(sys.argv[1])
-repo, version, mac_name, linux_name = sys.argv[2:]
+repo, version, mac_name, linux_name, windows_name = sys.argv[2:]
 public = os.environ.get("SHIFT_LAUNCHER_UPDATE_PUBKEY")
 public_record = None
 if public:
@@ -148,7 +159,7 @@ if public:
         sys.exit("Unexpected Tauri public key record.")
 platforms = {}
 key_ids = set()
-for target, name in [("darwin-aarch64", mac_name), ("linux-x86_64-deb", linux_name)]:
+for target, name in [("darwin-aarch64", mac_name), ("linux-x86_64-deb", linux_name), ("windows-x86_64", windows_name)]:
     signature = (assets / f"{name}.sig").read_text().strip()
     lines = base64.b64decode(signature, validate=True).decode("utf-8").splitlines()
     if len(lines) != 4 or not lines[2].startswith("trusted comment: ") or f"version:{version}" not in lines[2].split("\t"):
@@ -167,12 +178,12 @@ if len(key_ids) != 1:
 PY
 (
   cd "$assets"
-  shasum -a 256 "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" latest.json > SHA256SUMS.txt
+  shasum -a 256 "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" "$windows_name" "$windows_name.sig" latest.json > SHA256SUMS.txt
   shasum -a 256 -c SHA256SUMS.txt
 )
 # A fresh directory reserves the destination. The manifest is exposed only once its assets exist.
 mkdir -- "$output"
-for file in "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" SHA256SUMS.txt latest.json; do
+for file in "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" "$windows_name" "$windows_name.sig" SHA256SUMS.txt latest.json; do
   mv -- "$assets/$file" "$output/$file"
 done
 printf 'PASS local updater assets ready for GitHub release v%s in %s\n' "$version" "$output"

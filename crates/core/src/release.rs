@@ -1300,6 +1300,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
+        crate::curated::ONLYOFFICE,
     ];
     RECIPES
         .iter()
@@ -2389,12 +2390,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7"),
             ("Zettlr-4.11.0-arm64.dmg", 202_782_993, "68e57c3dcb8275b175ac1b67f7d94945c84e0a7c4da6e1ab6b6e8fcd64458793"),
         ],
-        ("ONLYOFFICE/DesktopEditors", "v9.4.0") => {
-            &[("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c")]
-        }
-        ("ONLYOFFICE/DesktopEditors", "v10.0.0") => {
-            &[("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745")]
-        }
+        ("ONLYOFFICE/DesktopEditors", "v9.4.0") => &[
+            ("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c"),
+            ("ONLYOFFICE-arm.dmg", 542_306_356, "e965be2222609add6b5a70baa2a8cdb599402491fb2925825d9039dcb154beb4"),
+        ],
+        ("ONLYOFFICE/DesktopEditors", "v10.0.0") => &[
+            ("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745"),
+            ("ONLYOFFICE-arm.dmg", 340_135_365, "9095cc8c46f1206237d690c7e146fada0d72dbf7f40c035cd5fd218b680c2deb"),
+        ],
         ("nextcloud-releases/desktop", "v35.0.2") => {
             &[("Nextcloud-35.0.2-x86_64.AppImage", 63_248_888, "cd62e276ecc8172b3075043abeec789024355bba3d0cd9ad8b3c850e9ad0d7d8")]
         }

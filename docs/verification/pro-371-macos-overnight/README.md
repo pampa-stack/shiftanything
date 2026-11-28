@@ -267,3 +267,9 @@ On 28 November 2026 the Air matched the publisher’s SHA-256 for qView 7.0 and 
 ### RawTherapee on Apple Silicon
 
 Both official Mac ZIP archives matched the publisher’s SHA-256. The unattended read-only attach of the inner disk image was canceled for both 5.12 and 5.13. DiskImages reported an embedded Software License Agreement for 5.13. The Homebrew listing uses the same 5.13 ZIP. The checks stopped before signature validation or installation and the Mac card keeps the publisher link. [5.12 download](https://www.rawtherapee.com/downloads/5.12/) · [5.13 download](https://www.rawtherapee.com/downloads/5.13/) · [5.12 log](rawtherapee-5.12.log) · [5.13 log](rawtherapee-5.13.log)
+
+### ONLYOFFICE Desktop Editors
+
+On 28 November 2026 the MacBook Air on macOS 26.6.2 installed ONLYOFFICE Desktop Editors 9.4.0 through the native backend, opened it, applied the update to 10.0.0, opened the new version and moved the bundle to the private Trash. The probe checked the running process against the exact bundle installed in the test profile. Synthetic user data survived. Both official Apple Silicon packages matched their published SHA-256 and passed strict Developer ID and Gatekeeper notarization checks for Ascensio System SIA (`2WH24U26GJ`). The proof covers launch and package operations. Document editing and the Intel installer remain untested here. [Official releases](https://github.com/ONLYOFFICE/DesktopEditors/releases) · [Native cycle](onlyoffice-native.log) · [9.4.0 package](onlyoffice-v9.4.0.log) · [10.0.0 package](onlyoffice-v10.0.0.log)
+
+Save the official expanded asset pages as `onlyoffice-v9.4.0-assets.html` and `onlyoffice-v10.0.0-assets.html`. With the package logs and the compiled probe in the marked test directory, run `bash run-native.sh onlyoffice ONLYOFFICE/DesktopEditors ONLYOFFICE v9.4.0 v10.0.0` while 10.0.0 is current.

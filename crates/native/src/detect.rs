@@ -254,8 +254,10 @@ pub mod macos {
         let curated = (app.id, app.repo);
         let dbeaver = artcraft_launcher_core::curated::DBEAVER_CE;
         let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+        let onlyoffice = artcraft_launcher_core::curated::ONLYOFFICE;
         if (curated == (dbeaver.id, dbeaver.repo) && id != "org.jkiss.dbeaver.core.product")
             || (curated == (prusa.id, prusa.repo) && id != artcraft_launcher_core::curated::PRUSA_SLICER_MAC_BUNDLE)
+            || (curated == (onlyoffice.id, onlyoffice.repo) && id != artcraft_launcher_core::curated::ONLYOFFICE_MAC_BUNDLE)
         {
             return None;
         }

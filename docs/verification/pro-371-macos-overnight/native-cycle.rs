@@ -184,6 +184,7 @@ fn main() -> Result<(), String> {
             "wwdc",
             "pika-color",
             "logseq-db",
+            "onlyoffice",
             "freeplane",
         ]
         .contains(&app.id)
@@ -245,7 +246,7 @@ fn main() -> Result<(), String> {
         return Err(format!("Unexpected initial location {installed:?}"));
     }
 
-    if matches!(id.as_str(), "wwdc" | "pika-color" | "logseq-db")
+    if matches!(id.as_str(), "wwdc" | "pika-color" | "logseq-db" | "onlyoffice")
         && phase == "open"
         && initial.as_deref().is_some_and(|installed| installed == before.version() || installed == after.version())
     {

@@ -1,0 +1,22 @@
+PASS PREFLIGHT onlyoffice v9.4.0
+PASS PREFLIGHT onlyoffice v10.0.0
+/dev/disk3s5   239362496 173436564  24798360    88% 3238912 247983600    1%   /System/Volumes/Data
+OFFICIAL INDEX onlyoffice v9.4.0 digest=published
+OFFICIAL INDEX onlyoffice v10.0.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v9.4.0 Dmg https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/ONLYOFFICE-arm.dmg 542306356 e965be2222609add6b5a70baa2a8cdb599402491fb2925825d9039dcb154beb4
+PASS OFFICIAL v10.0.0 Dmg https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/ONLYOFFICE-arm.dmg 340135365 9095cc8c46f1206237d690c7e146fada0d72dbf7f40c035cd5fd218b680c2deb
+NATIVE ORIGIN onlyoffice GitHub
+PASS OFFICIAL v9.4.0 Dmg https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v9.4.0/ONLYOFFICE-arm.dmg 542306356 e965be2222609add6b5a70baa2a8cdb599402491fb2925825d9039dcb154beb4
+PASS NATIVE onlyoffice install: ONLYOFFICE Desktop Editors installed: 9.4.0; package_bytes=542306356; elapsed=80.170s
+PASS NATIVE onlyoffice open: Launch request accepted
+PASS OPEN AND CLOSE ONLYOFFICE executable in the isolated profile
+NATIVE ORIGIN onlyoffice GitHub
+PASS OFFICIAL v10.0.0 Dmg https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/ONLYOFFICE-arm.dmg 340135365 9095cc8c46f1206237d690c7e146fada0d72dbf7f40c035cd5fd218b680c2deb
+PASS NATIVE onlyoffice update: ONLYOFFICE Desktop Editors updated to 10.0.0; package_bytes=340135365; elapsed=56.228s
+PASS NATIVE onlyoffice open: Launch request accepted
+PASS OPEN AND CLOSE ONLYOFFICE executable in the isolated profile
+PASS NATIVE onlyoffice remove: ONLYOFFICE Desktop Editors was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE onlyoffice (v9.4.0 → v10.0.0), private Trash and synthetic data preserved

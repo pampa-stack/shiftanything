@@ -742,6 +742,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::GHOST_DOWNLOADER.id,
         crate::curated::LOSSLESSCUT.id,
         crate::curated::MUSESCORE.id,
+        crate::curated::ONLYOFFICE.id,
         crate::curated::ORCA_SLICER.id,
         crate::curated::PRUSA_SLICER.id,
         crate::curated::ZETTLR.id,
@@ -819,8 +820,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
-    use crate::curated::{MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D};
-    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
+    use crate::curated::{MUSESCORE, OPENSHOT, ORCA_SLICER, PENCIL2D};
+    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
     if stems.contains(&LOCALSEND.id) || stems.contains(&HANDY.id) {
@@ -1064,6 +1065,7 @@ mod tests {
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),
             (crate::curated::BRUNO, ["v4.3.0", "v4.4.0"]),
+            (crate::curated::ONLYOFFICE, ["v9.4.0", "v10.0.0"]),
             (crate::curated::AIONUI, ["v2.2.1", "v2.2.2"]),
             (crate::curated::SCUMMVM, ["v2026.3.0", "v2026.4.0"]),
             (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),

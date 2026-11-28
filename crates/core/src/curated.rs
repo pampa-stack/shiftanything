@@ -1020,6 +1020,8 @@ pub const ZETTLR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("QS52BN8W68"),
 };
 
+pub const ONLYOFFICE_MAC_BUNDLE: &str = "asc.onlyoffice.ONLYOFFICE";
+
 pub const ONLYOFFICE: crate::CraftApp = crate::CraftApp {
     id: "onlyoffice",
     name: "ONLYOFFICE Desktop Editors",
@@ -1028,7 +1030,7 @@ pub const ONLYOFFICE: crate::CraftApp = crate::CraftApp {
     former_repo: None,
     former_ids: &[],
     former_names: &[],
-    former_bundles: &[],
+    former_bundles: &[ONLYOFFICE_MAC_BUNDLE],
     color: [116, 173, 231],
     ink_light: [45, 90, 151],
     ink_dark: [150, 196, 244],
@@ -1037,8 +1039,8 @@ pub const ONLYOFFICE: crate::CraftApp = crate::CraftApp {
     msi_publisher: None,
     bundle: Some("onlyoffice-desktopeditors"),
     site: Some("https://www.onlyoffice.com/desktop.aspx"),
-    mac_bundle_name: None,
-    mac_team: None,
+    mac_bundle_name: Some("ONLYOFFICE"),
+    mac_team: Some("2WH24U26GJ"),
 };
 
 pub const LAPCE: crate::CraftApp = crate::CraftApp {

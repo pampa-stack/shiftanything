@@ -798,6 +798,7 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         && (![
             "craft-anything",
             artcraft_launcher_core::curated::LOSSLESSCUT.id,
+            artcraft_launcher_core::curated::ONLYOFFICE.id,
             artcraft_launcher_core::curated::GHOST_DOWNLOADER.id,
             artcraft_launcher_core::curated::ZETTLR.id,
         ]
@@ -3963,6 +3964,20 @@ mod tests {
                 let no_checksum = Asset { sha256: None, ..mac.clone() };
                 assert!(bind_artifact_version(&app, &release, &no_checksum).is_err());
             }
+        }
+    }
+
+    #[test]
+    fn onlyoffice_binds_both_reviewed_platform_packages() {
+        let app = artcraft_launcher_core::curated::ONLYOFFICE;
+        for tag in ["v9.4.0", "v10.0.0"] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let linux = release.assets.iter().find(|asset| asset.name == "DesktopEditors-x86_64.AppImage").unwrap();
+            assert!(bind_artifact_version(&app, &release, linux).is_ok());
+            let mac = release.assets.iter().find(|asset| asset.name == "ONLYOFFICE-arm.dmg").unwrap();
+            assert!(bind_artifact_version(&app, &release, mac).is_ok());
+            let changed = Asset { sha256: None, ..mac.clone() };
+            assert!(bind_artifact_version(&app, &release, &changed).is_err());
         }
     }
 

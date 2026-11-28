@@ -1,4 +1,5 @@
 //! Typed lifecycle adapter. The core approval contract and native installer remain authoritative.
+use crate::app_restart::{self, OpenBundles};
 use artcraft_launcher_core::{
     CraftApp, Os, PackageKind, Platform,
     automation::{InventoryEntry, Operation, Request, Snapshot as Inventory},
@@ -30,6 +31,10 @@ pub struct NativeState {
     cancellations: BTreeMap<String, String>,
     pending: Option<Request>,
     pending_from_ui: bool,
+    pending_open: OpenBundles,
+    deciding: bool,
+    reopen_after_update: BTreeSet<String>,
+    reopening: BTreeSet<String>,
     open_after_install: BTreeSet<String>,
     next_request: u64,
     last_update_check: Instant,
@@ -69,6 +74,8 @@ pub struct Snapshot {
     install_checks_pending: BTreeSet<String>,
     pending: Option<Request>,
     offer_open_after_install: bool,
+    open_for_update: Vec<String>,
+    quitting_for_update: bool,
     progress: BTreeMap<String, Progress>,
     favorites: std::collections::BTreeSet<String>,
 }
@@ -165,6 +172,10 @@ impl NativeState {
             cancellations: BTreeMap::new(),
             pending: None,
             pending_from_ui: false,
+            pending_open: OpenBundles::new(),
+            deciding: false,
+            reopen_after_update: BTreeSet::new(),
+            reopening: BTreeSet::new(),
             open_after_install: BTreeSet::new(),
             next_request: 0,
             last_update_check: Instant::now(),
@@ -197,18 +208,38 @@ impl NativeState {
                     self.jobs.insert(app, phase);
                 }
                 Event::JobFinished { app, result } => {
+                    if self.reopening.remove(&app) {
+                        let message = match result {
+                            Ok(_) => "completed: app updated and reopened".into(),
+                            Err(error) => format!("updated; could not reopen: {error}"),
+                        };
+                        self.results.insert(format!("app:{app}"), message);
+                        continue;
+                    }
+                    let reopen = self.reopen_after_update.remove(&app) && result.is_ok();
                     let launch = self.open_after_install.remove(&app) && result.is_ok();
                     self.finish_job(&app, result);
-                    if launch && let Err(error) = self.open_installed_bundle(&app) {
-                        self.results.insert(format!("app:{app}"), format!("installed; could not open: {error}"));
+                    if reopen || launch {
+                        match self.open_installed_bundle(&app) {
+                            Ok(()) if reopen => {
+                                self.reopening.insert(app);
+                            }
+                            Err(error) => {
+                                let verb = if reopen { "updated; could not reopen" } else { "installed; could not open" };
+                                self.results.insert(format!("app:{app}"), format!("{verb}: {error}"));
+                            }
+                            Ok(()) => {}
+                        }
                     }
                 }
                 Event::Notice { app, result } => {
+                    self.reopen_after_update.remove(&app);
                     self.open_after_install.remove(&app);
                     self.finish_job(&app, result);
                 }
                 Event::Occupied { app, .. } | Event::GoBackFallback { app, .. } => {
                     // This proof never consents to overwriting an unrelated destination or downgrading.
+                    self.reopen_after_update.remove(&app);
                     self.open_after_install.remove(&app);
                     self.record_job_end(&app, "rejected: destination or version requires additional consent".into(), false);
                 }
@@ -357,15 +388,9 @@ impl NativeState {
                 } else {
                     request.validate().and_then(|()| self.validate(&request))
                 };
-                match outcome {
-                    Ok(()) => {
-                        self.results.insert(request.id.clone(), "awaiting approval".into());
-                        self.pending = Some(request);
-                        self.pending_from_ui = false;
-                    }
-                    Err(error) => {
-                        self.results.insert(request.id, format!("rejected: {error}"));
-                    }
+                let id = request.id.clone();
+                if let Err(error) = outcome.and_then(|()| self.set_pending(request, false)) {
+                    self.results.insert(id, format!("rejected: {error}"));
                 }
             }
         }
@@ -416,6 +441,8 @@ impl NativeState {
             inventory,
             pending: self.pending.clone(),
             offer_open_after_install: self.pending.as_ref().is_some_and(|request| can_open_after_install(request, self.pending_from_ui, platform)),
+            open_for_update: self.pending_open.keys().cloned().collect(),
+            quitting_for_update: self.deciding && !self.pending_open.is_empty(),
             favorites: self.favorites.ids().clone(),
             progress: self
                 .jobs
@@ -451,25 +478,77 @@ impl NativeState {
         self.next_request = self.next_request.checked_add(1).ok_or("Request limit reached")?;
         let request = Request { id: format!("ui-{}", self.next_request), operation, apps };
         self.validate(&request)?;
-        self.results.insert(request.id.clone(), "awaiting approval".into());
-        self.pending = Some(request.clone());
-        self.pending_from_ui = true;
+        self.set_pending(request.clone(), true)?;
         Ok(request)
+    }
+
+    fn set_pending(&mut self, request: Request, from_ui: bool) -> Result<(), String> {
+        let open = if matches!(request.operation, Operation::Update | Operation::UpdateAll) {
+            let apps = request.apps.iter().filter_map(|id| {
+                let installed = self.detected.get(id)?.as_ref()?;
+                Some((id.as_str(), installed.location.as_str()))
+            });
+            app_restart::detect(apps)?
+        } else {
+            OpenBundles::new()
+        };
+        self.results.insert(request.id.clone(), "awaiting approval".into());
+        self.pending = Some(request);
+        self.pending_open = open;
+        self.pending_from_ui = from_ui;
+        Ok(())
+    }
+
+    pub fn begin_decision(&mut self, id: &str, approve: bool) -> Result<OpenBundles, String> {
+        self.poll();
+        let request = self.pending.as_ref().filter(|request| request.id == id).ok_or("Unknown pending request")?;
+        if self.deciding {
+            return Err("The pending request is already being processed".into());
+        }
+        self.deciding = true;
+        if !approve {
+            return Ok(OpenBundles::new());
+        }
+        let current = self.validate(request).and_then(|()| {
+            for (id, approved_path) in &self.pending_open {
+                let current = self.detected.get(id).and_then(Option::as_ref).and_then(|entry| Path::new(&entry.location).canonicalize().ok());
+                if current.as_deref() != Some(Path::new(approved_path)) {
+                    return Err("The app location changed. Check for updates again.".into());
+                }
+            }
+            Ok(self.pending_open.clone())
+        });
+        if let Err(error) = &current {
+            self.deciding = false;
+            self.pending = None;
+            self.pending_open.clear();
+            self.pending_from_ui = false;
+            self.results.insert(id.into(), format!("rejected: {error}"));
+        }
+        current
     }
 
     pub fn begin_restart(&mut self) -> bool {
         self.poll();
-        if self.restarting || self.pending.is_some() || !self.jobs.is_empty() || !self.active.is_empty() {
+        if self.restarting || self.pending.is_some() || !self.jobs.is_empty() || !self.active.is_empty() || !self.reopening.is_empty() {
             return false;
         }
         self.restarting = true;
         true
     }
 
-    pub fn decide(&mut self, id: &str, approve: bool, open_after_install: bool) -> Result<(), String> {
+    pub fn decide(
+        &mut self,
+        id: &str,
+        approve: bool,
+        open_after_install: bool,
+        quit_results: BTreeMap<String, Result<(), String>>,
+    ) -> Result<(), String> {
         self.poll();
-        let request = self.pending.as_ref().filter(|request| request.id == id).ok_or("Unknown pending request")?.clone();
+        let mut request = self.pending.as_ref().filter(|request| request.id == id && self.deciding).ok_or("Unknown pending request")?.clone();
         self.pending = None;
+        self.deciding = false;
+        let open = std::mem::take(&mut self.pending_open);
         let from_ui = std::mem::take(&mut self.pending_from_ui);
         if !approve {
             self.results.insert(request.id, "rejected".into());
@@ -478,6 +557,19 @@ impl NativeState {
         if let Err(error) = self.validate(&request) {
             self.results.insert(request.id, format!("rejected: {error}"));
             return Err(error);
+        }
+        for app in open.keys() {
+            let result = quit_results.get(app).ok_or("No quit confirmation received").and_then(|result| result.as_ref().map_err(String::as_str));
+            if let Err(error) = result {
+                request.apps.retain(|id| id != app);
+                let result = format!("failed: {error}");
+                self.results.insert(format!("{}:{app}", request.id), result.clone());
+                self.results.insert(format!("app:{app}"), result);
+            }
+        }
+        if request.apps.is_empty() {
+            self.results.insert(request.id, "failed: no app closed for update".into());
+            return Ok(());
         }
         let command = match request.operation {
             Operation::Install | Operation::Update | Operation::UpdateAll => {
@@ -494,6 +586,7 @@ impl NativeState {
         for id in request.apps {
             if request.operation == Operation::Cancel {
                 self.open_after_install.remove(&id);
+                self.reopen_after_update.remove(&id);
                 self.cancellations.insert(id, request.id.clone());
                 continue;
             }
@@ -501,6 +594,9 @@ impl NativeState {
                 self.jobs.insert(id.clone(), JobPhase::Queued);
             }
             self.results.remove(&format!("app:{id}"));
+            if open.contains_key(&id) {
+                self.reopen_after_update.insert(id.clone());
+            }
             self.active.insert(id, request.id.clone());
         }
         println!("APPROVED {} {:?}", request.id, command);
@@ -567,9 +663,14 @@ mod tests {
         let mut state = NativeState::new(root.into(), false, true)?;
         let app = "handy".to_owned();
         let id = "ui-1".to_owned();
-        state.pending = Some(Request { id: id.clone(), operation: Operation::Install, apps: vec![app.clone()] });
+        state.pending = Some(Request { id: id.clone(), operation: Operation::Update, apps: vec![app.clone()] });
+        state.pending_open.insert(app.clone(), "/temporary/Fixture.app".into());
         assert!(!state.begin_restart(), "must wait for the consent dialog");
-        state.pending = None;
+        assert!(state.begin_decision(&id, false)?.is_empty(), "rejection must never request a quit");
+        assert!(state.begin_decision(&id, false).is_err(), "a second decision must not override the first");
+        state.decide(&id, false, false, BTreeMap::new())?;
+        assert!(state.pending.is_none() && state.pending_open.is_empty());
+        assert_eq!(state.results.get(&id).map(String::as_str), Some("rejected"));
         for phase in
             [JobPhase::Queued, JobPhase::Downloading { done: 1, total: 2 }, JobPhase::Reconnecting { done: 1, total: 2 }, JobPhase::Installing]
         {
@@ -580,6 +681,9 @@ mod tests {
         state.active.insert(app.clone(), id);
         assert!(!state.begin_restart(), "must wait for an active native operation without progress");
         state.finish_job(&app, Err(CANCELLED.into()));
+        state.reopening.insert(app.clone());
+        assert!(!state.begin_restart(), "must wait for a relaunch to finish");
+        state.reopening.remove(&app);
         assert!(state.begin_restart(), "cancelled jobs must release the restart");
         assert!(!state.begin_restart(), "the same restart cannot be reserved twice");
         assert_eq!(state.request(Operation::Install, vec![app]).unwrap_err(), "Sh*ftAnything is restarting");

@@ -1,6 +1,7 @@
 //! Local desktop launcher with approved native lifecycle operations.
 #![cfg_attr(all(target_os = "windows", not(debug_assertions)), windows_subsystem = "windows")]
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
+mod app_restart;
 mod catalog_links;
 mod discovery;
 mod favorites;
@@ -17,7 +18,7 @@ use artcraft_launcher_core::mcp_config::{McpConfigFormat, catalog_config};
 use serde::{Deserialize, Serialize};
 use session::NativeState;
 use std::sync::Mutex;
-use tauri::{WebviewUrl, WebviewWindowBuilder};
+use tauri::{Manager, WebviewUrl, WebviewWindowBuilder};
 
 #[derive(Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -133,13 +134,19 @@ fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::
     state.lock().map_err(|e| e.to_string())?.request(operation, apps)
 }
 #[tauri::command]
-fn decide_native_action(
-    request_id: String,
-    approve: bool,
-    open_after_install: Option<bool>,
-    state: tauri::State<'_, Mutex<NativeState>>,
-) -> Result<(), String> {
-    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve, open_after_install.unwrap_or(false))
+async fn decide_native_action(request_id: String, approve: bool, open_after_install: Option<bool>, app: tauri::AppHandle) -> Result<(), String> {
+    let state = app.state::<Mutex<NativeState>>();
+    let bundles = state.lock().map_err(|e| e.to_string())?.begin_decision(&request_id, approve)?;
+    let quit_results = if bundles.is_empty() {
+        Default::default()
+    } else {
+        let ids: Vec<_> = bundles.keys().cloned().collect();
+        match tauri::async_runtime::spawn_blocking(move || app_restart::quit_for_update(&bundles)).await {
+            Ok(results) => results,
+            Err(error) => ids.into_iter().map(|id| (id, Err(error.to_string()))).collect(),
+        }
+    };
+    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve, open_after_install.unwrap_or(false), quit_results)
 }
 #[tauri::command]
 fn check_native_updates(state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {

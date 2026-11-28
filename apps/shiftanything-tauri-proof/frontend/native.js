@@ -243,12 +243,14 @@
     const detail = snapshot.inventory.results['app:'+id];
     if (!detail) return {};
     // The native installer returns this before touching the running app's files.
-    if (/^failed: .+ is running\. Quit it, then try again\.$/.test(detail)) {
+    if (/^failed: (?:.+ is running\. Quit it, then try again\.|App is still open\.)/.test(detail)) {
       return {label:it?'App aperta. Chiudila e riprova.':'App is open. Quit it and try again.',detail,blocked:true};
     }
     let label;
     if (detail === 'cancelled') label = it?'Operazione annullata':'Action cancelled';
     else if (detail.startsWith('installed; could not open:')) label = it?'Installata. Apertura non riuscita.':'Installed. Could not open.';
+    else if (detail.startsWith('updated; could not reopen:')) label = it?'Aggiornata. Riapertura non riuscita.':'Updated. Could not reopen.';
+    else if (detail === 'completed: app updated and reopened') label = it?'Aggiornata e riaperta':'Updated and reopened';
     else if (detail.startsWith('completed:')) label = it?'Operazione completata':'Action completed';
     else if (detail.startsWith('rejected:')) label = it?'Operazione rifiutata':'Action rejected';
     else label = it?'Operazione non riuscita':'Action failed';
@@ -354,7 +356,7 @@
     const firstPaint = !current;
     const {updated_at: _, ...inventoryState} = snapshot.inventory;
     const nextKey = JSON.stringify([snapshot.lifecycle_enabled, snapshot.platform, inventoryState, snapshot.release_assets,
-      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs, snapshot.install_checks_pending]);
+      snapshot.pending, snapshot.offer_open_after_install, snapshot.open_for_update, snapshot.quitting_for_update, snapshot.progress, snapshot.favorites, snapshot.verified_installs, snapshot.install_checks_pending]);
     current = snapshot;
     if (!force && paintKey === nextKey) return;
     paintKey = nextKey;
@@ -441,7 +443,22 @@
       const destination = snapshot.isolated_profile
         ? (it ? ' · Azione nel profilo temporaneo.' : ' · Action in the temporary profile.')
         : (it ? ' · Azione su questo computer.' : ' · Action on this computer.');
-      confirmation.querySelector('p').textContent = snapshot.pending.apps.map(id => catalogById.get(id)?.name || id).join(', ') + destination;
+      const names = ids => ids.map(id => catalogById.get(id)?.name || id).join(', ');
+      const openApps = snapshot.open_for_update ?? [];
+      const closing = snapshot.quitting_for_update;
+      const text = openApps.length
+        ? names(openApps) + (closing
+          ? (it ? ' · Chiusura in corso. Rispondi all’eventuale richiesta di salvataggio.' : ' · Closing. Respond to any save prompt.')
+          : (it ? ' · Le app aperte verranno chiuse e riaperte dopo l’aggiornamento. Salva il lavoro prima di continuare.' : ' · Open apps will quit and reopen after updating. Save your work before you continue.'))
+        : names(snapshot.pending.apps) + destination;
+      const otherApps = snapshot.pending.apps.filter(id => !openApps.includes(id));
+      const otherUpdates = openApps.length && otherApps.length
+        ? (it ? ' Aggiorna anche ' : ' Also update ') + names(otherApps) + '.'
+        : '';
+      confirmation.querySelector('p').textContent = text + otherUpdates;
+      const approveButton = confirmation.querySelector('[data-approve]');
+      approveButton.textContent = openApps.length ? (it ? 'Chiudi e aggiorna' : 'Quit and update') : (it ? 'Approva' : 'Approve');
+      approveButton.disabled = confirmation.querySelector('[data-reject]').disabled = Boolean(closing);
       if (!confirmation.open) confirmation.showModal();
     } else { pendingId=undefined; if (confirmation.open) confirmation.close(); }
   }
@@ -451,6 +468,9 @@
     requesting=true;
     try {
       const openAfterInstall = approve && !firstOpen.hidden && launchCheckbox.checked;
+      if (approve && current?.open_for_update?.length) {
+        render({...current,quitting_for_update:true}, {force:true});
+      }
       await invoke('decide_native_action',{requestId:pendingId,approve,openAfterInstall});
       render(await invoke('native_snapshot'));
     }

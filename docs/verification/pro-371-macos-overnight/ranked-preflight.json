@@ -50,6 +50,16 @@
     "reason": "intel_installer_only"
   },
   {
+    "id": "mpv",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/mpv-player/mpv/releases/tag/v0.42.0",
+    "asset_url": "https://github.com/mpv-player/mpv/releases/download/v0.42.0/mpv-v0.42.0-macos-26-arm.zip",
+    "sha256": "81bffbda01d69eec566ee3f576a2d0089447ba4b21dece3954f08109d5435ce1",
+    "bytes": 48315731,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
     "id": "nuclear",
     "target": "macos-arm64",
     "release_source": "https://github.com/nukeop/nuclear/releases/tag/player%401.56.4",

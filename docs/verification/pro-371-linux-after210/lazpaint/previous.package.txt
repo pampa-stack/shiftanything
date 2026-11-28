@@ -1,0 +1,20 @@
+
+LazPaint - Fast raster image editor
+
+          ID: io.github.bgrabitmap.LazPaint
+         Ref: app/io.github.bgrabitmap.LazPaint/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 7.3.0
+     License: GPL-3.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 26.3 MB
+     Runtime: org.kde.Platform/x86_64/5.15-24.08
+         Sdk: org.kde.Sdk/x86_64/5.15-24.08
+
+      Commit: f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813
+      Parent: 235faf3a144b4e2ccbf0190428d337612aecc82a89ac0fedb94404b2cf975f33
+     Subject: Merge pull request #1 from flathub/update (cea29389c18d)
+        Date: 2025-05-25 19:37:34 +0000

@@ -1,0 +1,20 @@
+
+Scilab - Scientific software package for numerical computations
+
+          ID: org.scilab.Scilab
+         Ref: app/org.scilab.Scilab/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2027.0.0
+     License: CECILL-2.1 or GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 2.7 GB
+     Runtime: org.freedesktop.Sdk/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145
+      Parent: fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0
+     Subject: Merge pull request #120 from flathub/update-master-568dc29 (8577dcebe102)
+        Date: 2026-11-11 18:28:24 +0000

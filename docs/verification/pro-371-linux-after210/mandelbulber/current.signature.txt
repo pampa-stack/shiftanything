@@ -1,0 +1,19 @@
+commit 1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3
+Parent:  21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a
+ContentChecksum:  44288aecca49029a2e40c318f690f193032ce5a6f0c86f63817fed9a78e3173a
+Date:  2026-09-07 11:12:23 +0000
+
+    Merge pull request #58 from flathub/update-master-ee8e656 (2fca17a57541)
+
+    Name: com.github.buddhi1980.mandelbulber2
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Sep  7 14:36:27 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

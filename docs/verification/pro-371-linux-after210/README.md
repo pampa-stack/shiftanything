@@ -107,6 +107,19 @@ Il 28 novembre il backend di `8c4e50b` con le ricette candidate ha installato, a
 
 GNOME Contacts resta fuori dalla verifica. Nel guest il runner ha ricevuto l’esito di avvio ma la finestra della versione precedente non è comparsa.
 
+## Sei app Flathub aggiuntive
+
+Su Ubuntu 24.04 x64 in un guest AX42 isolato, il backend di `70c6845` con le ricette candidate ha installato, aperto, aggiornato e rimosso i pacchetti firmati. Le aperture usavano il solo loopback. Dopo la rimozione il launcher vedeva le app come disinstallate e i file sintetici erano ancora presenti.
+
+- **Alpaca 9.2.4 → 9.2.5.** Le due versioni hanno aperto la configurazione iniziale. Nessun modello scaricato durante la prova. [Flathub](https://flathub.org/apps/com.jeffser.Alpaca) · [Prima](alpaca/previous.png) · [Dopo](alpaca/current.png) · [Log](alpaca/lifecycle.log)
+- **jamovi.** Due revisioni firmate con lo stesso numero di versione nel pacchetto. Entrambe hanno aperto il foglio dati. [Flathub](https://flathub.org/apps/org.jamovi.jamovi) · [Prima](jamovi/previous.png) · [Dopo](jamovi/current.png) · [Log](jamovi/lifecycle.log)
+- **LazPaint 7.3.0.** Due revisioni firmate hanno aperto l’editor. L’aggiornamento ha sostituito il runtime KDE 5.15-24.08 fuori supporto con 5.15-25.08. [Flathub](https://flathub.org/apps/io.github.bgrabitmap.LazPaint) · [Prima](lazpaint/previous.png) · [Dopo](lazpaint/current.png) · [Log](lazpaint/lifecycle.log)
+- **Mandelbulber 2.33.** Due revisioni firmate hanno aperto l’editor. La prova si ferma prima di avviare il rendering. [Flathub](https://flathub.org/apps/com.github.buddhi1980.mandelbulber2) · [Prima](mandelbulber/previous.png) · [Dopo](mandelbulber/current.png) · [Log](mandelbulber/lifecycle.log)
+- **Scilab 2027.0.0.** Due revisioni firmate hanno aperto la console. Alcuni pannelli laterali risultano neri nel display virtuale. [Flathub](https://flathub.org/apps/org.scilab.Scilab) · [Prima](scilab/previous.png) · [Dopo](scilab/current.png) · [Log](scilab/lifecycle.log)
+- **Sweet Home 3D 7.5.** Due revisioni firmate hanno aperto l’editor delle planimetrie. [Flathub](https://flathub.org/apps/com.sweethome3d.Sweethome3d) · [Prima](sweethome3d/previous.png) · [Dopo](sweethome3d/current.png) · [Log](sweethome3d/lifecycle.log)
+
+Bespoke Synth si apre ma mostra un errore di inizializzazione audio nel guest. Resta fuori dalle ricette abilitate. Per riprodurre i sei cicli usare `SHIFT_QA_COMPOSITOR=on` con un display libero per ciascun processo.
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.

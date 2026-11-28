@@ -1,0 +1,19 @@
+commit fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0
+Parent:  b67f08b052626d2b2987c4065a92e73eda9e8f1a76f7c4f3af923cfaf0194807
+ContentChecksum:  8e84c654797e8894860612bc80c5a04a607ff52a5fede836f57337879637635e
+Date:  2026-11-10 19:52:31 +0000
+
+    Merge pull request #119 from razzeee/fix-ncurses-stable-checker (a765a45e9c29)
+
+    Name: org.scilab.Scilab
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 10 21:04:15 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

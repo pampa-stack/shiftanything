@@ -1,0 +1,19 @@
+commit 21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a
+Parent:  3a217fbc1569eeb57c73222cbd2473f3b830154323fad3bc59624a18bc5c58a5
+ContentChecksum:  2ea9f353eb6a9e111921a82f754116bd4629e2eb819eb9dc2ffadd106391dc4f
+Date:  2026-09-07 07:57:38 +0000
+
+    Merge pull request #57 from kevinsmia1939/master (f3928126715e)
+
+    Name: com.github.buddhi1980.mandelbulber2
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Sep  7 10:02:06 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

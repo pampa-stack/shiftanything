@@ -16030,7 +16030,15 @@
           "size_max": 729954616
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.jeffser.Alpaca",
+        "source": "https://flathub.org/apps/com.jeffser.Alpaca"
+      }
+    ]
   },
   {
     "id": "anythingllm",
@@ -23879,6 +23887,14 @@
     "screenshot_credits": [
       "Interfaccia annotata · manuale ufficiale",
       "Render dimostrativo · sito ufficiale"
+    ],
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.github.buddhi1980.mandelbulber2",
+        "source": "https://flathub.org/apps/com.github.buddhi1980.mandelbulber2"
+      }
     ]
   },
   {

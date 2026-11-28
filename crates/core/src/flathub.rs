@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 201] = [
+pub const RECIPES: [(&str, &str); 207] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -194,6 +194,12 @@ pub const RECIPES: [(&str, &str); 201] = [
     ("scribus", "net.scribus.Scribus"),
     ("frescobaldi", "org.frescobaldi.Frescobaldi"),
     ("rhythmbox", "org.gnome.Rhythmbox3"),
+    ("alpaca", "com.jeffser.Alpaca"),
+    ("jamovi", "org.jamovi.jamovi"),
+    ("lazpaint", "io.github.bgrabitmap.LazPaint"),
+    ("mandelbulber", "com.github.buddhi1980.mandelbulber2"),
+    ("scilab", "org.scilab.Scilab"),
+    ("sweethome3d", "com.sweethome3d.Sweethome3d"),
     ("file-roller", "org.gnome.FileRoller"),
     ("abiword", "com.abisource.AbiWord"),
     ("drawing", "com.github.maoschanz.drawing"),
@@ -355,6 +361,12 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "scribus" => "https://wiki.scribus.net/canvas/Checking_out_SVN",
         "frescobaldi" => "https://github.com/frescobaldi/frescobaldi",
         "rhythmbox" => "https://gitlab.gnome.org/GNOME/rhythmbox",
+        "alpaca" => "https://github.com/Jeffser/Alpaca",
+        "jamovi" => "https://github.com/jamovi/jamovi",
+        "lazpaint" => "https://github.com/bgrabitmap/lazpaint",
+        "mandelbulber" => "https://github.com/buddhi1980/mandelbulber2",
+        "scilab" => "https://gitlab.com/scilab/scilab",
+        "sweethome3d" => "https://sourceforge.net/p/sweethome3d/code/HEAD/tree",
         "file-roller" => "https://gitlab.gnome.org/GNOME/file-roller",
         "abiword" => "https://gitlab.gnome.org/World/AbiWord",
         "drawing" => "https://github.com/maoschanz/drawing",

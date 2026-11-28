@@ -1,0 +1,19 @@
+commit f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813
+Parent:  235faf3a144b4e2ccbf0190428d337612aecc82a89ac0fedb94404b2cf975f33
+ContentChecksum:  064ffd82b04823b075f0f40bdbd0e8b555783695db805d9467267be8964627ca
+Date:  2025-05-25 19:37:34 +0000
+
+    Merge pull request #1 from flathub/update (cea29389c18d)
+
+    Name: io.github.bgrabitmap.LazPaint
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Sun May 25 20:01:15 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

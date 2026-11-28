@@ -100,6 +100,16 @@
     "reason": "invalid_signature"
   },
   {
+    "id": "notepadnext",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/dail8859/NotepadNext/releases/tag/v0.15",
+    "asset_url": "https://github.com/dail8859/NotepadNext/releases/download/v0.15/NotepadNext-v0.15-arm64.dmg",
+    "sha256": "b3c950c8f9909014d3ed6479bd477baf1d97ac36efe6a30716580d7df32686e9",
+    "bytes": 27752757,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
     "id": "nuclear",
     "target": "macos-arm64",
     "release_source": "https://github.com/nukeop/nuclear/releases/tag/player%401.56.4",
@@ -118,6 +128,16 @@
     "bytes": 180284302,
     "checked_at": "2026-11-28",
     "reason": "intel_only"
+  },
+  {
+    "id": "pixelorama",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Orama-Interactive/Pixelorama/releases/tag/v1.2.4",
+    "asset_url": "https://github.com/Orama-Interactive/Pixelorama/releases/download/v1.2.4/Pixelorama-Mac.dmg",
+    "sha256": "aef909572cb008174e758fbc36998823363e44d9eaffa974b156d4284c549ce7",
+    "bytes": 72186942,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
   },
   {
     "id": "quickrecorder",

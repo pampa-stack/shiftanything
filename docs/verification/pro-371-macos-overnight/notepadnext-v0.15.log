@@ -1,0 +1,16 @@
+ARTIFACT b3c950c8f9909014d3ed6479bd477baf1d97ac36efe6a30716580d7df32686e9 27752757 https://github.com/dail8859/NotepadNext/releases/download/v0.15/NotepadNext-v0.15-arm64.dmg
+PUBLISHED SHA256 MATCH
+APP_COUNT 1
+CFBundleIdentifier io.github.dail8859.NotepadNext
+CFBundleShortVersionString 
+CFBundleExecutable NotepadNext
+LSMinimumSystemVersion 
+arm64
+Identifier=NotepadNext
+Signature=adhoc
+TeamIdentifier=not set
+<read-only-mount>/NotepadNext.app: code has no resources but signature indicates they must be present
+CODESIGN FAIL
+<read-only-mount>/NotepadNext.app: code has no resources but signature indicates they must be present
+GATEKEEPER FAIL
+"disk16" ejected.

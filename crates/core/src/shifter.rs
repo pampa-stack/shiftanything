@@ -176,6 +176,27 @@ impl Dataset {
         self.profiles.iter().find(|profile| std::iter::once(&profile.name).chain(&profile.aliases).any(|known| normalize(known) == name))
     }
 
+    /// One row per profile: the catalog apps with at least one confirmed feature, most first.
+    /// It counts documented alternatives; it does not measure popularity or quality.
+    pub fn confirmed_alternatives(&self) -> Vec<(&Profile, Vec<&str>)> {
+        let catalog = catalog_sort_names();
+        let mut rows: Vec<_> = self
+            .profiles
+            .iter()
+            .map(|profile| {
+                let apps = profile
+                    .candidates
+                    .iter()
+                    .map(|candidate| candidate.app_id.as_str())
+                    .filter(|app_id| catalog.contains_key(app_id) && profile.confirms(app_id))
+                    .collect::<BTreeSet<_>>();
+                (profile, apps.into_iter().collect::<Vec<_>>())
+            })
+            .collect();
+        rows.sort_by_cached_key(|(profile, apps)| (std::cmp::Reverse(apps.len()), normalize(&profile.name)));
+        rows
+    }
+
     /// Explicit qualified IDs reuse evidence; free labels never acquire evidence by name.
     pub fn feature(&self, key: &str) -> Option<(&Profile, &Feature)> {
         let (profile_id, feature_id) = key.split_once(':')?;

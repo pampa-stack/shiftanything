@@ -3,7 +3,7 @@ use std::collections::BTreeSet;
 
 use artcraft_launcher_core::{
     automation::{Operation, Request},
-    curated, kits,
+    curated, kits, shifter,
 };
 use egui::{RichText, Ui};
 use egui_extras::{Column, TableBuilder};
@@ -84,16 +84,15 @@ impl LauncherUi {
                 })
                 .body(|mut body| {
                     for step in &kit.steps {
-                        body.row((step.options.len() as f32 * 48.0).max(74.0), |mut row| {
+                        let height = (step.options.len() as f32 * 48.0).max(step.paid.len() as f32 * 56.0).max(74.0);
+                        body.row(height, |mut row| {
                             row.col(|ui| {
                                 ui.strong(step.name.in_language(language));
                             });
                             row.col(|ui| {
-                                ui.label(step.paid.join(", "));
-                                if let Some(profile) = &step.compare
-                                    && ui.button(tl!("Compare in SH*FTER")).clicked()
-                                {
-                                    self.open_comparison_profile(profile);
+                                for paid in &step.paid {
+                                    ui.label(paid);
+                                    self.compare_button(ui, paid, shifter_profile(paid));
                                 }
                             });
                             row.col(|ui| {
@@ -167,13 +166,27 @@ impl LauncherUi {
         });
     }
 
+    fn compare_button(&mut self, ui: &mut Ui, paid: &str, profile: Option<&str>) {
+        if let Some(profile) = profile
+            && ui.button(tl!("Compare in SH*FTER")).accessible_name(format!("{} · {paid}", tl!("Compare in SH*FTER"))).clicked()
+        {
+            self.open_comparison_profile(profile);
+        }
+    }
+
     fn kit_rankings(&mut self, ui: &mut Ui, data: &kits::Dataset, language: &str) {
+        // Tab 0 is generated from the SH*FTER profiles; the published surveys follow it.
         ui.horizontal_wrapped(|ui| {
+            ui.selectable_value(&mut self.kits.survey, 0, tl!("Confirmed open source alternatives"));
             for (index, survey) in data.rankings.iter().enumerate() {
-                ui.selectable_value(&mut self.kits.survey, index, survey.name.in_language(language));
+                ui.selectable_value(&mut self.kits.survey, index + 1, survey.name.in_language(language));
             }
         });
-        let Some(survey) = data.rankings.get(self.kits.survey) else { return };
+        let Some(index) = self.kits.survey.checked_sub(1) else {
+            self.kit_confirmed_ranking(ui);
+            return;
+        };
+        let Some(survey) = data.rankings.get(index) else { return };
         ui.heading(survey.name.in_language(language));
         ui.label(survey.scope.in_language(language));
         ui.hyperlink_to(&survey.publisher, &survey.source);
@@ -197,11 +210,7 @@ impl LauncherUi {
                     body.row((entry.apps.len() as f32 * 48.0).max(85.0), |mut row| {
                         row.col(|ui| {
                             ui.label(&entry.paid);
-                            if let Some(profile) = &entry.compare
-                                && ui.button(tl!("Compare in SH*FTER")).clicked()
-                            {
-                                self.open_comparison_profile(profile);
-                            }
+                            self.compare_button(ui, &entry.paid, entry.compare.as_deref().or_else(|| shifter_profile(&entry.paid)));
                         });
                         row.col(|ui| {
                             let value = format!("{}%", entry.value);
@@ -216,6 +225,54 @@ impl LauncherUi {
                         });
                     });
                 }
+            });
+    }
+
+    fn kit_confirmed_ranking(&mut self, ui: &mut Ui) {
+        let Ok(data) = shifter::data() else {
+            ui.label(tl!("Comparison data unavailable"));
+            return;
+        };
+        let rows = data.confirmed_alternatives();
+        ui.heading(tl!("Confirmed open source alternatives"));
+        ui.label(tl!(
+            "One row for each paid software in SH*FTER. It counts the catalog apps with at least one feature confirmed by a source: it does not measure popularity or quality."
+        ));
+        ui.label(format!("{} · {}", tl!("Evidence checked"), data.checked_on));
+        ui.add_space(12.0);
+        let width = ui.available_width();
+        TableBuilder::new(ui)
+            .id_salt("work-kit-confirmed")
+            .striped(true)
+            .column(Column::exact(width * 0.24))
+            .column(Column::exact(width * 0.18))
+            .column(Column::remainder())
+            .header(30.0, |mut header| {
+                for label in [tl!("Paid software"), tl!("Confirmed alternatives"), tl!("Open source alternatives")] {
+                    header.col(|ui| {
+                        ui.strong(label);
+                    });
+                }
+            })
+            .body(|body| {
+                // Only visible rows are built, so off-screen app pictures are not requested.
+                body.heterogeneous_rows(rows.iter().map(|(_, apps)| (apps.len() as f32 * 48.0).max(85.0)), |mut row| {
+                    let (profile, apps) = &rows[row.index()];
+                    row.col(|ui| {
+                        ui.label(&profile.name);
+                        self.compare_button(ui, &profile.name, Some(&profile.id));
+                    });
+                    row.col(|ui| {
+                        ui.label(apps.len().to_string());
+                    });
+                    row.col(|ui| {
+                        ui.push_id(&profile.id, |ui| {
+                            for id in apps {
+                                self.kit_option(ui, id, None);
+                            }
+                        });
+                    });
+                });
             });
     }
 
@@ -246,6 +303,9 @@ impl LauncherUi {
         });
         close
     }
+}
+fn shifter_profile(paid: &str) -> Option<&'static str> {
+    shifter::data().ok()?.profile_named(paid).map(|profile| profile.id.as_str())
 }
 fn compact_count(count: u64) -> String {
     if count >= 1_000_000 {

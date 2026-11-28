@@ -60,8 +60,11 @@ mod tests {
     use std::collections::BTreeSet;
 
     #[test]
-    fn every_paid_product_in_a_kit_has_a_shifter_profile_confirming_the_kit_alternatives() {
+    fn every_paid_product_in_a_kit_is_in_shifter_and_the_ranking_with_its_kit_alternatives() {
         let shifter = crate::shifter::data().unwrap();
+        let ranked: std::collections::BTreeMap<_, _> =
+            shifter.confirmed_alternatives().into_iter().map(|(profile, apps)| (profile.id.as_str(), apps.len())).collect();
+        assert_eq!(ranked.len(), shifter.profiles.len(), "every SH*FTER profile has one ranking row");
         let mut gaps = BTreeSet::new();
         for step in data().unwrap().kits.iter().flat_map(|kit| &kit.steps) {
             let profiles: Vec<_> = step.paid.iter().filter_map(|paid| shifter.profile_named(paid)).collect();
@@ -74,6 +77,9 @@ mod tests {
             }
             for profile in profiles.iter().filter(|profile| !step.options.iter().any(|option| profile.confirms(&option.app))) {
                 gaps.insert(format!("{}: no kit alternative confirmed", profile.name));
+            }
+            for profile in profiles.iter().filter(|profile| ranked.get(profile.id.as_str()).is_none_or(|apps| *apps == 0)) {
+                gaps.insert(format!("{}: missing from the ranking", profile.name));
             }
             assert!(step.compare.as_deref().is_none_or(|id| profiles.iter().any(|profile| profile.id == id)));
         }

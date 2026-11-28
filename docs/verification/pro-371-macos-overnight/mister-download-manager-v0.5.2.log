@@ -1,0 +1,24 @@
+2026-11-28T11:55:37+0100
+/dev/disk3s5   239362496 173462384  24772540    88% 3238851 247725400    1%   /System/Volumes/Data
+ARTIFACT 0217160ba08f56c5dad07642508828f259fcc283ed0b930514af712cf01aeea6 15510960 https://github.com/anefzaoui/misterdownloadmanager/releases/download/v0.5.2/MisterDownloadManager-0.5.2-macos-arm64-experimental.dmg
+BUNDLE=Mister Download Manager.app
+CFBundleIdentifier=io.github.anefzaoui.misterdownloadmanager
+CFBundleShortVersionString=0.5.2
+CFBundleVersion=0.5.2
+CFBundleExecutable=misterdownloadmanager
+LSMinimumSystemVersion=11.0
+/private/tmp/shift-air-overnight.n2VgmFsG/preflight/mister-download-manager/v0.5.2/mount/Mister Download Manager.app/Contents/MacOS/misterdownloadmanager: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.n2VgmFsG/preflight/mister-download-manager/v0.5.2/mount/Mister Download Manager.app/Contents/MacOS/misterdownloadmanager (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=io.github.anefzaoui.misterdownloadmanager
+Format=app bundle with Mach-O thin (arm64)
+TeamIdentifier=not set
+test-requirement: code failed to satisfy specified code requirement(s)

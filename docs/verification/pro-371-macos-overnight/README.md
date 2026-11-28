@@ -122,6 +122,10 @@ On 28 November 2026 the Air inspected the official OpenRA [20250303](https://git
 
 The official [xbar 2.1.6-beta and 2.1.7-beta](https://github.com/matryer/xbar/releases) DMGs each contain a universal app with bundle ID `com.xbarapp.app`, signed by team `N3H5B92L5N`. Both passed strict signature and Gatekeeper checks. The current 2.1.7-beta digest matches the [Homebrew cask](https://formulae.brew.sh/cask/xbar). The latest release is a beta published in October 2021. These were read-only checks on the disk image. A lifecycle test still needs an isolated plugin directory for xbar. The verified install list remains unchanged for both apps. [2.1.6-beta package](xbar-v2.1.6-beta.log) · [2.1.7-beta package](xbar-v2.1.7-beta.log)
 
+### Mister Download Manager package inspection
+
+On 28 November 2026 the MacBook Air inspected the experimental Apple Silicon DMGs for [0.5.0](https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.0) and [0.5.2](https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2). Both measured sizes and SHA-256 digests match GitHub. Each contains an ARM64 bundle with ID `io.github.anefzaoui.misterdownloadmanager` and minimum macOS 11.0. Both report no Developer ID team and fail the notarization requirement. The verified Apple Silicon list stays unchanged. [0.5.0 package](mister-download-manager-v0.5.0.log) · [0.5.2 package](mister-download-manager-v0.5.2.log) · [Verified Linux cycle](../pro-371-linux-mister-download-manager/README.md)
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. If the internal disk is below the harness floor, the native runner also accepts a private `/Volumes/T7-Backup/shift-air-overnight.XXXXXXXX` folder. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.

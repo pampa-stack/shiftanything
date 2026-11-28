@@ -65,6 +65,7 @@ pub(crate) fn from_manifest(app: &CraftApp, manifest: &Manifest) -> Option<Insta
             | artcraft_launcher_core::PackageKind::MacZip
             | artcraft_launcher_core::PackageKind::MacPkg
             | artcraft_launcher_core::PackageKind::MacTarGz
+            | artcraft_launcher_core::PackageKind::MacTarXz
     ) {
         return macos::read_bundle(app, &rec.path);
     }

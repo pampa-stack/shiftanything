@@ -20,7 +20,7 @@ use crate::model::AppEntry;
 fn platform_kinds(os: Os) -> &'static [PackageKind] {
     match os {
         Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-        Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz],
+        Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
         Os::FreeBsd => &[PackageKind::TarGz],
         Os::Linux => &[],
     }

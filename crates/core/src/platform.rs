@@ -63,6 +63,8 @@ pub enum PackageKind {
     MacPkg,
     /// A signed macOS .app bundle in a reviewed gzip-compressed tar archive.
     MacTarGz,
+    /// A signed macOS .app bundle in a reviewed xz-compressed tar archive.
+    MacTarXz,
     AppImage,
     Deb,
     Rpm,
@@ -82,6 +84,7 @@ impl PackageKind {
             Self::MacZip => "App archive (.zip)",
             Self::MacPkg => "Application package (.pkg)",
             Self::MacTarGz => "App archive (.tar.gz)",
+            Self::MacTarXz => "App archive (.txz)",
             Self::AppImage => "AppImage",
             Self::Deb => "Debian package (.deb)",
             Self::Rpm => "RPM package (.rpm)",
@@ -104,6 +107,7 @@ impl PackageKind {
             Self::ArchPkg => ".pkg.tar.zst",
             Self::Flatpak => ".flatpak",
             Self::MacTarGz | Self::TarGz => ".tar.gz",
+            Self::MacTarXz => ".txz",
         }
     }
 }
@@ -172,7 +176,7 @@ impl Platform {
     pub fn default_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
             Os::Linux => &[PackageKind::AppImage, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -182,7 +186,7 @@ impl Platform {
     pub fn download_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
             Os::Linux => &[PackageKind::AppImage, PackageKind::Deb, PackageKind::Rpm, PackageKind::ArchPkg, PackageKind::Flatpak, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -359,9 +363,10 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 18] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 19] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::RUFFLE.id, PackageKind::MacTarGz, release::ruffle_mac_asset),
+        (curated::SIGIL.id, PackageKind::MacTarXz, release::sigil_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
         (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
@@ -718,7 +723,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
-    if platform.os == Os::MacOs && stems.contains(&crate::curated::RUFFLE.id) {
+    if platform.os == Os::MacOs && [crate::curated::RUFFLE.id, crate::curated::SIGIL.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64;
     }
     if platform.os == Os::Windows && stems.iter().any(|id| crate::release::reviewed_windows_msi_repo(id).is_some()) {

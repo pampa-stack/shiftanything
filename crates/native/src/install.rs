@@ -37,6 +37,9 @@ use crate::process;
 fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
     use artcraft_launcher_core::curated as recipe;
 
+    if app.id == recipe::SIGIL.id {
+        return Some((13, 0));
+    }
     if matches!(app.id, "photocraft" | "craft-anything") && cfg!(target_arch = "aarch64") {
         return Some((11, 0));
     }
@@ -295,7 +298,9 @@ struct Failure {
 pub fn keeps_old_copy(kind: PackageKind, existing: Option<&Installed>, previous: Option<&Record>) -> bool {
     let source = existing.map(|inst| inst.source);
     match kind {
-        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz => source == Some(InstallSource::MacApp),
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz | PackageKind::MacTarXz => {
+            source == Some(InstallSource::MacApp)
+        }
         PackageKind::AppImage => source == Some(InstallSource::Launcher) && previous.is_some_and(|r| r.kind == PackageKind::AppImage),
         PackageKind::Flatpak => existing.is_some_and(|inst| inst.source == InstallSource::Flatpak && !inst.externally_managed),
         _ => false,
@@ -390,6 +395,15 @@ fn install_at_with_profile(
         if !cfg!(all(target_os = "macos", target_arch = "aarch64"))
             || (app.id, app.repo, app.bundle, app.mac_team) != (ruffle.id, ruffle.repo, ruffle.bundle, ruffle.mac_team)
             || !release::ruffle_mac_asset(release, asset)
+        {
+            return Err("This macOS app archive has not been verified for this system.".into());
+        }
+    }
+    if kind == PackageKind::MacTarXz {
+        let sigil = artcraft_launcher_core::curated::SIGIL;
+        if !cfg!(all(target_os = "macos", target_arch = "aarch64"))
+            || (app.id, app.repo, app.bundle, app.mac_team) != (sigil.id, sigil.repo, sigil.bundle, sigil.mac_team)
+            || !release::sigil_mac_asset(release, asset)
         {
             return Err("This macOS app archive has not been verified for this system.".into());
         }
@@ -575,7 +589,7 @@ fn install_at_with_profile(
         PackageKind::MacPkg => macos::install_pkg(app, &file, existing, destination.as_deref(), job.paths, &macos::Expect::release(app, release))
             .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
         #[cfg(target_os = "macos")]
-        PackageKind::MacTarGz => macos::install_tar(
+        PackageKind::MacTarGz | PackageKind::MacTarXz => macos::install_tar(
             app,
             &file,
             existing,
@@ -924,7 +938,7 @@ pub fn occupied(
     let target = match kind {
         PackageKind::Msi => folder,
         PackageKind::PortableZip => Some(folder.unwrap_or_else(|| paths.apps()).join(app.id)),
-        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz | PackageKind::MacTarXz => {
             folder.and_then(|f| app.mac_bundle_names().map(|n| f.join(format!("{n}.app"))).find(|t| std::fs::symlink_metadata(t).is_ok()))
         }
         #[cfg(target_os = "linux")]
@@ -985,6 +999,7 @@ fn destination(
             | PackageKind::MacZip
             | PackageKind::MacPkg
             | PackageKind::MacTarGz
+            | PackageKind::MacTarXz
             | PackageKind::AppImage
             | PackageKind::Msi
             | PackageKind::PortableZip
@@ -1023,7 +1038,7 @@ pub fn default_folder(kind: PackageKind, arch: Option<Arch>, paths: &Paths) -> O
     #[cfg(target_os = "macos")]
     {
         let _ = (arch, paths);
-        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz)
+        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz | PackageKind::MacTarXz)
             .then(macos::default_applications_dir)
             .flatten()
     }
@@ -1230,7 +1245,7 @@ pub fn is_release_arch_package(app: &CraftApp, installed: &Installed) -> bool {
 /// Package formats this machine can install, best first.
 pub fn available_kinds() -> Vec<PackageKind> {
     #[cfg(target_os = "macos")]
-    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz];
+    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz];
     #[cfg(windows)]
     return vec![PackageKind::Msi, PackageKind::PortableZip];
     #[cfg(target_os = "linux")]
@@ -2326,6 +2341,7 @@ pub(crate) mod macos_verify;
 pub mod macos {
     use std::time::Duration;
 
+    use artcraft_launcher_core::PackageKind;
     use artcraft_launcher_core::version::Version;
 
     use super::{CraftApp, InstallSource, Installed, Path, PathBuf, Paths, Release, process, swap_into_place};
@@ -2495,8 +2511,35 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        extract_ruffle_tar(archive, unpacked.path())?;
+        if app.mac_package_kind() == PackageKind::MacTarXz {
+            extract_sigil_archive(archive, unpacked.path())?;
+        } else {
+            extract_ruffle_tar(archive, unpacked.path())?;
+        }
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
+    }
+
+    // The caller admits only hash-pinned Sigil releases. BSD tar preserves the Apple code
+    // signature attributes and framework links. Its write permissions are scoped to staging.
+    fn extract_sigil_archive(archive: &Path, staging: &Path) -> Result<(), String> {
+        const SANDBOX: &str = "/usr/bin/sandbox-exec";
+        const PROFILE: &str = r#"(version 1) (allow default) (deny network*) (deny file-write*)
+            (allow file-write* (subpath (param "APP_STAGE")) (literal (param "APP_STAGE")))"#;
+        let staging = staging.canonicalize().map_err(|error| error.to_string())?;
+        let archive = archive.canonicalize().map_err(|error| error.to_string())?;
+        let stage_path = staging.to_str().ok_or("unusual characters in the staging path")?;
+        let mut command = process::command(SANDBOX);
+        command
+            .args(["-D", &format!("APP_STAGE={stage_path}"), "-p", PROFILE, "/usr/bin/tar", "--no-same-owner", "-x", "-f"])
+            .arg(archive)
+            .arg("-C")
+            .arg(&staging)
+            .env("TMPDIR", &staging);
+        process::run_command(command, SANDBOX, Duration::from_secs(90))?;
+        if !exact_directory(&staging, &["Sigil.app"]) || !std::fs::symlink_metadata(staging.join("Sigil.app")).is_ok_and(|meta| meta.is_dir()) {
+            return Err("The macOS archive does not have the reviewed Sigil bundle layout.".into());
+        }
+        Ok(())
     }
 
     fn extract_ruffle_tar(archive: &Path, staging: &Path) -> Result<(), String> {
@@ -3160,7 +3203,12 @@ pub mod macos {
         // Calibre's frozen Python library carries a detached Developer ID signature.
         let calibre = artcraft_launcher_core::curated::CALIBRE;
         let calibre_detached_signature = (app.id, app.repo, app.bundle, expect.team) == (calibre.id, calibre.repo, calibre.bundle, calibre.mac_team);
+        // Sigil's Python bundle also uses detached code signatures in extended attributes.
+        // MacTarXz has already authenticated the archive's exact bytes before extraction.
+        let sigil = artcraft_launcher_core::curated::SIGIL;
+        let sigil_detached_signature = (app.id, app.repo, app.bundle, expect.team) == (sigil.id, sigil.repo, sigil.bundle, sigil.mac_team);
         let args = if app.id == artcraft_launcher_core::curated::PINTA.id
+            || sigil_detached_signature
             || sqlite_legacy
             || calibre_detached_signature
             || freecad_detached_signature(app, expect)

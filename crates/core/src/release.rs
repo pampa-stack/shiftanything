@@ -1630,6 +1630,13 @@ pub fn ruffle_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::RUFFLE.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+/// Sigil's signed Apple Silicon archives contain bundle metadata and framework links.
+pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::SIGIL.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
@@ -1987,6 +1994,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ],
         ("superhighfives/pika", "2.0.2") => &[("Pika-2.0.2.dmg", 8_509_840, "03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734")],
         ("superhighfives/pika", "2.0.3") => &[("Pika-2.0.3.dmg", 8_613_124, "0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f")],
+        ("Sigil-Ebook/Sigil", "2.8.1") => {
+            &[("Sigil.app-2.8.1-Mac-arm64.txz", 129_467_312, "285addb9abee1d69c913d6a6b504240946b5274fd2193942ed59697536279afe")]
+        }
+        ("Sigil-Ebook/Sigil", "2.8.6") => {
+            &[("Sigil.app-2.8.6-Mac-arm64.txz", 132_137_600, "3be3be094745dfec892a02ac2f8d90934d4da2dc595ec1a95a8525f9ad27efd6")]
+        }
         ("ruffle-rs/ruffle", "v0.7.1") => {
             &[("ruffle-0.7.1-macos-universal.tar.gz", 33_270_538, "7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e")]
         }
@@ -2665,6 +2678,28 @@ mod tests {
             assert_eq!(select(&prerelease, mac), None);
         }
         assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
+
+    #[test]
+    fn sigil_macos_accepts_only_the_reviewed_apple_silicon_archives() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::SIGIL};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let choose = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[SIGIL.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.8.1", "2.8.6"] {
+            let mut release = release_from_sums(SIGIL.repo, tag, &[]);
+            assert_eq!(choose(&release, mac), Some(PackageKind::MacTarXz));
+            assert_eq!(choose(&release, intel), None);
+            release.prerelease = true;
+            assert_eq!(choose(&release, mac), None);
+            release.prerelease = false;
+            release.assets.iter_mut().for_each(|asset| asset.sha256 = None);
+            assert_eq!(choose(&release, mac), None);
+        }
+        assert_eq!(choose(&release_from_sums(SIGIL.repo, "2.8.7", &[]), mac), None);
     }
 
     #[test]

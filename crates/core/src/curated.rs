@@ -1570,6 +1570,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const SIGIL: crate::CraftApp = crate::CraftApp {
+    id: "sigil",
+    name: "Sigil",
+    tagline: "Create and edit EPUB ebooks",
+    repo: "Sigil-Ebook/Sigil",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [83, 133, 77],
+    ink_light: [44, 83, 40],
+    ink_dark: [167, 214, 155],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Kevin Hendricks",
+    msi_publisher: None,
+    bundle: Some("com.sigil-ebook.Sigil.app"),
+    site: Some("https://sigil-ebook.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("2SMCVQU3CJ"),
+};
+
 pub const RUFFLE: crate::CraftApp = crate::CraftApp {
     id: "ruffle",
     name: "Ruffle",
@@ -3337,6 +3358,7 @@ pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     AIONUI,
     RUFFLE,
+    SIGIL,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

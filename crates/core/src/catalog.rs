@@ -242,6 +242,8 @@ impl CraftApp {
             crate::PackageKind::MacPkg
         } else if (self.id, self.repo) == (crate::curated::RUFFLE.id, crate::curated::RUFFLE.repo) {
             crate::PackageKind::MacTarGz
+        } else if (self.id, self.repo) == (crate::curated::SIGIL.id, crate::curated::SIGIL.repo) {
+            crate::PackageKind::MacTarXz
         } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO
             || self.id == crate::curated::KEYCASTR.id
             || (self.id, self.repo) == (crate::curated::MACCY.id, crate::curated::MACCY.repo)
@@ -274,9 +276,11 @@ impl CraftApp {
     /// Whether the launcher installs this app from a `kind` package.
     pub fn installs(&self, kind: crate::PackageKind) -> bool {
         match kind {
-            crate::PackageKind::Dmg | crate::PackageKind::MacZip | crate::PackageKind::MacPkg | crate::PackageKind::MacTarGz => {
-                self.mac_team.is_some() && self.mac_package_kind() == kind
-            }
+            crate::PackageKind::Dmg
+            | crate::PackageKind::MacZip
+            | crate::PackageKind::MacPkg
+            | crate::PackageKind::MacTarGz
+            | crate::PackageKind::MacTarXz => self.mac_team.is_some() && self.mac_package_kind() == kind,
             _ => true,
         }
     }

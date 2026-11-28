@@ -1240,6 +1240,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::KARING,
         crate::curated::PLAYCOVER,
         crate::curated::MATERIAL_MAKER,
+        crate::curated::MULLVAD_BROWSER,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1362,7 +1363,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
                 version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
-            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB, crate::curated::PLAYCOVER]
+            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB, crate::curated::PLAYCOVER, crate::curated::MULLVAD_BROWSER]
                 .iter()
                 .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo))
             {
@@ -1669,6 +1670,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("mullvad/mullvad-browser", "16.0.2") => {
+            &[("mullvad-browser-macos-16.0.2.dmg", 162_985_935, "7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841")]
+        }
+        ("mullvad/mullvad-browser", "16.0.3") => {
+            &[("mullvad-browser-macos-16.0.3.dmg", 163_035_356, "28d7053a27eead62a8e551d2dbf460745508571c561f6226d00c867ef1e6c9b4")]
+        }
         ("RodZill4/material-maker", "1.7") => {
             &[("material_maker_1_7.dmg", 138_206_490, "af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550")]
         }

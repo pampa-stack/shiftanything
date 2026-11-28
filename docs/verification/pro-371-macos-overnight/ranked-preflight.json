@@ -160,6 +160,26 @@
     "reason": "intel_only"
   },
   {
+    "id": "pdfsam-basic",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.0",
+    "asset_url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.0/pdfsam-basic-6.0.0-macos-arm64.dmg",
+    "sha256": "704b567abb2f76d36c5ea6ccf8329bc63335cfd873581c61f171eca757276dae",
+    "bytes": 98224395,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "pdfsam-basic",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.11",
+    "asset_url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.11/pdfsam-basic-6.0.11-macos-arm64.dmg",
+    "sha256": "2c8516290cf0d3fcbaa3f55db9e40667811178c7f5f83c2869e6d594ceb036f0",
+    "bytes": 96667230,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
     "id": "pixelorama",
     "target": "macos-arm64",
     "release_source": "https://github.com/Orama-Interactive/Pixelorama/releases/tag/v1.2.4",

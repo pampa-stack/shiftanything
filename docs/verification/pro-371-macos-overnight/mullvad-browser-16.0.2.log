@@ -1,0 +1,32 @@
+2026-11-28T14:38:36+0100
+/dev/disk3s5   239362496 173497464  24737460    88% 3239122 247374600    1%   /System/Volumes/Data
+ARTIFACT 7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841 162985935 https://github.com/mullvad/mullvad-browser/releases/download/16.0.2/mullvad-browser-macos-16.0.2.dmg
+BUNDLE=Mullvad Browser.app
+CFBundleIdentifier=net.mullvad.mullvadbrowser
+CFBundleShortVersionString=16.0.2
+CFBundleVersion=15326.11.16
+CFBundleExecutable=mullvadbrowser
+LSMinimumSystemVersion=10.15.0
+/private/tmp/shift-air-overnight.vfttBUHQ/preflight/mullvad-browser/16.0.2/mount/Mullvad Browser.app/Contents/MacOS/mullvadbrowser: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.vfttBUHQ/preflight/mullvad-browser/16.0.2/mount/Mullvad Browser.app/Contents/MacOS/mullvadbrowser (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.vfttBUHQ/preflight/mullvad-browser/16.0.2/mount/Mullvad Browser.app/Contents/MacOS/mullvadbrowser (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.vfttBUHQ/preflight/mullvad-browser/16.0.2/mount/Mullvad Browser.app/Contents/MacOS/mullvadbrowser (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 21.1.8
+Identifier=net.mullvad.mullvadbrowser
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: The Tor Project, Inc (MADPSAYN6T)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=16 Nov 2026 at 21:37:25
+TeamIdentifier=MADPSAYN6T
+/private/tmp/shift-air-overnight.vfttBUHQ/preflight/mullvad-browser/16.0.2/mount/Mullvad Browser.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT mullvad-browser 16.0.2

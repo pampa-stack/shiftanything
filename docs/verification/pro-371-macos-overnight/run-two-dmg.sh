@@ -10,6 +10,9 @@ case "$id" in
     material-maker)
         repo=RodZill4/material-maker app='Material Maker' bundle_id=com.rodzlabs.materialmaker team=79HXNZ6Y77
         ;;
+    mullvad-browser)
+        repo=mullvad/mullvad-browser app='Mullvad Browser' bundle_id=net.mullvad.mullvadbrowser team=MADPSAYN6T
+        ;;
     *) exit 2 ;;
 esac
 [[ $(uname -m) == arm64 && "$root" == /private/tmp/shift-air-overnight.* && -O "$root" && -f "$root/.shift-owned" ]]

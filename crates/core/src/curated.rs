@@ -1570,6 +1570,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const MULLVAD_BROWSER: crate::CraftApp = crate::CraftApp {
+    id: "mullvad-browser",
+    name: "Mullvad Browser",
+    tagline: "Browse with tracking and fingerprinting protection",
+    repo: "mullvad/mullvad-browser",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [61, 130, 230],
+    ink_light: [23, 65, 137],
+    ink_dark: [158, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Mullvad and the Tor Project",
+    msi_publisher: None,
+    bundle: Some("net.mullvad.mullvadbrowser"),
+    site: Some("https://mullvad.net/en/browser"),
+    mac_bundle_name: Some("Mullvad Browser"),
+    mac_team: Some("MADPSAYN6T"),
+};
+
 pub const MATERIAL_MAKER: crate::CraftApp = crate::CraftApp {
     id: "material-maker",
     name: "Material Maker",
@@ -3469,6 +3490,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     KARING,
     PLAYCOVER,
     MATERIAL_MAKER,
+    MULLVAD_BROWSER,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

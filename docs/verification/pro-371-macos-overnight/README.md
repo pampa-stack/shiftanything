@@ -304,3 +304,13 @@ On 28 November 2026 the native backend installed Karing 1.2.26.2932, updated it 
 Save the compiled `native-cycle` probe as `qa-karing-cycle` in an owned Apple Silicon proof directory marked with `.shift-owned`, then run `bash run-karing.sh <proof-dir>`.
 
 For PlayCover and Material Maker, copy the corresponding two-version TSV and `run-two-dmg.sh` to the private Air scratch folder, alongside the compiled `native-cycle`. Run `bash run-two-dmg.sh playcover` or `bash run-two-dmg.sh material-maker`. The TSV records the exact official packages used in the tests.
+
+### PDFsam Basic disk images
+
+On 28 November 2026 both official DMGs labeled Apple Silicon matched their published SHA-256. The unattended mount stopped before reaching the application bundle. Both images contain an embedded license resource, which requires a consent step in the installer. The package receipts track the exact files and the catalog retains its source link. [Official releases](https://github.com/torakiki/pdfsam/releases) · [6.0.0 preflight](pdfsam-basic-v6.0.0.log) · [6.0.11 preflight](pdfsam-basic-v6.0.11.log) · [License resources](pdfsam-license-inspection.log)
+
+### Mullvad Browser on Apple Silicon
+
+On 28 November 2026, the launcher’s native backend downloaded and installed 16.0.2, downloaded the stable update to 16.0.3 and then moved the app to the private Trash on the MacBook Air running macOS 26.6.2. Both official DMGs matched GitHub’s published SHA-256 and passed ARM64, strict signature and Gatekeeper checks for The Tor Project, Inc. (team `MADPSAYN6T`). The synthetic profile marker survived. The launcher follows Mullvad’s published requirement of macOS 15 or later. The test covers package management on Apple Silicon. Browser launch and the Intel slice remain untested here. [Publisher downloads](https://mullvad.net/en/download/browser/macos) · [16.0.2 preflight](mullvad-browser-16.0.2.log) · [16.0.3 preflight](mullvad-browser-16.0.3.log) · [Native cycle](mullvad-browser-native.log)
+
+Copy the two-version TSV and `run-two-dmg.sh` to the private Air scratch folder alongside the compiled `native-cycle`, then run `bash run-two-dmg.sh mullvad-browser`.

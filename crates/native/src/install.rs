@@ -162,7 +162,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
-        (&[recipe::NETNEWSWIRE.id], (15, 0)),
+        (&[recipe::NETNEWSWIRE.id, recipe::MULLVAD_BROWSER.id], (15, 0)),
         (&[recipe::ITSYCAL.id, recipe::KRITA.id, recipe::SYNCTHING_MACOS.id, recipe::VLC.id, recipe::MATERIAL_MAKER.id], (11, 0)),
         (&[recipe::MEETINGBAR.id, recipe::KARING.id, recipe::PLAYCOVER.id], (12, 0)),
         (&[recipe::COTEDITOR.id], (26, 0)),

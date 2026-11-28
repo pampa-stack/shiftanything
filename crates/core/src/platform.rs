@@ -1020,6 +1020,7 @@ mod tests {
             (crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]),
             (crate::curated::PLAYCOVER, ["3.0.0", "3.1.0"]),
             (crate::curated::MATERIAL_MAKER, ["1.7", "1.8"]),
+            (crate::curated::MULLVAD_BROWSER, ["16.0.2", "16.0.3"]),
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::DESKREEN, ["v3.2.15", "v3.2.16"]),
             (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),

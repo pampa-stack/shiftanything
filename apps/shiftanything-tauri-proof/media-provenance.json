@@ -2985,10 +2985,10 @@
     {
       "app": "recordly",
       "slot": "logo",
-      "source": "https://raw.githubusercontent.com/webadderallorg/Recordly/HEAD/icons/icons/win/icon.ico",
+      "source": "https://raw.githubusercontent.com/webadderallorg/Recordly/e17a6f7021eee9f9144737ce12b1cd2a1e6da58b/icons/icons/png/128x128.png",
       "file": "media/recordly-logo.png",
-      "sha256": "8c38b63a1c36d421c0c68332d362494d6a30aa36506b72b297ad18340a30a4b5",
-      "source_sha256": "1602925f5b8c30ea6ee2f00123266082a10f4e8fbd7e88ef8b274f782dee396b"
+      "sha256": "23b2f571b39d036ce6a980b03cda0db321532d3159158b75ae33d8a4314ddd30",
+      "source_sha256": "23b2f571b39d036ce6a980b03cda0db321532d3159158b75ae33d8a4314ddd30"
     },
     {
       "app": "openscreen",
@@ -3209,10 +3209,10 @@
     {
       "app": "langflow",
       "slot": "logo",
-      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/HEAD/src/frontend/public/icons/icon.ico",
+      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/2b6faa1cc296499a38c7bdd5bc31d8de7e85bd0b/src/frontend/public/icons/128x128.png",
       "file": "media/langflow-logo.png",
-      "sha256": "0039907e1dbf9d40398db2b70918521bc6336efa56a1dbdb21ded3ae983da41e",
-      "source_sha256": "1134951f7a602692a55e2fb5b74d2860c202dac0a691b35d115976357953691d"
+      "sha256": "da7e44302a07d57132b05c8ae990e4ab6c00eb237279451a6582bdbbe6383be0",
+      "source_sha256": "da7e44302a07d57132b05c8ae990e4ab6c00eb237279451a6582bdbbe6383be0"
     },
     {
       "app": "localai",
@@ -3801,10 +3801,10 @@
     {
       "app": "stats",
       "slot": "logo",
-      "source": "https://mac-stats.com/logo.webp",
+      "source": "https://cdn.mac-stats.com/assets/icon.png",
       "file": "media/stats-logo.png",
-      "sha256": "9380b448e00c9fd315551c474a5e34958c2d5679a1452d1a0b50d44b705c50ae",
-      "source_sha256": "0a3bdee33a96538026b38c22171adb6660c10ea7e04b7d58400e8a072adbe60c"
+      "sha256": "fd3cbd9e51614473127f6db34f1f18288234e24aa932841ab96738b0a317a0bf",
+      "source_sha256": "fd3cbd9e51614473127f6db34f1f18288234e24aa932841ab96738b0a317a0bf"
     },
     {
       "app": "authentik-community",

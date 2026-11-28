@@ -129,6 +129,7 @@ fn main() -> Result<(), String> {
             "amethyst",
             "dockdoor",
             "macvim",
+            "hidden-bar",
             "linearmouse",
             "loop-macos",
             "dyad",

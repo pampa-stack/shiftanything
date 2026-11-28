@@ -356,13 +356,14 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 10] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 11] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
         (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
         (curated::ALT_TAB.id, PackageKind::MacZip, release::alt_tab_mac_asset),
         (curated::AMETHYST.id, PackageKind::MacZip, release::amethyst_mac_asset),
+        (curated::HIDDEN_BAR.id, PackageKind::MacZip, release::hidden_bar_mac_asset),
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
         (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
         (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
@@ -770,6 +771,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::NETNEWSWIRE.id,
         crate::curated::ALT_TAB.id,
         crate::curated::AMETHYST.id,
+        crate::curated::HIDDEN_BAR.id,
         crate::curated::LOOP.id,
         crate::curated::DYAD.id,
         crate::curated::HAMMERSPOON.id,
@@ -1046,6 +1048,7 @@ mod tests {
             (crate::curated::MACCY, ["2.7.1", "2.8.0"]),
             (crate::curated::ALT_TAB, ["v11.10.1", "v11.10.2"]),
             (crate::curated::AMETHYST, ["v0.25.0", "v0.25.1"]),
+            (crate::curated::HIDDEN_BAR, ["v1.13.3", "v1.13.4"]),
             (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
             (crate::curated::DYAD, ["v1.23.0", "v1.24.0"]),
             (crate::curated::HAMMERSPOON, ["1.1.0", "1.1.1"]),

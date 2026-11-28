@@ -1266,6 +1266,12 @@ pub fn amethyst_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::AMETHYST.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+pub fn hidden_bar_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::HIDDEN_BAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
@@ -1747,6 +1753,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ejbills/DockDoor", "1.42.5") => &[("DockDoor.dmg", 22_832_758, "dced8f338319ab22e49101b00d44cbac79c33ab96c16abc2414abcf1c0825021")],
         ("macvim-dev/macvim", "release-183") => &[("MacVim.dmg", 25_939_870, "c27fb8948328074dcb81f45b7d88ff4e123a86c06eaf3d5b330369bc39ffab69")],
         ("macvim-dev/macvim", "release-184") => &[("MacVim.dmg", 26_360_181, "9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8")],
+        ("consolelabs/hidden", "v1.13.3") => {
+            &[("Hidden-Bar-v1.13.3-macos.zip", 2_727_233, "e6168b27091fd002b4d7d47db02e40a02eb07431e4ed8037c260393434d0a73f")]
+        }
+        ("consolelabs/hidden", "v1.13.4") => {
+            &[("Hidden-Bar-v1.13.4-macos.zip", 2_757_264, "3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09")]
+        }
         ("linearmouse/linearmouse", "v0.12.0") => {
             &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
         }

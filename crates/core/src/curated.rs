@@ -2219,6 +2219,27 @@ pub const MACVIM: crate::CraftApp = crate::CraftApp {
     mac_team: Some("WG3S88DD2E"),
 };
 
+pub const HIDDEN_BAR: crate::CraftApp = crate::CraftApp {
+    id: "hidden-bar",
+    name: "Hidden Bar",
+    tagline: "Organize the macOS menu bar by hiding selected icons",
+    repo: "consolelabs/hidden",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Dwarves Foundation",
+    msi_publisher: None,
+    bundle: Some("com.dwarvesv.minimalbar"),
+    site: Some("https://github.com/consolelabs/hidden"),
+    mac_bundle_name: None,
+    mac_team: Some("W777S7V8TN"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2910,6 +2931,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     AMETHYST,
     DOCKDOOR,
     MACVIM,
+    HIDDEN_BAR,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

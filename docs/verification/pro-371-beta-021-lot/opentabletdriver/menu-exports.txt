@@ -1,0 +1,2 @@
+/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa/export/share/applications/net.opentabletdriver.OpenTabletDriver.desktop
+/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa/export/share/icons/hicolor/256x256/apps/net.opentabletdriver.OpenTabletDriver.png

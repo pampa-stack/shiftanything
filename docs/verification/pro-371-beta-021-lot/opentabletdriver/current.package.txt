@@ -1,0 +1,20 @@
+
+OpenTabletDriver - Cross-platform tablet driver tool
+
+          ID: net.opentabletdriver.OpenTabletDriver
+         Ref: app/net.opentabletdriver.OpenTabletDriver/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: v0.6.8.1
+     License: LGPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 252.8 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa
+      Parent: 3430942c518b36ca2ec3f89c8e9f3b1c7bfac5ba812d0ee7b370cfb2b9f07d82
+     Subject: Merge pull request #59 from Kuuuube/update-requires-recommends-supports (6ba9686ee170)
+        Date: 2026-10-30 01:40:51 +0000

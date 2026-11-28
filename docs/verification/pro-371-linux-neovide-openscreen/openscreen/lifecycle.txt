@@ -1,0 +1,16 @@
+2026-11-28T09:24:29+00:00	DISK AVAILABLE 26787020800
+OFFICIAL https://github.com/getopenscreen/openscreen/releases/download/v2.3.0/Openscreen-Linux-2.3.0.AppImage bytes=272069580 sha256=8bc894f406122a058ae4d749d009b54abe8848486f830b849fe4b247d8290841
+FILE /home/qa/profile-openscreen-native-appimage-next237/Applications/Openscreen-Linux-2.3.0.AppImage version=2.3.0 bytes=272069580 sha256=8bc894f406122a058ae4d749d009b54abe8848486f830b849fe4b247d8290841
+DESKTOP /home/qa/profile-openscreen-native-appimage-next237/data/applications/com.etiennelescot.openscreen.desktop ICON /home/qa/profile-openscreen-native-appimage-next237/data/icons/hicolor/128x128/apps/com.etiennelescot.openscreen.png sha256=68fdfd5520bc15e8ba6b2af0925eaf09adb20072bdfa83ac7d94949334cdda02
+PASS openscreen install 5009 ms OpenScreen installed: 2.3.0
+PASS openscreen open-old 0 ms Launch request accepted
+2026-11-28T09:24:50+00:00	GUI OFFLINE open-old
+OFFICIAL https://github.com/getopenscreen/openscreen/releases/download/v2.4.0/Openscreen-Linux-2.4.0.AppImage bytes=272114534 sha256=7e07a389378b4d7ebac5a4270bc3ea1aa03d5af920401310df3ed96d2f794da5
+DISCOVERY GitHubApi
+FILE /home/qa/profile-openscreen-native-appimage-next237/Applications/Openscreen-Linux-2.4.0.AppImage version=2.4.0 bytes=272114534 sha256=7e07a389378b4d7ebac5a4270bc3ea1aa03d5af920401310df3ed96d2f794da5
+DESKTOP /home/qa/profile-openscreen-native-appimage-next237/data/applications/com.etiennelescot.openscreen.desktop ICON /home/qa/profile-openscreen-native-appimage-next237/data/icons/hicolor/128x128/apps/com.etiennelescot.openscreen.png sha256=68fdfd5520bc15e8ba6b2af0925eaf09adb20072bdfa83ac7d94949334cdda02
+PASS openscreen update 4662 ms OpenScreen updated to 2.4.0
+PASS openscreen open-new 0 ms Launch request accepted
+2026-11-28T09:25:12+00:00	GUI OFFLINE open-new
+PASS openscreen remove 80 ms OpenScreen was removed
+2026-11-28T09:25:12+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

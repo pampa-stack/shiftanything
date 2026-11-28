@@ -949,8 +949,8 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     use crate::curated::{
-        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENWORK_DESKTOP, ORCA, PASEO,
-        RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
+        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, NEOVIDE, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENSCREEN, OPENWORK_DESKTOP,
+        ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
     };
 
     const RECIPES: &[crate::CraftApp] = &[
@@ -959,9 +959,11 @@ pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate:
         DYAD,
         INVOKE_COMMUNITY,
         MISTER_DOWNLOAD_MANAGER,
+        NEOVIDE,
         OPEN_PENCIL,
         OPENCHAMBER,
         OPENCODE,
+        OPENSCREEN,
         OPENWORK_DESKTOP,
         ORCA,
         PASEO,
@@ -1807,12 +1809,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ],
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
-        ("getopenscreen/openscreen", "v2.3.0") => {
-            &[("Openscreen-macOS-Apple-Silicon-2.3.0.dmg", 141_157_755, "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82")]
-        }
-        ("getopenscreen/openscreen", "v2.4.0") => {
-            &[("Openscreen-macOS-Apple-Silicon-2.4.0.dmg", 141_308_945, "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51")]
-        }
+        ("getopenscreen/openscreen", "v2.3.0") => &[
+            ("Openscreen-macOS-Apple-Silicon-2.3.0.dmg", 141_157_755, "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82"),
+            ("Openscreen-Linux-2.3.0.AppImage", 272_069_580, "8bc894f406122a058ae4d749d009b54abe8848486f830b849fe4b247d8290841"),
+        ],
+        ("getopenscreen/openscreen", "v2.4.0") => &[
+            ("Openscreen-macOS-Apple-Silicon-2.4.0.dmg", 141_308_945, "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51"),
+            ("Openscreen-Linux-2.4.0.AppImage", 272_114_534, "7e07a389378b4d7ebac5a4270bc3ea1aa03d5af920401310df3ed96d2f794da5"),
+        ],
         ("thewh1teagle/vibe", "v3.3.5") => {
             &[("vibe_3.3.5_aarch64.dmg", 38_715_249, "efaf965175cf9d6b7c6782e38eb42b50800a4645c06771584fcbd46c74d75807")]
         }
@@ -2275,8 +2279,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("metabrainz/picard", "release-3.0.5") => {
             &[("MusicBrainz-Picard-3.0.5-macOS-13.0-arm64.dmg", 59_600_174, "53b1f8c3a971c538421ddc89a14a7322bd5bc90521ade1f5aded51d10a64ddfe")]
         }
-        ("neovide/neovide", "0.17.3") => &[(NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc")],
-        ("neovide/neovide", "0.17.4") => &[(NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a")],
+        ("neovide/neovide", "0.17.3") => &[
+            (NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc"),
+            ("neovide.AppImage", 13_486_584, "eda631003273819e84d2d4b2a4d8229da02fa027e081b7d166f0d630f7811340"),
+        ],
+        ("neovide/neovide", "0.17.4") => &[
+            (NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a"),
+            ("neovide.AppImage", 13_511_160, "70e84a4cd20f8ff989e90d5ffd44f260ce305d53591eaa8fa66d1cf150da54f6"),
+        ],
         ("Termix-SSH/Termix", "v26.11.2") => &[(TERMIX_MAC_DMG, 254_640_116, "c9b8eda86bf88f85ab2f2aa295e76fe1409805f65b3ab3c69a0cd7186c7cac5e")],
         ("Termix-SSH/Termix", "v26.11.3") => &[(TERMIX_MAC_DMG, 263_900_889, "a509ba2eebd74b7562f38d5adca342c137e431fab1744af34bdbd07eb9a96f3c")],
         (crate::curated::GODOT_RELEASES_REPO, "4.7.1-stable") => {

@@ -1,0 +1,5 @@
+[No Name]
+Window 4194307
+  Position: 10,58 (screen: 0)
+  Geometry: 500x500
+WM_CLASS(STRING) = "neovide", "neovide"

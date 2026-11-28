@@ -3691,7 +3691,9 @@ mod recipe_tests {
             super::DUST3D,
             super::DYAD,
             super::INVOKE_COMMUNITY,
+            super::NEOVIDE,
             super::OPENCHAMBER,
+            super::OPENSCREEN,
             super::OPENWORK_DESKTOP,
             super::RAWTHERAPEE,
             super::RECORDLY,
@@ -3701,7 +3703,7 @@ mod recipe_tests {
             assert!(!super::verified_linux_appimage(&app, arm));
             assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 54);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 56);
     }
 
     #[test]
@@ -4028,7 +4030,7 @@ mod recipe_tests {
                     Platform { os: Os::Linux, arch: Arch::X64 },
                     Platform { os: Os::Windows, arch: Arch::Arm64 },
                 ] {
-                    assert!(!installable(&official, host));
+                    assert_eq!(installable(&official, host), id == super::NEOVIDE.id && host.os == Os::Linux);
                 }
                 let mut wrong = official.clone();
                 wrong.assets[0].url = wrong.assets[0].url.replace(tag, "v1.0.0");

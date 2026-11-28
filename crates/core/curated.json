@@ -31593,7 +31593,18 @@
     },
     "platform_support": {
       "linux": "https://flathub.org/apps/dev.deedles.Trayscale"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "dev.deedles.Trayscale",
+        "source": "https://flathub.org/apps/dev.deedles.Trayscale",
+        "download_size": 14739983,
+        "download_size_source": "https://flathub.org/api/v2/summary/dev.deedles.Trayscale",
+        "download_size_checked": "2026-11-28"
+      }
+    ]
   },
   {
     "id": "tailscale-linux",

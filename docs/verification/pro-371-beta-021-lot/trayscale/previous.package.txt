@@ -1,0 +1,20 @@
+
+Trayscale - Unofficial GUI for Tailscale
+
+          ID: dev.deedles.Trayscale
+         Ref: app/dev.deedles.Trayscale/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: v0.20.0
+     License: MIT
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 67.7 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 7be1eb7e382f5bebf5bf1294d1f16b56c7ff9ef1af1f6ae244474af05506a100
+      Parent: 7f7619649a885b46423ad139367b877936952c6310baa9fb2e0874069bfe873e
+     Subject: update to v0.20.0 (#80) (fdbc4d38ee76)
+        Date: 2026-10-12 04:20:59 +0000

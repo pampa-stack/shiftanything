@@ -1,0 +1,19 @@
+commit f14ad61fc569a4a2c4512505b638e2d0e8df6e4016615b83c893767a6dcdb5e2
+Parent:  7be1eb7e382f5bebf5bf1294d1f16b56c7ff9ef1af1f6ae244474af05506a100
+ContentChecksum:  6f9794f34da5be3c26209a624d889870752c4a53d59f4d12294731bd2d6f66d2
+Date:  2026-10-15 19:19:36 +0000
+
+    update to v0.21.0 (#81) (c501c737cf6e)
+
+    Name: dev.deedles.Trayscale
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct 15 20:00:23 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

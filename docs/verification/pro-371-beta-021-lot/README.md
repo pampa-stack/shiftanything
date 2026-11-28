@@ -77,3 +77,7 @@ Il 28 novembre NativeBackend ha installato Bruno da Flathub, portato il pacchett
 ### Cutter 2.4.1 → 2.5.0 su Linux x64
 
 Il 28 novembre NativeBackend ha installato Cutter da Flathub, portato il pacchetto alla revisione firmata 2.4.1 (runtime KDE 6.9), aggiornato alla 2.5.0 (runtime KDE 6.11), riaperto e rimosso l'app. Entrambe le revisioni hanno una firma Flathub valida. La 2.4.1 mostra la finestra di benvenuto con il numero di versione, la 2.5.0 la finestra «Open File». Il file sintetico è rimasto e la voce di menu è sparita. La prova non apre un binario da analizzare. [Flathub](https://flathub.org/apps/re.rizin.cutter) · [Prima](cutter/previous.png) · [Dopo](cutter/current.png) · [Log](cutter/lifecycle.log)
+
+### Trayscale 0.20.0 → 0.21.0 su Linux x64
+
+Il 28 novembre NativeBackend ha installato Trayscale da Flathub, portato il pacchetto alla revisione firmata v0.20.0, aggiornato alla v0.21.0, riaperto e rimosso l'app. Entrambe le revisioni hanno una firma Flathub valida e usano il runtime GNOME 51. Nel guest non gira il servizio Tailscale: la v0.20.0 mostra l'elenco vuoto «No matching peers», la v0.21.0 il messaggio «Tailscale is not connected». La prova copre il ciclo del pacchetto e l'apertura della finestra, non la connessione. Il file sintetico è rimasto e la voce di menu è sparita. [Flathub](https://flathub.org/apps/dev.deedles.Trayscale) · [Prima](trayscale/previous.png) · [Dopo](trayscale/current.png) · [Log](trayscale/lifecycle.log)

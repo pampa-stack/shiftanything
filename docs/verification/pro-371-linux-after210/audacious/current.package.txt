@@ -1,0 +1,20 @@
+
+Audacious - Lightweight audio player
+
+          ID: org.atheme.audacious
+         Ref: app/org.atheme.audacious/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.6.2
+     License: BSD-2-Clause
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 16.6 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb
+      Parent: 73967f3f8b62009cffadea088209f606cf1b517c38e9b3dde51e32ab09480434
+     Subject: Use x11 socket, instead of the fallback-xll (#90) (c16e538b5aaa)
+        Date: 2026-10-27 06:53:50 +0000

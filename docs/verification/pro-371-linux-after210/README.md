@@ -15,6 +15,8 @@ Il 28 novembre 2026 un guest AX42 isolato con Flatpak 1.14.6 ha eseguito i cicli
 
 - **Freeplane.** Aggiornamento da 1.13.4 a 1.13.5. L’editor mostra la mappa dimostrativa nella revisione precedente e una mappa nuova nella corrente, dopo la conferma del modello predefinito. Il pacchetto Flathub è mantenuto dalla comunità e compilato dal sorgente Freeplane. [Sorgente Freeplane](https://github.com/freeplane/freeplane) · [Pacchetto Flathub](https://flathub.org/apps/org.freeplane.App) · [Prima](freeplane/previous.png) · [Dopo](freeplane/current.png) · [Log](freeplane/lifecycle.log)
 
+- **Audacious.** Ciclo da 4.6.1 a 4.6.2, con player e playlist aperti prima e dopo l’aggiornamento. Il pacchetto Flathub è mantenuto dalla comunità e compilato dai sorgenti del player e dei plugin upstream. [Audacious](https://audacious-media-player.org/download) · [Pacchetto Flathub](https://flathub.org/apps/org.atheme.audacious) · [Prima](audacious/previous.png) · [Dopo](audacious/current.png) · [Log](audacious/lifecycle.log)
+
 - `InstallExpected(false)` ha installato la revisione corrente e reso disponibili Apri e Rimuovi. Il pacchetto esporta un file desktop e la relativa icona.
 - Per ricreare l'aggiornamento, il test ha installato la revisione precedente con il comando Flatpak e verificato che il backend rifiutasse di aggiornare o rimuovere quella installazione esterna. Ha poi ricreato nel solo profilo QA la ricevuta di una vecchia installazione gestita.
 - `Launch` ha aperto la finestra Pitivi [prima](pitivi/previous.png) e [dopo](pitivi/current.png) l'aggiornamento. Entrambi i PNG sono stati letti. L'app girava con il solo loopback di rete, senza file o dispositivi del sistema di prova montati esplicitamente.

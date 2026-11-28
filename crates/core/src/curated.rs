@@ -596,6 +596,27 @@ pub const SIGNAL_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("U68MSDN6DR"),
 };
 
+pub const FIREFOX: crate::CraftApp = crate::CraftApp {
+    id: "firefox",
+    name: "Firefox",
+    tagline: "Open-source web browser from Mozilla",
+    repo: "mozilla-firefox/firefox",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [252, 98, 35],
+    ink_light: [125, 45, 11],
+    ink_dark: [255, 171, 133],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Mozilla Corporation",
+    msi_publisher: None,
+    bundle: Some("org.mozilla.firefox"),
+    site: Some("https://www.firefox.com/"),
+    mac_bundle_name: Some("Firefox"),
+    mac_team: Some("43AQ936H96"),
+};
+
 pub const STATS: crate::CraftApp = crate::CraftApp {
     id: "stats",
     name: "Stats",
@@ -3104,6 +3125,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GITHUB_DESKTOP,
     ITERM2,
     SIGNAL_DESKTOP,
+    FIREFOX,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

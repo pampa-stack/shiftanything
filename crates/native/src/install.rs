@@ -65,6 +65,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::ZEN.id,
                 recipe::ZOTERO.id,
                 recipe::GIMP.id,
+                recipe::FIREFOX.id,
             ],
             (11, 0),
         ),

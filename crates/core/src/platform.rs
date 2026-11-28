@@ -1159,6 +1159,31 @@ mod tests {
     }
 
     #[test]
+    fn firefox_requires_an_exact_reviewed_mozilla_package_on_apple_silicon() {
+        use crate::curated::FIREFOX;
+        use crate::release::{FIREFOX_REVIEWED_TAGS, firefox_mac_release};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, target| pick_asset(release, &[FIREFOX.id], target, &[PackageKind::Dmg]).is_some();
+        for tag in FIREFOX_REVIEWED_TAGS {
+            let mut release = firefox_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Windows, ..mac }));
+            let original = release.assets[0].clone();
+            release.assets[0].size += 1;
+            assert!(!selected(&release, mac));
+            release.assets[0] = original.clone();
+            release.assets[0].url = original.url.replace("/en-US/", "/it/");
+            assert!(!selected(&release, mac));
+            release.assets[0] = original;
+            release.assets[0].sha256 = None;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&firefox_mac_release("162.0").unwrap(), mac));
+    }
+
+    #[test]
     fn jan_macos_accepts_only_the_patched_apple_silicon_release() {
         let app = crate::curated::JAN;
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };

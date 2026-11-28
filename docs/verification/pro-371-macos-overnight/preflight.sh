@@ -14,8 +14,9 @@ bytes="${5:-}"
 digest="${6:-}"
 [[ "$id" =~ ^[a-z0-9-]+$ ]]
 [[ "$tag" =~ ^(v|release-)?[0-9]+\.[0-9]+(\.[0-9]+)?(-[0-9]+)?$ ]]
-[[ "$asset" =~ ^[A-Za-z0-9._-]+\.dmg$ ]]
-[[ "$url" == https://*"/$asset" ]]
+[[ "$asset" =~ ^[A-Za-z0-9][A-Za-z0-9._\ -]*\.dmg$ ]]
+encoded_asset="${asset// /%20}"
+[[ "$url" == https://*"/$encoded_asset" ]]
 work="$root/preflight/$id/$tag"
 mkdir -p "$work/mount"
 dmg="$work/$asset"

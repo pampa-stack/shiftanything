@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|macshot|signal-desktop|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|macshot|signal-desktop|firefox|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -58,6 +58,19 @@ for tag in (old, new):
             assert asset.get('length') == size
         published_digests = {digest}
         version = tag
+    elif app_id == 'firefox':
+        assert re.fullmatch(r'\d+\.\d+(?:\.\d+)?', tag)
+        assert url == f'https://archive.mozilla.org/pub/firefox/releases/{tag}/mac/en-US/Firefox%20{tag}.dmg'
+        name = f'Firefox-{tag}.dmg'
+        [published_digest] = [
+            line[:64] for line in Path(f'firefox-{tag}.sha256').read_text().splitlines()
+            if line[64:] == f'  mac/en-US/Firefox {tag}.dmg'
+        ]
+        assert published_digest == digest
+        if tag == new:
+            assert json.loads(Path('firefox-versions.json').read_text())['LATEST_FIREFOX_VERSION'] == tag
+        published_digests = {digest}
+        version = tag if tag.count('.') == 2 else f'{tag}.0'
     elif app_id == 'signal-desktop':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         assert name == f'signal-desktop-mac-universal-{tag}.dmg'
@@ -166,7 +179,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop', 'signal-desktop'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop', 'signal-desktop', 'firefox'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion

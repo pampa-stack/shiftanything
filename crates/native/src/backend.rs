@@ -2614,6 +2614,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::Inkscape
     } else if sources.contains(&Source::Signal) {
         Source::Signal
+    } else if sources.contains(&Source::Mozilla) {
+        Source::Mozilla
     } else if sources.contains(&Source::ITerm2) {
         Source::ITerm2
     } else if sources.contains(&Source::Kdenlive) {
@@ -2868,6 +2870,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_kdenlive_releases()
         || app.uses_iterm2_releases()
         || app.uses_signal_releases()
+        || app.uses_firefox_releases()
         || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
@@ -2891,6 +2894,8 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::Inkscape
     } else if app.uses_signal_releases() {
         Origin::Signal
+    } else if app.uses_firefox_releases() {
+        Origin::Mozilla
     } else if app.uses_iterm2_releases() {
         Origin::ITerm2
     } else if app.uses_kdenlive_releases() {

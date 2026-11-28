@@ -258,6 +258,8 @@ pub enum Origin {
     ITerm2,
     /// Signal Desktop’s stable macOS feed.
     Signal,
+    /// Mozilla’s official stable Firefox release index.
+    Mozilla,
 }
 
 impl Origin {
@@ -275,6 +277,7 @@ impl Origin {
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
             Self::Signal => "Signal",
+            Self::Mozilla => "Mozilla",
         }
     }
 }
@@ -309,6 +312,8 @@ pub enum Source {
     ITerm2,
     /// Signal Desktop’s stable macOS feed.
     Signal,
+    /// Mozilla’s official stable Firefox release index.
+    Mozilla,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -329,6 +334,7 @@ impl Source {
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
             Self::Signal => "Signal",
+            Self::Mozilla => "Mozilla",
             Self::Cache => "saved results",
         }
     }

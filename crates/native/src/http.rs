@@ -490,6 +490,18 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::SIGNAL_MAC_FEED, 32 * 1024)
     }
 
+    pub(crate) fn get_firefox_versions(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::FIREFOX_VERSIONS_URL, 32 * 1024)
+    }
+
+    pub(crate) fn get_firefox_sums(&self, tag: &str) -> Result<Option<Vec<u8>>, String> {
+        if !artcraft_launcher_core::release::valid_tag(tag) {
+            return Err("Invalid Firefox version".into());
+        }
+        let url = format!("{}{tag}/SHA256SUMS", artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL);
+        Self::get_bytes_with(&self.no_redirect, &url, 1024 * 1024)
+    }
+
     pub(crate) fn get_kdenlive_releases(&self) -> Result<Option<Vec<u8>>, String> {
         Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::KDENLIVE_RELEASES_URL, 256 * 1024)
     }
@@ -647,6 +659,7 @@ impl Http {
             artcraft_launcher_core::release::KDENLIVE_DMG_URL,
             artcraft_launcher_core::release::ITERM2_ZIP_URL,
             artcraft_launcher_core::release::SIGNAL_DMG_URL,
+            artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL,
         ]
         .iter()
         .any(|prefix| url.starts_with(prefix))

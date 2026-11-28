@@ -47,6 +47,14 @@ On 28 November 2026, the native backend installed Signal Desktop 8.35.0, updated
 
 Signal's stable feed lists 269,301,286 bytes for 8.36.0. Its official CDN returned 269,303,849 bytes. The installer pins the exact size and SHA-256 of the independently verified, notarized CDN package. A new release can appear in the launcher once the feed reports it. Its installer becomes available after the corresponding package has been reviewed. [Official downloads](https://signal.org/download/) · [Stable macOS feed](https://updates.signal.org/desktop/latest-mac.yml)
 
+### Firefox
+
+On 28 November 2026, the native backend installed Firefox 160.0.1, updated it to 161.0 and removed it to a private Trash on Apple Silicon with macOS 26.4. The clean profile resolved the stable version from Mozilla. Both official DMGs matched Mozilla's published SHA-256 and passed strict signature, notarization and Gatekeeper checks for bundle `org.mozilla.firefox` and team `43AQ936H96`. The recipe uses Mozilla's en-US universal DMG on Apple Silicon with macOS 11.0 or later. The synthetic profile marker survived. GUI launch and Intel installation were outside this test. [Stable versions](https://product-details.mozilla.org/1.0/firefox_versions.json) · [Native cycle](firefox.log) · [160.0.1 preflight](firefox-160.0.1.log) · [161.0 preflight](firefox-161.0.log)
+
+The isolated Tauri app reported Firefox 161.0 as installable at 167,399,384 bytes. Chromium rendered that native inventory and showed the enabled catalog action in both Italian and English. The stdio MCP client read the same inventory and rejected actions requiring an installed copy and requests with unknown IDs.
+
+The combined Rust test run hit the existing intermittent PhotoCraft MCP fixture launch failure. The same fixture passed when rerun in isolation. The Firefox parser and install eligibility tests passed in the combined run.
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.
@@ -82,3 +90,5 @@ For CotEditor, save the official expanded asset pages as `coteditor-7.1.3-assets
 For macshot Offline, save the preflight logs and expanded assets as `macshot-v4.3.0.log`, `macshot-v4.4.0.log`, `macshot-v4.3.0-assets.html` and `macshot-v4.4.0-assets.html`. Run `bash run-native.sh macshot sw33tLie/macshot "macshot Offline" v4.3.0 v4.4.0`.
 
 For Signal Desktop, save the verified DMG preflight logs as `signal-desktop-8.35.0.log` and `signal-desktop-8.36.0.log` and the live publisher feed as `signal-mac-stable.yml`. Run `bash run-native.sh signal-desktop signalapp/Signal-Desktop Signal 8.35.0 8.36.0`. Keep the scratch folder empty of prior release caches so the harness queries the live feed.
+
+For Firefox, save Mozilla's stable index as `firefox-versions.json` and the `SHA256SUMS` from each version directory in Mozilla's archive as `firefox-TAG.sha256`. Pass the quoted internal filename `Firefox TAG.dmg` and the URL containing `Firefox%20TAG.dmg` to the preflight script. Run `bash run-native.sh firefox mozilla-firefox/firefox Firefox 160.0.1 161.0`.

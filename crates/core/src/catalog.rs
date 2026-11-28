@@ -142,6 +142,9 @@ impl CraftApp {
         if self.uses_signal_releases() {
             return crate::release::SIGNAL_DOWNLOADS_URL.to_string();
         }
+        if self.uses_firefox_releases() {
+            return crate::release::FIREFOX_RELEASES_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -205,6 +208,10 @@ impl CraftApp {
 
     pub fn uses_signal_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::SIGNAL_DESKTOP.id, crate::curated::SIGNAL_DESKTOP.repo)
+    }
+
+    pub fn uses_firefox_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::FIREFOX.id, crate::curated::FIREFOX.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {

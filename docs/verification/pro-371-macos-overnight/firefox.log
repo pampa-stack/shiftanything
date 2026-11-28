@@ -1,0 +1,18 @@
+PASS PREFLIGHT firefox 160.0.1
+PASS PREFLIGHT firefox 161.0
+/dev/disk3s5   482797652 424098596  11716412    98% 6602741 117164120    5%   /System/Volumes/Data
+OFFICIAL INDEX firefox 160.0.1 digest=published
+OFFICIAL INDEX firefox 161.0 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL 160.0.1 Dmg https://archive.mozilla.org/pub/firefox/releases/160.0.1/mac/en-US/Firefox%20160.0.1.dmg 165761466 db9a522291d82cbe9a2b2922822def4db0a79d4fa3e614979039d705b13b1c25
+PASS OFFICIAL 161.0 Dmg https://archive.mozilla.org/pub/firefox/releases/161.0/mac/en-US/Firefox%20161.0.dmg 167399384 18f398ada9ba9faa5458dc01c2a68fc7df35517283be2e7a421a0867c5f47f83
+NATIVE ORIGIN firefox Mozilla
+PASS OFFICIAL 160.0.1 Dmg https://archive.mozilla.org/pub/firefox/releases/160.0.1/mac/en-US/Firefox%20160.0.1.dmg 165761466 db9a522291d82cbe9a2b2922822def4db0a79d4fa3e614979039d705b13b1c25
+PASS NATIVE firefox install: Firefox installed: 160.0.1; package_bytes=165761466; elapsed=35.475s
+NATIVE ORIGIN firefox Mozilla
+PASS OFFICIAL 161.0 Dmg https://archive.mozilla.org/pub/firefox/releases/161.0/mac/en-US/Firefox%20161.0.dmg 167399384 18f398ada9ba9faa5458dc01c2a68fc7df35517283be2e7a421a0867c5f47f83
+PASS NATIVE firefox update: Firefox updated to 161.0.0; package_bytes=167399384; elapsed=34.042s
+PASS NATIVE firefox remove: Firefox was removed; package_bytes=0; elapsed=0.105s
+PASS NATIVE CYCLE firefox (160.0.1 → 161.0), private Trash and synthetic data preserved

@@ -90,6 +90,12 @@ impl Profile {
         let query = normalize(query);
         !query.is_empty() && std::iter::once(&self.name).chain(&self.aliases).any(|name| normalize(name).contains(&query))
     }
+    /// True when the app has confirmed support for at least one documented feature.
+    pub fn confirms(&self, app_id: &str) -> bool {
+        self.candidates
+            .iter()
+            .any(|candidate| candidate.app_id == app_id && candidate.evidence.values().any(|evidence| evidence.state == State::Supported))
+    }
     pub fn evidence(&self, app_id: &str, feature: &str) -> Option<&Evidence> {
         self.candidates.iter().find(|candidate| candidate.app_id == app_id)?.evidence.get(feature)
     }

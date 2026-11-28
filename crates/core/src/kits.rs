@@ -64,27 +64,18 @@ mod tests {
         let shifter = crate::shifter::data().unwrap();
         let mut gaps = BTreeSet::new();
         for step in data().unwrap().kits.iter().flat_map(|kit| &kit.steps) {
-            for paid in &step.paid {
-                let Some(profile) = shifter.profile_named(paid) else {
-                    gaps.insert(format!("{paid}: no profile"));
-                    continue;
-                };
-                for option in &step.options {
-                    let confirmed = profile
-                        .candidates
-                        .iter()
-                        .find(|candidate| candidate.app_id == option.app)
-                        .is_some_and(|candidate| candidate.evidence.values().any(|evidence| evidence.state == crate::shifter::State::Supported));
-                    if !confirmed {
-                        gaps.insert(format!("{paid}: {} unconfirmed", option.app));
-                    }
-                }
+            let profiles: Vec<_> = step.paid.iter().filter_map(|paid| shifter.profile_named(paid)).collect();
+            for paid in step.paid.iter().filter(|paid| shifter.profile_named(paid).is_none()) {
+                gaps.insert(format!("{paid}: no profile"));
             }
-            assert!(
-                step.compare
-                    .as_deref()
-                    .is_none_or(|id| step.paid.iter().any(|paid| shifter.profile_named(paid).is_some_and(|profile| profile.id == id)))
-            );
+            // A stage can list several paid products: each alternative must be confirmed against one of them.
+            for option in step.options.iter().filter(|option| !profiles.iter().any(|profile| profile.confirms(&option.app))) {
+                gaps.insert(format!("{}: {} unconfirmed", step.paid.join(", "), option.app));
+            }
+            for profile in profiles.iter().filter(|profile| !step.options.iter().any(|option| profile.confirms(&option.app))) {
+                gaps.insert(format!("{}: no kit alternative confirmed", profile.name));
+            }
+            assert!(step.compare.as_deref().is_none_or(|id| profiles.iter().any(|profile| profile.id == id)));
         }
         assert!(gaps.is_empty(), "{} gaps between kits and SH*FTER: {gaps:#?}", gaps.len());
     }

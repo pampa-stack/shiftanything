@@ -459,6 +459,19 @@
               }
             }
           }
+        },
+        {
+          "app_id": "subtitle-edit",
+          "evidence": {
+            "captions": {
+              "state": "supported",
+              "source": "https://subtitleedit.github.io/subtitleedit/",
+              "note": {
+                "it": "Modifica testo, durata e sincronizzazione dei sottotitoli.",
+                "en": "Edit subtitle text, duration and timing."
+              }
+            }
+          }
         }
       ]
     },
@@ -616,6 +629,19 @@
               "note": {
                 "it": "L’esportazione rende la sessione o una selezione come file audio.",
                 "en": "Export renders the session or a selection as an audio file."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "ardour",
+          "evidence": {
+            "audio_multitrack": {
+              "state": "supported",
+              "source": "https://manual.ardour.org/",
+              "note": {
+                "it": "Bilancia voci e jingle con mixer e automazione.",
+                "en": "Balance voices and jingles using a mixer and automation."
               }
             }
           }
@@ -1665,6 +1691,14 @@
             "en": "Edit existing PDF text"
           },
           "source": "https://helpx.adobe.com/acrobat/desktop/edit-documents/edit-text-in-pdfs/modify-text.html"
+        },
+        {
+          "id": "annotate",
+          "name": {
+            "it": "Annotare e commentare i PDF",
+            "en": "Annotate and comment on PDFs"
+          },
+          "source": "https://helpx.adobe.com/acrobat/desktop/share-and-review-documents/review-documents/add-comments.html"
         }
       ],
       "candidates": [
@@ -1809,6 +1843,32 @@
               "note": {
                 "it": "Aggiunge al PDF uno strato di testo ricercabile con Tesseract.",
                 "en": "Adds a searchable Tesseract text layer to the PDF."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "okular",
+          "evidence": {
+            "annotate": {
+              "state": "supported",
+              "source": "https://docs.kde.org/stable_kf6/en/okular/okular/annotations.html",
+              "note": {
+                "it": "Evidenzia brani di testo e aggiungi note o commenti nel lettore.",
+                "en": "Highlight text and add notes or comments in the reader."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "xournal",
+          "evidence": {
+            "annotate": {
+              "state": "supported",
+              "source": "https://xournalpp.github.io/guide/pdfs/",
+              "note": {
+                "it": "Scrivi o evidenzia sulle pagine del PDF con la penna e poi esportale.",
+                "en": "Write or highlight on PDF pages with a stylus and then export them."
               }
             }
           }
@@ -3473,6 +3533,14 @@
             "en": "Windows apps on the Mac desktop in Coherence mode"
           },
           "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "vm",
+          "name": {
+            "it": "Creare e avviare macchine virtuali",
+            "en": "Create and run virtual machines"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
         }
       ],
       "candidates": [
@@ -3514,6 +3582,19 @@
               "note": {
                 "it": "Esegue distribuzioni Linux compatibili come guest su Apple Silicon.",
                 "en": "Runs compatible Linux distributions as guests on Apple Silicon."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gnome-boxes",
+          "evidence": {
+            "vm": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/Boxes/",
+              "note": {
+                "it": "Crea e avvia macchine virtuali da immagini di sistema su Linux.",
+                "en": "Create and start virtual machines from system images on Linux."
               }
             }
           }
@@ -3974,7 +4055,8 @@
         "Excel",
         "Excel 365",
         "Microsoft 365 Excel",
-        "MS Excel"
+        "MS Excel",
+        "Microsoft Excel con Power Query"
       ],
       "features": [
         {
@@ -4016,6 +4098,14 @@
             "en": "Run existing VBA macros"
           },
           "source": "https://support.microsoft.com/en-us/excel/edit-a-macro"
+        },
+        {
+          "id": "power-query",
+          "name": {
+            "it": "Pulire e trasformare i dati con Power Query",
+            "en": "Clean and transform data with Power Query"
+          },
+          "source": "https://support.microsoft.com/en-us/office/about-power-query-in-excel-7104fbee-9e62-4cb9-a02e-5bfb1a6c536a"
         }
       ],
       "candidates": [
@@ -4150,6 +4240,19 @@
               "note": {
                 "it": "L’app conserva il progetto VBA di un file XLSM senza eseguirlo.",
                 "en": "The app preserves the VBA project in an XLSM file without running it."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "openrefine",
+          "evidence": {
+            "power-query": {
+              "state": "supported",
+              "source": "https://openrefine.org/docs/manual/transforming",
+              "note": {
+                "it": "Raggruppa varianti di testo e correggi formati, righe e colonne nei CSV.",
+                "en": "Group text variants and clean formats, rows, and columns in CSV data."
               }
             }
           }
@@ -4305,6 +4408,14 @@
             "en": "Calendar view of records"
           },
           "source": "https://www.notion.com/help/calendars"
+        },
+        {
+          "id": "backlinks",
+          "name": {
+            "it": "Collegamenti tra pagine e backlink",
+            "en": "Links between pages and backlinks"
+          },
+          "source": "https://www.notion.com/help/create-links-and-backlinks"
         }
       ],
       "candidates": [
@@ -4354,6 +4465,32 @@
               "note": {
                 "it": "L’editor visuale permette di scrivere note formattate.",
                 "en": "The visual editor supports formatted notes."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "logseq",
+          "evidence": {
+            "backlinks": {
+              "state": "supported",
+              "source": "https://github.com/logseq/logseq",
+              "note": {
+                "it": "Usa riferimenti tra blocchi, pagine e diario.",
+                "en": "Use references across blocks, pages and journal entries."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "trilium",
+          "evidence": {
+            "backlinks": {
+              "state": "supported",
+              "source": "https://triliumnotes.org/",
+              "note": {
+                "it": "Collega gli appunti tra loro e raccoglili in un archivio gerarchico disponibile offline.",
+                "en": "Link notes together and organize them in a hierarchy that works offline."
               }
             }
           }

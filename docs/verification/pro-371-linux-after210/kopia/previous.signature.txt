@@ -1,0 +1,19 @@
+commit 338543f5fbb976c26665580e9589a9cb36d253850bc3c19cd6184f0eeedada09
+Parent:  055a21c6579ebf041027d220eb4b9f48be452ef1986df9d8cadee6b739e483cd
+ContentChecksum:  c31aa9631d80bc9a784be6140a7b92b76e8bf311910ae84929ca13bd7d462e5d
+Date:  2026-06-16 22:34:07 +0000
+
+    Merge pull request #111 from flathub/update-master-024a059 (ee28bc61a461)
+
+    Name: io.kopia.KopiaUI
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Jun 16 23:01:29 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

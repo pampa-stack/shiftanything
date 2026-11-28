@@ -17119,6 +17119,14 @@
     "website": "https://kopia.io",
     "releases": "https://github.com/kopia/kopia/releases",
     "delivery": "desktop",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "io.kopia.KopiaUI",
+        "source": "https://flathub.org/apps/io.kopia.KopiaUI"
+      }
+    ],
     "agent": {
       "kind": "cli",
       "source": "https://kopia.io/docs/reference/command-line/"

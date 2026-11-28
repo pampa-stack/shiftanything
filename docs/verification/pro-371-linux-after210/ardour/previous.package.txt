@@ -1,0 +1,20 @@
+
+Ardour - Digital Audio Workstation
+
+          ID: org.ardour.Ardour
+         Ref: app/org.ardour.Ardour/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 9.8.0
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 168.9 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: f67817a9d5389d6878490fad0bd05fe83d83b4e038f0a4af706a68d05fe78912
+      Parent: 76c940119c78be4db2dcba9da874f5b2a858b8c3af9858c5b56a3332104f7924
+     Subject: simplify boost build (b179b1f38b3b)
+        Date: 2026-10-04 03:22:03 +0000

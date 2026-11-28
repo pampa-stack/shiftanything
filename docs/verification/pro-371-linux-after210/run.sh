@@ -69,6 +69,10 @@ open_gui() {
     fi
     sleep 8
     case "$slug" in
+        ardour)
+            say "On $DISPLAY, create the Shift-QA session ($phase) and start the private PulseAudio output"
+            timeout 120 xdotool search --sync --onlyvisible --name "$pattern" >/dev/null
+            ;;
         fontforge)
             dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^Open Font$' | sed -n '1p')
             read -r width height < <(xdotool getwindowgeometry --shell "$dialog" | awk -F= '
@@ -193,7 +197,24 @@ mkdir -p "$XDG_CONFIG_HOME/xdg-desktop-portal"
 printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/portals.conf"
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
-flags+=(--nosocket=pulseaudio --nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
+flags+=(--nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
+if [[ "$slug" == ardour ]]; then
+    # An isolated test signal path, with no hardware and no connection to system audio.
+    mkdir -p "$XDG_RUNTIME_DIR/pulse"
+    export PULSE_SERVER="unix:$XDG_RUNTIME_DIR/pulse/native"
+    pulseaudio -n --daemonize=no --disable-shm=yes --exit-idle-time=-1 --disallow-module-loading=yes \
+        --load="module-native-protocol-unix socket=$XDG_RUNTIME_DIR/pulse/native auth-anonymous=1" \
+        --load="module-null-sink sink_name=shift_qa" > "$out/pulseaudio.log" 2>&1 &
+    services+=($!)
+    for ((attempt=0;attempt<30;attempt++)); do
+        if pactl info > "$out/pulse-info.txt" 2>/dev/null; then break; fi
+        sleep .2
+    done
+    LC_ALL=C pactl info | grep -Fx 'Default Sink: shift_qa'
+    flags+=(--socket=pulseaudio)
+else
+    flags+=(--nosocket=pulseaudio)
+fi
 if [[ "$slug" == bleachbit ]]; then
     mkdir -p "$HOME/.config/bleachbit"
     flags+=(--filesystem="$HOME/.config/bleachbit")

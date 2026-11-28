@@ -116,6 +116,12 @@ On 28 November 2026, the MacBook Air matched the published SHA-256 for both [2.0
 
 The official stable URL resolved to 2.0.12. From a temporary profile and the publisher's release index, NativeBackend downloaded and installed 2.0.11, updated it to 2.0.12, verified the managed version, and removed it to the profile's Trash. The synthetic profile marker survived. The test covers package management on Apple Silicon. GUI launch and writing a disk image remain untested. [Native cycle log](raspberry-pi-imager-native.log)
 
+### OpenRA and xbar package inspection
+
+On 28 November 2026 the Air inspected the official OpenRA [20250303](https://github.com/OpenRA/OpenRA/releases/tag/release-20250303) and [20250330](https://www.openra.net/download/) DMGs. Each contains Dune 2000, Red Alert and Tiberian Dawn as separate app bundles. All six contain ARM64 and passed strict signature verification and Gatekeeper notarization with Developer ID team `XT33TSN4G6`. The current digest matches the [Homebrew cask](https://formulae.brew.sh/cask/openra). The native installer stages one named app bundle per catalog entry. The macOS catalog needs an explicit way to choose among the three games before enabling installation. [20250303 package](openra-release-20250303.log) · [20250330 package](openra-release-20250330.log)
+
+The official [xbar 2.1.6-beta and 2.1.7-beta](https://github.com/matryer/xbar/releases) DMGs each contain a universal app with bundle ID `com.xbarapp.app`, signed by team `N3H5B92L5N`. Both passed strict signature and Gatekeeper checks. The current 2.1.7-beta digest matches the [Homebrew cask](https://formulae.brew.sh/cask/xbar). The latest release is a beta published in October 2021. These were read-only checks on the disk image. A lifecycle test still needs an isolated plugin directory for xbar. The verified install list remains unchanged for both apps. [2.1.6-beta package](xbar-v2.1.6-beta.log) · [2.1.7-beta package](xbar-v2.1.7-beta.log)
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. If the internal disk is below the harness floor, the native runner also accepts a private `/Volumes/T7-Backup/shift-air-overnight.XXXXXXXX` folder. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.

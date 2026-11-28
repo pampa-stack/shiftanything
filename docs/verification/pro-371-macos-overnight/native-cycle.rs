@@ -126,6 +126,7 @@ fn main() -> Result<(), String> {
         || !parent.join(".shift-owned").is_file()
         || !home.join(".shift-overnight-cycle").is_file()
         || ![
+            "craft-anything",
             "moonlight",
             "openpencil",
             "airi",

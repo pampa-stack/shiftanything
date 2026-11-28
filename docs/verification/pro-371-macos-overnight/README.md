@@ -33,6 +33,10 @@ On 28 November 2026, the native backend followed the [publisher’s appcast](htt
 
 The appcast also lists the 0.29.0 ARM64 package for macOS 27. Its signature and notarization passed preflight. On macOS 27 the launcher reports 0.29.0 without an install action until that package passes the native cycle. Intel installation and GUI launch are outside this evidence. [0.29.0 preflight](itsycal-0.29.0.log)
 
+### Craft Anything
+
+On 28 November 2026, the native backend installed [Craft Anything 0.6.0](https://github.com/storytold/craft-anything/releases/tag/v0.6.0), detected [0.6.1](https://github.com/storytold/craft-anything/releases/tag/v0.6.1) through the ArtCraft release feed, updated it and moved the updated app to the private Trash. The Apple Silicon test ran on macOS 26.4. Both downloads matched the published SHA-256 and passed strict signature, architecture and notarization checks for bundle `ai.storyteller.craft-anything`, team `DJ6XS33FX8`. The synthetic user data survived. The macOS recipe selects the reviewed DMGs and requires macOS 11.0. This proof covers the package lifecycle. See [cycle](craft-anything.log), [0.6.0 preflight](craft-anything-v0.6.0.log) and [0.6.1 preflight](craft-anything-v0.6.1.log). The Linux GUI and package cycle are documented in [the Linux proof](../pro-371-linux-appimage-four/README.md).
+
 ### Stellarium
 
 The two official [26.2](https://github.com/Stellarium/stellarium/releases/tag/v26.2) and [26.3](https://github.com/Stellarium/stellarium/releases/tag/v26.3) ZIPs contain universal bundles signed by team `3WW8XR23DF`. Both match their published SHA-256 and passed deep, strict verification and Gatekeeper on Apple Silicon. Their ARM64 slices specify macOS 12.0. The current archive contains 4,473 entries and 877,976,263 unpacked bytes. The recipe pins both artifacts and limits the two library aliases to their documented destinations inside the bundle. [26.2 signature](stellarium-v26.2.log) · [26.3 signature](stellarium-v26.3.log) · [26.2 ZIP layout](stellarium-v26.2-layout.log) · [26.3 ZIP layout](stellarium-v26.3-layout.log)
@@ -140,3 +144,5 @@ For Signal Desktop, save the verified DMG preflight logs as `signal-desktop-8.35
 For Firefox, save Mozilla's stable index as `firefox-versions.json` and the `SHA256SUMS` from each version directory in Mozilla's archive as `firefox-TAG.sha256`. Pass the quoted internal filename `Firefox TAG.dmg` and the URL containing `Firefox%20TAG.dmg` to the preflight script. Run `bash run-native.sh firefox mozilla-firefox/firefox Firefox 160.0.1 161.0`.
 
 For Element, save the official macOS package index as `element-index.html`. Preflight the two exact universal DMG links and run `bash run-native.sh element element-hq/element-web Element 1.12.35 1.12.36`.
+
+For Craft Anything, save the official GitHub expanded asset pages and the matching preflight logs as `craft-anything-v0.6.{0,1}-assets.html` and `craft-anything-v0.6.{0,1}.log`. Run `bash run-native.sh craft-anything storytold/craft-anything "Craft Anything" v0.6.0 v0.6.1`.

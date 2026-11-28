@@ -37,7 +37,7 @@ use crate::process;
 fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
     use artcraft_launcher_core::curated as recipe;
 
-    if app.id == "photocraft" && cfg!(target_arch = "aarch64") {
+    if matches!(app.id, "photocraft" | "craft-anything") && cfg!(target_arch = "aarch64") {
         return Some((11, 0));
     }
     const MINIMUMS: &[(&[&str], (u16, u16))] = &[
@@ -765,6 +765,7 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
         && (![
+            "craft-anything",
             artcraft_launcher_core::curated::LOSSLESSCUT.id,
             artcraft_launcher_core::curated::GHOST_DOWNLOADER.id,
             artcraft_launcher_core::curated::ZETTLR.id,

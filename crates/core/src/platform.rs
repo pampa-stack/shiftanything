@@ -741,6 +741,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64 || platform == linux_x64;
     }
+    if stems.contains(&"craft-anything") {
+        return platform == mac_arm64 || platform == linux_x64;
+    }
     if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
         return platform == mac_arm64;
     }
@@ -818,6 +821,24 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn craft_anything_uses_reviewed_dmg_on_apple_silicon() {
+        let id = "craft-anything";
+        let app = crate::CraftApp::by_id(id).unwrap();
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform| pick_asset(release, &[id], platform, &[PackageKind::Dmg]).is_some();
+        assert!(recipe_platform_verified(&[id], linux));
+        for tag in ["v0.6.0", "v0.6.1"] {
+            let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+            assert!(select(&release, mac));
+            assert!(!select(&release, Platform { arch: Arch::X64, ..mac }));
+            let dmg = release.assets.iter_mut().find(|asset| asset.name.ends_with(".dmg")).unwrap();
+            dmg.sha256 = Some("a".repeat(64));
+            assert!(!select(&release, mac));
+        }
+    }
 
     #[test]
     fn windows_x64_selects_only_reviewed_msi_receipts() {

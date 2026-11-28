@@ -1289,7 +1289,10 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
     ];
-    RECIPES.iter().find(|app| stems.contains(&app.id))
+    RECIPES
+        .iter()
+        .find(|app| stems.contains(&app.id))
+        .or_else(|| stems.contains(&"craft-anything").then(|| crate::CraftApp::by_id("craft-anything")).flatten())
 }
 
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
@@ -1836,6 +1839,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
+        }
+        ("storytold/craft-anything", "v0.6.0") => {
+            &[("craft-anything-0.6.0-macos-universal.dmg", 133_747_537, "c88b5b128eb2e827d232a910c026c7b23bb4c7002cf0e2d32fff48fbb675d8b5")]
+        }
+        ("storytold/craft-anything", "v0.6.1") => {
+            &[("craft-anything-0.6.1-macos-universal.dmg", 135_621_623, "bbb777d221a4ffe693323c1b6e625f02e71bfa04d74d32a5d50c4542655ed664")]
         }
         ("storytold/photocraft", "v0.23.0") => &[
             ("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d"),

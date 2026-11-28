@@ -1,0 +1,32 @@
+2026-11-28T08:04:24+0100
+/dev/disk3s5   482797652 427387860   8426072    99% 6620536 84260720    7%   /System/Volumes/Data
+ARTIFACT c88b5b128eb2e827d232a910c026c7b23bb4c7002cf0e2d32fff48fbb675d8b5 133747537 https://github.com/storytold/craft-anything/releases/download/v0.6.0/craft-anything-0.6.0-macos-universal.dmg
+BUNDLE=Craft Anything.app
+CFBundleIdentifier=ai.storyteller.craft-anything
+CFBundleShortVersionString=0.6.0
+CFBundleVersion=0.6.0
+CFBundleExecutable=craft-anything
+LSMinimumSystemVersion=11.0
+/private/tmp/shift-air-overnight.ZLuIHTmJ/preflight/craft-anything/v0.6.0/mount/Craft Anything.app/Contents/MacOS/craft-anything: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.ZLuIHTmJ/preflight/craft-anything/v0.6.0/mount/Craft Anything.app/Contents/MacOS/craft-anything (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.ZLuIHTmJ/preflight/craft-anything/v0.6.0/mount/Craft Anything.app/Contents/MacOS/craft-anything (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.ZLuIHTmJ/preflight/craft-anything/v0.6.0/mount/Craft Anything.app/Contents/MacOS/craft-anything (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=ai.storyteller.craft-anything
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Learning Machines LLC (DJ6XS33FX8)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=9 Nov 2026 at 13:43:20
+TeamIdentifier=DJ6XS33FX8
+/private/tmp/shift-air-overnight.ZLuIHTmJ/preflight/craft-anything/v0.6.0/mount/Craft Anything.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT craft-anything v0.6.0

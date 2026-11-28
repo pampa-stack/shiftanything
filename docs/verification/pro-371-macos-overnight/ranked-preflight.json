@@ -20,6 +20,16 @@
     "reason": "not_notarized"
   },
   {
+    "id": "deskflow",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+    "asset_url": "https://github.com/deskflow/deskflow/releases/download/v1.27.0/deskflow-1.27.0-macos-arm64.dmg",
+    "sha256": "dd21e79e566314394214906d3338c505d337af536fc580c022ee3fadffad0c97",
+    "bytes": 29145871,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
     "id": "filee",
     "target": "macos-arm64",
     "release_source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",

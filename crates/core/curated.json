@@ -23076,8 +23076,8 @@
     "level": "avanz",
     "category": "infra",
     "description": {
-      "it": "Dashboard per metriche, log e indicatori infrastrutturali",
-      "en": "Dashboards for infrastructure metrics, logs and indicators"
+      "it": "Riunisci metriche e log da più fonti in dashboard con serie temporali e mappe di calore. Imposta avvisi per seguire errori, latenza o altri indicatori dei tuoi servizi.",
+      "en": "Bring metrics and logs from multiple sources together in dashboards with time series and heatmaps. Configure alerts to track errors, latency and other indicators across your services."
     },
     "alternatives": [
       "Datadog"
@@ -23092,8 +23092,10 @@
       "source": "https://grafana.com/docs/grafana/latest/developer-resources/api-reference/http-api/"
     },
     "logo": "https://raw.githubusercontent.com/grafana/grafana/HEAD/public/img/grafana_icon.svg",
-    "screenshots": [],
-    "media_source": "https://github.com/grafana/grafana",
+    "screenshots": [
+      "https://a-us.storyblok.com/f/1022730/1999x1020/36a8151d38/embed-dashboards_sample-dashboard.png"
+    ],
+    "media_source": "https://grafana.com/blog/how-to-embed-grafana-dashboards-into-web-applications/",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -24918,8 +24920,8 @@
     "level": "avanz",
     "category": "dati",
     "description": {
-      "it": "Indicizza documenti con OCR e tabelle e risponde con citazioni in una dashboard web self-hosted.",
-      "en": "Index documents with OCR and table detection, then get cited answers in a self-hosted dashboard."
+      "it": "Carica PDF e altri documenti, controlla come OCR e riconoscimento delle tabelle li suddividono e interroga la raccolta da una chat con citazioni. Puoi collegare modelli locali.",
+      "en": "Upload PDFs and other documents, review the sections extracted by OCR and table recognition, then ask questions in a chat with source citations. You can connect local models."
     },
     "alternatives": [
       "NotebookLM"
@@ -24934,8 +24936,11 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
-    "screenshots": [],
-    "media_source": "https://github.com/infiniflow/ragflow",
+    "screenshots": [
+      "https://raw.githubusercontent.com/infiniflow/ragflow-docs/e0450c95b5bb3c187396495dd00a1dc29fbb4007/images/file_chunks.jpg",
+      "https://raw.githubusercontent.com/infiniflow/ragflow-docs/e0450c95b5bb3c187396495dd00a1dc29fbb4007/images/configure_chat.jpg"
+    ],
+    "media_source": "https://ragflow.io/docs",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -26465,8 +26470,8 @@
     "level": "avanz",
     "author": "Umami Software",
     "description": {
-      "it": "Dashboard per traffico, eventi, campagne UTM e funnel, ospitabile sul proprio server.",
-      "en": "Self-hosted dashboard for traffic, events, UTM campaigns, and funnels."
+      "it": "Analizza traffico, sorgenti e campagne UTM sul tuo server. Definisci eventi come iscrizioni o download e usa i funnel per vedere in quale passaggio si fermano i visitatori.",
+      "en": "Track traffic, referrers and UTM campaigns on your own server. Define events such as sign-ups or downloads and use funnels to see where visitors stop."
     },
     "alternatives": [
       "Google Analytics",
@@ -26483,8 +26488,10 @@
       "source": "https://docs.umami.is/docs/mcp"
     },
     "logo": "https://raw.githubusercontent.com/umami-software/umami/master/public/favicon-32x32.png",
-    "screenshots": [],
-    "media_source": "https://docs.umami.is/docs/install",
+    "screenshots": [
+      "https://umami.is/_next/static/immutable/media/app.06ov74hy3esf9.jpg"
+    ],
+    "media_source": "https://umami.is/",
     "release": {
       "version": "v3.5.0",
       "date": "2026-11-12",

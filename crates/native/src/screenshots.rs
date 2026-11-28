@@ -176,7 +176,11 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
         "https://www.librechat.ai/",
         "https://www.naps2.com/",
     ];
-    if !allowed.iter().any(|base| url.starts_with(base)) {
+    let reviewed_pictures = [
+        "https://a-us.storyblok.com/f/1022730/1999x1020/36a8151d38/embed-dashboards_sample-dashboard.png",
+        "https://umami.is/_next/static/immutable/media/app.06ov74hy3esf9.jpg",
+    ];
+    if !reviewed_pictures.contains(&url) && !allowed.iter().any(|base| url.starts_with(base)) {
         return Err("Unapproved catalog media origin".into());
     }
     let bytes = http

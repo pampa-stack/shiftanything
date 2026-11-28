@@ -1,0 +1,7 @@
+org.freedesktop.Platform.GL.default/x86_64/25.08	26.2.7
+org.freedesktop.Platform.GL.default/x86_64/25.08-extra	26.2.7
+org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+org.kde.KStyle.Adwaita/x86_64/6.10
+org.kde.KStyle.Adwaita/x86_64/6.11
+org.kde.Platform/x86_64/6.10
+org.kde.Platform/x86_64/6.11

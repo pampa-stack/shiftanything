@@ -1,0 +1,19 @@
+commit 045dc74e197fbe4ce20c8cc0cb8a33511e1631b91253ca5ebba9f77e14780d26
+Parent:  acf4e43a784c3f26a1bbdc9acaa4e8c3a1e6ea4ba5c011e89e3c049e9ce118a4
+ContentChecksum:  510da1a2152dc2d4c2db7afe409be390883cb1176acc8bf8b368b7d4bd723cbe
+Date:  2025-12-18 01:32:42 +0000
+
+    Update runtime to 5.15-25.08 (7aeb7ab855d9)
+
+    Name: org.olivevideoeditor.Olive
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Thu Dec 18 02:29:22 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

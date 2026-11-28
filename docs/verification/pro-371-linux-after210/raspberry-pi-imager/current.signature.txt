@@ -1,0 +1,19 @@
+commit bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4
+Parent:  b550c43360b2ccd9ea0431529486906cbbff2014163f21880b87345ca345c54a
+ContentChecksum:  2ebb9aded7817fe821f687f018f2b190ed25008ac43d7571b0bf055c4e113f83
+Date:  2026-10-14 19:13:53 +0000
+
+    Merge pull request #80 from phattmatt/codex/fix-flatpak-fat32-permissions (fcb86ce25e61)
+
+    Name: org.raspberrypi.rpi-imager
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 14 20:46:47 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

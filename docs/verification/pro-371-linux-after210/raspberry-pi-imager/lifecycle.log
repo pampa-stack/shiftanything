@@ -1,0 +1,70 @@
+2026-11-28T10:22:36+00:00 raspberry-pi-imager AVAILABLE 19455393792
+raspberry-pi-imager before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+raspberry-pi-imager JobFinished: Ok("Flathub app installed")
+raspberry-pi-imager after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 0, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.12"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T10:22:38+00:00 raspberry-pi-imager current-install bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4
+/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4/export/share/applications/org.raspberrypi.rpi-imager.desktop
+/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4/export/share/icons/hicolor/scalable/apps/org.raspberrypi.rpi-imager.svg
+Updating app/org.raspberrypi.rpi-imager/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T10:22:43+00:00 raspberry-pi-imager previous 277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2
+raspberry-pi-imager before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2", package: Some("org.raspberrypi.rpi-imager"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.11.1"), update_available: false, can_remove: false, can_open: true }
+raspberry-pi-imager JobFinished: Err("Approved action rejected: native installation state changed")
+raspberry-pi-imager JobFinished: Err("This Flatpak is managed outside the launcher")
+raspberry-pi-imager after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2", package: Some("org.raspberrypi.rpi-imager"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.11.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=6754 comm="xfwm4 --compositor=off --display=:42" label="unconfined")
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=6767 comm="flatpak run --user --command=sh app/org.raspberryp" label="flatpak (unconfined)")
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=6767 comm="flatpak run --user --command=sh app/org.raspberryp" label="flatpak (unconfined)")
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=6856 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+raspberry-pi-imager before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.11.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=6997 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[6060]: [session uid=1000 pid=6060] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=7005 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:7012): dbind-WARNING **: 10:22:45.848: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:7005): xdg-desktop-portal-WARNING **: 10:22:45.916: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7005): xdg-desktop-portal-WARNING **: 10:22:45.917: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7005): xdg-desktop-portal-WARNING **: 10:22:45.917: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7005): xdg-desktop-portal-WARNING **: 10:22:45.936: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[6060]: [session uid=1000 pid=6060] Successfully activated service 'org.freedesktop.portal.Desktop'
+raspberry-pi-imager JobFinished: Ok("Launch request accepted")
+raspberry-pi-imager after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.11.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.raspberrypi.rpi-imager
+2026-11-28T10:22:56+00:00 raspberry-pi-imager previous GUI WM_NAME(COMPOUND_TEXT) = "Raspberry Pi Imager v2.0.11.1 — Offline"
+WM_CLASS(STRING) = "rpi-imager", "Raspberry Pi Imager"
+2026-11-28T10:22:56+00:00 raspberry-pi-imager AVAILABLE 18235555840
+raspberry-pi-imager before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.11.1"), update_available: true, can_remove: true, can_open: true }
+raspberry-pi-imager JobFinished: Ok("Flathub app updated")
+raspberry-pi-imager after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 0, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.12"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T10:22:59+00:00 raspberry-pi-imager current bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4
+/home/qa/profiles/raspberry-pi-imager-after210/.var/app/org.raspberrypi.rpi-imager/fixture.txt: OK
+raspberry-pi-imager before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 0, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.12"), update_available: false, can_remove: true, can_open: true }
+raspberry-pi-imager JobFinished: Ok("Launch request accepted")
+raspberry-pi-imager after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 0, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.12"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.raspberrypi.rpi-imager
+2026-11-28T10:23:10+00:00 raspberry-pi-imager current GUI WM_NAME(COMPOUND_TEXT) = "Raspberry Pi Imager v2.0.12 — Offline"
+WM_CLASS(STRING) = "rpi-imager", "Raspberry Pi Imager"
+raspberry-pi-imager before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 0, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4", package: Some("org.raspberrypi.rpi-imager"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.0.12"), update_available: false, can_remove: true, can_open: true }
+raspberry-pi-imager JobFinished: Ok("Flathub app removed")
+raspberry-pi-imager after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/raspberry-pi-imager-after210/.var/app/org.raspberrypi.rpi-imager/fixture.txt: OK
+2026-11-28T10:23:13+00:00 raspberry-pi-imager PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T10:23:13+00:00 raspberry-pi-imager EXIT 0 remove
+
+(xfconfd:6814): xfconfd-WARNING **: 10:23:13.923: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,7 +1,9 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 183] = [
+pub const RECIPES: [(&str, &str); 185] = [
+    ("olive", "org.olivevideoeditor.Olive"),
+    ("raspberry-pi-imager", "org.raspberrypi.rpi-imager"),
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -375,6 +377,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "famistudio" => "https://github.com/BleuBleu/FamiStudio",
         "ardour" => "https://github.com/Ardour/ardour",
         "easyeffects" => "https://github.com/wwmm/easyeffects",
+        "olive" => "https://github.com/olive-editor/olive",
+        "raspberry-pi-imager" => "https://github.com/raspberrypi/rpi-imager",
         "simplex-chat" => "https://github.com/simplex-chat/simplex-chat",
         "sonobus" => "https://github.com/sonosaurus/sonobus",
         "carla" => "https://github.com/falkTX/Carla",

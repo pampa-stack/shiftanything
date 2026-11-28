@@ -1,0 +1,19 @@
+commit 0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d
+Parent:  96f081085c841d2429ca2616cfffe2ce198f07fcef4b4325cb4d839860a6f2d0
+ContentChecksum:  f5339f63b4b25808a18a430f467e95e9f94c575279faa99211ee2a61d7d62f57
+Date:  2026-07-07 14:00:46 +0000
+
+    0.98.1 (#193) (8937bf00c782)
+
+    Name: org.jaspstats.JASP
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Jul  7 15:06:21 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

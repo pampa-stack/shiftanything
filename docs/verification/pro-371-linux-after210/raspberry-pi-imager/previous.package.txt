@@ -1,0 +1,20 @@
+
+Raspberry Pi Imager - Raspberry Pi Imaging utility
+
+          ID: org.raspberrypi.rpi-imager
+         Ref: app/org.raspberrypi.rpi-imager/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.0.11.1
+     License: Apache-2.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 8.0 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 277bc69b379ddd4fff86228ea048106d4082b724241d99dcbd5e2c9bd2365ea2
+      Parent: 32264b59a8675fe0003416aa031358cbeca1e016f359bfe9d2c5bc11df12beb6
+     Subject: V2.0.11.1 (65f31071d64d)
+        Date: 2026-09-19 18:54:58 +0000

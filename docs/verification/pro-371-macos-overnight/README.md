@@ -180,3 +180,11 @@ On the Air (macOS 26.6.2), all five packages passed strict signature checks and 
 - The publisher's download server supplied both AionUi Apple Silicon DMGs. Their bundle was `com.aionui.app`, signed by AionUi Inc. (`52JQX2HUSC`), with a minimum of macOS 11.0. The GitHub tag alone does not supply these DMGs. The 2.2.1 digest was measured from the publisher's download. The 2.2.2 digest also matched the Homebrew cask receipt. [2.2.1](aionui-v2.2.1.log) · [2.2.2](aionui-v2.2.2.log) · [Publisher downloads](https://www.aionui.com/download/) · [Homebrew receipt](https://formulae.brew.sh/cask/aionui)
 
 Copy `preflight-ruffle.sh` or `preflight.sh` into a fresh marked Air scratch directory. Run the Ruffle script with the tag, byte count and SHA-256 shown in its receipt. Run the DMG script with the package filename, URL and byte count from the AionUi receipt. For the latest AionUi DMG, supply the cask digest as the final argument.
+
+### AionUi launcher lifecycle on Apple Silicon
+
+On 28 November 2026, the Air on macOS 26.6.2 installed 2.2.1, detected and applied 2.2.2, and moved the updated bundle to the test profile's Trash. Both packages were downloaded from the publisher and matched their SHA-256 receipts. Synthetic user data survived the update and removal. The proof used a two-release history cache to select the older version and a fresh lookup for the stable update. It exercised the native backend through its public commands. Opening the app and Windows, Linux and Intel Mac packages are outside this proof.
+
+The Mac recipe accepts the two reviewed DMGs and requires the publisher's Developer ID signature. A later GitHub tag can be discovered before its DMG is reviewed, in which case that version has no in-app installer. [Release notes](https://github.com/iOfficeAI/AionUi/releases) · [Publisher feed](https://static.aionui.com/releases/latest-arm64-mac.yml) · [Native log](aionui-native.log)
+
+Copy the two preflight logs and the publisher feed (as `aionui-macos-feed.yml`) to the marked directory alongside the compiled `native-cycle` and `run-native.sh`. Run `bash run-native.sh aionui iOfficeAI/AionUi AionUi v2.2.1 v2.2.2` while the feed advertises 2.2.2.

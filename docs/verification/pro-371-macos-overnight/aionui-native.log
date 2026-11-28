@@ -1,0 +1,17 @@
+PASS PREFLIGHT aionui v2.2.1
+PASS PREFLIGHT aionui v2.2.2
+OFFICIAL INDEX aionui v2.2.1 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX aionui v2.2.2 digest=computed, signer/notarization corroborated
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v2.2.1 Dmg https://static.aionui.com/releases/2.2.1/AionUi-2.2.1-mac-arm64.dmg 289988054 e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648
+PASS OFFICIAL v2.2.2 Dmg https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg 290125639 813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253
+NATIVE ORIGIN aionui GitHub
+PASS OFFICIAL v2.2.1 Dmg https://static.aionui.com/releases/2.2.1/AionUi-2.2.1-mac-arm64.dmg 289988054 e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648
+PASS NATIVE aionui install: AionUi installed: 2.2.1; package_bytes=289988054; elapsed=50.563s
+NATIVE ORIGIN aionui GitHub
+PASS OFFICIAL v2.2.2 Dmg https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg 290125639 813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253
+PASS NATIVE aionui update: AionUi updated to 2.2.2; package_bytes=290125639; elapsed=47.067s
+PASS NATIVE aionui remove: AionUi was removed; package_bytes=0; elapsed=0.115s
+PASS NATIVE CYCLE aionui (v2.2.1 → v2.2.2), private Trash and synthetic data preserved

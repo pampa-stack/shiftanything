@@ -670,6 +670,7 @@ impl Http {
             artcraft_launcher_core::release::SIGNAL_DMG_URL,
             artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL,
             artcraft_launcher_core::release::ELEMENT_DMG_URL,
+            artcraft_launcher_core::release::AIONUI_DMG_URL,
         ]
         .iter()
         .any(|prefix| url.starts_with(prefix))

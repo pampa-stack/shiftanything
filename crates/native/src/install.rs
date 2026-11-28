@@ -44,6 +44,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (
             &[
                 recipe::ANYTHING_LLM.id,
+                recipe::AIONUI.id,
                 recipe::CLASH_VERGE_REV.id,
                 recipe::CRYPTOMATOR.id,
                 recipe::DB_BROWSER_SQLITE.id,

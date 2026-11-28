@@ -1568,6 +1568,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const AIONUI: crate::CraftApp = crate::CraftApp {
+    id: "aionui",
+    name: "AionUi",
+    tagline: "Use configured coding agents from a desktop workspace",
+    repo: "iOfficeAI/AionUi",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [197, 214, 252],
+    ink_light: [31, 52, 106],
+    ink_dark: [214, 228, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "AionUi Inc.",
+    msi_publisher: None,
+    bundle: Some("com.aionui.app"),
+    site: Some("https://www.aionui.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("52JQX2HUSC"),
+};
+
 pub const UPSCAYL: crate::CraftApp = crate::CraftApp {
     id: "upscayl",
     name: "Upscayl",
@@ -3186,6 +3207,7 @@ pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
 };
 
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
+    AIONUI,
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,

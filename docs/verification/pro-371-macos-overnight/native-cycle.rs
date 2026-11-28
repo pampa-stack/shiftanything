@@ -177,6 +177,7 @@ fn main() -> Result<(), String> {
             "signal-desktop",
             "firefox",
             "element",
+            "aionui",
             "freeplane",
         ]
         .contains(&app.id)

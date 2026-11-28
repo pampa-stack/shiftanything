@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -76,6 +76,23 @@ for tag in (old, new):
             assert asset.get('length') == size
         published_digests = {digest}
         version = tag
+    elif app_id == 'aionui':
+        assert repo == 'iOfficeAI/AionUi'
+        assert re.fullmatch(r'v\d+\.\d+\.\d+', tag)
+        version = tag.removeprefix('v')
+        assert name == f'AionUi-{version}-mac-arm64.dmg'
+        assert url == f'https://static.aionui.com/releases/{version}/{name}'
+        signature = Path(f'{app_id}-{tag}.log').read_text().splitlines()
+        assert 'CFBundleIdentifier=com.aionui.app' in signature
+        assert f'CFBundleShortVersionString={version}' in signature
+        assert 'TeamIdentifier=52JQX2HUSC' in signature
+        assert 'source=Notarized Developer ID' in signature
+        if tag == new:
+            feed = Path('aionui-macos-feed.yml').read_text()
+            assert re.search(r'^version: (.+)$', feed, re.M)[1] == version
+            [asset] = [block for block in feed.split('  - url: ') if block.startswith(name + '\n')]
+            assert re.search(r'^    size: (\d+)$', asset, re.M)[1] == size
+        published_digests = set()
     elif app_id == 'element':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
         name = f'Element-{tag}-universal.dmg'

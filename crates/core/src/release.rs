@@ -105,6 +105,7 @@ pub const SIGNAL_DMG_URL: &str = "https://updates.signal.org/desktop/";
 pub const SIGNAL_MAC_FEED: &str = "https://updates.signal.org/desktop/latest-mac.yml";
 pub const ELEMENT_RELEASES_URL: &str = "https://packages.element.io/desktop/install/macos/index.html";
 pub const ELEMENT_DMG_URL: &str = "https://packages.element.io/desktop/install/macos/";
+pub const AIONUI_DMG_URL: &str = "https://static.aionui.com/releases/";
 
 pub fn element_mac_release(tag: &str) -> Option<Release> {
     let version = version::parse(tag)?;
@@ -814,7 +815,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
         })
         .unwrap_or_default();
     // These publishers keep the reviewed macOS images in their own release archives.
-    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo].contains(&repo) {
+    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo, crate::curated::AIONUI.repo].contains(&repo) {
         for asset in reviewed_assets(repo, &tag) {
             assets.retain(|other| other.name != asset.name);
             assets.push(asset);
@@ -1242,6 +1243,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::SIMPLEX_CHAT,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
+        crate::curated::AIONUI,
         crate::curated::JAN,
         crate::curated::DEEPTUTOR,
         crate::curated::OPENWORK_DESKTOP,
@@ -1937,6 +1939,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("usebruno/bruno", "v4.4.0") => {
             &[("bruno_4.4.0_arm64_mac.dmg", 183_254_552, "b9e7a4d8a371578116c67c20ae2892e840324d58be5a0407b2623701dd40f2a3")]
         }
+        ("iOfficeAI/AionUi", "v2.2.1") => {
+            &[("AionUi-2.2.1-mac-arm64.dmg", 289_988_054, "e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648")]
+        }
+        ("iOfficeAI/AionUi", "v2.2.2") => {
+            &[("AionUi-2.2.2-mac-arm64.dmg", 290_125_639, "813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253")]
+        }
         ("upscayl/upscayl", "v2.11.5") => {
             &[("upscayl-2.11.5-mac.dmg", 351_772_230, "abf7b625641560cfa180dd1b2b0864138559d29f2a3d0f9951e5034496ce8dac")]
         }
@@ -2379,6 +2387,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
     receipts.iter().filter_map(move |&(name, size, sha256)| {
         let url = if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else if repo == crate::curated::AIONUI.repo {
+            format!("{AIONUI_DMG_URL}{}/{name}", tag.strip_prefix('v')?)
         } else if repo == crate::curated::OPENTTD.repo {
             format!("{OPENTTD_DMG_URL}{tag}/{name}")
         } else if repo == crate::curated::ZOTERO.repo {
@@ -2493,6 +2503,21 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn aionui_github_release_resolves_only_reviewed_publisher_downloads() {
+        let repo = crate::curated::AIONUI.repo;
+        let release = release_from_value(&serde_json::json!({"tag_name": "v2.2.2", "assets": []}), repo).unwrap();
+        let [asset] = release.assets.as_slice() else { panic!("expected one reviewed DMG") };
+        assert_eq!(asset.url, "https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg");
+        assert_eq!(asset.size, 290_125_639);
+        assert!(qualified_mac_dmg_asset(&crate::curated::AIONUI, &release, asset));
+        assert!(release_from_sums(repo, "v2.2.2", &[]).assets.contains(asset));
+
+        let newer = release_from_value(&serde_json::json!({"tag_name": "v2.2.3", "assets": []}), repo).unwrap();
+        assert!(newer.assets.is_empty());
+        assert!(!release_from_sums(repo, "v2.2.3", &[]).assets.iter().any(|asset| asset.name.ends_with(".dmg")));
+    }
 
     #[test]
     fn netnewswire_mac_pointer_rejects_ios_prereleases_and_mismatched_assets() {

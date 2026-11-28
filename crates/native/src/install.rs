@@ -147,6 +147,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
         (&[recipe::KRITA.id, recipe::VLC.id], (11, 0)),
+        (&[recipe::COTEDITOR.id], (26, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
     MINIMUMS.iter().find_map(|(ids, minimum)| ids.contains(&app.id).then_some(*minimum))
@@ -3587,6 +3588,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DESKREEN), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MIST), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::COTEDITOR), Some((26, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::INVOKE_COMMUNITY), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));

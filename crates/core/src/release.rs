@@ -1164,6 +1164,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENMTP,
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
+        crate::curated::COTEDITOR,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
@@ -1204,6 +1205,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
                 || (app.id, app.repo) == (crate::curated::EASYDICT.id, crate::curated::EASYDICT.repo)
                 || (app.id, app.repo) == (crate::curated::DOCKDOOR.id, crate::curated::DOCKDOOR.repo)
+                || (app.id, app.repo) == (crate::curated::COTEDITOR.id, crate::curated::COTEDITOR.repo)
                 || app.uses_zotero_releases()
                 || app.uses_blender_releases()
                 || app.uses_gimp_releases()
@@ -1490,6 +1492,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ],
         ("ninxsoft/Mist", "v0.30") => &[("Mist.0.30.dmg", 14_906_897, "2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1")],
         ("ninxsoft/Mist", "v0.40") => &[("Mist.0.40.dmg", 15_997_728, "889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8")],
+        ("coteditor/CotEditor", "7.1.3") => {
+            &[("CotEditor_7.1.3.dmg", 26_757_632, "c8cbe6437434516bb23f93efe057fd058ad56ded5523ac113081a8ae68dab184")]
+        }
+        ("coteditor/CotEditor", "7.2.0") => {
+            &[("CotEditor_7.2.0.dmg", 27_885_568, "7df697c2108e55c1431b6f4563128e1fcb436ee56a7156df9c2846a573d42a27")]
+        }
         ("freeplane/freeplane", "release-1.13.3") => {
             &[("Freeplane-1.13.3-apple.dmg", 144_017_558, "f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347")]
         }

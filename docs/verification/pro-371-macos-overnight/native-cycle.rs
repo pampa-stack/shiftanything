@@ -150,6 +150,7 @@ fn main() -> Result<(), String> {
             "openmtp",
             "invoke-community",
             "mist",
+            "coteditor",
             "freeplane",
         ]
         .contains(&app.id)

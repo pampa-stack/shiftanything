@@ -32791,6 +32791,60 @@
     "media_source": "https://github.com/CodeEditApp/CodeEdit#readme"
   },
   {
+    "id": "coteditor",
+    "name": "CotEditor",
+    "repo": "https://github.com/coteditor/CotEditor",
+    "author": "CotEditor Project",
+    "level": "base",
+    "category": "sviluppo",
+    "description": {
+      "it": "Editor di testo nativo per macOS per aprire file di codice, log e Markdown. Include ricerca con espressioni regolari, sintassi personalizzabile e backup automatici.",
+      "en": "Native macOS text editor for code, logs and Markdown. It includes regex search, customizable syntax highlighting and automatic backups."
+    },
+    "alternatives": [
+      "Sublime Text",
+      "BBEdit"
+    ],
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/coteditor/CotEditor/blob/7.2.0/LICENSE",
+    "website": "https://coteditor.com/",
+    "releases": "https://github.com/coteditor/CotEditor/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "",
+    "screenshots": [],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://coteditor.com/"
+    },
+    "stars": {
+      "count": 8720,
+      "source": "https://github.com/coteditor/CotEditor/stargazers",
+      "date": "2026-11-28"
+    },
+    "platform_support": {
+      "macos": "https://github.com/coteditor/CotEditor/releases/tag/7.2.0"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "7.2.0",
+      "date": "2026-11-28",
+      "source": "https://github.com/coteditor/CotEditor/releases/tag/7.2.0",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 27885568,
+          "size_max": 27885568
+        }
+      ]
+    },
+    "media_source": null
+  },
+  {
     "id": "karabiner-elements",
     "name": "Karabiner-Elements",
     "repo": "https://github.com/pqrs-org/Karabiner-Elements",

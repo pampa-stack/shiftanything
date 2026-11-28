@@ -29,6 +29,12 @@ For the GitHub-backed recipes other than NetNewsWire, the historical release lis
 
 MonitorControl 4.4.0 passed preflight. The official 4.3.2 and 4.3.3 DMGs failed strict signature verification on the embedded Sparkle Updater because of Finder metadata, so the recipe remains disabled.
 
+### CotEditor
+
+The [official 7.1.3 and 7.2.0 releases](https://github.com/coteditor/CotEditor/releases) provide notarized universal DMGs with signed bundle ID `com.coteditor.CotEditor`, team `HT3Z3A72WZ` and a macOS 26.0 minimum. Sh*ftAnything enables the recipe on Apple Silicon from macOS 26.0. Installation, update and removal passed on macOS 26.4 in an isolated profile, with the synthetic user data and private Trash checked. The result covers the package lifecycle. See the [native cycle log](coteditor.log).
+
+The [license](https://github.com/coteditor/CotEditor/blob/7.2.0/LICENSE) covers source code under Apache-2.0 and image resources under CC BY-NC-ND 4.0. The launcher downloads the signed package from the publisher and the catalog uses a monogram.
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.
@@ -58,3 +64,5 @@ For OpenWhispr, save the official expanded asset pages as `openwhispr-v1.12.1-as
 For DeepChat, save the official expanded asset pages as `deepchat-v1.1.3-assets.html` and `deepchat-v1.1.4-assets.html`. Run `bash run-native.sh deepchat ThinkInAIXYZ/deepchat DeepChat v1.1.3 v1.1.4`.
 
 For Dyad, Finicky and Hammerspoon, save each official GitHub expanded asset page and preflight log using the same names as for DeepChat. Run `bash run-native.sh dyad dyad-sh/dyad dyad v1.23.0 v1.24.0`, `bash run-native.sh finicky johnste/finicky Finicky v4.2.1 v4.2.2` and `bash run-native.sh hammerspoon Hammerspoon/hammerspoon Hammerspoon 1.1.0 1.1.1`.
+
+For CotEditor, save the official expanded asset pages as `coteditor-7.1.3-assets.html` and `coteditor-7.2.0-assets.html`. Run `bash run-native.sh coteditor coteditor/CotEditor CotEditor 7.1.3 7.2.0`.

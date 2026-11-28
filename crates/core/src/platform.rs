@@ -976,6 +976,7 @@ mod tests {
             (crate::curated::OPENMTP, ["v3.2.25", "v3.3.0"]),
             (crate::curated::INVOKE_COMMUNITY, ["v1.8.4", "v1.8.5"]),
             (crate::curated::MIST, ["v0.30", "v0.40"]),
+            (crate::curated::COTEDITOR, ["7.1.3", "7.2.0"]),
             (crate::curated::FREEPLANE, ["release-1.13.3", "release-1.13.5"]),
             (crate::curated::DOCKDOOR, ["1.42.4", "1.42.5"]),
             (crate::curated::MACVIM, ["release-183", "release-184"]),

@@ -2912,6 +2912,27 @@ pub const MIST: crate::CraftApp = crate::CraftApp {
     mac_team: Some("7K3HVCLV7Z"),
 };
 
+pub const COTEDITOR: crate::CraftApp = crate::CraftApp {
+    id: "coteditor",
+    name: "CotEditor",
+    tagline: "Edit plain text and code with syntax highlighting and regular expressions",
+    repo: "coteditor/CotEditor",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [63, 115, 188],
+    ink_light: [39, 69, 118],
+    ink_dark: [166, 198, 248],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "CotEditor Project",
+    msi_publisher: None,
+    bundle: Some("com.coteditor.CotEditor"),
+    site: Some("https://coteditor.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("HT3Z3A72WZ"),
+};
+
 pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
     id: "freeplane",
     name: "Freeplane",
@@ -3062,6 +3083,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     OPENMTP,
     INVOKE_COMMUNITY,
     MIST,
+    COTEDITOR,
     FREEPLANE,
 ];
 

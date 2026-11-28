@@ -173,6 +173,21 @@ export default {
       "https://copyq.readthedocs.io/en/latest/"
     ]
   },
+  "coteditor": {
+    "en": [
+      "Split a file into separate panes to edit two sections at once.",
+      "Jump to headings or other entries extracted by the syntax outline.",
+      "Find characters that cannot be saved in the chosen encoding."
+    ],
+    "it": [
+      "Dividi un file in più riquadri per modificare due sezioni insieme.",
+      "Salta ai titoli o alle altre voci estratte dalla struttura del documento.",
+      "Trova i caratteri che la codifica scelta non può salvare."
+    ],
+    "sources": [
+      "https://coteditor.com/#features"
+    ]
+  },
   "craft-anything": {
     "en": [
       "Record evidence-backed observations about software, websites and files you can study.",

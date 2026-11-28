@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Welcome to Cutter"
+WM_CLASS(STRING) = "cutter", "cutter"

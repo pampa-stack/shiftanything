@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Open File"
+WM_CLASS(STRING) = "cutter", "cutter"

@@ -1,0 +1,2 @@
+/home/qa/profiles/cutter-after210/data/flatpak/app/re.rizin.cutter/x86_64/stable/5b78c303add5ae6fbe293ae1332b39e5e772225ddfcdc92f65cfe571be6ba500/export/share/applications/re.rizin.cutter.desktop
+/home/qa/profiles/cutter-after210/data/flatpak/app/re.rizin.cutter/x86_64/stable/5b78c303add5ae6fbe293ae1332b39e5e772225ddfcdc92f65cfe571be6ba500/export/share/icons/hicolor/scalable/apps/re.rizin.cutter.svg

@@ -2248,7 +2248,18 @@
           "size_max": 140530846
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "re.rizin.cutter",
+        "source": "https://flathub.org/apps/re.rizin.cutter",
+        "download_size": 90177516,
+        "download_size_source": "https://flathub.org/api/v2/summary/re.rizin.cutter",
+        "download_size_checked": "2026-11-28"
+      }
+    ]
   },
   {
     "id": "gimp",

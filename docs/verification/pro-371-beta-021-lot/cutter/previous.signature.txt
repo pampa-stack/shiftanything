@@ -1,0 +1,19 @@
+commit a4d4d4f7977c6e741f97f300ac1442a5b2e60e5ab4d8af009574402ea5091d84
+Parent:  db81739123d1377288b703fb44d8992c7729948859124a694319ced1ecc1dda6
+ContentChecksum:  ee6877c2bf08d7d6fee991e786c44d893b1c3c0cb7e7f31caaf284e4713b9181
+Date:  2025-06-05 14:42:54 +0000
+
+    Merge pull request #13 from flathub/v2.4.1 (1a30c3139574)
+
+    Name: re.rizin.cutter
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Thu Jun  5 16:03:29 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

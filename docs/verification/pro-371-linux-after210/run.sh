@@ -194,6 +194,10 @@ printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/porta
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
 flags+=(--nosocket=pulseaudio --nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
+if [[ "$slug" == bleachbit ]]; then
+    mkdir -p "$HOME/.config/bleachbit"
+    flags+=(--filesystem="$HOME/.config/bleachbit")
+fi
 flatpak override --user "${flags[@]}" --env=QT_X11_NO_MITSHM=1 --env=LIBGL_ALWAYS_SOFTWARE=1 --env=LP_NUM_THREADS=2 "$flatid"
 flatpak override --user --show "$flatid" > "$out/sandbox.txt"
 stage=open-previous

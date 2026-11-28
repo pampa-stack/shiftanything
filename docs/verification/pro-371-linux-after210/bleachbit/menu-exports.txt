@@ -1,0 +1,3 @@
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/applications/org.bleachbit.BleachBit.desktop
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/icons/hicolor/256x256/apps/org.bleachbit.BleachBit.png
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/icons/hicolor/scalable/apps/org.bleachbit.BleachBit.svg

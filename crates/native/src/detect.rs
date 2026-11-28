@@ -292,13 +292,16 @@ pub mod macos {
     }
 
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
-        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, FLOORP, GNUCASH, PRUSA_SLICER};
+        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, FLOORP, GNUCASH, PRUSA_SLICER, SYNCTHING_MACOS};
 
         if app.uses_kdenlive_releases() {
             return artcraft_launcher_core::release::kdenlive_mac_version(text);
         }
         if (app.id, app.repo) == (DBEAVER_CE.id, DBEAVER_CE.repo) {
             return version::parse_dbeaver(text);
+        }
+        if (app.id, app.repo) == (SYNCTHING_MACOS.id, SYNCTHING_MACOS.repo) {
+            return artcraft_launcher_core::release::syncthing_macos_version(text);
         }
         if (app.id, app.repo) == (PRUSA_SLICER.id, PRUSA_SLICER.repo) {
             let label = text.strip_prefix("PrusaSlicer ").unwrap_or(text).strip_prefix("PrusaSlicer-")?;

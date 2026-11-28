@@ -1570,6 +1570,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const SYNCTHING_MACOS: crate::CraftApp = crate::CraftApp {
+    id: "syncthing-macos",
+    name: "Syncthing for macOS",
+    tagline: "Synchronize folders between devices",
+    repo: "syncthing/syncthing-macos",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [61, 149, 235],
+    ink_light: [24, 75, 129],
+    ink_dark: [150, 203, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Kastelo AB",
+    msi_publisher: None,
+    bundle: Some("com.github.xor-gate.syncthing-macosx"),
+    site: Some("https://syncthing.net/"),
+    mac_bundle_name: Some("Syncthing"),
+    mac_team: Some("LQE5SYM783"),
+};
+
 pub const SIGIL: crate::CraftApp = crate::CraftApp {
     id: "sigil",
     name: "Sigil",
@@ -3359,6 +3380,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     AIONUI,
     RUFFLE,
     SIGIL,
+    SYNCTHING_MACOS,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

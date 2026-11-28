@@ -869,6 +869,8 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
     } else if repo == crate::curated::UTM.repo && tag == "v5.0.9-2" {
         // The stable retag contains UTM 5.0.9 build 132, not a prerelease.
         version::parse("5.0.9")
+    } else if repo == crate::curated::SYNCTHING_MACOS.repo {
+        syncthing_macos_version(tag)
     } else if repo == crate::curated::ZEN.repo {
         zen_release_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
@@ -882,6 +884,15 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
 pub fn prusa_slicer_version(label: &str) -> Option<Version> {
     let version = Version::parse(label).ok()?;
     (version.pre.is_empty() && version.build.is_empty() && version.to_string() == label).then_some(version)
+}
+
+/// The two reviewed Syncthing for macOS releases use a packaging suffix on stable builds.
+pub fn syncthing_macos_version(label: &str) -> Option<Version> {
+    match label {
+        "2.1.5-1" | "v2.1.5-1" => Some(Version::new(2, 1, 5)),
+        "2.1.6-1" | "v2.1.6-1" => Some(Version::new(2, 1, 6)),
+        _ => version::parse(label),
+    }
 }
 
 /// Zen's stable channel appends b to both the release tag and the bundle version.
@@ -1219,6 +1230,7 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     const RECIPES: &[crate::CraftApp] = &[
         crate::curated::OPENCLAW,
+        crate::curated::SYNCTHING_MACOS,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1347,6 +1359,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
             } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
                 release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
+            } else if (app.id, app.repo) == (crate::curated::SYNCTHING_MACOS.id, crate::curated::SYNCTHING_MACOS.repo) {
+                release.tag == format!("v{version}-1")
             } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
@@ -1640,6 +1654,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("syncthing/syncthing-macos", "v2.1.5-1") => {
+            &[("Syncthing-2.1.5-1.dmg", 28_061_360, "50903a2a6221856e1c36e3c5c5ff39e897053d29aa1f685ad576622c93069e88")]
+        }
+        ("syncthing/syncthing-macos", "v2.1.6-1") => {
+            &[("Syncthing-2.1.6-1.dmg", 28_069_114, "f81d091bb19c42b3bb7a2fda9e80f1794cdb27fadb18b094b0c99b53ef571e2d")]
+        }
         // 3.7.0 was validated only as the already-installed source of a security update.
         ("desktop/desktop", "release-3.7.1") => {
             &[("GitHub.Desktop-arm64.zip", 556_131_016, "3706e508bb16d96f4c23c1e760d0867ede27d35ead00545d9a9e206ee83049f5")]
@@ -2678,6 +2698,26 @@ mod tests {
             assert_eq!(select(&prerelease, mac), None);
         }
         assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
+
+    #[test]
+    fn syncthing_macos_stable_uses_only_reviewed_apple_silicon_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::SYNCTHING_MACOS, protocol::VersionTrack};
+
+        let apple_silicon = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..apple_silicon };
+        let previous = release_from_sums(SYNCTHING_MACOS.repo, "v2.1.5-1", &[]);
+        let current = release_from_sums(SYNCTHING_MACOS.repo, "v2.1.6-1", &[]);
+        assert_eq!(choose_version_for(&[current.clone(), previous.clone()], &VersionTrack::Stable, false), Some(current.clone()));
+        let choose =
+            |release: &Release, platform| crate::platform::pick_asset(release, &[SYNCTHING_MACOS.id], platform, &[PackageKind::Dmg]).is_some();
+        for mut release in [previous, current] {
+            assert!(choose(&release, apple_silicon));
+            assert!(!choose(&release, intel));
+            release.assets[0].sha256 = None;
+            assert!(!choose(&release, apple_silicon));
+        }
+        assert!(!choose(&release_from_sums(SYNCTHING_MACOS.repo, "v2.1.6-2", &[]), apple_silicon));
     }
 
     #[test]

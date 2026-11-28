@@ -33,6 +33,8 @@ impl<'a> Package<'a> {
             artcraft_launcher_core::release::kdenlive_mac_version(label)
         } else if self.name == "MacVim.dmg" {
             artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::MACVIM.repo, self.tag)
+        } else if self.name.starts_with("Syncthing-") {
+            artcraft_launcher_core::release::syncthing_macos_version(label)
         } else {
             artcraft_launcher_core::version::parse(label)
         };
@@ -186,6 +188,7 @@ fn main() -> Result<(), String> {
             "logseq-db",
             "onlyoffice",
             "sigil",
+            "syncthing-macos",
             "freeplane",
         ]
         .contains(&app.id)

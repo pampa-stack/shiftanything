@@ -69,6 +69,15 @@ open_gui() {
     fi
     sleep 8
     case "$slug" in
+        calibre)
+            if [[ "$phase" == previous ]] && dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^calibre Welcome wizard$' | sed -n '1p'); then
+                xdotool windowactivate --sync "$dialog" key alt+n
+                sleep 1
+                xdotool windowactivate --sync "$dialog" key alt+n
+                sleep 1
+                xdotool windowactivate --sync "$dialog" key alt+f
+            fi
+            ;;
         ardour)
             say "On $DISPLAY, create the Shift-QA session ($phase) and start the private PulseAudio output"
             timeout 120 xdotool search --sync --onlyvisible --name "$pattern" >/dev/null
@@ -215,6 +224,11 @@ if [[ "$slug" == ardour ]]; then
 else
     flags+=(--nosocket=pulseaudio)
 fi
+if [[ "$slug" == calibre ]]; then
+    calibre_library="$HOME/Calibre Library"
+    mkdir -p "$calibre_library"
+    flags+=(--filesystem="$calibre_library")
+fi
 if [[ "$slug" == bleachbit ]]; then
     mkdir -p "$HOME/.config/bleachbit"
     flags+=(--filesystem="$HOME/.config/bleachbit")
@@ -223,6 +237,11 @@ flatpak override --user "${flags[@]}" --env=QT_X11_NO_MITSHM=1 --env=LIBGL_ALWAY
 flatpak override --user --show "$flatid" > "$out/sandbox.txt"
 stage=open-previous
 open_gui previous
+if [[ "$slug" == calibre ]]; then
+    calibre_book=$(find "$calibre_library" -type f -name '*.epub' -print -quit)
+    test -s "$calibre_book"
+    sha256sum "$calibre_book" > "$out/ebook.sha256"
+fi
 stage=update
 disk_guard
 "$native" update "$slug"
@@ -230,9 +249,11 @@ verify "$current" current
 sha256sum -c "$out/fixture.sha256"
 stage=open-current
 open_gui current
+if [[ "$slug" == calibre ]]; then sha256sum -c "$out/ebook.sha256"; fi
 stage=remove
 "$native" remove "$slug"
 if flatpak info --user "$ref" >/dev/null 2>&1; then exit 1; fi
 test ! -e "$FLATPAK_USER_DIR/exports/share/applications/$flatid.desktop"
 sha256sum -c "$out/fixture.sha256"
+if [[ "$slug" == calibre ]]; then sha256sum -c "$out/ebook.sha256"; fi
 say 'PASS signed native cycle, two GUI opens and synthetic data retained'

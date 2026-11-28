@@ -371,6 +371,8 @@ mod linux {
                 // The Octave Flatpak runs the CLI by default, unlike its desktop entry.
                 if id == "org.octave.Octave" {
                     command.arg("--gui");
+                } else if id == "io.mpv.Mpv" {
+                    command.arg("--player-operation-mode=pseudo-gui");
                 }
                 command.args(args);
                 process::check_desktop_start(command, Duration::from_secs(1))?;

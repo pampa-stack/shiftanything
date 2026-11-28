@@ -1,0 +1,19 @@
+commit c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af
+Parent:  8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac
+ContentChecksum:  c899142a3ffb80be1530d21e378ab4e1fa7095bc9ea866748dd11cc2ded42beb
+Date:  2026-11-16 22:15:59 +0000
+
+    Merge pull request #314 from flathub/update-master-26079d6 (aad6ca9b5b36)
+
+    Name: com.calibre_ebook.calibre
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 16 23:02:34 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

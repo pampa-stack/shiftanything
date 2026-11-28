@@ -1,0 +1,20 @@
+
+calibre - The one stop solution to all your e-book needs
+
+          ID: com.calibre_ebook.calibre
+         Ref: app/com.calibre_ebook.calibre/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 9.18.0
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 947.2 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af
+      Parent: 8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac
+     Subject: Merge pull request #314 from flathub/update-master-26079d6 (aad6ca9b5b36)
+        Date: 2026-11-16 22:15:59 +0000

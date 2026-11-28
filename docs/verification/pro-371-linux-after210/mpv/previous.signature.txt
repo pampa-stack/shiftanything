@@ -1,0 +1,19 @@
+commit 13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc
+Parent:  e2061d86dfc6cce6d7e7efa29e9d31e628d99492d142e71d5a717ef97e8df853
+ContentChecksum:  3c53de3bf77cabad2c20302882cdce14fd01c80b3074a06e06e4b78e370d3bd4
+Date:  2026-11-18 23:27:26 +0000
+
+    Merge pull request #849 from xduugu/ffmpeg-module (2e578b5225ad)
+
+    Name: io.mpv.Mpv
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 19 00:02:16 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

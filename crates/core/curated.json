@@ -29620,7 +29620,15 @@
       "windows": "https://github.com/sonosaurus/sonobus/releases/tag/1.7.2",
       "linux": "https://sonobus.net/linux.html"
     },
-    "platform_scope_complete": true
+    "platform_scope_complete": true,
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "net.sonobus.SonoBus",
+        "source": "https://flathub.org/apps/net.sonobus.SonoBus"
+      }
+    ]
   },
   {
     "id": "azuracast",

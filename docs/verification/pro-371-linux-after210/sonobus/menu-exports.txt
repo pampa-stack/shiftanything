@@ -1,0 +1,2 @@
+/home/qa/profiles/sonobus-after210/data/flatpak/app/net.sonobus.SonoBus/x86_64/stable/516a647a1912f11a346d12abcee98eb484cc3e17ba72b513cce950284dc15b5e/export/share/applications/net.sonobus.SonoBus.desktop
+/home/qa/profiles/sonobus-after210/data/flatpak/app/net.sonobus.SonoBus/x86_64/stable/516a647a1912f11a346d12abcee98eb484cc3e17ba72b513cce950284dc15b5e/export/share/icons/hicolor/scalable/apps/net.sonobus.SonoBus.svg

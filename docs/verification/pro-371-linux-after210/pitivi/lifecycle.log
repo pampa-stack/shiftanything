@@ -1,0 +1,70 @@
+2026-11-28T02:00:08+00:00 pitivi AVAILABLE 27443470336
+pitivi before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+pitivi JobFinished: Ok("Flathub app installed")
+pitivi after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:01:10+00:00 pitivi current-install 39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3
+/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3/export/share/applications/org.pitivi.Pitivi.desktop
+/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3/export/share/icons/hicolor/scalable/apps/org.pitivi.Pitivi.svg
+Updating app/org.pitivi.Pitivi/x86_64/stable
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/pitivi-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/pitivi-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:01:18+00:00 pitivi previous a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae
+pitivi before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae", package: Some("org.pitivi.Pitivi"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: false, can_open: true }
+pitivi JobFinished: Err("Approved action rejected: native installation state changed")
+pitivi JobFinished: Err("This Flatpak is managed outside the launcher")
+pitivi after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae", package: Some("org.pitivi.Pitivi"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4493]: [session uid=1000 pid=4493] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5480 comm="xfwm4 --compositor=off --display=:82" label="unconfined")
+dbus-daemon[4493]: [session uid=1000 pid=4493] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4493]: [session uid=1000 pid=4493] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5493 comm="flatpak run --user --command=sh app/org.pitivi.Pit" label="flatpak (unconfined)")
+dbus-daemon[4493]: [session uid=1000 pid=4493] Successfully activated service 'org.freedesktop.Flatpak'
+pitivi before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: true, can_remove: true, can_open: true }
+pitivi JobFinished: Ok("Launch request accepted")
+pitivi after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[4493]: [session uid=1000 pid=4493] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.13' (uid=1000 pid=5601 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[4493]: [session uid=1000 pid=4493] Successfully activated service 'org.freedesktop.portal.Flatpak'
+  Map State: IsViewable
+org.pitivi.Pitivi
+org.pitivi.Pitivi
+org.pitivi.Pitivi
+2026-11-28T02:01:31+00:00 pitivi previous GUI WM_NAME(STRING) = "Pitivi"
+WM_CLASS(STRING) = "pitivi", "Pitivi"
+2026-11-28T02:01:31+00:00 pitivi AVAILABLE 19987808256
+pitivi before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: true, can_remove: true, can_open: true }
+pitivi JobFinished: Ok("Flathub app updated")
+pitivi after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:01:35+00:00 pitivi current 39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3
+/home/qa/profiles/pitivi-after210/.var/app/org.pitivi.Pitivi/fixture.txt: OK
+pitivi before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: true, can_open: true }
+pitivi JobFinished: Ok("Launch request accepted")
+pitivi after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.pitivi.Pitivi
+org.pitivi.Pitivi
+org.pitivi.Pitivi
+2026-11-28T02:01:45+00:00 pitivi current GUI WM_NAME(STRING) = "Pitivi"
+WM_CLASS(STRING) = "pitivi", "Pitivi"
+pitivi before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3", package: Some("org.pitivi.Pitivi"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2023.03"), update_available: false, can_remove: true, can_open: true }
+pitivi JobFinished: Ok("Flathub app removed")
+pitivi after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/pitivi-after210/.var/app/org.pitivi.Pitivi/fixture.txt: OK
+2026-11-28T02:01:46+00:00 pitivi PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:01:47+00:00 pitivi EXIT 0 remove
+
+(xfconfd:5505): xfconfd-WARNING **: 02:01:47.843: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -126,6 +126,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::GITHUB_DESKTOP.id,
                 recipe::HIDDEN_BAR.id,
                 recipe::ITERM2.id,
+                recipe::JELLYFIN_DESKTOP.id,
                 recipe::LOCALAI.id,
                 recipe::LOOP.id,
                 recipe::MOONLIGHT.id,

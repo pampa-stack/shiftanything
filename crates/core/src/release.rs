@@ -1281,6 +1281,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MONITORCONTROL,
         crate::curated::GNUCASH,
         crate::curated::FLOORP,
+        crate::curated::JELLYFIN_DESKTOP,
         crate::curated::MACSHOT,
         crate::curated::SIGNAL_DESKTOP,
         crate::curated::FIREFOX,
@@ -2022,6 +2023,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("consolelabs/hidden", "v1.13.4") => {
             &[("Hidden-Bar-v1.13.4-macos.zip", 2_757_264, "3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09")]
+        }
+        ("jellyfin/jellyfin-desktop", "v1.11.1") => {
+            &[("JellyfinMediaPlayer-1.11.1-AppleSilicon.dmg", 182_503_420, "6d5478a7eb457c0c842e3b4265f254d9504fe8e4c8bc5e49e59bf8c68d3cdfcd")]
+        }
+        ("jellyfin/jellyfin-desktop", "v1.12.0") => {
+            &[("JellyfinMediaPlayer-1.12.0-AppleSilicon.dmg", 186_166_526, "272412af869f5278b93c16cda2657de3cda50e595a68a1c062b8dff5e40980bc")]
         }
         ("sveinbjornt/Sloth", "3.5") => &[("sloth-3.5.zip", 1_348_310, "ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5")],
         ("sveinbjornt/Sloth", "3.6") => &[("sloth-3.6.zip", 1_343_658, "d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6")],

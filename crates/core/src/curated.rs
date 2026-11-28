@@ -2303,6 +2303,27 @@ pub const HIDDEN_BAR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W777S7V8TN"),
 };
 
+pub const JELLYFIN_DESKTOP: crate::CraftApp = crate::CraftApp {
+    id: "jellyfin-desktop",
+    name: "Jellyfin Desktop",
+    tagline: "Watch media from your Jellyfin server",
+    repo: "jellyfin/jellyfin-desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &["Jellyfin Media Player"],
+    former_bundles: &[],
+    color: [123, 81, 189],
+    ink_light: [84, 54, 154],
+    ink_dark: [192, 169, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Anthony Lavado",
+    msi_publisher: None,
+    bundle: Some("tv.jellyfin.player"),
+    site: Some("https://jellyfin.org/downloads/clients/"),
+    mac_bundle_name: Some("Jellyfin Media Player"),
+    mac_team: Some("6YC6EAV7ES"),
+};
+
 pub const SLOTH: crate::CraftApp = crate::CraftApp {
     id: "sloth",
     name: "Sloth",
@@ -3270,6 +3291,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     HIDDEN_BAR,
     SWIFTBAR,
     SLOTH,
+    JELLYFIN_DESKTOP,
     GITHUB_DESKTOP,
     ITERM2,
     ITSYCAL,

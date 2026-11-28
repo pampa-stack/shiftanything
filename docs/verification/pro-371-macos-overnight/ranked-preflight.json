@@ -40,6 +40,26 @@
     "reason": "not_notarized"
   },
   {
+    "id": "fontforge",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/fontforge/fontforge/releases/tag/20251009",
+    "asset_url": "https://github.com/fontforge/fontforge/releases/download/20251009/FontForge-2025-10-09-MacOS.app.dmg",
+    "sha256": "ba9f883389188d822a36cd447e9a9940a2bf4c4254f49f9fa3aa622a69b73110",
+    "bytes": 60251338,
+    "checked_at": "2026-11-28",
+    "reason": "intel_only"
+  },
+  {
+    "id": "freetube",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
+    "asset_url": "https://github.com/FreeTubeApp/FreeTube/releases/download/v0.26.0-beta/freetube-0.26.0-beta-mac-arm64.dmg",
+    "sha256": "16b49e40297e35806aec173d2f2a9f2bf85e1e377207d40ac365c59e7a73a8b2",
+    "bytes": 131556841,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "gpt4all",
     "target": "macos-arm64",
     "release_source": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0",

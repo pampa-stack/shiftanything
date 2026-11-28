@@ -152,6 +152,7 @@ fn main() -> Result<(), String> {
             "hidden-bar",
             "swiftbar",
             "sloth",
+            "jellyfin-desktop",
             "iterm2",
             "itsycal",
             "github-desktop",

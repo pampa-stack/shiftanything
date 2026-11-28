@@ -1,0 +1,18 @@
+PASS PREFLIGHT jellyfin-desktop v1.11.1
+PASS PREFLIGHT jellyfin-desktop v1.12.0
+/dev/disk3s5   239362496 172977068  25257908    88% 3209907 252579080    1%   /System/Volumes/Data
+OFFICIAL INDEX jellyfin-desktop v1.11.1 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX jellyfin-desktop v1.12.0 digest=computed, signer/notarization corroborated
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v1.11.1 Dmg https://github.com/jellyfin/jellyfin-desktop/releases/download/v1.11.1/JellyfinMediaPlayer-1.11.1-AppleSilicon.dmg 182503420 6d5478a7eb457c0c842e3b4265f254d9504fe8e4c8bc5e49e59bf8c68d3cdfcd
+PASS OFFICIAL v1.12.0 Dmg https://github.com/jellyfin/jellyfin-desktop/releases/download/v1.12.0/JellyfinMediaPlayer-1.12.0-AppleSilicon.dmg 186166526 272412af869f5278b93c16cda2657de3cda50e595a68a1c062b8dff5e40980bc
+NATIVE ORIGIN jellyfin-desktop GitHub
+PASS OFFICIAL v1.11.1 Dmg https://github.com/jellyfin/jellyfin-desktop/releases/download/v1.11.1/JellyfinMediaPlayer-1.11.1-AppleSilicon.dmg 182503420 6d5478a7eb457c0c842e3b4265f254d9504fe8e4c8bc5e49e59bf8c68d3cdfcd
+PASS NATIVE jellyfin-desktop install: Jellyfin Desktop installed: 1.11.1; package_bytes=182503420; elapsed=44.373s
+NATIVE ORIGIN jellyfin-desktop GitHub
+PASS OFFICIAL v1.12.0 Dmg https://github.com/jellyfin/jellyfin-desktop/releases/download/v1.12.0/JellyfinMediaPlayer-1.12.0-AppleSilicon.dmg 186166526 272412af869f5278b93c16cda2657de3cda50e595a68a1c062b8dff5e40980bc
+PASS NATIVE jellyfin-desktop update: Jellyfin Desktop updated to 1.12.0; package_bytes=186166526; elapsed=35.289s
+PASS NATIVE jellyfin-desktop remove: Jellyfin Desktop was removed; package_bytes=0; elapsed=0.113s
+PASS NATIVE CYCLE jellyfin-desktop (v1.11.1 → v1.12.0), private Trash and synthetic data preserved

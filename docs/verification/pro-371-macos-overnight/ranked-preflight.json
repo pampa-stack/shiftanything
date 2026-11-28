@@ -1,5 +1,15 @@
 [
   {
+    "id": "boring-notch",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/TheBoredTeam/boring.notch/releases/tag/v2.7.3",
+    "asset_url": "https://github.com/TheBoredTeam/boring.notch/releases/download/v2.7.3/boringNotch.dmg",
+    "sha256": "23786382548d33c59b309db558e513a92e3f95b63d611544dcddf5d196e46698",
+    "bytes": 9727030,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "caesium",
     "target": "macos-arm64",
     "release_source": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
@@ -18,6 +28,16 @@
     "bytes": 36751161,
     "checked_at": "2026-11-28",
     "reason": "invalid_signature"
+  },
+  {
+    "id": "czkawka",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/qarmin/czkawka/releases/tag/12.0.2",
+    "asset_url": "https://github.com/qarmin/czkawka/releases/download/12.0.2/mac_czkawka_gui_arm64",
+    "sha256": "3c9f1aac6479a7851cf308b185529d192b17a80f535927224ae1301c7f3d2933",
+    "bytes": 29901968,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
   },
   {
     "id": "darktable",
@@ -158,6 +178,16 @@
     "bytes": 23690387,
     "checked_at": "2026-11-28",
     "reason": "not_notarized"
+  },
+  {
+    "id": "openhands-canvas",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/OpenHands/OpenHands/releases/tag/v1.46.0",
+    "asset_url": "https://github.com/OpenHands/OpenHands/releases/download/v1.46.0/OpenHands-Agent-Canvas-1.46.0-universal.dmg",
+    "sha256": "3285d4c3e2728583849eedff4504ae7ceffea2cde197c34bdd672e5cbaec8b62",
+    "bytes": 350126746,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
   },
   {
     "id": "openrefine",

@@ -35046,5 +35046,66 @@
         }
       ]
     }
+  },
+  {
+    "id": "parabolic",
+    "name": "Parabolic",
+    "repo": "https://github.com/NickvisionApps/Parabolic",
+    "author": "Nickvision",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Scarica audio e video da URL supportati, scegli formato e qualità, accoda più elementi e salva i sottotitoli disponibili.",
+      "en": "Download audio and video from supported URLs, choose format and quality, queue multiple items, and save available subtitles."
+    },
+    "alternatives": [],
+    "license": "MIT",
+    "license_url": "https://github.com/NickvisionApps/Parabolic/blob/2026.5.0/LICENSE",
+    "website": "https://nickvision.org/parabolic.html",
+    "releases": "https://flathub.org/apps/org.nickvision.tubeconverter",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://dl.flathub.org/media/org/nickvision/tubeconverter/f526236e97441b42028566e48c76d56b/icons/128x128/org.nickvision.tubeconverter.png",
+    "screenshots": [
+      "https://dl.flathub.org/media/org/nickvision/tubeconverter/f526236e97441b42028566e48c76d56b/screenshots/image-1_orig.png",
+      "https://dl.flathub.org/media/org/nickvision/tubeconverter/f526236e97441b42028566e48c76d56b/screenshots/image-2_orig.png",
+      "https://dl.flathub.org/media/org/nickvision/tubeconverter/f526236e97441b42028566e48c76d56b/screenshots/image-3_orig.png"
+    ],
+    "media_source": "https://flathub.org/apps/org.nickvision.tubeconverter",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.nickvision.tubeconverter",
+        "source": "https://flathub.org/apps/org.nickvision.tubeconverter",
+        "download_size": 297175789,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.nickvision.tubeconverter",
+        "download_size_checked": "2026-11-28"
+      }
+    ],
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://flathub.org/apps/org.nickvision.tubeconverter"
+    },
+    "stars": {
+      "count": 7835,
+      "source": "https://github.com/NickvisionApps/Parabolic/stargazers",
+      "date": "2026-11-28"
+    },
+    "platform_support": {
+      "linux": "https://flathub.org/apps/org.nickvision.tubeconverter",
+      "macos": "https://github.com/NickvisionApps/Parabolic/releases/tag/2026.5.0",
+      "windows": "https://github.com/NickvisionApps/Parabolic/releases/tag/2026.5.0"
+    },
+    "release": {
+      "version": "2026.5.0",
+      "date": "2026-05-24",
+      "source": "https://github.com/NickvisionApps/Parabolic/releases/tag/2026.5.0",
+      "packages": []
+    }
   }
 ]

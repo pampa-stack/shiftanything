@@ -1,7 +1,8 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 187] = [
+pub const RECIPES: [(&str, &str); 188] = [
+    ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
     ("olive", "org.olivevideoeditor.Olive"),
     ("raspberry-pi-imager", "org.raspberrypi.rpi-imager"),
@@ -207,6 +208,7 @@ pub fn supported(id: &str, platform: Platform) -> bool {
 
 pub fn approved_catalog_identity(app: &App) -> bool {
     let upstream = match app.id.as_str() {
+        "parabolic" => "https://github.com/NickvisionApps/Parabolic",
         "gnome-calculator" => "https://gitlab.gnome.org/GNOME/gnome-calculator",
         "gnome-text-editor" => "https://gitlab.gnome.org/GNOME/gnome-text-editor",
         "loupe" => "https://gitlab.gnome.org/GNOME/loupe",

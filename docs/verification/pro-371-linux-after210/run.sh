@@ -235,6 +235,9 @@ printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/porta
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
 flags+=(--no-talk-name=org.freedesktop.Flatpak)
+if [[ "$slug" == parabolic ]]; then
+    flags+=(--no-talk-name=org.freedesktop.secrets)
+fi
 if [[ "$slug" == easyeffects ]]; then
     # shellcheck source=/dev/null
     source "$guest_home/easyeffects-pipewire.sh"

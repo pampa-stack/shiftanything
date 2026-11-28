@@ -73,6 +73,10 @@ Il 28 novembre il backend del commit `42dca2d`, compilato con tre ricette candid
 
 Il Flatpak comunitario di SiYuan è abilitato su Linux x64 dopo un ciclo da 3.8.10 a 3.8.11. [Prove di Flatpak, AppImage e DEB](siyuan/README.md)
 
+## Parabolic
+
+Il Flatpak di Parabolic è abilitato su Linux x64 dopo installazione, apertura delle versioni 2026.4.1 e 2026.5.0, aggiornamento e rimozione. [Prova e limiti](parabolic/README.md)
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.

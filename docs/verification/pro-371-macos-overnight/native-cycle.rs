@@ -31,6 +31,8 @@ impl<'a> Package<'a> {
         };
         let version = if self.name.starts_with("kdenlive-") {
             artcraft_launcher_core::release::kdenlive_mac_version(label)
+        } else if self.name == "MeetingBar.dmg" {
+            artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::MEETINGBAR.repo, self.tag)
         } else if self.name == "MacVim.dmg" {
             artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::MACVIM.repo, self.tag)
         } else if self.name.starts_with("Syncthing-") {
@@ -189,6 +191,7 @@ fn main() -> Result<(), String> {
             "onlyoffice",
             "sigil",
             "syncthing-macos",
+            "meetingbar",
             "freeplane",
         ]
         .contains(&app.id)

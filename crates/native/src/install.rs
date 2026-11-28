@@ -164,6 +164,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
         (&[recipe::ITSYCAL.id, recipe::KRITA.id, recipe::SYNCTHING_MACOS.id, recipe::VLC.id], (11, 0)),
+        (&[recipe::MEETINGBAR.id], (12, 0)),
         (&[recipe::COTEDITOR.id], (26, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];

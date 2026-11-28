@@ -1570,6 +1570,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const MEETINGBAR: crate::CraftApp = crate::CraftApp {
+    id: "meetingbar",
+    name: "MeetingBar",
+    tagline: "Join calendar meetings from the menu bar",
+    repo: "leits/MeetingBar",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [95, 111, 217],
+    ink_light: [44, 59, 150],
+    ink_dark: [174, 185, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Andrii Leitsius",
+    msi_publisher: None,
+    bundle: Some("leits.MeetingBar"),
+    site: Some("https://meetingbar.app/"),
+    mac_bundle_name: Some("MeetingBar"),
+    mac_team: Some("KGH289N6T8"),
+};
+
 pub const SYNCTHING_MACOS: crate::CraftApp = crate::CraftApp {
     id: "syncthing-macos",
     name: "Syncthing for macOS",
@@ -3381,6 +3402,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     RUFFLE,
     SIGIL,
     SYNCTHING_MACOS,
+    MEETINGBAR,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

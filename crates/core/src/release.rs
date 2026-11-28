@@ -869,6 +869,9 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
     } else if repo == crate::curated::UTM.repo && tag == "v5.0.9-2" {
         // The stable retag contains UTM 5.0.9 build 132, not a prerelease.
         version::parse("5.0.9")
+    } else if repo == crate::curated::MEETINGBAR.repo && tag == "v5.0.0" {
+        // This exact stable DMG contains a notarized app reporting 5.0.1.
+        Some(Version::new(5, 0, 1))
     } else if repo == crate::curated::SYNCTHING_MACOS.repo {
         syncthing_macos_version(tag)
     } else if repo == crate::curated::ZEN.repo {
@@ -1231,6 +1234,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
     const RECIPES: &[crate::CraftApp] = &[
         crate::curated::OPENCLAW,
         crate::curated::SYNCTHING_MACOS,
+        crate::curated::MEETINGBAR,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1347,7 +1351,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release.tag == format!("version_{version}")
             } else if (app.id, app.repo) == (crate::curated::FREEPLANE.id, crate::curated::FREEPLANE.repo) {
                 release.tag == format!("release-{version}")
-            } else if (app.id, app.repo) == (crate::curated::MACVIM.id, crate::curated::MACVIM.repo) {
+            } else if [crate::curated::MACVIM, crate::curated::MEETINGBAR].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
             } else if [crate::curated::OPENTTD, crate::curated::GNUCASH].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
@@ -1654,6 +1658,8 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("leits/MeetingBar", "v4.11.6") => &[("MeetingBar.dmg", 11_294_412, "4f19af496d4ff44b9b0ee02be02bc76207f3e365a7f9e77c7219a08c607838d7")],
+        ("leits/MeetingBar", "v5.0.0") => &[("MeetingBar.dmg", 8_210_845, "26d4759f73f429c2aa93d225704bf85cdde8b1c035c12aadeb63d4dddbdae1e4")],
         ("syncthing/syncthing-macos", "v2.1.5-1") => {
             &[("Syncthing-2.1.5-1.dmg", 28_061_360, "50903a2a6221856e1c36e3c5c5ff39e897053d29aa1f685ad576622c93069e88")]
         }
@@ -2698,6 +2704,25 @@ mod tests {
             assert_eq!(select(&prerelease, mac), None);
         }
         assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
+
+    #[test]
+    fn meetingbar_uses_the_signed_bundle_version_for_the_reviewed_release() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::MEETINGBAR};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| crate::platform::pick_asset(release, &[MEETINGBAR.id], platform, &[PackageKind::Dmg]).is_some();
+        let previous = release_from_sums(MEETINGBAR.repo, "v4.11.6", &[]);
+        let mut current = release_from_sums(MEETINGBAR.repo, "v5.0.0", &[]);
+        assert_eq!(previous.version, Some(Version::new(4, 11, 6)));
+        assert_eq!(current.version, Some(Version::new(5, 0, 1)));
+        assert_eq!(release_tag_version("example/MeetingBar", "v5.0.0"), Some(Version::new(5, 0, 0)));
+        assert!(pick(&previous, mac));
+        assert!(pick(&current, mac));
+        assert!(!pick(&current, Platform { arch: Arch::X64, ..mac }));
+        assert!(!pick(&release_from_sums(MEETINGBAR.repo, "v5.0.1", &[]), mac));
+        current.assets[0].sha256 = Some("0".repeat(64));
+        assert!(!pick(&current, mac));
     }
 
     #[test]

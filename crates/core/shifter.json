@@ -4672,6 +4672,850 @@
           }
         }
       ]
+    },
+    {
+      "id": "abbyy-finereader-pdf",
+      "name": "ABBYY FineReader PDF",
+      "aliases": [],
+      "features": [
+        {
+          "id": "ocr",
+          "name": {
+            "it": "Estrarre testo dalle immagini",
+            "en": "Extract text from images"
+          },
+          "source": "https://pdf.abbyy.com/finereader-pdf/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "normcap",
+          "evidence": {
+            "ocr": {
+              "state": "supported",
+              "source": "https://github.com/dynobo/normcap/blob/main/README.md",
+              "note": {
+                "it": "Seleziona una zona dello schermo per copiarne il testo.",
+                "en": "Select an area of the screen to copy its text."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ableton-live",
+      "name": "Ableton Live",
+      "aliases": [],
+      "features": [
+        {
+          "id": "midi",
+          "name": {
+            "it": "Comporre con MIDI",
+            "en": "Compose with MIDI"
+          },
+          "source": "https://www.ableton.com/en/live/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "lmms",
+          "evidence": {
+            "midi": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/io.lmms.LMMS",
+              "note": {
+                "it": "Scrivi note nel piano roll e organizza pattern e strumenti virtuali.",
+                "en": "Write notes in the piano roll and arrange patterns and instruments."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "qtractor",
+          "evidence": {
+            "midi": {
+              "state": "supported",
+              "source": "https://github.com/rncbc/qtractor#readme",
+              "note": {
+                "it": "Sequenzia note MIDI e tracce audio nello stesso progetto Linux.",
+                "en": "Sequence MIDI notes and audio tracks in the same Linux project."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adobe-after-effects",
+      "name": "Adobe After Effects",
+      "aliases": [],
+      "features": [
+        {
+          "id": "motion",
+          "name": {
+            "it": "Motion graphics",
+            "en": "Motion graphics"
+          },
+          "source": "https://www.adobe.com/products/aftereffects.html"
+        },
+        {
+          "id": "composite",
+          "name": {
+            "it": "Compositing a nodi",
+            "en": "Node-based compositing"
+          },
+          "source": "https://www.adobe.com/products/aftereffects.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "friction",
+          "evidence": {
+            "motion": {
+              "state": "supported",
+              "source": "https://github.com/friction2d/friction#readme",
+              "note": {
+                "it": "Anima forme vettoriali e livelli su una timeline.",
+                "en": "Animate vector shapes and layers on a timeline."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "natron",
+          "evidence": {
+            "composite": {
+              "state": "supported",
+              "source": "https://github.com/NatronGitHub/Natron",
+              "note": {
+                "it": "Organizza chiavi, maschere ed effetti in un grafo di nodi.",
+                "en": "Arrange keys, masks and effects in a node graph."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "blender",
+          "evidence": {
+            "composite": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.blender.Blender",
+              "note": {
+                "it": "Combina render e immagini con il compositore a nodi.",
+                "en": "Combine renders and images with the node compositor."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adobe-analytics",
+      "name": "Adobe Analytics",
+      "aliases": [],
+      "features": [
+        {
+          "id": "analytics",
+          "name": {
+            "it": "Misurare il traffico del sito",
+            "en": "Measure website traffic"
+          },
+          "source": "https://business.adobe.com/products/adobe-analytics.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "matomo",
+          "evidence": {
+            "analytics": {
+              "state": "supported",
+              "source": "https://matomo.org/faq/log-analytics-tool/is-matomo-truly-free-to-use-what-are-the-costs-or-requirements/",
+              "note": {
+                "it": "Raccogli statistiche e usa rapporti sulle visite sul tuo server.",
+                "en": "Collect statistics and use visitor reports on your own server."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "plausible-ce",
+          "evidence": {
+            "analytics": {
+              "state": "supported",
+              "source": "https://github.com/plausible/community-edition#readme",
+              "note": {
+                "it": "Consulta il traffico e gli obiettivi sulla dashboard autogestita.",
+                "en": "Review traffic and goals in a self-hosted dashboard."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adobe-indesign",
+      "name": "Adobe InDesign",
+      "aliases": [],
+      "features": [
+        {
+          "id": "layout",
+          "name": {
+            "it": "Impaginazione",
+            "en": "Publishing"
+          },
+          "source": "https://www.adobe.com/products/indesign.html"
+        },
+        {
+          "id": "presentation",
+          "name": {
+            "it": "Tavole di presentazione",
+            "en": "Presentation boards"
+          },
+          "source": "https://www.adobe.com/products/indesign.html"
+        },
+        {
+          "id": "print",
+          "name": {
+            "it": "Impaginare un portfolio",
+            "en": "Lay out a portfolio"
+          },
+          "source": "https://www.adobe.com/products/indesign.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "scribus",
+          "evidence": {
+            "layout": {
+              "state": "supported",
+              "source": "https://github.com/scribusproject/scribus/blob/master/doc/en/readme.html",
+              "note": {
+                "it": "Documenti multipagina e PDF/X per la stampa.",
+                "en": "Multipage documents and print-ready PDF/X."
+              }
+            },
+            "presentation": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/net.scribus.Scribus",
+              "note": {
+                "it": "Impagina schemi, sezioni, foto e didascalie in un PDF.",
+                "en": "Lay out diagrams, sections, photos and captions in a PDF."
+              }
+            },
+            "print": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/net.scribus.Scribus",
+              "note": {
+                "it": "Impagina fotografie e didascalie ed esporta PDF.",
+                "en": "Lay out photographs and captions and export PDFs."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "designcraft",
+          "evidence": {
+            "layout": {
+              "state": "supported",
+              "source": "https://github.com/storytold/designcraft#readme",
+              "note": {
+                "it": "Impaginazione con testo e immagini. È un’app di ArtCraft.",
+                "en": "Page layout with text and images. Part of the ArtCraft suite."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "adobe-media-encoder",
+      "name": "Adobe Media Encoder",
+      "aliases": [],
+      "features": [
+        {
+          "id": "convert",
+          "name": {
+            "it": "Convertire più video in coda",
+            "en": "Convert multiple videos in a queue"
+          },
+          "source": "https://www.adobe.com/products/media-encoder.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "handbrake",
+          "evidence": {
+            "convert": {
+              "state": "supported",
+              "source": "https://handbrake.fr/docs/en/latest/advanced/queue.html",
+              "note": {
+                "it": "Imposta i formati di uscita e accoda più conversioni video.",
+                "en": "Choose output settings and queue several video conversions."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "airdroid-personal",
+      "name": "AirDroid Personal",
+      "aliases": [],
+      "features": [
+        {
+          "id": "transfer",
+          "name": {
+            "it": "Trasferire file nella rete locale",
+            "en": "Transfer files over a local network"
+          },
+          "source": "https://www.airdroid.com/personal/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "localsend",
+          "evidence": {
+            "transfer": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.localsend.localsend_app",
+              "note": {
+                "it": "Invia un file vicino tra sistemi diversi sulla stessa rete.",
+                "en": "Send a file between nearby devices on the same network."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "altium-designer",
+      "name": "Altium Designer",
+      "aliases": [],
+      "features": [
+        {
+          "id": "board",
+          "name": {
+            "it": "Progettare una scheda elettronica",
+            "en": "Design a circuit board"
+          },
+          "source": "https://www.altium.com/altium-designer"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kicad",
+          "evidence": {
+            "board": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.kicad.KiCad",
+              "note": {
+                "it": "Disegna schemi, assegna impronte e prepara il PCB.",
+                "en": "Draw schematics, assign footprints and prepare a PCB."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "anydesk",
+      "name": "AnyDesk",
+      "aliases": [],
+      "features": [
+        {
+          "id": "remote",
+          "name": {
+            "it": "Fornire assistenza da remoto",
+            "en": "Provide remote assistance"
+          },
+          "source": "https://anydesk.com/en"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rustdesk",
+          "evidence": {
+            "remote": {
+              "state": "supported",
+              "source": "https://github.com/rustdesk/rustdesk#readme",
+              "note": {
+                "it": "Controlla un computer con il consenso dell’utente.",
+                "en": "Control a computer with the user’s consent."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "remmina",
+          "evidence": {
+            "remote": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.remmina.Remmina",
+              "note": {
+                "it": "Accedi da Linux a desktop RDP e VNC autorizzati.",
+                "en": "Access authorized RDP and VNC desktops from Linux."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "apple-compressor",
+      "name": "Apple Compressor",
+      "aliases": [],
+      "features": [
+        {
+          "id": "encoding",
+          "name": {
+            "it": "Esportazione e compressione",
+            "en": "Export and compression"
+          },
+          "source": "https://www.apple.com/final-cut-pro/compressor/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "handbrake",
+          "evidence": {
+            "encoding": {
+              "state": "supported",
+              "source": "https://handbrake.fr/docs/en/latest/introduction/about.html",
+              "note": {
+                "it": "Converti il master con preimpostazioni per dispositivi e controlli di qualità.",
+                "en": "Convert the master with device presets and quality controls."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "arcgis-pro",
+      "name": "ArcGIS Pro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "maps",
+          "name": {
+            "it": "Analisi del sito e mappe",
+            "en": "Site analysis and maps"
+          },
+          "source": "https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview"
+        },
+        {
+          "id": "geography",
+          "name": {
+            "it": "Analizzare dati su una mappa",
+            "en": "Analyze geographic data"
+          },
+          "source": "https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "qgis",
+          "evidence": {
+            "maps": {
+              "state": "supported",
+              "source": "https://docs.qgis.org/4.4/en/docs/about/features.html",
+              "note": {
+                "it": "Dati geografici, mappe e tavole.",
+                "en": "Geographic data, maps and layouts."
+              }
+            },
+            "geography": {
+              "state": "supported",
+              "source": "https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html",
+              "note": {
+                "it": "Carica strati geografici e visualizza i risultati dell’analisi sulla mappa.",
+                "en": "Load geographic layers and display analysis results on a map."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "archicad",
+      "name": "Archicad",
+      "aliases": [],
+      "features": [
+        {
+          "id": "bim",
+          "name": {
+            "it": "Modello BIM",
+            "en": "BIM model"
+          },
+          "source": "https://graphisoft.com/solutions/archicad"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "free",
+          "evidence": {
+            "bim": {
+              "state": "supported",
+              "source": "https://www.freecad.org/",
+              "note": {
+                "it": "Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.",
+                "en": "Parametric modeling, BIM tools and IFC. Verify interchange with your practice."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "asana",
+      "name": "Asana",
+      "aliases": [],
+      "features": [
+        {
+          "id": "board",
+          "name": {
+            "it": "Tenere una bacheca operativa",
+            "en": "Run a work board"
+          },
+          "source": "https://asana.com/product"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kanboard",
+          "evidence": {
+            "board": {
+              "state": "supported",
+              "source": "https://docs.kanboard.org/en/latest/admin_guide/installation.html",
+              "note": {
+                "it": "Distribuisci le attività per colonne, responsabili e date.",
+                "en": "Organize work by stage, assignee and date."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vikunja",
+          "evidence": {
+            "board": {
+              "state": "supported",
+              "source": "https://vikunja.io/docs/installing/",
+              "note": {
+                "it": "Usa viste a lista, Kanban o Gantt per lo stesso progetto.",
+                "en": "Use list, Kanban or Gantt views for a project."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "aseprite",
+      "name": "Aseprite",
+      "aliases": [],
+      "features": [
+        {
+          "id": "pixel",
+          "name": {
+            "it": "Disegnare sprite e animarli",
+            "en": "Draw and animate sprites"
+          },
+          "source": "https://www.aseprite.org/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libresprite",
+          "evidence": {
+            "pixel": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/com.github.libresprite.LibreSprite",
+              "note": {
+                "it": "Disegna sprite e prepara sequenze di animazione.",
+                "en": "Draw sprites and create animation sequences."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "pixelorama",
+          "evidence": {
+            "pixel": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/com.orama_interactive.Pixelorama",
+              "note": {
+                "it": "Crea sprite e animazioni a fotogrammi.",
+                "en": "Create sprites and frame-by-frame animations."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "audirvana-origin",
+      "name": "Audirvāna Origin",
+      "aliases": [],
+      "features": [
+        {
+          "id": "music",
+          "name": {
+            "it": "Ascoltare la propria musica",
+            "en": "Stream your music collection"
+          },
+          "source": "https://audirvana.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "navidrome",
+          "evidence": {
+            "music": {
+              "state": "supported",
+              "source": "https://www.navidrome.org/docs/overview/",
+              "note": {
+                "it": "Ascolta la tua collezione dal browser o da un client compatibile con Subsonic.",
+                "en": "Listen to your collection in a browser or a Subsonic-compatible client."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "autocad",
+      "name": "AutoCAD",
+      "aliases": [],
+      "features": [
+        {
+          "id": "draft",
+          "name": {
+            "it": "Disegno 2D",
+            "en": "2D drafting"
+          },
+          "source": "https://www.autodesk.com/products/autocad/overview"
+        },
+        {
+          "id": "sketch",
+          "name": {
+            "it": "Disegnare il pezzo 2D",
+            "en": "Sketch a 2D part"
+          },
+          "source": "https://www.autodesk.com/products/autocad/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "librecad",
+          "evidence": {
+            "draft": {
+              "state": "supported",
+              "source": "https://docs.librecad.org/en/latest/",
+              "note": {
+                "it": "Piante quotate e disegni 2D. Controlla gli scambi DWG.",
+                "en": "Dimensioned plans and 2D drawings. Check DWG interchange."
+              }
+            },
+            "sketch": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.librecad.librecad",
+              "note": {
+                "it": "Disegna con quote e livelli prima di passare al modello.",
+                "en": "Sketch with dimensions and layers before modeling."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "free",
+          "evidence": {
+            "draft": {
+              "state": "supported",
+              "source": "https://www.freecad.org/manual/a-freecad-manual.pdf#page=76",
+              "note": {
+                "it": "Disegni 2D e scambio DXF.",
+                "en": "2D drawings and DXF interchange."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "autodesk-fusion",
+      "name": "Autodesk Fusion",
+      "aliases": [],
+      "features": [
+        {
+          "id": "parametric",
+          "name": {
+            "it": "Creare il modello parametrico",
+            "en": "Build a parametric model"
+          },
+          "source": "https://www.autodesk.com/products/fusion-360/overview"
+        },
+        {
+          "id": "mechanism-motion",
+          "name": {
+            "it": "Verificare il movimento di un meccanismo",
+            "en": "Check how a mechanism moves"
+          },
+          "source": "https://www.autodesk.com/products/fusion-360/overview"
+        },
+        {
+          "id": "mesh",
+          "name": {
+            "it": "Controllare la mesh",
+            "en": "Inspect the mesh"
+          },
+          "source": "https://www.autodesk.com/products/fusion-360/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "free",
+          "evidence": {
+            "parametric": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.freecad.FreeCAD",
+              "note": {
+                "it": "Costruisci solidi da schizzi e vincoli parametrici.",
+                "en": "Construct solids using sketches and parametric constraints."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "openscad",
+          "evidence": {
+            "parametric": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.openscad.OpenSCAD",
+              "note": {
+                "it": "Genera forme riproducibili con un modello dichiarativo.",
+                "en": "Generate reproducible shapes using a declarative model."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "solvespace",
+          "evidence": {
+            "mechanism-motion": {
+              "state": "supported",
+              "source": "https://solvespace.com/features.pl",
+              "note": {
+                "it": "Traccia la traiettoria di un punto del meccanismo ed esportala per analizzarla.",
+                "en": "Trace the path of a point in the mechanism and export it for analysis."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "mesh-lab",
+          "evidence": {
+            "mesh": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/net.meshlab.MeshLab",
+              "note": {
+                "it": "Analizza la geometria e ripulisci la mesh importata.",
+                "en": "Inspect geometry and clean up imported meshes."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "autodesk-maya",
+      "name": "Autodesk Maya",
+      "aliases": [],
+      "features": [
+        {
+          "id": "model",
+          "name": {
+            "it": "Modellare e animare in 3D",
+            "en": "Model and animate in 3D"
+          },
+          "source": "https://www.autodesk.com/products/maya/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "blender",
+          "evidence": {
+            "model": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.blender.Blender",
+              "note": {
+                "it": "Modella, assegna materiali e prepara animazioni per asset 3D.",
+                "en": "Model, assign materials and animate 3D assets."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "autodesk-recap-pro",
+      "name": "Autodesk ReCap Pro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "mesh",
+          "name": {
+            "it": "Pulizia di rilievi 3D",
+            "en": "Clean 3D survey meshes"
+          },
+          "source": "https://www.autodesk.com/products/recap/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "mesh-lab",
+          "evidence": {
+            "mesh": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/net.meshlab.MeshLab",
+              "note": {
+                "it": "Filtra e pulisci le mesh importate da un rilievo.",
+                "en": "Filter and clean meshes imported from a survey."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "backblaze-computer-backup",
+      "name": "Backblaze Computer Backup",
+      "aliases": [],
+      "features": [
+        {
+          "id": "backup",
+          "name": {
+            "it": "Creare una copia di sicurezza",
+            "en": "Back up the collection"
+          },
+          "source": "https://www.backblaze.com/cloud-backup/personal"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kopia",
+          "evidence": {
+            "backup": {
+              "state": "supported",
+              "source": "https://kopia.io/docs/features/",
+              "note": {
+                "it": "Salva copie cifrate su un disco o su una destinazione di rete e ripristina versioni precedenti.",
+                "en": "Save encrypted snapshots to a drive or network destination and restore earlier versions."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

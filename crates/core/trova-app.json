@@ -1648,6 +1648,14 @@
           "source": "https://flathub.org/apps/org.freecad.FreeCAD"
         },
         {
+          "id": "solvespace",
+          "reason": {
+            "it": "Disegna schizzi 2D con vincoli e usali per modellare pezzi 3D.",
+            "en": "Constrain 2D sketches and use them to model 3D parts."
+          },
+          "source": "https://solvespace.com/features.pl"
+        },
+        {
           "id": "openscad",
           "reason": {
             "it": "Genera forme riproducibili con un modello dichiarativo.",

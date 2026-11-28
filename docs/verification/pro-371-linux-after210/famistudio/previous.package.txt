@@ -1,0 +1,20 @@
+
+FamiStudio - FamiStudio NES Music Editor
+
+          ID: org.famistudio.FamiStudio
+         Ref: app/org.famistudio.FamiStudio/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.5.3
+     License: MIT
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 161.0 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f
+      Parent: da94c7b31c06e00991f9360c061ca615d16a81a3743b4ab19cbf8f5de2b21b88
+     Subject: Merge pull request #46 from flathub/famistudio-453 (4625123e32f9)
+        Date: 2026-08-10 09:22:25 +0000

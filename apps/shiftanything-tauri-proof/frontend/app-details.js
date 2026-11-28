@@ -395,6 +395,22 @@ export default {
     ],
     "source": "https://github.com/excalidraw/excalidraw"
   },
+  "famistudio": {
+    "en": [
+      "Compose NES and Famicom chiptune tracks in a piano-roll editor.",
+      "Create instruments and shape their sound with volume, pitch and arpeggio envelopes.",
+      "Export songs as WAV audio, NSF music or a playable NES ROM."
+    ],
+    "it": [
+      "Componi brani chiptune per NES e Famicom usando un editor piano roll.",
+      "Crea strumenti e modellane il suono con inviluppi di volume, intonazione e arpeggio.",
+      "Esporta i brani come audio WAV, musica NSF o ROM riproducibile su NES."
+    ],
+    "sources": [
+      "https://famistudio.org/",
+      "https://famistudio.org/doc/export/"
+    ]
+  },
   "figcraft": {
     "en": [
       "Design interfaces with frames, grids and auto layout.",
@@ -1370,6 +1386,19 @@ export default {
       "Modifica il MIDI nel piano roll e usa effetti integrati o plugin CLAP."
     ],
     "source": "https://getartcraft.com/apps/soundcraft"
+  },
+  "speech-note": {
+    "en": [
+      "Dictate notes and transcribe audio with models running on your computer.",
+      "Read notes aloud and translate them offline after downloading the required models.",
+      "Use global shortcuts to dictate into the active window on supported Linux desktops."
+    ],
+    "it": [
+      "Detta appunti e trascrivi file audio con modelli che girano sul tuo computer.",
+      "Ascolta e traduci gli appunti offline dopo aver scaricato i modelli necessari.",
+      "Usa le scorciatoie globali per dettare nella finestra attiva sugli ambienti Linux supportati."
+    ],
+    "source": "https://github.com/mkiol/dsnote#readme"
   },
   "syncthing": {
     "en": [

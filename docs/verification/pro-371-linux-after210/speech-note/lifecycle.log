@@ -1,0 +1,84 @@
+2026-11-28T05:34:50+00:00 speech-note AVAILABLE 27434434560
+speech-note before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+speech-note JobFinished: Ok("Flathub app installed")
+speech-note after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:35:56+00:00 speech-note current-install 00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/applications/net.mkiol.SpeechNote.desktop
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/128x128/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/16x16/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/256x256/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/32x32/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/48x48/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/512x512/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/64x64/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/96x96/apps/net.mkiol.SpeechNote.png
+/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb/export/share/icons/hicolor/scalable/apps/net.mkiol.SpeechNote.svg
+Info: org.kde.Platform is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.kde.Platform.Locale is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/net.mkiol.SpeechNote/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:36:03+00:00 speech-note previous c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd
+speech-note before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd", package: Some("net.mkiol.SpeechNote"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.3"), update_available: false, can_remove: false, can_open: true }
+speech-note JobFinished: Err("Approved action rejected: native installation state changed")
+speech-note JobFinished: Err("This Flatpak is managed outside the launcher")
+speech-note after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd", package: Some("net.mkiol.SpeechNote"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5758 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5771 comm="flatpak run --user --command=sh app/net.mkiol.Spee" label="flatpak (unconfined)")
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=5771 comm="flatpak run --user --command=sh app/net.mkiol.Spee" label="flatpak (unconfined)")
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=5797 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+speech-note before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.3"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=5896 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4428]: [session uid=1000 pid=4428] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=5904 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:5911): dbind-WARNING **: 05:36:04.617: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:5904): xdg-desktop-portal-WARNING **: 05:36:04.644: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5904): xdg-desktop-portal-WARNING **: 05:36:04.644: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5904): xdg-desktop-portal-WARNING **: 05:36:04.645: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00465.232383] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00465.232468] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:5904): xdg-desktop-portal-WARNING **: 05:36:04.650: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[4428]: [session uid=1000 pid=4428] Successfully activated service 'org.freedesktop.portal.Desktop'
+speech-note JobFinished: Ok("Launch request accepted")
+speech-note after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.mkiol.SpeechNote
+2026-11-28T05:36:14+00:00 speech-note previous GUI WM_NAME(STRING) =
+WM_CLASS(STRING) = "dsnote", "dsnote"
+2026-11-28T05:36:14+00:00 speech-note AVAILABLE 20587122688
+speech-note before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.3"), update_available: true, can_remove: true, can_open: true }
+speech-note JobFinished: Ok("Flathub app updated")
+speech-note after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:36:20+00:00 speech-note current 00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb
+/home/qa/profiles/speech-note-after210/.var/app/net.mkiol.SpeechNote/fixture.txt: OK
+speech-note before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.4"), update_available: false, can_remove: true, can_open: true }
+speech-note JobFinished: Ok("Launch request accepted")
+speech-note after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.4"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.mkiol.SpeechNote
+2026-11-28T05:36:30+00:00 speech-note current GUI WM_NAME(STRING) =
+WM_CLASS(STRING) = "dsnote", "dsnote"
+speech-note before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 8, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/speech-note-after210/data/flatpak/app/net.mkiol.SpeechNote/x86_64/stable/00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb", package: Some("net.mkiol.SpeechNote"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.8.4"), update_available: false, can_remove: true, can_open: true }
+speech-note JobFinished: Ok("Flathub app removed")
+speech-note after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/speech-note-after210/.var/app/net.mkiol.SpeechNote/fixture.txt: OK
+2026-11-28T05:36:36+00:00 speech-note PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T05:36:36+00:00 speech-note EXIT 0 remove
+
+(xfconfd:5783): xfconfd-WARNING **: 05:36:36.493: Name org.xfce.Xfconf lost on the message dbus, exiting.

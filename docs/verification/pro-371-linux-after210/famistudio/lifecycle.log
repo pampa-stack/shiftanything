@@ -1,0 +1,57 @@
+2026-11-28T05:36:49+00:00 famistudio AVAILABLE 27078938624
+famistudio before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+famistudio JobFinished: Ok("Flathub app installed")
+famistudio after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:37:09+00:00 famistudio current-install bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6
+/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6/export/share/applications/org.famistudio.FamiStudio.desktop
+/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6/export/share/icons/hicolor/scalable/apps/org.famistudio.FamiStudio.svg
+Updating app/org.famistudio.FamiStudio/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:37:11+00:00 famistudio previous ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f
+famistudio before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f", package: Some("org.famistudio.FamiStudio"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.3"), update_available: false, can_remove: false, can_open: true }
+famistudio JobFinished: Err("Approved action rejected: native installation state changed")
+famistudio JobFinished: Err("This Flatpak is managed outside the launcher")
+famistudio after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f", package: Some("org.famistudio.FamiStudio"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[7481]: [session uid=1000 pid=7481] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=8320 comm="xfwm4 --compositor=off --display=:89" label="unconfined")
+dbus-daemon[7481]: [session uid=1000 pid=7481] Successfully activated service 'org.xfce.Xfconf'
+Default Sink: shift_qa
+dbus-daemon[7481]: [session uid=1000 pid=7481] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=8351 comm="flatpak run --user --command=sh app/org.famistudio" label="flatpak (unconfined)")
+dbus-daemon[7481]: [session uid=1000 pid=7481] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[7481]: [session uid=1000 pid=7481] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=8351 comm="flatpak run --user --command=sh app/org.famistudio" label="flatpak (unconfined)")
+dbus-daemon[7481]: [session uid=1000 pid=7481] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=8367 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[7481]: [session uid=1000 pid=7481] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[7481]: [session uid=1000 pid=7481] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+famistudio before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.3"), update_available: true, can_remove: true, can_open: true }
+famistudio JobFinished: Ok("Launch request accepted")
+famistudio after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.famistudio.FamiStudio
+2026-11-28T05:37:29+00:00 famistudio previous GUI WM_NAME(STRING) = "FamiStudio 4.5.3 - New Project"
+WM_CLASS(STRING) = "FamiStudio", "FamiStudio"
+2026-11-28T05:37:29+00:00 famistudio AVAILABLE 24780247040
+famistudio before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.3"), update_available: true, can_remove: true, can_open: true }
+famistudio JobFinished: Ok("Flathub app updated")
+famistudio after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T05:37:31+00:00 famistudio current bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6
+/home/qa/profiles/famistudio-after210-retry/.var/app/org.famistudio.FamiStudio/fixture.txt: OK
+famistudio before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.4"), update_available: false, can_remove: true, can_open: true }
+famistudio JobFinished: Ok("Launch request accepted")
+famistudio after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.4"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.famistudio.FamiStudio
+2026-11-28T05:37:47+00:00 famistudio current GUI WM_NAME(STRING) = "FamiStudio 4.5.4 - New Project"
+WM_CLASS(STRING) = "FamiStudio", "FamiStudio"
+famistudio before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 5, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6", package: Some("org.famistudio.FamiStudio"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.5.4"), update_available: false, can_remove: true, can_open: true }
+famistudio JobFinished: Ok("Flathub app removed")
+famistudio after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/famistudio-after210-retry/.var/app/org.famistudio.FamiStudio/fixture.txt: OK
+2026-11-28T05:37:48+00:00 famistudio PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T05:37:49+00:00 famistudio EXIT 0 remove
+
+(xfconfd:8335): xfconfd-WARNING **: 05:37:49.541: Name org.xfce.Xfconf lost on the message dbus, exiting.

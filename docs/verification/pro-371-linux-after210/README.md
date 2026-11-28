@@ -41,6 +41,13 @@ Il 28 novembre 2026 un guest AX42 isolato con Flatpak 1.14.6 ha eseguito i cicli
 - `InstallExpected(true)` ha rilevato il nuovo commit, aggiornato e tolto la disponibilità di un ulteriore aggiornamento. Entrambe le revisioni hanno verificato la chiave Flathub `4184DD4D907A7CAE`.
 - `Uninstall` ha rimosso il pacchetto e la voce del menu desktop. L'aggiornamento e la rimozione hanno preservato i dati sintetici. [Log del ciclo](pitivi/lifecycle.log)
 
+## FamiStudio e Speech Note
+
+Nel secondo gruppo di prove del 28 novembre, il backend del commit `732b5ed` con due ricette candidate ha installato, aperto, aggiornato e rimosso:
+
+- **FamiStudio da 4.5.3 a 4.5.4.** La versione precedente e quella aggiornata hanno aperto l'editor e il tutorial. Al primo tentativo la VM nascondeva il sequencer ALSA e l'app si chiudeva in avvio. La prova completata usa il sequencer virtuale della VM e un'uscita PulseAudio virtuale. Il Flatpak verificato dal progetto è abilitato su Linux x64. [Download ufficiale](https://famistudio.org/#download) · [Flathub](https://flathub.org/apps/org.famistudio.FamiStudio) · [Prima](famistudio/previous.png) · [Dopo](famistudio/current.png) · [Log](famistudio/lifecycle.log)
+- **Speech Note da 4.8.3 a 4.8.4.** Le due revisioni hanno aperto il blocco note e mostrato l'avviso iniziale per configurare le lingue e scaricare i modelli. Il ciclo era offline durante l'apertura, senza modelli né microfono. Il rilascio corrente dipende ancora dal runtime KDE 5.15-24.08, segnalato da Flathub come fuori supporto. La scheda resta disponibile con la fonte esterna. La ricetta candidata è stata usata solo nella build temporanea. [Sorgente](https://github.com/mkiol/dsnote) · [Flathub](https://flathub.org/apps/net.mkiol.SpeechNote) · [Prima](speech-note/previous.png) · [Dopo](speech-note/current.png) · [Log](speech-note/lifecycle.log)
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.
@@ -48,3 +55,5 @@ Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con 
 Nel clone temporaneo copiare `verify.rs` in `crates/native/src/bin/flatpak-after210-cycle.rs` e compilare `cargo build --locked -p artcraft-launcher-native --bin flatpak-after210-cycle`. Copiare l'eseguibile come `~/flatpak-after210-cycle`, `candidates.tsv` come `~/after210-candidates` e `run.sh` come `~/after210-run.sh` nel guest. Eseguire `dbus-run-session -- bash ~/after210-run.sh pitivi 82` con un display X libero. Per le altre app usare l’ID nella prima colonna di `candidates.tsv` e un display libero per processo. FontForge e Freeplane usano l’interfaccia inglese nel guest. Il ref corrente deve corrispondere alla seconda revisione registrata. L'app viene rimossa anche se la verifica si interrompe. Il profilo QA è usa e getta.
 
 Per Ardour installare anche `pulseaudio` e `pulseaudio-utils` nel guest. Aprire il display X indicato dal runner quando compare la richiesta. Nella versione precedente completare le quattro schermate introduttive e creare una sessione vuota chiamata `Shift-QA`. Nella versione aggiornata scegliere New nella finestra Recent Sessions e chiamare la sessione `Shift-QA-Updated`. In Audio/MIDI Setup selezionare PulseAudio, scegliere Start e chiudere l'eventuale avviso sulla memoria bloccata del guest. Il runner aspetta la finestra con il nome della sessione e usa un sink virtuale privato.
+
+Per FamiStudio usare gli stessi pacchetti di PulseAudio. Nel guest senza hardware passato dall'host, caricare il modulo Linux `snd-seq-dummy` e dare all'utente QA accesso a `/dev/snd/seq` tramite il gruppo audio. Aprire una nuova sessione del guest affinché il gruppo sia attivo. Le aperture del test usano il solo loopback.

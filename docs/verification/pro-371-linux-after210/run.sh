@@ -207,7 +207,7 @@ printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/porta
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
 flags+=(--nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
-if [[ "$slug" == ardour ]]; then
+if [[ "$slug" == ardour || "$slug" == famistudio ]]; then
     # An isolated test signal path, with no hardware and no connection to system audio.
     mkdir -p "$XDG_RUNTIME_DIR/pulse"
     export PULSE_SERVER="unix:$XDG_RUNTIME_DIR/pulse/native"
@@ -223,6 +223,11 @@ if [[ "$slug" == ardour ]]; then
     flags+=(--socket=pulseaudio)
 else
     flags+=(--nosocket=pulseaudio)
+fi
+if [[ "$slug" == famistudio ]]; then
+    # The disposable guest provides only a virtual ALSA sequencer and null output.
+    test -r /dev/snd/seq && test -w /dev/snd/seq
+    flags+=(--device=all)
 fi
 if [[ "$slug" == calibre ]]; then
     calibre_library="$HOME/Calibre Library"

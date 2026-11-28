@@ -1,0 +1,5 @@
+51d2f5277bda302de05db343f473df4d067af27a4744141c78b42f381fd99d38  crates/core/src/platform.rs
+d8b67bec4cf07a4ccf451f85c57849fd8839be8166a11f96091a3dcd05bcf427  crates/core/src/release.rs
+2a00d1f9aafde5a19810e882a741f1c1ec4ccf450361876d4e406a53171518d3  crates/native/src/backend.rs
+4ba48b826d2f901acf686be61b92bb49a33211cbc6074cb36a7ea85e4dfcb809  crates/native/src/install.rs
+8a35b6b076c83547e6f5cca40178583be50843f1c11ee7874d6520d9b42b529a  apps/shiftanything-tauri-proof/verified-platforms.json

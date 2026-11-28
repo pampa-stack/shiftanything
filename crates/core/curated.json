@@ -34672,7 +34672,15 @@
           "size_max": 110605856
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.freeplane.App",
+        "source": "https://flathub.org/apps/org.freeplane.App"
+      }
+    ]
   },
   {
     "id": "deskflow",

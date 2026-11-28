@@ -1,0 +1,21 @@
+
+Freeplane - Mind Mapping, Knowledge Management, Project Management. Develop,
+organize and communicate your ideas and knowledge in the most effective way
+
+          ID: org.freeplane.App
+         Ref: app/org.freeplane.App/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.13.4
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 295.9 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2
+      Parent: 217ba6e4f56b11e52bbce5484cb0a329077a764375745a78b7d523300d8bc940
+     Subject: v1.13.4 (bd829d927823)
+        Date: 2026-11-03 12:59:26 +0000

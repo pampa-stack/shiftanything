@@ -1,0 +1,2 @@
+/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41/export/share/applications/org.freeplane.App.desktop
+/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41/export/share/icons/hicolor/scalable/apps/org.freeplane.App.svg

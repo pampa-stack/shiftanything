@@ -1,0 +1,3 @@
+FROM ubuntu:24.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends xvfb xauth xdotool x11-apps x11-utils xfwm4 dbus-x11 imagemagick ca-certificates && rm -rf /var/lib/apt/lists/*

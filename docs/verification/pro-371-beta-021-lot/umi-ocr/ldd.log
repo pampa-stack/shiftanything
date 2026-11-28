@@ -1,0 +1,12 @@
+## senza i pacchetti xcb (immagine base)
+	libxcb-icccm.so.4 => not found
+	libxcb-image.so.0 => not found
+	libxcb-keysyms.so.1 => not found
+	libxcb-render-util.so.0 => not found
+	libxcb-xinerama.so.0 => not found
+	libxcb-xkb.so.1 => not found
+	libxkbcommon-x11.so.0 => not found
+librerie mancanti: 7
+## con i pacchetti xcb (immagine xcb)
+
+librerie mancanti: 0

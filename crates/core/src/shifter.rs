@@ -204,7 +204,7 @@ mod tests {
         let choices = data.software("");
         assert!(choices.windows(2).all(|pair| normalize(pair[0].name) < normalize(pair[1].name)));
         assert!(data.software("PHÓTOSHÓP®").iter().any(|software| software.profile.is_some_and(|profile| profile.id == "photoshop")));
-        assert!(data.software("Zoom").iter().any(|software| software.profile.is_none()));
+        assert!(data.software("Slack").iter().any(|software| software.profile.is_none()));
         let password = data.software("One Password").into_iter().find_map(|software| software.profile).unwrap();
         assert_eq!(password.id, "1password");
         let selected = ["vault", "shared-vault"].map(String::from);
@@ -221,6 +221,22 @@ mod tests {
         let scores = arq.compare(&selected, &[]).unwrap();
         assert!(scores.iter().any(|score| score.app_id == "kopia" && score.supported == selected.len()));
         assert!(scores.iter().any(|score| score.app_id == "backrest" && score.supported < selected.len()));
+    }
+
+    #[test]
+    fn guided_profiles_change_recommendations_with_the_selected_features() {
+        let data = data().unwrap();
+        for (query, id) in [("Word 365", "microsoft-word"), ("Zoom", "zoom"), ("Notion", "notion")] {
+            let profile = data.software(query).into_iter().find_map(|choice| choice.profile).unwrap();
+            assert_eq!(profile.id, id);
+            assert!(profile.features.len() >= 4);
+        }
+        let zoom = data.software("Zoom").into_iter().find_map(|choice| choice.profile).unwrap();
+        let breakout = zoom.features.iter().find(|feature| feature.id.contains("breakout")).unwrap().id.clone();
+        let selected = [breakout];
+        let scores = zoom.compare(&selected, &selected).unwrap();
+        assert!(scores.iter().any(|score| score.app_id == "jitsi-meet" && score.coverage == Some(100) && score.missing_required.is_empty()));
+        assert!(scores.iter().any(|score| score.app_id == "element" && score.supported == 0 && !score.missing_required.is_empty()));
     }
 
     #[test]

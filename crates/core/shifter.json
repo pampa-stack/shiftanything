@@ -3855,6 +3855,321 @@
           }
         }
       ]
+    },
+    {
+      "id": "microsoft-word",
+      "name": "Microsoft Word",
+      "aliases": [
+        "Word",
+        "MS Word",
+        "Word 365"
+      ],
+      "features": [
+        {
+          "id": "docx",
+          "name": {
+            "it": "Aprire e modificare documenti DOCX",
+            "en": "Open and edit DOCX documents"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "track-changes",
+          "name": {
+            "it": "Revisioni con accetta e rifiuta",
+            "en": "Track changes with accept and reject"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "pdf-export",
+          "name": {
+            "it": "Esportare un documento in PDF",
+            "en": "Export a document to PDF"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "table-of-contents",
+          "name": {
+            "it": "Creare un sommario dai titoli",
+            "en": "Build a table of contents from headings"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "docx": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer apre, modifica e salva documenti DOCX.",
+                "en": "Writer opens, edits and saves DOCX documents."
+              }
+            },
+            "track-changes": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer registra le revisioni e permette di accettarle o rifiutarle.",
+                "en": "Writer tracks changes and lets you accept or reject them."
+              }
+            },
+            "pdf-export": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer esporta i documenti in PDF.",
+                "en": "Writer exports documents to PDF."
+              }
+            },
+            "table-of-contents": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer può creare un indice a partire dagli stili dei titoli.",
+                "en": "Writer builds a table of contents from heading styles."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "onlyoffice",
+          "evidence": {
+            "docx": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/tools-and-settings/save-print-download",
+              "note": {
+                "it": "Desktop Editors salva i documenti in DOCX.",
+                "en": "Desktop Editors saves documents in DOCX."
+              }
+            },
+            "track-changes": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/collaboration/review",
+              "note": {
+                "it": "Il pannello Revisioni consente di registrare, accettare e rifiutare le modifiche.",
+                "en": "Review tools let you track, accept, and reject changes."
+              }
+            },
+            "pdf-export": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/tools-and-settings/save-print-download",
+              "note": {
+                "it": "L’editor può salvare una copia PDF del documento.",
+                "en": "The editor can save a PDF copy of a document."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom",
+      "aliases": [
+        "Zoom Meetings",
+        "Zoom Workplace"
+      ],
+      "features": [
+        {
+          "id": "group-video",
+          "name": {
+            "it": "Videochiamate di gruppo",
+            "en": "Group video calls"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065566"
+        },
+        {
+          "id": "screenshare",
+          "name": {
+            "it": "Condividere lo schermo",
+            "en": "Share your screen"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060596"
+        },
+        {
+          "id": "meeting-chat",
+          "name": {
+            "it": "Chat durante la riunione",
+            "en": "In-meeting chat"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061300"
+        },
+        {
+          "id": "breakout",
+          "name": {
+            "it": "Dividere la riunione in sottogruppi",
+            "en": "Split a call into breakout rooms"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061583"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "jitsi-meet",
+          "evidence": {
+            "group-video": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Riunioni video con più partecipanti.",
+                "en": "Video meetings with multiple participants."
+              }
+            },
+            "screenshare": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Permette di condividere desktop e presentazioni.",
+                "en": "Participants can share their desktop and presentations."
+              }
+            },
+            "meeting-chat": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Include messaggi di testo nella riunione.",
+                "en": "Includes text chat during a meeting."
+              }
+            },
+            "breakout": {
+              "state": "supported",
+              "source": "https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe-commands/#addbreakoutroom",
+              "note": {
+                "it": "L’host può creare sottogruppi durante la riunione.",
+                "en": "The host can create breakout rooms during a meeting."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "element",
+          "evidence": {
+            "group-video": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call integra le chiamate video di gruppo su Matrix.",
+                "en": "Element Call provides group video calls in Matrix."
+              }
+            },
+            "screenshare": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call condivide lo schermo. L’audio condiviso dipende dalla piattaforma.",
+                "en": "Element Call shares the screen. Sharing system audio depends on platform."
+              }
+            },
+            "meeting-chat": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call integra la chat durante la chiamata.",
+                "en": "Element Call includes in-call chat."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "aliases": [
+        "Notion Workspace",
+        "Notion.so"
+      ],
+      "features": [
+        {
+          "id": "rich-text",
+          "name": {
+            "it": "Pagine con testo formattato, titoli e liste",
+            "en": "Pages with formatted text, headings and lists"
+          },
+          "source": "https://www.notion.com/help/writing-and-editing-basics"
+        },
+        {
+          "id": "structured-table",
+          "name": {
+            "it": "Database con campi e righe",
+            "en": "Databases with fields and rows"
+          },
+          "source": "https://www.notion.com/help/create-a-database"
+        },
+        {
+          "id": "board",
+          "name": {
+            "it": "Vista Kanban per stato",
+            "en": "Kanban view by status"
+          },
+          "source": "https://www.notion.com/help/boards"
+        },
+        {
+          "id": "calendar",
+          "name": {
+            "it": "Vista calendario dei dati",
+            "en": "Calendar view of records"
+          },
+          "source": "https://www.notion.com/help/calendars"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "appflowy",
+          "evidence": {
+            "rich-text": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/blog-highlights/demystifying-appflowy-editors-codebase",
+              "note": {
+                "it": "L’editor compone documenti con testo formattato, titoli e liste.",
+                "en": "The editor builds documents with formatted text, headings and lists."
+              }
+            },
+            "structured-table": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Grid mostra righe e campi di un database AppFlowy.",
+                "en": "Grid shows the rows and fields of an AppFlowy database."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Board mostra i record come schede raggruppate.",
+                "en": "Board displays records as grouped cards."
+              }
+            },
+            "calendar": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Calendar visualizza i record in base alle date.",
+                "en": "Calendar displays records by date."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "joplin",
+          "evidence": {
+            "rich-text": {
+              "state": "supported",
+              "source": "https://joplinapp.org/help/apps/rich_text_editor/",
+              "note": {
+                "it": "L’editor visuale permette di scrivere note formattate.",
+                "en": "The visual editor supports formatted notes."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

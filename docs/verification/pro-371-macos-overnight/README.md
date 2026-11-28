@@ -41,6 +41,12 @@ On 28 November 2026, the native backend installed [4.3.0](https://github.com/sw3
 
 In the isolated Tauri 0.20.9 app copied from the local DMG, the native inventory reported macshot 4.4.0 as installable at 8,624,563 bytes. The UI asked to approve an install requested through MCP, and clicking Rifiuta rejected it before a native job started. The catalog buttons were checked in Italian and English in Chromium using that inventory snapshot. The desktop approval window and the two catalog screenshots were inspected.
 
+### Signal Desktop
+
+On 28 November 2026, the native backend installed Signal Desktop 8.35.0, updated to 8.36.0 and removed it to the private Trash on Apple Silicon with macOS 26.4. Both official DMGs passed strict signature, notarization and Gatekeeper checks for team `U68MSDN6DR`. The recipe requires macOS 13.0 and preserves user data on update and removal. GUI launch and phone pairing remain untested. See the [native cycle](signal-desktop.log) and preflight logs for [8.35.0](signal-desktop-8.35.0.log) and [8.36.0](signal-desktop-8.36.0.log).
+
+Signal's stable feed lists 269,301,286 bytes for 8.36.0. Its official CDN returned 269,303,849 bytes. The installer pins the exact size and SHA-256 of the independently verified, notarized CDN package. A new release can appear in the launcher once the feed reports it. Its installer becomes available after the corresponding package has been reviewed. [Official downloads](https://signal.org/download/) · [Stable macOS feed](https://updates.signal.org/desktop/latest-mac.yml)
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.
@@ -74,3 +80,5 @@ For Dyad, Finicky and Hammerspoon, save each official GitHub expanded asset page
 For CotEditor, save the official expanded asset pages as `coteditor-7.1.3-assets.html` and `coteditor-7.2.0-assets.html`. Run `bash run-native.sh coteditor coteditor/CotEditor CotEditor 7.1.3 7.2.0`.
 
 For macshot Offline, save the preflight logs and expanded assets as `macshot-v4.3.0.log`, `macshot-v4.4.0.log`, `macshot-v4.3.0-assets.html` and `macshot-v4.4.0-assets.html`. Run `bash run-native.sh macshot sw33tLie/macshot "macshot Offline" v4.3.0 v4.4.0`.
+
+For Signal Desktop, save the verified DMG preflight logs as `signal-desktop-8.35.0.log` and `signal-desktop-8.36.0.log` and the live publisher feed as `signal-mac-stable.yml`. Run `bash run-native.sh signal-desktop signalapp/Signal-Desktop Signal 8.35.0 8.36.0`. Keep the scratch folder empty of prior release caches so the harness queries the live feed.

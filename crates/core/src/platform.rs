@@ -1135,6 +1135,30 @@ mod tests {
     }
 
     #[test]
+    fn signal_offers_only_the_reviewed_official_dmg_on_apple_silicon() {
+        use crate::curated::SIGNAL_DESKTOP;
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, target| pick_asset(release, &[SIGNAL_DESKTOP.id], target, &[PackageKind::Dmg]).is_some();
+        for tag in ["8.35.0", "8.36.0"] {
+            let mut release = crate::release::signal_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+            let original = release.assets[0].clone();
+            release.assets[0].size += 1;
+            assert!(!selected(&release, mac));
+            release.assets[0] = original.clone();
+            release.assets[0].url = original.url.replace("updates.signal.org", "example.test");
+            assert!(!selected(&release, mac));
+            release.assets[0] = original;
+            release.prerelease = true;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&crate::release::signal_mac_release("8.37.0").unwrap(), mac));
+    }
+
+    #[test]
     fn jan_macos_accepts_only_the_patched_apple_silicon_release() {
         let app = crate::curated::JAN;
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };

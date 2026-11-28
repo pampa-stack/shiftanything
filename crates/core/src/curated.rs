@@ -575,6 +575,27 @@ pub const DRAWIO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("UZEUFB4N53"),
 };
 
+pub const SIGNAL_DESKTOP: crate::CraftApp = crate::CraftApp {
+    id: "signal-desktop",
+    name: "Signal Desktop",
+    tagline: "Private messaging with Signal",
+    repo: "signalapp/Signal-Desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [62, 105, 235],
+    ink_light: [33, 61, 136],
+    ink_dark: [166, 192, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Signal Messenger, LLC",
+    msi_publisher: None,
+    bundle: Some("org.whispersystems.signal-desktop"),
+    site: Some("https://signal.org/download/"),
+    mac_bundle_name: Some("Signal"),
+    mac_team: Some("U68MSDN6DR"),
+};
+
 pub const STATS: crate::CraftApp = crate::CraftApp {
     id: "stats",
     name: "Stats",
@@ -3082,6 +3103,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SWIFTBAR,
     GITHUB_DESKTOP,
     ITERM2,
+    SIGNAL_DESKTOP,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

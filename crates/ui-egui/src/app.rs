@@ -1290,6 +1290,7 @@ impl LauncherUi {
         let mut inkscape = false;
         let mut kdenlive = false;
         let mut iterm2 = false;
+        let mut signal = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1304,6 +1305,7 @@ impl LauncherUi {
                     Some(Origin::Inkscape) => inkscape = true,
                     Some(Origin::Kdenlive) => kdenlive = true,
                     Some(Origin::ITerm2) => iterm2 = true,
+                    Some(Origin::Signal) => signal = true,
                     None => {}
                 }
             }
@@ -1320,6 +1322,7 @@ impl LauncherUi {
             (inkscape, Origin::Inkscape),
             (kdenlive, Origin::Kdenlive),
             (iterm2, Origin::ITerm2),
+            (signal, Origin::Signal),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

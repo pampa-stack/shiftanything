@@ -83,6 +83,7 @@ fn native_release(backend: &mut NativeBackend, id: &str) -> Result<Release, Stri
                     | Origin::Inkscape
                     | Origin::Kdenlive
                     | Origin::ITerm2
+                    | Origin::Signal
             )
             .then_some(latest)
         }
@@ -152,6 +153,7 @@ fn main() -> Result<(), String> {
             "mist",
             "coteditor",
             "macshot",
+            "signal-desktop",
             "freeplane",
         ]
         .contains(&app.id)

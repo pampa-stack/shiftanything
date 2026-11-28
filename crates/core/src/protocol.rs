@@ -256,6 +256,8 @@ pub enum Origin {
     Kdenlive,
     /// iTerm2’s official modern stable appcast.
     ITerm2,
+    /// Signal Desktop’s stable macOS feed.
+    Signal,
 }
 
 impl Origin {
@@ -272,6 +274,7 @@ impl Origin {
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
+            Self::Signal => "Signal",
         }
     }
 }
@@ -304,6 +307,8 @@ pub enum Source {
     Kdenlive,
     /// iTerm2’s official modern stable appcast.
     ITerm2,
+    /// Signal Desktop’s stable macOS feed.
+    Signal,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -323,6 +328,7 @@ impl Source {
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
+            Self::Signal => "Signal",
             Self::Cache => "saved results",
         }
     }

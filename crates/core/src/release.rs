@@ -100,6 +100,10 @@ pub const KDENLIVE_DOWNLOADS_URL: &str = "https://kdenlive.org/en/download/";
 pub const KDENLIVE_RELEASES_URL: &str = "https://apps.kde.org/kdenlive/index.xml";
 pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
 pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
+pub const SIGNAL_DOWNLOADS_URL: &str = "https://signal.org/download/";
+pub const SIGNAL_DMG_URL: &str = "https://updates.signal.org/desktop/";
+pub const SIGNAL_MAC_FEED: &str = "https://updates.signal.org/desktop/latest-mac.yml";
+
 pub const ITERM2_DOWNLOADS_URL: &str = "https://iterm2.com/downloads.html";
 pub const ITERM2_APPCAST_URL: &str = "https://iterm2.com/appcasts/final_modern.xml";
 pub const ITERM2_ZIP_URL: &str = "https://iterm2.com/downloads/stable/";
@@ -206,6 +210,38 @@ pub fn iterm2_mac_release(tag: &str) -> Option<Release> {
 pub fn iterm2_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && iterm2_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
+}
+
+/// A stable release may be listed before its exact package has passed qualification.
+pub fn signal_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if version.to_string() != tag || !version.pre.is_empty() || !version.build.is_empty() || version < Version::new(8, 35, 0) {
+        return None;
+    }
+    let name = format!("signal-desktop-mac-universal-{tag}.dmg");
+    let reviewed = match tag {
+        "8.35.0" => Some((271_241_278, "2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804")),
+        "8.36.0" => Some((269_303_849, "452c1c39ca0bada168e738e8022e682cafbbfd5be3cdf56f6c9d4bce4aef249c")),
+        _ => None,
+    };
+    let assets = reviewed
+        .map(|(size, digest)| Asset { url: format!("{SIGNAL_DMG_URL}{name}"), name, size, sha256: Some(digest.into()) })
+        .into_iter()
+        .collect();
+    Some(Release {
+        assets,
+        name: format!("Signal Desktop {tag}"),
+        html_url: SIGNAL_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn signal_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.html_url == SIGNAL_DOWNLOADS_URL
+        && signal_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
 }
 
 pub fn inkscape_mac_release(tag: &str) -> Option<Release> {
@@ -1166,6 +1202,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MIST,
         crate::curated::COTEDITOR,
         crate::curated::MACSHOT,
+        crate::curated::SIGNAL_DESKTOP,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
@@ -1174,6 +1211,9 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 }
 
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+    if app.uses_signal_releases() {
+        return signal_mac_asset(release, asset);
+    }
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
             if app.repo == crate::curated::DBEAVER_CE.repo && app.id == crate::curated::DBEAVER_CE.id {

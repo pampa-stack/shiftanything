@@ -1,0 +1,18 @@
+PASS PREFLIGHT signal-desktop 8.35.0
+PASS PREFLIGHT signal-desktop 8.36.0
+/dev/disk3s5   482797652 424064520  11750488    98% 6607748 117504880    5%   /System/Volumes/Data
+OFFICIAL INDEX signal-desktop 8.35.0 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX signal-desktop 8.36.0 digest=computed, signer/notarization corroborated
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL 8.35.0 Dmg https://updates.signal.org/desktop/signal-desktop-mac-universal-8.35.0.dmg 271241278 2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804
+PASS OFFICIAL 8.36.0 Dmg https://updates.signal.org/desktop/signal-desktop-mac-universal-8.36.0.dmg 269303849 452c1c39ca0bada168e738e8022e682cafbbfd5be3cdf56f6c9d4bce4aef249c
+NATIVE ORIGIN signal-desktop Signal
+PASS OFFICIAL 8.35.0 Dmg https://updates.signal.org/desktop/signal-desktop-mac-universal-8.35.0.dmg 271241278 2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804
+PASS NATIVE signal-desktop install: Signal Desktop installed: 8.35.0; package_bytes=271241278; elapsed=51.785s
+NATIVE ORIGIN signal-desktop Signal
+PASS OFFICIAL 8.36.0 Dmg https://updates.signal.org/desktop/signal-desktop-mac-universal-8.36.0.dmg 269303849 452c1c39ca0bada168e738e8022e682cafbbfd5be3cdf56f6c9d4bce4aef249c
+PASS NATIVE signal-desktop update: Signal Desktop updated to 8.36.0; package_bytes=269303849; elapsed=48.146s
+PASS NATIVE signal-desktop remove: Signal Desktop was removed; package_bytes=0; elapsed=0.189s
+PASS NATIVE CYCLE signal-desktop (8.35.0 → 8.36.0), private Trash and synthetic data preserved

@@ -17,7 +17,7 @@ use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
 use artcraft_launcher_core::curated::{
-    BLENDER, ENTE_AUTH, GIMP, INKSCAPE, ITERM2, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, TERMIX, VLC, ZOTERO,
+    BLENDER, ENTE_AUTH, GIMP, INKSCAPE, ITERM2, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP, TERMIX, VLC, ZOTERO,
 };
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
@@ -32,6 +32,7 @@ mod iterm2;
 mod kdenlive;
 mod krita;
 mod libreoffice;
+mod signal;
 mod videolan;
 
 /// One answer from a source.
@@ -85,6 +86,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == INKSCAPE.repo => Source::Inkscape,
             repo if repo == KDENLIVE.repo => Source::Kdenlive,
             repo if repo == ITERM2.repo => Source::ITerm2,
+            repo if repo == SIGNAL_DESKTOP.repo => Source::Signal,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -615,6 +617,8 @@ impl GitHubSource {
             inkscape::releases(&self.http, false)?
         } else if query.repo == ITERM2.repo {
             iterm2::releases(&self.http)?
+        } else if query.repo == SIGNAL_DESKTOP.repo {
+            signal::releases(&self.http)?
         } else if query.repo == KDENLIVE.repo {
             kdenlive::releases(&self.http, false)?
         } else if query.repo == KRITA.repo {
@@ -709,6 +713,7 @@ impl ReleaseSource for GitHubSource {
             repo if repo == INKSCAPE.repo => Some((Source::Inkscape, inkscape::releases(&self.http, true))),
             repo if repo == KDENLIVE.repo => Some((Source::Kdenlive, kdenlive::releases(&self.http, true))),
             repo if repo == ITERM2.repo => Some((Source::ITerm2, iterm2::releases(&self.http))),
+            repo if repo == SIGNAL_DESKTOP.repo => Some((Source::Signal, signal::releases(&self.http))),
             repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
@@ -739,7 +744,7 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo].contains(&query.repo.as_str()) {
+        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, SIGNAL_DESKTOP.repo].contains(&query.repo.as_str()) {
             return match self.cached_in(query, false) {
                 Some(LatestRelease::Found(saved)) if !saved.prerelease => {
                     let mut release = if query.repo == KRITA.repo {
@@ -750,6 +755,8 @@ impl ReleaseSource for GitHubSource {
                         release::inkscape_mac_release(&saved.tag)?
                     } else if query.repo == ITERM2.repo {
                         release::iterm2_mac_release(&saved.tag)?
+                    } else if query.repo == SIGNAL_DESKTOP.repo {
+                        release::signal_mac_release(&saved.tag)?
                     } else {
                         release::kdenlive_mac_release(&saved.tag)?
                     };
@@ -785,7 +792,20 @@ impl ReleaseSource for GitHubSource {
         if repo == NETNEWSWIRE.repo {
             return self.latest_netnewswire().ok().map(|release| release.tag);
         }
-        if [LIBREOFFICE.repo, ZOTERO.repo, BLENDER.repo, GIMP.repo, KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo].contains(&repo) {
+        if [
+            LIBREOFFICE.repo,
+            ZOTERO.repo,
+            BLENDER.repo,
+            GIMP.repo,
+            KRITA.repo,
+            VLC.repo,
+            INKSCAPE.repo,
+            KDENLIVE.repo,
+            ITERM2.repo,
+            SIGNAL_DESKTOP.repo,
+        ]
+        .contains(&repo)
+        {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

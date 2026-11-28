@@ -131,6 +131,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::PASEO.id,
                 recipe::PICARD.id,
                 recipe::SIYUAN.id,
+                recipe::SIGNAL_DESKTOP.id,
                 recipe::SUPER_PRODUCTIVITY.id,
                 recipe::T3_CODE.id,
                 recipe::TRILIUM.id,

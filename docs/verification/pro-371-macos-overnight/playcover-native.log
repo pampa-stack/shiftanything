@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL 3.0.0 Dmg https://github.com/PlayCover/PlayCover/releases/download/3.0.0/PlayCover_3.0.0.dmg 5564506 c25deeedbe4806d4c5c486e05e7696e3479c1294a7c51f0baf1715ed53371e26
+PASS OFFICIAL 3.1.0 Dmg https://github.com/PlayCover/PlayCover/releases/download/3.1.0/PlayCover_3.1.0.dmg 5563083 5c3a291827f4802f665daf5c33a6bfe6ef0df2c6dff3f9e554db6514176196e7
+NATIVE ORIGIN playcover GitHub
+PASS OFFICIAL 3.0.0 Dmg https://github.com/PlayCover/PlayCover/releases/download/3.0.0/PlayCover_3.0.0.dmg 5564506 c25deeedbe4806d4c5c486e05e7696e3479c1294a7c51f0baf1715ed53371e26
+PASS NATIVE playcover install: PlayCover installed: 3.0.0; package_bytes=5564506; elapsed=22.982s
+3.0.0
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+/private/tmp/shift-air-overnight.T540kJgl/profile-playcover.DdpcAY58/Applications/PlayCover.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: XIN LI (792V9HMJW3)
+NATIVE ORIGIN playcover GitHub
+PASS OFFICIAL 3.1.0 Dmg https://github.com/PlayCover/PlayCover/releases/download/3.1.0/PlayCover_3.1.0.dmg 5563083 5c3a291827f4802f665daf5c33a6bfe6ef0df2c6dff3f9e554db6514176196e7
+PASS NATIVE playcover update: PlayCover updated to 3.1.0; package_bytes=5563083; elapsed=9.187s
+3.1.0
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+/private/tmp/shift-air-overnight.T540kJgl/profile-playcover.DdpcAY58/Applications/PlayCover.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: XIN LI (792V9HMJW3)
+PASS NATIVE playcover remove: PlayCover was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE playcover, private Trash and synthetic data preserved

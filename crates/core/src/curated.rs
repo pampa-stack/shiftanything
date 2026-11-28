@@ -1570,6 +1570,48 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const MATERIAL_MAKER: crate::CraftApp = crate::CraftApp {
+    id: "material-maker",
+    name: "Material Maker",
+    tagline: "Create procedural textures and materials",
+    repo: "RodZill4/material-maker",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [61, 130, 230],
+    ink_light: [23, 65, 137],
+    ink_dark: [158, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Rodolphe Suescun",
+    msi_publisher: None,
+    bundle: Some("com.rodzlabs.materialmaker"),
+    site: Some("https://www.materialmaker.org/"),
+    mac_bundle_name: Some("Material Maker"),
+    mac_team: Some("79HXNZ6Y77"),
+};
+
+pub const PLAYCOVER: crate::CraftApp = crate::CraftApp {
+    id: "playcover",
+    name: "PlayCover",
+    tagline: "Run compatible iOS apps and games on Apple Silicon",
+    repo: "PlayCover/PlayCover",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [61, 130, 230],
+    ink_light: [23, 65, 137],
+    ink_dark: [158, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "PlayCover",
+    msi_publisher: None,
+    bundle: Some("io.playcover.PlayCover"),
+    site: Some("https://playcover.io/"),
+    mac_bundle_name: Some("PlayCover"),
+    mac_team: Some("792V9HMJW3"),
+};
+
 pub const KARING: crate::CraftApp = crate::CraftApp {
     id: "karing",
     name: "Karing",
@@ -3425,6 +3467,8 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SYNCTHING_MACOS,
     MEETINGBAR,
     KARING,
+    PLAYCOVER,
+    MATERIAL_MAKER,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

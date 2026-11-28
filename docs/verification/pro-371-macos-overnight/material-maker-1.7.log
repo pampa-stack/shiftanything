@@ -1,0 +1,37 @@
+URL https://github.com/RodZill4/material-maker/releases/download/1.7/material_maker_1_7.dmg
+BYTES 138206490
+SHA256 af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $3339293D
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $03FAB225
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $1BE97566
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $B4DED26B
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $1BE97566
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $7DF1698E
+verificato   CRC32 $C1E401C2
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-air-overnight.T540kJgl/material-maker-1.7/mount
+APP Material Maker.app
+com.rodzlabs.materialmaker
+1.7
+1.7.0.0
+Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+x86_64 arm64
+    minos 11.0
+Identifier=com.rodzlabs.materialmaker
+Authority=Developer ID Application: Rodolphe Suescun (79HXNZ6Y77)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=79HXNZ6Y77
+/private/tmp/shift-air-overnight.T540kJgl/material-maker-1.7/mount/Material Maker.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Rodolphe Suescun (79HXNZ6Y77)

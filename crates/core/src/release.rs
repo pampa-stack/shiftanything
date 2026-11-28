@@ -1238,6 +1238,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::SYNCTHING_MACOS,
         crate::curated::MEETINGBAR,
         crate::curated::KARING,
+        crate::curated::PLAYCOVER,
+        crate::curated::MATERIAL_MAKER,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1360,9 +1362,15 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
                 version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
-            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB, crate::curated::PLAYCOVER]
+                .iter()
+                .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo))
+            {
                 release.tag == version.to_string()
-            } else if [crate::curated::VIRTUALBUDDY, crate::curated::WWDC].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+            } else if [crate::curated::VIRTUALBUDDY, crate::curated::WWDC, crate::curated::MATERIAL_MAKER]
+                .iter()
+                .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo))
+            {
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
             } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
                 release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
@@ -1661,6 +1669,14 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("RodZill4/material-maker", "1.7") => {
+            &[("material_maker_1_7.dmg", 138_206_490, "af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550")]
+        }
+        ("RodZill4/material-maker", "1.8") => {
+            &[("material_maker_1_8.dmg", 137_711_855, "2549aa9c18b71550355b752e03a1afd5a199dc7f56eafb371c06b721182ef3d8")]
+        }
+        ("PlayCover/PlayCover", "3.0.0") => &[("PlayCover_3.0.0.dmg", 5_564_506, "c25deeedbe4806d4c5c486e05e7696e3479c1294a7c51f0baf1715ed53371e26")],
+        ("PlayCover/PlayCover", "3.1.0") => &[("PlayCover_3.1.0.dmg", 5_563_083, "5c3a291827f4802f665daf5c33a6bfe6ef0df2c6dff3f9e554db6514176196e7")],
         ("KaringX/karing", "v1.2.26.2932") => {
             &[("karing_1.2.26.2932_macos_universal.dmg", 116_879_271, "3631628da559b802aebb8435431f2f0aa01da132cb2a87985abc636fcb4369fc")]
         }

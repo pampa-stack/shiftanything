@@ -195,6 +195,8 @@ fn main() -> Result<(), String> {
             "syncthing-macos",
             "meetingbar",
             "karing",
+            "playcover",
+            "material-maker",
             "freeplane",
         ]
         .contains(&app.id)

@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL 1.7 Dmg https://github.com/RodZill4/material-maker/releases/download/1.7/material_maker_1_7.dmg 138206490 af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550
+PASS OFFICIAL 1.8 Dmg https://github.com/RodZill4/material-maker/releases/download/1.8/material_maker_1_8.dmg 137711855 2549aa9c18b71550355b752e03a1afd5a199dc7f56eafb371c06b721182ef3d8
+NATIVE ORIGIN material-maker GitHub
+PASS OFFICIAL 1.7 Dmg https://github.com/RodZill4/material-maker/releases/download/1.7/material_maker_1_7.dmg 138206490 af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550
+PASS NATIVE material-maker install: Material Maker installed: 1.7.0; package_bytes=138206490; elapsed=49.144s
+/private/tmp/shift-air-overnight.T540kJgl/profile-material-maker.9ft5SaM7/Applications/Material Maker.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Rodolphe Suescun (79HXNZ6Y77)
+1.7
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN material-maker GitHub
+PASS OFFICIAL 1.8 Dmg https://github.com/RodZill4/material-maker/releases/download/1.8/material_maker_1_8.dmg 137711855 2549aa9c18b71550355b752e03a1afd5a199dc7f56eafb371c06b721182ef3d8
+PASS NATIVE material-maker update: Material Maker updated to 1.8.0; package_bytes=137711855; elapsed=36.054s
+/private/tmp/shift-air-overnight.T540kJgl/profile-material-maker.9ft5SaM7/Applications/Material Maker.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Rodolphe Suescun (79HXNZ6Y77)
+1.8
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE material-maker remove: Material Maker was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE material-maker, private Trash and synthetic data preserved

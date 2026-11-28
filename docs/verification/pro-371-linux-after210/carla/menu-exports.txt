@@ -1,0 +1,7 @@
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/applications/studio.kx.carla.desktop
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/128x128/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/16x16/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/256x256/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/32x32/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/48x48/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/scalable/apps/studio.kx.carla.svg

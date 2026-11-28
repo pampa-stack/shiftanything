@@ -1,0 +1,92 @@
+2026-11-28T03:06:10+00:00 carla AVAILABLE 22110302208
+carla before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+carla JobFinished: Ok("Flathub app installed")
+carla after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:07:03+00:00 carla current-install fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/applications/studio.kx.carla.desktop
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/128x128/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/16x16/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/256x256/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/32x32/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/48x48/apps/studio.kx.carla.png
+/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955/export/share/icons/hicolor/scalable/apps/studio.kx.carla.svg
+Updating app/studio.kx.carla/x86_64/stable
+
+Note that '/home/qa/profiles/carla-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/carla-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:07:06+00:00 carla previous 44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e
+carla before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e", package: Some("studio.kx.carla"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: false, can_open: true }
+carla JobFinished: Err("Approved action rejected: native installation state changed")
+carla JobFinished: Err("This Flatpak is managed outside the launcher")
+carla after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e", package: Some("studio.kx.carla"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=11000 comm="xfwm4 --compositor=off --display=:94" label="unconfined")
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=11023 comm="flatpak run --user --command=sh app/studio.kx.carl" label="flatpak (unconfined)")
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=11023 comm="flatpak run --user --command=sh app/studio.kx.carl" label="flatpak (unconfined)")
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=11092 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+carla before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=11268 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[8798]: [session uid=1000 pid=8798] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=11305 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:11312): dbind-WARNING **: 03:07:08.877: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:08.912: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:08.912: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:08.912: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00572.403984] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00572.404035] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:08.919: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[8798]: [session uid=1000 pid=8798] Successfully activated service 'org.freedesktop.portal.Desktop'
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:09.078: Realtime error: Could not map tid: Process ids could not be found: 14
+carla JobFinished: Ok("Launch request accepted")
+carla after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+studio.kx.carla
+2026-11-28T03:07:24+00:00 carla previous GUI WM_NAME(STRING) = "Carla"
+WM_CLASS(STRING) = "carla", "Carla2"
+2026-11-28T03:07:24+00:00 carla AVAILABLE 17033060352
+carla before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: true, can_remove: true, can_open: true }
+carla JobFinished: Ok("Flathub app updated")
+carla after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:07:26+00:00 carla current fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955
+/home/qa/profiles/carla-after210/.var/app/studio.kx.carla/fixture.txt: OK
+carla before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: true, can_open: true }
+
+(/usr/libexec/xdg-desktop-portal:11305): xdg-desktop-portal-WARNING **: 03:07:27.042: Realtime error: Could not map tid: Process ids could not be found: 14
+carla JobFinished: Ok("Launch request accepted")
+carla after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+studio.kx.carla
+2026-11-28T03:07:42+00:00 carla current GUI WM_NAME(STRING) = "Carla"
+WM_CLASS(STRING) = "carla", "Carla2"
+carla before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/carla-after210/data/flatpak/app/studio.kx.carla/x86_64/stable/fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955", package: Some("studio.kx.carla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.10"), update_available: false, can_remove: true, can_open: true }
+carla JobFinished: Ok("Flathub app removed")
+carla after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/carla-after210/.var/app/studio.kx.carla/fixture.txt: OK
+2026-11-28T03:07:43+00:00 carla PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T03:07:45+00:00 carla EXIT 0 remove
+
+(xfconfd:11045): xfconfd-WARNING **: 03:07:45.448: Name org.xfce.Xfconf lost on the message dbus, exiting.

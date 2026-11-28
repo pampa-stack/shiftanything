@@ -1,0 +1,77 @@
+2026-11-28T02:43:32+00:00 fontforge AVAILABLE 24117198848
+fontforge before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+fontforge JobFinished: Ok("Flathub app installed")
+fontforge after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:04+00:00 fontforge current-install 7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/applications/org.fontforge.FontForge.desktop
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/128x128/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/16x16/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/22x22/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/24x24/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/256x256/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/32x32/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/48x48/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/512x512/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/64x64/apps/org.fontforge.FontForge.png
+/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db/export/share/icons/hicolor/scalable/apps/org.fontforge.FontForge.svg
+Updating app/org.fontforge.FontForge/x86_64/stable
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/fontforge-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/fontforge-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:05+00:00 fontforge previous e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367
+fontforge before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367", package: Some("org.fontforge.FontForge"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: false, can_open: true }
+fontforge JobFinished: Err("Approved action rejected: native installation state changed")
+fontforge JobFinished: Err("This Flatpak is managed outside the launcher")
+fontforge after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367", package: Some("org.fontforge.FontForge"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[12123]: [session uid=1000 pid=12123] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=12908 comm="xfwm4 --compositor=off --display=:86" label="unconfined")
+dbus-daemon[12123]: [session uid=1000 pid=12123] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[12123]: [session uid=1000 pid=12123] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=12921 comm="flatpak run --user --command=sh app/org.fontforge." label="flatpak (unconfined)")
+dbus-daemon[12123]: [session uid=1000 pid=12123] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[12123]: [session uid=1000 pid=12123] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=12921 comm="flatpak run --user --command=sh app/org.fontforge." label="flatpak (unconfined)")
+dbus-daemon[12123]: [session uid=1000 pid=12123] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=12947 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[12123]: [session uid=1000 pid=12123] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[12123]: [session uid=1000 pid=12123] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+fontforge before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: true, can_remove: true, can_open: true }
+fontforge JobFinished: Ok("Launch request accepted")
+fontforge after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.fontforge.FontForge
+2026-11-28T02:44:17+00:00 fontforge previous GUI WM_NAME(STRING) = "Untitled1  Untitled1.sfd (ISO8859-1)"
+WM_CLASS(STRING) = "fontforge", "fontforge"
+2026-11-28T02:44:17+00:00 fontforge AVAILABLE 19515502592
+fontforge before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: true, can_remove: true, can_open: true }
+fontforge JobFinished: Ok("Flathub app updated")
+fontforge after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:19+00:00 fontforge current 7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db
+/home/qa/profiles/fontforge-after210/.var/app/org.fontforge.FontForge/fixture.txt: OK
+fontforge before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: true, can_open: true }
+fontforge JobFinished: Ok("Launch request accepted")
+fontforge after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.fontforge.FontForge
+2026-11-28T02:44:29+00:00 fontforge current GUI WM_NAME(STRING) = "Untitled1  Untitled1.sfd (ISO8859-1)"
+WM_CLASS(STRING) = "fontforge", "fontforge"
+fontforge before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/fontforge-after210/data/flatpak/app/org.fontforge.FontForge/x86_64/stable/7966c924bc16b9f24035ee14e248c957972afce4efb4bf9e6f86a719563d32db", package: Some("org.fontforge.FontForge"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("20251009"), update_available: false, can_remove: true, can_open: true }
+fontforge JobFinished: Ok("Flathub app removed")
+fontforge after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/fontforge-after210/.var/app/org.fontforge.FontForge/fixture.txt: OK
+2026-11-28T02:44:30+00:00 fontforge PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:44:31+00:00 fontforge EXIT 0 remove
+
+(xfconfd:12933): xfconfd-WARNING **: 02:44:31.218: Name org.xfce.Xfconf lost on the message dbus, exiting.

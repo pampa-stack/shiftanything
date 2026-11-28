@@ -1,0 +1,19 @@
+commit e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367
+Parent:  fa2f3e36d4b2ec7941f3e0f4ea1b4a2e4621ad7ca18a851eaa09933c969aa6f2
+ContentChecksum:  bf3b305396c290ad34e0330e7354b152f8600e3775241c15543f9750450cac04
+Date:  2026-06-10 03:02:04 +0000
+
+    Merge pull request #56 from flathub/update-master-a4ce08c (851171d8113b)
+
+    Name: org.fontforge.FontForge
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.6
+
+Found 1 signature:
+
+  Signature made Wed Jun 10 04:00:33 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

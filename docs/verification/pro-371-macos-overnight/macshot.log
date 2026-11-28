@@ -1,0 +1,18 @@
+PASS PREFLIGHT macshot v4.3.0
+PASS PREFLIGHT macshot v4.4.0
+/dev/disk3s5   482797652 423981352  11833656    98% 6604118 118336560    5%   /System/Volumes/Data
+OFFICIAL INDEX macshot v4.3.0 digest=published
+OFFICIAL INDEX macshot v4.4.0 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v4.3.0 Dmg https://github.com/sw33tLie/macshot/releases/download/v4.3.0/MacShot-Offline.dmg 7421744 6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890
+PASS OFFICIAL v4.4.0 Dmg https://github.com/sw33tLie/macshot/releases/download/v4.4.0/MacShot-Offline.dmg 8624563 fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc
+NATIVE ORIGIN macshot GitHub
+PASS OFFICIAL v4.3.0 Dmg https://github.com/sw33tLie/macshot/releases/download/v4.3.0/MacShot-Offline.dmg 7421744 6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890
+PASS NATIVE macshot install: macshot installed: 4.3.0; package_bytes=7421744; elapsed=19.785s
+NATIVE ORIGIN macshot GitHub
+PASS OFFICIAL v4.4.0 Dmg https://github.com/sw33tLie/macshot/releases/download/v4.4.0/MacShot-Offline.dmg 8624563 fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc
+PASS NATIVE macshot update: macshot updated to 4.4.0; package_bytes=8624563; elapsed=7.043s
+PASS NATIVE macshot remove: macshot was removed; package_bytes=0; elapsed=0.136s
+PASS NATIVE CYCLE macshot (v4.3.0 → v4.4.0), private Trash and synthetic data preserved

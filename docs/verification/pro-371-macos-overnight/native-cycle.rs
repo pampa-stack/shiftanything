@@ -151,6 +151,7 @@ fn main() -> Result<(), String> {
             "invoke-community",
             "mist",
             "coteditor",
+            "macshot",
             "freeplane",
         ]
         .contains(&app.id)

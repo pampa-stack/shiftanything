@@ -105,7 +105,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             ],
             (12, 0),
         ),
-        (&[recipe::RUSTDESK.id], (12, 3)),
+        (&[recipe::RUSTDESK.id, recipe::MACSHOT.id], (12, 3)),
         (
             &[
                 recipe::ANKI.id,
@@ -2304,8 +2304,34 @@ pub mod macos {
     impl<'a> Expect<'a> {
         /// What `release` of `app` must prove: the app's own team's signature, and the version.
         pub fn release(app: &'a CraftApp, release: &'a Release) -> Self {
-            Self { team: app.mac_team, version: release.version.as_ref() }
+            let macshot = artcraft_launcher_core::curated::MACSHOT;
+            // The Offline edition changed developer teams in 4.4.0. The old team
+            // applies only to the reviewed 4.3.0 DMG and this exact bundle identity.
+            let team = if (app.id, app.repo, app.bundle, app.mac_team) == (macshot.id, macshot.repo, macshot.bundle, macshot.mac_team)
+                && release.tag == "v4.3.0"
+                && release.assets.iter().any(|asset| artcraft_launcher_core::release::qualified_mac_dmg_asset(&macshot, release, asset))
+            {
+                Some("BR52ZWX528")
+            } else {
+                app.mac_team
+            };
+            Self { team, version: release.version.as_ref() }
         }
+    }
+
+    #[test]
+    fn macshot_uses_its_previous_team_only_for_the_reviewed_offline_release() {
+        use artcraft_launcher_core::{curated::MACSHOT, release::release_from_sums};
+
+        let mut previous = release_from_sums(MACSHOT.repo, "v4.3.0", &[]);
+        let current = release_from_sums(MACSHOT.repo, "v4.4.0", &[]);
+        assert_eq!(Expect::release(&MACSHOT, &previous).team, Some("BR52ZWX528"));
+        assert_eq!(Expect::release(&MACSHOT, &current).team, MACSHOT.mac_team);
+        let online_edition = CraftApp { bundle: Some("com.sw33tlie.macshot.macshot"), ..MACSHOT };
+        assert_eq!(Expect::release(&online_edition, &previous).team, MACSHOT.mac_team);
+
+        previous.assets[0].sha256 = Some("a".repeat(64));
+        assert_eq!(Expect::release(&MACSHOT, &previous).team, MACSHOT.mac_team);
     }
 
     /// Held while this process asks diskimages-helper for something (an attach here; the tests'

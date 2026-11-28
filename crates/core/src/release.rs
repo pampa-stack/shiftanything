@@ -1165,6 +1165,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
         crate::curated::COTEDITOR,
+        crate::curated::MACSHOT,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
@@ -1498,6 +1499,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("coteditor/CotEditor", "7.2.0") => {
             &[("CotEditor_7.2.0.dmg", 27_885_568, "7df697c2108e55c1431b6f4563128e1fcb436ee56a7156df9c2846a573d42a27")]
         }
+        ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
+        ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],
         ("freeplane/freeplane", "release-1.13.3") => {
             &[("Freeplane-1.13.3-apple.dmg", 144_017_558, "f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347")]
         }

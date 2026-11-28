@@ -2933,6 +2933,27 @@ pub const COTEDITOR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("HT3Z3A72WZ"),
 };
 
+pub const MACSHOT: crate::CraftApp = crate::CraftApp {
+    id: "macshot",
+    name: "macshot",
+    tagline: "Capture, annotate and record your screen",
+    repo: "sw33tLie/macshot",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [66, 96, 232],
+    ink_light: [36, 55, 141],
+    ink_dark: [161, 181, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "macshot",
+    msi_publisher: None,
+    bundle: Some("com.sw33tlie.macshot.offline"),
+    site: Some("https://macshot.io/"),
+    mac_bundle_name: Some("macshot Offline"),
+    mac_team: Some("J4XGH8RFS8"),
+};
+
 pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
     id: "freeplane",
     name: "Freeplane",
@@ -3084,6 +3105,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     INVOKE_COMMUNITY,
     MIST,
     COTEDITOR,
+    MACSHOT,
     FREEPLANE,
 ];
 

@@ -35,6 +35,12 @@ The [official 7.1.3 and 7.2.0 releases](https://github.com/coteditor/CotEditor/r
 
 The [license](https://github.com/coteditor/CotEditor/blob/7.2.0/LICENSE) covers source code under Apache-2.0 and image resources under CC BY-NC-ND 4.0. The launcher downloads the signed package from the publisher and the catalog uses a monogram.
 
+### macshot Offline
+
+On 28 November 2026, the native backend installed [4.3.0](https://github.com/sw33tLie/macshot/releases/tag/v4.3.0), updated to [4.4.0](https://github.com/sw33tLie/macshot/releases/tag/v4.4.0) and moved the app to the private Trash on Apple Silicon with macOS 26.4. Both official DMGs matched GitHub's size and SHA-256 and passed strict signature and notarization checks. The bundle is `com.sw33tlie.macshot.offline` and requires macOS 12.3. The recipe restricts the previous team `BR52ZWX528` to the reviewed 4.3.0 DMG and uses team `J4XGH8RFS8` for 4.4.0. The [upstream release notes](https://github.com/sw33tLie/macshot/blob/v4.4.0/README.md) describe the signature change and possible permission prompts. The synthetic profile marker survived the lifecycle. GUI launch and capture permissions remain untested. [Cycle](macshot.log) · [4.3.0 signature](macshot-v4.3.0.log) · [4.4.0 signature](macshot-v4.4.0.log)
+
+In the isolated Tauri 0.20.9 app copied from the local DMG, the native inventory reported macshot 4.4.0 as installable at 8,624,563 bytes. The UI asked to approve an install requested through MCP, and clicking Rifiuta rejected it before a native job started. The catalog buttons were checked in Italian and English in Chromium using that inventory snapshot. The desktop approval window and the two catalog screenshots were inspected.
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.
@@ -66,3 +72,5 @@ For DeepChat, save the official expanded asset pages as `deepchat-v1.1.3-assets.
 For Dyad, Finicky and Hammerspoon, save each official GitHub expanded asset page and preflight log using the same names as for DeepChat. Run `bash run-native.sh dyad dyad-sh/dyad dyad v1.23.0 v1.24.0`, `bash run-native.sh finicky johnste/finicky Finicky v4.2.1 v4.2.2` and `bash run-native.sh hammerspoon Hammerspoon/hammerspoon Hammerspoon 1.1.0 1.1.1`.
 
 For CotEditor, save the official expanded asset pages as `coteditor-7.1.3-assets.html` and `coteditor-7.2.0-assets.html`. Run `bash run-native.sh coteditor coteditor/CotEditor CotEditor 7.1.3 7.2.0`.
+
+For macshot Offline, save the preflight logs and expanded assets as `macshot-v4.3.0.log`, `macshot-v4.4.0.log`, `macshot-v4.3.0-assets.html` and `macshot-v4.4.0-assets.html`. Run `bash run-native.sh macshot sw33tLie/macshot "macshot Offline" v4.3.0 v4.4.0`.

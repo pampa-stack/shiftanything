@@ -150,6 +150,26 @@
     "reason": "unsigned"
   },
   {
+    "id": "ultimaker-cura",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Ultimaker/Cura/releases/tag/5.14.0",
+    "asset_url": "https://github.com/Ultimaker/Cura/releases/download/5.14.0/UltiMaker-Cura-5.14.0-macos-ARM64.dmg",
+    "sha256": "b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21",
+    "bytes": 189533112,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "ultimaker-cura",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/ultimaker-cura",
+    "asset_url": "https://github.com/Ultimaker/Cura/releases/download/5.14.0/UltiMaker-Cura-5.14.0-macos-ARM64.dmg",
+    "sha256": "b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21",
+    "bytes": 189533112,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
     "id": "xournal",
     "target": "macos-arm64",
     "release_source": "https://github.com/xournalpp/xournalpp/releases/tag/v1.3.8",

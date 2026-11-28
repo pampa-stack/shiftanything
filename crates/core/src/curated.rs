@@ -2240,6 +2240,27 @@ pub const HIDDEN_BAR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W777S7V8TN"),
 };
 
+pub const SWIFTBAR: crate::CraftApp = crate::CraftApp {
+    id: "swiftbar",
+    name: "SwiftBar",
+    tagline: "Display custom data and actions in the macOS menu bar",
+    repo: "swiftbar/SwiftBar",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "SwiftBar contributors",
+    msi_publisher: None,
+    bundle: Some("com.ameba.SwiftBar"),
+    site: Some("https://swiftbar.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("X93LWC49WV"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2932,6 +2953,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     DOCKDOOR,
     MACVIM,
     HIDDEN_BAR,
+    SWIFTBAR,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

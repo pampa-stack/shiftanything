@@ -130,6 +130,7 @@ fn main() -> Result<(), String> {
             "dockdoor",
             "macvim",
             "hidden-bar",
+            "swiftbar",
             "linearmouse",
             "loop-macos",
             "dyad",

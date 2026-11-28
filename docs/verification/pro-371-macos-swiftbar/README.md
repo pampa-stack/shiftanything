@@ -1,0 +1,7 @@
+# SwiftBar on Mac Apple Silicon
+
+[SwiftBar](https://github.com/swiftbar/SwiftBar) is an MIT-licensed menu bar utility. Both reviewed official ZIPs contain the universal `com.ameba.SwiftBar` bundle, signed by Ameba Labs, LLC (`X93LWC49WV`). Both report minimum macOS 12.0 and passed published SHA-256, ARM64, strict deep signing, Gatekeeper and notarization checks on a MacBook Air with macOS 26.6.2. [2.1.0 receipt](swiftbar-v2.1.0.log) · [2.1.1 receipt](swiftbar-v2.1.1.log)
+
+The isolated launcher probe downloaded and installed [2.1.0](https://github.com/swiftbar/SwiftBar/releases/tag/v2.1.0), downloaded and applied [2.1.1](https://github.com/swiftbar/SwiftBar/releases/tag/v2.1.1), then moved the updated bundle to the temporary profile's Trash. It preserved the synthetic user-data marker. The older ZIP carries a single mirrored AppleDouble sidecar for the signed login helper, which the extractor validates and skips. Both archives retain the signed Sparkle framework layout. Release-list metadata came from the official expanded assets. App launch, menu bar interaction and plugin execution were outside this SSH background test. [Native cycle log](swiftbar-native.log)
+
+To repeat on Apple Silicon, use the [isolated native probe](../pro-371-macos-overnight/README.md) with the two expanded asset pages and preflight logs. Then run `bash run-native.sh swiftbar swiftbar/SwiftBar SwiftBar v2.1.0 v2.1.1`.

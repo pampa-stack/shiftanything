@@ -1272,6 +1272,12 @@ pub fn hidden_bar_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::HIDDEN_BAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+pub fn swiftbar_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::SWIFTBAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
@@ -1765,6 +1771,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("consolelabs/hidden", "v1.13.4") => {
             &[("Hidden-Bar-v1.13.4-macos.zip", 2_757_264, "3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09")]
+        }
+        ("swiftbar/SwiftBar", "v2.1.0") => {
+            &[("SwiftBar.v2.1.0.b594.zip", 2_989_039, "54b425256f449dd90f8d167993cc65c3673bcd44d206e1aaf641a09fb58bc0da")]
+        }
+        ("swiftbar/SwiftBar", "v2.1.1") => {
+            &[("SwiftBar.v2.1.1.b597.zip", 2_991_349, "fcdec490782d6587046304044951c63de49ac422fc63892a6fab2dd7bc70c0cd")]
         }
         ("linearmouse/linearmouse", "v0.12.0") => {
             &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]

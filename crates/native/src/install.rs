@@ -93,6 +93,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::SHOTCUT.id,
                 recipe::STATS.id,
                 recipe::TERMIX.id,
+                recipe::SWIFTBAR.id,
                 recipe::ALT_TAB.id,
                 recipe::AMETHYST.id,
                 recipe::TRANSMISSION.id,
@@ -699,6 +700,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     let hidden_bar = artcraft_launcher_core::curated::HIDDEN_BAR;
     if app.id == hidden_bar.id {
         return (app.repo == hidden_bar.repo && release::hidden_bar_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    let swiftbar = artcraft_launcher_core::curated::SWIFTBAR;
+    if app.id == swiftbar.id {
+        return (app.repo == swiftbar.repo && release::swiftbar_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::LOOP.id {
         return (app.repo == artcraft_launcher_core::curated::LOOP.repo && release::loop_mac_asset(release, asset))
@@ -2362,10 +2367,11 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{ALT_TAB, AMETHYST, DYAD, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE};
+        use artcraft_launcher_core::curated::{ALT_TAB, AMETHYST, DYAD, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, SWIFTBAR};
 
         let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id)
-            || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo);
+            || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo)
+            || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2492,6 +2498,11 @@ pub mod macos {
                 && bundle == "Hidden Bar.app"
                 && (relative == Path::new("__MACOSX") || relative.starts_with("__MACOSX/Hidden Bar.app"))
                 && (entry.is_dir() || appledouble);
+            const SWIFTBAR_SIDECAR: &str = "__MACOSX/SwiftBar.app/Contents/Library/LoginItems/LaunchAtLoginHelper.app/Contents/._Info.plist";
+            let swiftbar_metadata = framework_links
+                && bundle == "SwiftBar.app"
+                && (name == SWIFTBAR_SIDECAR || (entry.is_dir() && SWIFTBAR_SIDECAR.starts_with(name.as_ref())));
+            let mirrored_metadata = hidden_bar_metadata || swiftbar_metadata;
             let dyad_git_root = dyad_git_link_root(bundle, relative);
             let is_dyad_git_link = dyad_git_root.is_some();
             let link_root =
@@ -2503,7 +2514,7 @@ pub mod macos {
                     && !legacy_keycastr_sidecar
                     && !netnewswire_sidecar
                     && !loop_sidecar
-                    && !hidden_bar_metadata)
+                    && !mirrored_metadata)
                 || (appledouble && (file_type != 0o100000 || entry.is_dir()))
                 || (!matches!(file_type, 0 | 0o100000 | 0o040000) && link_root.is_none())
                 || (file_type == 0o040000 && !entry.is_dir())
@@ -2514,7 +2525,7 @@ pub mod macos {
             }
             let output = unpacked.join(relative);
             if entry.is_dir() {
-                if !hidden_bar_metadata {
+                if !mirrored_metadata {
                     std::fs::create_dir_all(output).map_err(|e| e.to_string())?;
                 }
                 continue;
@@ -2716,36 +2727,36 @@ pub mod macos {
 
     #[cfg(test)]
     #[test]
-    fn hidden_bar_zip_ignores_only_mirrored_appledouble() {
+    fn menu_bar_zip_ignores_only_reviewed_mirrored_appledouble() {
         use std::io::Write;
         use zip::write::SimpleFileOptions;
 
         let root = tempfile::tempdir().unwrap();
-        let archive = root.path().join("hidden-bar.zip");
+        let archive = root.path().join("menu-bar.zip");
         let options = SimpleFileOptions::default().unix_permissions(0o644);
         let mut sidecar = [0; 26];
         sidecar[..8].copy_from_slice(&[0, 5, 0x16, 7, 0, 2, 0, 0]);
-        for (index, (name, content, accepted)) in [
-            ("__MACOSX/Hidden Bar.app/Contents/._Info.plist", sidecar.as_slice(), true),
-            ("__MACOSX/Hidden Bar.app/Contents/._Info.plist", b"invalid", false),
-            ("__MACOSX/Hidden Bar.app/Contents/Info.plist", sidecar.as_slice(), false),
-            ("__MACOSX/Other.app/Contents/._Info.plist", sidecar.as_slice(), false),
-            ("__MACOSX/Hidden Bar.app/../._Info.plist", sidecar.as_slice(), false),
-        ]
-        .into_iter()
-        .enumerate()
-        {
+        let cases = [
+            ("Hidden Bar.app", "Contents/._Info.plist", sidecar.as_slice(), true),
+            ("Hidden Bar.app", "Contents/._Info.plist", b"invalid", false),
+            ("Hidden Bar.app", "Contents/Info.plist", sidecar.as_slice(), false),
+            ("Hidden Bar.app", "../Other.app/Contents/._Info.plist", sidecar.as_slice(), false),
+            ("SwiftBar.app", "Contents/Library/LoginItems/LaunchAtLoginHelper.app/Contents/._Info.plist", sidecar.as_slice(), true),
+            ("SwiftBar.app", "Contents/._Info.plist", sidecar.as_slice(), false),
+        ];
+        for (index, (bundle, suffix, content, accepted)) in cases.into_iter().enumerate() {
             let output = root.path().join(index.to_string());
             std::fs::create_dir(&output).unwrap();
             let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
-            writer.start_file("Hidden Bar.app/Contents/Info.plist", options).unwrap();
+            writer.start_file(format!("{bundle}/Contents/Info.plist"), options).unwrap();
             writer.write_all(b"fixture").unwrap();
             writer.add_directory("__MACOSX/", options).unwrap();
-            writer.add_directory("__MACOSX/Hidden Bar.app/", options).unwrap();
-            writer.start_file(name, options).unwrap();
+            writer.add_directory(format!("__MACOSX/{bundle}/"), options).unwrap();
+            let name = format!("__MACOSX/{bundle}/{suffix}");
+            writer.start_file(&name, options).unwrap();
             writer.write_all(content).unwrap();
             writer.finish().unwrap();
-            assert_eq!(extract_app_zip(&archive, &output, "Hidden Bar.app", true).is_ok(), accepted, "{name}");
+            assert_eq!(extract_app_zip(&archive, &output, bundle, true).is_ok(), accepted, "{name}");
             assert!(!output.join("__MACOSX").exists());
         }
     }

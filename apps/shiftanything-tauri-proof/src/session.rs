@@ -539,6 +539,12 @@ impl NativeState {
         true
     }
 
+    /// Reopens the session when an update could not hand over to the new version.
+    #[cfg(signed_updates)]
+    pub fn cancel_restart(&mut self) {
+        self.restarting = false;
+    }
+
     pub fn decide(
         &mut self,
         id: &str,

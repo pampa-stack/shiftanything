@@ -11,6 +11,8 @@ const PUBLIC_KEY: Option<&str> = option_env!("SHIFT_LAUNCHER_UPDATE_PUBKEY");
 const TARGET: &str = "darwin-aarch64";
 #[cfg(target_os = "linux")]
 const TARGET: &str = "linux-x86_64-deb";
+#[cfg(windows)]
+const TARGET: &str = "windows-x86_64";
 
 #[derive(Clone)]
 pub(super) struct Channel {
@@ -37,6 +39,11 @@ fn trusted_url(url: &Url) -> bool {
     url.scheme() == "https" && url.has_host() && url.username().is_empty() && url.password().is_none() && url.fragment().is_none()
 }
 
+/// Packages come from the same host that serves the signed manifest.
+fn trusted_download(endpoint: &Url, download: &Url) -> bool {
+    trusted_url(download) && download.host_str() == endpoint.host_str() && download.port_or_known_default() == endpoint.port_or_known_default()
+}
+
 pub(super) fn check_packaged_channel() -> Result<(), &'static str> {
     let (channel, _) = channel(ENDPOINT, PUBLIC_KEY)?;
     println!("{TARGET} {}", channel.endpoint);
@@ -60,9 +67,12 @@ pub(super) fn configure(context: &mut Context<Wry>, isolated: bool) -> Result<Ch
 }
 
 pub(super) async fn check(app: &AppHandle, channel: Channel) -> Result<Option<Update>, &'static str> {
-    let updater = app
-        .updater_builder()
-        .endpoints(vec![channel.endpoint])
+    let builder = app.updater_builder();
+    // Keep the launcher usable if Windows refuses to start the setup; a successful start exits the process.
+    #[cfg(windows)]
+    let builder = builder.on_before_exit(|| {});
+    let updater = builder
+        .endpoints(vec![channel.endpoint.clone()])
         .map_err(|_| "channel_invalid")?
         .timeout(Duration::from_secs(15))
         .target(TARGET)
@@ -71,7 +81,7 @@ pub(super) async fn check(app: &AppHandle, channel: Channel) -> Result<Option<Up
         .map_err(|_| "channel_invalid")?;
     let mut update = updater.check().await.map_err(|_| "check_failed")?;
     if let Some(update) = &mut update {
-        if !trusted_url(&update.download_url) || update.signature.trim().is_empty() {
+        if !trusted_download(&channel.endpoint, &update.download_url) || update.signature.trim().is_empty() {
             return Err("release_invalid");
         }
         update.timeout = Some(Duration::from_secs(180));
@@ -79,12 +89,58 @@ pub(super) async fn check(app: &AppHandle, channel: Channel) -> Result<Option<Up
     Ok(update)
 }
 
-pub(super) async fn install(update: Update) -> Result<(), &'static str> {
-    let path = installed_path().map_err(|_| "installation_unsupported")?;
-    let bytes = update.download(|_, _| {}, || {}).await.map_err(|_| "download_or_signature_failed")?;
-    tauri::async_runtime::spawn_blocking(move || apply(&path, &update.version, &bytes)).await.map_err(|_| "installation_failed")?
+/// A downloaded package whose signature and signed version the updater plugin verified.
+/// macOS and Linux apply it at once; Windows keeps the setup until the launcher is idle.
+pub(super) struct Staged {
+    #[cfg(windows)]
+    update: Update,
+    #[cfg(windows)]
+    bytes: Vec<u8>,
 }
 
+pub(super) async fn install(update: Update) -> Result<Staged, &'static str> {
+    let path = installed_path().map_err(|_| "installation_unsupported")?;
+    let bytes = update.download(|_, _| {}, || {}).await.map_err(|_| "download_or_signature_failed")?;
+    #[cfg(windows)]
+    {
+        let _ = path;
+        if !nsis_setup(&bytes) {
+            return Err("release_invalid");
+        }
+        Ok(Staged { update, bytes })
+    }
+    #[cfg(not(windows))]
+    {
+        tauri::async_runtime::spawn_blocking(move || apply(&path, &update.version, &bytes)).await.map_err(|_| "installation_failed")??;
+        Ok(Staged {})
+    }
+}
+
+/// Starts the updated launcher. Returns only when that could not start.
+pub(super) fn finish(app: &AppHandle, staged: Staged) -> Result<(), &'static str> {
+    #[cfg(windows)]
+    {
+        let _ = app;
+        // The plugin runs the setup with /P /UPDATE /R: it waits for this process, replaces the
+        // installed files and starts the new version. On success the plugin exits this process.
+        staged.update.install(&staged.bytes).map_err(|_| "installation_failed")
+    }
+    #[cfg(not(windows))]
+    {
+        let _ = staged;
+        app.exit(super::RESTART_EXIT_CODE);
+        Ok(())
+    }
+}
+
+#[cfg(any(windows, test))]
+fn nsis_setup(bytes: &[u8]) -> bool {
+    // A PE image carrying the NSIS first-header signature.
+    const NSIS: &[u8] = b"\xEF\xBE\xAD\xDENullsoftInst";
+    bytes.starts_with(b"MZ") && bytes.windows(NSIS.len()).any(|window| window == NSIS)
+}
+
+#[cfg(not(windows))]
 fn checked_output(binary: &str, args: &[&str], path: &Path) -> Result<String, &'static str> {
     let output = Command::new(binary).args(args).arg(path).output().map_err(|_| "installation_failed")?;
     if !output.status.success() {
@@ -217,9 +273,48 @@ fn apply(_exe: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
     }
 }
 
+#[cfg(windows)]
+const UNINSTALL_KEY: &str = r"HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\ShiftAnything";
+
+/// Only the per-user NSIS installation registered for this exact executable and version can update itself.
+#[cfg(windows)]
+fn installed_path() -> Result<PathBuf, &'static str> {
+    if !cfg!(target_arch = "x86_64") {
+        return Err("installation_unsupported");
+    }
+    let exe = std::env::current_exe().and_then(std::fs::canonicalize).map_err(|_| "installation_unsupported")?;
+    let value = |name: &str| -> Result<String, &'static str> {
+        let reg = Path::new(&std::env::var_os("SystemRoot").ok_or("installation_unsupported")?).join(r"System32\reg.exe");
+        let reg = reg.to_str().ok_or("installation_unsupported")?.to_owned();
+        let output = Command::new(reg).args(["query", UNINSTALL_KEY, "/v", name]).output().map_err(|_| "installation_unsupported")?;
+        if !output.status.success() {
+            return Err("installation_unsupported");
+        }
+        registry_value(&String::from_utf8_lossy(&output.stdout), name).ok_or("installation_unsupported")
+    };
+    let folder = PathBuf::from(value("InstallLocation")?.trim_matches('"'));
+    let registered = std::fs::canonicalize(folder.join(value("MainBinaryName")?)).map_err(|_| "installation_unsupported")?;
+    let uninstaller = folder.join("uninstall.exe");
+    if registered != exe || !uninstaller.is_file() || value("DisplayVersion")? != env!("CARGO_PKG_VERSION") {
+        return Err("installation_unsupported");
+    }
+    Ok(exe)
+}
+
+/// Reads one REG_SZ value from `reg query` output.
+#[cfg(any(windows, test))]
+fn registry_value(output: &str, name: &str) -> Option<String> {
+    output.lines().find_map(|line| {
+        let rest = line.trim_start().strip_prefix(name)?;
+        let rest = rest.strip_prefix(|c: char| c.is_whitespace())?.trim_start().strip_prefix("REG_SZ")?;
+        let value = rest.strip_prefix(|c: char| c.is_whitespace())?.trim();
+        (!value.is_empty()).then(|| value.to_owned())
+    })
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{channel, trusted_url};
+    use super::{channel, nsis_setup, registry_value, trusted_download, trusted_url};
 
     #[test]
     fn channel_fails_closed_for_partial_and_invalid_configurations() {
@@ -244,5 +339,36 @@ mod tests {
         ] {
             assert_eq!(trusted_url(&url.parse().unwrap()), expected);
         }
+    }
+
+    #[test]
+    fn packages_must_come_from_the_manifest_host() {
+        let endpoint = "https://github.com/pampa-stack/shiftanything/releases/latest/download/latest.json".parse().unwrap();
+        for (url, expected) in [
+            ("https://github.com/pampa-stack/shiftanything/releases/download/v1.0.0/setup.exe", true),
+            ("https://example.invalid/setup.exe", false),
+            ("https://github.com:8443/setup.exe", false),
+            ("http://github.com/setup.exe", false),
+        ] {
+            assert_eq!(trusted_download(&endpoint, &url.parse().unwrap()), expected, "{url}");
+        }
+    }
+
+    #[test]
+    fn windows_update_must_be_an_nsis_setup() {
+        let mut setup = b"MZ\x90\0".to_vec();
+        setup.extend_from_slice(&[0; 64]);
+        assert!(!nsis_setup(&setup));
+        setup.extend_from_slice(b"\xEF\xBE\xAD\xDENullsoftInst");
+        assert!(nsis_setup(&setup));
+        assert!(!nsis_setup(&setup[2..]));
+    }
+
+    #[test]
+    fn registry_values_are_read_by_exact_name() {
+        let output = "\r\nHKEY_CURRENT_USER\\Software\\X\r\n    InstallLocation    REG_SZ    \"C:\\Users\\a b\\ShiftAnything\"\r\n    InstallLocationOld    REG_SZ    D:\\x\r\n";
+        assert_eq!(registry_value(output, "InstallLocation").as_deref(), Some("\"C:\\Users\\a b\\ShiftAnything\""));
+        assert_eq!(registry_value(output, "Install"), None);
+        assert_eq!(registry_value(output, "DisplayVersion"), None);
     }
 }

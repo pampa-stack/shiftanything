@@ -1,0 +1,12 @@
+{
+  "productName": "ShiftAnything",
+  "mainBinaryName": "ShiftAnything",
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "windows": {
+      "allowDowngrades": false,
+      "nsis": { "installMode": "currentUser" }
+    }
+  }
+}

@@ -17,6 +17,10 @@ read -r flatid pattern < <(awk -v slug="$slug" '$1==slug{print $2,$3}' "$guest_h
 previous=$(awk -v slug="$slug" '$1==slug{print $4}' "$guest_home/after210-candidates")
 current=$(awk -v slug="$slug" '$1==slug{print $5}' "$guest_home/after210-candidates")
 [[ $flatid =~ ^[a-zA-Z0-9._-]+$ && $previous =~ ^[0-9a-f]{64}$ && $current =~ ^[0-9a-f]{64}$ && $previous != "$current" ]]
+if [[ "$slug" == frog && "$flatid" == com.github.tenderowl.frog ]]; then
+    # Under X11 both the window name and class are set by the Python launcher.
+    pattern='"python":[[:space:]]+[(]"python"[[:space:]]+"python"[)]'
+fi
 ref=app/$flatid/x86_64/stable
 native=$guest_home/flatpak-after210-cycle
 export HOME=$guest_home/profiles/$profile

@@ -1,0 +1,50 @@
+2026-11-28T12:30:21+00:00 frog AVAILABLE 24653070336
+frog before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+frog JobFinished: Ok("Flathub app installed")
+frog after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa", package: Some("com.github.tenderowl.frog"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:30:49+00:00 frog current-install 55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa
+/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa/export/share/applications/com.github.tenderowl.frog.desktop
+/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa/export/share/icons/hicolor/scalable/apps/com.github.tenderowl.frog.svg
+Updating app/com.github.tenderowl.frog/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:30:50+00:00 frog previous c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f
+frog before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f", package: Some("com.github.tenderowl.frog"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.0"), update_available: false, can_remove: false, can_open: true }
+frog JobFinished: Err("Approved action rejected: native installation state changed")
+frog JobFinished: Err("This Flatpak is managed outside the launcher")
+frog after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f", package: Some("com.github.tenderowl.frog"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=19462 comm="xfwm4 --compositor=off --display=:88" label="unconfined")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=19475 comm="flatpak run --user --command=sh app/com.github.ten" label="flatpak (unconfined)")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=19475 comm="flatpak run --user --command=sh app/com.github.ten" label="flatpak (unconfined)")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=19547 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+frog before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f", package: Some("com.github.tenderowl.frog"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=19647 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=19681 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:19687): dbind-WARNING **: 12:30:52.751: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:19681): xdg-desktop-portal-WARNING **: 12:30:52.769: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:19681): xdg-desktop-portal-WARNING **: 12:30:52.769: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:19681): xdg-desktop-portal-WARNING **: 12:30:52.770: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:19681): xdg-desktop-portal-WARNING **: 12:30:52.775: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[18236]: [session uid=1000 pid=18236] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=19647 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[18236]: [session uid=1000 pid=18236] Successfully activated service 'org.freedesktop.portal.Flatpak'
+frog JobFinished: Ok("Launch request accepted")
+frog after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/frog-after210/data/flatpak/app/com.github.tenderowl.frog/x86_64/stable/c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f", package: Some("com.github.tenderowl.frog"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.6.0"), update_available: true, can_remove: true, can_open: true })
+
+** (/usr/libexec/xdg-desktop-portal:19681): WARNING **: 12:31:46.043: Failed to close session implementation: GDBus.Error:org.freedesktop.DBus.Error.NoReply: Message recipient disconnected from message bus without replying
+2026-11-28T12:31:47+00:00 frog EXIT 1 open-previous
+
+(xfconfd:19487): xfconfd-WARNING **: 12:31:47.566: Name org.xfce.Xfconf lost on the message dbus, exiting.

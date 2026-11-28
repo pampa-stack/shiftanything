@@ -89,7 +89,7 @@ Il backend di `2a8c92b` con le ricette candidate ha installato, aperto, aggiorna
 - **Frescobaldi 4.0.7.** Due revisioni firmate con runtime KDE 6.10 e 6.11. Entrambe hanno aperto l’editor. [Flathub](https://flathub.org/apps/org.frescobaldi.Frescobaldi) · [Prima](frescobaldi/previous.png) · [Dopo](frescobaldi/current.png) · [Log](frescobaldi/lifecycle.log)
 - **Rhythmbox 3.5.1.** Due revisioni firmate della stessa versione. Entrambe hanno aperto la libreria. Riproduzione audio fuori dalla prova. [Flathub](https://flathub.org/apps/org.gnome.Rhythmbox3) · [Prima](rhythmbox/previous.png) · [Dopo](rhythmbox/current.png) · [Log](rhythmbox/lifecycle.log)
 - **Sigil 2.8.5 → 2.8.6.** Ripetuto il ciclo del pacchetto Linux già abilitato. Entrambe le versioni hanno aperto l’editor. [Flathub](https://flathub.org/apps/com.sigil_ebook.Sigil) · [Prima](sigil/previous.png) · [Dopo](sigil/current.png) · [Log](sigil/lifecycle.log)
-- **Qtractor e Frog.** Restano da verificare. Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Log Frog](frog/lifecycle.log)
+- **Qtractor e Frog.** Restano da verificare. Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Prima prova Frog](frog/earlier-window-detection.log)
 
 ## Nove app Flathub su Linux x64
 
@@ -131,3 +131,9 @@ Per Ardour installare anche `pulseaudio` e `pulseaudio-utils` nel guest. Aprire 
 Per FamiStudio usare gli stessi pacchetti di PulseAudio. Nel guest senza hardware passato dall'host, caricare il modulo Linux `snd-seq-dummy` e dare all'utente QA accesso a `/dev/snd/seq` tramite il gruppo audio. Aprire una nuova sessione del guest affinché il gruppo sia attivo. Le aperture del test usano il solo loopback.
 
 Per ripetere le prove di Geary, HomeBank o File Roller, usare `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh geary 82` con l’ID dell’app e un display libero. Il runner abilita il compositing e imposta il renderer Cairo per GTK.
+
+## Frog su Linux x64
+
+Il 28 novembre NativeBackend ha installato, aggiornato e rimosso due revisioni firmate di Frog 1.6.0 in una VM Ubuntu 24.04 x64 su AX42. Entrambe mostrano la schermata OCR. Il test di apertura ha riconosciuto la finestra X11 con il nome del processo Python e ha verificato l’ID del pacchetto Flatpak in esecuzione. L’aggiornamento ha preservato il file sintetico e la rimozione ha eliminato la voce di menu. L’estrazione del testo resta fuori da questa prova. [Flathub](https://flathub.org/apps/com.github.tenderowl.frog) · [Prima](frog/previous.png) · [Dopo](frog/current.png) · [Log](frog/lifecycle.log)
+
+Nel medesimo guest, Qtractor ha completato installazione, aggiornamento e rimozione, ma l’editor segnala che il motore audio/MIDI richiede JACK e il sequencer ALSA. Yakuake si è chiusa con codice 139 durante l’avvio della revisione precedente. Entrambe restano fuori dall’elenco delle ricette abilitate.

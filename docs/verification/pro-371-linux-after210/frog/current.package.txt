@@ -1,0 +1,20 @@
+
+Frog - Extract text from images
+
+          ID: com.github.tenderowl.frog
+         Ref: app/com.github.tenderowl.frog/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.6.0
+     License: MIT
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 59.5 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa
+      Parent: c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f
+     Subject: Merge pull request #17 from flathub/update-master-fec2c3a (6066fe282162)
+        Date: 2026-10-29 19:24:42 +0000

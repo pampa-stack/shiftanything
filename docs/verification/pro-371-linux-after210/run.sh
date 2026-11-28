@@ -59,7 +59,7 @@ verify() {
 }
 
 open_gui() {
-    local phase=$1 window='' candidate verify_window=''
+    local phase=$1 window='' candidate verify_window='' dialog width height
     flatpak run --user --command=sh "$ref" -c 'readlink /proc/self/ns/net; cat /proc/net/dev' > "$out/$phase.network.txt"
     test "$(head -1 "$out/$phase.network.txt")" != "$(readlink /proc/self/ns/net)"
     test "$(awk -F: 'NR>3 {gsub(/ /,"",$1); print $1}' "$out/$phase.network.txt")" = lo
@@ -68,6 +68,19 @@ open_gui() {
         return 1
     fi
     sleep 8
+    case "$slug" in
+        fontforge)
+            dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^Open Font$' | sed -n '1p')
+            read -r width height < <(xdotool getwindowgeometry --shell "$dialog" | awk -F= '
+                $1 == "WIDTH" {width = $2}
+                $1 == "HEIGHT" {print width, $2}
+            ')
+            # The English Open Font dialog places New between OK and Cancel.
+            xdotool windowactivate --sync "$dialog"
+            xdotool mousemove --window "$dialog" "$((width / 2))" "$((height - 20))" click 1
+            timeout 20 xdotool search --sync --onlyvisible --name '^Untitled' >/dev/null
+            ;;
+    esac
     for ((attempt=0;attempt<110;attempt++)); do
         xwininfo -root -tree > "$out/$phase.window-tree.txt"
         while read -r candidate; do

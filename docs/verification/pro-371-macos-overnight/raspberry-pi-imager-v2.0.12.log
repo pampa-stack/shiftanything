@@ -1,0 +1,32 @@
+2026-11-28T10:18:00+0100
+/dev/disk3s5   239362496 173630108  24604820    88% 3286024 246048200    1%   /System/Volumes/Data
+ARTIFACT 15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421 36609779 https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.12/rpi-imager-v2.0.12.dmg
+BUNDLE=Raspberry Pi Imager.app
+CFBundleIdentifier=com.raspberrypi.rpi-imager
+CFBundleShortVersionString=v2.0.12
+CFBundleVersion=v2.0.12
+CFBundleExecutable=rpi-imager
+LSMinimumSystemVersion=
+/private/tmp/shift-air-overnight.EoOQFz35/preflight/raspberry-pi-imager/v2.0.12/mount/Raspberry Pi Imager.app/Contents/MacOS/rpi-imager: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.EoOQFz35/preflight/raspberry-pi-imager/v2.0.12/mount/Raspberry Pi Imager.app/Contents/MacOS/rpi-imager (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.EoOQFz35/preflight/raspberry-pi-imager/v2.0.12/mount/Raspberry Pi Imager.app/Contents/MacOS/rpi-imager (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.EoOQFz35/preflight/raspberry-pi-imager/v2.0.12/mount/Raspberry Pi Imager.app/Contents/MacOS/rpi-imager (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=com.raspberrypi.rpi-imager
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: RASPBERRY PI LTD (8RDZTRXE62)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=8 Oct 2026 at 16:22:05
+TeamIdentifier=8RDZTRXE62
+/private/tmp/shift-air-overnight.EoOQFz35/preflight/raspberry-pi-imager/v2.0.12/mount/Raspberry Pi Imager.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT raspberry-pi-imager v2.0.12

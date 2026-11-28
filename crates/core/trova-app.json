@@ -2326,6 +2326,309 @@
           "source": "https://github.com/sveinbjornt/Sloth#readme"
         }
       ]
+    },
+    {
+      "id": "container-management",
+      "example": {
+        "it": "Voglio gestire gli stack Docker da una dashboard",
+        "en": "I want to manage Docker stacks from a dashboard"
+      },
+      "match": [
+        [
+          "docker",
+          "stack"
+        ],
+        [
+          "pannello docker"
+        ],
+        [
+          "docker dashboard"
+        ],
+        [
+          "docker compose",
+          "interfaccia"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "portainer-ce",
+          "reason": {
+            "it": "Gestisci gli stack Docker Compose e controlla i servizi da una dashboard self-hosted.",
+            "en": "Manage Docker Compose stacks and inspect services in a self-hosted dashboard."
+          },
+          "source": "https://docs.portainer.io/user/docker/stacks"
+        }
+      ]
+    },
+    {
+      "id": "kubernetes-dashboard",
+      "example": {
+        "it": "Mi serve una dashboard per esplorare un cluster Kubernetes",
+        "en": "I need to browse a Kubernetes cluster in a dashboard"
+      },
+      "match": [
+        [
+          "kubernetes",
+          "dashboard"
+        ],
+        [
+          "kubernetes",
+          "kubeconfig"
+        ],
+        [
+          "kubernetes",
+          "risorse"
+        ],
+        [
+          "kubernetes",
+          "resources"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "headlamp",
+          "reason": {
+            "it": "Esplora le risorse di un cluster Kubernetes usando il tuo kubeconfig.",
+            "en": "Browse a Kubernetes cluster’s resources using your kubeconfig."
+          },
+          "source": "https://headlamp.dev/docs/latest/"
+        }
+      ]
+    },
+    {
+      "id": "service-availability",
+      "example": {
+        "it": "Avvisami se il mio sito è irraggiungibile",
+        "en": "Notify me when my website is down"
+      },
+      "match": [
+        [
+          "sito",
+          "irraggiungib"
+        ],
+        [
+          "sito",
+          "offline"
+        ],
+        [
+          "website",
+          "down"
+        ],
+        [
+          "uptime monitor"
+        ],
+        [
+          "controll",
+          "disponibil",
+          "api"
+        ],
+        [
+          "monitor",
+          "api",
+          "availability"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "uptime",
+          "reason": {
+            "it": "Controlla se i siti e le API rispondono e invia una notifica quando diventano irraggiungibili.",
+            "en": "Check that sites and APIs respond and notify you when they become unreachable."
+          },
+          "source": "https://github.com/louislam/uptime-kuma#features"
+        },
+        {
+          "id": "gatus",
+          "reason": {
+            "it": "Controlla HTTP, DNS e TCP secondo condizioni configurabili e mostra lo stato dei servizi.",
+            "en": "Check HTTP, DNS, and TCP with configurable conditions and display service status."
+          },
+          "source": "https://github.com/TwiN/gatus#features"
+        }
+      ]
+    },
+    {
+      "id": "scheduled-job-monitor",
+      "example": {
+        "it": "Voglio sapere se un job cron non parte",
+        "en": "I want an alert if a cron job is missed"
+      },
+      "match": [
+        [
+          "job cron"
+        ],
+        [
+          "cron job"
+        ],
+        [
+          "cron",
+          "avvis"
+        ],
+        [
+          "scheduled job",
+          "miss"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "healthchecks",
+          "reason": {
+            "it": "Avvisa quando un backup pianificato, uno script o un altro job smette di inviare il segnale atteso.",
+            "en": "Get alerts when a scheduled backup, script, or other job misses its expected check-in."
+          },
+          "source": "https://healthchecks.io/docs/monitoring_cron_jobs/"
+        }
+      ]
+    },
+    {
+      "id": "reverse-proxy-gui",
+      "example": {
+        "it": "Voglio gestire il reverse proxy da una dashboard",
+        "en": "I need a dashboard to manage a reverse proxy"
+      },
+      "match": [
+        [
+          "reverse proxy"
+        ],
+        [
+          "proxy inverso"
+        ],
+        [
+          "gestir",
+          "certificat",
+          "https"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "nginx-proxy-manager",
+          "reason": {
+            "it": "Gestisci domini interni o pubblici e certificati HTTPS dalla dashboard di Nginx.",
+            "en": "Manage internal or public domains and HTTPS certificates from the Nginx dashboard."
+          },
+          "source": "https://nginxproxymanager.com/guide/#features"
+        }
+      ]
+    },
+    {
+      "id": "clean-tabular-data",
+      "example": {
+        "it": "Voglio pulire un CSV prima di analizzarlo",
+        "en": "I need to clean a CSV before analyzing it"
+      },
+      "match": [
+        [
+          "pulir",
+          "csv"
+        ],
+        [
+          "pulisci",
+          "csv"
+        ],
+        [
+          "clean",
+          "csv"
+        ],
+        [
+          "normalizz",
+          "csv"
+        ],
+        [
+          "standardiz",
+          "csv"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "openrefine",
+          "reason": {
+            "it": "Raggruppa varianti di testo e correggi formati, righe e colonne nei CSV.",
+            "en": "Group text variants and clean formats, rows, and columns in CSV data."
+          },
+          "source": "https://openrefine.org/docs/manual/transforming"
+        }
+      ]
+    },
+    {
+      "id": "business-dashboards",
+      "example": {
+        "it": "Voglio creare una dashboard da una fonte SQL",
+        "en": "Build a dashboard from a SQL data source"
+      },
+      "match": [
+        [
+          "dashboard",
+          "sql"
+        ],
+        [
+          "dashboard",
+          "bi"
+        ],
+        [
+          "power bi"
+        ],
+        [
+          "tabell",
+          "dashboard",
+          "dati"
+        ],
+        [
+          "business intelligence"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "apache-superset",
+          "reason": {
+            "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+            "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+          },
+          "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/"
+        },
+        {
+          "id": "grafana",
+          "reason": {
+            "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+            "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+          },
+          "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/"
+        }
+      ]
+    },
+    {
+      "id": "geospatial-analysis",
+      "example": {
+        "it": "Voglio analizzare dati geografici su una mappa",
+        "en": "I want to analyze geographic data on a map"
+      },
+      "match": [
+        [
+          "dati geografic"
+        ],
+        [
+          "geographic data"
+        ],
+        [
+          "geospatial"
+        ],
+        [
+          "arcgis"
+        ],
+        [
+          "strati",
+          "mappa"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "qgis",
+          "reason": {
+            "it": "Carica strati geografici e visualizza i risultati dell’analisi sulla mappa.",
+            "en": "Load geographic layers and display analysis results on a map."
+          },
+          "source": "https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html"
+        }
+      ]
     }
   ]
 }

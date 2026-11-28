@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_on": "2026-11-27",
+  "checked_on": "2026-11-28",
   "suggested_software": [
     "Adobe After Effects",
     "Adobe Audition",
@@ -3630,6 +3630,226 @@
               "note": {
                 "it": "Permette di cercare e recuperare un elemento.",
                 "en": "Search for and retrieve a previous item."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "power-bi",
+      "name": "Power BI",
+      "aliases": [
+        "Microsoft Power BI",
+        "Power BI Desktop",
+        "PowerBI"
+      ],
+      "features": [
+        {
+          "id": "sql",
+          "name": {
+            "it": "Collegamento a un database SQL",
+            "en": "Connect to a SQL database"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview"
+        },
+        {
+          "id": "visualizations",
+          "name": {
+            "it": "Grafici e indicatori",
+            "en": "Charts and indicators"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        },
+        {
+          "id": "dashboard",
+          "name": {
+            "it": "Dashboard condivisibili",
+            "en": "Shareable dashboards"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview"
+        },
+        {
+          "id": "filters",
+          "name": {
+            "it": "Filtri interattivi sui grafici",
+            "en": "Interactive chart filters"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        },
+        {
+          "id": "dax",
+          "name": {
+            "it": "Misure DAX",
+            "en": "DAX measures"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "apache-superset",
+          "evidence": {
+            "sql": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "visualizations": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "dashboard": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "filters": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "grafana",
+          "evidence": {
+            "visualizations": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/",
+              "note": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              }
+            },
+            "dashboard": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/",
+              "note": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "visualizations": {
+              "state": "supported",
+              "source": "https://help.libreoffice.org/latest/en-US/text/schart/main0000.html",
+              "note": {
+                "it": "Crea grafici di confronto o andamento a partire da intervalli di un foglio Calc.",
+                "en": "Make comparison or trend charts from Calc cell ranges."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "site24x7",
+      "name": "Site24x7",
+      "aliases": [
+        "Site 24x7",
+        "Site24x7 Website Monitoring"
+      ],
+      "features": [
+        {
+          "id": "uptime",
+          "name": {
+            "it": "Controlli di disponibilità HTTP",
+            "en": "HTTP availability checks"
+          },
+          "source": "https://www.site24x7.com/website-monitoring.html"
+        },
+        {
+          "id": "metrics",
+          "name": {
+            "it": "Metriche e storico dei server",
+            "en": "Server metrics and history"
+          },
+          "source": "https://www.site24x7.com/server-monitoring.html"
+        },
+        {
+          "id": "cron",
+          "name": {
+            "it": "Avvisi per job pianificati assenti",
+            "en": "Missed scheduled job alerts"
+          },
+          "source": "https://www.site24x7.com/cron-monitoring.html"
+        },
+        {
+          "id": "transactions",
+          "name": {
+            "it": "Test sintetici di transazioni web multistep",
+            "en": "Multi-step synthetic web transaction monitoring"
+          },
+          "source": "https://www.site24x7.com/website-monitoring.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "uptime",
+          "evidence": {
+            "uptime": {
+              "state": "supported",
+              "source": "https://github.com/louislam/uptime-kuma#features",
+              "note": {
+                "it": "Controlla se i siti e le API rispondono e invia una notifica quando diventano irraggiungibili.",
+                "en": "Check that sites and APIs respond and notify you when they become unreachable."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gatus",
+          "evidence": {
+            "uptime": {
+              "state": "supported",
+              "source": "https://github.com/TwiN/gatus#features",
+              "note": {
+                "it": "Controlla HTTP, DNS e TCP secondo condizioni configurabili e mostra lo stato dei servizi.",
+                "en": "Check HTTP, DNS, and TCP with configurable conditions and display service status."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "beszel",
+          "evidence": {
+            "metrics": {
+              "state": "supported",
+              "source": "https://beszel.dev/",
+              "note": {
+                "it": "Mostra lo storico di CPU, memoria e rete dei server e dei container.",
+                "en": "View historical CPU, memory, and network usage for servers and containers."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "healthchecks",
+          "evidence": {
+            "cron": {
+              "state": "supported",
+              "source": "https://healthchecks.io/docs/monitoring_cron_jobs/",
+              "note": {
+                "it": "Avvisa quando un backup pianificato, uno script o un altro job smette di inviare il segnale atteso.",
+                "en": "Get alerts when a scheduled backup, script, or other job misses its expected check-in."
               }
             }
           }

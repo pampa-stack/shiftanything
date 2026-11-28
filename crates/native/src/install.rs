@@ -115,6 +115,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,
                 recipe::HIDDEN_BAR.id,
+                recipe::ITERM2.id,
                 recipe::LOCALAI.id,
                 recipe::LOOP.id,
                 recipe::MOONLIGHT.id,
@@ -704,6 +705,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     let swiftbar = artcraft_launcher_core::curated::SWIFTBAR;
     if app.id == swiftbar.id {
         return (app.repo == swiftbar.repo && release::swiftbar_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    let iterm2 = artcraft_launcher_core::curated::ITERM2;
+    if app.id == iterm2.id {
+        return (app.uses_iterm2_releases() && release::iterm2_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::LOOP.id {
         return (app.repo == artcraft_launcher_core::curated::LOOP.repo && release::loop_mac_asset(release, asset))
@@ -2371,7 +2376,8 @@ pub mod macos {
 
         let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id)
             || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo)
-            || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo);
+            || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo)
+            || app.uses_iterm2_releases();
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2457,14 +2463,15 @@ pub mod macos {
         use std::os::unix::fs::PermissionsExt;
         use std::path::Component;
 
-        const MAX_FILES: usize = 4096;
+        // The signed iTerm2 package has 4,216 ZIP entries; its recipe binds the exact bytes.
+        let max_files = if framework_links && bundle == "iTerm.app" { 4500 } else { 4096 };
         const MAX_BYTES: u64 = 768 * 1024 * 1024;
         let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
         if file.metadata().map_err(|e| e.to_string())?.len() > MAX_BYTES {
             return Err("The app ZIP is too large.".into());
         }
         let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("couldn't read the app ZIP ({e})"))?;
-        if zip.len() > MAX_FILES {
+        if zip.len() > max_files {
             return Err("The app ZIP has too many files.".into());
         }
         let mut total = 0u64;

@@ -356,7 +356,7 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 12] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 13] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
@@ -365,6 +365,7 @@ fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
         (curated::AMETHYST.id, PackageKind::MacZip, release::amethyst_mac_asset),
         (curated::HIDDEN_BAR.id, PackageKind::MacZip, release::hidden_bar_mac_asset),
         (curated::SWIFTBAR.id, PackageKind::MacZip, release::swiftbar_mac_asset),
+        (curated::ITERM2.id, PackageKind::MacZip, release::iterm2_mac_asset),
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
         (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
         (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
@@ -774,6 +775,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::AMETHYST.id,
         crate::curated::HIDDEN_BAR.id,
         crate::curated::SWIFTBAR.id,
+        crate::curated::ITERM2.id,
         crate::curated::LOOP.id,
         crate::curated::DYAD.id,
         crate::curated::HAMMERSPOON.id,
@@ -1081,6 +1083,21 @@ mod tests {
                 assert!(!accepts(&untrusted, mac));
             }
         }
+    }
+
+    #[test]
+    fn iterm2_offers_only_the_reviewed_modern_stable_zip_on_apple_silicon() {
+        let app = crate::curated::ITERM2;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let mut release = crate::release::iterm2_mac_release("3.7.9").unwrap();
+        let selected = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+        assert!(selected(&release, mac));
+        assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+        assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+        assert!(!selected(&crate::release::iterm2_mac_release("3.7.10").unwrap(), mac));
+        release.assets[0].size += 1;
+        assert!(!selected(&release, mac));
+        assert!(crate::release::iterm2_mac_release("3.7.8").is_none());
     }
 
     #[test]

@@ -1,7 +1,11 @@
 use artcraft_launcher_core::platform::pick_asset;
 use artcraft_launcher_core::protocol::{Backend, BackendOptions, Command, Event, InstallLocations, JobPhase, LatestRelease, Origin, VersionTrack};
 use artcraft_launcher_core::{Arch, CraftApp, Os, Platform, release::Release};
-use artcraft_launcher_native::{NativeBackend, manifest::Manifest, paths};
+use artcraft_launcher_native::{
+    NativeBackend,
+    manifest::{Manifest, Record},
+    paths,
+};
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 
@@ -78,6 +82,7 @@ fn native_release(backend: &mut NativeBackend, id: &str) -> Result<Release, Stri
                     | Origin::VideoLan
                     | Origin::Inkscape
                     | Origin::Kdenlive
+                    | Origin::ITerm2
             )
             .then_some(latest)
         }
@@ -131,6 +136,7 @@ fn main() -> Result<(), String> {
             "macvim",
             "hidden-bar",
             "swiftbar",
+            "iterm2",
             "linearmouse",
             "loop-macos",
             "dyad",
@@ -157,6 +163,29 @@ fn main() -> Result<(), String> {
     let applications = home.join("Applications");
     let bundle = applications.join(format!("{app_name}.app"));
     let paths = paths::Paths::new()?;
+    if phase == "update-from-fixture" && id == "iterm2" {
+        if !bundle.is_dir() || before.version() != "3.7.8" {
+            return Err("the signed migration fixture is missing".into());
+        }
+        // The isolated backend detects only managed copies, and reads the signed bundle's version.
+        let mut manifest = Manifest::load(&paths.manifest());
+        if manifest.apps.contains_key(id) {
+            return Err("migration proof must start with an empty app receipt".into());
+        }
+        manifest.apps.insert(
+            id.clone(),
+            Record {
+                version: before.version(),
+                kind: app.mac_package_kind(),
+                path: bundle.clone(),
+                installed_at: 0,
+                files: vec![],
+                needs_root: false,
+            },
+        );
+        manifest.save(&paths.manifest())?;
+        println!("SIGNED MIGRATION FIXTURE RECEIPT {}", before.version());
+    }
     let mut backend = NativeBackend::new_isolated_macos_profile(|| {})?;
     backend.send(Command::Configure(BackendOptions {
         install_locations: InstallLocations { root: Some(applications.display().to_string()), ..Default::default() },
@@ -174,6 +203,19 @@ fn main() -> Result<(), String> {
     }
 
     let expected = match (phase.as_str(), initial.as_deref()) {
+        ("install-latest", None) if id == "iterm2" => {
+            backend.send(Command::ListVersions { app: id.clone() });
+            let versions = wait_for(&mut backend, |event| match event {
+                Event::Versions { app, result } if app == *id => Some(result),
+                _ => None,
+            })??;
+            let [current] = versions.as_slice() else { return Err("iTerm2 exposed a historical package".into()) };
+            after.assert_release(app, current)?;
+            backend.send(Command::CheckForUpdates { force: true });
+            after.assert_release(app, &native_release(&mut backend, id)?)?;
+            backend.send(Command::InstallExpected { apps: vec![id.clone()], installed: false });
+            Some(after)
+        }
         ("install", None) => {
             backend.send(Command::ListVersions { app: id.clone() });
             let versions = wait_for(&mut backend, |event| match event {
@@ -195,7 +237,7 @@ fn main() -> Result<(), String> {
             backend.send(Command::InstallChosen { app: id.clone(), tag: before.tag.into(), fallback: None });
             Some(before)
         }
-        ("update", Some(tag)) if tag == before.version() => {
+        ("update" | "update-from-fixture", Some(tag)) if tag == before.version() => {
             backend.send(Command::CheckForUpdates { force: true });
             after.assert_release(app, &native_release(&mut backend, id)?)?;
             backend.send(Command::InstallExpected { apps: vec![id.clone()], installed: true });

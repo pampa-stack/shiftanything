@@ -100,6 +100,9 @@ pub const KDENLIVE_DOWNLOADS_URL: &str = "https://kdenlive.org/en/download/";
 pub const KDENLIVE_RELEASES_URL: &str = "https://apps.kde.org/kdenlive/index.xml";
 pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
 pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
+pub const ITERM2_DOWNLOADS_URL: &str = "https://iterm2.com/downloads.html";
+pub const ITERM2_APPCAST_URL: &str = "https://iterm2.com/appcasts/final_modern.xml";
+pub const ITERM2_ZIP_URL: &str = "https://iterm2.com/downloads/stable/";
 pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
@@ -173,6 +176,36 @@ pub fn vlc_mac_release(tag: &str) -> Option<Release> {
         tag: tag.to_string(),
         ..Release::default()
     })
+}
+
+/// The modern stable feed can show a newer version before its bytes have been verified.
+pub fn iterm2_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag || version < Version::new(3, 7, 9) {
+        return None;
+    }
+    let assets = match tag {
+        "3.7.9" => vec![Asset {
+            name: "iTerm2-3_7_9.zip".into(),
+            size: 78_118_306,
+            url: format!("{ITERM2_ZIP_URL}iTerm2-3_7_9.zip"),
+            sha256: Some("beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2".into()),
+        }],
+        _ => Vec::new(),
+    };
+    Some(Release {
+        assets,
+        name: format!("iTerm2 {tag}"),
+        html_url: ITERM2_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn iterm2_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && iterm2_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
 }
 
 pub fn inkscape_mac_release(tag: &str) -> Option<Release> {

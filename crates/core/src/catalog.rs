@@ -136,6 +136,9 @@ impl CraftApp {
         if self.uses_kdenlive_releases() {
             return crate::release::KDENLIVE_DOWNLOADS_URL.to_string();
         }
+        if self.uses_iterm2_releases() {
+            return crate::release::ITERM2_DOWNLOADS_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
@@ -193,6 +196,10 @@ impl CraftApp {
         (self.id, self.repo) == (crate::curated::KDENLIVE.id, crate::curated::KDENLIVE.repo)
     }
 
+    pub fn uses_iterm2_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ITERM2.id, crate::curated::ITERM2.repo)
+    }
+
     pub fn release_repository(&self) -> &'static str {
         match (self.id, self.repo) {
             ("godot-engine", "godotengine/godot") => crate::curated::GODOT_RELEASES_REPO,
@@ -213,6 +220,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::AMETHYST.id, crate::curated::AMETHYST.repo)
             || (self.id, self.repo) == (crate::curated::HIDDEN_BAR.id, crate::curated::HIDDEN_BAR.repo)
             || (self.id, self.repo) == (crate::curated::SWIFTBAR.id, crate::curated::SWIFTBAR.repo)
+            || self.uses_iterm2_releases()
             || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
             || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)
             || (self.id, self.repo) == (crate::curated::HAMMERSPOON.id, crate::curated::HAMMERSPOON.repo)

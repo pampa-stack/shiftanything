@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -44,6 +44,18 @@ for tag in (old, new):
         assert checksum == digest and published_name == expected_name
         if tag == new:
             assert Path('inkscape-stable-location.txt').read_text().strip() == f'/release/inkscape-{tag}/'
+        published_digests = {digest}
+        version = tag
+    elif app_id == 'iterm2':
+        assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
+        assert name == f"iTerm2-{tag.replace('.', '_')}.zip"
+        assert url == f'https://iterm2.com/downloads/stable/{name}'
+        release_section = Path('iterm2-downloads.html').read_text().split(url + '"', 1)[1].split('<h4', 1)[0]
+        assert re.search(r'Hash: SHA256\s+([a-f0-9]{64})\b', release_section)[1] == digest
+        if tag == new:
+            import xml.etree.ElementTree as ET
+            [asset] = [item for item in ET.parse('final_modern.xml').iter('enclosure') if item.get('url') == url]
+            assert asset.get('length') == size
         published_digests = {digest}
         version = tag
     elif app_id == 'kdenlive':
@@ -141,13 +153,38 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion
 launchctl managername
 spctl --status
-for phase in install update remove; do
+phases=(install update remove)
+if [[ "$id" == iterm2 ]]; then
+    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" install-latest "$app"
+    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" remove "$app"
+    test -d "$profile/.Trash/$app.app"
+    test -f "$profile/.shift-overnight-cycle"
+    /bin/rm -rf -- "$profile/.Trash/$app.app"
+    # The previous release is a validated migration fixture, never a launcher download choice.
+    IFS=$'	' read -r old_tag filename size digest url < "$id.tsv"
+    [[ "$old_tag" == 3.7.8 && "$app" == iTerm && "$url" == https://iterm2.com/downloads/stable/iTerm2-3_7_8.zip ]]
+    archive="$profile/tmp/$filename"
+    curl --proto '=https' --tlsv1.2 -fsS --max-time 180 --max-filesize "$size" "$url" -o "$archive"
+    [[ "$(stat -f%z "$archive")" == "$size" ]]
+    [[ "$(shasum -a 256 "$archive" | cut -d ' ' -f 1)" == "$digest" ]]
+    policy="(version 1) (allow default) (deny network*) (deny file-write*) (allow file-write* (subpath \"$profile/Applications\"))"
+    sandbox-exec -p "$policy" /usr/bin/ditto -x -k "$archive" "$profile/Applications"
+    fixture="$profile/Applications/$app.app"
+    [[ "$(plutil -extract CFBundleShortVersionString raw "$fixture/Contents/Info.plist")" == "$old_tag" ]]
+    /usr/bin/codesign --verify --all-architectures --deep --strict "$fixture"
+    /usr/bin/codesign --verify --check-notarization -R='notarized and identifier "com.googlecode.iterm2" and certificate leaf[subject.OU] = "H7V7XYVQ7D"' "$fixture"
+    /usr/bin/lipo "$fixture/Contents/MacOS/iTerm2" -verify_arch arm64
+    /bin/rm -- "$archive"
+    printf 'PASS SIGNED MIGRATION FIXTURE iTerm2 %s\n' "$old_tag"
+    phases=(update-from-fixture remove)
+fi
+for phase in "${phases[@]}"; do
     env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$phase" "$app"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
     if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks ) && "$phase" != remove ]]; then

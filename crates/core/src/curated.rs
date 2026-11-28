@@ -2261,6 +2261,27 @@ pub const SWIFTBAR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("X93LWC49WV"),
 };
 
+pub const ITERM2: crate::CraftApp = crate::CraftApp {
+    id: "iterm2",
+    name: "iTerm2",
+    tagline: "Terminal for macOS with split panes, profiles and search",
+    repo: "gnachman/iTerm2",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "George Nachman",
+    msi_publisher: None,
+    bundle: Some("com.googlecode.iterm2"),
+    site: Some("https://iterm2.com/"),
+    mac_bundle_name: Some("iTerm"),
+    mac_team: Some("H7V7XYVQ7D"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2954,6 +2975,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MACVIM,
     HIDDEN_BAR,
     SWIFTBAR,
+    ITERM2,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

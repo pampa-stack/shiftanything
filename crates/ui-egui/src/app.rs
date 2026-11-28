@@ -1289,6 +1289,7 @@ impl LauncherUi {
         let mut videolan = false;
         let mut inkscape = false;
         let mut kdenlive = false;
+        let mut iterm2 = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1302,6 +1303,7 @@ impl LauncherUi {
                     Some(Origin::VideoLan) => videolan = true,
                     Some(Origin::Inkscape) => inkscape = true,
                     Some(Origin::Kdenlive) => kdenlive = true,
+                    Some(Origin::ITerm2) => iterm2 = true,
                     None => {}
                 }
             }
@@ -1317,6 +1319,7 @@ impl LauncherUi {
             (videolan, Origin::VideoLan),
             (inkscape, Origin::Inkscape),
             (kdenlive, Origin::Kdenlive),
+            (iterm2, Origin::ITerm2),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

@@ -254,6 +254,8 @@ pub enum Origin {
     Inkscape,
     /// KDE’s official Kdenlive stable release feed.
     Kdenlive,
+    /// iTerm2’s official modern stable appcast.
+    ITerm2,
 }
 
 impl Origin {
@@ -269,6 +271,7 @@ impl Origin {
             Self::VideoLan => "VideoLAN",
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
+            Self::ITerm2 => "iTerm2",
         }
     }
 }
@@ -299,6 +302,8 @@ pub enum Source {
     Inkscape,
     /// KDE’s official Kdenlive stable release feed.
     Kdenlive,
+    /// iTerm2’s official modern stable appcast.
+    ITerm2,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -317,6 +322,7 @@ impl Source {
             Self::VideoLan => "VideoLAN",
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
+            Self::ITerm2 => "iTerm2",
             Self::Cache => "saved results",
         }
     }

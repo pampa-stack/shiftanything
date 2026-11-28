@@ -1,0 +1,20 @@
+PASS PREFLIGHT iterm2 3.7.8
+PASS PREFLIGHT iterm2 3.7.9
+/dev/disk3s5   239362496 174815204  23418816    89% 3227188 234188160    1%   /System/Volumes/Data
+OFFICIAL INDEX iterm2 3.7.8 digest=published
+OFFICIAL INDEX iterm2 3.7.9 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 3.7.9 MacZip https://iterm2.com/downloads/stable/iTerm2-3_7_9.zip 78118306 beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2
+NATIVE ORIGIN iterm2 ITerm2
+PASS OFFICIAL 3.7.9 MacZip https://iterm2.com/downloads/stable/iTerm2-3_7_9.zip 78118306 beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2
+PASS NATIVE iterm2 install-latest: iTerm2 installed: 3.7.9; package_bytes=78118306; elapsed=31.568s
+PASS NATIVE iterm2 remove: iTerm2 was removed; package_bytes=0; elapsed=0.114s
+PASS SIGNED MIGRATION FIXTURE iTerm2 3.7.8
+SIGNED MIGRATION FIXTURE RECEIPT 3.7.8
+NATIVE ORIGIN iterm2 ITerm2
+PASS OFFICIAL 3.7.9 MacZip https://iterm2.com/downloads/stable/iTerm2-3_7_9.zip 78118306 beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2
+PASS NATIVE iterm2 update-from-fixture: iTerm2 updated to 3.7.9; package_bytes=78118306; elapsed=21.422s
+PASS NATIVE iterm2 remove: iTerm2 was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE iterm2 (3.7.8 → 3.7.9), private Trash and synthetic data preserved

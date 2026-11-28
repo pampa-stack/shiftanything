@@ -2612,6 +2612,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::VideoLan
     } else if sources.contains(&Source::Inkscape) {
         Source::Inkscape
+    } else if sources.contains(&Source::ITerm2) {
+        Source::ITerm2
     } else if sources.contains(&Source::Kdenlive) {
         Source::Kdenlive
     } else if sources.contains(&Source::Krita) {
@@ -2862,6 +2864,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_vlc_releases()
         || app.uses_inkscape_releases()
         || app.uses_kdenlive_releases()
+        || app.uses_iterm2_releases()
         || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
         || app.release_repository() != app.repo
         || (app.id, app.repo) == (calibre.id, calibre.repo)
@@ -2883,6 +2886,8 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::VideoLan
     } else if app.uses_inkscape_releases() {
         Origin::Inkscape
+    } else if app.uses_iterm2_releases() {
+        Origin::ITerm2
     } else if app.uses_kdenlive_releases() {
         Origin::Kdenlive
     } else if app.uses_krita_releases() {

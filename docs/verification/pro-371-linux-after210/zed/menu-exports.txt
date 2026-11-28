@@ -1,0 +1,2 @@
+/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8/export/share/applications/dev.zed.Zed.desktop
+/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8/export/share/icons/hicolor/512x512/apps/dev.zed.Zed.png

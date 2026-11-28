@@ -16685,6 +16685,14 @@
       "https://dl.flathub.org/media/dev/zed/Zed/7fe6522871bf71186fc1c0aa68de1761/screenshots/image-3_orig.png"
     ],
     "media_source": "https://flathub.org/apps/dev.zed.Zed",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "dev.zed.Zed",
+        "source": "https://flathub.org/apps/dev.zed.Zed"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",

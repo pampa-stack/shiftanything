@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 178] = [
+pub const RECIPES: [(&str, &str); 179] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -166,6 +166,7 @@ pub const RECIPES: [(&str, &str); 178] = [
     ("hydrus", "io.github.hydrusnetwork.hydrus"),
     ("mpv", "io.mpv.Mpv"),
     ("openttd", "org.openttd.OpenTTD"),
+    ("zed", "dev.zed.Zed"),
     ("calibre", "com.calibre_ebook.calibre"),
     ("famistudio", "org.famistudio.FamiStudio"),
     ("ardour", "org.ardour.Ardour"),
@@ -282,6 +283,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "appflowy" => "https://github.com/AppFlowy-IO/AppFlowy",
         "zen" => "https://github.com/zen-browser/desktop",
         "openttd" => "https://github.com/OpenTTD/OpenTTD",
+        "zed" => "https://github.com/zed-industries/zed",
         "openra" => "https://github.com/OpenRA/OpenRA",
         "openscad" => "https://github.com/openscad/openscad",
         "stellarium" => "https://github.com/Stellarium/stellarium",

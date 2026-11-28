@@ -367,7 +367,12 @@ mod linux {
                 // A desktop app inherits the session locale. Forcing C here prevents GTK apps
                 // such as SolveSpace from starting because they require a UTF-8 locale.
                 let mut command = self.command();
-                command.args(["run", &scope_arg(&deployed.scope), &reference]);
+                command.args(["run", &scope_arg(&deployed.scope)]);
+                if id == "dev.zed.Zed" {
+                    // The community wrapper otherwise starts Zed through the host portal.
+                    command.args(["--env=ZED_FLATPAK_NO_ESCAPE=1", "--no-talk-name=org.freedesktop.Flatpak"]);
+                }
+                command.arg(&reference);
                 // The Octave Flatpak runs the CLI by default, unlike its desktop entry.
                 if id == "org.octave.Octave" {
                     command.arg("--gui");

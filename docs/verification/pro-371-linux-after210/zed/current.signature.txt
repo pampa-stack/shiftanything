@@ -1,0 +1,19 @@
+commit 90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8
+Parent:  f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6
+ContentChecksum:  e340036c4883ddfcb467be6db5b014bba6daf62e7e1304299c7f35c67ebe6276
+Date:  2026-11-26 10:15:59 +0000
+
+    Update to v1.30.2 (#434) (ac08423b60fa)
+
+    Name: dev.zed.Zed
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 26 10:17:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

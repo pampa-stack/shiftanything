@@ -238,6 +238,12 @@ if [[ "$slug" == bleachbit ]]; then
     mkdir -p "$HOME/.config/bleachbit"
     flags+=(--filesystem="$HOME/.config/bleachbit")
 fi
+if [[ "$slug" == zed ]]; then
+    # Drop test settings left by an earlier run in this isolated profile.
+    flatpak override --user --reset "$flatid"
+    # Xvfb uses software rendering. Leave the no-escape launch setting to the launcher.
+    flags+=(--no-talk-name=org.freedesktop.secrets --nosocket=gpg-agent --env=ZED_ALLOW_EMULATED_GPU=1)
+fi
 flatpak override --user "${flags[@]}" --env=QT_X11_NO_MITSHM=1 --env=LIBGL_ALWAYS_SOFTWARE=1 --env=LP_NUM_THREADS=2 "$flatid"
 flatpak override --user --show "$flatid" > "$out/sandbox.txt"
 stage=open-previous

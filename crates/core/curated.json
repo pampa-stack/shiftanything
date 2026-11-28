@@ -23016,8 +23016,8 @@
     "level": "base",
     "category": "sviluppo",
     "description": {
-      "it": "Client desktop Git per commit, branch e pull request",
-      "en": "Desktop Git client for commits, branches and pull requests"
+      "it": "Clona repository, lavora sui branch e controlla le differenze file per file. Scegli quali modifiche includere in ogni commit, pubblica i branch su GitHub e apri le pull request nel browser.",
+      "en": "Clone repositories, work with branches, and review diffs file by file. Select which changes belong in each commit, publish branches to GitHub, and open pull requests in your browser."
     },
     "alternatives": [
       "GitKraken"
@@ -23032,8 +23032,11 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/desktop/desktop/ebe7dfd1b20e0cfb957a4d287ac30fa80fcc81ca/app/static/common/logo-64x64%402x.png",
-    "screenshots": [],
-    "media_source": "https://github.com/desktop/desktop/blob/ebe7dfd1b20e0cfb957a4d287ac30fa80fcc81ca/app/static/common/logo-64x64%402x.png",
+    "screenshots": [
+      "https://docs.github.com/assets/cb-66158/images/help/desktop/diff-selection.png",
+      "https://docs.github.com/assets/cb-16555/images/help/desktop/commit-all.png"
+    ],
+    "media_source": "https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop",
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -32535,8 +32538,8 @@
     "level": "base",
     "category": "sistema",
     "description": {
-      "it": "Disponi e ridimensiona le finestre con scorciatoie e aggancio ai bordi.",
-      "en": "Arrange and resize windows with shortcuts and edge snapping."
+      "it": "Sposta e ridimensiona le finestre con scorciatoie da tastiera o trascinandole ai bordi e agli angoli dello schermo. Puoi anche scorrere tra misure diverse premendo più volte la stessa scorciatoia.",
+      "en": "Move and resize windows with keyboard shortcuts or by dragging them to screen edges and corners. Repeat a shortcut to cycle through window sizes."
     },
     "alternatives": [
       "Magnet",
@@ -32552,7 +32555,10 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/rxhanson/Rectangle/main/Rectangle/Assets.xcassets/AppIcon.appiconset/mac256pts1x.png",
-    "screenshots": [],
+    "screenshots": [
+      "https://rectangleapp.com/assets/images/shortcutScreenshot.jpg",
+      "https://rectangleapp.com/assets/images/snapAreaScreenshot.jpg"
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -32579,7 +32585,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/rxhanson/Rectangle#readme"
+    "media_source": "https://rectangleapp.com/"
   },
   {
     "id": "ice",
@@ -32589,8 +32595,8 @@
     "level": "base",
     "category": "sistema",
     "description": {
-      "it": "Nascondi e organizza le icone della barra dei menu.",
-      "en": "Hide and organize menu bar icons."
+      "it": "Organizza le icone della barra dei menu e mostra quelle nascoste in una seconda barra. Puoi spostarle con il mouse, cercarle per nome e regolare spaziatura e aspetto.",
+      "en": "Organize menu bar icons and reveal hidden items in a second bar. Drag icons between groups, search for items by name, and customize spacing and appearance."
     },
     "alternatives": [
       "Bartender"
@@ -32605,7 +32611,10 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/jordanbaird/Ice/main/Ice/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
-    "screenshots": [],
+    "screenshots": [
+      "https://icemenubar.app/gallery/menu-bar-layout.png?ts=1737648866",
+      "https://icemenubar.app/gallery/ice-bar.png?ts=1737648866"
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -32632,7 +32641,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/jordanbaird/Ice#readme"
+    "media_source": "https://icemenubar.app/"
   },
   {
     "id": "aerospace",
@@ -32804,8 +32813,8 @@
     "level": "base",
     "category": "sistema",
     "description": {
-      "it": "Conserva una cronologia degli appunti ricercabile dalla barra dei menu.",
-      "en": "Keep a searchable clipboard history in the menu bar."
+      "it": "Cerca nella cronologia locale degli appunti, fissa gli elementi da riutilizzare e incolla con o senza formattazione. La cronologia si apre con una scorciatoia o dalla barra dei menu.",
+      "en": "Search your local clipboard history, pin items you reuse, and paste with or without formatting. Open the history with a shortcut or from the menu bar."
     },
     "alternatives": [
       "Paste"
@@ -32820,7 +32829,9 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/p0deje/Maccy/master/Maccy/Assets.xcassets/AppIcon.appiconset/AppIcon%20%28Big%20Sur%29-256w.png",
-    "screenshots": [],
+    "screenshots": [
+      "https://maccy.app/img/maccy/Instructions.png"
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",
@@ -32847,7 +32858,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/p0deje/Maccy#readme"
+    "media_source": "https://maccy.app/"
   },
   {
     "id": "aerial",
@@ -32965,8 +32976,8 @@
     "level": "avanz",
     "category": "sviluppo",
     "description": {
-      "it": "Terminale grafico con pannelli affiancati, ricerca e profili.",
-      "en": "Graphical terminal with split panes, search and profiles."
+      "it": "Apri più sessioni di terminale nella stessa scheda, con pannelli affiancati o sovrapposti. Cerca nell’output anche con espressioni regolari, personalizza i profili e richiama una finestra con una scorciatoia globale.",
+      "en": "Run multiple terminal sessions in a tab with side-by-side or stacked panes. Search output with regular expressions, customize profiles, and summon a window with a global shortcut."
     },
     "alternatives": [
       "Terminal"
@@ -32981,8 +32992,11 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/gnachman/iTerm2/7149665183dc55a012567a3e8fcc9214974dba33/images/AppIcon.png",
-    "media_source": "https://github.com/gnachman/iTerm2/blob/7149665183dc55a012567a3e8fcc9214974dba33/README.md",
-    "screenshots": [],
+    "media_source": "https://iterm2.com/features.html",
+    "screenshots": [
+      "https://iterm2.com/img/screenshots/split_panes.png",
+      "https://iterm2.com/img/screenshots/find.png"
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-27",

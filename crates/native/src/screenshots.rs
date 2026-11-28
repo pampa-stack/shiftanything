@@ -179,6 +179,15 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
     let reviewed_pictures = [
         "https://a-us.storyblok.com/f/1022730/1999x1020/36a8151d38/embed-dashboards_sample-dashboard.png",
         "https://umami.is/_next/static/immutable/media/app.06ov74hy3esf9.jpg",
+        "https://rectangleapp.com/assets/images/shortcutScreenshot.jpg",
+        "https://rectangleapp.com/assets/images/snapAreaScreenshot.jpg",
+        "https://icemenubar.app/gallery/menu-bar-layout.png?ts=1737648866",
+        "https://icemenubar.app/gallery/ice-bar.png?ts=1737648866",
+        "https://maccy.app/img/maccy/Instructions.png",
+        "https://iterm2.com/img/screenshots/split_panes.png",
+        "https://iterm2.com/img/screenshots/find.png",
+        "https://docs.github.com/assets/cb-66158/images/help/desktop/diff-selection.png",
+        "https://docs.github.com/assets/cb-16555/images/help/desktop/commit-all.png",
     ];
     if !reviewed_pictures.contains(&url) && !allowed.iter().any(|base| url.starts_with(base)) {
         return Err("Unapproved catalog media origin".into());

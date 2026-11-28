@@ -1,0 +1,19 @@
+commit 47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295
+Parent:  5bcd9417390d08938bb5472c9f5375299444f4d0974fa78dd5761f1214509255
+ContentChecksum:  411787aaf80f5da2fd6a2a2a81d5fe4755c852a95da5f63da763bd6e9bda64d6
+Date:  2026-11-19 21:14:12 +0000
+
+    chat.simplex.simplex: update to v7.1.4 (040759600af6)
+
+    Name: chat.simplex.simplex
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Nov 19 22:01:05 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

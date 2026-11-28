@@ -25277,7 +25277,15 @@
           "size_max": 265969664
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "chat.simplex.simplex",
+        "source": "https://flathub.org/apps/chat.simplex.simplex"
+      }
+    ]
   },
   {
     "id": "sonic-visualiser",

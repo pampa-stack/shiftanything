@@ -3017,6 +3017,27 @@ pub const UTM: crate::CraftApp = crate::CraftApp {
     mac_team: Some("WDNLXAD4W8"),
 };
 
+pub const RASPBERRY_PI_IMAGER: crate::CraftApp = crate::CraftApp {
+    id: "raspberry-pi-imager",
+    name: "Raspberry Pi Imager",
+    tagline: "Prepare boot media for Raspberry Pi from a desktop app",
+    repo: "raspberrypi/rpi-imager",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [197, 45, 69],
+    ink_light: [146, 31, 53],
+    ink_dark: [255, 150, 171],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Raspberry Pi Ltd",
+    msi_publisher: None,
+    bundle: Some("com.raspberrypi.rpi-imager"),
+    site: Some("https://www.raspberrypi.com/software/"),
+    mac_bundle_name: None,
+    mac_team: Some("8RDZTRXE62"),
+};
+
 pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     id: "openmtp",
     name: "OpenMTP",
@@ -3361,6 +3382,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     DEEPCHAT,
     EASYDICT,
     UTM,
+    RASPBERRY_PI_IMAGER,
     OPENMTP,
     INVOKE_COMMUNITY,
     MIST,

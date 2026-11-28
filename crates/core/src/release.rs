@@ -1276,6 +1276,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DEEPCHAT,
         crate::curated::EASYDICT,
         crate::curated::UTM,
+        crate::curated::RASPBERRY_PI_IMAGER,
         crate::curated::OPENMTP,
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
@@ -1949,6 +1950,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("iOfficeAI/AionUi", "v2.2.1") => {
             &[("AionUi-2.2.1-mac-arm64.dmg", 289_988_054, "e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648")]
         }
+        ("raspberrypi/rpi-imager", "v2.0.11") => {
+            &[("rpi-imager-v2.0.11.dmg", 51_896_529, "7af0c2c3038c69d1bbc565daf4bfb8830bbf8413a1634ac31b89f90700a7add7")]
+        }
+        ("raspberrypi/rpi-imager", "v2.0.12") => {
+            &[("rpi-imager-v2.0.12.dmg", 36_609_779, "15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421")]
+        }
         ("ruffle-rs/ruffle", "v0.7.1") => {
             &[("ruffle-0.7.1-macos-universal.tar.gz", 33_270_538, "7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e")]
         }
@@ -2516,6 +2523,31 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn raspberry_pi_imager_macos_uses_only_the_reviewed_disk_images() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::RASPBERRY_PI_IMAGER};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[RASPBERRY_PI_IMAGER.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["v2.0.11", "v2.0.12"] {
+            let release = release_from_sums(RASPBERRY_PI_IMAGER.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, intel), None);
+
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(select(&changed, mac), None);
+
+            let mut prerelease = release;
+            prerelease.prerelease = true;
+            assert_eq!(select(&prerelease, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
 
     #[test]
     fn ruffle_macos_uses_only_the_reviewed_arm64_archive() {

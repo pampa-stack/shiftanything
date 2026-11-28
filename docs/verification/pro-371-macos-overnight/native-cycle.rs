@@ -126,6 +126,7 @@ fn main() -> Result<(), String> {
             "finicky",
             "hammerspoon",
             "ice",
+            "virtualbuddy",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

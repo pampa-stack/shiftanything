@@ -1089,6 +1089,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CODEEDIT,
         crate::curated::LINEAR_MOUSE,
         crate::curated::FINICKY,
+        crate::curated::VIRTUALBUDDY,
         crate::curated::BLENDER,
         crate::curated::GIMP,
         crate::curated::KRITA,
@@ -1115,6 +1116,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release.tag == format!("version_{version}")
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
+            } else if (app.id, app.repo) == (crate::curated::VIRTUALBUDDY.id, crate::curated::VIRTUALBUDDY.repo) {
+                release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
             } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
@@ -1708,6 +1711,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("jordanbaird/Ice", "0.11.11") => &[("Ice.zip", 3_478_127, "21ea5ffa614def29bb699bb7c6725526840d0d999216fb75e504c6757b6f49cb")],
         ("jordanbaird/Ice", "0.11.12") => &[("Ice.zip", 3_497_507, "d770e81597566dd2d2363feb350f808c7a92e363df95c51e48140eb30e452cc9")],
+        ("insidegui/VirtualBuddy", "2.2") => {
+            &[("VirtualBuddy_v2.2-428.dmg", 22_042_242, "7e672ebca6aec1e7de3adecb6cbbdf978f68dabe5406e48f22187f5dedc98339")]
+        }
+        ("insidegui/VirtualBuddy", "2.2.1") => {
+            &[("VirtualBuddy_v2.2.1-430.dmg", 22_041_237, "16fac6dddbb012548911c0a6807a882e8df5b5b4897a218923b108aaa333fc63")]
+        }
         ("blender/blender", "5.2.5") => {
             &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
         }

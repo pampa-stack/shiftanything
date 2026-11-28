@@ -965,6 +965,7 @@ mod tests {
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::LINEAR_MOUSE, ["v0.12.0", "v0.13.0"]),
             (crate::curated::FINICKY, ["v4.2.1", "v4.2.2"]),
+            (crate::curated::VIRTUALBUDDY, ["2.2", "2.2.1"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
             (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),

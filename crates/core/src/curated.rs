@@ -2303,6 +2303,27 @@ pub const ICE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("K2ATHQPJDP"),
 };
 
+pub const VIRTUALBUDDY: crate::CraftApp = crate::CraftApp {
+    id: "virtualbuddy",
+    name: "VirtualBuddy",
+    tagline: "Run macOS and Linux virtual machines on Apple Silicon",
+    repo: "insidegui/VirtualBuddy",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [204, 96, 38],
+    ink_light: [126, 52, 20],
+    ink_dark: [242, 160, 111],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Buddy Software LTDA",
+    msi_publisher: None,
+    bundle: Some("codes.rambo.VirtualBuddy"),
+    site: Some("https://github.com/insidegui/VirtualBuddy"),
+    mac_bundle_name: None,
+    mac_team: Some("8C7439RJLG"),
+};
+
 pub const RECTANGLE: crate::CraftApp = crate::CraftApp {
     id: "rectangle",
     name: "Rectangle",
@@ -2768,6 +2789,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     FINICKY,
     HAMMERSPOON,
     ICE,
+    VIRTUALBUDDY,
     BLENDER,
     GIMP,
     NETNEWSWIRE,

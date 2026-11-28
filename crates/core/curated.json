@@ -33790,18 +33790,18 @@
       "date": "2026-11-27"
     },
     "platform_support": {
-      "macos": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.1-326"
+      "macos": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.2.1"
     },
     "platform_scope_complete": true,
     "release": {
-      "version": "2.1-326",
-      "date": "2026-11-03",
-      "source": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.1-326",
+      "version": "2.2.1",
+      "date": "2026-10-19",
+      "source": "https://github.com/insidegui/VirtualBuddy/releases/tag/2.2.1",
       "packages": [
         {
           "platform": "macos",
-          "size_min": 21069155,
-          "size_max": 21069155
+          "size_min": 22041237,
+          "size_max": 22041237
         }
       ]
     },

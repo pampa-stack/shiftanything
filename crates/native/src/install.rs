@@ -134,7 +134,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         ),
         (&[recipe::ORCA.id], (13, 4)),
         (&[recipe::JAN.id], (13, 6)),
-        (&[recipe::CALIBRE.id, recipe::MACCY.id, recipe::OLLAMA.id, recipe::RECTANGLE.id], (14, 0)),
+        (&[recipe::CALIBRE.id, recipe::MACCY.id, recipe::OLLAMA.id, recipe::RECTANGLE.id, recipe::VIRTUALBUDDY.id], (14, 0)),
         (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
@@ -680,6 +680,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         return (app.repo == artcraft_launcher_core::curated::MACCY.repo && release::maccy_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::ICE.id {
+        return (app.repo == artcraft_launcher_core::curated::ICE.repo && release::ice_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::ALT_TAB.id {
         return (app.repo == artcraft_launcher_core::curated::ALT_TAB.repo && release::alt_tab_mac_asset(release, asset))

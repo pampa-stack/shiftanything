@@ -5261,8 +5261,8 @@
         {
           "id": "music",
           "name": {
-            "it": "Ascoltare la propria musica",
-            "en": "Stream your music collection"
+            "it": "Ascoltare la propria raccolta musicale",
+            "en": "Play your music collection"
           },
           "source": "https://audirvana.com/"
         }
@@ -5299,8 +5299,8 @@
         {
           "id": "sketch",
           "name": {
-            "it": "Disegnare il pezzo 2D",
-            "en": "Sketch a 2D part"
+            "it": "Disegnare pezzi in 2D",
+            "en": "Sketch 2D parts"
           },
           "source": "https://www.autodesk.com/products/autocad/overview"
         }
@@ -5350,8 +5350,8 @@
         {
           "id": "parametric",
           "name": {
-            "it": "Creare il modello parametrico",
-            "en": "Build a parametric model"
+            "it": "Modellazione parametrica",
+            "en": "Parametric modeling"
           },
           "source": "https://www.autodesk.com/products/fusion-360/overview"
         },
@@ -5366,8 +5366,8 @@
         {
           "id": "mesh",
           "name": {
-            "it": "Controllare la mesh",
-            "en": "Inspect the mesh"
+            "it": "Controllare le mesh",
+            "en": "Inspect meshes"
           },
           "source": "https://www.autodesk.com/products/fusion-360/overview"
         }
@@ -5495,8 +5495,8 @@
         {
           "id": "backup",
           "name": {
-            "it": "Creare una copia di sicurezza",
-            "en": "Back up the collection"
+            "it": "Fare il backup di file e cartelle",
+            "en": "Back up files and folders"
           },
           "source": "https://www.backblaze.com/cloud-backup/personal"
         }
@@ -5851,7 +5851,7 @@
         {
           "id": "database",
           "name": {
-            "it": "Consultare il database",
+            "it": "Consultare i database",
             "en": "Inspect databases"
           },
           "source": "https://www.jetbrains.com/datagrip/"
@@ -6038,8 +6038,8 @@
         {
           "id": "notes-training-documentation",
           "name": {
-            "it": "Raccogliere i materiali",
-            "en": "Collect materials"
+            "it": "Raccogliere note e materiali",
+            "en": "Collect notes and materials"
           },
           "source": "https://evernote.com/"
         }
@@ -6411,8 +6411,8 @@
         {
           "id": "presentation",
           "name": {
-            "it": "Mostrare il prototipo",
-            "en": "Present the prototype"
+            "it": "Presentare il prodotto con render",
+            "en": "Render product presentations"
           },
           "source": "https://www.keyshot.com/"
         }
@@ -6701,8 +6701,8 @@
         {
           "id": "slides",
           "name": {
-            "it": "Comporre la lezione",
-            "en": "Build the lesson slides"
+            "it": "Creare presentazioni a slide",
+            "en": "Build slide presentations"
           },
           "source": "https://www.microsoft.com/en-us/microsoft-365/powerpoint"
         }
@@ -7507,7 +7507,7 @@
         {
           "id": "terminal",
           "name": {
-            "it": "Gestire sessioni di lavoro",
+            "it": "Gestire sessioni del terminale",
             "en": "Manage terminal sessions"
           },
           "source": "https://www.warp.dev/"
@@ -7537,7 +7537,7 @@
         {
           "id": "switch",
           "name": {
-            "it": "Passare a una finestra",
+            "it": "Passare da una finestra all’altra",
             "en": "Switch between windows"
           },
           "source": "https://manytricks.com/witch/"

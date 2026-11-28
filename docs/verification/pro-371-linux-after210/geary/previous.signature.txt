@@ -1,0 +1,19 @@
+commit 953cd1a9a373c7979dfb5fcbcc9b399a3fcee26845b5e858bc430c9e6c4cd1f2
+Parent:  52615a70e6cd1a728a55065adcfc824e423080f438158de327f4f980a5ab19ce
+ContentChecksum:  3b04a44a7def3c3279ecfe0bb3d1c02b76c06566d5a5f2b1178b5547170be0e3
+Date:  2025-10-09 01:57:15 +0000
+
+    Remove `branch: stable` (79d912539d5b)
+
+    Name: org.gnome.Geary
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Thu Oct  9 03:00:33 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

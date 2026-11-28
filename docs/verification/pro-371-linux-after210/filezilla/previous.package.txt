@@ -1,0 +1,20 @@
+
+FileZilla - Fast and reliable FTP client
+
+          ID: org.filezillaproject.Filezilla
+         Ref: app/org.filezillaproject.Filezilla/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 3.72.0
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 37.2 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a
+      Parent: d9b67d59e70f983160866c937f220230980c7f27cf1bff349e5cee60132b0a55
+     Subject: Merge pull request #153 from flathub/update-master-e026c0d (f05252c705e9)
+        Date: 2026-11-16 22:51:05 +0000

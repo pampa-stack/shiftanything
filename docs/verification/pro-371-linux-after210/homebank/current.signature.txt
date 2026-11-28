@@ -1,0 +1,19 @@
+commit 60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28
+Parent:  360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae
+ContentChecksum:  b25096a8e635a4a9d63f3435c3a7a160fa14b590d6369ebff9619f27ba04bd1b
+Date:  2026-11-13 09:22:19 +0000
+
+    Update to GNOME 51 (c8245fca3dc7)
+
+    Name: fr.free.Homebank
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 10:01:25 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

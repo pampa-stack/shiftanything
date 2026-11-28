@@ -1,0 +1,20 @@
+
+Liferea - Keep up with your feeds
+
+          ID: net.sourceforge.liferea
+         Ref: app/net.sourceforge.liferea/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.16.12
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 11.3 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57
+      Parent: 08c50466149aa35eaf85c3152a0a8b2c8b02fe43e6545154483ffe7c19d823ae
+     Subject: Release 1.16.12 (4210fc28d480)
+        Date: 2026-06-17 02:06:19 +0000

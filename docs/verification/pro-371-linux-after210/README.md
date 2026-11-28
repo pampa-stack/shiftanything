@@ -91,6 +91,22 @@ Il backend di `2a8c92b` con le ricette candidate ha installato, aperto, aggiorna
 - **Sigil 2.8.5 → 2.8.6.** Ripetuto il ciclo del pacchetto Linux già abilitato. Entrambe le versioni hanno aperto l’editor. [Flathub](https://flathub.org/apps/com.sigil_ebook.Sigil) · [Prima](sigil/previous.png) · [Dopo](sigil/current.png) · [Log](sigil/lifecycle.log)
 - **Qtractor e Frog.** Restano da verificare. Qtractor mostra un errore del motore audio/MIDI nel guest. Per Frog il runner ha terminato durante il controllo della finestra della versione precedente. [Errore Qtractor](qtractor/audio-midi-unavailable.png) · [Log Qtractor](qtractor/lifecycle.log) · [Log Frog](frog/lifecycle.log)
 
+## Nove app Flathub su Linux x64
+
+Il 28 novembre il backend di `8c4e50b` con le ricette candidate ha installato, aperto, aggiornato e rimosso pacchetti firmati da Flathub in una VM Ubuntu 24.04 x64 su AX42. Le aperture usavano il solo loopback. La rimozione ha eliminato il collegamento dal menu e ha conservato i file sintetici. Sono state verificate le due aperture e il ciclo del launcher.
+
+- **AbiWord 3.0.8.** Due revisioni firmate hanno aperto l’editor. [Flathub](https://flathub.org/apps/com.abisource.AbiWord) · [Prima](abiword/previous.png) · [Dopo](abiword/current.png) · [Log](abiword/lifecycle.log)
+- **Drawing 1.0.2.** Due revisioni firmate hanno aperto l’editor. La revisione precedente mostra anche un dialogo nero. [Flathub](https://flathub.org/apps/com.github.maoschanz.drawing) · [Prima](drawing/previous.png) · [Dopo](drawing/current.png) · [Log](drawing/lifecycle.log)
+- **File Roller 44.6 → 44.7.** Entrambe le versioni hanno aperto il gestore di archivi con il compositing attivo. Nessun archivio estratto durante la prova. [Flathub](https://flathub.org/apps/org.gnome.FileRoller) · [Prima](file-roller/previous.png) · [Dopo](file-roller/current.png) · [Log](file-roller/lifecycle.log)
+- **FileZilla 3.72.0 → 3.72.1.** Entrambe le versioni hanno aperto il gestore. Il dialogo iniziale appare nero nel display virtuale. Nessuna connessione a server remoti. [Flathub](https://flathub.org/apps/org.filezillaproject.Filezilla) · [Prima](filezilla/previous.png) · [Dopo](filezilla/current.png) · [Log](filezilla/lifecycle.log)
+- **Geary 46.0.** Due revisioni firmate hanno aperto la finestra principale. Il secondo ciclo con il compositing attivo ha eliminato il riquadro nero. Nessun account di posta aggiunto. [Flathub](https://flathub.org/apps/org.gnome.Geary) · [Prima](geary/previous.png) · [Dopo](geary/current.png) · [Log](geary/lifecycle.log)
+- **HomeBank 5.10.4.** Due revisioni firmate hanno aperto l’app con il registro vuoto. Il secondo ciclo con il compositing attivo ha mostrato anche il dialogo di benvenuto. [Flathub](https://flathub.org/apps/fr.free.Homebank) · [Prima](homebank/previous.png) · [Dopo](homebank/current.png) · [Log](homebank/lifecycle.log)
+- **Liferea 1.16.12.** Due revisioni firmate hanno aperto la finestra dei feed. Nessun aggiornamento dei feed via rete. [Flathub](https://flathub.org/apps/net.sourceforge.liferea) · [Prima](liferea/previous.png) · [Dopo](liferea/current.png) · [Log](liferea/lifecycle.log)
+- **Warehouse 2.2.0.** Due revisioni firmate hanno aperto la finestra dei pacchetti nel profilo isolato. [Flathub](https://flathub.org/apps/io.github.flattool.Warehouse) · [Prima](warehouse/previous.png) · [Dopo](warehouse/current.png) · [Log](warehouse/lifecycle.log)
+- **wxMaxima 26.09.0 → 26.10.0.** Entrambe le versioni hanno aperto il foglio di lavoro. Nel display virtuale il dialogo iniziale appare nero. [Flathub](https://flathub.org/apps/io.github.wxmaxima_developers.wxMaxima) · [Prima](wxmaxima/previous.png) · [Dopo](wxmaxima/current.png) · [Log](wxmaxima/lifecycle.log)
+
+GNOME Contacts resta fuori dalla verifica. Nel guest il runner ha ricevuto l’esito di avvio ma la finestra della versione precedente non è comparsa.
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.
@@ -100,3 +116,5 @@ Nel clone temporaneo copiare `verify.rs` in `crates/native/src/bin/flatpak-after
 Per Ardour installare anche `pulseaudio` e `pulseaudio-utils` nel guest. Aprire il display X indicato dal runner quando compare la richiesta. Nella versione precedente completare le quattro schermate introduttive e creare una sessione vuota chiamata `Shift-QA`. Nella versione aggiornata scegliere New nella finestra Recent Sessions e chiamare la sessione `Shift-QA-Updated`. In Audio/MIDI Setup selezionare PulseAudio, scegliere Start e chiudere l'eventuale avviso sulla memoria bloccata del guest. Il runner aspetta la finestra con il nome della sessione e usa un sink virtuale privato.
 
 Per FamiStudio usare gli stessi pacchetti di PulseAudio. Nel guest senza hardware passato dall'host, caricare il modulo Linux `snd-seq-dummy` e dare all'utente QA accesso a `/dev/snd/seq` tramite il gruppo audio. Aprire una nuova sessione del guest affinché il gruppo sia attivo. Le aperture del test usano il solo loopback.
+
+Per ripetere le prove di Geary, HomeBank o File Roller, usare `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh geary 82` con l’ID dell’app e un display libero. Il runner abilita il compositing e imposta il renderer Cairo per GTK.

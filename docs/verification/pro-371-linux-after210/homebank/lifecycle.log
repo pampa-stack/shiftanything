@@ -1,0 +1,98 @@
+2026-11-28T12:52:01+00:00 homebank AVAILABLE 17067237376
+homebank before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+homebank JobFinished: Ok("Flathub app installed")
+homebank after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:52:57+00:00 homebank current-install 60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/applications/fr.free.Homebank.desktop
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/16x16/apps/fr.free.Homebank.png
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/22x22/apps/fr.free.Homebank.png
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/24x24/apps/fr.free.Homebank.png
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/256x256/apps/fr.free.Homebank.png
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/32x32/apps/fr.free.Homebank.png
+/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28/export/share/icons/hicolor/48x48/apps/fr.free.Homebank.png
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Updating app/fr.free.Homebank/x86_64/stable
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/homebank-composited/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/homebank-composited/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:53:37+00:00 homebank previous 360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae
+homebank before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae", package: Some("fr.free.Homebank"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: false, can_open: true }
+homebank JobFinished: Err("Approved action rejected: native installation state changed")
+homebank JobFinished: Err("This Flatpak is managed outside the launcher")
+homebank after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae", package: Some("fr.free.Homebank"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=29305 comm="xfwm4 --compositor=on --display=:89" label="unconfined")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=29318 comm="flatpak run --user --command=sh app/fr.free.Homeba" label="flatpak (unconfined)")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=29318 comm="flatpak run --user --command=sh app/fr.free.Homeba" label="flatpak (unconfined)")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=29344 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+homebank before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=29442 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=29453 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:29459): dbind-WARNING **: 12:53:39.122: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:29453): xdg-desktop-portal-WARNING **: 12:53:39.137: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29453): xdg-desktop-portal-WARNING **: 12:53:39.137: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29453): xdg-desktop-portal-WARNING **: 12:53:39.137: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29453): xdg-desktop-portal-WARNING **: 12:53:39.141: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[27718]: [session uid=1000 pid=27718] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=29442 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[27718]: [session uid=1000 pid=27718] Successfully activated service 'org.freedesktop.portal.Flatpak'
+homebank JobFinished: Ok("Launch request accepted")
+homebank after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+fr.free.Homebank
+fr.free.Homebank
+fr.free.Homebank
+2026-11-28T12:54:10+00:00 homebank previous GUI WM_NAME(STRING) = "untitled.xhb - Unknown - HomeBank"
+WM_CLASS(STRING) = "homebank", "Homebank"
+2026-11-28T12:54:10+00:00 homebank AVAILABLE 10314690560
+homebank before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: true, can_remove: true, can_open: true }
+homebank JobFinished: Ok("Flathub app updated")
+homebank after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:54:11+00:00 homebank current 60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28
+/home/qa/profiles/homebank-composited/.var/app/fr.free.Homebank/fixture.txt: OK
+homebank before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: true, can_open: true }
+homebank JobFinished: Ok("Launch request accepted")
+homebank after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+fr.free.Homebank
+fr.free.Homebank
+fr.free.Homebank
+2026-11-28T12:54:43+00:00 homebank current GUI WM_NAME(STRING) = "untitled.xhb - Unknown - HomeBank"
+WM_CLASS(STRING) = "homebank", "Homebank"
+homebank before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 10, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/homebank-composited/data/flatpak/app/fr.free.Homebank/x86_64/stable/60bad87eadf7113a78b078c2bdf287d9b2151ca2379470cce21e5cd0d9bcfc28", package: Some("fr.free.Homebank"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.10.4"), update_available: false, can_remove: true, can_open: true }
+homebank JobFinished: Ok("Flathub app removed")
+homebank after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/homebank-composited/.var/app/fr.free.Homebank/fixture.txt: OK
+2026-11-28T12:54:44+00:00 homebank PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:54:46+00:00 homebank EXIT 0 remove
+
+(xfconfd:29330): xfconfd-WARNING **: 12:54:46.768: Name org.xfce.Xfconf lost on the message dbus, exiting.

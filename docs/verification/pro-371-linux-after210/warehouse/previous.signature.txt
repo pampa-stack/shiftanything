@@ -1,0 +1,19 @@
+commit 2817ff85dd5455287b6014bc01cd95a35694e85c4fd525559747d58b525e8fa8
+Parent:  3b3c898d2202b6892adec33477033d4dc7f1bd549b3be52cee0fcfd3ba465f48
+ContentChecksum:  dc10661272a2dc5c368eaaf78648801bf6556de3b175ddf0f878b851cb6a1619
+Date:  2026-01-17 20:57:12 +0000
+
+    Merge pull request #32 from flathub/heliguy4599-patch-5 (89c5a584d687)
+
+    Name: io.github.flattool.Warehouse
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat Jan 17 22:00:22 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

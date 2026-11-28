@@ -1,0 +1,94 @@
+2026-11-28T12:44:45+00:00 wxmaxima AVAILABLE 25100128256
+wxmaxima before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+wxmaxima JobFinished: Ok("Flathub app installed")
+wxmaxima after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:16+00:00 wxmaxima current-install 31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/applications/io.github.wxmaxima_developers.wxMaxima.desktop
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/128x128/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/150x150/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/16x16/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/192x192/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/22x22/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/24x24/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/256x256/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/310x310/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/32x32/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/36x36/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/42x42/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/44x44/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/48x48/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/512x512/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/64x64/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/72x72/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/8x8/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/96x96/apps/io.github.wxmaxima_developers.wxMaxima.png
+/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3/export/share/icons/hicolor/scalable/apps/io.github.wxmaxima_developers.wxMaxima.svg
+Updating app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:19+00:00 wxmaxima previous 7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff
+wxmaxima before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09.0"), update_available: false, can_remove: false, can_open: true }
+wxmaxima JobFinished: Err("Approved action rejected: native installation state changed")
+wxmaxima JobFinished: Err("This Flatpak is managed outside the launcher")
+wxmaxima after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=13582 comm="xfwm4 --compositor=off --display=:65" label="unconfined")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=13603 comm="flatpak run --user --command=sh app/io.github.wxma" label="flatpak (unconfined)")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=13603 comm="flatpak run --user --command=sh app/io.github.wxma" label="flatpak (unconfined)")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=13633 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+wxmaxima before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=13749 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=13760 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:13766): dbind-WARNING **: 12:46:20.857: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:13760): xdg-desktop-portal-WARNING **: 12:46:20.873: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13760): xdg-desktop-portal-WARNING **: 12:46:20.873: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13760): xdg-desktop-portal-WARNING **: 12:46:20.873: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:13760): xdg-desktop-portal-WARNING **: 12:46:20.878: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[10307]: [session uid=1000 pid=10307] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=13749 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[10307]: [session uid=1000 pid=10307] Successfully activated service 'org.freedesktop.portal.Flatpak'
+wxmaxima JobFinished: Ok("Launch request accepted")
+wxmaxima after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.wxmaxima_developers.wxMaxima
+io.github.wxmaxima_developers.wxMaxima
+io.github.wxmaxima_developers.wxMaxima
+2026-11-28T12:46:33+00:00 wxmaxima previous GUI WM_NAME(STRING) = "wxMaxima 26.09.0 (Org.gnome.platform 51) [ unsaved* ]"
+WM_CLASS(STRING) = "wxmaxima", "Wxmaxima"
+2026-11-28T12:46:33+00:00 wxmaxima AVAILABLE 21657993216
+wxmaxima before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.09.0"), update_available: true, can_remove: true, can_open: true }
+wxmaxima JobFinished: Ok("Flathub app updated")
+wxmaxima after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:36+00:00 wxmaxima current 31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3
+/home/qa/profiles/wxmaxima-after210/.var/app/io.github.wxmaxima_developers.wxMaxima/fixture.txt: OK
+wxmaxima before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: true, can_open: true }
+wxmaxima JobFinished: Ok("Launch request accepted")
+wxmaxima after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.wxmaxima_developers.wxMaxima
+io.github.wxmaxima_developers.wxMaxima
+io.github.wxmaxima_developers.wxMaxima
+2026-11-28T12:46:49+00:00 wxmaxima current GUI WM_NAME(STRING) = "wxMaxima 26.10.0 (Org.gnome.platform 51) [ unsaved* ]"
+WM_CLASS(STRING) = "wxmaxima", "Wxmaxima"
+wxmaxima before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/wxmaxima-after210/data/flatpak/app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable/31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3", package: Some("io.github.wxmaxima_developers.wxMaxima"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: true, can_open: true }
+wxmaxima JobFinished: Ok("Flathub app removed")
+wxmaxima after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/wxmaxima-after210/.var/app/io.github.wxmaxima_developers.wxMaxima/fixture.txt: OK
+2026-11-28T12:46:54+00:00 wxmaxima PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:47:01+00:00 wxmaxima EXIT 0 remove
+
+(xfconfd:13615): xfconfd-WARNING **: 12:47:01.386: Name org.xfce.Xfconf lost on the message dbus, exiting.

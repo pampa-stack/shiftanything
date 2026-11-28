@@ -1,0 +1,19 @@
+commit bb736c4b4d1227f068d06663eae3c6e260aada634782ce8dc157f7d11066cdff
+Parent:  3286004de46c1996dfa4bc8ca04accfcdedf4e45d5704a83f0a3997ed210c7c6
+ContentChecksum:  33e6bf471b22e6bb306995d0e7abacd9bc7f13952ac2963211a52b4379b32524
+Date:  2025-12-16 03:32:51 +0000
+
+    Reindent JSON (363386298bbf)
+
+    Name: com.github.maoschanz.drawing
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Tue Dec 16 04:02:10 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

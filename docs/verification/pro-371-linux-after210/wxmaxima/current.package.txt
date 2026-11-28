@@ -1,0 +1,21 @@
+
+wxMaxima - A graphical user interface for Maxima, a powerful computer algebra
+system
+
+          ID: io.github.wxmaxima_developers.wxMaxima
+         Ref: app/io.github.wxmaxima_developers.wxMaxima/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 26.10.0
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 45.5 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3
+      Parent: 7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff
+     Subject: Update wxwidgets, gnuplot and wxmaxima modules (95af8c2e75c9)
+        Date: 2026-11-07 19:23:43 +0000

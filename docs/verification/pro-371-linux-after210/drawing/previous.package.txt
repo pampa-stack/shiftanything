@@ -1,0 +1,20 @@
+
+Drawing - Edit screenshots or memes
+
+          ID: com.github.maoschanz.drawing
+         Ref: app/com.github.maoschanz.drawing/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.0.2
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 25.2 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: bb736c4b4d1227f068d06663eae3c6e260aada634782ce8dc157f7d11066cdff
+      Parent: 3286004de46c1996dfa4bc8ca04accfcdedf4e45d5704a83f0a3997ed210c7c6
+     Subject: Reindent JSON (363386298bbf)
+        Date: 2025-12-16 03:32:51 +0000

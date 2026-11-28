@@ -1,0 +1,19 @@
+commit 360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae
+Parent:  fd67f4440b8634c07521ba0f9111f752e9877aad0492e07894094c0015fedcfc
+ContentChecksum:  a81e17f80b1f57e49d32a52de290d01840c26aa46033a426985b3ee57dee7a1f
+Date:  2026-11-13 08:11:14 +0000
+
+    HomeBank 5.10.4 release (5a948878da4c)
+
+    Name: fr.free.Homebank
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 09:01:18 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

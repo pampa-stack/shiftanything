@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 192] = [
+pub const RECIPES: [(&str, &str); 201] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -194,6 +194,15 @@ pub const RECIPES: [(&str, &str); 192] = [
     ("scribus", "net.scribus.Scribus"),
     ("frescobaldi", "org.frescobaldi.Frescobaldi"),
     ("rhythmbox", "org.gnome.Rhythmbox3"),
+    ("file-roller", "org.gnome.FileRoller"),
+    ("abiword", "com.abisource.AbiWord"),
+    ("drawing", "com.github.maoschanz.drawing"),
+    ("filezilla", "org.filezillaproject.Filezilla"),
+    ("geary", "org.gnome.Geary"),
+    ("homebank", "fr.free.Homebank"),
+    ("liferea", "net.sourceforge.liferea"),
+    ("warehouse", "io.github.flattool.Warehouse"),
+    ("wxmaxima", "io.github.wxmaxima_developers.wxMaxima"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -346,6 +355,15 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "scribus" => "https://wiki.scribus.net/canvas/Checking_out_SVN",
         "frescobaldi" => "https://github.com/frescobaldi/frescobaldi",
         "rhythmbox" => "https://gitlab.gnome.org/GNOME/rhythmbox",
+        "file-roller" => "https://gitlab.gnome.org/GNOME/file-roller",
+        "abiword" => "https://gitlab.gnome.org/World/AbiWord",
+        "drawing" => "https://github.com/maoschanz/drawing",
+        "filezilla" => "https://svn.filezilla-project.org/svn/FileZilla3/trunk",
+        "geary" => "https://gitlab.gnome.org/GNOME/geary",
+        "homebank" => "https://launchpad.net/homebank",
+        "liferea" => "https://github.com/lwindolf/liferea",
+        "warehouse" => "https://github.com/flattool/warehouse",
+        "wxmaxima" => "https://github.com/wxMaxima-developers/wxmaxima",
         "dosbox-x" => "https://github.com/joncampbell123/dosbox-x",
         "jellyfin-desktop" => "https://github.com/jellyfin/jellyfin-desktop",
         "cloudcompare" => "https://github.com/CloudCompare/CloudCompare",

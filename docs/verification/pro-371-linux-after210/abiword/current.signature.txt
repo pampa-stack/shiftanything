@@ -1,0 +1,19 @@
+commit 6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6
+Parent:  c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6
+ContentChecksum:  24a075924239aa9dedaf667c5c4430822da831d0400a8ce6b5a7ec4887e2ec31
+Date:  2026-10-01 13:36:34 +0000
+
+    gsf: Update libgsf-1.14.59.tar.xz to 1.14.60 (3d6c499b6c30)
+
+    Name: com.abisource.AbiWord
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct  1 14:00:42 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

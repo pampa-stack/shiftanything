@@ -1,0 +1,20 @@
+
+Geary - Send and receive email
+
+          ID: org.gnome.Geary
+         Ref: app/org.gnome.Geary/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 46.0
+     License: LGPL-2.1+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 28.0 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: 953cd1a9a373c7979dfb5fcbcc9b399a3fcee26845b5e858bc430c9e6c4cd1f2
+      Parent: 52615a70e6cd1a728a55065adcfc824e423080f438158de327f4f980a5ab19ce
+     Subject: Remove `branch: stable` (79d912539d5b)
+        Date: 2025-10-09 01:57:15 +0000

@@ -1,0 +1,19 @@
+commit 558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527
+Parent:  b805e301028d7010c0315597e3e109b05e3741c7389d3da32f0d725cb231f1d7
+ContentChecksum:  7933aca2931a919594f70a275d45a343750dda90855164eba705b741d62350c5
+Date:  2026-02-23 22:51:15 +0000
+
+    Use correct 7-Zip variant (f27361f809bb)
+
+    Name: org.gnome.FileRoller
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Feb 24 00:01:23 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

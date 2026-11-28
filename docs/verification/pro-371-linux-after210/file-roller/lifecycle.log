@@ -1,0 +1,72 @@
+2026-11-28T12:54:19+00:00 file-roller AVAILABLE 17933979648
+file-roller before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+file-roller JobFinished: Ok("Flathub app installed")
+file-roller after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 7, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:54:43+00:00 file-roller current-install fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2
+/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2/export/share/applications/org.gnome.FileRoller.desktop
+/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2/export/share/icons/hicolor/scalable/apps/org.gnome.FileRoller.svg
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Updating app/org.gnome.FileRoller/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:54:57+00:00 file-roller previous 558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527
+file-roller before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 44, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527", package: Some("org.gnome.FileRoller"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.6"), update_available: false, can_remove: false, can_open: true }
+file-roller JobFinished: Err("Approved action rejected: native installation state changed")
+file-roller JobFinished: Err("This Flatpak is managed outside the launcher")
+file-roller after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 44, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527", package: Some("org.gnome.FileRoller"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.6"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=32766 comm="xfwm4 --compositor=on --display=:88" label="unconfined")
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=32779 comm="flatpak run --user --command=sh app/org.gnome.File" label="flatpak (unconfined)")
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=32779 comm="flatpak run --user --command=sh app/org.gnome.File" label="flatpak (unconfined)")
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=32805 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+file-roller before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.6"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=32906 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[31581]: [session uid=1000 pid=31581] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=32922 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:32928): dbind-WARNING **: 12:54:59.369: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:32922): xdg-desktop-portal-WARNING **: 12:54:59.384: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:32922): xdg-desktop-portal-WARNING **: 12:54:59.384: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:32922): xdg-desktop-portal-WARNING **: 12:54:59.384: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:32922): xdg-desktop-portal-WARNING **: 12:54:59.391: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[31581]: [session uid=1000 pid=31581] Successfully activated service 'org.freedesktop.portal.Desktop'
+file-roller JobFinished: Ok("Launch request accepted")
+file-roller after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.6"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.FileRoller
+2026-11-28T12:55:09+00:00 file-roller previous GUI WM_NAME(STRING) = "File Roller"
+WM_CLASS(STRING) = "org.gnome.FileRoller", "org.gnome.FileRoller"
+2026-11-28T12:55:09+00:00 file-roller AVAILABLE 16120352768
+file-roller before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 6, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.6"), update_available: true, can_remove: true, can_open: true }
+file-roller JobFinished: Ok("Flathub app updated")
+file-roller after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 7, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.7"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:55:11+00:00 file-roller current fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2
+/home/qa/profiles/file-roller-composited/.var/app/org.gnome.FileRoller/fixture.txt: OK
+file-roller before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 7, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.7"), update_available: false, can_remove: true, can_open: true }
+file-roller JobFinished: Ok("Launch request accepted")
+file-roller after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 7, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.7"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.FileRoller
+2026-11-28T12:55:21+00:00 file-roller current GUI WM_NAME(STRING) = "File Roller"
+WM_CLASS(STRING) = "org.gnome.FileRoller", "org.gnome.FileRoller"
+file-roller before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 44, minor: 7, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/file-roller-composited/data/flatpak/app/org.gnome.FileRoller/x86_64/stable/fe042f7ae3728e6cf7bdd5f38bfd064209e213d4362320a1bb8adcb8813b77b2", package: Some("org.gnome.FileRoller"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("44.7"), update_available: false, can_remove: true, can_open: true }
+file-roller JobFinished: Ok("Flathub app removed")
+file-roller after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/file-roller-composited/.var/app/org.gnome.FileRoller/fixture.txt: OK
+2026-11-28T12:55:22+00:00 file-roller PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:55:22+00:00 file-roller EXIT 0 remove
+
+(xfconfd:32791): xfconfd-WARNING **: 12:55:22.863: Name org.xfce.Xfconf lost on the message dbus, exiting.

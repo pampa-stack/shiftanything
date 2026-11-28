@@ -1,0 +1,20 @@
+
+Drawing - Edit screenshots or memes
+
+          ID: com.github.maoschanz.drawing
+         Ref: app/com.github.maoschanz.drawing/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.0.2
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 25.4 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 14f1055d8157d630d9cfa928d285c385ce9e0cd49d2a638f913c9e4fd67236d2
+      Parent: bb736c4b4d1227f068d06663eae3c6e260aada634782ce8dc157f7d11066cdff
+     Subject: Update gdk-pixbuf and librsvg modules (aac2cbcfb784)
+        Date: 2026-04-20 03:15:35 +0000

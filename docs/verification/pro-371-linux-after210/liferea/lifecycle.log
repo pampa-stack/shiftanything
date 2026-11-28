@@ -1,0 +1,88 @@
+2026-11-28T12:45:03+00:00 liferea AVAILABLE 25136623616
+liferea before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+liferea JobFinished: Ok("Flathub app installed")
+liferea after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:19+00:00 liferea current-install 710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/applications/net.sourceforge.liferea.desktop
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/16x16/apps/net.sourceforge.liferea.png
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/22x22/apps/net.sourceforge.liferea.png
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/24x24/apps/net.sourceforge.liferea.png
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/32x32/apps/net.sourceforge.liferea.png
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/48x48/apps/net.sourceforge.liferea.png
+/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3/export/share/icons/hicolor/scalable/apps/net.sourceforge.liferea.svg
+Updating app/net.sourceforge.liferea/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:22+00:00 liferea previous b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57
+liferea before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57", package: Some("net.sourceforge.liferea"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: false, can_open: true }
+liferea JobFinished: Err("Approved action rejected: native installation state changed")
+liferea JobFinished: Err("This Flatpak is managed outside the launcher")
+liferea after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57", package: Some("net.sourceforge.liferea"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=14056 comm="xfwm4 --compositor=off --display=:66" label="unconfined")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=14069 comm="flatpak run --user --command=sh app/net.sourceforg" label="flatpak (unconfined)")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=14069 comm="flatpak run --user --command=sh app/net.sourceforg" label="flatpak (unconfined)")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=14096 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+liferea before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=14195 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=14206 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:14212): dbind-WARNING **: 12:46:23.679: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:23.696: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:23.696: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:23.696: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:23.701: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=14195 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.portal.Flatpak'
+dbus-daemon[10858]: [session uid=1000 pid=10858] Activating service name='org.freedesktop.secrets' requested by ':1.13' (uid=1000 pid=14195 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+** Message: 12:46:24.706: couldn't access control socket: /home/qa/profiles/liferea-after210/runtime/keyring/control: No such file or directory
+discover_other_daemon: 0dbus-daemon[10858]: [session uid=1000 pid=10858] Successfully activated service 'org.freedesktop.secrets'
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:24.779: Realtime error: Could not map tid: Process ids could not be found: 19
+liferea JobFinished: Ok("Launch request accepted")
+liferea after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.sourceforge.liferea
+net.sourceforge.liferea
+net.sourceforge.liferea
+2026-11-28T12:46:33+00:00 liferea previous GUI WM_NAME(STRING) = "Liferea"
+WM_CLASS(STRING) = "net.sourceforge.liferea", "Net.sourceforge.liferea"
+2026-11-28T12:46:33+00:00 liferea AVAILABLE 21365772288
+liferea before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: true, can_remove: true, can_open: true }
+liferea JobFinished: Ok("Flathub app updated")
+liferea after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:46:36+00:00 liferea current 710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3
+/home/qa/profiles/liferea-after210/.var/app/net.sourceforge.liferea/fixture.txt: OK
+liferea before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: true, can_open: true }
+liferea JobFinished: Ok("Launch request accepted")
+liferea after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: true, can_open: true })
+
+(/usr/libexec/xdg-desktop-portal:14206): xdg-desktop-portal-WARNING **: 12:46:38.492: Realtime error: Could not map tid: Process ids could not be found: 17
+  Map State: IsViewable
+net.sourceforge.liferea
+net.sourceforge.liferea
+net.sourceforge.liferea
+2026-11-28T12:46:47+00:00 liferea current GUI WM_NAME(STRING) = "Liferea"
+WM_CLASS(STRING) = "net.sourceforge.liferea", "Net.sourceforge.liferea"
+liferea before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 16, patch: 12 }), source: Flatpak, location: "/home/qa/profiles/liferea-after210/data/flatpak/app/net.sourceforge.liferea/x86_64/stable/710966f942878719e3c7495097f1a072c14811e87883c0f9c26c507545bef7b3", package: Some("net.sourceforge.liferea"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.16.12"), update_available: false, can_remove: true, can_open: true }
+liferea JobFinished: Ok("Flathub app removed")
+liferea after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/liferea-after210/.var/app/net.sourceforge.liferea/fixture.txt: OK
+2026-11-28T12:46:49+00:00 liferea PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:46:56+00:00 liferea EXIT 0 remove
+
+(xfconfd:14081): xfconfd-WARNING **: 12:46:56.936: Name org.xfce.Xfconf lost on the message dbus, exiting.

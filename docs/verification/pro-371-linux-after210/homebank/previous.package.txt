@@ -1,0 +1,20 @@
+
+HomeBank - Personal accounting for everyone
+
+          ID: fr.free.Homebank
+         Ref: app/fr.free.Homebank/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 5.10.4
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 10.2 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 360857595ecdb20c11e5a15ae50968351038f00b46894363536f0f38f611fcae
+      Parent: fd67f4440b8634c07521ba0f9111f752e9877aad0492e07894094c0015fedcfc
+     Subject: HomeBank 5.10.4 release (5a948878da4c)
+        Date: 2026-11-13 08:11:14 +0000

@@ -6,14 +6,20 @@ slug=${1:?Catalog ID}
 display_number=${2:?Dedicated X server number}
 [[ $(hostname) == shift-launcher-qa && $(id -un) == qa && $display_number =~ ^[0-9]{2}$ ]]
 guest_home=$HOME
-out=$guest_home/evidence/$slug-after210
+compositor=off
+profile=$slug-after210
+if [[ ${SHIFT_QA_COMPOSITOR:-off} == on ]]; then
+    compositor=on
+    profile=$slug-composited
+fi
+out=$guest_home/evidence/$profile
 read -r flatid pattern < <(awk -v slug="$slug" '$1==slug{print $2,$3}' "$guest_home/after210-candidates")
 previous=$(awk -v slug="$slug" '$1==slug{print $4}' "$guest_home/after210-candidates")
 current=$(awk -v slug="$slug" '$1==slug{print $5}' "$guest_home/after210-candidates")
 [[ $flatid =~ ^[a-zA-Z0-9._-]+$ && $previous =~ ^[0-9a-f]{64}$ && $current =~ ^[0-9a-f]{64}$ && $previous != "$current" ]]
 ref=app/$flatid/x86_64/stable
 native=$guest_home/flatpak-after210-cycle
-export HOME=$guest_home/profiles/$slug-after210
+export HOME=$guest_home/profiles/$profile
 mkdir -p "$out" "$HOME"/{data,cache,config,state,runtime,system-flatpak}
 export XDG_DATA_HOME=$HOME/data XDG_CONFIG_HOME=$HOME/config
 export XDG_CACHE_HOME=$HOME/cache XDG_STATE_HOME=$HOME/state XDG_RUNTIME_DIR=$HOME/runtime
@@ -225,7 +231,7 @@ Xvfb "$DISPLAY" -fbdir "$out/framebuffer" -auth "$XAUTHORITY" -screen 0 1360x105
 services+=($!)
 for ((attempt=0;attempt<30;attempt++)); do if xdpyinfo >/dev/null 2>&1; then break; fi; sleep .2; done
 xdpyinfo >/dev/null
-xfwm4 --compositor=off --display="$DISPLAY" > "$out/xfwm4.log" 2>&1 &
+xfwm4 --compositor="$compositor" --display="$DISPLAY" > "$out/xfwm4.log" 2>&1 &
 services+=($!)
 if command -v xsetroot >/dev/null; then xsetroot -solid '#274053'; fi
 
@@ -285,6 +291,9 @@ if [[ "$slug" == zed ]]; then
     flatpak override --user --reset "$flatid"
     # Xvfb uses software rendering. Leave the no-escape launch setting to the launcher.
     flags+=(--no-talk-name=org.freedesktop.secrets --nosocket=gpg-agent --env=ZED_ALLOW_EMULATED_GPU=1)
+fi
+if [[ "$compositor" == on ]]; then
+    flags+=(--env=GSK_RENDERER=cairo)
 fi
 flatpak override --user "${flags[@]}" --env=QT_X11_NO_MITSHM=1 --env=LIBGL_ALWAYS_SOFTWARE=1 --env=LP_NUM_THREADS=2 "$flatid"
 flatpak override --user --show "$flatid" > "$out/sandbox.txt"

@@ -1,0 +1,19 @@
+commit 9091b88e97e94d72540d65ad6840f73a8157683a9b79906f2e2a575d83f7bc46
+Parent:  2817ff85dd5455287b6014bc01cd95a35694e85c4fd525559747d58b525e8fa8
+ContentChecksum:  7569b84f48eadca05e05263cf9ed2834a34bd44155b77629ab533fff62a8a8b8
+Date:  2026-01-20 01:05:54 +0000
+
+    Merge pull request #33 from flathub/yakushabb-patch-1 (7aa7a423d22d)
+
+    Name: io.github.flattool.Warehouse
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Jan 20 02:59:40 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

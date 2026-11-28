@@ -1,0 +1,19 @@
+commit 14f1055d8157d630d9cfa928d285c385ce9e0cd49d2a638f913c9e4fd67236d2
+Parent:  bb736c4b4d1227f068d06663eae3c6e260aada634782ce8dc157f7d11066cdff
+ContentChecksum:  df64377f508b08cbc7b1664879cec6f527f34916c61547b4f1791bc76c459472
+Date:  2026-04-20 03:15:35 +0000
+
+    Update gdk-pixbuf and librsvg modules (aac2cbcfb784)
+
+    Name: com.github.maoschanz.drawing
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Mon Apr 20 04:01:32 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -4359,6 +4359,182 @@
           }
         }
       ]
+    },
+    {
+      "id": "teamviewer",
+      "name": "TeamViewer",
+      "aliases": [
+        "TeamViewer Remote",
+        "TeamViewer Classic"
+      ],
+      "features": [
+        {
+          "id": "remote-desktop",
+          "name": {
+            "it": "Vedere e controllare un desktop remoto",
+            "en": "View and control a remote desktop"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/remote-control/remote-session-toolbar/"
+        },
+        {
+          "id": "file-transfer",
+          "name": {
+            "it": "Trasferire file tra i due computer",
+            "en": "Transfer files between computers"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/remote-control/remote-session-toolbar/"
+        },
+        {
+          "id": "text-clipboard",
+          "name": {
+            "it": "Copiare e incollare testo tra i computer",
+            "en": "Copy and paste text between computers"
+          },
+          "source": "https://www.teamviewer.com/en/global/support/knowledge-base/teamviewer-remote/remote-control/control-clipboard-sync-during-remote-support-sessions/"
+        },
+        {
+          "id": "browser-client",
+          "name": {
+            "it": "Controllare un computer dal browser",
+            "en": "Control a computer from your browser"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/get-started/get-started-with-teamviewer-remote/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rustdesk",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/client/",
+              "note": {
+                "it": "Il client controlla desktop su Windows, macOS e Linux.",
+                "en": "The client controls desktops on Windows, macOS, and Linux."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/self-host/client-configuration/advanced-settings/#enable-file-transfer",
+              "note": {
+                "it": "Il client permette di trasferire file tra i dispositivi.",
+                "en": "The client supports transferring files between devices."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/self-host/client-configuration/advanced-settings/#enable-clipboard",
+              "note": {
+                "it": "Gli appunti di testo si possono condividere durante la sessione.",
+                "en": "Text can be shared between clipboards during the session."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://rustdesk.com/blog/rustdesk-web-client-v2-preview/",
+              "note": {
+                "it": "Il client web pubblico controlla altri dispositivi. Per ospitare anche il client web serve Server Pro.",
+                "en": "The public web client controls other devices. Hosting the web client yourself requires Server Pro."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "guacamole",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#client-screen",
+              "note": {
+                "it": "Mostra il desktop remoto e inoltra mouse e tastiera tramite il gateway.",
+                "en": "Displays the remote desktop and relays mouse and keyboard input through the gateway."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#transferring-files",
+              "note": {
+                "it": "Carica e scarica file sulle connessioni RDP o SFTP configurate per il trasferimento.",
+                "en": "Uploads and downloads files over RDP or SFTP connections configured for file transfer."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#copying-pasting-text",
+              "note": {
+                "it": "Condivide il testo degli appunti. Se il browser limita la sincronizzazione, resta disponibile il pannello manuale.",
+                "en": "Shares clipboard text. A manual panel remains available if the browser limits clipboard sync."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/introduction.html",
+              "note": {
+                "it": "L’interfaccia HTML5 si apre nel browser. Serve un gateway Guacamole.",
+                "en": "The HTML5 interface opens in a browser. A Guacamole gateway is required."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "meshcentral",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#desktop-control",
+              "note": {
+                "it": "La scheda Desktop permette di vedere e controllare i dispositivi associati.",
+                "en": "The Desktop tab lets you view and control enrolled devices."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#manage-computer",
+              "note": {
+                "it": "La scheda File gestisce upload e download separatamente dal desktop.",
+                "en": "The Files tab handles uploads and downloads separately from the desktop view."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://github.com/Ylianst/MeshCentral/blob/f606944569b0a49ac09978e0ddc31375608d9dc2/views/default.handlebars#L8757-L8783",
+              "note": {
+                "it": "Il client web scambia il testo degli appunti quando il browser e la sessione lo consentono.",
+                "en": "The web client exchanges clipboard text when the browser and session allow it."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#manage-computer",
+              "note": {
+                "it": "La console web apre il desktop dei dispositivi gestiti.",
+                "en": "The web console opens the desktop of managed devices."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "remmina",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://remmina.org/",
+              "note": {
+                "it": "Il client desktop per Linux supporta RDP, VNC e altri protocolli.",
+                "en": "The Linux desktop client supports RDP, VNC, and other protocols."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://remmina.org/",
+              "note": {
+                "it": "Il progetto documenta la condivisione di file tramite il client.",
+                "en": "The project documents file sharing through the client."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

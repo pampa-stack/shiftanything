@@ -204,6 +204,7 @@
     shopify: ['Shopify'],
     sketch: ['Sketch'],
     slack: ['Slack'],
+    teamviewer: ['TeamViewer', 'TeamViewer Remote', 'TeamViewer Classic'],
     trimble: ['SketchUp'],
     wispr: ['Wispr Flow'],
     zoom: ['Zoom'],

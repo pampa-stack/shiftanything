@@ -42,6 +42,8 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "audacity" => ("AudioVideo;Audio;AudioVideoEditing;", Some("Audacity4")),
         "drawio" => ("Graphics;", Some("draw-io")),
         "nextcloud-desktop" => ("Utility;X-SuSE-SyncUtility;", Some("Nextcloud")),
+        "neovide" => ("Development;TextEditor;", Some("neovide")),
+        "openscreen" => ("AudioVideo;Video;Recorder;", Some("openscreen")),
         "cryptomator" => ("Utility;Security;FileTools;", Some("org.cryptomator.launcher.Cryptomator$MainApp")),
         "joplin" => ("Office;", Some("appimagekit-joplin")),
         "notepadnext" => ("Qt;TextEditor;Utility;", Some("NotepadNext")),
@@ -240,6 +242,16 @@ mod tests {
         // The spec forbids `=` in the executable name or path, even quoted.
         assert_eq!(exec_quote(Path::new("/opt/artcraft=beta/app")), None);
         assert!(render(app("photocraft"), Path::new("/a/line\nbreak.AppImage"), true).is_none());
+    }
+
+    #[test]
+    fn neovide_and_openscreen_match_their_x11_windows() {
+        for class in ["neovide", "openscreen"] {
+            let app = app(class);
+            let text = render(app, Path::new("/home/ana/Applications/app.AppImage"), true).unwrap();
+            assert!(text.lines().any(|line| line.strip_prefix("StartupWMClass=") == Some(class)));
+            assert!(text.lines().any(|line| line.strip_prefix("Icon=") == Some(app.linux_desktop_id().as_str())));
+        }
     }
 
     #[test]

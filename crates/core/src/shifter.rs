@@ -164,6 +164,12 @@ impl Dataset {
             .collect()
     }
 
+    /// Exact product match on a name or alias, for links from curated lists such as the work kits.
+    pub fn profile_named(&self, name: &str) -> Option<&Profile> {
+        let name = normalize(name);
+        self.profiles.iter().find(|profile| std::iter::once(&profile.name).chain(&profile.aliases).any(|known| normalize(known) == name))
+    }
+
     /// Explicit qualified IDs reuse evidence; free labels never acquire evidence by name.
     pub fn feature(&self, key: &str) -> Option<(&Profile, &Feature)> {
         let (profile_id, feature_id) = key.split_once(':')?;

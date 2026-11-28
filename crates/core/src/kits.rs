@@ -60,6 +60,36 @@ mod tests {
     use std::collections::BTreeSet;
 
     #[test]
+    fn every_paid_product_in_a_kit_has_a_shifter_profile_confirming_the_kit_alternatives() {
+        let shifter = crate::shifter::data().unwrap();
+        let mut gaps = BTreeSet::new();
+        for step in data().unwrap().kits.iter().flat_map(|kit| &kit.steps) {
+            for paid in &step.paid {
+                let Some(profile) = shifter.profile_named(paid) else {
+                    gaps.insert(format!("{paid}: no profile"));
+                    continue;
+                };
+                for option in &step.options {
+                    let confirmed = profile
+                        .candidates
+                        .iter()
+                        .find(|candidate| candidate.app_id == option.app)
+                        .is_some_and(|candidate| candidate.evidence.values().any(|evidence| evidence.state == crate::shifter::State::Supported));
+                    if !confirmed {
+                        gaps.insert(format!("{paid}: {} unconfirmed", option.app));
+                    }
+                }
+            }
+            assert!(
+                step.compare
+                    .as_deref()
+                    .is_none_or(|id| step.paid.iter().any(|paid| shifter.profile_named(paid).is_some_and(|profile| profile.id == id)))
+            );
+        }
+        assert!(gaps.is_empty(), "{} gaps between kits and SH*FTER: {gaps:#?}", gaps.len());
+    }
+
+    #[test]
     fn kits_only_offer_catalog_apps_and_documented_comparisons() {
         let catalog: BTreeSet<_> = crate::curated::apps().iter().map(|app| app.id.as_str()).collect();
         let profiles: BTreeSet<_> = crate::shifter::data().unwrap().profiles.iter().map(|profile| profile.id.as_str()).collect();

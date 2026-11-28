@@ -200,6 +200,36 @@
     "reason": "unsigned"
   },
   {
+    "id": "qview",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/jurplel/qView/releases/tag/7.1",
+    "asset_url": "https://github.com/jurplel/qView/releases/download/7.1/qView-7.1.dmg",
+    "sha256": "fa34d0e54601b8557f4e879527b9bb1e728ace5c7c1c69cf126700ca4d0b5817",
+    "bytes": 43114041,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "rawtherapee",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/RawTherapee/RawTherapee/releases/tag/5.13",
+    "asset_url": "https://rawtherapee.com/shared/builds/mac/RawTherapee_MacOS_26.0_Universal_5.13.zip",
+    "sha256": "795a32a688afa5b127dfd768c25c77649859ababa206352e865f6587c66c45a7",
+    "bytes": 163367004,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "rawtherapee",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/rawtherapee",
+    "asset_url": "https://rawtherapee.com/shared/builds/mac/RawTherapee_MacOS_26.0_Universal_5.13.zip",
+    "sha256": "795a32a688afa5b127dfd768c25c77649859ababa206352e865f6587c66c45a7",
+    "bytes": 163367004,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
     "id": "ultimaker-cura",
     "target": "macos-arm64",
     "release_source": "https://github.com/Ultimaker/Cura/releases/tag/5.14.0",

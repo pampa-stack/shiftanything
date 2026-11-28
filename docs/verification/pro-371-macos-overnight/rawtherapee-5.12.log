@@ -1,0 +1,3 @@
+ARTIFACT 2f284d1c023f53f0c492aecc3f7635d6b7807ef22d5413ee55715d81e81fe688 181634260 https://rawtherapee.com/shared/builds/mac/RawTherapee_macOS_15.4_Universal_5.12.zip
+INNER RawTherapee_macOS_15.4_Universal_5.12_folder/RawTherapee_macOS_15.4_Universal_5.12.dmg d30c96bb406a7b4ada07fb419b7c85f851bba02a12593657849449b3c0226fcd
+hdiutil: attach canceled

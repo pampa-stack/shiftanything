@@ -33,6 +33,8 @@ impl<'a> Package<'a> {
             artcraft_launcher_core::release::kdenlive_mac_version(label)
         } else if self.name == "MeetingBar.dmg" {
             artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::MEETINGBAR.repo, self.tag)
+        } else if self.name.starts_with("karing_") {
+            artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::KARING.repo, self.tag)
         } else if self.name == "MacVim.dmg" {
             artcraft_launcher_core::release::release_tag_version(artcraft_launcher_core::curated::MACVIM.repo, self.tag)
         } else if self.name.starts_with("Syncthing-") {
@@ -40,7 +42,7 @@ impl<'a> Package<'a> {
         } else {
             artcraft_launcher_core::version::parse(label)
         };
-        version.expect("canonical package tag").to_string()
+        artcraft_launcher_core::version::label(&version.expect("canonical package tag"))
     }
 
     fn assert_release(&self, app: &CraftApp, release: &Release) -> Result<(), String> {
@@ -192,6 +194,7 @@ fn main() -> Result<(), String> {
             "sigil",
             "syncthing-macos",
             "meetingbar",
+            "karing",
             "freeplane",
         ]
         .contains(&app.id)
@@ -248,7 +251,7 @@ fn main() -> Result<(), String> {
         Event::Detected { app, installed } if app == *id => Some(installed),
         _ => None,
     })?;
-    let initial = installed.as_ref().and_then(|installed| installed.version.as_ref()).map(ToString::to_string);
+    let initial = installed.as_ref().and_then(|installed| installed.version.as_ref()).map(artcraft_launcher_core::version::label);
     if installed.as_ref().is_some_and(|installed| Path::new(&installed.location) != bundle) {
         return Err(format!("Unexpected initial location {installed:?}"));
     }

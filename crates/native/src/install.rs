@@ -164,7 +164,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
         (&[recipe::ITSYCAL.id, recipe::KRITA.id, recipe::SYNCTHING_MACOS.id, recipe::VLC.id], (11, 0)),
-        (&[recipe::MEETINGBAR.id], (12, 0)),
+        (&[recipe::MEETINGBAR.id, recipe::KARING.id], (12, 0)),
         (&[recipe::COTEDITOR.id], (26, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
@@ -3296,11 +3296,10 @@ pub mod macos {
             super::macos_verify::verify_with(app, bundle, team, run)?;
         }
         if let Some(want) = expect.version {
-            let dbeaver = artcraft_launcher_core::curated::DBEAVER_CE;
-            let matches = found
-                .version
-                .as_ref()
-                .is_some_and(|version| if (app.id, app.repo) == (dbeaver.id, dbeaver.repo) { version == want } else { same_release(version, want) });
+            let exact_version = [artcraft_launcher_core::curated::DBEAVER_CE, artcraft_launcher_core::curated::KARING]
+                .iter()
+                .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo));
+            let matches = found.version.as_ref().is_some_and(|version| if exact_version { version == want } else { same_release(version, want) });
             if !matches {
                 return Err(format!("the app inside isn't version {}, so it wasn't installed", super::version::label(want)));
             }

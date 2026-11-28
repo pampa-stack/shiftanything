@@ -838,6 +838,8 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
 pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
     if repo == crate::curated::DBEAVER_CE.repo {
         version::parse_dbeaver(tag)
+    } else if repo == crate::curated::KARING.repo {
+        version::parse_karing(tag.strip_prefix("v")?)
     } else if repo == crate::curated::PRUSA_SLICER.repo {
         prusa_slicer_version(tag.strip_prefix("version_")?)
     } else if repo == crate::curated::KDENLIVE.repo {
@@ -1235,6 +1237,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENCLAW,
         crate::curated::SYNCTHING_MACOS,
         crate::curated::MEETINGBAR,
+        crate::curated::KARING,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1340,8 +1343,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
     }
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
-            if app.repo == crate::curated::DBEAVER_CE.repo && app.id == crate::curated::DBEAVER_CE.id {
-                return version::parse_dbeaver(&release.tag).as_ref() == Some(version);
+            if [crate::curated::DBEAVER_CE, crate::curated::KARING].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+                return release_tag_version(app.repo, &release.tag).as_ref() == Some(version);
             }
             let canonical_tag = if app.uses_krita_releases() {
                 krita_mac_version(&release.tag).as_ref() == Some(version)
@@ -1658,6 +1661,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("KaringX/karing", "v1.2.26.2932") => {
+            &[("karing_1.2.26.2932_macos_universal.dmg", 116_879_271, "3631628da559b802aebb8435431f2f0aa01da132cb2a87985abc636fcb4369fc")]
+        }
+        ("KaringX/karing", "v1.2.26.2934") => {
+            &[("karing_1.2.26.2934_macos_universal.dmg", 116_908_954, "eade8421f83695ce440709fb07a477995fa64ff0608e6180d6e4cca1bf7bc79e")]
+        }
         ("leits/MeetingBar", "v4.11.6") => &[("MeetingBar.dmg", 11_294_412, "4f19af496d4ff44b9b0ee02be02bc76207f3e365a7f9e77c7219a08c607838d7")],
         ("leits/MeetingBar", "v5.0.0") => &[("MeetingBar.dmg", 8_210_845, "26d4759f73f429c2aa93d225704bf85cdde8b1c035c12aadeb63d4dddbdae1e4")],
         ("syncthing/syncthing-macos", "v2.1.5-1") => {
@@ -2704,6 +2713,26 @@ mod tests {
             assert_eq!(select(&prerelease, mac), None);
         }
         assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
+
+    #[test]
+    fn karing_requires_the_exact_reviewed_build_and_only_enables_arm64() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::KARING};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| crate::platform::pick_asset(release, &[KARING.id], platform, &[PackageKind::Dmg]).is_some();
+        let previous = release_from_sums(KARING.repo, "v1.2.26.2932", &[]);
+        let mut current = release_from_sums(KARING.repo, "v1.2.26.2934", &[]);
+        assert_eq!(previous.version_label(), "1.2.26.2932");
+        assert_eq!(current.version_label(), "1.2.26.2934");
+        assert!(version::is_update(current.version.as_ref().unwrap(), previous.version.as_ref().unwrap()));
+        assert!(pick(&previous, mac) && pick(&current, mac));
+        assert!(!pick(&current, Platform { arch: Arch::X64, ..mac }));
+        assert!(!pick(&release_from_sums(KARING.repo, "v1.2.26.2933", &[]), mac));
+        assert_eq!(release_tag_version("example/karing", "v1.2.26.2934"), None);
+        assert_eq!(release_tag_version(KARING.repo, "v1.2.26"), None);
+        current.version = previous.version;
+        assert!(!pick(&current, mac));
     }
 
     #[test]

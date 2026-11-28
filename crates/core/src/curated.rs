@@ -1570,6 +1570,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const KARING: crate::CraftApp = crate::CraftApp {
+    id: "karing",
+    name: "Karing",
+    tagline: "Manage your proxy profiles in a graphical client",
+    repo: "KaringX/karing",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [61, 130, 230],
+    ink_light: [23, 65, 137],
+    ink_dark: [158, 193, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "KaringX",
+    msi_publisher: None,
+    bundle: Some("com.nebula.karing"),
+    site: Some("https://karing.app/"),
+    mac_bundle_name: Some("Karing"),
+    mac_team: Some("TNPM9PFX3W"),
+};
+
 pub const MEETINGBAR: crate::CraftApp = crate::CraftApp {
     id: "meetingbar",
     name: "MeetingBar",
@@ -3403,6 +3424,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SIGIL,
     SYNCTHING_MACOS,
     MEETINGBAR,
+    KARING,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

@@ -1,0 +1,24 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v1.2.26.2932 Dmg https://github.com/KaringX/karing/releases/download/v1.2.26.2932/karing_1.2.26.2932_macos_universal.dmg 116879271 3631628da559b802aebb8435431f2f0aa01da132cb2a87985abc636fcb4369fc
+PASS OFFICIAL v1.2.26.2934 Dmg https://github.com/KaringX/karing/releases/download/v1.2.26.2934/karing_1.2.26.2934_macos_universal.dmg 116908954 eade8421f83695ce440709fb07a477995fa64ff0608e6180d6e4cca1bf7bc79e
+NATIVE ORIGIN karing GitHub
+PASS OFFICIAL v1.2.26.2932 Dmg https://github.com/KaringX/karing/releases/download/v1.2.26.2932/karing_1.2.26.2932_macos_universal.dmg 116879271 3631628da559b802aebb8435431f2f0aa01da132cb2a87985abc636fcb4369fc
+PASS NATIVE karing install: Karing installed: 1.2.26.2932; package_bytes=116879271; elapsed=26.604s
+1.2.26
+/private/tmp/shift-air-overnight.mQkz2euq/profile-karing.FZ1VNIp2/Applications/Karing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: SUPERNOVA NEBULA LLC (TNPM9PFX3W)
+2932
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN karing GitHub
+PASS OFFICIAL v1.2.26.2934 Dmg https://github.com/KaringX/karing/releases/download/v1.2.26.2934/karing_1.2.26.2934_macos_universal.dmg 116908954 eade8421f83695ce440709fb07a477995fa64ff0608e6180d6e4cca1bf7bc79e
+PASS NATIVE karing update: Karing updated to 1.2.26.2934; package_bytes=116908954; elapsed=22.334s
+1.2.26
+/private/tmp/shift-air-overnight.mQkz2euq/profile-karing.FZ1VNIp2/Applications/Karing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: SUPERNOVA NEBULA LLC (TNPM9PFX3W)
+2934
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE karing remove: Karing was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE karing (1.2.26.2932 → 1.2.26.2934), private Trash and synthetic data preserved

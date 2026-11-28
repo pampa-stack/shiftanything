@@ -274,7 +274,15 @@ pub mod macos {
                 .chain(["CFBundleShortVersionString", "CFBundleVersion"])
                 .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()))
         };
-        let version = text.and_then(|text| bundle_version(app, text));
+        let karing = artcraft_launcher_core::curated::KARING;
+        let version = if curated == (karing.id, karing.repo) {
+            dict.get("CFBundleShortVersionString").and_then(plist::Value::as_string).and_then(|core| {
+                let build = dict.get("CFBundleVersion")?.as_string()?;
+                version::parse_karing(&format!("{core}.{build}"))
+            })
+        } else {
+            text.and_then(|text| bundle_version(app, text))
+        };
         let logseq_db = artcraft_launcher_core::curated::LOGSEQ_DB;
         // The legacy file edition and the database edition share an identifier and bundle name.
         if curated == (logseq_db.id, logseq_db.repo) && !version.as_ref().is_some_and(|version| version.major >= 2) {

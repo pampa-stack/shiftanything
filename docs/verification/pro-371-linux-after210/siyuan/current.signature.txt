@@ -1,0 +1,19 @@
+commit f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998
+Parent:  93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685
+ContentChecksum:  a76c95bd3458053f638633dbd88aeeae9188ab4b94f043350e5a680472efa7ef
+Date:  2026-11-20 06:20:04 +0000
+
+    Merge pull request #140 from flathub/update-master-5f40734 (7734db93f60b)
+
+    Name: org.b3log.siyuan
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 20 07:00:57 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

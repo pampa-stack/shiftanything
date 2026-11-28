@@ -1,7 +1,8 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 186] = [
+pub const RECIPES: [(&str, &str); 187] = [
+    ("siyuan", "org.b3log.siyuan"),
     ("olive", "org.olivevideoeditor.Olive"),
     ("raspberry-pi-imager", "org.raspberrypi.rpi-imager"),
     ("jasp", "org.jaspstats.JASP"),
@@ -381,6 +382,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "olive" => "https://github.com/olive-editor/olive",
         "raspberry-pi-imager" => "https://github.com/raspberrypi/rpi-imager",
         "jasp" => "https://github.com/jasp-stats/jasp-desktop",
+        "siyuan" => "https://github.com/siyuan-note/siyuan",
         "simplex-chat" => "https://github.com/simplex-chat/simplex-chat",
         "sonobus" => "https://github.com/sonosaurus/sonobus",
         "carla" => "https://github.com/falkTX/Carla",

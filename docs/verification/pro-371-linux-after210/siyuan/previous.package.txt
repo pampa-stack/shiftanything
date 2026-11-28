@@ -1,0 +1,20 @@
+
+SiYuan - A privacy-first personal knowledge management system
+
+          ID: org.b3log.siyuan
+         Ref: app/org.b3log.siyuan/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 3.8.10
+     License: AGPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 798.0 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685
+      Parent: f0d89ab33805a331fd4a925c0ebe5d8df236fe0a1ddb9918f5b639443d2ce4d4
+     Subject: Merge pull request #139 from flathub/update-master-47bca73 (ee63dce2e2b8)
+        Date: 2026-11-10 06:19:34 +0000

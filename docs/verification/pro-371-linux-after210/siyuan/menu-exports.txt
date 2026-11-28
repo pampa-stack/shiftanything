@@ -1,0 +1,2 @@
+/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998/export/share/applications/org.b3log.siyuan.desktop
+/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998/export/share/icons/hicolor/512x512/apps/org.b3log.siyuan.png

@@ -69,6 +69,10 @@ Il 28 novembre il backend del commit `42dca2d`, compilato con tre ricette candid
 - **JASP 0.98.1 → 0.99.0.** Abilitato su Linux x64 dopo un secondo ciclo completo sul backend di `ad8968f` con la correzione. Il launcher mostra 0.98.1 prima e 0.99.0 dopo l’aggiornamento. AppStream continua a riportare 0.98.1. Il backend corregge il valore solo per il commit stabile Flathub x86-64 firmato e provato. Entrambe le versioni si sono aperte offline e la rimozione ha conservato i dati sintetici. La vecchia versione ha mostrato anche un dialogo nero nel display virtuale. [Rilascio ufficiale](https://github.com/jasp-stats/jasp-desktop/releases/tag/v0.99.0) · [Prima](jasp/previous.png) · [Dopo](jasp/current.png) · [Metadati](jasp/current.package.txt) · [Log](jasp/lifecycle.log) · [Test della regressione](jasp/version-regression.log)
 - **Sioyek.** Flatpak segnala che la revisione osservata `5a23fc0b35f521a791e4fffd50e5559b23741e228d5b938ea711ec58fdb1380d` usa il runtime Freedesktop 24.08 fuori supporto. La scheda mantiene il link ufficiale. [Flathub](https://flathub.org/apps/com.github.ahrm.sioyek) · [Guida di installazione](https://github.com/ahrm/sioyek-documentation/blob/main/docs/source/installation.rst)
 
+## SiYuan
+
+Il Flatpak comunitario di SiYuan è abilitato su Linux x64 dopo un ciclo da 3.8.10 a 3.8.11. [Prove di Flatpak, AppImage e DEB](siyuan/README.md)
+
 ## Riproduzione
 
 Usare un guest Ubuntu 24.04 x86-64 temporaneo chiamato `shift-launcher-qa`, con un utente senza privilegi chiamato `qa`. Il guest deve avere Flatpak, OSTree, D-Bus, Xvfb, xauth, xdotool, x11-apps, x11-utils, xfwm4 e xdg-desktop-portal-gtk. Servono una connessione a Flathub per i pacchetti e almeno 9 GiB liberi nel profilo di prova.

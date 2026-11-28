@@ -13317,6 +13317,17 @@
       "https://raw.githubusercontent.com/siyuan-note/siyuan/master/screenshots/feature0.png"
     ],
     "media_source": "https://github.com/siyuan-note/siyuan/blob/master/README.md",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.b3log.siyuan",
+        "source": "https://flathub.org/apps/org.b3log.siyuan",
+        "download_size": 295388108,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.b3log.siyuan",
+        "download_size_checked": "2026-11-28"
+      }
+    ],
     "review": {
       "method": "fonti_ufficiali",
       "date": "2026-11-26",

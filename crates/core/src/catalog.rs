@@ -411,6 +411,8 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         return Some(icon);
     }
     Some(match id {
+        "neovide" => include_bytes!("../../../assets/app-icons/neovide.png"),
+        "openscreen" => include_bytes!("../../../assets/app-icons/openscreen.png"),
         "opencode" => include_bytes!("../../../assets/app-icons/opencode.png"),
         "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
         "dust3d" => include_bytes!("../../../assets/app-icons/dust3d.png"),

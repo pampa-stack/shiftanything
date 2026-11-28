@@ -16477,8 +16477,8 @@
     "level": "base",
     "category": "sviluppo",
     "description": {
-      "it": "Interfaccia desktop con font, animazioni e appunti di sistema. Richiede Neovim 0.12 o successivo, da installare separatamente.",
-      "en": "Desktop front end with font, animation, and system clipboard support. Requires a separate installation of Neovim 0.12 or later."
+      "it": "Interfaccia desktop con font, animazioni e appunti di sistema. Richiede Neovim 0.12 o successivo, da installare separatamente. Su Linux con X11 serve anche libxkbcommon-x11.",
+      "en": "Desktop front end with font, animation, and system clipboard support. Requires a separate installation of Neovim 0.12 or later. Linux on X11 also requires libxkbcommon-x11."
     },
     "alternatives": [
       "Sublime Text",

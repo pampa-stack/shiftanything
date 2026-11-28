@@ -733,7 +733,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     }
     if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
         return platform == linux_x64
-            || (platform == mac_arm64 && (stems.contains(&crate::curated::DYAD.id) || crate::release::qualified_mac_dmg_recipe(stems).is_some()));
+            || (platform == mac_arm64
+                && ([crate::curated::DYAD.id, NEOVIDE.id, crate::curated::OPENSCREEN.id].iter().any(|id| stems.contains(id))
+                    || crate::release::qualified_mac_dmg_recipe(stems).is_some()));
     }
     if [
         crate::curated::DBEAVER_CE.id,
@@ -830,6 +832,25 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn openscreen_and_neovide_route_only_reviewed_appimages_on_linux_x64() {
+        use crate::curated::{NEOVIDE, OPENSCREEN};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (app, tags) in [(OPENSCREEN, ["v2.3.0", "v2.4.0"]), (NEOVIDE, ["0.17.3", "0.17.4"])] {
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_some());
+                assert!(pick_asset(&release, &[app.id], linux, &[PackageKind::AppImage]).is_some());
+                assert!(pick_asset(&release, &[app.id], Platform { arch: Arch::Arm64, ..linux }, &[PackageKind::AppImage]).is_none());
+                let asset = release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap();
+                asset.sha256 = Some("a".repeat(64));
+                assert!(pick_asset(&release, &[app.id], linux, &[PackageKind::AppImage]).is_none());
+            }
+        }
+    }
 
     #[test]
     fn craft_anything_uses_reviewed_dmg_on_apple_silicon() {

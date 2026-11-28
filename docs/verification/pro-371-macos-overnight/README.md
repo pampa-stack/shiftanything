@@ -192,3 +192,7 @@ Copy the two preflight logs and the publisher feed (as `aionui-macos-feed.yml`) 
 ### Czkawka 12.0.2 on Apple Silicon
 
 Both GUI downloads matched their published SHA-256 values. The GTK build is a bare ARM64 executable. The Krokiet archive contains an ARM64 executable and backend launch scripts. Both executables use linker ad hoc signatures without a Developer ID Team and Gatekeeper rejected both on macOS 26.6.2. This was a package inspection without launching either binary. The catalog points to the upstream releases for Mac while the verified Flathub recipe stays available on Linux. [Publisher assets](https://github.com/qarmin/czkawka/releases/expanded_assets/12.0.2) · [Package log](czkawka-macos-package.log)
+
+### Karabiner-Elements 17.0.0 on Apple Silicon
+
+The DMG matched the publisher's SHA-256 and contained a single `.pkg`. Gatekeeper accepted the package as a Notarized Developer ID installer from Fumihiko Takayama (`G43BCU2T37`). It was inspected from a read-only mount. Installation, driver approval and service removal need a separate macOS QA system and remain outside this check. The catalog detail explains the initial macOS permissions. [Publisher assets](https://github.com/pqrs-org/Karabiner-Elements/releases/expanded_assets/v17.0.0) · [Setup instructions](https://karabiner-elements.pqrs.org/docs/getting-started/installation/) · [Package log](karabiner-macos-package.log)

@@ -32865,8 +32865,8 @@
     "level": "avanz",
     "category": "accessibilita",
     "description": {
-      "it": "Personalizza la tastiera del Mac con rimappature dei tasti e regole per le combinazioni. Puoi assegnare regole a singoli dispositivi, gestire profili e controllare gli eventi con EventViewer.",
-      "en": "Customize your Mac keyboard with key remapping and rules for key combinations. Apply rules by device, manage profiles, and inspect key events in EventViewer."
+      "it": "Personalizza la tastiera del Mac con rimappature dei tasti e regole per le combinazioni. Puoi assegnare regole a singoli dispositivi, gestire profili e controllare gli eventi con EventViewer. La configurazione iniziale richiede di approvare il driver della tastiera virtuale, i servizi in background e i permessi di accessibilità nelle impostazioni di macOS.",
+      "en": "Customize your Mac keyboard with key remapping and rules for key combinations. Apply rules by device, manage profiles, and inspect key events in EventViewer. Initial setup requires approving the virtual keyboard driver, background services, and accessibility permissions in macOS Settings."
     },
     "alternatives": [
       "BetterTouchTool"

@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager|wwdc) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager|wwdc|pika-color) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -224,6 +224,7 @@ for tag in (old, new):
     else:
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
+            'pika-color': r'\d+\.\d+\.\d+',
             'sloth': r'\d+\.\d+',
             'macvim': r'release-\d+',
             'github-desktop': r'release-\d+\.\d+\.\d+',
@@ -331,9 +332,13 @@ fi
 for phase in "${phases[@]}"; do
     run_phase "$phase"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
-    if [[ "$id" == wwdc && "$phase" != remove ]]; then
+    if [[ ( "$id" == wwdc || "$id" == pika-color ) && "$phase" != remove ]]; then
+        if /usr/bin/pgrep -x "$app" >/dev/null; then
+            printf 'A process named %s is already running. Leaving it alone.\n' "$app" >&2
+            exit 1
+        fi
         run_phase open
-        python3 - "$profile/Applications/WWDC.app/Contents/MacOS/WWDC" <<'PYWWDC'
+        python3 - "$profile/Applications/$app.app/Contents/MacOS/$app" <<'PYOPEN'
 import os, signal, subprocess, sys, time
 
 executable = sys.argv[1]
@@ -349,20 +354,20 @@ for attempt in range(50):
         break
     time.sleep(0.2)
 else:
-    raise SystemExit('WWDC did not start exactly one process from the isolated bundle')
+    raise SystemExit('Expected exactly one process from the isolated bundle')
 
 [pid] = matches
 time.sleep(2)
-assert pid in current_processes(), 'WWDC exited immediately'
+assert pid in current_processes(), 'The isolated process exited immediately'
 os.kill(pid, signal.SIGTERM)
 for attempt in range(50):
     if pid not in current_processes():
         break
     time.sleep(0.2)
 else:
-    raise SystemExit('WWDC did not exit after SIGTERM')
-print('PASS OPEN AND CLOSE WWDC executable in the isolated profile')
-PYWWDC
+    raise SystemExit('The isolated process did not exit after SIGTERM')
+print(f'PASS OPEN AND CLOSE {os.path.basename(executable)} executable in the isolated profile')
+PYOPEN
     fi
 
     if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks || "$id" == scummvm ) && "$phase" != remove ]]; then

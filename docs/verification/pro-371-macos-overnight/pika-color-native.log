@@ -1,0 +1,21 @@
+PASS PREFLIGHT pika-color 2.0.2
+PASS PREFLIGHT pika-color 2.0.3
+OFFICIAL INDEX pika-color 2.0.2 digest=published
+OFFICIAL INDEX pika-color 2.0.3 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 2.0.2 Dmg https://github.com/superhighfives/pika/releases/download/2.0.2/Pika-2.0.2.dmg 8509840 03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734
+PASS OFFICIAL 2.0.3 Dmg https://github.com/superhighfives/pika/releases/download/2.0.3/Pika-2.0.3.dmg 8613124 0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f
+NATIVE ORIGIN pika-color GitHub
+PASS OFFICIAL 2.0.2 Dmg https://github.com/superhighfives/pika/releases/download/2.0.2/Pika-2.0.2.dmg 8509840 03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734
+PASS NATIVE pika-color install: Pika installed: 2.0.2; package_bytes=8509840; elapsed=25.970s
+PASS NATIVE pika-color open: Launch request accepted
+PASS OPEN AND CLOSE Pika executable in the isolated profile
+NATIVE ORIGIN pika-color GitHub
+PASS OFFICIAL 2.0.3 Dmg https://github.com/superhighfives/pika/releases/download/2.0.3/Pika-2.0.3.dmg 8613124 0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f
+PASS NATIVE pika-color update: Pika updated to 2.0.3; package_bytes=8613124; elapsed=6.982s
+PASS NATIVE pika-color open: Launch request accepted
+PASS OPEN AND CLOSE Pika executable in the isolated profile
+PASS NATIVE pika-color remove: Pika was removed; package_bytes=0; elapsed=0.202s
+PASS NATIVE CYCLE pika-color (2.0.2 → 2.0.3), private Trash and synthetic data preserved

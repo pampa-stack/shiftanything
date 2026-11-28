@@ -155,7 +155,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         ),
         (&[recipe::ORCA.id], (13, 4)),
         (&[recipe::JAN.id], (13, 6)),
-        (&[recipe::CALIBRE.id, recipe::MACCY.id, recipe::OLLAMA.id, recipe::RECTANGLE.id, recipe::VIRTUALBUDDY.id], (14, 0)),
+        (&[recipe::CALIBRE.id, recipe::MACCY.id, recipe::OLLAMA.id, recipe::RECTANGLE.id, recipe::VIRTUALBUDDY.id, recipe::PIKA_COLOR.id], (14, 0)),
         (&[recipe::SUNSHINE.id], (14, 2)),
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
@@ -3871,6 +3871,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::RASPBERRY_PI_IMAGER), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::WWDC), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PIKA_COLOR), Some((14, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MUSESCORE), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::SOLVESPACE), Some((11, 0)));

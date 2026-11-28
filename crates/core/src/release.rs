@@ -1282,6 +1282,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::UTM,
         crate::curated::RASPBERRY_PI_IMAGER,
         crate::curated::WWDC,
+        crate::curated::PIKA_COLOR,
         crate::curated::OPENMTP,
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
@@ -1337,6 +1338,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
                 version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
+            } else if (app.id, app.repo) == (crate::curated::PIKA_COLOR.id, crate::curated::PIKA_COLOR.repo) {
+                release.tag == version.to_string()
             } else if [crate::curated::VIRTUALBUDDY, crate::curated::WWDC].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
             } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
@@ -1972,6 +1975,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("insidegui/WWDC", "7.4.2") => &[("WWDC_v7.4.2-1040.dmg", 18_563_919, "023abb817eb971eb514c27c53a0e1fb55913e680e7293742201ed0a69df6faa5")],
         ("insidegui/WWDC", "7.5") => &[("WWDC_v7.5-1044.dmg", 19_325_975, "539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c")],
+        ("superhighfives/pika", "2.0.2") => &[("Pika-2.0.2.dmg", 8_509_840, "03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734")],
+        ("superhighfives/pika", "2.0.3") => &[("Pika-2.0.3.dmg", 8_613_124, "0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f")],
         ("ruffle-rs/ruffle", "v0.7.1") => {
             &[("ruffle-0.7.1-macos-universal.tar.gz", 33_270_538, "7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e")]
         }
@@ -2552,6 +2557,24 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn pika_uses_only_the_reviewed_apple_silicon_disk_images() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::PIKA_COLOR};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[PIKA_COLOR.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.0.2", "2.0.3"] {
+            let mut release = release_from_sums(PIKA_COLOR.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, Platform { arch: Arch::X64, ..mac }), None);
+            release.assets[0].sha256 = None;
+            assert_eq!(select(&release, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(PIKA_COLOR.repo, "2.0.4", &[]), mac), None);
+    }
 
     #[test]
     fn wwdc_uses_only_the_reviewed_apple_silicon_disk_images() {

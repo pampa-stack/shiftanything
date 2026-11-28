@@ -182,6 +182,7 @@ fn main() -> Result<(), String> {
             "ruffle",
             "scummvm",
             "wwdc",
+            "pika-color",
             "freeplane",
         ]
         .contains(&app.id)
@@ -243,7 +244,10 @@ fn main() -> Result<(), String> {
         return Err(format!("Unexpected initial location {installed:?}"));
     }
 
-    if id == "wwdc" && phase == "open" && initial.as_deref().is_some_and(|installed| installed == before.version() || installed == after.version()) {
+    if matches!(id.as_str(), "wwdc" | "pika-color")
+        && phase == "open"
+        && initial.as_deref().is_some_and(|installed| installed == before.version() || installed == after.version())
+    {
         backend.send(Command::Launch { app: id.clone(), args: Vec::new() });
         let result = wait_for(&mut backend, |event| match event {
             Event::JobFinished { app, result } if app == *id => Some(result),

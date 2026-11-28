@@ -3080,6 +3080,27 @@ pub const WWDC: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8C7439RJLG"),
 };
 
+pub const PIKA_COLOR: crate::CraftApp = crate::CraftApp {
+    id: "pika-color",
+    name: "Pika",
+    tagline: "Sample colors and check contrast on macOS",
+    repo: "superhighfives/pika",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [151, 81, 208],
+    ink_light: [106, 46, 158],
+    ink_dark: [209, 153, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "David Charles Gleason",
+    msi_publisher: None,
+    bundle: Some("com.superhighfives.Pika"),
+    site: Some("https://superhighfives.com/pika"),
+    mac_bundle_name: Some("Pika"),
+    mac_team: Some("TGHU37N6EX"),
+};
+
 pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     id: "openmtp",
     name: "OpenMTP",
@@ -3427,6 +3448,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     UTM,
     RASPBERRY_PI_IMAGER,
     WWDC,
+    PIKA_COLOR,
     OPENMTP,
     INVOKE_COMMUNITY,
     MIST,

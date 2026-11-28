@@ -1,0 +1,31 @@
+2026-11-28T10:53:25+0100
+ARTIFACT 03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734 8509840 https://github.com/superhighfives/pika/releases/download/2.0.2/Pika-2.0.2.dmg
+BUNDLE=Pika.app
+CFBundleIdentifier=com.superhighfives.Pika
+CFBundleShortVersionString=2.0.2
+CFBundleVersion=111
+CFBundleExecutable=Pika
+LSMinimumSystemVersion=14.0
+<read-only mount>/Pika.app/Contents/MacOS/Pika: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<read-only mount>/Pika.app/Contents/MacOS/Pika (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<read-only mount>/Pika.app/Contents/MacOS/Pika (for architecture arm64):	Mach-O 64-bit executable arm64
+<read-only mount>/Pika.app/Contents/MacOS/Pika (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=com.superhighfives.Pika
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: David  Charles Gleason (TGHU37N6EX)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=26 Oct 2026 at 06:33:06
+TeamIdentifier=TGHU37N6EX
+<read-only mount>/Pika.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT pika-color 2.0.2

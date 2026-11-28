@@ -3968,6 +3968,195 @@
       ]
     },
     {
+      "id": "microsoft-excel",
+      "name": "Microsoft Excel",
+      "aliases": [
+        "Excel",
+        "Excel 365",
+        "Microsoft 365 Excel",
+        "MS Excel"
+      ],
+      "features": [
+        {
+          "id": "xlsx",
+          "name": {
+            "it": "Aprire, modificare e salvare XLSX",
+            "en": "Open, edit and save XLSX"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/change-the-default-file-format-for-saving-workbooks"
+        },
+        {
+          "id": "csv",
+          "name": {
+            "it": "Importare ed esportare CSV",
+            "en": "Import and export CSV"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/import-or-export-text-txt-or-csv-files"
+        },
+        {
+          "id": "pivot",
+          "name": {
+            "it": "Creare tabelle pivot da un intervallo",
+            "en": "Create pivot tables from a cell range"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/create-a-pivottable-to-analyze-worksheet-data"
+        },
+        {
+          "id": "charts",
+          "name": {
+            "it": "Creare grafici a colonne, linee e torta",
+            "en": "Create column, line and pie charts"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/create-a-chart-from-start-to-finish"
+        },
+        {
+          "id": "vba",
+          "name": {
+            "it": "Eseguire macro VBA esistenti",
+            "en": "Run existing VBA macros"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/edit-a-macro"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://help.libreoffice.org/latest/en-US/text/shared/guide/ms_user.html",
+              "note": {
+                "it": "Calc apre, modifica e salva cartelle XLSX.",
+                "en": "Calc opens, edits and saves XLSX workbooks."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS248/GS24803-GettingStartedWithCalc.html",
+              "note": {
+                "it": "Calc importa e salva dati CSV con delimitatori configurabili.",
+                "en": "Calc imports and saves CSV data with configurable separators."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS248/GS24803-GettingStartedWithCalc.html",
+              "note": {
+                "it": "Genera una tabella pivot dal foglio e scegli i campi da riepilogare.",
+                "en": "Build a pivot table from the sheet and choose which fields to summarize."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/CG76/CG76-CalcGuide.pdf",
+              "note": {
+                "it": "Calc include grafici a colonne, a linee e a torta.",
+                "en": "Calc includes column, line and pie charts."
+              }
+            },
+            "vba": {
+              "state": "partial",
+              "source": "https://help.libreoffice.org/latest/en-GB/text/sbasic/shared/vbasupport.html",
+              "note": {
+                "it": "Calc esegue una parte delle macro VBA. Alcune richiedono modifiche.",
+                "en": "Calc runs some VBA macros. Others require changes."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "onlyoffice",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx",
+              "note": {
+                "it": "Desktop Editors apre, modifica e salva fogli XLSX.",
+                "en": "Desktop Editors opens, edits and saves XLSX spreadsheets."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx",
+              "note": {
+                "it": "L’editor apre e salva fogli di calcolo in formato CSV.",
+                "en": "The editor opens and saves spreadsheets in CSV format."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet-editor/editing-rows-columns/pivot-tables",
+              "note": {
+                "it": "Il pannello pivot raggruppa e riepiloga un intervallo di celle.",
+                "en": "The pivot panel groups and summarizes a range of cells."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet-editor/operations-on-objects/insert-chart",
+              "note": {
+                "it": "L’editor crea grafici a colonne, a linee e a torta.",
+                "en": "The editor creates column, line and pie charts."
+              }
+            },
+            "vba": {
+              "state": "unsupported",
+              "source": "https://api.onlyoffice.com/docs/macros/guides/converting-vba-macros",
+              "note": {
+                "it": "Le macro di Excel devono essere convertite in JavaScript.",
+                "en": "Excel macros need to be converted to JavaScript."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gridcraft",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft#readme",
+              "note": {
+                "it": "XLSX è il formato nativo. Alcuni documenti complessi possono perdere formattazione.",
+                "en": "XLSX is the native format. Some complex files may lose formatting."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Importa ed esporta CSV. L’export scrive i valori grezzi delle celle.",
+                "en": "Imports and exports CSV. Export writes raw cell values."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Crea tabelle pivot con raggruppamento e aggiornamento dei dati.",
+                "en": "Creates pivot tables with grouping and data refresh."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Include grafici a colonne, a linee e a torta. La configurazione avanzata degli assi è limitata.",
+                "en": "Includes column, line and pie charts. Advanced axis settings are limited."
+              }
+            },
+            "vba": {
+              "state": "unsupported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/target-app-parity.md",
+              "note": {
+                "it": "L’app conserva il progetto VBA di un file XLSM senza eseguirlo.",
+                "en": "The app preserves the VBA project in an XLSM file without running it."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "id": "zoom",
       "name": "Zoom",
       "aliases": [

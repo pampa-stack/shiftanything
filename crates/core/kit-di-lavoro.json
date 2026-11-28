@@ -1574,6 +1574,7 @@
           "paid": [
             "Microsoft Excel"
           ],
+          "compare": "microsoft-excel",
           "options": [
             {
               "app": "libreoffice",
@@ -1582,6 +1583,22 @@
                 "en": "Use formulas, charts and pivot tables in Calc."
               },
               "source": "https://documentation.libreoffice.org/en/english-documentation/"
+            },
+            {
+              "app": "gridcraft",
+              "use": {
+                "it": "Modifica file XLSX, crea grafici e riepiloga i dati con le tabelle pivot.",
+                "en": "Edit XLSX files, create charts and summarize data with pivot tables."
+              },
+              "source": "https://github.com/storytold/gridcraft#readme"
+            },
+            {
+              "app": "onlyoffice",
+              "use": {
+                "it": "Apri e salva in XLSX o CSV con Desktop Editors.",
+                "en": "Open and save XLSX or CSV files in Desktop Editors."
+              },
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx"
             }
           ]
         },

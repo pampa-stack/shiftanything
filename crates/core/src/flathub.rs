@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 158] = [
+pub const RECIPES: [(&str, &str); 159] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -160,6 +160,7 @@ pub const RECIPES: [(&str, &str); 158] = [
     ("money-manager-ex", "org.moneymanagerex.MMEX"),
     ("openboard", "ch.openboard.OpenBoard"),
     ("solvespace", "com.solvespace.SolveSpace"),
+    ("pitivi", "org.pitivi.Pitivi"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -336,6 +337,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "money-manager-ex" => "https://github.com/moneymanagerex/moneymanagerex",
         "openboard" => "https://github.com/OpenBoard-org/OpenBoard",
         "solvespace" => "https://github.com/solvespace/solvespace",
+        "pitivi" => "https://gitlab.gnome.org/GNOME/pitivi",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -249,7 +249,7 @@
     renderKits = {updateSelection};
   }
 
-  Promise.all([invoke('discovery_data'), invoke('catalog_snapshot')]).then(([data, entries]) => {
+  Promise.all([invoke('discovery_data'), window.shiftCatalogData]).then(([data, entries]) => {
     const catalog = new Map(entries.map(app => [app.id, app]));
     buildFind(data.intents, catalog);
     buildKits(data.work, catalog);

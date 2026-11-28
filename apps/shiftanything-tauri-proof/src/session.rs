@@ -33,6 +33,8 @@ pub struct NativeState {
     open_after_install: BTreeSet<String>,
     next_request: u64,
     last_update_check: Instant,
+    initial_detection_complete: bool,
+    initial_release_check_complete: bool,
     enabled: bool,
     isolated: bool,
     pub diagnostics: PathBuf,
@@ -63,6 +65,7 @@ pub struct Snapshot {
     inventory: Inventory,
     release_assets: BTreeMap<String, ReleaseAsset>,
     verified_installs: &'static BTreeSet<String>,
+    install_checks_pending: BTreeSet<String>,
     pending: Option<Request>,
     offer_open_after_install: bool,
     progress: BTreeMap<String, Progress>,
@@ -164,6 +167,8 @@ impl NativeState {
             open_after_install: BTreeSet::new(),
             next_request: 0,
             last_update_check: Instant::now(),
+            initial_detection_complete: false,
+            initial_release_check_complete: false,
             enabled,
             isolated,
             favorites: crate::favorites::Favorites::load(&root)?,
@@ -183,6 +188,9 @@ impl NativeState {
                 Event::Installable { app, installable } => {
                     self.installable.insert(app, installable);
                 }
+                // Stable detection publishes its MCP state after the installed-app scan.
+                Event::Mcp { .. } => self.initial_detection_complete = true,
+                Event::CheckFinished { .. } => self.initial_release_check_complete = true,
                 Event::Progress { app, phase } => {
                     self.jobs.insert(app, phase);
                 }
@@ -357,9 +365,29 @@ impl NativeState {
                     }
                 }
             }
-            automation::publish(&self.inventory());
+        }
+        let inventory = self.inventory();
+        if self.enabled {
+            automation::publish(&inventory);
         }
         let platform = self.backend.platform();
+        let verified = verified_installs(platform);
+        let install_checks_pending = if self.enabled {
+            inventory
+                .apps
+                .iter()
+                .filter(|app| verified.contains(&app.id) && !app.installed)
+                .filter(|app| {
+                    let detecting = !self.initial_detection_complete && !app.detected;
+                    let checking_release =
+                        !self.initial_release_check_complete && !self.latest.contains_key(&app.id) && self.backend.flatpak_status(&app.id).is_none();
+                    detecting || checking_release
+                })
+                .map(|app| app.id.clone())
+                .collect()
+        } else {
+            BTreeSet::new()
+        };
         let release_assets = artcraft_launcher_core::curated::NATIVE_APPS
             .iter()
             .filter_map(|app| {
@@ -377,11 +405,12 @@ impl NativeState {
         Snapshot {
             platform,
             release_assets,
-            verified_installs: verified_installs(platform),
+            verified_installs: verified,
+            install_checks_pending,
             detected: self.detected.clone(),
             lifecycle_enabled: self.enabled,
             isolated_profile: self.isolated,
-            inventory: self.inventory(),
+            inventory,
             pending: self.pending.clone(),
             offer_open_after_install: self.pending.as_ref().is_some_and(|request| can_open_after_install(request, self.pending_from_ui, platform)),
             favorites: self.favorites.ids().clone(),

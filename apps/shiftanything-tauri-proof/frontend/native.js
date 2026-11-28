@@ -221,7 +221,8 @@
     }
     setText(output, label || fallback);
     let bar = container.querySelector('progress');
-    if (progress?.phase !== 'downloading' && progress?.phase !== 'reconnecting') {
+    const phase = progress?.phase;
+    if (phase !== 'downloading' && phase !== 'reconnecting' && phase !== 'installing') {
       bar?.remove();
       return;
     }
@@ -230,8 +231,8 @@
       bar.max = 100;
       container.append(bar);
     }
-    bar.setAttribute('aria-label', `${phases[progress.phase]} · ${appName}`);
-    const percent = downloadPercent(progress);
+    bar.setAttribute('aria-label', `${phases[phase]} · ${appName}`);
+    const percent = phase === 'installing' ? undefined : downloadPercent(progress);
     if (percent === undefined) bar.removeAttribute('value');
     else if (bar.position < 0 || bar.value !== percent) bar.value = percent;
   }
@@ -275,7 +276,7 @@
     const entry = catalogById.get(appId);
     const platform = snapshot.platform?.os?.toLowerCase();
     if (app?.job) return {label:it?'In corso…':'Working…', enabled:false};
-    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false)};
+    if (app?.installed) return {label:labels.open, enabled:Boolean(app.detected && snapshot.lifecycle_enabled && app.can_open !== false), operation:'open'};
     if (platform && entry?.platform_scope_complete && !entry.platform_support?.[platform]
       && !entry.release?.packages?.some(pkg => pkg.platform === platform)
       && !entry.distribution?.some(channel => channel.platform === platform)) {
@@ -290,7 +291,9 @@
         target:guide,
       };
     }
-    if (verified && snapshot.lifecycle_enabled && app && !app.detected) return {label:it?'Rilevamento…':'Detecting…', enabled:false};
+    if (snapshot.install_checks_pending?.includes(appId)) {
+      return {label:labels.install, enabled:false, busy:true, reason:it?'Controllo del pacchetto…':'Checking package…'};
+    }
     return {
       ...manualDownload(entry, platform),
       reason:verified ? (it?'Pacchetto compatibile non disponibile ora.':'Compatible package currently unavailable.')
@@ -307,7 +310,7 @@
         badge.className = 'install-indicator';
         heart.before(badge);
       }
-      const ready = verified && (action.operation === 'install' || action.label === labels.open && action.enabled);
+      const ready = verified && action.enabled && (action.operation === 'install' || action.operation === 'open');
       const label = ready ? (it?'Installazione verificata':'Installation verified')
         : verified ? (it?'Installazione provata. Controlla lo stato del pacchetto.':'Installation tested. Check package status.')
           : (it?'Installazione non ancora verificata':'Installation not yet verified');
@@ -335,7 +338,7 @@
     const firstPaint = !current;
     const {updated_at: _, ...inventoryState} = snapshot.inventory;
     const nextKey = JSON.stringify([snapshot.lifecycle_enabled, snapshot.platform, inventoryState, snapshot.release_assets,
-      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs]);
+      snapshot.pending, snapshot.offer_open_after_install, snapshot.progress, snapshot.favorites, snapshot.verified_installs, snapshot.install_checks_pending]);
     current = snapshot;
     if (!force && paintKey === nextKey) return;
     paintKey = nextKey;
@@ -392,7 +395,10 @@
         if (button.textContent !== action.label) button.textContent = action.label;
         button.disabled = !(action.enabled || action.target);
         button.title = progressLabel(snapshot.progress[app?.id]) || action.reason || action.label;
-        button.classList.toggle('solid', action.enabled && action.operation === 'install');
+        button.classList.toggle('solid', action.operation === 'install' && action.enabled === true);
+        button.toggleAttribute('data-native-open', action.operation === 'open');
+        if (action.busy) button.setAttribute('aria-busy', 'true');
+        else button.removeAttribute('aria-busy');
         if (action.target) button.dataset.externalTarget = action.target;
         else delete button.dataset.externalTarget;
         showInstallStatus(button, action, proven, Boolean(snapshot.platform), snapshot.progress[button.dataset.nativeApp]);
@@ -402,9 +408,10 @@
       const allowed = app?.detected && (operation === 'cancel' ? !!app.job : !app.job && ({install:!app.installed && app.compatible && app.installable,open:app.installed && app.can_open !== false,remove:app.installed && app.can_remove !== false,update:app.installed && app.compatible && app.installable && app.update_available})[operation]);
       const cancelling = operation === 'cancel' && snapshot.progress[app?.id]?.phase === 'cancelling';
       button.disabled = !snapshot.lifecycle_enabled || !allowed || cancelling;
-      button.hidden = !snapshot.lifecycle_enabled || !allowed;
+      button.hidden = !snapshot.lifecycle_enabled || !(operation === 'open' ? app?.installed : allowed);
       button.title = progressLabel(snapshot.progress[app?.id]) || (allowed ? labels[operation] : it?'Azione non disponibile nello stato nativo corrente':'Action unavailable in the current native state');
     }
+    document.documentElement.dataset.nativeStarted = '';
     const controls = detail?.querySelector('.native-management');
     if (controls) controls.hidden = [...controls.children].every(child => child.hidden);
     if (snapshot.pending) {
@@ -451,27 +458,142 @@
     } catch(error) {actionError=String(error);status.textContent=actionError;}
     finally {requesting=false;}
   },true);
+  async function startLauncherUpdater() {
+    const banner = document.createElement('aside');
+    banner.className = 'launcher-update';
+    banner.hidden = true;
+    banner.setAttribute('aria-label', it ? 'Aggiornamento di Sh*ftAnything' : 'Sh*ftAnything update');
+    const message = document.createElement('div');
+    message.setAttribute('role', 'status');
+    const title = document.createElement('strong');
+    const detail = document.createElement('p');
+    message.append(title, detail);
+    const action = document.createElement('button');
+    action.type = 'button';
+    banner.append(message, action);
+    document.querySelector('.app > .top').after(banner);
+
+    let update;
+    let eventCount = 0;
+    let pending = '';
+    let commandError = '';
+    function renderUpdate() {
+      if (!update) return;
+      const {available, status: phase, error} = update;
+      const hiddenError = !commandError && ['channel_disabled', 'installation_unsupported', 'check_failed'].includes(error);
+      banner.hidden = hiddenError || (!available && !['downloading', 'ready', 'error'].includes(phase) && !commandError);
+      title.textContent = available
+        ? (it ? `Aggiornamento Sh*ftAnything ${available.version}` : `Sh*ftAnything ${available.version} update`)
+        : (it ? 'Aggiornamento di Sh*ftAnything' : 'Sh*ftAnything update');
+
+      const failed = phase === 'error' || Boolean(commandError);
+      if (failed) {
+        const errors = {
+          installation_cancelled: ['Installazione annullata.', 'Installation cancelled.'],
+          installation_permissions: ['Serve il permesso per aggiornare Sh*ftAnything.', 'Permission is required to update Sh*ftAnything.'],
+          installation_recovery_required: ['Impossibile sostituire il launcher. La copia precedente è stata conservata.', 'The launcher could not be replaced. The previous copy was preserved.'],
+          download_or_signature_failed: ['Download interrotto o firma non valida.', 'Download interrupted or invalid signature.'],
+          release_invalid: ['Il pacchetto di aggiornamento non ha superato la verifica.', 'The update package failed verification.'],
+        };
+        const text = errors[error] || ['Aggiornamento non riuscito.', 'Update failed.'];
+        detail.textContent = text[it ? 0 : 1];
+      } else if (phase === 'ready') {
+        detail.textContent = it ? 'Aggiornamento installato. Riavvia Sh*ftAnything per applicarlo.'
+          : 'Update installed. Restart Sh*ftAnything to apply it.';
+      } else if (phase === 'checking' || pending === 'launcher_update_check') {
+        detail.textContent = it ? 'Ricerca aggiornamenti in corso…' : 'Checking for updates…';
+      } else if (phase === 'downloading' || pending === 'launcher_update_install') {
+        detail.textContent = it ? 'Download e installazione in corso…' : 'Downloading and installing…';
+      } else {
+        detail.textContent = it ? `Versione in uso: ${update.current}` : `Current version: ${update.current}`;
+      }
+      action.hidden = !failed && phase !== 'available' && phase !== 'downloading';
+      action.disabled = Boolean(pending) || (!failed && (phase === 'downloading' || phase === 'checking'));
+      action.textContent = failed ? (it ? 'Riprova' : 'Retry') : (it ? 'Installa' : 'Install');
+    }
+
+    function acceptUpdate(next) {
+      update = next;
+      commandError = '';
+      renderUpdate();
+    }
+
+    async function runUpdate(command) {
+      if (pending) return;
+      pending = command;
+      commandError = '';
+      renderUpdate();
+      const previousEventCount = eventCount;
+      try {
+        const result = await invoke(command);
+        if (eventCount === previousEventCount) {
+          const next = result?.status ? result : await invoke('launcher_update_state');
+          if (eventCount === previousEventCount) acceptUpdate(next);
+        }
+      } catch (error) {
+        if (eventCount === previousEventCount || update.status !== 'error') {
+          commandError = String(error);
+        }
+      } finally {
+        pending = '';
+        renderUpdate();
+      }
+    }
+
+    action.addEventListener('click', () => {
+      if (commandError || update?.status === 'error') {
+        void runUpdate('launcher_update_check');
+      } else if (update?.status === 'available') {
+        void runUpdate('launcher_update_install');
+      }
+    });
+
+    const previousEventCount = eventCount;
+    const listen = window.__TAURI__.event?.listen;
+    if (listen) {
+      try {
+        await listen('shift-launcher-update', ({payload}) => {
+          eventCount++;
+          acceptUpdate(payload);
+        });
+      } catch (error) {
+        console.warn('Launcher update events unavailable', error);
+      }
+    }
+    const initial = await invoke('launcher_update_state');
+    if (eventCount === previousEventCount) acceptUpdate(initial);
+    if (update.status === 'idle') await runUpdate('launcher_update_check');
+  }
+
+  const catalogData = window.shiftCatalogData = invoke('catalog_snapshot');
+  // Begin local IPC now, then paint after the other deferred modules have registered their listeners.
+  const listenersReady = new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, {once:true}));
+
   async function start() {
-    status.textContent = `${note} · Rust…`;
-    const catalog = await invoke('catalog_snapshot');
+    status.textContent = it ? 'Caricamento del catalogo…' : 'Loading catalog…';
+    const startTime = performance.now();
+    const [catalog, firstSnapshot] = await Promise.all([catalogData, invoke('native_snapshot'), listenersReady]);
     for (const app of catalog) catalogById.set(app.id, app);
     const ids = new Set([...document.querySelectorAll('.catalog-grid [data-app]')].map(node => node.dataset.app));
     if (catalog.length !== ids.size || catalog.some(app => !ids.has(app.id))) throw Error('Native catalog differs from the local template');
-    async function poll() {
-    const snapshot = await invoke('native_snapshot');
-    render(snapshot);
-    const progress = Object.entries(snapshot.progress).map(([id, job]) =>
-      `${catalogById.get(id)?.name || id} · ${progressLabel(job)}`).join(' · ');
-    if (snapshot.isolated_profile) {
-      const profile = snapshot.lifecycle_enabled ? (it?'Profilo temporaneo':'Temporary profile') : note;
-      setText(status, `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'}${progress ? ' · ' + progress : ''}`);
-    } else {
-      setText(status, progress || (actionError && (it?'Azione non riuscita':'Action failed')) || (it?'Pronto':'Ready'));
+
+    function poll(snapshot) {
+      render(snapshot);
+      const progress = Object.entries(snapshot.progress).map(([id, job]) =>
+        `${catalogById.get(id)?.name || id} · ${progressLabel(job)}`).join(' · ');
+      if (snapshot.isolated_profile) {
+        const profile = snapshot.lifecycle_enabled ? (it?'Profilo temporaneo':'Temporary profile') : note;
+        setText(status, `${profile} · Rust ${catalog.length} · ${snapshot.platform.os}/${snapshot.platform.arch} · ${Object.keys(snapshot.detected).length} ${it?'stati rilevati':'detected states'}${progress ? ' · ' + progress : ''}`);
+      } else {
+        setText(status, progress || (actionError && (it?'Azione non riuscita':'Action failed')) || (it?'Pronto':'Ready'));
+      }
+      status.title = actionError;
+      const interval = snapshot.install_checks_pending?.length && performance.now() - startTime < 2000 ? 200 : 1000;
+      setTimeout(() => invoke('native_snapshot').then(poll).catch(error => {status.textContent=String(error);}), interval);
     }
-    status.title = actionError;
-    setTimeout(() => poll().catch(error => {status.textContent=String(error);}),1000);
-    }
-    await poll();
+
+    poll(firstSnapshot);
   }
+  startLauncherUpdater().catch(error => console.warn('Launcher update unavailable', error));
   start().catch(error => { status.textContent=String(error); });
 })();

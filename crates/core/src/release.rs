@@ -77,6 +77,7 @@ pub(crate) fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
 }
 
+pub const CALIBRE_DMG_URL: &str = "https://download.calibre-ebook.com/";
 pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
 pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
 
@@ -447,7 +448,7 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
     let releases = format!("https://github.com/{repo}/releases");
     let html_url = v["html_url"].as_str().and_then(|u| safe_release_html_url(repo, u)).unwrap_or_else(|| releases.clone());
     let prefix = download_prefix(repo);
-    let assets = v["assets"]
+    let mut assets: Vec<Asset> = v["assets"]
         .as_array()
         .map(|list| {
             list.iter()
@@ -465,6 +466,13 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                 .collect()
         })
         .unwrap_or_default();
+    // GitHub drops older Calibre binaries. Keep this recipe on the publisher's reviewed archive.
+    if repo == crate::curated::CALIBRE.repo {
+        for asset in reviewed_assets(repo, &tag) {
+            assets.retain(|other| other.name != asset.name);
+            assets.push(asset);
+        }
+    }
     Ok(Release {
         version: release_tag_version(repo, &tag),
         name: v["name"].as_str().map(|n| truncate(n, 120)).filter(|n| !n.is_empty()).unwrap_or_else(|| tag.clone()),
@@ -488,11 +496,30 @@ fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         opencode_desktop_version(tag)
     } else if repo == crate::curated::PICARD.repo {
         picard_version(tag)
+    } else if repo == crate::curated::ANKI.repo {
+        anki_date_version(tag).or_else(|| version::parse(tag))
+    } else if repo == crate::curated::ZEN.repo {
+        zen_release_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
         version::parse(tag)
     }
+}
+
+/// Zen's stable channel appends b to both the release tag and the bundle version.
+pub fn zen_release_version(tag: &str) -> Option<Version> {
+    let version = version::parse(tag.strip_suffix('b')?)?;
+    let canonical = tag == format!("{version}b") || (version.patch == 0 && tag == format!("{}.{}b", version.major, version.minor));
+    (version.pre.is_empty() && version.build.is_empty() && canonical).then_some(version)
+}
+
+// Anki's calendar tags pad the month while the macOS bundle uses ordinary SemVer.
+fn anki_date_version(tag: &str) -> Option<Version> {
+    let (year, rest) = tag.split_once('.')?;
+    let (month, patch) = rest.split_once('.')?;
+    let version = Version::new(year.parse().ok()?, month.parse().ok()?, patch.parse().ok()?);
+    ((1..=12).contains(&version.minor) && tag == format!("{}.{:02}.{}", version.major, version.minor, version.patch)).then_some(version)
 }
 
 /// GitHub publishes OpenCode 2 alongside the legacy desktop updater's 1.x releases.
@@ -763,6 +790,20 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
         crate::curated::LOSSLESSCUT,
+        crate::curated::SIYUAN,
+        crate::curated::MAGPIE,
+        crate::curated::GHOST_DOWNLOADER,
+        crate::curated::KANDO,
+        crate::curated::TRILIUM,
+        crate::curated::RECORDLY,
+        crate::curated::ZETTLR,
+        crate::curated::VSCODIUM,
+        crate::curated::ANKI,
+        crate::curated::CALIBRE,
+        crate::curated::OPENCHAMBER,
+        crate::curated::OSAURUS,
+        crate::curated::ZEN,
+        crate::curated::HEADLAMP,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
         crate::curated::JAN,
@@ -773,8 +814,18 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
-            let expected = if app.id == crate::curated::RUSTDESK.id { version.to_string() } else { format!("v{version}") };
-            version.pre.is_empty() && version.build.is_empty() && release.tag == expected
+            let canonical_tag = if app.id == crate::curated::ANKI.id {
+                anki_date_version(&release.tag).as_ref() == Some(version)
+            } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
+                zen_release_version(&release.tag).as_ref() == Some(version)
+            } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
+                || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
+            {
+                release.tag == version.to_string()
+            } else {
+                release.tag == format!("v{version}")
+            };
+            version.pre.is_empty() && version.build.is_empty() && canonical_tag
         })
         && reviewed_assets(app.repo, &release.tag).any(|reviewed| {
             reviewed.name.ends_with(".dmg")
@@ -921,12 +972,14 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
-        ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => {
-            &[("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956")]
-        }
-        ("XiaoYouChR/Ghost-Downloader-3", "v4.6.1") => {
-            &[("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb")]
-        }
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => &[
+            ("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956"),
+            ("Ghost-Downloader-v4.5.11-macOS-arm64.dmg", 67_408_491, "36d531576819349920abb0008a6105046f5e48c3bcf7d8e478c61b03edb87ca9"),
+        ],
+        ("XiaoYouChR/Ghost-Downloader-3", "v4.6.1") => &[
+            ("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb"),
+            ("Ghost-Downloader-v4.6.1-macOS-arm64.dmg", 59_261_074, "85f87ae7d2100b2296bf09097cc3e56011b1dc96e05fab7e1c7af6bf29caf38c"),
+        ],
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
@@ -1161,6 +1214,78 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
         ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
         ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
+        ("siyuan-note/siyuan", "v3.8.11") => {
+            &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
+        }
+        ("siyuan-note/siyuan", "v3.8.12") => {
+            &[("siyuan-3.8.12-mac-arm64.dmg", 288_887_820, "ad8f00c1df985d3079c6e8425c34b6eb3fff7a41f5c36fc900bc429586ea90af")]
+        }
+        ("yetone/magpie", "v0.1.4969") => {
+            &[("magpie-darwin-arm64.dmg", 49_832_017, "cb894a95cc7ad5ff4e2af32b8af1964c1c3e1e3ea83a3ba5ba8fb6fae52856a0")]
+        }
+        ("yetone/magpie", "v0.1.4971") => {
+            &[("magpie-darwin-arm64.dmg", 49_832_333, "bdab8e88f4e3c6b288b1144483b1fb3f633ff3f6cf39b6e8e028061fe9573c8c")]
+        }
+        ("TriliumNext/Trilium", "v0.106.1") => {
+            &[("TriliumNotes-v0.106.1-macos-arm64.dmg", 197_580_559, "8d25e356d690152a2288d0317712cb198e270b1dca5b66df70496593f951f9a3")]
+        }
+        ("TriliumNext/Trilium", "v0.107.0") => {
+            &[("TriliumNotes-v0.107.0-macos-arm64.dmg", 196_222_346, "e3bda6547213396bd497bd680f33b0d0b12ed9dff410a10b3998cdaf72d9a231")]
+        }
+        ("kando-menu/kando", "v3.0.0") => {
+            &[("Kando-3.0.0-arm64.dmg", 154_824_121, "4b6542e0e6191b742603f3577c599f137b127520b465289c522b23d1d31f71c0")]
+        }
+        ("kando-menu/kando", "v3.0.1") => {
+            &[("Kando-3.0.1-arm64.dmg", 154_825_532, "da33fde36a63766e1d646c5ebfaaf62865dcb764b835c0c38873d18c45d642c2")]
+        }
+        ("webadderallorg/Recordly", "v1.3.3") => {
+            &[("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5")]
+        }
+        ("webadderallorg/Recordly", "v1.4.0") => {
+            &[("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4")]
+        }
+        ("VSCodium/vscodium", "1.143.17183") => {
+            &[("VSCodium.arm64.1.143.17183.dmg", 206_695_167, "b6cb6359484dfdbc1989528ab4e7429c68bf555f3853173801e9293ce282e902")]
+        }
+        ("VSCodium/vscodium", "1.143.17232") => {
+            &[("VSCodium.arm64.1.143.17232.dmg", 206_610_884, "da2d91385ae73594b13208bc9df20cf4d905a94f84796a33bb3e09162481e475")]
+        }
+        ("kovidgoyal/calibre", "v9.18.0") => {
+            &[("calibre-9.18.0.dmg", 406_181_327, "b4b8000433b6e4d0fdfb3bd0283cd76b7525c65daf5af027ec4dc1e629ef3d0c")]
+        }
+        ("kovidgoyal/calibre", "v9.19.0") => {
+            &[("calibre-9.19.0.dmg", 408_549_188, "207c80d80ace59cb21a4c52fa1c40843a8e860de100304e590da664db3abfb3f")]
+        }
+        ("ankitects/anki", "26.09.3") => {
+            &[("anki-26.09.3-mac-apple.dmg", 226_530_103, "b36fe8f6c015a602feaf3ef38f5967c27c8964ee30a5c74ca2532225cf602345")]
+        }
+        ("ankitects/anki", "26.09.4") => {
+            &[("anki-26.09.4-mac-apple.dmg", 228_182_839, "527b968b88d54cb0308d1de7a1ee193109863546e1cb62dcd016bd93bd816684")]
+        }
+        ("openchamber/openchamber", "v2.8.0") => {
+            &[("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9")]
+        }
+        ("openchamber/openchamber", "v2.8.1") => {
+            &[("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217")]
+        }
+        ("osaurus-ai/osaurus", "1.0.12") => {
+            &[("Osaurus-1.0.12.dmg", 126_257_063, "181b5f527f30bcde1ffa73f08d6cda4d720c3e26284d3197ca2d7449af10dd4d")]
+        }
+        ("osaurus-ai/osaurus", "1.0.13") => {
+            &[("Osaurus-1.0.13.dmg", 126_326_179, "fdb747c6cdbfdbfea97f449bfeedd39de14c00234e64238088f109a2de3923a0")]
+        }
+        ("kubernetes-sigs/headlamp", "v0.45.0") => {
+            &[("Headlamp-0.45.0-mac-arm64.dmg", 143_705_681, "4f3e7de1c048f8dbe84bfd6c18ac61d0aafd4d909278ca44648d4562c80995f3")]
+        }
+        ("kubernetes-sigs/headlamp", "v0.46.0") => {
+            &[("Headlamp-0.46.0-mac-arm64.dmg", 145_502_945, "20294a2f1e92aa98c2a90aa0717b6b8e730ed55a0300c03db18c2f779ed7b564")]
+        }
+        ("zen-browser/desktop", "1.24.2b") => {
+            &[("zen.macos-universal.dmg", 240_772_424, "04ee33c2e906b52f90f73384aa50e80a92530ae4b3414fb26a0a982e257f172c")]
+        }
+        ("zen-browser/desktop", "1.24.3b") => {
+            &[("zen.macos-universal.dmg", 240_816_809, "86f6a01e786095d7661c68357396a00cd3e169d6ae5e176245077bb701af8b65")]
+        }
         ("cyanfish/naps2", "v8.6.0") => {
             &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
         }
@@ -1228,9 +1353,10 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("Zettlr/Zettlr", "v4.10.0") => {
             &[("Zettlr-4.10.0-x86_64.AppImage", 172_628_308, "bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc")]
         }
-        ("Zettlr/Zettlr", "v4.11.0") => {
-            &[("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7")]
-        }
+        ("Zettlr/Zettlr", "v4.11.0") => &[
+            ("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7"),
+            ("Zettlr-4.11.0-arm64.dmg", 202_782_993, "68e57c3dcb8275b175ac1b67f7d94945c84e0a7c4da6e1ab6b6e8fcd64458793"),
+        ],
         ("ONLYOFFICE/DesktopEditors", "v9.4.0") => {
             &[("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c")]
         }
@@ -1268,7 +1394,11 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
     receipts.iter().map(move |&(name, size, sha256)| Asset {
         name: name.into(),
         size,
-        url: format!("{}{tag}/{name}", download_prefix(repo)),
+        url: if repo == crate::curated::CALIBRE.repo {
+            format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else {
+            format!("{}{tag}/{name}", download_prefix(repo))
+        },
         sha256: Some(sha256.into()),
     })
 }
@@ -1357,6 +1487,77 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn calibre_archive_has_only_reviewed_official_arm64_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::CALIBRE, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[CALIBRE.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        for tag in ["v9.18.0", "v9.19.0"] {
+            let name = format!("calibre-{}.dmg", &tag[1..]);
+            let api = serde_json::json!({"tag_name": tag, "assets": []});
+            let release = parse_github_release(&api.to_string(), CALIBRE.repo).unwrap();
+            let asset = pick(&release, mac).unwrap();
+            assert_eq!(asset.name, name);
+            assert_eq!(asset.url, format!("{CALIBRE_DMG_URL}{}/{name}", &tag[1..]));
+            assert_eq!(pick(&release_from_sums(CALIBRE.repo, tag, &[]), mac), Some(asset.clone()));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+            assert!(parse_github_release(&api.to_string(), "mirror/calibre").unwrap().assets.is_empty());
+
+            let mut changed = release.clone();
+            changed.assets[0].url = changed.assets[0].url.replace(CALIBRE_DMG_URL, "https://mirror.example/");
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.tag = "v9.20.0".into();
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release;
+            changed.prerelease = true;
+            assert_eq!(pick(&changed, mac), None);
+        }
+        let unknown = parse_github_release(r#"{"tag_name":"v9.20.0","assets":[]}"#, CALIBRE.repo).unwrap();
+        assert_eq!(pick(&unknown, mac), None);
+    }
+    #[test]
+    fn anki_calendar_tags_select_only_reviewed_arm64_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::ANKI, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[ANKI.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.name.clone());
+        for (tag, patch) in [("26.09.3", 3), ("26.09.4", 4)] {
+            let release = release_from_sums(ANKI.repo, tag, &[]);
+            let name = format!("anki-{tag}-mac-apple.dmg");
+            assert_eq!(release.version, Some(Version::new(26, 9, patch)));
+            assert_eq!(pick(&release, mac), Some(name));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+
+            let mut changed = release.clone();
+            changed.assets[0].name = changed.assets[0].name.replace("apple", "intel");
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release.clone();
+            changed.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&changed, mac), None);
+            let mut changed = release;
+            changed.prerelease = true;
+            assert_eq!(pick(&changed, mac), None);
+            assert!(release_tag_version("other/publisher", tag).is_none());
+        }
+        assert_eq!(pick(&release_from_sums(ANKI.repo, "26.09.5", &[]), mac), None);
+        assert!(anki_date_version("26.9.4").is_none());
+        assert!(anki_date_version("26.13.4").is_none());
+        assert!(anki_date_version("26.09.4-rc.1").is_none());
+    }
 
     #[test]
     fn opencode_desktop_manifest_requires_current_stable_apple_silicon_dmg() {

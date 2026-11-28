@@ -112,7 +112,7 @@
     }
     if (app.installed) {
       const open = action(app, 'open', it?'Apri':'Open');
-      open.disabled ||= app.can_open === false;
+      open.disabled ||= !app.detected || app.can_open === false;
       actions.append(open);
     }
     const details = text('button', it?'Scheda':'Details', 'btn');
@@ -193,5 +193,5 @@
     } catch (error) { status.textContent = String(error); }
   });
   window.addEventListener('native-snapshot', event => {snapshot=event.detail;render();});
-  invoke('catalog_snapshot').then(data => {catalog=data;render();}).catch(error => {panel.querySelector('.manage-status').textContent=String(error);});
+  window.shiftCatalogData.then(data => {catalog=data;render();}).catch(error => {panel.querySelector('.manage-status').textContent=String(error);});
 })();

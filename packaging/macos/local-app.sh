@@ -40,6 +40,7 @@ for size in 16 32 128 256; do
   double=$((size * 2))
   cp "$OUTPUT/icon.iconset/icon_${double}x${double}.png" "$OUTPUT/icon.iconset/icon_${size}x${size}@2x.png"
 done
+sips -z 1024 1024 "$ROOT/assets/shiftanything/icon.png" --out "$OUTPUT/icon.iconset/icon_512x512@2x.png" >/dev/null
 iconutil -c icns "$OUTPUT/icon.iconset" -o "$APP/Contents/Resources/ShiftAnything.icns"
 VERSION="$(awk '/^\[/{active=($0=="[workspace.package]")} active && $1=="version" {gsub(/"/,"",$3);print $3;exit}' "$ROOT/Cargo.toml")"
 cat > "$APP/Contents/Info.plist" <<PLIST

@@ -350,7 +350,13 @@ main.main{overflow-y:auto;display:block}
 .catalog-grid .c-acts,.catalog-table .c-acts{flex-wrap:wrap}
 .install-reason{flex-basis:100%;min-height:1lh;color:var(--dim);font-size:10.5px;line-height:1.25}
 .download-progress:has(progress){display:flex;align-items:center;gap:8px;justify-content:space-between;width:100%;min-width:0}
-.download-progress progress{flex:1 1 56px;width:56px;max-width:140px;height:6px;accent-color:var(--acc)}
+.download-progress progress{flex:1 1 56px;width:56px;max-width:140px;height:6px;-webkit-appearance:none;appearance:none;border:0;border-radius:999px;overflow:hidden;background:#29333e}
+.download-progress progress::-webkit-progress-bar{background:transparent}
+.download-progress progress::-webkit-progress-value{background:var(--acc);border-radius:999px}
+.download-progress progress::-moz-progress-bar{background:var(--acc);border-radius:999px}
+.download-progress progress:indeterminate{background:#29333e linear-gradient(90deg,var(--acc),var(--acc)) 0 0/30% 100% no-repeat;animation:download-progress 1.3s ease-in-out infinite alternate}
+@keyframes download-progress{to{background-position:right}}
+@media(prefers-reduced-motion:reduce){.download-progress progress:indeterminate{animation:none}}
 .download-progress:has(progress) .download-label{font-variant-numeric:tabular-nums}
 .catalog-table .install-reason,.detail-actions .install-reason{text-align:right}
 .detail-actions:has(.install-indicator){grid-template-columns:auto auto;column-gap:6px}
@@ -408,3 +414,43 @@ main.main{overflow-y:auto;display:block}
 .bar .seg button:last-child{border-right:0}
 .bar .seg button.on{background:var(--tx);color:#08090A;font-weight:700}
 .bar .seg button:focus-visible{outline:2px solid #e9ff74;outline-offset:-2px}
+
+/* ---- launcher update ---- */
+.app:has(> .launcher-update:not([hidden])){
+  grid-template-rows:46px auto 46px minmax(0,1fr) 26px;
+}
+.launcher-update{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:8px 16px;
+  background:var(--surf2);
+  border-bottom:1px solid var(--bd2);
+  box-shadow:inset 2px 0 var(--acc);
+}
+.launcher-update[hidden],.launcher-update button[hidden]{display:none}
+.launcher-update strong{font-weight:650}
+.launcher-update p{
+  color:var(--dim);
+  font-size:11.5px;
+  overflow-wrap:anywhere;
+  max-height:4em;
+  overflow:auto;
+}
+.launcher-update button{
+  flex:none;
+  padding:5px 11px;
+  border:1px solid transparent;
+  border-radius:4px;
+  background:var(--acc);
+  color:var(--bg);
+  font:inherit;
+  font-weight:650;
+  cursor:pointer;
+}
+.launcher-update button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.launcher-update button:disabled{
+  opacity:.55;
+  cursor:default;
+}

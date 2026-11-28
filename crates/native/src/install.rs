@@ -35,77 +35,92 @@ use crate::process;
 
 #[cfg(target_os = "macos")]
 fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
-    use artcraft_launcher_core::curated::{
-        ACTIVITYWATCH, AUDACITY, CRYPTOMATOR, DRAWIO, ENTE_AUTH, HANDBRAKE, IINA, JOPLIN, KEEPASSXC, KOPIA, LIBREOFFICE, MEETILY, NEOVIDE,
-        OBS_STUDIO, RIZZO_PII, SHOTCUT, STATS, TERMIX, TRANSMISSION, WHISPERING, ZED,
-    };
+    use artcraft_launcher_core::curated as recipe;
 
-    match app.id {
-        id if id == artcraft_launcher_core::curated::VORTA.id => Some((14, 4)),
-        "photocraft" if cfg!(target_arch = "aarch64") => Some((11, 0)),
-        id if [
-            artcraft_launcher_core::curated::KEYCASTR.id,
-            artcraft_launcher_core::curated::LAPCE.id,
-            artcraft_launcher_core::curated::SOLVESPACE.id,
-            artcraft_launcher_core::curated::VIBE.id,
-            artcraft_launcher_core::curated::DB_BROWSER_SQLITE.id,
-        ]
-        .contains(&id) =>
-        {
-            Some((11, 0))
-        }
-        id if id == artcraft_launcher_core::curated::PICARD.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::NAPS2.id => Some((12, 0)),
-        id if id == artcraft_launcher_core::curated::OPENCLAW.id => Some((26, 2)),
-        id if id == artcraft_launcher_core::curated::RUSTDESK.id => Some((12, 3)),
-        id if id == artcraft_launcher_core::curated::OPENCODE.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::OLLAMA.id => Some((14, 0)),
-        id if id == artcraft_launcher_core::curated::LOCALAI.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::JAN.id => Some((13, 6)),
-        id if id == artcraft_launcher_core::curated::BRUNO.id => Some((12, 0)),
-        id if id == artcraft_launcher_core::curated::UPSCAYL.id || id == artcraft_launcher_core::curated::LOSSLESSCUT.id => Some((12, 0)),
-        id if id == artcraft_launcher_core::curated::CHERRY_STUDIO.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::ANYTHING_LLM.id => Some((11, 0)),
-        id if id == artcraft_launcher_core::curated::T3_CODE.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::VOICE_STUDIO.id => Some((13, 0)),
-        id if id == artcraft_launcher_core::curated::CLASH_VERGE_REV.id => Some((11, 0)),
-        id if id == artcraft_launcher_core::curated::ORCA.id => Some((13, 4)),
-        id if [
-            OBS_STUDIO.id,
-            AUDACITY.id,
-            DRAWIO.id,
-            artcraft_launcher_core::curated::OPENSCREEN.id,
-            artcraft_launcher_core::curated::SUPER_PRODUCTIVITY.id,
-        ]
-        .contains(&id) =>
-        {
-            Some((13, 0))
-        }
-        id if [
-            KOPIA.id,
-            TRANSMISSION.id,
-            IINA.id,
-            KEEPASSXC.id,
-            JOPLIN.id,
-            SHOTCUT.id,
-            STATS.id,
-            ZED.id,
-            ENTE_AUTH.id,
-            ACTIVITYWATCH.id,
-            TERMIX.id,
-            NEOVIDE.id,
-            artcraft_launcher_core::curated::ACTUAL_BUDGET.id,
-            artcraft_launcher_core::curated::APPFLOWY.id,
-            artcraft_launcher_core::curated::BLOCKBENCH.id,
-            artcraft_launcher_core::curated::DOSBOX_STAGING.id,
-        ]
-        .contains(&id) =>
-        {
-            Some((12, 0))
-        }
-        id if [HANDBRAKE.id, MEETILY.id, RIZZO_PII.id, LIBREOFFICE.id, WHISPERING.id, CRYPTOMATOR.id].contains(&id) => Some((11, 0)),
-        _ => None,
+    if app.id == "photocraft" && cfg!(target_arch = "aarch64") {
+        return Some((11, 0));
     }
+    const MINIMUMS: &[(&[&str], (u16, u16))] = &[
+        (
+            &[
+                recipe::ANYTHING_LLM.id,
+                recipe::CLASH_VERGE_REV.id,
+                recipe::CRYPTOMATOR.id,
+                recipe::DB_BROWSER_SQLITE.id,
+                recipe::HANDBRAKE.id,
+                recipe::KEYCASTR.id,
+                recipe::LAPCE.id,
+                recipe::LIBREOFFICE.id,
+                recipe::MEETILY.id,
+                recipe::RIZZO_PII.id,
+                recipe::SOLVESPACE.id,
+                recipe::VIBE.id,
+                recipe::WHISPERING.id,
+                recipe::ZEN.id,
+            ],
+            (11, 0),
+        ),
+        (
+            &[
+                recipe::ACTIVITYWATCH.id,
+                recipe::ACTUAL_BUDGET.id,
+                recipe::APPFLOWY.id,
+                recipe::BLOCKBENCH.id,
+                recipe::BRUNO.id,
+                recipe::DOSBOX_STAGING.id,
+                recipe::ENTE_AUTH.id,
+                recipe::HEADLAMP.id,
+                recipe::IINA.id,
+                recipe::JOPLIN.id,
+                recipe::KANDO.id,
+                recipe::KEEPASSXC.id,
+                recipe::KOPIA.id,
+                recipe::LOSSLESSCUT.id,
+                recipe::MAGPIE.id,
+                recipe::NAPS2.id,
+                recipe::NEOVIDE.id,
+                recipe::RECORDLY.id,
+                recipe::SHOTCUT.id,
+                recipe::STATS.id,
+                recipe::TERMIX.id,
+                recipe::TRANSMISSION.id,
+                recipe::UPSCAYL.id,
+                recipe::VSCODIUM.id,
+                recipe::ZED.id,
+            ],
+            (12, 0),
+        ),
+        (&[recipe::RUSTDESK.id], (12, 3)),
+        (
+            &[
+                recipe::ANKI.id,
+                recipe::AUDACITY.id,
+                recipe::CHERRY_STUDIO.id,
+                recipe::DRAWIO.id,
+                recipe::GHOST_DOWNLOADER.id,
+                recipe::LOCALAI.id,
+                recipe::OBS_STUDIO.id,
+                recipe::OPENCHAMBER.id,
+                recipe::OPENCODE.id,
+                recipe::OPENSCREEN.id,
+                recipe::PICARD.id,
+                recipe::SIYUAN.id,
+                recipe::SUPER_PRODUCTIVITY.id,
+                recipe::T3_CODE.id,
+                recipe::TRILIUM.id,
+                recipe::VOICE_STUDIO.id,
+                recipe::ZETTLR.id,
+            ],
+            (13, 0),
+        ),
+        (&[recipe::ORCA.id], (13, 4)),
+        (&[recipe::JAN.id], (13, 6)),
+        (&[recipe::CALIBRE.id, recipe::OLLAMA.id], (14, 0)),
+        (&[recipe::VORTA.id], (14, 4)),
+        (&[recipe::OSAURUS.id], (15, 5)),
+        (&[recipe::OPENCLAW.id], (26, 2)),
+    ];
+    MINIMUMS.iter().find_map(|(ids, minimum)| ids.contains(&app.id).then_some(*minimum))
 }
 
 #[cfg(target_os = "macos")]
@@ -633,7 +648,13 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
             .ok_or_else(mismatch);
     }
     if let Some(recipe) = release::qualified_mac_dmg_recipe(&[app.id])
-        && (app.id != artcraft_launcher_core::curated::LOSSLESSCUT.id || asset.name.ends_with(".dmg"))
+        && (![
+            artcraft_launcher_core::curated::LOSSLESSCUT.id,
+            artcraft_launcher_core::curated::GHOST_DOWNLOADER.id,
+            artcraft_launcher_core::curated::ZETTLR.id,
+        ]
+        .contains(&app.id)
+            || asset.name.ends_with(".dmg"))
     {
         return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);
     }
@@ -2554,7 +2575,10 @@ pub mod macos {
         let sqlite = artcraft_launcher_core::curated::DB_BROWSER_SQLITE;
         let sqlite_legacy =
             (app.id, app.repo) == (sqlite.id, sqlite.repo) && expect.version == Some(&artcraft_launcher_core::version::Version::new(3, 12, 2));
-        let args = if app.id == artcraft_launcher_core::curated::PINTA.id || sqlite_legacy {
+        // Calibre's frozen Python library carries a detached Developer ID signature.
+        let calibre = artcraft_launcher_core::curated::CALIBRE;
+        let calibre_detached_signature = (app.id, app.repo, app.bundle, expect.team) == (calibre.id, calibre.repo, calibre.bundle, calibre.mac_team);
+        let args = if app.id == artcraft_launcher_core::curated::PINTA.id || sqlite_legacy || calibre_detached_signature {
             ["--rsrc", "--extattr", "--noacl", src_s, staged_s]
         } else {
             ["--norsrc", "--noextattr", "--noacl", src_s, staged_s]
@@ -3270,6 +3294,25 @@ mod tests {
         assert!(bind_artifact_version(&app, &release, &bad_digest).is_err());
         let bad_size = Asset { size: official.size + 1, ..official.clone() };
         assert!(bind_artifact_version(&app, &release, &bad_size).is_err());
+    }
+
+    #[test]
+    fn zettlr_binds_both_reviewed_platform_packages() {
+        let app = artcraft_launcher_core::curated::ZETTLR;
+        for tag in ["v4.10.0", "v4.11.0"] {
+            let release = release::release_from_sums(app.repo, tag, &[]);
+            let linux = release.assets.iter().find(|asset| asset.name.ends_with(".AppImage")).unwrap();
+            assert!(bind_artifact_version(&app, &release, linux).is_ok());
+            let wrong_name = Asset { name: linux.name.replace("x86_64", "arm64"), ..linux.clone() };
+            assert!(bind_artifact_version(&app, &release, &wrong_name).is_err());
+
+            if tag == "v4.11.0" {
+                let mac = release.assets.iter().find(|asset| asset.name.ends_with(".dmg")).unwrap();
+                assert!(bind_artifact_version(&app, &release, mac).is_ok());
+                let no_checksum = Asset { sha256: None, ..mac.clone() };
+                assert!(bind_artifact_version(&app, &release, &no_checksum).is_err());
+            }
+        }
     }
 
     /// A bare app name is never a launchable location, even when the working folder holds a

@@ -23,6 +23,10 @@ pub(crate) fn start(args: Vec<OsString>) -> Result<Option<Launch>, StartupError>
         println!("shiftanything {}", env!("CARGO_PKG_VERSION"));
         return Ok(None);
     }
+    if args.len() == 1 && args[0] == "--check-update-channel" {
+        crate::launcher_update::check_packaged_channel()?;
+        return Ok(None);
+    }
     #[cfg(windows)]
     if !args.is_empty() {
         return windows_arguments(&args);

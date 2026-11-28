@@ -364,7 +364,7 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
+    if platform.os == Os::Linux && stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
         kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
             .assets
@@ -693,10 +693,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == linux_x64;
     }
-    if stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
-        return platform == linux_x64;
-    }
-    if stems.contains(&crate::curated::LOSSLESSCUT.id) {
+    if [crate::curated::GHOST_DOWNLOADER.id, crate::curated::LOSSLESSCUT.id, crate::curated::ZETTLR.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64 || platform == linux_x64;
     }
     if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
@@ -749,8 +746,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
-    use crate::curated::{MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
-    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, ZETTLR, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
+    use crate::curated::{MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D};
+    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
     if stems.contains(&LOCALSEND.id) || stems.contains(&HANDY.id) {
@@ -824,6 +821,17 @@ mod tests {
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
+            (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
+            (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
+            (crate::curated::GHOST_DOWNLOADER, ["v4.5.11", "v4.6.1"]),
+            (crate::curated::KANDO, ["v3.0.0", "v3.0.1"]),
+            (crate::curated::TRILIUM, ["v0.106.1", "v0.107.0"]),
+            (crate::curated::RECORDLY, ["v1.3.3", "v1.4.0"]),
+            (crate::curated::VSCODIUM, ["1.143.17183", "1.143.17232"]),
+            (crate::curated::OPENCHAMBER, ["v2.8.0", "v2.8.1"]),
+            (crate::curated::OSAURUS, ["1.0.12", "1.0.13"]),
+            (crate::curated::ZEN, ["1.24.2b", "1.24.3b"]),
+            (crate::curated::HEADLAMP, ["v0.45.0", "v0.46.0"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),
@@ -839,7 +847,7 @@ mod tests {
             for tag in tags {
                 let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
                 release.assets.retain(|asset| asset.name.ends_with(".dmg"));
-                assert!(selects(&release, host));
+                assert!(selects(&release, host), "{} {tag}", app.id);
                 assert!(!selects(&release, Platform { arch: Arch::X64, ..host }));
                 assert!(!selects(&release, Platform { os: Os::Linux, ..host }));
 

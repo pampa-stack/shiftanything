@@ -126,6 +126,8 @@ SH*FTER data refresh, Regia `684e51eb` (2026-11-26): eight documented profiles, 
 
 Favorite heart outline/filled SVGs in `assets/ui-icons/heart-*.svg`: original geometric artwork drawn for this fork, 2026-11-26; covered by the repository MIT/Apache-2.0 licence. No external icon or font copied.
 
+`assets/app-icons/neovide.png` is the Neovide contributors’ MIT-licensed [0.17.4 app icon](https://github.com/neovide/neovide/blob/0.17.4/assets/neovide.svg), rendered to 128 px PNG with `sips`. SVG SHA-256 `a6870391ded090cc5f24f0cb40a8ffa67930faf109a419753ec25ac0a03177a9`, PNG SHA-256 `bea186d9d10918b0d3289bac4a2935e30050f889e25bd124adf48ba2ee02a38c`. `assets/app-icons/openscreen.png` is Siddharth Vaddem and the OpenScreen contributors’ MIT-licensed [v2.4.0 app icon](https://github.com/getopenscreen/openscreen/blob/v2.4.0/design/assets/logo-icon.png), copied unmodified. SHA-256 `68fdfd5520bc15e8ba6b2af0925eaf09adb20072bdfa83ac7d94949334cdda02`. See `NOTICE` for the notices and licence texts.
+
 ## Reversible Tauri visual proof (operator-requested, 2026-11-27)
 
 `apps/shiftanything-tauri-proof/frontend/{it,en,index}.html`, `design.css` and `catalog.js` export Promptica's approved Doop design, supplied by the operator in Regia. `media-provenance.json` records design source hashes and each of 19 local image slots (six apps), with official URLs and SHA-256. These are the already approved catalog logos/screenshots, not upstream application source. The three local font copies retain the OFL notices in `assets/fonts/`; brand/platform copies retain the credits above. `proof.css`, `native.js`, the Rust shell and export script are original fork work under this repository's licences.

@@ -1,0 +1,20 @@
+
+OpenToonz - 2D animation
+
+          ID: io.github.OpenToonz
+         Ref: app/io.github.OpenToonz/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.7.1
+     License: BSD-3-Clause
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 129.0 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505
+      Parent: f437cf71a6bae8e0725facc0e3afdb0245428baf093f4abe48d86c52138b7807
+     Subject: Use lzo module from runtime and more (5d30d8632d1f)
+        Date: 2026-01-30 03:44:26 +0000

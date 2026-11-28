@@ -1,0 +1,2 @@
+/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c/export/share/applications/io.github.OpenToonz.desktop
+/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c/export/share/icons/hicolor/256x256/apps/io.github.OpenToonz.png

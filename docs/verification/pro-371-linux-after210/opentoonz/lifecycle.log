@@ -1,0 +1,72 @@
+2026-11-28T02:53:26+00:00 opentoonz AVAILABLE 24034529280
+opentoonz before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+opentoonz JobFinished: Ok("Flathub app installed")
+opentoonz after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:53:52+00:00 opentoonz current-install 0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c
+/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c/export/share/applications/io.github.OpenToonz.desktop
+/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c/export/share/icons/hicolor/256x256/apps/io.github.OpenToonz.png
+Updating app/io.github.OpenToonz/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:53:54+00:00 opentoonz previous 66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505
+opentoonz before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505", package: Some("io.github.OpenToonz"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.1"), update_available: false, can_remove: false, can_open: true }
+opentoonz JobFinished: Err("Approved action rejected: native installation state changed")
+opentoonz JobFinished: Err("This Flatpak is managed outside the launcher")
+opentoonz after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505", package: Some("io.github.OpenToonz"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=20763 comm="xfwm4 --compositor=off --display=:90" label="unconfined")
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=20776 comm="flatpak run --user --command=sh app/io.github.Open" label="flatpak (unconfined)")
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=20776 comm="flatpak run --user --command=sh app/io.github.Open" label="flatpak (unconfined)")
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=20802 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+opentoonz before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=20902 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[20290]: [session uid=1000 pid=20290] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=20917 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:20924): dbind-WARNING **: 02:53:55.445: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:20917): xdg-desktop-portal-WARNING **: 02:53:55.475: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:20917): xdg-desktop-portal-WARNING **: 02:53:55.476: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:20917): xdg-desktop-portal-WARNING **: 02:53:55.476: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][01187.840231] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][01187.840483] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:20917): xdg-desktop-portal-WARNING **: 02:53:55.482: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[20290]: [session uid=1000 pid=20290] Successfully activated service 'org.freedesktop.portal.Desktop'
+opentoonz JobFinished: Ok("Launch request accepted")
+opentoonz after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.OpenToonz
+2026-11-28T02:54:05+00:00 opentoonz previous GUI WM_NAME(STRING) = "OpenToonz 1.7.1"
+WM_CLASS(STRING) = "OpenToonz", "OpenToonz"
+2026-11-28T02:54:05+00:00 opentoonz AVAILABLE 21327745024
+opentoonz before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 7, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.7.1"), update_available: true, can_remove: true, can_open: true }
+opentoonz JobFinished: Ok("Flathub app updated")
+opentoonz after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:54:07+00:00 opentoonz current 0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c
+/home/qa/profiles/opentoonz-after210/.var/app/io.github.OpenToonz/fixture.txt: OK
+opentoonz before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8.0"), update_available: false, can_remove: true, can_open: true }
+opentoonz JobFinished: Ok("Launch request accepted")
+opentoonz after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.OpenToonz
+2026-11-28T02:54:18+00:00 opentoonz current GUI WM_NAME(STRING) = "untitled [sandbox] : OpenToonz 1.8 (built Nov 11 2011 11:11:11)"
+WM_CLASS(STRING) = "OpenToonz", "OpenToonz"
+opentoonz before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/opentoonz-after210/data/flatpak/app/io.github.OpenToonz/x86_64/stable/0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c", package: Some("io.github.OpenToonz"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8.0"), update_available: false, can_remove: true, can_open: true }
+opentoonz JobFinished: Ok("Flathub app removed")
+opentoonz after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/opentoonz-after210/.var/app/io.github.OpenToonz/fixture.txt: OK
+2026-11-28T02:54:18+00:00 opentoonz PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:54:21+00:00 opentoonz EXIT 0 remove
+
+(xfconfd:20788): xfconfd-WARNING **: 02:54:21.993: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 182] = [
+pub const RECIPES: [(&str, &str); 183] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -173,6 +173,7 @@ pub const RECIPES: [(&str, &str); 182] = [
     ("calibre", "com.calibre_ebook.calibre"),
     ("famistudio", "org.famistudio.FamiStudio"),
     ("ardour", "org.ardour.Ardour"),
+    ("easyeffects", "com.github.wwmm.easyeffects"),
     ("simplex-chat", "chat.simplex.simplex"),
     ("sonobus", "net.sonobus.SonoBus"),
     ("carla", "studio.kx.carla"),
@@ -373,6 +374,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "calibre" => "https://github.com/kovidgoyal/calibre",
         "famistudio" => "https://github.com/BleuBleu/FamiStudio",
         "ardour" => "https://github.com/Ardour/ardour",
+        "easyeffects" => "https://github.com/wwmm/easyeffects",
         "simplex-chat" => "https://github.com/simplex-chat/simplex-chat",
         "sonobus" => "https://github.com/sonosaurus/sonobus",
         "carla" => "https://github.com/falkTX/Carla",

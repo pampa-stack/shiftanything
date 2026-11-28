@@ -1,0 +1,75 @@
+2026-11-28T09:09:32+00:00 easyeffects AVAILABLE 24731152384
+easyeffects before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+easyeffects JobFinished: Ok("Flathub app installed")
+easyeffects after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T09:09:37+00:00 easyeffects current-install db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3
+/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3/export/share/applications/com.github.wwmm.easyeffects.desktop
+/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3/export/share/icons/hicolor/scalable/apps/com.github.wwmm.easyeffects.svg
+Updating app/com.github.wwmm.easyeffects/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T09:09:38+00:00 easyeffects previous c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c
+easyeffects before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c", package: Some("com.github.wwmm.easyeffects"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.2"), update_available: false, can_remove: false, can_open: true }
+easyeffects JobFinished: Err("Approved action rejected: native installation state changed")
+easyeffects JobFinished: Err("This Flatpak is managed outside the launcher")
+easyeffects after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c", package: Some("com.github.wwmm.easyeffects"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.2"), update_available: false, can_remove: false, can_open: true })
+pipewire
+Compiled with libpipewire 1.0.5
+Linked with libpipewire 1.0.5
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.xfce.Xfconf' requested by ':1.7' (uid=1000 pid=7010 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.xfce.Xfconf'
+node.name = "shift-qa-output"
+node.name = "shift-qa-input"
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.freedesktop.Flatpak' requested by ':1.11' (uid=1000 pid=7052 comm="flatpak run --user --command=sh app/com.github.wwm" label="flatpak (unconfined)")
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.freedesktop.portal.Documents' requested by ':1.11' (uid=1000 pid=7052 comm="flatpak run --user --command=sh app/com.github.wwm" label="flatpak (unconfined)")
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.13' (uid=1000 pid=7065 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+2026-11-28T09:09:39+00:00 easyeffects previous sandbox sees the private PipeWire socket and no /dev/snd
+easyeffects before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.2"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.21' (uid=1000 pid=7176 comm="xdg-dbus-proxy --args=47" label="flatpak (unconfined)")
+dbus-daemon[6613]: [session uid=1000 pid=6613] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.22' (uid=1000 pid=7184 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:7191): dbind-WARNING **: 09:09:39.629: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:7184): xdg-desktop-portal-WARNING **: 09:09:39.651: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7184): xdg-desktop-portal-WARNING **: 09:09:39.651: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:7184): xdg-desktop-portal-WARNING **: 09:09:39.651: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+dbus-daemon[6613]: [session uid=1000 pid=6613] Successfully activated service 'org.freedesktop.portal.Desktop'
+easyeffects JobFinished: Ok("Launch request accepted")
+easyeffects after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.2"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.wwmm.easyeffects
+2026-11-28T09:09:55+00:00 easyeffects previous GUI WM_NAME(STRING) = "Easy Effects"
+WM_CLASS(STRING) = "easyeffects", "easyeffects"
+2026-11-28T09:09:55+00:00 easyeffects AVAILABLE 24303525888
+easyeffects before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.2"), update_available: true, can_remove: true, can_open: true }
+easyeffects JobFinished: Ok("Flathub app updated")
+easyeffects after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T09:09:57+00:00 easyeffects current db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3
+/home/qa/profiles/easyeffects-after210/.var/app/com.github.wwmm.easyeffects/fixture.txt: OK
+2026-11-28T09:09:57+00:00 easyeffects current sandbox sees the private PipeWire socket and no /dev/snd
+easyeffects before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.3"), update_available: false, can_remove: true, can_open: true }
+easyeffects JobFinished: Ok("Launch request accepted")
+easyeffects after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.wwmm.easyeffects
+2026-11-28T09:10:13+00:00 easyeffects current GUI WM_NAME(STRING) = "Easy Effects"
+WM_CLASS(STRING) = "easyeffects", "easyeffects"
+easyeffects before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 8, minor: 3, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3", package: Some("com.github.wwmm.easyeffects"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("8.3.3"), update_available: false, can_remove: true, can_open: true }
+easyeffects JobFinished: Ok("Flathub app removed")
+easyeffects after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/easyeffects-after210/.var/app/com.github.wwmm.easyeffects/fixture.txt: OK
+2026-11-28T09:10:14+00:00 easyeffects PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T09:10:14+00:00 easyeffects EXIT 0 remove
+
+(xfconfd:7027): xfconfd-WARNING **: 09:10:14.820: Name org.xfce.Xfconf lost on the message dbus, exiting.

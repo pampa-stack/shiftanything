@@ -1,0 +1,23 @@
+2026-11-28T07:39:20+0100
+ARTIFACT bb0cccb2223ce0f4bfea00d90658e85fb5dc17aa7773bf2b22c70ffdb23d7221 40337524 https://github.com/flameshot-org/flameshot/releases/download/v14.0.0/Flameshot-14.0-macos-arm64.dmg
+BUNDLE=Flameshot.app
+CFBundleIdentifier=org.flameshot.Flameshot
+CFBundleShortVersionString=14.0.0
+CFBundleVersion=14.0.0
+CFBundleExecutable=flameshot
+LSMinimumSystemVersion=
+[readonly mount]/Flameshot.app/Contents/MacOS/flameshot: Mach-O 64-bit executable arm64
+[readonly mount]/Flameshot.app/Contents/MacOS/flameshot (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=org.flameshot.Flameshot
+Format=app bundle with Mach-O thin (arm64)
+TeamIdentifier=not set
+test-requirement: code failed to satisfy specified code requirement(s)

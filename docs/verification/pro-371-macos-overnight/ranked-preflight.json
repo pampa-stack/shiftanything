@@ -30,6 +30,16 @@
     "reason": "not_notarized"
   },
   {
+    "id": "flameshot",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/flameshot-org/flameshot/releases/tag/v15.0.0",
+    "asset_url": "https://github.com/flameshot-org/flameshot/releases/download/v15.0.0/Flameshot-15.0.0-macos-arm64.dmg",
+    "sha256": "ff2f63fb630992385a8738f45fb819051dd6a30ff87909a8e98bfbf21170df3d",
+    "bytes": 38997972,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "xournal",
     "target": "macos-arm64",
     "release_source": "https://github.com/xournalpp/xournalpp/releases/tag/v1.3.8",

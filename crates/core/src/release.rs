@@ -790,10 +790,12 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
-    use crate::curated::{DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+    use crate::curated::{
+        DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
+    };
 
     const RECIPES: &[crate::CraftApp] =
-        &[DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
+        &[DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCODE, ORCA, PASEO, RAWTHERAPEE, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
 
@@ -1224,6 +1226,7 @@ pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
 pub fn dyad_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && asset.name.ends_with(".zip")
         && reviewed_assets(crate::curated::DYAD.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
@@ -1675,11 +1678,19 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("mrkai77/Loop", "1.4.1") => &[("Loop.zip", 33_816_818, "ed617a58b1c204257fd76eff1fd405db8305a9c2159396a052613a86544ef6e8")],
         ("mrkai77/Loop", "1.4.2") => &[("Loop.zip", 24_046_630, "514e97faab3843cdfb8b1859b91333704639a1a2ce580e4f684d75efe007d386")],
-        ("dyad-sh/dyad", "v1.23.0") => {
-            &[("dyad-darwin-arm64-1.23.0.zip", 130_606_146, "50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15")]
+        ("dyad-sh/dyad", "v1.23.0") => &[
+            ("dyad-darwin-arm64-1.23.0.zip", 130_606_146, "50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15"),
+            ("dyad_1.23.0_x86_64.AppImage", 144_538_104, "9dbea7aa51943a9ad6e9073053b260eb98b107bf02f8ad561e0ed386fe908f0a"),
+        ],
+        ("dyad-sh/dyad", "v1.24.0") => &[
+            ("dyad-darwin-arm64-1.24.0.zip", 130_496_464, "edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb"),
+            ("dyad_1.24.0_x86_64.AppImage", 144_435_704, "541e17691fe0bd342ac4ecf099b1d10fd0c7c9b7ebf0f26fc951882401e4c2f2"),
+        ],
+        ("GyulyVGC/sniffnet", "v1.5.1") => {
+            &[("Sniffnet_LinuxAppImage_amd64.AppImage", 21_002_744, "04f209d5e45157c57a6fdf34acf82359df88be36046af247fa55693beda7722f")]
         }
-        ("dyad-sh/dyad", "v1.24.0") => {
-            &[("dyad-darwin-arm64-1.24.0.zip", 130_496_464, "edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb")]
+        ("GyulyVGC/sniffnet", "v1.6.0") => {
+            &[("Sniffnet_LinuxAppImage_amd64.AppImage", 18_721_272, "0d03ede587bd60f8d1aa84b007476aa8c88e63dd65c9e437fd70ab6ebc494d65")]
         }
         ("johnste/finicky", "v4.2.1") => &[("Finicky.dmg", 28_569_559, "4b6008735a2885d0ae6135ba0eaefa3e0fc4e8d84d0b6166bd79cc732e6091cc")],
         ("johnste/finicky", "v4.2.2") => &[("Finicky.dmg", 28_569_676, "5f0020782c9075d27411d6083d7be8663891e3146c86eafad118c44acc12208f")],

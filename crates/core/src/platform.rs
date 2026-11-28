@@ -716,7 +716,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         return platform == linux_x64;
     }
     if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
-        return platform == linux_x64 || (platform == mac_arm64 && crate::release::qualified_mac_dmg_recipe(stems).is_some());
+        return platform == linux_x64
+            || (platform == mac_arm64 && (stems.contains(&crate::curated::DYAD.id) || crate::release::qualified_mac_dmg_recipe(stems).is_some()));
     }
     if [
         crate::curated::DBEAVER_CE.id,

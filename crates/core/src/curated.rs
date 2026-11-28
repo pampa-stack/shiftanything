@@ -2219,6 +2219,27 @@ pub const DYAD: crate::CraftApp = crate::CraftApp {
     mac_team: Some("F79J549S3K"),
 };
 
+pub const SNIFFNET: crate::CraftApp = crate::CraftApp {
+    id: "sniffnet",
+    name: "Sniffnet",
+    tagline: "Inspect local network traffic in a desktop dashboard",
+    repo: "GyulyVGC/sniffnet",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Giuliano Bellini",
+    msi_publisher: None,
+    bundle: None,
+    site: Some("https://sniffnet.app/"),
+    mac_bundle_name: None,
+    mac_team: None,
+};
+
 pub const FINICKY: crate::CraftApp = crate::CraftApp {
     id: "finicky",
     name: "Finicky",
@@ -2722,6 +2743,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     LINEAR_MOUSE,
     LOOP,
     DYAD,
+    SNIFFNET,
     FINICKY,
     HAMMERSPOON,
     BLENDER,
@@ -3048,12 +3070,12 @@ mod recipe_tests {
             assert!(super::verified_linux_appimage(app, linux));
             assert!(!super::verified_linux_appimage(app, arm));
         }
-        for app in [super::DUST3D, super::RAWTHERAPEE] {
+        for app in [super::DUST3D, super::DYAD, super::RAWTHERAPEE, super::SNIFFNET] {
             assert!(super::verified_linux_appimage(&app, linux));
             assert!(!super::verified_linux_appimage(&app, arm));
             assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 47);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 49);
     }
 
     #[test]

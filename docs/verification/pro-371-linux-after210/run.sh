@@ -255,7 +255,7 @@ if [[ "$slug" == easyeffects ]]; then
 else
     flags+=(--nofilesystem=xdg-run/pipewire-0)
 fi
-if [[ "$slug" == ardour || "$slug" == famistudio || "$slug" == hydrogen ]]; then
+if [[ "$slug" == ardour || "$slug" == famistudio || "$slug" == hydrogen || "$slug" == bespoke-synth ]]; then
     # An isolated test signal path, with no hardware and no connection to system audio.
     mkdir -p "$XDG_RUNTIME_DIR/pulse"
     export PULSE_SERVER="unix:$XDG_RUNTIME_DIR/pulse/native"

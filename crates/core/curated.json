@@ -21581,6 +21581,17 @@
   },
   {
     "id": "bespoke-synth",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.bespokesynth.BespokeSynth",
+        "source": "https://flathub.org/apps/com.bespokesynth.BespokeSynth",
+        "download_size": 29580564,
+        "download_size_source": "https://flathub.org/api/v2/summary/com.bespokesynth.BespokeSynth",
+        "download_size_checked": "2026-11-28"
+      }
+    ],
     "name": "Bespoke Synth",
     "repo": "https://github.com/BespokeSynth/BespokeSynth",
     "author": "Bespoke Synth contributors",
@@ -26121,22 +26132,22 @@
       }
     ],
     "name": "Zulip",
-    "repo": "https://github.com/zulip/zulip",
-    "author": "zulip",
+    "repo": "https://github.com/zulip/zulip-desktop",
+    "author": "Zulip",
     "level": "base",
     "category": "comm",
     "description": {
-      "it": "Chat di gruppo con conversazioni organizzate per argomento",
-      "en": "Team chat with topic-organized conversations"
+      "it": "Client desktop per la chat di gruppo di Zulip, con conversazioni organizzate per argomento. Si collega anche a server Zulip gestiti dal tuo team.",
+      "en": "Desktop client for Zulip team chat, with topic-organized conversations. It also connects to Zulip servers hosted by your team."
     },
     "alternatives": [
       "Slack"
     ],
     "license": "Apache-2.0",
-    "license_url": "https://github.com/zulip/zulip/license",
-    "website": "https://zulip.com",
-    "releases": "https://github.com/zulip/zulip/releases",
-    "delivery": "self-hosted",
+    "license_url": "https://github.com/zulip/zulip-desktop/blob/main/LICENSE",
+    "website": "https://zulip.com/apps/",
+    "releases": "https://github.com/zulip/zulip-desktop/releases",
+    "delivery": "desktop",
     "agent": {
       "kind": "unknown",
       "source": null
@@ -26146,20 +26157,32 @@
     "media_source": "https://github.com/zulip/zulip",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/zulip/zulip#readme"
+      "date": "2026-11-28",
+      "source": "https://zulip.com/apps/"
     },
     "stars": {
-      "count": 26312,
-      "source": "https://github.com/zulip/zulip/stargazers",
-      "date": "2026-11-27"
+      "count": 994,
+      "source": "https://github.com/zulip/zulip-desktop/stargazers",
+      "date": "2026-11-28"
     },
     "release": {
-      "version": "13.3",
-      "date": "2026-11-19",
-      "source": "https://github.com/zulip/zulip/releases/tag/13.3",
-      "packages": []
-    }
+      "version": "5.14.3",
+      "date": "2026-11-25",
+      "source": "https://github.com/zulip/zulip-desktop/releases/tag/v5.14.3",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 123486500,
+          "size_max": 130633062
+        }
+      ]
+    },
+    "platform_support": {
+      "linux": "https://zulip.com/apps/",
+      "macos": "https://zulip.com/apps/",
+      "windows": "https://zulip.com/apps/"
+    },
+    "platform_scope_complete": true
   },
   {
     "id": "postiz",

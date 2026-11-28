@@ -153,6 +153,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::TRILIUM.id,
                 recipe::VOICE_STUDIO.id,
                 recipe::ZETTLR.id,
+                recipe::ZULIP.id,
             ],
             (13, 0),
         ),

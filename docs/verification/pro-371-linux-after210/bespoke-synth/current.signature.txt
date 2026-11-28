@@ -1,0 +1,19 @@
+commit 93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6
+Parent:  2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d
+ContentChecksum:  129c29d6472c2ba01f2d95811108e0c742dfc0d112c04772cad30b35860a323a
+Date:  2025-11-12 01:00:26 +0000
+
+    Update runtime to 25.08 (246f4bb163f0)
+
+    Name: com.bespokesynth.BespokeSynth
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 12 02:00:38 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

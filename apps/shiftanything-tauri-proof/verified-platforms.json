@@ -167,7 +167,8 @@
       "zed",
       "zen",
       "zettlr",
-      "zotero"
+      "zotero",
+      "zulip"
     ]
   },
   "linux": {
@@ -185,6 +186,7 @@
       "audacious",
       "audacity",
       "bazaar",
+      "bespoke-synth",
       "bleachbit",
       "blender",
       "blockbench",

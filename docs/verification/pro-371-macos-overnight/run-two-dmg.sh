@@ -28,6 +28,9 @@ case "$id" in
     onionshare)
         repo=onionshare/onionshare app=OnionShare bundle_id=OnionShare team=G762K6CH36
         ;;
+    zulip)
+        repo=zulip/zulip-desktop app=Zulip bundle_id=org.zulip.zulip-electron team=66KHCWMEYB
+        ;;
     *) exit 2 ;;
 esac
 [[ $(uname -m) == arm64 && "$root" == /private/tmp/shift-air-overnight.* && -O "$root" && -f "$root/.shift-owned" ]]

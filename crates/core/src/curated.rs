@@ -1675,6 +1675,27 @@ pub const ONIONSHARE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("G762K6CH36"),
 };
 
+pub const ZULIP: crate::CraftApp = crate::CraftApp {
+    id: "zulip",
+    name: "Zulip",
+    tagline: "Team chat organized by topic",
+    repo: "zulip/zulip-desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [100, 93, 245],
+    ink_light: [64, 53, 165],
+    ink_dark: [179, 171, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Kandra Labs, Inc.",
+    msi_publisher: None,
+    bundle: Some("org.zulip.zulip-electron"),
+    site: Some("https://zulip.com/apps/"),
+    mac_bundle_name: Some("Zulip"),
+    mac_team: Some("66KHCWMEYB"),
+};
+
 pub const OPENBOARD: crate::CraftApp = crate::CraftApp {
     id: "openboard",
     name: "OpenBoard",
@@ -3601,6 +3622,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     CAPSO,
     VORSSAINT,
     ONIONSHARE,
+    ZULIP,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

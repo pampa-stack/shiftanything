@@ -1,0 +1,30 @@
+2026-11-28T16:29:26+0100
+/dev/disk3s5   239362496 174614596  23620324    89% 3239349 236203240    1%   /System/Volumes/Data
+ARTIFACT e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776 123295839 https://github.com/zulip/zulip-desktop/releases/download/v5.14.2/Zulip-5.14.2-arm64.dmg
+BUNDLE=Zulip.app
+CFBundleIdentifier=org.zulip.zulip-electron
+CFBundleShortVersionString=5.14.2
+CFBundleVersion=5.14.2
+CFBundleExecutable=Zulip
+LSMinimumSystemVersion=13.0
+/private/tmp/shift-air-overnight.SxJqysW6/preflight/zulip/v5.14.2/mount/Zulip.app/Contents/MacOS/Zulip: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.SxJqysW6/preflight/zulip/v5.14.2/mount/Zulip.app/Contents/MacOS/Zulip (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 24.0
+Identifier=org.zulip.zulip-electron
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Kandra Labs, Inc. (66KHCWMEYB)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=31 Oct 2026 at 03:49:30
+TeamIdentifier=66KHCWMEYB
+/private/tmp/shift-air-overnight.SxJqysW6/preflight/zulip/v5.14.2/mount/Zulip.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT zulip v5.14.2

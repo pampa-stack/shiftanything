@@ -158,4 +158,8 @@ Per riprodurre, avviare il runner con un `HOME` privato breve dentro il guest. I
 
 Il 28 novembre, su una VM Ubuntu 24.04 x64 isolata, NativeBackend ha installato e aggiornato due revisioni con firma Flathub valida per app. Zulip è passato da 5.14.2 a 5.14.3 e ha aperto la schermata di configurazione dell’organizzazione. VLC è passato a una nuova revisione di 3.0.24 e ha aperto il lettore con il dialogo iniziale sulla privacy. Dopo la rimozione, i dati sintetici erano ancora presenti e le voci del menu erano scomparse. Le prove di apertura hanno usato il solo loopback. [Zulip su Flathub](https://flathub.org/apps/org.zulip.Zulip) · [Schermata Zulip](zulip/current.png) · [Log Zulip](zulip/lifecycle.log) · [VLC su Flathub](https://flathub.org/apps/org.videolan.VLC) · [Schermata VLC](vlc/current.png) · [Log VLC](vlc/lifecycle.log)
 
-Bespoke Synth ha completato installazione, aggiornamento e rimozione, ma l’interfaccia segnala che manca un dispositivo audio nel guest isolato. La ricetta resta da validare con un’uscita audio virtuale.
+## Bespoke Synth su Linux x64
+
+Il primo ciclo ha mostrato un errore audio all’apertura. Il 28 novembre la prova ripetuta su Ubuntu 24.04 x64 con PulseAudio privato e un’uscita virtuale ha aperto l’editor in entrambe le revisioni firmate di Bespoke Synth 1.3.0. NativeBackend ha installato la revisione precedente, applicato l’aggiornamento al runtime Freedesktop 25.08 e rimosso il pacchetto preservando i dati sintetici. La revisione precedente con runtime 24.08 è stata usata solo nel guest di prova. Il ciclo verifica gestione del pacchetto e apertura con audio virtuale. [Flathub](https://flathub.org/apps/com.bespokesynth.BespokeSynth) · [Prima](bespoke-synth/previous.png) · [Dopo](bespoke-synth/current.png) · [Log](bespoke-synth/lifecycle.log)
+
+Per riprodurre, installare `pulseaudio` e `pulseaudio-utils` nel guest di prova e usare `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh bespoke-synth 94`.

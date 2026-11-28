@@ -1026,6 +1026,7 @@ mod tests {
             (crate::curated::CAPSO, ["v1.2.10", "v1.2.11"]),
             (crate::curated::VORSSAINT, ["v3.4.4", "v3.4.5"]),
             (crate::curated::ONIONSHARE, ["v2.7.2", "v2.7.3"]),
+            (crate::curated::ZULIP, ["v5.14.2", "v5.14.3"]),
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
             (crate::curated::DESKREEN, ["v3.2.15", "v3.2.16"]),
             (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),

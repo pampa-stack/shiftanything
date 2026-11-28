@@ -1246,6 +1246,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::CAPSO,
         crate::curated::VORSSAINT,
         crate::curated::ONIONSHARE,
+        crate::curated::ZULIP,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1675,6 +1676,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("zulip/zulip-desktop", "v5.14.2") => {
+            &[("Zulip-5.14.2-arm64.dmg", 123_295_839, "e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776")]
+        }
+        ("zulip/zulip-desktop", "v5.14.3") => {
+            &[("Zulip-5.14.3-arm64.dmg", 123_486_500, "ef1cd8427f54553f828ece1db8eca2acd4f28dc41a298e5aaf33a29db49343f4")]
+        }
         ("onionshare/onionshare", "v2.7.2") => {
             &[("OnionShare-2.7.2.dmg", 183_956_471, "1723fc3ffe50208fd6a32e59118f379183881194ebdab351ce69b5e40a1caf0e")]
         }

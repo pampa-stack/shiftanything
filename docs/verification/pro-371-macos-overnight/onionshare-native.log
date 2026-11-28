@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v2.7.2 Dmg https://github.com/onionshare/onionshare/releases/download/v2.7.2/OnionShare-2.7.2.dmg 183956471 1723fc3ffe50208fd6a32e59118f379183881194ebdab351ce69b5e40a1caf0e
+PASS OFFICIAL v2.7.3 Dmg https://github.com/onionshare/onionshare/releases/download/v2.7.3/OnionShare-2.7.3.dmg 184429470 6fa4fe394834cea3082f4e13f2972cefef3a3edb5bdf73ca2d473b61890c7f03
+NATIVE ORIGIN onionshare GitHub
+PASS OFFICIAL v2.7.2 Dmg https://github.com/onionshare/onionshare/releases/download/v2.7.2/OnionShare-2.7.2.dmg 183956471 1723fc3ffe50208fd6a32e59118f379183881194ebdab351ce69b5e40a1caf0e
+PASS NATIVE onionshare install: OnionShare installed: 2.7.2; package_bytes=183956471; elapsed=40.556s
+2.7.2
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+<scratch>/profile-onionshare.7vfiwyWg/Applications/OnionShare.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Lockdown Systems LLC (G762K6CH36)
+NATIVE ORIGIN onionshare GitHub
+PASS OFFICIAL v2.7.3 Dmg https://github.com/onionshare/onionshare/releases/download/v2.7.3/OnionShare-2.7.3.dmg 184429470 6fa4fe394834cea3082f4e13f2972cefef3a3edb5bdf73ca2d473b61890c7f03
+PASS NATIVE onionshare update: OnionShare updated to 2.7.3; package_bytes=184429470; elapsed=29.066s
+2.7.3
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+<scratch>/profile-onionshare.7vfiwyWg/Applications/OnionShare.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Lockdown Systems LLC (G762K6CH36)
+PASS NATIVE onionshare remove: OnionShare was removed; package_bytes=0; elapsed=0.105s
+PASS NATIVE CYCLE onionshare, private Trash and synthetic data preserved

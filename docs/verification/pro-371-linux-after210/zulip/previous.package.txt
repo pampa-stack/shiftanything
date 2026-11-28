@@ -1,0 +1,20 @@
+
+Zulip - Zulip Desktop Client for Linux
+
+          ID: org.zulip.Zulip
+         Ref: app/org.zulip.Zulip/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 5.14.2
+     License: Apache-2.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 309.9 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: f655ae8a02c2bb92e03cd09284e21c1df663b912b0a995c0783a56e9ef9453a9
+      Parent: 5f7508b7a381eef640eaf5e3ee1ecc1deceefe69f3e383b8d1bd2f1dbd99aed8
+     Subject: Remove StartupWMClass to match upstream (1f2f24790634)
+        Date: 2026-11-25 17:17:23 +0000

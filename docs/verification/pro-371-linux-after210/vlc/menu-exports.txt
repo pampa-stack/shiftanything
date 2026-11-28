@@ -1,0 +1,6 @@
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/applications/org.videolan.VLC.desktop
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/128x128/apps/org.videolan.VLC.png
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/16x16/apps/org.videolan.VLC.png
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/256x256/apps/org.videolan.VLC.png
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/32x32/apps/org.videolan.VLC.png
+/home/qa/q.A1KB4uRO/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/48x48/apps/org.videolan.VLC.png

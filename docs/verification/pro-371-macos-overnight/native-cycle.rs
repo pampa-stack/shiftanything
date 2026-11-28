@@ -202,6 +202,7 @@ fn main() -> Result<(), String> {
             "markedit",
             "capso",
             "vorssaint",
+            "onionshare",
             "freeplane",
         ]
         .contains(&app.id)

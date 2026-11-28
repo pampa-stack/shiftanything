@@ -1245,6 +1245,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MARKEDIT,
         crate::curated::CAPSO,
         crate::curated::VORSSAINT,
+        crate::curated::ONIONSHARE,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1674,6 +1675,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("onionshare/onionshare", "v2.7.2") => {
+            &[("OnionShare-2.7.2.dmg", 183_956_471, "1723fc3ffe50208fd6a32e59118f379183881194ebdab351ce69b5e40a1caf0e")]
+        }
+        ("onionshare/onionshare", "v2.7.3") => {
+            &[("OnionShare-2.7.3.dmg", 184_429_470, "6fa4fe394834cea3082f4e13f2972cefef3a3edb5bdf73ca2d473b61890c7f03")]
+        }
         ("MarkEdit-app/MarkEdit", "v1.37.0") => {
             &[("MarkEdit-1.37.0-apple-silicon.dmg", 3_418_554, "d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89")]
         }

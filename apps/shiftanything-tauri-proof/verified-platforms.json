@@ -88,8 +88,8 @@
       "magpie",
       "markedit",
       "material-maker",
-      "meetingbar",
       "meetily",
+      "meetingbar",
       "mist",
       "monitorcontrol",
       "moonlight",
@@ -101,6 +101,7 @@
       "netnewswire",
       "obs",
       "ollama",
+      "onionshare",
       "onlyoffice",
       "openboard",
       "openchamber",
@@ -426,6 +427,7 @@
       "video-downloader",
       "video-trimmer",
       "virt-manager",
+      "vlc",
       "voice-studio",
       "vokoscreenng",
       "vorta",
@@ -439,7 +441,8 @@
       "zen",
       "zettlr",
       "zim",
-      "zotero"
+      "zotero",
+      "zulip"
     ]
   },
   "windows": {

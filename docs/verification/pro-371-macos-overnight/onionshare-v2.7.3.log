@@ -1,0 +1,32 @@
+2026-11-28T16:09:33+0100
+/dev/disk3s5   239362496 174628216  23606704    89% 3239319 236067040    1%   /System/Volumes/Data
+ARTIFACT 6fa4fe394834cea3082f4e13f2972cefef3a3edb5bdf73ca2d473b61890c7f03 184429470 https://github.com/onionshare/onionshare/releases/download/v2.7.3/OnionShare-2.7.3.dmg
+BUNDLE=OnionShare.app
+CFBundleIdentifier=OnionShare
+CFBundleShortVersionString=2.7.3
+CFBundleVersion=2.7.3
+CFBundleExecutable=onionshare
+LSMinimumSystemVersion=
+<scratch>/preflight/onionshare/v2.7.3/mount/OnionShare.app/Contents/MacOS/onionshare: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+<scratch>/preflight/onionshare/v2.7.3/mount/OnionShare.app/Contents/MacOS/onionshare (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<scratch>/preflight/onionshare/v2.7.3/mount/OnionShare.app/Contents/MacOS/onionshare (for architecture arm64):	Mach-O 64-bit executable arm64
+<scratch>/preflight/onionshare/v2.7.3/mount/OnionShare.app/Contents/MacOS/onionshare (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=OnionShare
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Lockdown Systems LLC (G762K6CH36)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=23 Nov 2026 at 01:16:37
+TeamIdentifier=G762K6CH36
+<scratch>/preflight/onionshare/v2.7.3/mount/OnionShare.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT onionshare v2.7.3

@@ -3595,7 +3595,7 @@ mod tests {
     }
 
     #[test]
-    fn vlc_uses_videolan_mac_download_through_its_dedicated_source() {
+    fn vlc_uses_videolan_on_mac_and_flathub_on_linux() {
         use artcraft_launcher_core::{Arch, curated::VLC, nightly::InstallChannel};
 
         let feed = Feed::default();
@@ -3604,7 +3604,7 @@ mod tests {
         assert_eq!(CraftApp::by_id(VLC.id), Some(&VLC));
         assert!(feed_for_app(Some(&feed), &VLC).is_none());
         assert_eq!(release_origin(&VLC), Origin::VideoLan);
-        assert!(!routes_to_flathub(VLC.id, Some(linux), InstallChannel::Stable));
+        assert!(routes_to_flathub(VLC.id, Some(linux), InstallChannel::Stable));
         assert!(!routes_to_flathub(VLC.id, Some(mac), InstallChannel::Stable));
     }
 

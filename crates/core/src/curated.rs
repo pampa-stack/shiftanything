@@ -1654,6 +1654,27 @@ pub const VORSSAINT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("3D485NHW29"),
 };
 
+pub const ONIONSHARE: crate::CraftApp = crate::CraftApp {
+    id: "onionshare",
+    name: "OnionShare",
+    tagline: "Share files and host pages through Tor",
+    repo: "onionshare/onionshare",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [122, 81, 155],
+    ink_light: [79, 45, 111],
+    ink_dark: [196, 154, 225],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Lockdown Systems LLC",
+    msi_publisher: None,
+    bundle: Some("OnionShare"),
+    site: Some("https://onionshare.org/"),
+    mac_bundle_name: Some("OnionShare"),
+    mac_team: Some("G762K6CH36"),
+};
+
 pub const OPENBOARD: crate::CraftApp = crate::CraftApp {
     id: "openboard",
     name: "OpenBoard",
@@ -3579,6 +3600,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MARKEDIT,
     CAPSO,
     VORSSAINT,
+    ONIONSHARE,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 212] = [
+pub const RECIPES: [(&str, &str); 214] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -197,6 +197,8 @@ pub const RECIPES: [(&str, &str); 212] = [
     ("frescobaldi", "org.frescobaldi.Frescobaldi"),
     ("rhythmbox", "org.gnome.Rhythmbox3"),
     ("frog", "com.github.tenderowl.frog"),
+    ("zulip", "org.zulip.Zulip"),
+    ("vlc", "org.videolan.VLC"),
     ("blender", "org.blender.Blender"),
     ("mullvad-browser", "net.mullvad.MullvadBrowser"),
     ("alpaca", "com.jeffser.Alpaca"),
@@ -444,6 +446,8 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "fontforge" => "https://github.com/fontforge/fontforge",
         "material-maker" => "https://github.com/RodZill4/material-maker",
         "geany" => "https://github.com/geany/geany",
+        "zulip" => "https://github.com/zulip/zulip",
+        "vlc" => "https://code.videolan.org/videolan/vlc",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {
@@ -474,6 +478,6 @@ mod tests {
             assert!(!supported(id, arm), "{id} Linux arm64");
             assert!(!supported(id, mac), "{id} macOS");
         }
-        assert!(!supported("vlc", linux));
+        assert!(!supported("sioyek", linux));
     }
 }

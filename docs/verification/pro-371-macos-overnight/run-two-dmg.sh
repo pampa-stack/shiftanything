@@ -25,6 +25,9 @@ case "$id" in
     vorssaint)
         repo=vorssaint/vorssaint-utils app=Vorssaint bundle_id=com.vorssaint.utils team=3D485NHW29
         ;;
+    onionshare)
+        repo=onionshare/onionshare app=OnionShare bundle_id=OnionShare team=G762K6CH36
+        ;;
     *) exit 2 ;;
 esac
 [[ $(uname -m) == arm64 && "$root" == /private/tmp/shift-air-overnight.* && -O "$root" && -f "$root/.shift-owned" ]]

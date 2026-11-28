@@ -26109,6 +26109,17 @@
   },
   {
     "id": "zulip",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.zulip.Zulip",
+        "source": "https://flathub.org/apps/org.zulip.Zulip",
+        "download_size": 134493046,
+        "download_size_source": "https://flathub.org/api/v2/summary/org.zulip.Zulip",
+        "download_size_checked": "2026-11-28"
+      }
+    ],
     "name": "Zulip",
     "repo": "https://github.com/zulip/zulip",
     "author": "zulip",

@@ -2198,6 +2198,27 @@ pub const DOCKDOOR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("2Q775S63Q3"),
 };
 
+pub const MACVIM: crate::CraftApp = crate::CraftApp {
+    id: "macvim",
+    name: "MacVim",
+    tagline: "Edit text with Vim in a native macOS window",
+    repo: "macvim-dev/macvim",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "MacVim contributors",
+    msi_publisher: None,
+    bundle: Some("org.vim.MacVim"),
+    site: Some("https://macvim.org/"),
+    mac_bundle_name: None,
+    mac_team: Some("WG3S88DD2E"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -2888,6 +2909,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     ALT_TAB,
     AMETHYST,
     DOCKDOOR,
+    MACVIM,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

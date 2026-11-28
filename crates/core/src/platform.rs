@@ -966,6 +966,7 @@ mod tests {
             (crate::curated::OPENMTP, ["v3.2.25", "v3.3.0"]),
             (crate::curated::FREEPLANE, ["release-1.13.3", "release-1.13.5"]),
             (crate::curated::DOCKDOOR, ["1.42.4", "1.42.5"]),
+            (crate::curated::MACVIM, ["release-183", "release-184"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),

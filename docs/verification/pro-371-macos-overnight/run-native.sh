@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor|macvim) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -110,6 +110,7 @@ for tag in (old, new):
     else:
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
+            'macvim': r'release-\d+',
             'dockdoor': r'\d+\.\d+\.\d+',
             'easydict': r'\d+\.\d+\.\d+',
             'utm': r'v(?:5\.0\.8|5\.0\.9-2)',
@@ -130,6 +131,8 @@ for tag in (old, new):
         else:
             assert published_digests == {digest}, published_digests
         version = tag.removeprefix('v').removeprefix('mac-').removeprefix('release-')
+        if app_id == 'macvim':
+            version = re.search(r'^CFBundleShortVersionString=(\d+\.\d+\.\d+)$', Path(f'{app_id}-{tag}.log').read_text(), re.M)[1]
         if app_id == 'utm' and tag == 'v5.0.9-2':
             version = '5.0.9'
         if app_id in ('netnewswire', 'virtualbuddy') and version.count('.') == 1:

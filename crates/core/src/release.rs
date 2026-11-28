@@ -698,6 +698,12 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         version::parse(tag.strip_prefix("Audacity-")?)
     } else if repo == crate::curated::FREEPLANE.repo {
         version::parse(tag.strip_prefix("release-")?)
+    } else if repo == crate::curated::MACVIM.repo {
+        match tag {
+            "release-183" => Some(Version::new(9, 2, 321)),
+            "release-184" => Some(Version::new(9, 2, 1252)),
+            _ => None,
+        }
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
     } else if repo == crate::curated::TERMIX.repo {
@@ -1123,6 +1129,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENMTP,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
+        crate::curated::MACVIM,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1141,6 +1148,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 release.tag == format!("version_{version}")
             } else if (app.id, app.repo) == (crate::curated::FREEPLANE.id, crate::curated::FREEPLANE.repo) {
                 release.tag == format!("release-{version}")
+            } else if (app.id, app.repo) == (crate::curated::MACVIM.id, crate::curated::MACVIM.repo) {
+                release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::OPENTTD.id, crate::curated::OPENTTD.repo) {
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::VIRTUALBUDDY.id, crate::curated::VIRTUALBUDDY.repo) {
@@ -1736,6 +1745,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ianyh/Amethyst", "v0.25.1") => &[("Amethyst.zip", 7_597_173, "ab1a290a40bb4d31bf589f74246683660789a2c988110aadc6d7e2c24a7f7835")],
         ("ejbills/DockDoor", "1.42.4") => &[("DockDoor.dmg", 22_828_534, "3c48963f50e6aa854a9e6d5faf12ba38c2e082e4c6ab13a1438f76df0a7eec69")],
         ("ejbills/DockDoor", "1.42.5") => &[("DockDoor.dmg", 22_832_758, "dced8f338319ab22e49101b00d44cbac79c33ab96c16abc2414abcf1c0825021")],
+        ("macvim-dev/macvim", "release-183") => &[("MacVim.dmg", 25_939_870, "c27fb8948328074dcb81f45b7d88ff4e123a86c06eaf3d5b330369bc39ffab69")],
+        ("macvim-dev/macvim", "release-184") => &[("MacVim.dmg", 26_360_181, "9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8")],
         ("linearmouse/linearmouse", "v0.12.0") => {
             &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
         }

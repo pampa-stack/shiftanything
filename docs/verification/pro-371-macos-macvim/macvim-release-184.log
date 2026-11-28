@@ -1,0 +1,32 @@
+2026-11-28T03:33:59+0100
+/dev/disk3s5   239362496 180565832  17669216    92% 3294356 176692160    2%   /System/Volumes/Data
+ARTIFACT 9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8 26360181 https://github.com/macvim-dev/macvim/releases/download/release-184/MacVim.dmg
+BUNDLE=MacVim.app
+CFBundleIdentifier=org.vim.MacVim
+CFBundleShortVersionString=9.2.1252
+CFBundleVersion=184
+CFBundleExecutable=MacVim
+LSMinimumSystemVersion=10.13
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/macvim/release-184/mount/MacVim.app/Contents/MacOS/MacVim: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/macvim/release-184/mount/MacVim.app/Contents/MacOS/MacVim (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/macvim/release-184/mount/MacVim.app/Contents/MacOS/MacVim (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/macvim/release-184/mount/MacVim.app/Contents/MacOS/MacVim (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.5
+   ntools 1
+     tool LD
+  version 1167.5
+Identifier=org.vim.MacVim
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Yee Cheng Chin (WG3S88DD2E)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=1 Nov 2026 at 11:50:32
+TeamIdentifier=WG3S88DD2E
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/macvim/release-184/mount/MacVim.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT macvim release-184

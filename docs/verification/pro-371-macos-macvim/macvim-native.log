@@ -1,0 +1,18 @@
+PASS PREFLIGHT macvim release-183
+PASS PREFLIGHT macvim release-184
+/dev/disk3s5   239362496 174669896  23564128    89% 3222251 235641280    1%   /System/Volumes/Data
+OFFICIAL INDEX macvim release-183 digest=published
+OFFICIAL INDEX macvim release-184 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL release-183 Dmg https://github.com/macvim-dev/macvim/releases/download/release-183/MacVim.dmg 25939870 c27fb8948328074dcb81f45b7d88ff4e123a86c06eaf3d5b330369bc39ffab69
+PASS OFFICIAL release-184 Dmg https://github.com/macvim-dev/macvim/releases/download/release-184/MacVim.dmg 26360181 9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8
+NATIVE ORIGIN macvim GitHub
+PASS OFFICIAL release-183 Dmg https://github.com/macvim-dev/macvim/releases/download/release-183/MacVim.dmg 25939870 c27fb8948328074dcb81f45b7d88ff4e123a86c06eaf3d5b330369bc39ffab69
+PASS NATIVE macvim install: MacVim installed: 9.2.321; package_bytes=25939870; elapsed=33.023s
+NATIVE ORIGIN macvim GitHub
+PASS OFFICIAL release-184 Dmg https://github.com/macvim-dev/macvim/releases/download/release-184/MacVim.dmg 26360181 9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8
+PASS NATIVE macvim update: MacVim updated to 9.2.1252; package_bytes=26360181; elapsed=11.249s
+PASS NATIVE macvim remove: MacVim was removed; package_bytes=0; elapsed=0.152s
+PASS NATIVE CYCLE macvim (release-183 → release-184), private Trash and synthetic data preserved

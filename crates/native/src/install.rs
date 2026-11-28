@@ -755,7 +755,8 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     if app.release_repository() == artcraft_launcher_core::curated::GODOT_RELEASES_REPO {
         return artcraft_launcher_core::release::godot_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
     }
-    if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo {
+    // Termix's Linux AppImage is bound below, with the other reviewed Linux AppImages.
+    if app.release_repository() == artcraft_launcher_core::curated::TERMIX.repo && !asset.name.ends_with(".AppImage") {
         return artcraft_launcher_core::release::termix_mac_asset(release, asset).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::KEYCASTR.id {
@@ -5605,6 +5606,28 @@ mod tests {
             ..Asset::default()
         };
         assert!(bind_artifact_version(app, &release, &bad_tag).is_err());
+    }
+
+    #[test]
+    fn termix_binds_only_its_reviewed_linux_appimages() {
+        let app = &artcraft_launcher_core::curated::TERMIX;
+        for receipt in &artcraft_launcher_core::pending::TERMIX_APPIMAGES {
+            let asset = Asset {
+                name: receipt.name.into(),
+                size: receipt.size,
+                url: format!("{}{}/{}", release::download_prefix(app.repo), receipt.tag, receipt.name),
+                sha256: Some(receipt.sha256.into()),
+            };
+            let release = Release {
+                tag: receipt.tag.into(),
+                version: release::release_tag_version(app.repo, receipt.tag),
+                assets: vec![asset.clone()],
+                ..Release::default()
+            };
+            assert!(bind_artifact_version(app, &release, &asset).is_ok(), "{}", receipt.tag);
+            let altered = Asset { sha256: Some("0".repeat(64)), ..asset.clone() };
+            assert!(bind_artifact_version(app, &release, &altered).is_err(), "{}", receipt.tag);
+        }
     }
 
     #[cfg(target_os = "linux")]

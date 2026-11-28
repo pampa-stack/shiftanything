@@ -4143,12 +4143,13 @@ mod recipe_tests {
             super::RAWTHERAPEE,
             super::RECORDLY,
             super::SNIFFNET,
+            super::TERMIX,
         ] {
             assert!(super::verified_linux_appimage(&app, linux));
             assert!(!super::verified_linux_appimage(&app, arm));
             assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 57);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 58);
     }
 
     #[test]

@@ -967,7 +967,7 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     use crate::curated::{
         DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, LOGSEQ_DB, MISTER_DOWNLOAD_MANAGER, NEOVIDE, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENSCREEN,
-        OPENWORK_DESKTOP, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
+        OPENWORK_DESKTOP, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, TERMIX, ULTIMAKER_CURA, VOICE_STUDIO,
     };
 
     const RECIPES: &[crate::CraftApp] = &[
@@ -989,6 +989,7 @@ pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate:
         RECORDLY,
         SNIFFNET,
         T3_CODE,
+        TERMIX,
         ULTIMAKER_CURA,
         VOICE_STUDIO,
     ];
@@ -996,7 +997,7 @@ pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate:
 }
 
 pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
-    use crate::curated::{OPENCODE, ORCA};
+    use crate::curated::{OPENCODE, ORCA, TERMIX};
 
     let Some(version) = release.version.as_ref() else {
         return false;
@@ -1012,6 +1013,7 @@ pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, 
     let name = match app.id {
         id if id == OPENCODE.id => "opencode-desktop-linux-x86_64.AppImage",
         id if id == ORCA.id => "orca-linux.AppImage",
+        id if id == TERMIX.id => return crate::pending::termix_appimage_asset(release, asset),
         _ => {
             return reviewed_assets(app.repo, &release.tag).any(|reviewed| reviewed.name.ends_with(".AppImage") && &reviewed == asset);
         }

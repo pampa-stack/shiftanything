@@ -750,7 +750,9 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
         return platform == linux_x64
             || (platform == mac_arm64
-                && ([crate::curated::DYAD.id, NEOVIDE.id, crate::curated::OPENSCREEN.id].iter().any(|id| stems.contains(id))
+                && ([crate::curated::DYAD.id, NEOVIDE.id, crate::curated::OPENSCREEN.id, crate::curated::TERMIX.id]
+                    .iter()
+                    .any(|id| stems.contains(id))
                     || crate::release::qualified_mac_dmg_recipe(stems).is_some()));
     }
     if [

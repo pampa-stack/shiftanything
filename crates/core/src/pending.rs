@@ -17,9 +17,8 @@ pub struct FlatpakCandidate {
 }
 
 /// Flathub recipes still waiting for their cycle on Ubuntu 24.04 x64.
-pub const FLATPAK: [FlatpakCandidate; 1] = [
-    FlatpakCandidate { id: "openutau", flatpak: "com.openutau.OpenUtau", upstream: "https://github.com/openutau/OpenUtau" },
-];
+pub const FLATPAK: [FlatpakCandidate; 1] =
+    [FlatpakCandidate { id: "openutau", flatpak: "com.openutau.OpenUtau", upstream: "https://github.com/openutau/OpenUtau" }];
 
 /// The Flathub id for a candidate whose catalog identity matches, `None` otherwise.
 pub fn flatpak_candidate(id: &str, repo_url: &str) -> Option<&'static str> {
@@ -165,10 +164,9 @@ mod tests {
             assert!(!crate::flathub::supported(candidate.id, linux), "{} is live", candidate.id);
             assert!(!crate::flathub::RECIPES.iter().any(|(id, flatpak)| *id == candidate.id || *flatpak == candidate.flatpak));
         }
-        for app in [&crate::curated::UMI_OCR, &crate::curated::TERMIX] {
-            assert!(crate::release::qualified_linux_appimage_recipe(&[app.id]).is_none(), "{} has a live AppImage recipe", app.id);
-            assert!(!crate::curated::verified_linux_appimage(app, linux), "{} is verified on Linux", app.id);
-        }
+        let umi_ocr = &crate::curated::UMI_OCR;
+        assert!(crate::release::qualified_linux_appimage_recipe(&[umi_ocr.id]).is_none(), "Umi-OCR has a live AppImage recipe");
+        assert!(!crate::curated::verified_linux_appimage(umi_ocr, linux), "Umi-OCR is verified on Linux");
         assert!(!crate::curated::NATIVE_APPS.iter().any(|app| app.id == crate::curated::UMI_OCR.id));
         assert!(!linux.default_kinds().contains(&crate::PackageKind::TarXz));
         assert!(!linux.download_kinds().contains(&crate::PackageKind::TarXz));
@@ -180,7 +178,7 @@ mod tests {
             serde_json::from_str(include_str!("../../../apps/shiftanything-tauri-proof/verified-platforms.json")).unwrap();
         let linux: Vec<&str> = manifest["linux"]["x64"].as_array().unwrap().iter().filter_map(|id| id.as_str()).collect();
         let mut waiting: Vec<&str> = FLATPAK.iter().map(|candidate| candidate.id).collect();
-        waiting.extend([crate::curated::UMI_OCR.id, crate::curated::TERMIX.id]);
+        waiting.push(crate::curated::UMI_OCR.id);
         for id in waiting {
             assert!(!linux.contains(&id), "{id} is in the Linux manifest: move it out of pending.rs in the same commit as its proof");
         }

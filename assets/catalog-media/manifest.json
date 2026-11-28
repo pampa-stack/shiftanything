@@ -670,5 +670,12 @@
     "file": "ragflow-logo.png",
     "source": "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
     "sha256": "0e7795b6eeaacdee3623748844726229e68ff76143cc229749e99a27304364a8"
+  },
+  {
+    "app": "netnewswire",
+    "key": "shot-0",
+    "file": "netnewswire-shot-0.png",
+    "source": "https://netnewswire.com/images/NNW7-Light.png",
+    "sha256": "4c9e2b42bf3af10c3bcb9dd4cf26757d140800dfbfe81d0ac64dbe7eabce3125"
   }
 ]

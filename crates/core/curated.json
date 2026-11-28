@@ -25130,8 +25130,8 @@
     "level": "base",
     "category": "comm",
     "description": {
-      "it": "Client desktop per messaggi e chiamate cifrate di Signal",
-      "en": "Desktop client for encrypted Signal messages and calls"
+      "it": "Scrivi ai tuoi contatti, usa le chat di gruppo e fai chiamate dal computer con cifratura end-to-end. Per iniziare, collega l’app desktop a Signal già configurato sul telefono.",
+      "en": "Message your contacts, use group chats, and make end-to-end encrypted calls from your computer. To get started, link the desktop app to Signal on your phone."
     },
     "alternatives": [
       "WhatsApp"
@@ -25146,12 +25146,14 @@
       "source": null
     },
     "logo": "https://raw.githubusercontent.com/signalapp/Signal-Desktop/01e59719454fec204b3f7902fb663d68419848c9/build/icons/png/512x512.png",
-    "screenshots": [],
-    "media_source": "https://github.com/signalapp/Signal-Desktop/blob/01e59719454fec204b3f7902fb663d68419848c9/build/icons/png/512x512.png",
+    "screenshots": [
+      "https://signal.org/assets/images/screenshots/download-desktop-mac.png"
+    ],
+    "media_source": "https://signal.org/download/",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/signalapp/Signal-Desktop#readme"
+      "date": "2026-11-28",
+      "source": "https://support.signal.org/hc/en-us/articles/360008216551-Installing-Signal/"
     },
     "stars": {
       "count": 16736,
@@ -25233,8 +25235,8 @@
     "level": "base",
     "category": "comm",
     "description": {
-      "it": "Chat desktop privata con messaggi e chiamate",
-      "en": "Private desktop chat with messages and calls"
+      "it": "Scrivi in chat individuali o di gruppo, allega file e conserva appunti privati. Puoi creare un profilo sul computer o collegarlo a quello del telefono. Le chiamate avviate dal desktop si aprono nel browser.",
+      "en": "Use direct or group chats, attach files, and save private notes. Create a profile on your computer or link your phone profile. Calls started on desktop open in your browser."
     },
     "alternatives": [
       "WhatsApp"
@@ -25253,8 +25255,8 @@
     "media_source": "https://github.com/simplex-chat/simplex-chat",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/simplex-chat/simplex-chat#readme"
+      "date": "2026-11-28",
+      "source": "https://simplex.chat/docs/guide/audio-video-calls.html"
     },
     "stars": {
       "count": 19785,
@@ -28359,8 +28361,8 @@
     "level": "avanz",
     "category": "sic",
     "description": {
-      "it": "Autenticatore a due fattori per desktop con modalità offline senza account.",
-      "en": "Desktop two-factor authenticator with an account-free offline mode."
+      "it": "Genera e organizza i codici di autenticazione a due fattori. Puoi importare i codici da altri autenticatori, cercarli per account e scegliere tra uso offline senza account e sincronizzazione cifrata.",
+      "en": "Generate and organize two-factor authentication codes. Import codes from other authenticators, search by account, and choose between account-free offline use and encrypted sync."
     },
     "alternatives": [
       "Authy"
@@ -28379,8 +28381,8 @@
     "media_source": "https://github.com/ente/ente",
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://ente.com/help/auth/faq/"
+      "date": "2026-11-28",
+      "source": "https://ente.com/help/auth/features/"
     },
     "stars": {
       "count": 30546,
@@ -32796,8 +32798,8 @@
     "level": "avanz",
     "category": "accessibilita",
     "description": {
-      "it": "Rimappa i tasti della tastiera con regole personalizzate per dispositivo e applicazione.",
-      "en": "Remap keyboard keys with rules for individual devices and applications."
+      "it": "Personalizza la tastiera del Mac con rimappature dei tasti e regole per le combinazioni. Puoi assegnare regole a singoli dispositivi, gestire profili e controllare gli eventi con EventViewer.",
+      "en": "Customize your Mac keyboard with key remapping and rules for key combinations. Apply rules by device, manage profiles, and inspect key events in EventViewer."
     },
     "alternatives": [
       "BetterTouchTool"
@@ -32812,11 +32814,14 @@
       "source": null
     },
     "logo": "https://karabiner-elements.pqrs.org/images/logo.png",
-    "screenshots": [],
+    "screenshots": [
+      "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/images/karabiner-elements-simple-modifications@2x.png",
+      "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/images/karabiner-elements-eventviewer-name@2x.png"
+    ],
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+      "date": "2026-11-28",
+      "source": "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/"
     },
     "stars": {
       "count": 23177,
@@ -32839,7 +32844,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+    "media_source": "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/"
   },
   {
     "id": "maccy",
@@ -33584,8 +33589,8 @@
     "level": "base",
     "category": "ufficio",
     "description": {
-      "it": "Leggi feed RSS e Atom con cartelle, filtri e sincronizzazione opzionale.",
-      "en": "Read RSS and Atom feeds with folders, filters and optional sync."
+      "it": "Segui siti e blog via RSS o Atom e organizza gli abbonamenti in cartelle. La vista lettura mostra il testo dell’articolo e puoi importare gli abbonamenti da un file OPML.",
+      "en": "Follow websites and blogs over RSS or Atom and group subscriptions in folders. Reader View shows the full article text, and you can import subscriptions from an OPML file."
     },
     "alternatives": [
       "Reeder"
@@ -33599,12 +33604,14 @@
       "kind": "unknown",
       "source": null
     },
-    "logo": "https://raw.githubusercontent.com/Ranchero-Software/NetNewsWire/main/Mac/Resources/Assets.xcassets/AppIcon.appiconset/Icon-MacOS-256x256%401x.png",
-    "screenshots": [],
+    "logo": "https://netnewswire.com/images/nnw-mac-7-appicon-256.png",
+    "screenshots": [
+      "https://netnewswire.com/images/NNW7-Light.png"
+    ],
     "review": {
       "method": "fonti_ufficiali",
-      "date": "2026-11-27",
-      "source": "https://github.com/Ranchero-Software/NetNewsWire#readme"
+      "date": "2026-11-28",
+      "source": "https://netnewswire.com/help/mac/6.0/en/getting-started.html"
     },
     "stars": {
       "count": 10579,
@@ -33627,7 +33634,7 @@
         }
       ]
     },
-    "media_source": "https://github.com/Ranchero-Software/NetNewsWire#readme"
+    "media_source": "https://netnewswire.com/screenshots-mac-7.html"
   },
   {
     "id": "pock",

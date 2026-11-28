@@ -563,6 +563,12 @@ const MEDIA: &[Media] = &[
         "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
         include_bytes!("../../../assets/catalog-media/ragflow-logo.png"),
     ),
+    (
+        "netnewswire",
+        "catalog-shot-0",
+        "https://netnewswire.com/images/NNW7-Light.png",
+        include_bytes!("../../../assets/catalog-media/netnewswire-shot-0.png"),
+    ),
 ];
 pub(super) fn fallback(app: &str, key: &str, source: &str) -> Option<Vec<u8>> {
     MEDIA.iter().find(|(id, slot, url, _)| *id == app && *slot == key && *url == source).map(|(_, _, _, bytes)| bytes.to_vec())

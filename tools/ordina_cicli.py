@@ -6,13 +6,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = ("macos-arm64", "linux-x64", "windows-x64")
+PREFLIGHTS = ROOT / "docs/verification/pro-371-macos-overnight/ranked-preflight.json"
 
 
 def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def plan(apps, evidence, platform, arch, target):
+def plan(apps, evidence, platform, arch, target, preflights=()):
     catalog_ids = [app["id"] for app in apps]
     if len(set(catalog_ids)) != len(catalog_ids):
         raise ValueError("ID duplicati nel catalogo")
@@ -25,6 +26,12 @@ def plan(apps, evidence, platform, arch, target):
     verified = recorded & desktop_ids
     incompatible = []
     candidates = []
+    deferred = []
+    blocked_packages = {
+        (entry["id"], entry["release_source"]): entry
+        for entry in preflights
+        if entry["target"] == f"{platform}-{arch}"
+    }
     for app in desktop:
         app_id = app["id"]
         if app_id in verified:
@@ -39,13 +46,24 @@ def plan(apps, evidence, platform, arch, target):
         package_sources = [release["source"]] if release_package else []
         package_sources.extend(channel["source"] for channel in channels)
         stars = app.get("stars") or {}
-        candidates.append({
+        row = {
             "id": app_id,
             "github_stars": stars.get("count"),
             "stars_date": stars.get("date"),
             "package_sources": sorted(set(package_sources)),
             "platform_source": platform_source,
-        })
+        }
+        blocked = [
+            blocked_packages[(app_id, source)]
+            for source in row["package_sources"]
+            if (app_id, source) in blocked_packages
+        ]
+        if blocked:
+            row["blocked_packages"] = blocked
+        if blocked and len(blocked) == len(row["package_sources"]):
+            deferred.append(row)
+        else:
+            candidates.append(row)
 
     # Treat missing stars separately from zero and break ties by ID.
     candidates.sort(key=lambda row: (
@@ -79,6 +97,8 @@ def plan(apps, evidence, platform, arch, target):
         "package_evidence_scope": "Solo OS. Architettura, ricetta e ciclo dei candidati da verificare.",
         "with_package_evidence": with_package,
         "without_package_evidence": without_package,
+        "deferred_preflight_count": len(deferred),
+        "deferred_preflight": sorted(deferred, key=lambda row: row["id"]),
     }
 
 
@@ -91,12 +111,16 @@ def main():
         "--verified", type=Path,
         default=ROOT / "apps/shiftanything-tauri-proof/verified-platforms.json",
     )
+    parser.add_argument("--preflights", type=Path, default=PREFLIGHTS)
     args = parser.parse_args()
     if args.target < 1:
         parser.error("--target deve essere positivo")
     platform, arch = args.platform.split("-")
     try:
-        result = plan(read_json(args.catalog), read_json(args.verified), platform, arch, args.target)
+        result = plan(
+            read_json(args.catalog), read_json(args.verified), platform, arch, args.target,
+            read_json(args.preflights),
+        )
     except (OSError, ValueError) as error:
         parser.error(str(error))
     print(json.dumps(result, ensure_ascii=False, indent=2))

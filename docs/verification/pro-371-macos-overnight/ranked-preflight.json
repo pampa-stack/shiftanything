@@ -1,0 +1,42 @@
+[
+  {
+    "id": "copyq",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/hluk/CopyQ/releases/tag/v17.0.0",
+    "asset_url": "https://github.com/hluk/CopyQ/releases/download/v17.0.0/CopyQ-17.0.0-macos-13-m1.dmg",
+    "sha256": "d14ceb215821be1d127a4153f27b914b41d542749d92beb21e9446896db89346",
+    "bytes": 36751161,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "darktable",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.2",
+    "asset_url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.2/darktable-5.6.2-arm64.dmg",
+    "sha256": "6ff88e58a2a59cb07b0a1502fea7205e68cd783380a33a3ce7bda68ec29def0c",
+    "bytes": 88884896,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "filee",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+    "asset_url": "https://github.com/KnifeLemon/Filee/releases/download/v2.5.0/Filee-2.5.0-osx-arm64.dmg",
+    "sha256": "2044f1237049bc1a39c66ae1976883bb58d7da99a9f4deef20b98ff82376c82b",
+    "bytes": 152142653,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "xournal",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/xournalpp/xournalpp/releases/tag/v1.3.8",
+    "asset_url": "https://github.com/xournalpp/xournalpp/releases/download/v1.3.8/xournalpp-1.3.8-macOS-ARM64.dmg",
+    "sha256": "7d992ef097afd6db304cb9df70615e67f1a1de412e06f7dc8f907fcde3b7d6d7",
+    "bytes": 42552771,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  }
+]

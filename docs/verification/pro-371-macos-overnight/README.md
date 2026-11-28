@@ -67,6 +67,14 @@ The isolated Tauri app reported Firefox 161.0 as installable at 167,399,384 byte
 
 The combined Rust test run hit the existing intermittent PhotoCraft MCP fixture launch failure. The same fixture passed when rerun in isolation. The Firefox parser and install eligibility tests passed in the combined run.
 
+### Ranked Apple Silicon preflight
+
+On 28 November 2026, four official Apple Silicon DMGs matched their published SHA-256 and mounted read-only from the internal disk. CopyQ 17.0.0 and Xournal++ 1.3.8 failed deep, strict signature verification. Filee 2.5.0 and darktable 5.6.2 passed that step and failed the notarization requirement. Those packages left the verification count unchanged. The [package receipts](ranked-preflight.json) record the exact asset, digest, size and result. Initial attempts from the external disk stopped at the mount and did not establish the package result.
+
+`python3 tools/ordina_cicli.py macos-arm64` moves a candidate to `deferred_preflight` when each of its cataloged package sources for that architecture has a matching failed preflight. A different release URL or an additional route moves the candidate back into the schedule. Compare the digest in the receipt before retesting a replacement asset under the same release URL.
+
+[Logseq 0.10.15](https://github.com/logseq/logseq/releases/tag/0.10.15) and [Logseq OG 1.0.0](https://github.com/logseq/og/releases/tag/1.0.0) each passed ARM64, integrity and notarization checks from the internal disk. Their packages use different bundle IDs and signing teams. The 1.0.0 page identifies its package as beta, and the original repository's current release is the separate database edition. This preflight leaves the current Linux route and the verified Mac list unchanged. [Prior macOS file-graph cycle](../pro-371-macos-next-batch.md#logseq-file-graphs)
+
 ## Reproduce
 
 On Mac ARM64 with Gatekeeper enabled, create a private `/private/tmp/shift-air-overnight.XXXXXXXX` folder and an empty `.shift-owned` marker there. If the internal disk is below the harness floor, the native runner also accepts a private `/Volumes/T7-Backup/shift-air-overnight.XXXXXXXX` folder. Copy the three shell scripts and `native-cycle.rs` into it. Set `CARGO_TARGET_DIR` to its `target` folder and run `cargo build --locked -p artcraft-launcher-native --lib --message-format=json`, redirecting stdout to `recipe-build.jsonl`. Run `bash build-probe.sh`.

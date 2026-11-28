@@ -454,7 +454,7 @@ mod linux {
     }
 
     fn valid_scope(input: &str) -> bool {
-        !input.is_empty() && input.bytes().all(|c| c.is_ascii_alphanumeric() || [b'-', b'_'].contains(&c))
+        !input.is_empty() && input.bytes().all(|c| c.is_ascii_alphanumeric() || b"-_".contains(&c))
     }
 
     fn scope_arg(value: &str) -> String {

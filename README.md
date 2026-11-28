@@ -35,6 +35,10 @@ Get the packages from the [download page](https://promptica.it/shiftanything) or
 - **Workflow Kits** — See what a role needs, from image editing to prototyping, and review which apps to install for each stage.
 - **Connect Agent** — Connect a coding agent through local MCP. Setup uses Python via `uv`, and management actions require approval in the launcher.
 
+### Manage installed apps
+
+![My Apps lists installed versions, checks for updates and lets you open apps](docs/screenshots/shiftanything-my-apps.webp)
+
 ### Compare features with SH\*FTER
 
 ![SH*FTER compares four Photoshop alternatives with documented feature coverage and sources](docs/screenshots/shiftanything-shifter.webp)

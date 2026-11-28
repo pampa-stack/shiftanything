@@ -119,6 +119,9 @@ fn main() -> Result<(), String> {
             "subtitle-edit",
             "openwhispr",
             "deepchat",
+            "alttab",
+            "linearmouse",
+            "loop-macos",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

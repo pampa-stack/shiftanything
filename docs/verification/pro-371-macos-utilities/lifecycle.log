@@ -1,0 +1,70 @@
+macOS 26.4 · arm64 · 2026-11-28
+
+ARTIFACT aa353197537ccfd378dd4a7ff43030561ce7c62267dd0b31b385691b0e7f594c 4831056 https://github.com/lwouis/alt-tab-macos/releases/download/v11.10.1/AltTab-11.10.1.zip
+CFBundleIdentifier=com.lwouis.alt-tab-macos
+CFBundleShortVersionString=11.10.1
+LSMinimumSystemVersion=12.0
+x86_64 arm64
+TeamIdentifier=QXD7GW8FHY
+source=Notarized Developer ID
+PASS PREFLIGHT alttab v11.10.1
+ARTIFACT 5a2a821a83be1092df0f63d2403359ef2f7d52ad39cec36d930e4c7554cc045b 4885500 https://github.com/lwouis/alt-tab-macos/releases/download/v11.10.2/AltTab-11.10.2.zip
+CFBundleIdentifier=com.lwouis.alt-tab-macos
+CFBundleShortVersionString=11.10.2
+LSMinimumSystemVersion=12.0
+x86_64 arm64
+TeamIdentifier=QXD7GW8FHY
+source=Notarized Developer ID
+PASS PREFLIGHT alttab v11.10.2
+NATIVE ORIGIN alttab GitHub
+PASS NATIVE alttab install: AltTab installed: 11.10.1; package_bytes=4831056; elapsed=22.130s
+NATIVE ORIGIN alttab GitHub
+PASS NATIVE alttab update: AltTab updated to 11.10.2; package_bytes=4885500; elapsed=12.646s
+PASS NATIVE alttab remove: AltTab was removed; package_bytes=0; elapsed=0.102s
+PASS alttab · Applications empty · app in isolated Trash · synthetic data unchanged
+
+ARTIFACT aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c 5001442 https://github.com/linearmouse/linearmouse/releases/download/v0.12.0/LinearMouse.dmg
+CFBundleIdentifier=com.lujjjh.LinearMouse
+CFBundleShortVersionString=0.12.0
+LSMinimumSystemVersion=10.15
+x86_64 arm64
+TeamIdentifier=C5686NKYJ7
+source=Notarized Developer ID
+PASS PREFLIGHT linearmouse v0.12.0
+ARTIFACT 609276d5db79874034c9469a4eb56ccde6ed6fd01c52404f41fd4b493042789b 6184959 https://github.com/linearmouse/linearmouse/releases/download/v0.13.0/LinearMouse.dmg
+CFBundleIdentifier=com.lujjjh.LinearMouse
+CFBundleShortVersionString=0.13.0
+LSMinimumSystemVersion=10.15
+x86_64 arm64
+TeamIdentifier=C5686NKYJ7
+source=Notarized Developer ID
+PASS PREFLIGHT linearmouse v0.13.0
+NATIVE ORIGIN linearmouse GitHub
+PASS NATIVE linearmouse install: LinearMouse installed: 0.12.0; package_bytes=5001442; elapsed=23.365s
+NATIVE ORIGIN linearmouse GitHub
+PASS NATIVE linearmouse update: LinearMouse updated to 0.13.0; package_bytes=6184959; elapsed=13.570s
+PASS NATIVE linearmouse remove: LinearMouse was removed; package_bytes=0; elapsed=0.135s
+PASS linearmouse · Applications empty · app in isolated Trash · synthetic data unchanged
+
+ARTIFACT ed617a58b1c204257fd76eff1fd405db8305a9c2159396a052613a86544ef6e8 33816818 https://github.com/mrkai77/Loop/releases/download/1.4.1/Loop.zip
+CFBundleIdentifier=com.MrKai77.Loop
+CFBundleShortVersionString=1.4.1
+LSMinimumSystemVersion=13.0
+x86_64 arm64
+TeamIdentifier=5F967GYF84
+source=Notarized Developer ID
+PASS PREFLIGHT loop-macos 1.4.1
+ARTIFACT 514e97faab3843cdfb8b1859b91333704639a1a2ce580e4f684d75efe007d386 24046630 https://github.com/mrkai77/Loop/releases/download/1.4.2/Loop.zip
+CFBundleIdentifier=com.MrKai77.Loop
+CFBundleShortVersionString=1.4.2
+LSMinimumSystemVersion=13.0
+x86_64 arm64
+TeamIdentifier=5F967GYF84
+source=Notarized Developer ID
+PASS PREFLIGHT loop-macos 1.4.2
+NATIVE ORIGIN loop-macos GitHub
+PASS NATIVE loop-macos install: Loop installed: 1.4.1; package_bytes=33816818; elapsed=18.800s
+NATIVE ORIGIN loop-macos GitHub
+PASS NATIVE loop-macos update: Loop updated to 1.4.2; package_bytes=24046630; elapsed=8.713s
+PASS NATIVE loop-macos remove: Loop was removed; package_bytes=0; elapsed=0.135s
+PASS loop-macos · Applications empty · app in isolated Trash · synthetic data unchanged

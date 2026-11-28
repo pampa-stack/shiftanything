@@ -94,6 +94,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::SHOTCUT.id,
                 recipe::STATS.id,
                 recipe::TERMIX.id,
+                recipe::ALT_TAB.id,
                 recipe::TRANSMISSION.id,
                 recipe::UPSCAYL.id,
                 recipe::VSCODIUM.id,
@@ -112,6 +113,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,
                 recipe::LOCALAI.id,
+                recipe::LOOP.id,
                 recipe::MOONLIGHT.id,
                 recipe::OBS_STUDIO.id,
                 recipe::OPENCHAMBER.id,
@@ -676,6 +678,16 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     }
     if app.id == artcraft_launcher_core::curated::MACCY.id {
         return (app.repo == artcraft_launcher_core::curated::MACCY.repo && release::maccy_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::ALT_TAB.id {
+        return (app.repo == artcraft_launcher_core::curated::ALT_TAB.repo && release::alt_tab_mac_asset(release, asset))
+            .then_some(())
+            .ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::LOOP.id {
+        return (app.repo == artcraft_launcher_core::curated::LOOP.repo && release::loop_mac_asset(release, asset))
             .then_some(())
             .ok_or_else(mismatch);
     }
@@ -2336,9 +2348,9 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{KEYCASTR, MACCY, NETNEWSWIRE};
+        use artcraft_launcher_core::curated::{ALT_TAB, KEYCASTR, MACCY, NETNEWSWIRE};
 
-        let framework_links = [KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
+        let framework_links = [ALT_TAB.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2450,12 +2462,24 @@ pub mod macos {
             let legacy_keycastr_sidecar =
                 framework_links && bundle == "KeyCastr.app" && name == "__MACOSX/KeyCastr.app/Contents/Resources/._KeyCastrStatusItemInactive.png";
             let netnewswire_sidecar = framework_links && bundle == "NetNewsWire.app" && name == "__MACOSX/._NetNewsWire.app";
-            let appledouble = framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._"));
+            // The two reviewed Loop archives use only these external AppleDouble records.
+            let loop_sidecar = bundle == "Loop.app"
+                && matches!(
+                    name.as_ref(),
+                    "__MACOSX/._Loop.app"
+                        | "__MACOSX/Loop.app/Contents/Resources/._Defaults_Defaults.bundle"
+                        | "__MACOSX/Loop.app/Contents/Resources/._ZIPFoundation_ZIPFoundation.bundle"
+                );
+            let appledouble =
+                loop_sidecar || (framework_links && relative.file_name().and_then(|name| name.to_str()).is_some_and(|name| name.starts_with("._")));
             let framework = (framework_links && file_type == 0o120000 && !entry.is_dir()).then(|| framework_root(bundle, relative)).flatten();
             if name.contains(['\\', ':'])
                 || name.chars().any(char::is_control)
                 || name.split('/').any(|part| part == "." || part == "..")
-                || (components.next() != Some(Component::Normal(bundle.as_ref())) && !legacy_keycastr_sidecar && !netnewswire_sidecar)
+                || (components.next() != Some(Component::Normal(bundle.as_ref()))
+                    && !legacy_keycastr_sidecar
+                    && !netnewswire_sidecar
+                    && !loop_sidecar)
                 || (appledouble && (file_type != 0o100000 || entry.is_dir()))
                 || (!matches!(file_type, 0 | 0o100000 | 0o040000) && framework.is_none())
                 || (file_type == 0o040000 && !entry.is_dir())
@@ -2592,6 +2616,38 @@ pub mod macos {
             if expected {
                 assert_eq!(std::fs::read(output.join(FRAMEWORK).join("Binary")).unwrap(), b"fixture");
             }
+        }
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn loop_zip_ignores_only_well_formed_reviewed_sidecars() {
+        use std::io::Write;
+        use zip::write::SimpleFileOptions;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("loop.zip");
+        let sidecar_header = [0, 5, 0x16, 7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        for (index, (name, content, expected)) in [
+            ("__MACOSX/._Loop.app", sidecar_header.as_slice(), true),
+            ("__MACOSX/Loop.app/Contents/Resources/._Defaults_Defaults.bundle", sidecar_header.as_slice(), true),
+            ("__MACOSX/._Loop.app", b"invalid", false),
+            ("__MACOSX/._Other.app", sidecar_header.as_slice(), false),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let mut writer = zip::ZipWriter::new(std::fs::File::create(&archive).unwrap());
+            let options = SimpleFileOptions::default().unix_permissions(0o644);
+            writer.start_file("Loop.app/Contents/Info.plist", options).unwrap();
+            writer.write_all(b"fixture").unwrap();
+            writer.start_file(name, options).unwrap();
+            writer.write_all(content).unwrap();
+            writer.finish().unwrap();
+            assert_eq!(extract_app_zip(&archive, &output, "Loop.app", false).is_ok(), expected, "{name}");
+            assert!(!output.join("__MACOSX").exists());
         }
     }
 

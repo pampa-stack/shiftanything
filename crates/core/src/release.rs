@@ -1085,6 +1085,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OPENTTD,
         crate::curated::RECTANGLE,
         crate::curated::CODEEDIT,
+        crate::curated::LINEAR_MOUSE,
         crate::curated::BLENDER,
         crate::curated::GIMP,
         crate::curated::KRITA,
@@ -1205,6 +1206,18 @@ pub fn maccy_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::MACCY.repo, &release.tag).any(|reviewed| {
             reviewed.name == asset.name && reviewed.url == asset.url && reviewed.size == asset.size && reviewed.sha256 == asset.sha256
         })
+}
+
+pub fn alt_tab_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::ALT_TAB.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
+pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::LOOP.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
 pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
@@ -1635,6 +1648,20 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("CodeEditApp/CodeEdit", "v0.3.6") => &[("CodeEdit.dmg", 35_962_501, "fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9")],
         ("p0deje/Maccy", "2.7.1") => &[("Maccy.app.zip", 4_709_233, "f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077")],
         ("p0deje/Maccy", "2.8.0") => &[("Maccy.app.zip", 5_288_775, "e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0")],
+        ("lwouis/alt-tab-macos", "v11.10.1") => {
+            &[("AltTab-11.10.1.zip", 4_831_056, "aa353197537ccfd378dd4a7ff43030561ce7c62267dd0b31b385691b0e7f594c")]
+        }
+        ("lwouis/alt-tab-macos", "v11.10.2") => {
+            &[("AltTab-11.10.2.zip", 4_885_500, "5a2a821a83be1092df0f63d2403359ef2f7d52ad39cec36d930e4c7554cc045b")]
+        }
+        ("linearmouse/linearmouse", "v0.12.0") => {
+            &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
+        }
+        ("linearmouse/linearmouse", "v0.13.0") => {
+            &[("LinearMouse.dmg", 6_184_959, "609276d5db79874034c9469a4eb56ccde6ed6fd01c52404f41fd4b493042789b")]
+        }
+        ("mrkai77/Loop", "1.4.1") => &[("Loop.zip", 33_816_818, "ed617a58b1c204257fd76eff1fd405db8305a9c2159396a052613a86544ef6e8")],
+        ("mrkai77/Loop", "1.4.2") => &[("Loop.zip", 24_046_630, "514e97faab3843cdfb8b1859b91333704639a1a2ce580e4f684d75efe007d386")],
         ("blender/blender", "5.2.5") => {
             &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
         }

@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -110,6 +110,7 @@ for tag in (old, new):
     else:
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
+            'loop-macos': r'\d+\.\d+\.\d+',
             'netnewswire': r'mac-\d+\.\d+(?:\.\d+)?',
         }.get(app_id, r'v\d+\.\d+\.\d+')
         assert re.fullmatch(tag_pattern, tag)

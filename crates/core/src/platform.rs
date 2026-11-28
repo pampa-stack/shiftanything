@@ -356,11 +356,13 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 4] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 6] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
         (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
+        (curated::ALT_TAB.id, PackageKind::MacZip, release::alt_tab_mac_asset),
+        (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
     ];
     recipes.into_iter().find(|(id, _, _)| stems.contains(id)).map(|(_, kind, matches_asset)| (kind, matches_asset))
 }
@@ -761,6 +763,8 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::KEYCASTR.id,
         crate::curated::MACCY.id,
         crate::curated::NETNEWSWIRE.id,
+        crate::curated::ALT_TAB.id,
+        crate::curated::LOOP.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
@@ -952,6 +956,7 @@ mod tests {
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
+            (crate::curated::LINEAR_MOUSE, ["v0.12.0", "v0.13.0"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
             (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
@@ -1004,29 +1009,35 @@ mod tests {
     }
 
     #[test]
-    fn maccy_uses_only_the_reviewed_stable_apple_silicon_zip() {
-        let app = crate::curated::MACCY;
+    fn window_utilities_use_only_reviewed_stable_apple_silicon_archives() {
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
-        for tag in ["2.7.1", "2.8.0"] {
-            let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
-            release.assets.retain(|asset| asset.name.ends_with(".zip"));
-            assert_eq!(release.assets.len(), 1);
-            assert!(accepts(&release, mac));
-            assert!(!accepts(&release, Platform { arch: Arch::X64, ..mac }));
-            assert!(!accepts(&release, Platform { os: Os::Linux, ..mac }));
-            assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
-            release.prerelease = true;
-            assert!(!accepts(&release, mac));
-            release.prerelease = false;
-            release.assets[0].size += 1;
-            assert!(!accepts(&release, mac));
-            release.assets[0].size -= 1;
-            release.assets[0].url = release.assets[0].url.replace("p0deje", "elsewhere");
-            assert!(!accepts(&release, mac));
-            release.assets[0].url = release.assets[0].url.replace("elsewhere", "p0deje");
-            release.assets[0].sha256 = None;
-            assert!(!accepts(&release, mac));
+        for (app, tags) in [
+            (crate::curated::MACCY, ["2.7.1", "2.8.0"]),
+            (crate::curated::ALT_TAB, ["v11.10.1", "v11.10.2"]),
+            (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
+        ] {
+            let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                release.assets.retain(|asset| asset.name.ends_with(".zip"));
+                assert_eq!(release.assets.len(), 1);
+                assert!(accepts(&release, mac), "{} {tag}", app.id);
+                assert!(!accepts(&release, Platform { arch: Arch::X64, ..mac }));
+                assert!(!accepts(&release, Platform { os: Os::Linux, ..mac }));
+                assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
+                let mut untrusted = release.clone();
+                untrusted.prerelease = true;
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release.clone();
+                untrusted.assets[0].size += 1;
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release.clone();
+                untrusted.assets[0].url = untrusted.assets[0].url.replace(app.repo, "example/replacement");
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release;
+                untrusted.assets[0].sha256 = None;
+                assert!(!accepts(&untrusted, mac));
+            }
         }
     }
 

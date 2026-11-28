@@ -1,0 +1,19 @@
+commit f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945
+Parent:  6950599e9bd43a92ece4e651aa505ae32c9b019b9451d23c167800b0921caaac
+ContentChecksum:  6d2623f2224869ff266123c20712cd1290b6b2cda37c3782c3d305c1a07d42c8
+Date:  2026-10-26 18:20:30 +0000
+
+    Update Material Maker to v1.8 (#26) (19dfc554b478)
+
+    Name: io.github.RodZill4.Material-Maker
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Oct 26 20:08:32 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

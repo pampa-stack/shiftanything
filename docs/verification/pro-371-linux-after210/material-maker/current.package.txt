@@ -1,0 +1,20 @@
+
+Material Maker - Procedural texture generation and mesh painting tool
+
+          ID: io.github.RodZill4.Material-Maker
+         Ref: app/io.github.RodZill4.Material-Maker/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.8
+     License: MIT
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 195.5 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933
+      Parent: f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945
+     Subject: Fix missing icons (#27) (92ea87dd1915)
+        Date: 2026-10-28 17:20:40 +0000

@@ -9,6 +9,8 @@ Il 28 novembre 2026 un guest AX42 isolato con Flatpak 1.14.6 ha eseguito i cicli
 
 - **Geany.** Provato dal commit del launcher `9c4bb76` in un guest AX42 separato. L'aggiornamento del pacchetto mantiene Geany 2.1.0 e passa da Freedesktop SDK 25.08 a 26.08. Il pacchetto è mantenuto dalla comunità Flathub. [Sorgente Geany](https://github.com/geany/geany) · [Pacchetto Flathub](https://flathub.org/apps/org.geany.Geany) · [Prima](geany/previous.png) · [Dopo](geany/current.png) · [Log](geany/lifecycle.log)
 
+- **Material Maker.** Due revisioni firmate della versione 1.8. Il pacchetto Flathub è mantenuto dalla comunità e usa il rilascio Linux upstream. I PNG mostrano l’editor e il rendering software del guest con prestazioni ridotte. [Material Maker 1.8](https://github.com/RodZill4/material-maker/releases/tag/1.8) · [Pacchetto Flathub](https://flathub.org/apps/io.github.RodZill4.Material-Maker) · [Prima](material-maker/previous.png) · [Dopo](material-maker/current.png) · [Log](material-maker/lifecycle.log)
+
 - `InstallExpected(false)` ha installato la revisione corrente e reso disponibili Apri e Rimuovi. Il pacchetto esporta un file desktop e la relativa icona.
 - Per ricreare l'aggiornamento, il test ha installato la revisione precedente con il comando Flatpak e verificato che il backend rifiutasse di aggiornare o rimuovere quella installazione esterna. Ha poi ricreato nel solo profilo QA la ricevuta di una vecchia installazione gestita.
 - `Launch` ha aperto la finestra Pitivi [prima](pitivi/previous.png) e [dopo](pitivi/current.png) l'aggiornamento. Entrambi i PNG sono stati letti. L'app girava con il solo loopback di rete, senza file o dispositivi del sistema di prova montati esplicitamente.

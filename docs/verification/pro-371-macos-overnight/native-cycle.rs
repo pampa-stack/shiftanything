@@ -137,6 +137,7 @@ fn main() -> Result<(), String> {
             "hidden-bar",
             "swiftbar",
             "iterm2",
+            "github-desktop",
             "linearmouse",
             "loop-macos",
             "dyad",
@@ -163,8 +164,13 @@ fn main() -> Result<(), String> {
     let applications = home.join("Applications");
     let bundle = applications.join(format!("{app_name}.app"));
     let paths = paths::Paths::new()?;
-    if phase == "update-from-fixture" && id == "iterm2" {
-        if !bundle.is_dir() || before.version() != "3.7.8" {
+    let fixture_version = match id.as_str() {
+        "iterm2" => Some("3.7.8"),
+        "github-desktop" => Some("3.7.0"),
+        _ => None,
+    };
+    if phase == "update-from-fixture" {
+        if !bundle.is_dir() || Some(before.version().as_str()) != fixture_version {
             return Err("the signed migration fixture is missing".into());
         }
         // The isolated backend detects only managed copies, and reads the signed bundle's version.
@@ -203,14 +209,16 @@ fn main() -> Result<(), String> {
     }
 
     let expected = match (phase.as_str(), initial.as_deref()) {
-        ("install-latest", None) if id == "iterm2" => {
-            backend.send(Command::ListVersions { app: id.clone() });
-            let versions = wait_for(&mut backend, |event| match event {
-                Event::Versions { app, result } if app == *id => Some(result),
-                _ => None,
-            })??;
-            let [current] = versions.as_slice() else { return Err("iTerm2 exposed a historical package".into()) };
-            after.assert_release(app, current)?;
+        ("install-latest", None) if fixture_version.is_some() => {
+            if id == "iterm2" {
+                backend.send(Command::ListVersions { app: id.clone() });
+                let versions = wait_for(&mut backend, |event| match event {
+                    Event::Versions { app, result } if app == *id => Some(result),
+                    _ => None,
+                })??;
+                let [current] = versions.as_slice() else { return Err("iTerm2 exposed a historical package".into()) };
+                after.assert_release(app, current)?;
+            }
             backend.send(Command::CheckForUpdates { force: true });
             after.assert_release(app, &native_release(&mut backend, id)?)?;
             backend.send(Command::InstallExpected { apps: vec![id.clone()], installed: false });

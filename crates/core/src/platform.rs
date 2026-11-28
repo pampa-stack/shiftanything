@@ -356,7 +356,7 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 13] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 14] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
@@ -365,6 +365,7 @@ fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
         (curated::AMETHYST.id, PackageKind::MacZip, release::amethyst_mac_asset),
         (curated::HIDDEN_BAR.id, PackageKind::MacZip, release::hidden_bar_mac_asset),
         (curated::SWIFTBAR.id, PackageKind::MacZip, release::swiftbar_mac_asset),
+        (curated::GITHUB_DESKTOP.id, PackageKind::MacZip, release::github_desktop_mac_asset),
         (curated::ITERM2.id, PackageKind::MacZip, release::iterm2_mac_asset),
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
         (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
@@ -775,6 +776,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::AMETHYST.id,
         crate::curated::HIDDEN_BAR.id,
         crate::curated::SWIFTBAR.id,
+        crate::curated::GITHUB_DESKTOP.id,
         crate::curated::ITERM2.id,
         crate::curated::LOOP.id,
         crate::curated::DYAD.id,
@@ -1084,6 +1086,33 @@ mod tests {
                 assert!(!accepts(&untrusted, mac));
             }
         }
+    }
+
+    #[test]
+    fn github_desktop_accepts_only_the_reviewed_current_apple_silicon_zip() {
+        let app = crate::curated::GITHUB_DESKTOP;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+        let mut release = crate::release::release_from_sums(app.repo, "release-3.7.1", &[]);
+        assert_eq!(pick_asset(&release, &[app.id], mac, &[PackageKind::MacZip]).unwrap().0.size, 556_131_016);
+        assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+        assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+        release.assets[0].name = "GitHub.Desktop-x64.zip".into();
+        assert!(!selected(&release, mac));
+        release.assets[0].name = "GitHub.Desktop-arm64.zip".into();
+        release.assets[0].size += 1;
+        assert!(!selected(&release, mac));
+        let future = crate::release::release_from_sums(app.repo, "release-3.7.2", &[]);
+        assert!(!selected(&future, mac));
+        let mut previous = crate::release::release_from_sums(app.repo, "release-3.7.0", &[]);
+        let name = "GitHub.Desktop-arm64.zip";
+        previous.assets.push(Asset {
+            name: name.into(),
+            size: 538_188_819,
+            url: format!("{}{}/{name}", crate::release::download_prefix(app.repo), previous.tag),
+            sha256: Some("cc41c3cfdae2eaa332ef6547f82c6e672b5a11b0bf637aada2bf2796921eb1a5".into()),
+        });
+        assert!(!selected(&previous, mac));
     }
 
     #[test]

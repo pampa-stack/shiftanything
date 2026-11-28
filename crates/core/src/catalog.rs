@@ -221,6 +221,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::HIDDEN_BAR.id, crate::curated::HIDDEN_BAR.repo)
             || (self.id, self.repo) == (crate::curated::SWIFTBAR.id, crate::curated::SWIFTBAR.repo)
             || self.uses_iterm2_releases()
+            || (self.id, self.repo) == (crate::curated::GITHUB_DESKTOP.id, crate::curated::GITHUB_DESKTOP.repo)
             || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
             || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)
             || (self.id, self.repo) == (crate::curated::HAMMERSPOON.id, crate::curated::HAMMERSPOON.repo)

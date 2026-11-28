@@ -1,0 +1,23 @@
+PASS PREFLIGHT github-desktop release-3.7.0
+PASS PREFLIGHT github-desktop release-3.7.1
+/dev/disk3s5   239362496 177134444  21100552    90% 3238055 211005520    2%   /System/Volumes/Data
+OFFICIAL INDEX github-desktop release-3.7.0 digest=published
+OFFICIAL INDEX github-desktop release-3.7.1 digest=published
+26.6.2
+Background
+assessments enabled
+/dev/disk3s5   239362496 177134448  21100548    90% 3238064 211005480    2%   /System/Volumes/Data
+NATIVE ORIGIN github-desktop GitHub
+PASS OFFICIAL release-3.7.1 MacZip https://github.com/desktop/desktop/releases/download/release-3.7.1/GitHub.Desktop-arm64.zip 556131016 3706e508bb16d96f4c23c1e760d0867ede27d35ead00545d9a9e206ee83049f5
+PASS NATIVE github-desktop install-latest: GitHub Desktop installed: 3.7.1; package_bytes=556131016; elapsed=98.992s
+/dev/disk3s5   239362496 175630308  22604688    89% 3238758 226046880    1%   /System/Volumes/Data
+PASS NATIVE github-desktop remove: GitHub Desktop was removed; package_bytes=0; elapsed=0.115s
+PASS SIGNED MIGRATION FIXTURE GitHub Desktop release-3.7.0
+/dev/disk3s5   239362496 175631244  22603752    89% 3241940 226037520    1%   /System/Volumes/Data
+SIGNED MIGRATION FIXTURE RECEIPT 3.7.0
+NATIVE ORIGIN github-desktop GitHub
+PASS OFFICIAL release-3.7.1 MacZip https://github.com/desktop/desktop/releases/download/release-3.7.1/GitHub.Desktop-arm64.zip 556131016 3706e508bb16d96f4c23c1e760d0867ede27d35ead00545d9a9e206ee83049f5
+PASS NATIVE github-desktop update-from-fixture: GitHub Desktop updated to 3.7.1; package_bytes=556131016; elapsed=86.574s
+/dev/disk3s5   239362496 175691296  22543700    89% 3241922 225437000    1%   /System/Volumes/Data
+PASS NATIVE github-desktop remove: GitHub Desktop was removed; package_bytes=0; elapsed=0.116s
+PASS NATIVE CYCLE github-desktop (release-3.7.0 → release-3.7.1), private Trash and synthetic data preserved

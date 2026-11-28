@@ -2261,6 +2261,27 @@ pub const SWIFTBAR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("X93LWC49WV"),
 };
 
+pub const GITHUB_DESKTOP: crate::CraftApp = crate::CraftApp {
+    id: "github-desktop",
+    name: "GitHub Desktop",
+    tagline: "Desktop Git client for commits, branches and pull requests",
+    repo: "desktop/desktop",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [108, 75, 186],
+    ink_light: [71, 43, 129],
+    ink_dark: [187, 162, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "GitHub",
+    msi_publisher: None,
+    bundle: Some("com.github.GitHubClient"),
+    site: Some("https://desktop.github.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("VEKTX9H2N7"),
+};
+
 pub const ITERM2: crate::CraftApp = crate::CraftApp {
     id: "iterm2",
     name: "iTerm2",
@@ -2975,6 +2996,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     MACVIM,
     HIDDEN_BAR,
     SWIFTBAR,
+    GITHUB_DESKTOP,
     ITERM2,
     LINEAR_MOUSE,
     LOOP,

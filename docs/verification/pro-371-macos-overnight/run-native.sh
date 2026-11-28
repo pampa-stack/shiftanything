@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -123,6 +123,7 @@ for tag in (old, new):
         tag_pattern = {
             'maccy': r'\d+\.\d+\.\d+',
             'macvim': r'release-\d+',
+            'github-desktop': r'release-\d+\.\d+\.\d+',
             'dockdoor': r'\d+\.\d+\.\d+',
             'easydict': r'\d+\.\d+\.\d+',
             'utm': r'v(?:5\.0\.8|5\.0\.9-2)',
@@ -153,39 +154,58 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion
 launchctl managername
 spctl --status
+run_phase() {
+    if [[ "$id" == github-desktop ]]; then
+        df -k "$root" | awk 'NR==2{print; exit !($4>=12582912)}'
+    fi
+    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$1" "$app"
+}
 phases=(install update remove)
-if [[ "$id" == iterm2 ]]; then
-    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" install-latest "$app"
-    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" remove "$app"
+if [[ "$id" == iterm2 || "$id" == github-desktop ]]; then
+    run_phase install-latest
+    run_phase remove
     test -d "$profile/.Trash/$app.app"
     test -f "$profile/.shift-overnight-cycle"
     /bin/rm -rf -- "$profile/.Trash/$app.app"
     # The previous release is a validated migration fixture, never a launcher download choice.
     IFS=$'	' read -r old_tag filename size digest url < "$id.tsv"
-    [[ "$old_tag" == 3.7.8 && "$app" == iTerm && "$url" == https://iterm2.com/downloads/stable/iTerm2-3_7_8.zip ]]
+    case "$id" in
+        iterm2)
+            [[ "$old_tag" == 3.7.8 && "$app" == iTerm && "$url" == https://iterm2.com/downloads/stable/iTerm2-3_7_8.zip ]]
+            version=3.7.8
+            bin=iTerm2
+            requirement='notarized and identifier "com.googlecode.iterm2" and certificate leaf[subject.OU] = "H7V7XYVQ7D"'
+            ;;
+        github-desktop)
+            [[ "$old_tag" == release-3.7.0 && "$app" == 'GitHub Desktop' && "$url" == https://github.com/desktop/desktop/releases/download/release-3.7.0/GitHub.Desktop-arm64.zip ]]
+            version=3.7.0
+            bin='GitHub Desktop'
+            requirement='notarized and identifier "com.github.GitHubClient" and certificate leaf[subject.OU] = "VEKTX9H2N7"'
+            ;;
+    esac
     archive="$profile/tmp/$filename"
-    curl --proto '=https' --tlsv1.2 -fsS --max-time 180 --max-filesize "$size" "$url" -o "$archive"
+    curl --proto '=https' --proto-redir '=https' --tlsv1.2 --location -fsS --max-time 240 --max-filesize "$size" "$url" -o "$archive"
     [[ "$(stat -f%z "$archive")" == "$size" ]]
     [[ "$(shasum -a 256 "$archive" | cut -d ' ' -f 1)" == "$digest" ]]
     policy="(version 1) (allow default) (deny network*) (deny file-write*) (allow file-write* (subpath \"$profile/Applications\"))"
     sandbox-exec -p "$policy" /usr/bin/ditto -x -k "$archive" "$profile/Applications"
     fixture="$profile/Applications/$app.app"
-    [[ "$(plutil -extract CFBundleShortVersionString raw "$fixture/Contents/Info.plist")" == "$old_tag" ]]
+    [[ "$(plutil -extract CFBundleShortVersionString raw "$fixture/Contents/Info.plist")" == "$version" ]]
     /usr/bin/codesign --verify --all-architectures --deep --strict "$fixture"
-    /usr/bin/codesign --verify --check-notarization -R='notarized and identifier "com.googlecode.iterm2" and certificate leaf[subject.OU] = "H7V7XYVQ7D"' "$fixture"
-    /usr/bin/lipo "$fixture/Contents/MacOS/iTerm2" -verify_arch arm64
+    /usr/bin/codesign --verify --check-notarization -R="$requirement" "$fixture"
+    /usr/bin/lipo "$fixture/Contents/MacOS/$bin" -verify_arch arm64
     /bin/rm -- "$archive"
-    printf 'PASS SIGNED MIGRATION FIXTURE iTerm2 %s\n' "$old_tag"
+    printf 'PASS SIGNED MIGRATION FIXTURE %s %s\n' "$app" "$old_tag"
     phases=(update-from-fixture remove)
 fi
 for phase in "${phases[@]}"; do
-    env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$phase" "$app"
+    run_phase "$phase"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
     if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks ) && "$phase" != remove ]]; then
         python3 - "$id" "$profile" "$phase" "$old" "$new" <<'PYLAUNCH'

@@ -23052,14 +23052,19 @@
       "date": "2026-11-27"
     },
     "release": {
-      "version": "release-3.7.0",
-      "date": "2026-11-25",
-      "source": "https://github.com/desktop/desktop/releases/tag/release-3.7.0",
+      "version": "release-3.7.1",
+      "date": "2026-11-27",
+      "source": "https://github.com/desktop/desktop/releases/tag/release-3.7.1",
       "packages": [
         {
           "platform": "windows",
-          "size_min": 269901824,
-          "size_max": 269977376
+          "size_min": 288919552,
+          "size_max": 288976160
+        },
+        {
+          "platform": "macos",
+          "size_min": 556131016,
+          "size_max": 556131016
         }
       ]
     },
@@ -23070,8 +23075,8 @@
       {
         "platform": "macos",
         "manager": "direct",
-        "id": "GitHubDesktop-arm64.zip",
-        "source": "https://github.com/apps/desktop"
+        "id": "GitHub.Desktop-arm64.zip",
+        "source": "https://github.com/desktop/desktop/releases/tag/release-3.7.1"
       }
     ]
   },

@@ -114,6 +114,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::DOCKDOOR.id,
                 recipe::DRAWIO.id,
                 recipe::GHOST_DOWNLOADER.id,
+                recipe::GITHUB_DESKTOP.id,
                 recipe::HIDDEN_BAR.id,
                 recipe::ITERM2.id,
                 recipe::LOCALAI.id,
@@ -705,6 +706,10 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     let swiftbar = artcraft_launcher_core::curated::SWIFTBAR;
     if app.id == swiftbar.id {
         return (app.repo == swiftbar.repo && release::swiftbar_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    let github_desktop = artcraft_launcher_core::curated::GITHUB_DESKTOP;
+    if app.id == github_desktop.id {
+        return (app.repo == github_desktop.repo && release::github_desktop_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     let iterm2 = artcraft_launcher_core::curated::ITERM2;
     if app.id == iterm2.id {
@@ -2372,12 +2377,15 @@ pub mod macos {
         expect: &Expect<'_>,
     ) -> Result<PathBuf, String> {
         let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
-        use artcraft_launcher_core::curated::{ALT_TAB, AMETHYST, DYAD, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, SWIFTBAR};
+        use artcraft_launcher_core::curated::{
+            ALT_TAB, AMETHYST, DYAD, GITHUB_DESKTOP, HAMMERSPOON, HIDDEN_BAR, ICE, KEYCASTR, MACCY, NETNEWSWIRE, SWIFTBAR,
+        };
 
         let framework_links = [ALT_TAB.id, AMETHYST.id, DYAD.id, HAMMERSPOON.id, ICE.id, KEYCASTR.id, MACCY.id, NETNEWSWIRE.id].contains(&app.id)
             || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo)
             || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo)
-            || app.uses_iterm2_releases();
+            || app.uses_iterm2_releases()
+            || (app.id, app.repo) == (GITHUB_DESKTOP.id, GITHUB_DESKTOP.repo);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
@@ -2458,6 +2466,12 @@ pub mod macos {
         found == expected.len()
     }
 
+    const DEFAULT_ZIP_BYTES: u64 = 768 * 1024 * 1024;
+
+    fn max_extracted_zip_bytes(bundle: &str, framework_links: bool) -> u64 {
+        if framework_links && bundle == "GitHub Desktop.app" { 1_211_690_181 } else { DEFAULT_ZIP_BYTES }
+    }
+
     fn extract_app_zip(archive: &Path, unpacked: &Path, bundle: &str, framework_links: bool) -> Result<(), String> {
         use std::io::Read;
         use std::os::unix::fs::PermissionsExt;
@@ -2465,9 +2479,9 @@ pub mod macos {
 
         // The signed iTerm2 package has 4,216 ZIP entries; its recipe binds the exact bytes.
         let max_files = if framework_links && bundle == "iTerm.app" { 4500 } else { 4096 };
-        const MAX_BYTES: u64 = 768 * 1024 * 1024;
+        let max_extracted_bytes = max_extracted_zip_bytes(bundle, framework_links);
         let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
-        if file.metadata().map_err(|e| e.to_string())?.len() > MAX_BYTES {
+        if file.metadata().map_err(|e| e.to_string())?.len() > DEFAULT_ZIP_BYTES {
             return Err("The app ZIP is too large.".into());
         }
         let mut zip = zip::ZipArchive::new(file).map_err(|e| format!("couldn't read the app ZIP ({e})"))?;
@@ -2538,7 +2552,7 @@ pub mod macos {
                 continue;
             }
             let size = entry.size();
-            total = total.checked_add(size).filter(|n| *n <= MAX_BYTES).ok_or("The unpacked app ZIP is too large.")?;
+            total = total.checked_add(size).filter(|n| *n <= max_extracted_bytes).ok_or("The unpacked app ZIP is too large.")?;
             if appledouble {
                 let mut header = [0u8; 8];
                 const APPLEDOUBLE_V2: [u8; 8] = [0, 5, 0x16, 7, 0, 2, 0, 0];
@@ -2632,6 +2646,14 @@ pub mod macos {
             writer.finish().unwrap();
             assert_eq!(extract_app_zip(&archive, &output, "dyad.app", true).is_ok(), accepted, "{link} -> {target}");
         }
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn github_desktop_zip_has_only_its_reviewed_extraction_budget() {
+        assert_eq!(max_extracted_zip_bytes("GitHub Desktop.app", true), 1_211_690_181);
+        assert_eq!(max_extracted_zip_bytes("GitHub Desktop.app", false), DEFAULT_ZIP_BYTES);
+        assert_eq!(max_extracted_zip_bytes("Other.app", true), DEFAULT_ZIP_BYTES);
     }
 
     #[cfg(test)]

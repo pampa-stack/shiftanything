@@ -729,7 +729,7 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         kdenlive_mac_version(tag)
     } else if repo == crate::curated::AUDACITY.repo {
         version::parse(tag.strip_prefix("Audacity-")?)
-    } else if repo == crate::curated::FREEPLANE.repo {
+    } else if [crate::curated::FREEPLANE.repo, crate::curated::GITHUB_DESKTOP.repo].contains(&repo) {
         version::parse(tag.strip_prefix("release-")?)
     } else if repo == crate::curated::MACVIM.repo {
         match tag {
@@ -1311,6 +1311,12 @@ pub fn swiftbar_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::SWIFTBAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+pub fn github_desktop_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("release-{version}"))
+        && reviewed_assets(crate::curated::GITHUB_DESKTOP.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
@@ -1446,6 +1452,10 @@ pub fn reviewed_windows_msi_asset(repo: &str, release: &Release, asset: &Asset) 
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        // 3.7.0 was validated only as the already-installed source of a security update.
+        ("desktop/desktop", "release-3.7.1") => {
+            &[("GitHub.Desktop-arm64.zip", 556_131_016, "3706e508bb16d96f4c23c1e760d0867ede27d35ead00545d9a9e206ee83049f5")]
+        }
         ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => &[
             ("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956"),
             ("Ghost-Downloader-v4.5.11-macOS-arm64.dmg", 67_408_491, "36d531576819349920abb0008a6105046f5e48c3bcf7d8e478c61b03edb87ca9"),

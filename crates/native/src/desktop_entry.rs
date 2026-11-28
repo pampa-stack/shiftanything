@@ -46,6 +46,7 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "openscreen" => ("AudioVideo;Video;Recorder;", Some("openscreen")),
         "cryptomator" => ("Utility;Security;FileTools;", Some("org.cryptomator.launcher.Cryptomator$MainApp")),
         "joplin" => ("Office;", Some("appimagekit-joplin")),
+        "logseq-db" => ("Office;", Some("logseq")),
         "notepadnext" => ("Qt;TextEditor;Utility;", Some("NotepadNext")),
         "rapidraw" => ("Graphics;Photography;", Some("RapidRAW")),
         "rustdesk" => ("Utility;Network;", Some("rustdesk")),
@@ -245,9 +246,9 @@ mod tests {
     }
 
     #[test]
-    fn neovide_and_openscreen_match_their_x11_windows() {
-        for class in ["neovide", "openscreen"] {
-            let app = app(class);
+    fn desktop_entries_match_their_x11_windows() {
+        for (id, class) in [("neovide", "neovide"), ("openscreen", "openscreen"), ("logseq-db", "logseq")] {
+            let app = app(id);
             let text = render(app, Path::new("/home/ana/Applications/app.AppImage"), true).unwrap();
             assert!(text.lines().any(|line| line.strip_prefix("StartupWMClass=") == Some(class)));
             assert!(text.lines().any(|line| line.strip_prefix("Icon=") == Some(app.linux_desktop_id().as_str())));

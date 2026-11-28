@@ -3801,6 +3801,7 @@ mod recipe_tests {
             super::DUST3D,
             super::DYAD,
             super::INVOKE_COMMUNITY,
+            super::LOGSEQ_DB,
             super::NEOVIDE,
             super::OPENCHAMBER,
             super::OPENSCREEN,
@@ -3813,7 +3814,7 @@ mod recipe_tests {
             assert!(!super::verified_linux_appimage(&app, arm));
             assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 56);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 57);
     }
 
     #[test]

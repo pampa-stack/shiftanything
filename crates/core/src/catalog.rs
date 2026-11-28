@@ -417,6 +417,7 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
         "dust3d" => include_bytes!("../../../assets/app-icons/dust3d.png"),
         "rawtherapee" => include_bytes!("../../../assets/app-icons/rawtherapee.png"),
+        "logseq-db" => include_bytes!("../../../assets/app-icons/logseq-db.png"),
         "mister-download-manager" => include_bytes!("../../../assets/app-icons/mister-download-manager.png"),
         "openpencil" => include_bytes!("../../../assets/app-icons/openpencil.png"),
         "ultimaker-cura" => include_bytes!("../../../assets/app-icons/ultimaker-cura.png"),

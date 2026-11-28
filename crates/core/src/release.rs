@@ -950,8 +950,8 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     use crate::curated::{
-        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, NEOVIDE, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENSCREEN, OPENWORK_DESKTOP,
-        ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
+        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, LOGSEQ_DB, MISTER_DOWNLOAD_MANAGER, NEOVIDE, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENSCREEN,
+        OPENWORK_DESKTOP, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
     };
 
     const RECIPES: &[crate::CraftApp] = &[
@@ -959,6 +959,7 @@ pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate:
         DUST3D,
         DYAD,
         INVOKE_COMMUNITY,
+        LOGSEQ_DB,
         MISTER_DOWNLOAD_MANAGER,
         NEOVIDE,
         OPEN_PENCIL,
@@ -1979,9 +1980,10 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("logseq/logseq", "2.0.1") => {
             &[("Logseq-darwin-arm64-2.0.1.dmg", 168_847_627, "b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd")]
         }
-        ("logseq/logseq", "2.0.2") => {
-            &[("Logseq-darwin-arm64-2.0.2.dmg", 177_591_867, "b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314")]
-        }
+        ("logseq/logseq", "2.0.2") => &[
+            ("Logseq-darwin-arm64-2.0.2.dmg", 177_591_867, "b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314"),
+            ("Logseq-linux-x86_64-2.0.2.AppImage", 175_847_888, "1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870"),
+        ],
         ("superhighfives/pika", "2.0.2") => &[("Pika-2.0.2.dmg", 8_509_840, "03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734")],
         ("superhighfives/pika", "2.0.3") => &[("Pika-2.0.3.dmg", 8_613_124, "0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f")],
         ("ruffle-rs/ruffle", "v0.7.1") => {
@@ -2587,19 +2589,28 @@ mod tests {
     fn logseq_db_selects_only_reviewed_database_edition_packages() {
         use crate::{Arch, Os, PackageKind, Platform, curated::LOGSEQ_DB};
 
-        let arm = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         let select = |release: &Release, platform: Platform| {
             crate::platform::pick_asset(release, &[LOGSEQ_DB.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
         };
         for tag in ["2.0.1", "2.0.2"] {
             let mut release = release_from_sums(LOGSEQ_DB.repo, tag, &[]);
-            assert_eq!(select(&release, arm), Some(PackageKind::Dmg));
-            assert_eq!(select(&release, Platform { arch: Arch::X64, ..arm }), None);
-            release.assets[0].sha256 = None;
-            assert_eq!(select(&release, arm), None);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, linux), (tag == "2.0.2").then_some(PackageKind::AppImage));
+            assert_eq!(select(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(select(&release, Platform { arch: Arch::Arm64, ..linux }), None);
+            assert_eq!(select(&release, Platform { os: Os::Windows, ..linux }), None);
+            for asset in &mut release.assets {
+                asset.sha256 = None;
+            }
+            assert_eq!(select(&release, mac), None);
+            assert_eq!(select(&release, linux), None);
         }
         for tag in ["0.10.15", "2.0.3"] {
-            assert_eq!(select(&release_from_sums(LOGSEQ_DB.repo, tag, &[]), arm), None);
+            let release = release_from_sums(LOGSEQ_DB.repo, tag, &[]);
+            assert_eq!(select(&release, mac), None);
+            assert_eq!(select(&release, linux), None);
         }
     }
 

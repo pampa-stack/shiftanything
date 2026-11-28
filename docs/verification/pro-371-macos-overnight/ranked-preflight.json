@@ -90,6 +90,16 @@
     "reason": "intel_installer_only"
   },
   {
+    "id": "mister-download-manager",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+    "asset_url": "https://github.com/anefzaoui/misterdownloadmanager/releases/download/v0.5.2/MisterDownloadManager-0.5.2-macos-arm64-experimental.dmg",
+    "sha256": "0217160ba08f56c5dad07642508828f259fcc283ed0b930514af712cf01aeea6",
+    "bytes": 15510960,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "mixxx-dj-software",
     "target": "macos-arm64",
     "release_source": "https://formulae.brew.sh/cask/mixxx",

@@ -1,0 +1,9 @@
+OFFICIAL https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-linux-x86_64-2.0.2.AppImage bytes=175847888 sha256=1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870
+DISCOVERY GitHubApi
+FILE /home/qa/profile-logseq-db-linux-current/Applications/Logseq-linux-x86_64-2.0.2.AppImage version=2.0.2 bytes=175847888 sha256=1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870
+DESKTOP /home/qa/profile-logseq-db-linux-current/data/applications/com.logseq.logseq.desktop ICON /home/qa/profile-logseq-db-linux-current/data/icons/hicolor/128x128/apps/com.logseq.logseq.png sha256=5a49392188a045dbd6303ea73670ebbfb0afa245c842a6d558b5ad0aa70056ec
+PASS logseq-db install 2206 ms Logseq DB installed: 2.0.2
+PASS logseq-db open-new 0 ms Launch request accepted
+2026-11-28T11:08:13+00:00	GUI OFFLINE open-new
+PASS logseq-db remove 40 ms Logseq DB was removed
+2026-11-28T11:08:13+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

@@ -835,18 +835,20 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
 /// Desktop recipes that require an exact upstream x86_64 AppImage.
 pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     use crate::curated::{
-        DESKREEN, DUST3D, DYAD, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCHAMBER, OPENCODE, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE,
-        ULTIMAKER_CURA, VOICE_STUDIO,
+        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENCHAMBER, OPENCODE, OPENWORK_DESKTOP, ORCA, PASEO,
+        RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO,
     };
 
     const RECIPES: &[crate::CraftApp] = &[
         DESKREEN,
         DUST3D,
         DYAD,
+        INVOKE_COMMUNITY,
         MISTER_DOWNLOAD_MANAGER,
         OPEN_PENCIL,
         OPENCHAMBER,
         OPENCODE,
+        OPENWORK_DESKTOP,
         ORCA,
         PASEO,
         RAWTHERAPEE,
@@ -1478,12 +1480,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ganeshrvel/openmtp", "v3.3.0") => {
             &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
         }
-        ("invoke-ai/launcher", "v1.8.4") => {
-            &[("Invoke-Community-Edition-1.8.4-arm64.dmg", 132_977_226, "1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6")]
-        }
-        ("invoke-ai/launcher", "v1.8.5") => {
-            &[("Invoke-Community-Edition-1.8.5-arm64.dmg", 132_949_779, "33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc")]
-        }
+        ("invoke-ai/launcher", "v1.8.4") => &[
+            ("Invoke-Community-Edition-1.8.4-arm64.dmg", 132_977_226, "1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6"),
+            ("Invoke-Community-Edition-1.8.4.AppImage", 145_780_182, "071f4dabc2aebf9f302af21d438826b6d5aec80ec9c4ed6bd76ebb07b5fdf266"),
+        ],
+        ("invoke-ai/launcher", "v1.8.5") => &[
+            ("Invoke-Community-Edition-1.8.5-arm64.dmg", 132_949_779, "33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc"),
+            ("Invoke-Community-Edition-1.8.5.AppImage", 145_780_235, "2a1da742c26ff541b39a2b337ef4639e1a6709fdb52d54957016a886c3cb5e5f"),
+        ],
         ("ninxsoft/Mist", "v0.30") => &[("Mist.0.30.dmg", 14_906_897, "2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1")],
         ("ninxsoft/Mist", "v0.40") => &[("Mist.0.40.dmg", 15_997_728, "889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8")],
         ("freeplane/freeplane", "release-1.13.3") => {
@@ -1772,12 +1776,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("HKUDS/DeepTutor", "v1.7.4") => {
             &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.4.dmg", 505_892_868, "afe5bb50e9b29af77dbf1a03ab1e04e4db6112dcacb61d11ef7f822b9321dd79")]
         }
-        ("different-ai/openwork", "v0.18.72") => {
-            &[("openwork-mac-arm64-0.18.72.dmg", 382_734_040, "13f1b2e4597df2d7938848629bbe9325a5c9ce6bc9399d4144048fa942e15af5")]
-        }
-        ("different-ai/openwork", "v0.18.73") => {
-            &[("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b")]
-        }
+        ("different-ai/openwork", "v0.18.72") => &[
+            ("openwork-mac-arm64-0.18.72.dmg", 382_734_040, "13f1b2e4597df2d7938848629bbe9325a5c9ce6bc9399d4144048fa942e15af5"),
+            ("openwork-linux-x86_64-0.18.72.AppImage", 389_084_380, "77185d1b68a5bddf7b6209723e5d65a7a75eda3892154a49aa63932c2a0e9e14"),
+        ],
+        ("different-ai/openwork", "v0.18.73") => &[
+            ("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b"),
+            ("openwork-linux-x86_64-0.18.73.AppImage", 389_795_831, "90ab90d5c20d8b31389f3777001455316e21d91ca4ab0a7a89d46ecf2e833692"),
+        ],
         ("FreeCAD/FreeCAD", "1.1.3") => {
             &[("FreeCAD_1.1.3-macOS-arm64-py311.dmg", 649_856_006, "f5c0ece7cd7c932466d6effadc0fc6e179b0538a9d9a6a77a6769eae3af2667c")]
         }

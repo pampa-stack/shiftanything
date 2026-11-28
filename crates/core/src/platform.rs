@@ -1225,14 +1225,19 @@ mod tests {
 
     #[test]
     fn qualified_appimages_match_reviewed_bytes_and_platform() {
-        use crate::curated::{DUST3D, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA, VOICE_STUDIO};
+        use crate::curated::{
+            DUST3D, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENWORK_DESKTOP, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA,
+            VOICE_STUDIO,
+        };
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         for (app, tags) in [
             (MISTER_DOWNLOAD_MANAGER, ["v0.5.0", "v0.5.2"]),
             (DUST3D, ["1.1.5", "1.1.6"]),
+            (INVOKE_COMMUNITY, ["v1.8.4", "v1.8.5"]),
             (RAWTHERAPEE, ["5.12", "5.13"]),
             (OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
+            (OPENWORK_DESKTOP, ["v0.18.72", "v0.18.73"]),
             (PASEO, ["v0.18.0", "v0.18.1"]),
             (T3_CODE, ["v0.1.12", "v0.1.13"]),
             (ULTIMAKER_CURA, ["5.13.0", "5.14.0"]),

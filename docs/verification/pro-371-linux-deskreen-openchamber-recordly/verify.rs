@@ -61,7 +61,9 @@ fn main() -> Result<(), String> {
         }
         let name = match id.as_str() {
             "deskreen" => format!("deskreen-ce-{version}-x86_64.AppImage"),
+            "invoke-community" => format!("Invoke-Community-Edition-{version}.AppImage"),
             "openchamber" => format!("OpenChamber-{version}-linux-x86_64.AppImage"),
+            "openwork-desktop" => format!("openwork-linux-x86_64-{version}.AppImage"),
             "recordly" => "Recordly-linux-x64.AppImage".to_owned(),
             _ => return Err("unsupported probe app".into()),
         };

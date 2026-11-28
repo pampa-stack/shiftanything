@@ -9,7 +9,9 @@ base=/var/tmp
 id=$1
 case "$id" in
     deskreen) repo=pavlobu/deskreen; old=v3.2.15; new=v3.2.16;;
+    invoke-community) repo=invoke-ai/launcher; old=v1.8.4; new=v1.8.5;;
     openchamber) repo=openchamber/openchamber; old=v2.8.0; new=v2.8.1;;
+    openwork-desktop) repo=different-ai/openwork; old=v0.18.72; new=v0.18.73;;
     recordly) repo=webadderallorg/Recordly; old=v1.3.3; new=v1.4.0;;
     *) exit 2;;
 esac
@@ -36,6 +38,8 @@ id=$2
 old=$3
 new=$4
 repo=$5
+window_match=${id//-/ }
+[[ $id != openwork-desktop ]] || window_match=openwork
 mkdir -m 1777 /tmp/.X11-unix
 export DISPLAY=:88
 Xvfb "$DISPLAY" -screen 0 1280x800x24 -nolisten tcp -ac >/tmp/display.log 2>&1 &
@@ -54,7 +58,7 @@ for ((i=0;i<100;i++)); do
     while read -r wid; do
         title=$(xdotool getwindowname "$wid" 2>/dev/null) || continue
         class=$(xprop -id "$wid" WM_CLASS 2>/dev/null) || continue
-        if [[ ${title,,} == *"${id//-/ }"* || ${class,,} == *"${id//-/ }"* ]]; then window=$wid; break; fi
+        if [[ ${title,,} == *"$window_match"* || ${class,,} == *"$window_match"* ]]; then window=$wid; break; fi
     done < <(xdotool search --onlyvisible --name '.*' 2>/dev/null || true)
     if [[ -n $window ]]; then break; fi
     sleep .25

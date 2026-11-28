@@ -2035,6 +2035,26 @@
           ]
         },
         {
+          "id": "mechanism-motion",
+          "name": {
+            "it": "Verificare il movimento di un meccanismo",
+            "en": "Check how a mechanism moves"
+          },
+          "paid": [
+            "Autodesk Fusion"
+          ],
+          "options": [
+            {
+              "app": "solvespace",
+              "use": {
+                "it": "Traccia la traiettoria di un punto del meccanismo ed esportala per analizzarla.",
+                "en": "Trace the path of a point in the mechanism and export it for analysis."
+              },
+              "source": "https://solvespace.com/features.pl"
+            }
+          ]
+        },
+        {
           "id": "board",
           "name": {
             "it": "Progettare una scheda elettronica",

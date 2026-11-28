@@ -89,6 +89,8 @@ The combined Rust test run hit the existing intermittent PhotoCraft MCP fixture 
 
 ### Ranked Apple Silicon preflight
 
+On the MacBook Air, Nuclear matched the publisher’s SHA-256 for both [1.54.2](https://github.com/nukeop/nuclear/releases/tag/player%401.54.2) and [1.56.4](https://github.com/nukeop/nuclear/releases/tag/player%401.56.4). Both DMGs mounted read-only and contained an ARM64 bundle with no Developer ID team. Strict signature verification passed and Apple’s notarization requirement failed on both. The current release receipt defers the Apple Silicon package. The older package measured 23,545,343 bytes with SHA-256 `d0a0b03a5aa601b4f0a5a8613e423cc6047515e274edf3a53ca35d2d3a284337`.
+
 On 28 November 2026, four official Apple Silicon DMGs matched their published SHA-256 and mounted read-only from the internal disk. CopyQ 17.0.0 and Xournal++ 1.3.8 failed deep, strict signature verification. Filee 2.5.0 and darktable 5.6.2 passed that step and failed the notarization requirement. Those packages left the verification count unchanged. The [package receipts](ranked-preflight.json) record the exact asset, digest, size and result. Initial attempts from the external disk stopped at the mount and did not establish the package result.
 
 `python3 tools/ordina_cicli.py macos-arm64` moves a candidate to `deferred_preflight` when each of its cataloged package sources for that architecture has a matching failed preflight. A different release URL or an additional route moves the candidate back into the schedule. Compare the digest in the receipt before retesting a replacement asset under the same release URL.

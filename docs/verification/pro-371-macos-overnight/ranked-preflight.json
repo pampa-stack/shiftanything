@@ -40,6 +40,16 @@
     "reason": "not_notarized"
   },
   {
+    "id": "nuclear",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/nukeop/nuclear/releases/tag/player%401.56.4",
+    "asset_url": "https://github.com/nukeop/nuclear/releases/download/player%401.56.4/Nuclear_1.56.4_aarch64.dmg",
+    "sha256": "2632528185c171887fdae906165be6a154021de71952bf257c55bb78eba9eb39",
+    "bytes": 23690387,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "sniffnet",
     "target": "macos-arm64",
     "release_source": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",

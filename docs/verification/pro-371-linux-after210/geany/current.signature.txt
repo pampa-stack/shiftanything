@@ -1,0 +1,19 @@
+commit 3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24
+Parent:  d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e
+ContentChecksum:  f39c0e258d2e4134e8a2d70e33918e7f73d3af85fde6ea5032eab4500852b1c2
+Date:  2026-10-18 15:21:48 +0000
+
+    Update runtime and SDK version to 26.08 (9446e01757b3)
+
+    Name: org.geany.Geany
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Oct 18 16:02:08 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,20 @@
+
+Geany - Fast and lightweight IDE
+
+          ID: org.geany.Geany
+         Ref: app/org.geany.Geany/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.1.0
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 203.1 MB
+     Runtime: org.freedesktop.Sdk/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24
+      Parent: d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e
+     Subject: Update runtime and SDK version to 26.08 (9446e01757b3)
+        Date: 2026-10-18 15:21:48 +0000

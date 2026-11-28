@@ -1,0 +1,20 @@
+
+Geany - Fast and lightweight IDE
+
+          ID: org.geany.Geany
+         Ref: app/org.geany.Geany/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.1.0
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 183.9 MB
+     Runtime: org.freedesktop.Sdk/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e
+      Parent: 53ff2a280739e51d9d861eb27ba1b123331fba4c67919e55fe93545333776dfc
+     Subject: Update ide-first-run.txt and cppcheck (0acab746a425)
+        Date: 2025-12-06 23:35:21 +0000

@@ -1,0 +1,6 @@
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/applications/org.geany.Geany.desktop
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/16x16/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/24x24/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/32x32/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/48x48/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/scalable/apps/org.geany.Geany.svg

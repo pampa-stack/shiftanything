@@ -1,0 +1,69 @@
+2026-11-28T02:38:58+00:00 geany AVAILABLE 27436179456
+geany before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+geany JobFinished: Ok("Flathub app installed")
+geany after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:40:04+00:00 geany current-install 3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/applications/org.geany.Geany.desktop
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/16x16/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/24x24/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/32x32/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/48x48/apps/org.geany.Geany.png
+/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24/export/share/icons/hicolor/scalable/apps/org.geany.Geany.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Sdk.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Sdk/x86_64/25.08
+Updating app/org.geany.Geany/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:40:38+00:00 geany previous d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e
+geany before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e", package: Some("org.geany.Geany"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: false, can_open: true }
+geany JobFinished: Err("Approved action rejected: native installation state changed")
+geany JobFinished: Err("This Flatpak is managed outside the launcher")
+geany after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e", package: Some("org.geany.Geany"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4346]: [session uid=1000 pid=4346] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=7414 comm="xfwm4 --compositor=off --display=:82" label="unconfined")
+dbus-daemon[4346]: [session uid=1000 pid=4346] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4346]: [session uid=1000 pid=4346] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=7432 comm="flatpak run --user --command=sh app/org.geany.Gean" label="flatpak (unconfined)")
+dbus-daemon[4346]: [session uid=1000 pid=4346] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4346]: [session uid=1000 pid=4346] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=7432 comm="flatpak run --user --command=sh app/org.geany.Gean" label="flatpak (unconfined)")
+dbus-daemon[4346]: [session uid=1000 pid=4346] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=7489 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4346]: [session uid=1000 pid=4346] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4346]: [session uid=1000 pid=4346] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+geany before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true }
+geany JobFinished: Ok("Launch request accepted")
+geany after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.geany.Geany
+2026-11-28T02:40:50+00:00 geany previous GUI WM_NAME(STRING) = "ide-first-run.txt - /app/share/ide-flatpak-wrapper - Geany"
+WM_CLASS(STRING) = "geany-bin", "Geany-bin"
+2026-11-28T02:40:50+00:00 geany AVAILABLE 19304099840
+geany before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: true, can_remove: true, can_open: true }
+geany JobFinished: Ok("Flathub app updated")
+geany after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:40:54+00:00 geany current 3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24
+/home/qa/profiles/geany-after210/.var/app/org.geany.Geany/fixture.txt: OK
+geany before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[4346]: [session uid=1000 pid=4346] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.26' (uid=1000 pid=8209 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[4346]: [session uid=1000 pid=4346] Successfully activated service 'org.freedesktop.portal.Flatpak'
+geany JobFinished: Ok("Launch request accepted")
+geany after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.geany.Geany
+org.geany.Geany
+org.geany.Geany
+2026-11-28T02:41:04+00:00 geany current GUI WM_NAME(STRING) = "sdk_update.txt - /app/share/ide-flatpak-wrapper - Geany"
+WM_CLASS(STRING) = "geany-bin", "Geany-bin"
+geany before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/geany-after210/data/flatpak/app/org.geany.Geany/x86_64/stable/3683624313c8b7a733ea89eb29c20efa7b579a3fea2fbedc99f3ca80d1b21e24", package: Some("org.geany.Geany"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.1.0"), update_available: false, can_remove: true, can_open: true }
+geany JobFinished: Ok("Flathub app removed")
+geany after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/geany-after210/.var/app/org.geany.Geany/fixture.txt: OK
+2026-11-28T02:41:06+00:00 geany PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:41:07+00:00 geany EXIT 0 remove
+
+(xfconfd:7445): xfconfd-WARNING **: 02:41:07.515: Name org.xfce.Xfconf lost on the message dbus, exiting.

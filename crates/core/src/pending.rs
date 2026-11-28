@@ -17,8 +17,7 @@ pub struct FlatpakCandidate {
 }
 
 /// Flathub recipes still waiting for their cycle on Ubuntu 24.04 x64.
-pub const FLATPAK: [FlatpakCandidate; 2] = [
-    FlatpakCandidate { id: "angryip", flatpak: "org.angryip.ipscan", upstream: "https://github.com/angryip/ipscan" },
+pub const FLATPAK: [FlatpakCandidate; 1] = [
     FlatpakCandidate { id: "openutau", flatpak: "com.openutau.OpenUtau", upstream: "https://github.com/openutau/OpenUtau" },
 ];
 

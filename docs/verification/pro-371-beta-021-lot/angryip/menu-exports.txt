@@ -1,0 +1,2 @@
+/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4/export/share/applications/org.angryip.ipscan.desktop
+/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4/export/share/icons/hicolor/scalable/apps/org.angryip.ipscan.svg

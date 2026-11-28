@@ -1,0 +1,19 @@
+commit 91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710
+Parent:  0305c0cac113d1214b1495993ed8340f414a919e3a7033ed229c9e96515984a9
+ContentChecksum:  53500ee71a5b556ef9d564781c26635765404bac93938cdbb2d79f4c97dae03c
+Date:  2026-03-06 23:15:16 +0000
+
+    fix: add release information for version 3.9.3 (432202201e21)
+
+    Name: org.angryip.ipscan
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Sat Mar  7 00:00:15 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

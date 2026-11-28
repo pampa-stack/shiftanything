@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 221] = [
+pub const RECIPES: [(&str, &str); 222] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -223,6 +223,7 @@ pub const RECIPES: [(&str, &str); 221] = [
     ("cutter", "re.rizin.cutter"),
     ("trayscale", "dev.deedles.Trayscale"),
     ("opentabletdriver", "net.opentabletdriver.OpenTabletDriver"),
+    ("angryip", "org.angryip.ipscan"),
 ];
 
 pub const IDS: [&str; RECIPES.len()] = {
@@ -462,6 +463,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "cutter" => "https://github.com/rizinorg/cutter",
         "trayscale" => "https://github.com/DeedleFake/trayscale",
         "opentabletdriver" => "https://github.com/OpenTabletDriver/OpenTabletDriver",
+        "angryip" => "https://github.com/angryip/ipscan",
         _ => return false,
     };
     RECIPES.iter().any(|(id, flatpak_id)| {

@@ -6226,6 +6226,771 @@
           }
         }
       ]
+    },
+    {
+      "id": "hootsuite",
+      "name": "Hootsuite",
+      "aliases": [],
+      "features": [
+        {
+          "id": "calendar",
+          "name": {
+            "it": "Pianificare i post social",
+            "en": "Schedule social posts"
+          },
+          "source": "https://www.hootsuite.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "postiz",
+          "evidence": {
+            "calendar": {
+              "state": "supported",
+              "source": "https://docs.postiz.com/self-host/installation/overview",
+              "note": {
+                "it": "Prepara e programma contenuti sui canali supportati.",
+                "en": "Prepare and schedule content for supported channels."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "hubspot-marketing-hub",
+      "name": "HubSpot Marketing Hub",
+      "aliases": [],
+      "features": [
+        {
+          "id": "campaigns",
+          "name": {
+            "it": "Gestire i flussi di campagne",
+            "en": "Manage campaign flows"
+          },
+          "source": "https://www.hubspot.com/products/marketing"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "mautic",
+          "evidence": {
+            "campaigns": {
+              "state": "supported",
+              "source": "https://docs.mautic.org/en/7.0/",
+              "note": {
+                "it": "Organizza segmenti e campagne in un’installazione self-hosted.",
+                "en": "Organize segments and campaigns in a self-hosted installation."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "istat-menus",
+      "name": "iStat Menus",
+      "aliases": [],
+      "features": [
+        {
+          "id": "system",
+          "name": {
+            "it": "Controllare risorse e processi",
+            "en": "Monitor resources and processes"
+          },
+          "source": "https://bjango.com/mac/istatmenus/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "stats",
+          "evidence": {
+            "system": {
+              "state": "supported",
+              "source": "https://github.com/exelban/stats#readme",
+              "note": {
+                "it": "Controlla CPU, memoria e rete dalla barra di macOS.",
+                "en": "Monitor CPU, memory and network activity from the macOS menu bar."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "sloth",
+          "evidence": {
+            "system": {
+              "state": "supported",
+              "source": "https://github.com/sveinbjornt/Sloth#readme",
+              "note": {
+                "it": "Consulta dal Mac file e socket aperti dai processi.",
+                "en": "Inspect files and sockets opened by Mac processes."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "jetbrains-ides",
+      "name": "JetBrains IDEs",
+      "aliases": [],
+      "features": [
+        {
+          "id": "editor",
+          "name": {
+            "it": "Modificare il codice",
+            "en": "Edit code"
+          },
+          "source": "https://www.jetbrains.com/ides/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "zed",
+          "evidence": {
+            "editor": {
+              "state": "supported",
+              "source": "https://zed.dev/terms/zed",
+              "note": {
+                "it": "Lavora sul codice con editor e integrazione linguistica.",
+                "en": "Work on code with an editor and language integration."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "codeedit",
+          "evidence": {
+            "editor": {
+              "state": "supported",
+              "source": "https://github.com/CodeEditApp/CodeEdit#readme",
+              "note": {
+                "it": "Esplora e modifica progetti dall’editor nativo macOS.",
+                "en": "Explore and edit projects in a native macOS editor."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "jira",
+      "name": "Jira",
+      "aliases": [],
+      "features": [
+        {
+          "id": "issues",
+          "name": {
+            "it": "Organizzare issue e cicli",
+            "en": "Organize issues and cycles"
+          },
+          "source": "https://www.atlassian.com/software/jira"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "plane",
+          "evidence": {
+            "issues": {
+              "state": "supported",
+              "source": "https://github.com/makeplane/plane/blob/preview/README.md",
+              "note": {
+                "it": "Gestisci cicli, assegnazioni e moduli per le issue.",
+                "en": "Manage issue cycles, assignments and modules."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "keyshot",
+      "name": "KeyShot",
+      "aliases": [],
+      "features": [
+        {
+          "id": "presentation",
+          "name": {
+            "it": "Mostrare il prototipo",
+            "en": "Present the prototype"
+          },
+          "source": "https://www.keyshot.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "blender",
+          "evidence": {
+            "presentation": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.blender.Blender",
+              "note": {
+                "it": "Prepara materiali, luci e camere per il rendering del prototipo.",
+                "en": "Set up materials, lights and cameras to render the prototype."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "logic-pro",
+      "name": "Logic Pro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "mix",
+          "name": {
+            "it": "Mixare e automatizzare",
+            "en": "Mix and automate"
+          },
+          "source": "https://www.apple.com/logic-pro/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "ardour",
+          "evidence": {
+            "mix": {
+              "state": "supported",
+              "source": "https://manual.ardour.org/",
+              "note": {
+                "it": "Automatizza parametri e gestisci bus e livelli nel mixer.",
+                "en": "Automate parameters and manage buses and levels in the mixer."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lucidchart",
+      "name": "Lucidchart",
+      "aliases": [],
+      "features": [
+        {
+          "id": "diagrams",
+          "name": {
+            "it": "Flussi e mappe visuali",
+            "en": "Flows and visual maps"
+          },
+          "source": "https://lucid.co/lucidchart"
+        },
+        {
+          "id": "diagrams-project-management",
+          "name": {
+            "it": "Mappare i processi",
+            "en": "Map processes"
+          },
+          "source": "https://lucid.co/lucidchart"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "drawio",
+          "evidence": {
+            "diagrams": {
+              "state": "supported",
+              "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+              "note": {
+                "it": "Disegna diagrammi con forme, frecce e connettori.",
+                "en": "Build diagrams with shapes, arrows and connectors."
+              }
+            },
+            "diagrams-project-management": {
+              "state": "supported",
+              "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+              "note": {
+                "it": "Crea diagrammi di flusso con forme e connettori.",
+                "en": "Draw flowcharts with shapes and connectors."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "excalidraw",
+          "evidence": {
+            "diagrams": {
+              "state": "supported",
+              "source": "https://github.com/excalidraw/excalidraw#readme",
+              "note": {
+                "it": "Butta giù un percorso utente in una lavagna vettoriale.",
+                "en": "Sketch a user journey on a vector whiteboard."
+              }
+            },
+            "diagrams-project-management": {
+              "state": "supported",
+              "source": "https://github.com/excalidraw/excalidraw#readme",
+              "note": {
+                "it": "Abbozza un processo su lavagna e salvalo come file.",
+                "en": "Sketch a process on a whiteboard and save it as a file."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lumion",
+      "name": "Lumion",
+      "aliases": [],
+      "features": [
+        {
+          "id": "render",
+          "name": {
+            "it": "Rendering",
+            "en": "Rendering"
+          },
+          "source": "https://lumion.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "blender",
+          "evidence": {
+            "render": {
+              "state": "supported",
+              "source": "https://docs.blender.org/manual/en/4.5/render/index.html",
+              "note": {
+                "it": "Materiali, luci e rendering statici o animati.",
+                "en": "Materials, lighting, still renders and animations."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lunar-pro",
+      "name": "Lunar Pro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "monitor",
+          "name": {
+            "it": "Regolare un monitor esterno",
+            "en": "Adjust an external monitor"
+          },
+          "source": "https://lunar.fyi/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "monitorcontrol",
+          "evidence": {
+            "monitor": {
+              "state": "supported",
+              "source": "https://github.com/MonitorControl/MonitorControl#readme",
+              "note": {
+                "it": "Regola luminosità e volume dei monitor compatibili dal Mac.",
+                "en": "Adjust brightness and volume on compatible displays from your Mac."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "magnet",
+      "name": "Magnet",
+      "aliases": [],
+      "features": [
+        {
+          "id": "windows",
+          "name": {
+            "it": "Affiancare le finestre",
+            "en": "Arrange windows"
+          },
+          "source": "https://magnet.crowdcafe.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rectangle",
+          "evidence": {
+            "windows": {
+              "state": "supported",
+              "source": "https://rectangleapp.com/",
+              "note": {
+                "it": "Affianca finestre con scorciatoie e zone ai bordi.",
+                "en": "Tile windows with shortcuts and screen-edge snap zones."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "loop-macos",
+          "evidence": {
+            "windows": {
+              "state": "supported",
+              "source": "https://github.com/mrkai77/Loop#readme",
+              "note": {
+                "it": "Sposta e ridimensiona finestre con scorciatoie o un menu radiale.",
+                "en": "Move and resize windows with shortcuts or a radial menu."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "mailchimp",
+      "name": "Mailchimp",
+      "aliases": [],
+      "features": [
+        {
+          "id": "email",
+          "name": {
+            "it": "Gestire la newsletter",
+            "en": "Run a newsletter"
+          },
+          "source": "https://mailchimp.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "listmonk",
+          "evidence": {
+            "email": {
+              "state": "supported",
+              "source": "https://listmonk.app/docs/installation/",
+              "note": {
+                "it": "Gestisci liste e invia campagne email usando un servizio SMTP.",
+                "en": "Manage lists and send campaigns through an SMTP service."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft-onedrive-for-business",
+      "name": "Microsoft OneDrive for Business",
+      "aliases": [],
+      "features": [
+        {
+          "id": "storage",
+          "name": {
+            "it": "Condividere cartelle di lavoro",
+            "en": "Share work folders"
+          },
+          "source": "https://www.microsoft.com/en-us/microsoft-365/onedrive/onedrive-for-business"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "nextcloud-files",
+          "evidence": {
+            "storage": {
+              "state": "supported",
+              "source": "https://github.com/nextcloud/server#readme",
+              "note": {
+                "it": "Gestisci condivisioni e permessi dal server Nextcloud.",
+                "en": "Manage shares and permissions on a Nextcloud server."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft-powerpoint",
+      "name": "Microsoft PowerPoint",
+      "aliases": [],
+      "features": [
+        {
+          "id": "slides",
+          "name": {
+            "it": "Comporre la lezione",
+            "en": "Build the lesson slides"
+          },
+          "source": "https://www.microsoft.com/en-us/microsoft-365/powerpoint"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "slides": {
+              "state": "supported",
+              "source": "https://help.libreoffice.org/latest/en-US/text/simpress/main0000.html",
+              "note": {
+                "it": "Crea diapositive e presentazioni multimediali con Impress.",
+                "en": "Create slides and multimedia presentations in Impress."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "onlyoffice",
+          "evidence": {
+            "slides": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/presentation-editor/working-with-slides/set-slide-parameters",
+              "note": {
+                "it": "Modifica temi, transizioni e note del relatore nell’editor di diapositive.",
+                "en": "Edit themes, transitions and speaker notes in the slide editor."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft-project",
+      "name": "Microsoft Project",
+      "aliases": [],
+      "features": [
+        {
+          "id": "planning",
+          "name": {
+            "it": "Pianificazione delle consegne",
+            "en": "Delivery planning"
+          },
+          "source": "https://www.microsoft.com/en-us/microsoft-365/project/project-management-software"
+        },
+        {
+          "id": "roadmap",
+          "name": {
+            "it": "Pianificare fasi e scadenze",
+            "en": "Plan schedules and milestones"
+          },
+          "source": "https://www.microsoft.com/en-us/microsoft-365/project/project-management-software"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "ganttproject",
+          "evidence": {
+            "planning": {
+              "state": "supported",
+              "source": "https://www.ganttproject.biz/free-gantt-chart-software",
+              "note": {
+                "it": "Imposta dipendenze, scadenze e fasi nel diagramma di Gantt.",
+                "en": "Plan dependencies, milestones and stages in a Gantt chart."
+              }
+            },
+            "roadmap": {
+              "state": "supported",
+              "source": "https://www.ganttproject.biz/free-gantt-chart-software",
+              "note": {
+                "it": "Definisci fasi, carico e dipendenze su una timeline locale.",
+                "en": "Define phases, workload and dependencies on a local timeline."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "openproject",
+          "evidence": {
+            "roadmap": {
+              "state": "supported",
+              "source": "https://www.openproject.org/docs/user-guide/",
+              "note": {
+                "it": "Organizza pacchetti di lavoro e dipendenze con il diagramma di Gantt.",
+                "en": "Organize work packages and dependencies in the Gantt chart."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "miro",
+      "name": "Miro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "diagrams",
+          "name": {
+            "it": "Mappare i processi",
+            "en": "Map processes"
+          },
+          "source": "https://miro.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "drawio",
+          "evidence": {
+            "diagrams": {
+              "state": "supported",
+              "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+              "note": {
+                "it": "Crea diagrammi di flusso con forme e connettori.",
+                "en": "Draw flowcharts with shapes and connectors."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "excalidraw",
+          "evidence": {
+            "diagrams": {
+              "state": "supported",
+              "source": "https://github.com/excalidraw/excalidraw#readme",
+              "note": {
+                "it": "Abbozza un processo su lavagna e salvalo come file.",
+                "en": "Sketch a process on a whiteboard and save it as a file."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "otter-ai",
+      "name": "Otter.ai",
+      "aliases": [],
+      "features": [
+        {
+          "id": "transcribe",
+          "name": {
+            "it": "Trascrivere una conversazione",
+            "en": "Transcribe a conversation"
+          },
+          "source": "https://otter.ai/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "meetily",
+          "evidence": {
+            "transcribe": {
+              "state": "supported",
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme",
+              "note": {
+                "it": "Trascrivi una riunione con i modelli supportati.",
+                "en": "Transcribe a meeting with supported models."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "plex-pass",
+      "name": "Plex Pass",
+      "aliases": [],
+      "features": [
+        {
+          "id": "films",
+          "name": {
+            "it": "Catalogare e riprodurre film",
+            "en": "Catalog and play films"
+          },
+          "source": "https://www.plex.tv/plex-pass/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "jellyfin",
+          "evidence": {
+            "films": {
+              "state": "supported",
+              "source": "https://jellyfin.org/docs/general/quick-start/",
+              "note": {
+                "it": "Organizza film e serie per libreria e riproducili da un server che gestisci tu.",
+                "en": "Organize films and shows into libraries and stream them from your own server."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vlc",
+          "evidence": {
+            "films": {
+              "state": "supported",
+              "source": "https://docs.videolan.me/vlc-user/desktop/3.0/en/basic/media.html",
+              "note": {
+                "it": "Riproduci un file locale o apri un flusso di rete da un indirizzo.",
+                "en": "Play a local file or open a network stream from its address."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "portainer-business-edition",
+      "name": "Portainer Business Edition",
+      "aliases": [],
+      "features": [
+        {
+          "id": "docker-stacks",
+          "name": {
+            "it": "Gestire gli stack Docker",
+            "en": "Manage Docker stacks"
+          },
+          "source": "https://www.portainer.io/pricing"
+        },
+        {
+          "id": "kubernetes",
+          "name": {
+            "it": "Esplorare le risorse Kubernetes",
+            "en": "Inspect Kubernetes resources"
+          },
+          "source": "https://www.portainer.io/pricing"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "portainer-ce",
+          "evidence": {
+            "docker-stacks": {
+              "state": "supported",
+              "source": "https://docs.portainer.io/user/docker/stacks",
+              "note": {
+                "it": "Gestisci gli stack Docker Compose e controlla i servizi da una dashboard self-hosted.",
+                "en": "Manage Docker Compose stacks and inspect services in a self-hosted dashboard."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "headlamp",
+          "evidence": {
+            "kubernetes": {
+              "state": "supported",
+              "source": "https://headlamp.dev/docs/latest/",
+              "note": {
+                "it": "Esplora le risorse di un cluster Kubernetes usando il tuo kubeconfig.",
+                "en": "Browse a Kubernetes cluster’s resources using your kubeconfig."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "postman",
+      "name": "Postman",
+      "aliases": [],
+      "features": [
+        {
+          "id": "api",
+          "name": {
+            "it": "Provare richieste API",
+            "en": "Test API requests"
+          },
+          "source": "https://www.postman.com/product/what-is-postman/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "bruno",
+          "evidence": {
+            "api": {
+              "state": "supported",
+              "source": "https://github.com/usebruno/bruno/blob/main/readme.md",
+              "note": {
+                "it": "Crea collezioni di richieste e salvale in file versionabili.",
+                "en": "Build request collections and save them as versionable files."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

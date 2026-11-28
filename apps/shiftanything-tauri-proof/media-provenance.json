@@ -4999,7 +4999,7 @@
     {
       "app": "mist",
       "slot": "logo",
-      "source": "https://raw.githubusercontent.com/ninxsoft/Mist/main/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
+      "source": "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
       "file": "media/mist-logo.png",
       "sha256": "7d17b9149c8ef0d4926b1e491055cdc7d704a6aa5ac75c5234eb051992890ccc",
       "source_sha256": "7d17b9149c8ef0d4926b1e491055cdc7d704a6aa5ac75c5234eb051992890ccc",
@@ -5072,6 +5072,83 @@
       "credit": "syncthing",
       "treatment": "original",
       "purpose": "Catalog identification"
+    },
+    {
+      "app": "markedit",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Icon.png",
+      "file": "media/markedit-logo.png",
+      "sha256": "5a3e173e79eeb2c417f532447782fdfc4a1bccd89e674a705d3aa788c096feb6",
+      "source_sha256": "5a3e173e79eeb2c417f532447782fdfc4a1bccd89e674a705d3aa788c096feb6",
+      "credit": "Ying Zhong",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "capso",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/App/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+      "file": "media/capso-logo.png",
+      "sha256": "80793ad0f7dcc5323e40fc1dcdf222fa298e5abe53e94c7e52c68245483e5665",
+      "source_sha256": "80793ad0f7dcc5323e40fc1dcdf222fa298e5abe53e94c7e52c68245483e5665",
+      "credit": "Zhihao Li",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "vorssaint",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/icon.png",
+      "file": "media/vorssaint-logo.png",
+      "sha256": "588c3fa5da7932294e8f50488fae8beca7cbc0507f1ed6ba102c7600fc79bcb2",
+      "source_sha256": "588c3fa5da7932294e8f50488fae8beca7cbc0507f1ed6ba102c7600fc79bcb2",
+      "credit": "Pedro Gomes",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "mist",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/README%20Resources/Example.png",
+      "file": "media/mist-shot-0.png",
+      "sha256": "b4f97324f248b8c5360f4f981ff69528297fba67dac488984ea1b20d39352844",
+      "source_sha256": "b4f97324f248b8c5360f4f981ff69528297fba67dac488984ea1b20d39352844",
+      "credit": "ninxsoft",
+      "treatment": "original",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "markedit",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Screenshots/01.png",
+      "file": "media/markedit-shot-0.png",
+      "sha256": "6e1d0468a86221b2092bcc04c290aef9bc443c4be5dd1c5ca910098941c897c6",
+      "source_sha256": "7086e6149b74604ffea6c99ec37288cdc87c77a7650e542aa8b79c6176e48e21",
+      "credit": "Ying Zhong",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "capso",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/.github/assets/annotation.jpeg",
+      "file": "media/capso-shot-0.jpg",
+      "sha256": "32eba3794b71fe26083cc356fb1f6c1494cd50727741f283afa24260d26002ad",
+      "source_sha256": "4ab76952ac28d4feb6e0fb66a76538ce0d38695333a7f9350eefb9a830304cce",
+      "credit": "Zhihao Li",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "vorssaint",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/panel-utilities.png",
+      "file": "media/vorssaint-shot-0.png",
+      "sha256": "09502d69d1b2fed2692ca4e9fb9a65c39bf59ab122f04d7d6ea84d5a4eac0584",
+      "source_sha256": "f1fd583844cf42f5261c1b46c69e2d4414dc77aac73019127695a3dc2ba0df47",
+      "credit": "Pedro Gomes",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
     }
   ]
 }

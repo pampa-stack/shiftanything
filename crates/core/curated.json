@@ -35222,7 +35222,7 @@
     "stars": {
       "count": 6031,
       "date": "2026-11-28",
-      "source": "https://api.github.com/repos/MarkEdit-app/MarkEdit"
+      "source": "https://github.com/MarkEdit-app/MarkEdit/stargazers"
     },
     "platform_support": {
       "macos": "https://github.com/MarkEdit-app/MarkEdit/releases/tag/v1.37.1"
@@ -35278,7 +35278,7 @@
     "stars": {
       "count": 1562,
       "date": "2026-11-28",
-      "source": "https://api.github.com/repos/lzhgus/Capso"
+      "source": "https://github.com/lzhgus/Capso/stargazers"
     },
     "platform_support": {
       "macos": "https://github.com/lzhgus/Capso/releases/tag/v1.2.11"
@@ -35334,7 +35334,7 @@
     "stars": {
       "count": 36789,
       "date": "2026-11-28",
-      "source": "https://api.github.com/repos/vorssaint/vorssaint-utils"
+      "source": "https://github.com/vorssaint/vorssaint-utils/stargazers"
     },
     "platform_support": {
       "macos": "https://github.com/vorssaint/vorssaint-utils/releases/tag/v3.4.5"

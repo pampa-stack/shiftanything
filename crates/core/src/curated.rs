@@ -1591,6 +1591,27 @@ pub const MULLVAD_BROWSER: crate::CraftApp = crate::CraftApp {
     mac_team: Some("MADPSAYN6T"),
 };
 
+pub const OPENBOARD: crate::CraftApp = crate::CraftApp {
+    id: "openboard",
+    name: "OpenBoard",
+    tagline: "Teach and annotate on an interactive whiteboard",
+    repo: "OpenBoard-org/OpenBoard",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [31, 121, 172],
+    ink_light: [25, 82, 116],
+    ink_dark: [148, 212, 243],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "OpenBoard Project",
+    msi_publisher: None,
+    bundle: Some("org.oe-f.OpenBoard"),
+    site: Some("https://openboard.ch/"),
+    mac_bundle_name: Some("OpenBoard"),
+    mac_team: Some("A6HNXYT969"),
+};
+
 pub const MATERIAL_MAKER: crate::CraftApp = crate::CraftApp {
     id: "material-maker",
     name: "Material Maker",
@@ -3491,6 +3512,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     PLAYCOVER,
     MATERIAL_MAKER,
     MULLVAD_BROWSER,
+    OPENBOARD,
     SCUMMVM,
     GHOST_DOWNLOADER,
     HANDY,

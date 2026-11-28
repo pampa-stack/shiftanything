@@ -1241,6 +1241,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::PLAYCOVER,
         crate::curated::MATERIAL_MAKER,
         crate::curated::MULLVAD_BROWSER,
+        crate::curated::OPENBOARD,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1670,6 +1671,12 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("OpenBoard-org/OpenBoard", "v1.7.6") => {
+            &[("OpenBoard-1.7.6.dmg", 463_841_224, "33c41fc8debe93dbb99fb2643470ea07418f02071900c7c9b68f44dfe59d9332")]
+        }
+        ("OpenBoard-org/OpenBoard", "v1.7.7") => {
+            &[("OpenBoard-1.7.7.dmg", 463_927_736, "23a0c2eb78a21f7edf36649c6cd99890a819a757d4f5f8b0498e13dac0353a88")]
+        }
         ("mullvad/mullvad-browser", "16.0.2") => {
             &[("mullvad-browser-macos-16.0.2.dmg", 162_985_935, "7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841")]
         }

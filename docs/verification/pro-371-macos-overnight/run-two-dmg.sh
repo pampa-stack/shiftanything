@@ -13,6 +13,9 @@ case "$id" in
     mullvad-browser)
         repo=mullvad/mullvad-browser app='Mullvad Browser' bundle_id=net.mullvad.mullvadbrowser team=MADPSAYN6T
         ;;
+    openboard)
+        repo=OpenBoard-org/OpenBoard app=OpenBoard bundle_id=org.oe-f.OpenBoard team=A6HNXYT969
+        ;;
     *) exit 2 ;;
 esac
 [[ $(uname -m) == arm64 && "$root" == /private/tmp/shift-air-overnight.* && -O "$root" && -f "$root/.shift-owned" ]]
@@ -34,7 +37,9 @@ repo, tsv, cache = sys.argv[1:]
 releases = []
 for line in Path(tsv).read_text().splitlines():
     tag, name, size, digest, url = line.split('\t')
-    version = tag if tag.count('.') == 2 else tag + '.0'
+    version = tag.removeprefix('v')
+    if version.count('.') == 1:
+        version += '.0'
     releases.append(dict(tag=tag, version=version, name=tag, published_at=None,
                          html_url=f'https://github.com/{repo}/releases/tag/{tag}', notes='',
                          prerelease=False, assets=[dict(name=name, size=int(size), sha256=digest, url=url)]))

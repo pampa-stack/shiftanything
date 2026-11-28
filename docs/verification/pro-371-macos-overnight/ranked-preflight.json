@@ -90,6 +90,16 @@
     "reason": "intel_installer_only"
   },
   {
+    "id": "librecad",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/LibreCAD/LibreCAD/releases/tag/v2.2.1.6",
+    "asset_url": "https://github.com/LibreCAD/LibreCAD/releases/download/v2.2.1.6/LibreCAD-v2.2.1.6-arm64.dmg",
+    "sha256": "2c5049f5d38346b6152e5b000bb60060f3a2113484bba4bcb388cb690f275879",
+    "bytes": 98795332,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "mister-download-manager",
     "target": "macos-arm64",
     "release_source": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
@@ -178,6 +188,16 @@
     "bytes": 96667230,
     "checked_at": "2026-11-28",
     "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "peazip",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/peazip/PeaZip/releases/tag/11.4.0",
+    "asset_url": "https://github.com/peazip/PeaZip/releases/download/11.4.0/peazip-11.4.0.DARWIN.aarch64.dmg",
+    "sha256": "b31ec81e13dbe21a6189637855e55b827b2c7de046ba97060b689ace3f6248f9",
+    "bytes": 26237034,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
   },
   {
     "id": "pixelorama",

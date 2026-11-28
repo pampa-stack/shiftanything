@@ -3550,14 +3550,14 @@ mod tests {
     fn verified_github_apps_keep_their_flathub_route_on_linux() {
         use artcraft_launcher_core::{
             Arch,
-            curated::{FLOORP, MULLVAD_BROWSER, STELLARIUM},
+            curated::{FLOORP, MULLVAD_BROWSER, OPENBOARD, STELLARIUM},
             nightly::InstallChannel,
         };
 
         let feed = Feed::default();
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
-        for app in [FLOORP, MULLVAD_BROWSER, STELLARIUM] {
+        for app in [FLOORP, MULLVAD_BROWSER, OPENBOARD, STELLARIUM] {
             assert_eq!(release_origin(&app), Origin::GitHub);
             assert_eq!(release_query(Some(&feed), &app).repo, app.repo);
             assert!(routes_to_flathub(app.id, Some(linux), InstallChannel::Stable));

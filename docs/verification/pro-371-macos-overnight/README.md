@@ -314,3 +314,11 @@ On 28 November 2026 both official DMGs labeled Apple Silicon matched their publi
 On 28 November 2026, the launcher’s native backend downloaded and installed 16.0.2, downloaded the stable update to 16.0.3 and then moved the app to the private Trash on the MacBook Air running macOS 26.6.2. Both official DMGs matched GitHub’s published SHA-256 and passed ARM64, strict signature and Gatekeeper checks for The Tor Project, Inc. (team `MADPSAYN6T`). The synthetic profile marker survived. The launcher follows Mullvad’s published requirement of macOS 15 or later. The test covers package management on Apple Silicon. Browser launch and the Intel slice remain untested here. [Publisher downloads](https://mullvad.net/en/download/browser/macos) · [16.0.2 preflight](mullvad-browser-16.0.2.log) · [16.0.3 preflight](mullvad-browser-16.0.3.log) · [Native cycle](mullvad-browser-native.log)
 
 Copy the two-version TSV and `run-two-dmg.sh` to the private Air scratch folder alongside the compiled `native-cycle`, then run `bash run-two-dmg.sh mullvad-browser`.
+
+### PeaZip and LibreCAD on Apple Silicon
+
+The GitHub package digests matched both official downloads on 28 November. PeaZip 11.4.0 failed strict signature verification. LibreCAD 2.2.1.6 has an ad hoc signature without a Developer ID team and fails the notarization requirement. Both macOS packages remain disabled. [PeaZip log](peazip-11.4.0.log) · [LibreCAD log](librecad-2.2.1.6.log)
+
+### OpenBoard
+
+On 28 November 2026, the native backend installed OpenBoard 1.7.6, updated it to 1.7.7, and removed it into the private Trash on the MacBook Air. Both official DMGs matched the publisher's SHA-256 and passed the ARM64, strict signature and Gatekeeper checks for team `A6HNXYT969`. The synthetic profile marker survived. The test ran over SSH and did not open the GUI. [Official releases](https://github.com/OpenBoard-org/OpenBoard/releases) · [Native cycle](openboard.log) · [Package receipts](openboard.tsv)

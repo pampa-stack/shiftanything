@@ -1160,6 +1160,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::EASYDICT,
         crate::curated::UTM,
         crate::curated::OPENMTP,
+        crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
@@ -1476,6 +1477,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("ganeshrvel/openmtp", "v3.3.0") => {
             &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
+        }
+        ("invoke-ai/launcher", "v1.8.4") => {
+            &[("Invoke-Community-Edition-1.8.4-arm64.dmg", 132_977_226, "1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6")]
+        }
+        ("invoke-ai/launcher", "v1.8.5") => {
+            &[("Invoke-Community-Edition-1.8.5-arm64.dmg", 132_949_779, "33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc")]
         }
         ("ninxsoft/Mist", "v0.30") => &[("Mist.0.30.dmg", 14_906_897, "2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1")],
         ("ninxsoft/Mist", "v0.40") => &[("Mist.0.40.dmg", 15_997_728, "889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8")],

@@ -2870,6 +2870,27 @@ pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("6UR4H85SA2"),
 };
 
+pub const INVOKE_COMMUNITY: crate::CraftApp = crate::CraftApp {
+    id: "invoke-community",
+    name: "Invoke Community",
+    tagline: "Generate and edit images with a local canvas and node workflows",
+    repo: "invoke-ai/launcher",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [107, 91, 229],
+    ink_light: [68, 55, 143],
+    ink_dark: [186, 176, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Invoke",
+    msi_publisher: None,
+    bundle: Some("com.invoke.invoke-community-edition"),
+    site: Some("https://invoke-ai.github.io/InvokeAI/"),
+    mac_bundle_name: Some("Invoke Community Edition"),
+    mac_team: Some("2RGH26SB2H"),
+};
+
 pub const MIST: crate::CraftApp = crate::CraftApp {
     id: "mist",
     name: "Mist",
@@ -3039,6 +3060,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     EASYDICT,
     UTM,
     OPENMTP,
+    INVOKE_COMMUNITY,
     MIST,
     FREEPLANE,
 ];

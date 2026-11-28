@@ -148,6 +148,7 @@ fn main() -> Result<(), String> {
             "easydict",
             "utm",
             "openmtp",
+            "invoke-community",
             "mist",
             "freeplane",
         ]

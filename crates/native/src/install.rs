@@ -49,6 +49,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::DB_BROWSER_SQLITE.id,
                 recipe::DESKREEN.id,
                 recipe::HANDBRAKE.id,
+                recipe::INVOKE_COMMUNITY.id,
                 recipe::KAP.id,
                 recipe::KEYCASTR.id,
                 recipe::LAPCE.id,
@@ -3586,6 +3587,7 @@ mod tests {
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::DESKREEN), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::NEOVIDE), Some((12, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::MIST), Some((12, 0)));
+        assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::INVOKE_COMMUNITY), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::KEYCASTR), Some((11, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::PICARD), Some((13, 0)));
         assert_eq!(recipe_macos_minimum(&artcraft_launcher_core::curated::LAPCE), Some((11, 0)));

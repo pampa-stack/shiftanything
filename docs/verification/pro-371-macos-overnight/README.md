@@ -176,10 +176,16 @@ Save the two official GitHub expanded asset pages as `jellyfin-desktop-v1.11.1-a
 
 On the Air (macOS 26.6.2), all five packages passed strict signature checks and Gatekeeper reported `Notarized Developer ID`. The package inspections did not launch the apps or run the launcher lifecycle.
 
-- Ruffle's 0.7.0, 0.7.1 and 0.8.0 archives contained the signed universal bundle `rs.ruffle.ruffle`, published by Ruffle LLC (`H22337M38N`). The arm64 slice requires macOS 11.0. The launcher still needs a macOS recipe that stages the exact upstream tarball and verifies the bundle before copying it. [0.7.0](ruffle-v0.7.0.log) · [0.7.1](ruffle-v0.7.1.log) · [0.8.0](ruffle-v0.8.0.log) · [Upstream 0.8.0 assets](https://github.com/ruffle-rs/ruffle/releases/expanded_assets/v0.8.0)
+- Ruffle's 0.7.0, 0.7.1 and 0.8.0 archives contained the signed universal bundle `rs.ruffle.ruffle`, published by Ruffle LLC (`H22337M38N`). The arm64 slice requires macOS 11.0. [0.7.0](ruffle-v0.7.0.log) · [0.7.1](ruffle-v0.7.1.log) · [0.8.0](ruffle-v0.8.0.log) · [Upstream 0.8.0 assets](https://github.com/ruffle-rs/ruffle/releases/expanded_assets/v0.8.0)
 - The publisher's download server supplied both AionUi Apple Silicon DMGs. Their bundle was `com.aionui.app`, signed by AionUi Inc. (`52JQX2HUSC`), with a minimum of macOS 11.0. The GitHub tag alone does not supply these DMGs. The 2.2.1 digest was measured from the publisher's download. The 2.2.2 digest also matched the Homebrew cask receipt. [2.2.1](aionui-v2.2.1.log) · [2.2.2](aionui-v2.2.2.log) · [Publisher downloads](https://www.aionui.com/download/) · [Homebrew receipt](https://formulae.brew.sh/cask/aionui)
 
 Copy `preflight-ruffle.sh` or `preflight.sh` into a fresh marked Air scratch directory. Run the Ruffle script with the tag, byte count and SHA-256 shown in its receipt. Run the DMG script with the package filename, URL and byte count from the AionUi receipt. For the latest AionUi DMG, supply the cask digest as the final argument.
+
+### Ruffle launcher lifecycle on Apple Silicon
+
+On 28 November 2026, the launcher’s native backend installed 0.7.1 from the official archive on the Air, fetched and applied 0.8.0, then moved the updated app to the test profile’s Trash. Both packages matched the published SHA-256 values and the copied bundles passed signature, notarization and version checks. A background `--version` probe received `SIGTRAP` in the offline sandbox. The successful cycle covered installation, update and removal. [Native log](ruffle-native.log)
+
+Save the GitHub expanded asset pages as `ruffle-v0.7.1-assets.html` and `ruffle-v0.8.0-assets.html` alongside their preflight logs. With the compiled `native-cycle` in the marked scratch directory, run `bash run-native.sh ruffle ruffle-rs/ruffle Ruffle v0.7.1 v0.8.0` while 0.8.0 is the latest stable release.
 
 ### AionUi launcher lifecycle on Apple Silicon
 

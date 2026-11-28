@@ -45,6 +45,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
             &[
                 recipe::ANYTHING_LLM.id,
                 recipe::AIONUI.id,
+                recipe::RUFFLE.id,
                 recipe::CLASH_VERGE_REV.id,
                 recipe::CRYPTOMATOR.id,
                 recipe::DB_BROWSER_SQLITE.id,
@@ -291,7 +292,7 @@ struct Failure {
 pub fn keeps_old_copy(kind: PackageKind, existing: Option<&Installed>, previous: Option<&Record>) -> bool {
     let source = existing.map(|inst| inst.source);
     match kind {
-        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => source == Some(InstallSource::MacApp),
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz => source == Some(InstallSource::MacApp),
         PackageKind::AppImage => source == Some(InstallSource::Launcher) && previous.is_some_and(|r| r.kind == PackageKind::AppImage),
         PackageKind::Flatpak => existing.is_some_and(|inst| inst.source == InstallSource::Flatpak && !inst.externally_managed),
         _ => false,
@@ -381,6 +382,15 @@ fn install_at_with_profile(
     #[allow(unused_variables)] lease: Option<&crate::nightly_transaction::Lease>,
 ) -> Result<Option<Record>, String> {
     let InstallRequest { app, release, asset, kind, existing, previous, signature } = request;
+    if kind == PackageKind::MacTarGz {
+        let ruffle = artcraft_launcher_core::curated::RUFFLE;
+        if !cfg!(all(target_os = "macos", target_arch = "aarch64"))
+            || (app.id, app.repo, app.bundle, app.mac_team) != (ruffle.id, ruffle.repo, ruffle.bundle, ruffle.mac_team)
+            || !release::ruffle_mac_asset(release, asset)
+        {
+            return Err("This macOS app archive has not been verified for this system.".into());
+        }
+    }
     if let Some(profile) = profile {
         // A typed caller cannot accidentally inherit stable destinations, package batches or
         // unrecorded-file replacement permission. Refuse before download or filesystem writes.
@@ -561,6 +571,17 @@ fn install_at_with_profile(
         #[cfg(target_os = "macos")]
         PackageKind::MacPkg => macos::install_pkg(app, &file, existing, destination.as_deref(), job.paths, &macos::Expect::release(app, release))
             .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
+        #[cfg(target_os = "macos")]
+        PackageKind::MacTarGz => macos::install_tar(
+            app,
+            &file,
+            existing,
+            destination.as_deref(),
+            job.replace.then_some(job.approved_path).flatten(),
+            job.paths,
+            &macos::Expect::release(app, release),
+        )
+        .map(|path| Some(record(&version, kind, path, Vec::new(), false))),
         #[cfg(windows)]
         PackageKind::Msi => {
             // An update lands in the same Windows Installer context as the copy being replaced:
@@ -899,7 +920,7 @@ pub fn occupied(
     let target = match kind {
         PackageKind::Msi => folder,
         PackageKind::PortableZip => Some(folder.unwrap_or_else(|| paths.apps()).join(app.id)),
-        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg => {
+        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz => {
             folder.and_then(|f| app.mac_bundle_names().map(|n| f.join(format!("{n}.app"))).find(|t| std::fs::symlink_metadata(t).is_ok()))
         }
         #[cfg(target_os = "linux")]
@@ -956,7 +977,13 @@ fn destination(
     let Some(folder) = locations.folder(app.id) else { return Ok(None) };
     if !matches!(
         kind,
-        PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::AppImage | PackageKind::Msi | PackageKind::PortableZip
+        PackageKind::Dmg
+            | PackageKind::MacZip
+            | PackageKind::MacPkg
+            | PackageKind::MacTarGz
+            | PackageKind::AppImage
+            | PackageKind::Msi
+            | PackageKind::PortableZip
     ) || process::in_sandbox()
     {
         return Err("custom install folders aren't supported on this system".into());
@@ -992,7 +1019,9 @@ pub fn default_folder(kind: PackageKind, arch: Option<Arch>, paths: &Paths) -> O
     #[cfg(target_os = "macos")]
     {
         let _ = (arch, paths);
-        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg).then(macos::default_applications_dir).flatten()
+        matches!(kind, PackageKind::Dmg | PackageKind::MacZip | PackageKind::MacPkg | PackageKind::MacTarGz)
+            .then(macos::default_applications_dir)
+            .flatten()
     }
     #[cfg(not(any(windows, target_os = "macos")))]
     {
@@ -1197,7 +1226,7 @@ pub fn is_release_arch_package(app: &CraftApp, installed: &Installed) -> bool {
 /// Package formats this machine can install, best first.
 pub fn available_kinds() -> Vec<PackageKind> {
     #[cfg(target_os = "macos")]
-    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg];
+    return vec![PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz];
     #[cfg(windows)]
     return vec![PackageKind::Msi, PackageKind::PortableZip];
     #[cfg(target_os = "linux")]
@@ -2452,6 +2481,75 @@ pub mod macos {
         copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
     }
 
+    pub(super) fn install_tar(
+        app: &CraftApp,
+        archive: &Path,
+        existing: Option<&Installed>,
+        destination: Option<&Path>,
+        approved_replace: Option<&Path>,
+        paths: &Paths,
+        expect: &Expect<'_>,
+    ) -> Result<PathBuf, String> {
+        let unpacked = tempfile::tempdir_in(&paths.cache).map_err(|e| format!("couldn't create a folder to unpack the app ({e})"))?;
+        extract_ruffle_tar(archive, unpacked.path())?;
+        copy_app(app, unpacked.path(), existing, destination, approved_replace, expect)
+    }
+
+    fn extract_ruffle_tar(archive: &Path, staging: &Path) -> Result<(), String> {
+        use std::os::unix::fs::PermissionsExt;
+
+        const MAX_ENTRIES: usize = 2_000;
+        const MAX_BYTES: u64 = 256 * 1024 * 1024;
+        let file = std::fs::File::open(archive).map_err(|e| e.to_string())?;
+        let mut tar = tar::Archive::new(flate2::read::GzDecoder::new(file));
+        let bundle = Path::new("Ruffle.app");
+        let mut paths = std::collections::BTreeSet::new();
+        let mut bytes = 0u64;
+        // The reviewed archives use ordinary headers. Raw iteration keeps extended headers
+        // from allocating data before the size and entry-type checks.
+        for entry in tar.entries().map_err(|e| e.to_string())?.raw(true) {
+            let mut entry = entry.map_err(|e| e.to_string())?;
+            let kind = entry.header().entry_type();
+            let path = entry.path().map_err(|e| e.to_string())?;
+            let name = path.to_str().ok_or("The app archive contains an invalid path.")?;
+            let name = if kind.is_dir() { name.trim_end_matches('/') } else { name };
+            let relative = Path::new(name);
+            if !matches!(kind, tar::EntryType::Regular | tar::EntryType::Directory)
+                || name.split('/').any(|part| matches!(part, "" | "." | ".."))
+                || name.contains([':', '\\'])
+                || name.chars().any(char::is_control)
+                || !paths.insert(name.to_lowercase())
+                || (relative == bundle && !kind.is_dir())
+            {
+                return Err("The app archive contains an unsafe or duplicate entry.".into());
+            }
+            bytes = bytes.checked_add(entry.size()).filter(|total| *total <= MAX_BYTES).ok_or("The unpacked app archive is too large.")?;
+            if paths.len() > MAX_ENTRIES || (kind.is_dir() && entry.size() != 0) {
+                return Err("The app archive has an invalid directory or too many entries.".into());
+            }
+            if kind.is_file() && matches!(name, "README.md" | "LICENSE.md") {
+                continue;
+            }
+            if !relative.starts_with(bundle) {
+                return Err("The app archive contains an entry outside the expected bundle.".into());
+            }
+            let output = staging.join(relative);
+            if kind.is_dir() {
+                std::fs::create_dir_all(output).map_err(|e| e.to_string())?;
+                continue;
+            }
+            let parent = output.parent().ok_or("The app archive has no bundle folder.")?;
+            std::fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+            let mode = entry.header().mode().map_err(|e| e.to_string())?;
+            let mut file = std::fs::OpenOptions::new().write(true).create_new(true).open(output).map_err(|e| e.to_string())?;
+            if std::io::copy(&mut entry, &mut file).map_err(|e| e.to_string())? != entry.size() {
+                return Err("The app archive contains an incomplete file.".into());
+            }
+            file.set_permissions(std::fs::Permissions::from_mode(if mode & 0o111 == 0 { 0o644 } else { 0o755 })).map_err(|e| e.to_string())?;
+        }
+        Ok(())
+    }
+
     /// Extract the signed NAPS2 payload without executing an installer or touching its receipt DB.
     pub(super) fn install_pkg(
         app: &CraftApp,
@@ -2714,6 +2812,48 @@ pub mod macos {
         let root = Path::new("dyad.app/Contents/Resources/git/libexec/git-core");
         let name = relative.file_name()?.to_str()?;
         (bundle == "dyad.app" && relative.parent() == Some(root) && name.starts_with("git-") && name != "git-remote-http").then(|| root.to_path_buf())
+    }
+
+    #[cfg(test)]
+    #[test]
+    fn ruffle_tar_accepts_regular_bundle_files_but_rejects_aliases() {
+        use std::os::unix::fs::PermissionsExt;
+
+        let root = tempfile::tempdir().unwrap();
+        let archive = root.path().join("ruffle.tar.gz");
+        let executable = "Ruffle.app/Contents/MacOS/ruffle";
+        for (index, (name, kind, accepted)) in [
+            (executable, tar::EntryType::Regular, true),
+            (executable, tar::EntryType::Symlink, false),
+            ("Other.app/Contents/MacOS/ruffle", tar::EntryType::Regular, false),
+        ]
+        .into_iter()
+        .enumerate()
+        {
+            let output = root.path().join(index.to_string());
+            std::fs::create_dir(&output).unwrap();
+            let file = std::fs::File::create(&archive).unwrap();
+            let mut builder = tar::Builder::new(flate2::write::GzEncoder::new(file, flate2::Compression::fast()));
+            let mut header = tar::Header::new_ustar();
+            header.set_entry_type(kind);
+            header.set_mode(0o755);
+            if kind.is_symlink() {
+                header.set_size(0);
+                builder.append_link(&mut header, name, "other").unwrap();
+            } else {
+                header.set_size(1);
+                builder.append_data(&mut header, name, &b"x"[..]).unwrap();
+            }
+            builder.into_inner().unwrap().finish().unwrap();
+            assert_eq!(extract_ruffle_tar(&archive, &output).is_ok(), accepted);
+            if accepted {
+                let copied = output.join(executable);
+                assert_eq!(std::fs::read(&copied).unwrap(), b"x");
+                assert_ne!(copied.metadata().unwrap().permissions().mode() & 0o111, 0);
+            } else {
+                assert_eq!(std::fs::read_dir(&output).unwrap().count(), 0);
+            }
+        }
     }
 
     #[cfg(test)]

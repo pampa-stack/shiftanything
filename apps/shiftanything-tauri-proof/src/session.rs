@@ -792,4 +792,18 @@ mod tests {
             assert!(compatible_asset(app, platform, &release).is_none());
         }
     }
+
+    #[test]
+    fn ruffle_install_offer_exposes_only_the_reviewed_apple_silicon_archive() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let app = CraftApp::by_id("ruffle").unwrap();
+        let release = artcraft_launcher_core::release::release_from_sums(app.repo, "v0.8.0", &[]);
+        let offer = compatible_asset(app, mac, &release).unwrap();
+        assert_eq!(offer.name, "ruffle-0.8.0-macos-universal.tar.gz");
+        assert_eq!(offer.size, 33_797_959);
+        assert!(verified_installs(Some(mac)).contains(app.id));
+        assert!(!verified_installs(Some(intel)).contains(app.id));
+        assert!(compatible_asset(app, intel, &release).is_none());
+    }
 }

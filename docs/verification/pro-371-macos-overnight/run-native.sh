@@ -11,12 +11,16 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
     [[ "$id" != inks ]] || log_id=inkscape
-    grep -x -F "PASS PREFLIGHT $log_id $tag" "$log_id-$tag.log"
+    if [[ "$id" == ruffle ]]; then
+        grep -x -F "PASS RUFFLE $tag" "$log_id-$tag.log"
+    else
+        grep -x -F "PASS PREFLIGHT $log_id $tag" "$log_id-$tag.log"
+    fi
 done
 df -k "$root" | awk 'NR==2{print; exit !($4>=8388608)}'
 profile="$(mktemp -d "$root/profile-$id.XXXXXXXX")"
@@ -315,7 +319,7 @@ executable = Path(profile) / f'Applications/{bundle}.app/Contents/MacOS/{binary}
 command = ['/usr/bin/sandbox-exec', '-p', '(version 1) (allow default) (deny network*) (deny file-write*)', str(executable), *args]
 env = {'HOME': profile, 'CFFIXED_USER_HOME': profile, 'TMPDIR': f'{profile}/tmp', 'PATH': '/usr/bin:/bin'}
 output = subprocess.run(command, env=env, check=True, capture_output=True, text=True, timeout=15).stdout
-assert re.search(rf'\b{re.escape(version)}\b', output.splitlines()[0]), output[:160]
+assert re.search(rf'\b{re.escape(version.removeprefix("v"))}\b', output.splitlines()[0]), output[:160]
 command_label = ' '.join(args)
 print(f'PASS CLI {binary} {command_label}: {output.splitlines()[0]}')
 PYLAUNCH

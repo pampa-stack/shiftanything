@@ -61,7 +61,10 @@ pub(crate) fn from_manifest(app: &CraftApp, manifest: &Manifest) -> Option<Insta
     #[cfg(target_os = "macos")]
     if matches!(
         rec.kind,
-        artcraft_launcher_core::PackageKind::Dmg | artcraft_launcher_core::PackageKind::MacZip | artcraft_launcher_core::PackageKind::MacPkg
+        artcraft_launcher_core::PackageKind::Dmg
+            | artcraft_launcher_core::PackageKind::MacZip
+            | artcraft_launcher_core::PackageKind::MacPkg
+            | artcraft_launcher_core::PackageKind::MacTarGz
     ) {
         return macos::read_bundle(app, &rec.path);
     }

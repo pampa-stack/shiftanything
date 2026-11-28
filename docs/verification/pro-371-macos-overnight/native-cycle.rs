@@ -178,6 +178,7 @@ fn main() -> Result<(), String> {
             "firefox",
             "element",
             "aionui",
+            "ruffle",
             "freeplane",
         ]
         .contains(&app.id)

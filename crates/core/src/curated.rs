@@ -1568,6 +1568,27 @@ pub const BRUNO: crate::CraftApp = crate::CraftApp {
     mac_team: Some("W7LPPWA48L"),
 };
 
+pub const RUFFLE: crate::CraftApp = crate::CraftApp {
+    id: "ruffle",
+    name: "Ruffle",
+    tagline: "Run Flash content in a desktop player",
+    repo: "ruffle-rs/ruffle",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [255, 215, 146],
+    ink_light: [95, 54, 18],
+    ink_dark: [255, 223, 173],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ruffle LLC",
+    msi_publisher: None,
+    bundle: Some("rs.ruffle.ruffle"),
+    site: Some("https://ruffle.rs/"),
+    mac_bundle_name: None,
+    mac_team: Some("H22337M38N"),
+};
+
 pub const AIONUI: crate::CraftApp = crate::CraftApp {
     id: "aionui",
     name: "AionUi",
@@ -3208,6 +3229,7 @@ pub const FREEPLANE: crate::CraftApp = crate::CraftApp {
 
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     AIONUI,
+    RUFFLE,
     GHOST_DOWNLOADER,
     HANDY,
     LOCALSEND,

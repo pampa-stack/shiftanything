@@ -1610,6 +1610,13 @@ pub fn reviewed_windows_msi_asset(repo: &str, release: &Release, asset: &Asset) 
         && reviewed_assets(repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
+/// The official signed Ruffle archive reviewed on Apple Silicon.
+pub fn ruffle_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::RUFFLE.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
@@ -1941,6 +1948,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("iOfficeAI/AionUi", "v2.2.1") => {
             &[("AionUi-2.2.1-mac-arm64.dmg", 289_988_054, "e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648")]
+        }
+        ("ruffle-rs/ruffle", "v0.7.1") => {
+            &[("ruffle-0.7.1-macos-universal.tar.gz", 33_270_538, "7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e")]
+        }
+        ("ruffle-rs/ruffle", "v0.8.0") => {
+            &[("ruffle-0.8.0-macos-universal.tar.gz", 33_797_959, "da1527c22e2869274be8af07b7fe04fb8fb2a13a810dfc311722f8b328039e0c")]
         }
         ("iOfficeAI/AionUi", "v2.2.2") => {
             &[("AionUi-2.2.2-mac-arm64.dmg", 290_125_639, "813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253")]
@@ -2503,6 +2516,27 @@ pub(crate) fn truncate(s: &str, max: usize) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn ruffle_macos_uses_only_the_reviewed_arm64_archive() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::RUFFLE};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[RUFFLE.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["v0.7.1", "v0.8.0"] {
+            let mut release = release_from_sums(RUFFLE.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::MacTarGz));
+            assert_eq!(select(&release, intel), None);
+            assert_eq!(select(&release, linux), None);
+            release.assets.iter_mut().filter(|asset| asset.name.ends_with("-macos-universal.tar.gz")).for_each(|asset| asset.size += 1);
+            assert_eq!(select(&release, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(RUFFLE.repo, "v0.8.1", &[]), mac), None);
+    }
 
     #[test]
     fn aionui_github_release_resolves_only_reviewed_publisher_downloads() {

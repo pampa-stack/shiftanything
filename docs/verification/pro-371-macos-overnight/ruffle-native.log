@@ -1,0 +1,17 @@
+PASS RUFFLE v0.7.1
+PASS RUFFLE v0.8.0
+OFFICIAL INDEX ruffle v0.7.1 digest=published
+OFFICIAL INDEX ruffle v0.8.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v0.7.1 MacTarGz https://github.com/ruffle-rs/ruffle/releases/download/v0.7.1/ruffle-0.7.1-macos-universal.tar.gz 33270538 7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e
+PASS OFFICIAL v0.8.0 MacTarGz https://github.com/ruffle-rs/ruffle/releases/download/v0.8.0/ruffle-0.8.0-macos-universal.tar.gz 33797959 da1527c22e2869274be8af07b7fe04fb8fb2a13a810dfc311722f8b328039e0c
+NATIVE ORIGIN ruffle GitHub
+PASS OFFICIAL v0.7.1 MacTarGz https://github.com/ruffle-rs/ruffle/releases/download/v0.7.1/ruffle-0.7.1-macos-universal.tar.gz 33270538 7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e
+PASS NATIVE ruffle install: Ruffle installed: 0.7.1; package_bytes=33270538; elapsed=10.840s
+NATIVE ORIGIN ruffle GitHub
+PASS OFFICIAL v0.8.0 MacTarGz https://github.com/ruffle-rs/ruffle/releases/download/v0.8.0/ruffle-0.8.0-macos-universal.tar.gz 33797959 da1527c22e2869274be8af07b7fe04fb8fb2a13a810dfc311722f8b328039e0c
+PASS NATIVE ruffle update: Ruffle updated to 0.8.0; package_bytes=33797959; elapsed=10.849s
+PASS NATIVE ruffle remove: Ruffle was removed; package_bytes=0; elapsed=0.069s
+PASS NATIVE CYCLE ruffle (v0.7.1 → v0.8.0), private Trash and synthetic data preserved

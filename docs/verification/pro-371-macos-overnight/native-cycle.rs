@@ -50,7 +50,17 @@ impl<'a> Package<'a> {
             || asset.size != self.size
             || asset.sha256.as_deref() != Some(self.digest)
         {
-            return Err(format!("Unexpected official package {asset:?} for {}", release.tag));
+            return Err(format!(
+                "Unexpected official package {asset:?} for {} (version {}); expected {} {} {} {} {} {}",
+                release.tag,
+                release.version_label(),
+                self.tag,
+                self.version(),
+                self.name,
+                self.size,
+                self.digest,
+                self.url,
+            ));
         }
         println!("PASS OFFICIAL {} {kind:?} {} {} {}", self.tag, asset.url, self.size, self.digest);
         Ok(())
@@ -154,6 +164,7 @@ fn main() -> Result<(), String> {
             "invoke-community",
             "mist",
             "coteditor",
+            "monitorcontrol",
             "macshot",
             "signal-desktop",
             "firefox",
@@ -177,6 +188,7 @@ fn main() -> Result<(), String> {
     let fixture_version = match id.as_str() {
         "iterm2" => Some("3.7.8"),
         "github-desktop" => Some("3.7.0"),
+        "monitorcontrol" => Some("4.2.0"),
         _ => None,
     };
     if phase == "update-from-fixture" {

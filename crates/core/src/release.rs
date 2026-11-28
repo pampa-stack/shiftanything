@@ -1240,6 +1240,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::INVOKE_COMMUNITY,
         crate::curated::MIST,
         crate::curated::COTEDITOR,
+        crate::curated::MONITORCONTROL,
         crate::curated::MACSHOT,
         crate::curated::SIGNAL_DESKTOP,
         crate::curated::FIREFOX,
@@ -1589,6 +1590,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("coteditor/CotEditor", "7.2.0") => {
             &[("CotEditor_7.2.0.dmg", 27_885_568, "7df697c2108e55c1431b6f4563128e1fcb436ee56a7156df9c2846a573d42a27")]
+        }
+        ("MonitorControl/MonitorControl", "v4.4.0") => {
+            &[("MonitorControl.4.4.0.dmg", 20_391_423, "e058da598b92f6ca674f4398c0b6fa49b3b5567ccfddccf6c6a5b23c5c625612")]
         }
         ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
         ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],

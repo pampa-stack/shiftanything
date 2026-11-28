@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -175,7 +175,7 @@ for tag in (old, new):
         html = Path(f'{app_id}-{tag}-assets.html').read_text()
         [block] = [item for item in html.split('</li>') if f'href="/{repo}/releases/download/{tag}/{name}"' in item]
         published_digests = set(re.findall(r'sha256:([a-f0-9]{64})', block))
-        if (app_id, tag) in {("moonlight", "v6.1.0"), ("ice", "0.11.11"), ("ice", "0.11.12"), ("openmtp", "v3.2.25")}:
+        if (app_id, tag) in {("moonlight", "v6.1.0"), ("ice", "0.11.11"), ("ice", "0.11.12"), ("openmtp", "v3.2.25"), ("monitorcontrol", "v4.2.0")}:
             assert not published_digests
         else:
             assert published_digests == {digest}, published_digests
@@ -203,7 +203,7 @@ run_phase() {
     env -i HOME="$profile" CFFIXED_USER_HOME="$profile" TMPDIR="$profile/tmp" PATH=/usr/bin:/bin:/usr/sbin:/sbin "$root/native-cycle" "$id" "$1" "$app"
 }
 phases=(install update remove)
-if [[ "$id" == iterm2 || "$id" == github-desktop ]]; then
+if [[ "$id" == iterm2 || "$id" == github-desktop || "$id" == monitorcontrol ]]; then
     run_phase install-latest
     run_phase remove
     test -d "$profile/.Trash/$app.app"
@@ -224,13 +224,30 @@ if [[ "$id" == iterm2 || "$id" == github-desktop ]]; then
             bin='GitHub Desktop'
             requirement='notarized and identifier "com.github.GitHubClient" and certificate leaf[subject.OU] = "VEKTX9H2N7"'
             ;;
+        monitorcontrol)
+            [[ "$old_tag" == v4.2.0 && "$app" == MonitorControl && "$url" == https://github.com/MonitorControl/MonitorControl/releases/download/v4.2.0/MonitorControl.4.2.0.dmg ]]
+            [[ "$digest" == 43deae2bac157b50f6b8bbd62fea4547a2dc9ab53b7209abd98e6d3efbd30e02 ]]
+            version=4.2.0
+            bin=MonitorControl
+            requirement='notarized and identifier "me.guillaumeb.MonitorControl" and certificate leaf[subject.OU] = "CYC8C8R4K9"'
+            ;;
     esac
     archive="$profile/tmp/$filename"
     curl --proto '=https' --proto-redir '=https' --tlsv1.2 --location -fsS --max-time 240 --max-filesize "$size" "$url" -o "$archive"
     [[ "$(stat -f%z "$archive")" == "$size" ]]
     [[ "$(shasum -a 256 "$archive" | cut -d ' ' -f 1)" == "$digest" ]]
     policy="(version 1) (allow default) (deny network*) (deny file-write*) (allow file-write* (subpath \"$profile/Applications\"))"
-    sandbox-exec -p "$policy" /usr/bin/ditto -x -k "$archive" "$profile/Applications"
+    if [[ "$id" == monitorcontrol ]]; then
+        fixture_mount="$profile/migration-mount"
+        mkdir "$fixture_mount"
+        trap 'hdiutil detach "$fixture_mount" >/dev/null 2>&1 || true; if [[ "$profile" == "$root/profile-$id."* ]] && test -f "$profile/.shift-overnight-cycle"; then /bin/rm -rf -- "$profile"; fi' EXIT
+        hdiutil attach -readonly -nobrowse -noautoopen -verify -mountpoint "$fixture_mount" "$archive" >/dev/null
+        test -d "$fixture_mount/$app.app" && test ! -L "$fixture_mount/$app.app"
+        sandbox-exec -p "$policy" /usr/bin/ditto --rsrc --extattr --noacl "$fixture_mount/$app.app" "$profile/Applications/$app.app"
+        hdiutil detach "$fixture_mount" >/dev/null
+    else
+        sandbox-exec -p "$policy" /usr/bin/ditto -x -k "$archive" "$profile/Applications"
+    fi
     fixture="$profile/Applications/$app.app"
     [[ "$(plutil -extract CFBundleShortVersionString raw "$fixture/Contents/Info.plist")" == "$version" ]]
     /usr/bin/codesign --verify --all-architectures --deep --strict "$fixture"

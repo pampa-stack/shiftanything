@@ -55,6 +55,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
                 recipe::LAPCE.id,
                 recipe::LIBREOFFICE.id,
                 recipe::MEETILY.id,
+                recipe::MONITORCONTROL.id,
                 recipe::MUSESCORE.id,
                 recipe::OPENTTD.id,
                 recipe::RIZZO_PII.id,

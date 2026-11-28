@@ -1039,6 +1039,27 @@ mod tests {
     }
 
     #[test]
+    fn monitorcontrol_selects_only_the_reviewed_apple_silicon_package() {
+        let app = crate::curated::MONITORCONTROL;
+        let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
+        let stable = crate::release::release_from_sums(app.repo, "v4.4.0", &[]);
+        assert!(selects(&stable, host));
+        assert!(!selects(&stable, Platform { arch: Arch::X64, ..host }));
+        let mut older = crate::release::release_from_sums(app.repo, "v4.2.0", &[]);
+        older.assets.push(Asset {
+            name: "MonitorControl.4.2.0.dmg".into(),
+            url: "https://github.com/MonitorControl/MonitorControl/releases/download/v4.2.0/MonitorControl.4.2.0.dmg".into(),
+            size: 20_436_666,
+            sha256: Some("43deae2bac157b50f6b8bbd62fea4547a2dc9ab53b7209abd98e6d3efbd30e02".into()),
+        });
+        assert!(!selects(&older, host));
+        let mut modified = stable;
+        modified.assets[0].sha256 = None;
+        assert!(!selects(&modified, host));
+    }
+
+    #[test]
     fn freeplane_cannot_select_the_unnotarized_intermediate_release() {
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
         let app = crate::curated::FREEPLANE;

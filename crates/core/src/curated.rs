@@ -2996,6 +2996,27 @@ pub const COTEDITOR: crate::CraftApp = crate::CraftApp {
     mac_team: Some("HT3Z3A72WZ"),
 };
 
+pub const MONITORCONTROL: crate::CraftApp = crate::CraftApp {
+    id: "monitorcontrol",
+    name: "MonitorControl",
+    tagline: "Adjust external monitor brightness and volume from macOS",
+    repo: "MonitorControl/MonitorControl",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &["me.guillaumeb.MonitorControl"],
+    color: [42, 113, 205],
+    ink_light: [22, 65, 130],
+    ink_dark: [159, 201, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "MonitorControl",
+    msi_publisher: None,
+    bundle: Some("app.monitorcontrol.MonitorControl"),
+    site: Some("https://monitorcontrol.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("299YSU96J7"),
+};
+
 pub const MACSHOT: crate::CraftApp = crate::CraftApp {
     id: "macshot",
     name: "macshot",
@@ -3171,6 +3192,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     INVOKE_COMMUNITY,
     MIST,
     COTEDITOR,
+    MONITORCONTROL,
     MACSHOT,
     FREEPLANE,
 ];

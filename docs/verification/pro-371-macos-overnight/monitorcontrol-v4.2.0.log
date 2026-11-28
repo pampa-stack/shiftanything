@@ -1,0 +1,32 @@
+2026-11-28T06:43:45+0100
+/dev/disk3s5   482797652 424705408  11108572    98% 6610893 111085720    6%   /System/Volumes/Data
+ARTIFACT 43deae2bac157b50f6b8bbd62fea4547a2dc9ab53b7209abd98e6d3efbd30e02 20436666 https://github.com/MonitorControl/MonitorControl/releases/download/v4.2.0/MonitorControl.4.2.0.dmg
+BUNDLE=MonitorControl.app
+CFBundleIdentifier=me.guillaumeb.MonitorControl
+CFBundleShortVersionString=4.2.0
+CFBundleVersion=7048
+CFBundleExecutable=MonitorControl
+LSMinimumSystemVersion=10.14
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/monitorcontrol/v4.2.0/mount/MonitorControl.app/Contents/MacOS/MonitorControl: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/monitorcontrol/v4.2.0/mount/MonitorControl.app/Contents/MacOS/MonitorControl (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/monitorcontrol/v4.2.0/mount/MonitorControl.app/Contents/MacOS/MonitorControl (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/monitorcontrol/v4.2.0/mount/MonitorControl.app/Contents/MacOS/MonitorControl (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 13.3
+   ntools 1
+     tool LD
+  version 857.1
+Identifier=me.guillaumeb.MonitorControl
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Joni Van Roost (CYC8C8R4K9)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=9 Sep 2023 at 15:26:21
+TeamIdentifier=CYC8C8R4K9
+/private/tmp/shift-air-overnight.xAN7ykdv/preflight/monitorcontrol/v4.2.0/mount/MonitorControl.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT monitorcontrol v4.2.0

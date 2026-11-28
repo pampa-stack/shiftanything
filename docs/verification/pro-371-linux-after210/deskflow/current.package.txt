@@ -1,0 +1,20 @@
+
+Deskflow - Software Keyboard and mouse sharing
+
+          ID: org.deskflow.deskflow
+         Ref: app/org.deskflow.deskflow/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.27.0
+     License: GPL-2.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 7.3 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d
+      Parent: 3dc0c7fe694626bec72ca56d07114d93e9f83287a92b6a3d27f423a0f2dbeb2c
+     Subject: Fix update checker tag patterns (0bdaff867872)
+        Date: 2026-11-03 16:00:09 +0000

@@ -1,0 +1,19 @@
+commit 516a647a1912f11a346d12abcee98eb484cc3e17ba72b513cce950284dc15b5e
+Parent:  ed0c0604aae58c764adf95eb233fdbbdf76688fb894ea8952d6b10018f448ada
+ContentChecksum:  4c1d64c073c5738bfac08cd8e49bb3335c7039160014fa699e5d6e48b836800e
+Date:  2026-10-02 12:51:57 +0000
+
+    Update runtime to 26.08 (0c5f6c510ba9)
+
+    Name: net.sonobus.SonoBus
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct  2 17:33:01 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

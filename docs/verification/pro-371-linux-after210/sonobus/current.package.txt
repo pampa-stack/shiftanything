@@ -1,0 +1,20 @@
+
+SonoBus - Free and open source network audio streaming
+
+          ID: net.sonobus.SonoBus
+         Ref: app/net.sonobus.SonoBus/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.7.2
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 28.8 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 516a647a1912f11a346d12abcee98eb484cc3e17ba72b513cce950284dc15b5e
+      Parent: ed0c0604aae58c764adf95eb233fdbbdf76688fb894ea8952d6b10018f448ada
+     Subject: Update runtime to 26.08 (0c5f6c510ba9)
+        Date: 2026-10-02 12:51:57 +0000

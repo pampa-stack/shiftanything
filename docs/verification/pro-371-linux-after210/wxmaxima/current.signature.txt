@@ -1,0 +1,19 @@
+commit 31b73a133a985d73b3dfcc76b14e1bdf973f9054c2060277989be9a9c11283f3
+Parent:  7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff
+ContentChecksum:  6401dbd556c09468661032c19e9865856e040d47171a63222dca8f5cc336f17a
+Date:  2026-11-07 19:23:43 +0000
+
+    Update wxwidgets, gnuplot and wxmaxima modules (95af8c2e75c9)
+
+    Name: io.github.wxmaxima_developers.wxMaxima
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov  7 20:01:47 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

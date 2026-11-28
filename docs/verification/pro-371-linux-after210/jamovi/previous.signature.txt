@@ -1,0 +1,19 @@
+commit bad119b14df2ce122f1d9c50cbb398fe8507b77a235f7afe0f9a1a8576f13316
+Parent:  7e56871561f4c0e0507a49cc96506b827e1ab80527a6096754c70db8fe4fac9e
+ContentChecksum:  6ad126a12902b9b938b5affc954a3b5211ff97d3a9a2cfd5add8b5e1dc40bc36
+Date:  2026-11-18 07:16:43 +0000
+
+    Version 28.18 (919e3f8f6f3a)
+
+    Name: org.jamovi.jamovi
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 18 08:01:21 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

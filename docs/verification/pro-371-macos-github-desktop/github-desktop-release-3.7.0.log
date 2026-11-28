@@ -1,0 +1,18 @@
+ARTIFACT cc41c3cfdae2eaa332ef6547f82c6e672b5a11b0bf637aada2bf2796921eb1a5 538188819 https://github.com/desktop/desktop/releases/download/release-3.7.0/GitHub.Desktop-arm64.zip
+BUNDLE=GitHub Desktop.app
+CFBundleIdentifier=com.github.GitHubClient
+CFBundleShortVersionString=3.7.0
+CFBundleVersion=3.7.0
+CFBundleExecutable=GitHub Desktop
+LSMinimumSystemVersion=13.0
+arm64
+Identifier=com.github.GitHubClient
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: GitHub (VEKTX9H2N7)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=19 Nov 2026 at 22:40:53
+TeamIdentifier=VEKTX9H2N7
+/private/tmp/shift-air-overnight.QVHti1TJ/preflight/github-desktop/release-3.7.0/check.zJ7bodYw/unpack/GitHub Desktop.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT github-desktop release-3.7.0

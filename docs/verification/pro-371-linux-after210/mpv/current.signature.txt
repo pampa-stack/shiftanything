@@ -1,0 +1,19 @@
+commit 2b43a43153865c92fb7b14af7599e5b05e2cafc768e3214a601d810b647bd335
+Parent:  13baef0d642fdf97a1c8b542288453e27b2335ec29e54c5cb29c0a2df509b5bc
+ContentChecksum:  b40f919877166f88f551527fbfafcd763ea1f1676959850f39e102856a28b292
+Date:  2026-11-24 19:52:58 +0000
+
+    Merge pull request #851 from flathub/update-master-c7eff5c (d1bbce18a59a)
+
+    Name: io.mpv.Mpv
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 24 21:07:06 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

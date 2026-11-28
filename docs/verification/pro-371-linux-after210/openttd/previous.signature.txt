@@ -1,0 +1,19 @@
+commit 04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f
+Parent:  e03b99a41db4298e55255c9e288fae5219c0f086b313d45dc7f14e7e8686184f
+ContentChecksum:  135edeec399021a63fa89eb60c84f9131a06ef51c75d0fb7cc50439e532cd241
+Date:  2026-04-09 06:55:41 +0000
+
+    openttd: Update openttd-15.2-source.tar.xz to 15.3 (448d3a5e9581)
+
+    Name: org.openttd.OpenTTD
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Sep  1 06:35:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

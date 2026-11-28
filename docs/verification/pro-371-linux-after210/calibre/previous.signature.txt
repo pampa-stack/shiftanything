@@ -1,0 +1,19 @@
+commit 8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac
+Parent:  c0060cede7732b01964e3f1479bab0580c92a654e56a8024496aaf4b2bf82f3b
+ContentChecksum:  4797fd90b5983a329550f2d58da58cd6227941cfe10919b3b4e2dc3658287e2b
+Date:  2026-10-23 12:10:20 +0000
+
+    Update calibre module (#310) (8d9efbb842cb)
+
+    Name: com.calibre_ebook.calibre
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct 23 13:01:54 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

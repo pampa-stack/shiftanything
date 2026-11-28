@@ -1,0 +1,18 @@
+PASS PREFLIGHT hidden-bar v1.13.3
+PASS PREFLIGHT hidden-bar v1.13.4
+/dev/disk3s5   239362496 174568368  23665652    89% 3222479 236656520    1%   /System/Volumes/Data
+OFFICIAL INDEX hidden-bar v1.13.3 digest=published
+OFFICIAL INDEX hidden-bar v1.13.4 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v1.13.3 MacZip https://github.com/consolelabs/hidden/releases/download/v1.13.3/Hidden-Bar-v1.13.3-macos.zip 2727233 e6168b27091fd002b4d7d47db02e40a02eb07431e4ed8037c260393434d0a73f
+PASS OFFICIAL v1.13.4 MacZip https://github.com/consolelabs/hidden/releases/download/v1.13.4/Hidden-Bar-v1.13.4-macos.zip 2757264 3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09
+NATIVE ORIGIN hidden-bar GitHub
+PASS OFFICIAL v1.13.3 MacZip https://github.com/consolelabs/hidden/releases/download/v1.13.3/Hidden-Bar-v1.13.3-macos.zip 2727233 e6168b27091fd002b4d7d47db02e40a02eb07431e4ed8037c260393434d0a73f
+PASS NATIVE hidden-bar install: Hidden Bar installed: 1.13.3; package_bytes=2727233; elapsed=11.877s
+NATIVE ORIGIN hidden-bar GitHub
+PASS OFFICIAL v1.13.4 MacZip https://github.com/consolelabs/hidden/releases/download/v1.13.4/Hidden-Bar-v1.13.4-macos.zip 2757264 3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09
+PASS NATIVE hidden-bar update: Hidden Bar updated to 1.13.4; package_bytes=2757264; elapsed=5.626s
+PASS NATIVE hidden-bar remove: Hidden Bar was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE hidden-bar (v1.13.3 → v1.13.4), private Trash and synthetic data preserved

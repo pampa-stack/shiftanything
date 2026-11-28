@@ -171,8 +171,11 @@ impl LauncherUi {
                     compatible: self.platform.is_some_and(|platform| entry.app.runs_on(platform.os)) && entry.has_download(self.platform),
                     installable: self.caps.manage_apps && entry.installs_here(self.platform),
                     update_available: entry.status(self.platform, self.caps.manage_apps) == artcraft_launcher_core::AppStatus::UpdateAvailable,
-                    installed_version: entry.installed.as_ref().and_then(|installed| installed.version.as_ref().map(ToString::to_string)),
-                    latest_version: entry.release().and_then(|release| release.version.as_ref().map(ToString::to_string)),
+                    installed_version: entry
+                        .installed
+                        .as_ref()
+                        .and_then(|installed| installed.version.as_ref().map(artcraft_launcher_core::version::label)),
+                    latest_version: entry.release().and_then(|release| release.version.as_ref().map(artcraft_launcher_core::version::label)),
                     job: entry.job.map(|phase| format!("{phase:?}")),
                     can_open: None,
                     can_remove: None,

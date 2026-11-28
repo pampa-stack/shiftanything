@@ -100,6 +100,13 @@ impl CraftApp {
             ("rapidraw", "CyberTimon/RapidRAW") => "RapidRAW".to_owned(),
             ("rustdesk", "rustdesk/rustdesk") => "rustdesk".to_owned(),
             ("activitywatch", "ActivityWatch/activitywatch") => "aw-qt".to_owned(),
+            ("orca", "stablyai/orca") => "orca-ide".to_owned(),
+            ("mister-download-manager", "anefzaoui/misterdownloadmanager") => "misterdownloadmanager".to_owned(),
+            ("openpencil", "open-pencil/open-pencil") => "OpenPencil".to_owned(),
+            ("ultimaker-cura", "Ultimaker/Cura") => "com.ultimaker.cura".to_owned(),
+            ("paseo", "getpaseo/paseo") => "Paseo".to_owned(),
+            ("t3code", "pingdotgg/t3code") => "t3code".to_owned(),
+            ("voice-studio", "debpalash/VoiceStudio") => "VoiceStudio".to_owned(),
             _ => self.bundle_id(),
         }
     }
@@ -108,15 +115,117 @@ impl CraftApp {
         if self.uses_tdf_releases() {
             return crate::release::LIBREOFFICE_STABLE_URL.to_string();
         }
+        if self.uses_zotero_releases() {
+            return crate::release::ZOTERO_CHANGELOG.to_string();
+        }
+        if self.uses_blender_releases() {
+            return crate::release::BLENDER_RELEASES_URL.to_string();
+        }
+        if self.uses_gimp_releases() {
+            return crate::release::GIMP_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_krita_releases() {
+            return crate::release::KRITA_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_vlc_releases() {
+            return crate::release::VLC_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_inkscape_releases() {
+            return crate::release::INKSCAPE_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_kdenlive_releases() {
+            return crate::release::KDENLIVE_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_iterm2_releases() {
+            return crate::release::ITERM2_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_itsycal_releases() {
+            return crate::release::ITSYCAL_RELEASES_URL.to_string();
+        }
+        if self.uses_signal_releases() {
+            return crate::release::SIGNAL_DOWNLOADS_URL.to_string();
+        }
+        if self.uses_element_releases() {
+            return crate::release::ELEMENT_RELEASES_URL.to_string();
+        }
+        if self.uses_firefox_releases() {
+            return crate::release::FIREFOX_RELEASES_URL.to_string();
+        }
         format!("https://github.com/{}/releases", self.release_repository())
     }
 
     pub fn repo_url(&self) -> String {
+        if self.uses_blender_releases() {
+            return "https://projects.blender.org/blender/blender".to_string();
+        }
+        if self.uses_gimp_releases() {
+            return "https://gitlab.gnome.org/GNOME/gimp".to_string();
+        }
+        if self.uses_krita_releases() {
+            return "https://invent.kde.org/graphics/krita".to_string();
+        }
+        if self.uses_vlc_releases() {
+            return "https://code.videolan.org/videolan/vlc".to_string();
+        }
+        if self.uses_inkscape_releases() {
+            return "https://gitlab.com/inkscape/inkscape".to_string();
+        }
+        if self.uses_kdenlive_releases() {
+            return "https://invent.kde.org/multimedia/kdenlive".to_string();
+        }
         format!("https://github.com/{}", self.repo)
     }
 
     pub fn uses_tdf_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::LIBREOFFICE.id, crate::curated::LIBREOFFICE.repo)
+    }
+
+    pub fn uses_zotero_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ZOTERO.id, crate::curated::ZOTERO.repo)
+    }
+
+    pub fn uses_blender_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::BLENDER.id, crate::curated::BLENDER.repo)
+    }
+
+    pub fn uses_gimp_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::GIMP.id, crate::curated::GIMP.repo)
+    }
+
+    pub fn uses_krita_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::KRITA.id, crate::curated::KRITA.repo)
+    }
+
+    pub fn uses_vlc_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::VLC.id, crate::curated::VLC.repo)
+    }
+
+    pub fn uses_inkscape_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::INKSCAPE.id, crate::curated::INKSCAPE.repo)
+    }
+
+    pub fn uses_kdenlive_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::KDENLIVE.id, crate::curated::KDENLIVE.repo)
+    }
+
+    pub fn uses_iterm2_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ITERM2.id, crate::curated::ITERM2.repo)
+    }
+
+    pub fn uses_itsycal_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ITSYCAL.id, crate::curated::ITSYCAL.repo)
+    }
+
+    pub fn uses_signal_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::SIGNAL_DESKTOP.id, crate::curated::SIGNAL_DESKTOP.repo)
+    }
+
+    pub fn uses_element_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ELEMENT.id, crate::curated::ELEMENT.repo)
+    }
+
+    pub fn uses_firefox_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::FIREFOX.id, crate::curated::FIREFOX.repo)
     }
 
     pub fn release_repository(&self) -> &'static str {
@@ -131,7 +240,28 @@ impl CraftApp {
     pub fn mac_package_kind(&self) -> crate::PackageKind {
         if (self.id, self.repo) == (crate::curated::NAPS2.id, crate::curated::NAPS2.repo) {
             crate::PackageKind::MacPkg
-        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO || self.id == crate::curated::KEYCASTR.id {
+        } else if (self.id, self.repo) == (crate::curated::RUFFLE.id, crate::curated::RUFFLE.repo) {
+            crate::PackageKind::MacTarGz
+        } else if (self.id, self.repo) == (crate::curated::SIGIL.id, crate::curated::SIGIL.repo) {
+            crate::PackageKind::MacTarXz
+        } else if self.release_repository() == crate::curated::GODOT_RELEASES_REPO
+            || self.id == crate::curated::KEYCASTR.id
+            || (self.id, self.repo) == (crate::curated::MACCY.id, crate::curated::MACCY.repo)
+            || (self.id, self.repo) == (crate::curated::NETNEWSWIRE.id, crate::curated::NETNEWSWIRE.repo)
+            || (self.id, self.repo) == (crate::curated::STELLARIUM.id, crate::curated::STELLARIUM.repo)
+            || (self.id, self.repo) == (crate::curated::ALT_TAB.id, crate::curated::ALT_TAB.repo)
+            || (self.id, self.repo) == (crate::curated::AMETHYST.id, crate::curated::AMETHYST.repo)
+            || (self.id, self.repo) == (crate::curated::HIDDEN_BAR.id, crate::curated::HIDDEN_BAR.repo)
+            || (self.id, self.repo) == (crate::curated::SWIFTBAR.id, crate::curated::SWIFTBAR.repo)
+            || (self.id, self.repo) == (crate::curated::SLOTH.id, crate::curated::SLOTH.repo)
+            || self.uses_iterm2_releases()
+            || self.uses_itsycal_releases()
+            || (self.id, self.repo) == (crate::curated::GITHUB_DESKTOP.id, crate::curated::GITHUB_DESKTOP.repo)
+            || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
+            || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)
+            || (self.id, self.repo) == (crate::curated::HAMMERSPOON.id, crate::curated::HAMMERSPOON.repo)
+            || (self.id, self.repo) == (crate::curated::ICE.id, crate::curated::ICE.repo)
+        {
             crate::PackageKind::MacZip
         } else {
             crate::PackageKind::Dmg
@@ -146,9 +276,11 @@ impl CraftApp {
     /// Whether the launcher installs this app from a `kind` package.
     pub fn installs(&self, kind: crate::PackageKind) -> bool {
         match kind {
-            crate::PackageKind::Dmg | crate::PackageKind::MacZip | crate::PackageKind::MacPkg => {
-                self.mac_team.is_some() && self.mac_package_kind() == kind
-            }
+            crate::PackageKind::Dmg
+            | crate::PackageKind::MacZip
+            | crate::PackageKind::MacPkg
+            | crate::PackageKind::MacTarGz
+            | crate::PackageKind::MacTarXz => self.mac_team.is_some() && self.mac_package_kind() == kind,
             _ => true,
         }
     }
@@ -283,6 +415,19 @@ pub fn app_icon_png(id: &str) -> Option<&'static [u8]> {
         return Some(icon);
     }
     Some(match id {
+        "neovide" => include_bytes!("../../../assets/app-icons/neovide.png"),
+        "openscreen" => include_bytes!("../../../assets/app-icons/openscreen.png"),
+        "opencode" => include_bytes!("../../../assets/app-icons/opencode.png"),
+        "orca" => include_bytes!("../../../assets/app-icons/orca.png"),
+        "dust3d" => include_bytes!("../../../assets/app-icons/dust3d.png"),
+        "rawtherapee" => include_bytes!("../../../assets/app-icons/rawtherapee.png"),
+        "logseq-db" => include_bytes!("../../../assets/app-icons/logseq-db.png"),
+        "mister-download-manager" => include_bytes!("../../../assets/app-icons/mister-download-manager.png"),
+        "openpencil" => include_bytes!("../../../assets/app-icons/openpencil.png"),
+        "ultimaker-cura" => include_bytes!("../../../assets/app-icons/ultimaker-cura.png"),
+        "paseo" => include_bytes!("../../../assets/app-icons/paseo.png"),
+        "t3code" => include_bytes!("../../../assets/app-icons/t3code.png"),
+        "voice-studio" => include_bytes!("../../../assets/app-icons/voice-studio.png"),
         "pencil2d" => include_bytes!("../../../assets/app-icons/pencil2d.png"),
         "openshot-video-editor" => include_bytes!("../../../assets/app-icons/openshot-video-editor.png"),
         "musescore" => include_bytes!("../../../assets/app-icons/musescore.png"),

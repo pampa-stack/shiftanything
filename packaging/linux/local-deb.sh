@@ -6,7 +6,10 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 [[ $# = 1 ]] || { echo 'usage: local-deb.sh NEW_OUTPUT_DIRECTORY' >&2; exit 2; }
 [[ "$(dpkg --print-architecture)" = amd64 ]] || { echo 'Build on amd64 Ubuntu 24.04' >&2; exit 1; }
 OUTPUT="$1"
-BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/debug/shiftanything-tauri-proof"
+# DEB_PROFILE=release packages a release build, as for published betas; local tests keep the default.
+PROFILE="${DEB_PROFILE:-debug}"
+[[ "$PROFILE" = debug || "$PROFILE" = release ]] || { echo 'DEB_PROFILE must be debug or release' >&2; exit 2; }
+BINARY="${CARGO_TARGET_DIR:-$ROOT/target}/$PROFILE/shiftanything-tauri-proof"
 [[ -x "$BINARY" ]] || { echo 'Build shiftanything-tauri-proof first' >&2; exit 1; }
 VERSION="$(awk '/^\[/{active=($0=="[workspace.package]")} active && $1=="version" {gsub(/"/,"",$3);print $3;exit}' "$ROOT/Cargo.toml")"
 [[ "$("$BINARY" --version)" = "shiftanything $VERSION" ]]
@@ -47,7 +50,7 @@ Architecture: amd64
 Section: utils
 Priority: optional
 Maintainer: Promptica <info@promptica.it>
-Depends: libc6 (>= 2.39), libcairo2, libgcc-s1, libgdk-pixbuf-2.0-0, libglib2.0-0t64, libgtk-3-0t64, libjavascriptcoregtk-4.1-0, libsoup-3.0-0, libwebkit2gtk-4.1-0
+Depends: libc6 (>= 2.39), libcairo2, libgcc-s1, libgdk-pixbuf-2.0-0, libglib2.0-0t64, libgtk-3-0t64, libjavascriptcoregtk-4.1-0, libsoup-3.0-0, libwebkit2gtk-4.1-0, libfuse2t64 | libfuse2
 Recommends: flatpak, pkexec
 Description: Desktop launcher for open-source apps
  Browse, compare, install and update supported applications from Sh*ftAnything.

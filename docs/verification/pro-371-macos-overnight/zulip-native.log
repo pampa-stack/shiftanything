@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v5.14.2 Dmg https://github.com/zulip/zulip-desktop/releases/download/v5.14.2/Zulip-5.14.2-arm64.dmg 123295839 e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776
+PASS OFFICIAL v5.14.3 Dmg https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-5.14.3-arm64.dmg 123486500 ef1cd8427f54553f828ece1db8eca2acd4f28dc41a298e5aaf33a29db49343f4
+NATIVE ORIGIN zulip GitHub
+PASS OFFICIAL v5.14.2 Dmg https://github.com/zulip/zulip-desktop/releases/download/v5.14.2/Zulip-5.14.2-arm64.dmg 123295839 e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776
+PASS NATIVE zulip install: Zulip installed: 5.14.2; package_bytes=123295839; elapsed=34.235s
+5.14.2
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+/private/tmp/shift-air-overnight.SxJqysW6/profile-zulip.pLbtfKIn/Applications/Zulip.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kandra Labs, Inc. (66KHCWMEYB)
+NATIVE ORIGIN zulip GitHub
+PASS OFFICIAL v5.14.3 Dmg https://github.com/zulip/zulip-desktop/releases/download/v5.14.3/Zulip-5.14.3-arm64.dmg 123486500 ef1cd8427f54553f828ece1db8eca2acd4f28dc41a298e5aaf33a29db49343f4
+PASS NATIVE zulip update: Zulip updated to 5.14.3; package_bytes=123486500; elapsed=23.756s
+/private/tmp/shift-air-overnight.SxJqysW6/profile-zulip.pLbtfKIn/Applications/Zulip.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kandra Labs, Inc. (66KHCWMEYB)
+5.14.3
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE zulip remove: Zulip was removed; package_bytes=0; elapsed=0.111s
+PASS NATIVE CYCLE zulip, private Trash and synthetic data preserved

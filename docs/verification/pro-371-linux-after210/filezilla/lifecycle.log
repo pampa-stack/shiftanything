@@ -1,0 +1,79 @@
+2026-11-28T12:42:28+00:00 filezilla AVAILABLE 27416125440
+filezilla before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+filezilla JobFinished: Ok("Flathub app installed")
+filezilla after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:43:46+00:00 filezilla current-install 908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/applications/org.filezillaproject.Filezilla.desktop
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/icons/hicolor/16x16/apps/org.filezillaproject.Filezilla.png
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/icons/hicolor/32x32/apps/org.filezillaproject.Filezilla.png
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/icons/hicolor/480x480/apps/org.filezillaproject.Filezilla.png
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/icons/hicolor/48x48/apps/org.filezillaproject.Filezilla.png
+/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4/export/share/icons/hicolor/scalable/apps/org.filezillaproject.Filezilla.svg
+Updating app/org.filezillaproject.Filezilla/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:43:47+00:00 filezilla previous 6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a
+filezilla before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a", package: Some("org.filezillaproject.Filezilla"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.0"), update_available: false, can_remove: false, can_open: true }
+filezilla JobFinished: Err("Approved action rejected: native installation state changed")
+filezilla JobFinished: Err("This Flatpak is managed outside the launcher")
+filezilla after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a", package: Some("org.filezillaproject.Filezilla"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=6252 comm="xfwm4 --compositor=off --display=:63" label="unconfined")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=6271 comm="flatpak run --user --command=sh app/org.filezillap" label="flatpak (unconfined)")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=6271 comm="flatpak run --user --command=sh app/org.filezillap" label="flatpak (unconfined)")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=6335 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+filezilla before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=6690 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=6737 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:6747): dbind-WARNING **: 12:43:49.645: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:6737): xdg-desktop-portal-WARNING **: 12:43:49.670: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6737): xdg-desktop-portal-WARNING **: 12:43:49.671: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6737): xdg-desktop-portal-WARNING **: 12:43:49.671: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6737): xdg-desktop-portal-WARNING **: 12:43:49.683: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[4750]: [session uid=1000 pid=4750] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=6690 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4750]: [session uid=1000 pid=4750] Successfully activated service 'org.freedesktop.portal.Flatpak'
+filezilla JobFinished: Ok("Launch request accepted")
+filezilla after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.filezillaproject.Filezilla
+org.filezillaproject.Filezilla
+2026-11-28T12:44:20+00:00 filezilla previous GUI WM_NAME(STRING) = "FileZilla"
+WM_CLASS(STRING) = "filezilla", "FileZilla"
+2026-11-28T12:44:20+00:00 filezilla AVAILABLE 19856314368
+filezilla before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.0"), update_available: true, can_remove: true, can_open: true }
+filezilla JobFinished: Ok("Flathub app updated")
+filezilla after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:44:22+00:00 filezilla current 908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4
+/home/qa/profiles/filezilla-after210/.var/app/org.filezillaproject.Filezilla/fixture.txt: OK
+filezilla before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.1"), update_available: false, can_remove: true, can_open: true }
+filezilla JobFinished: Ok("Launch request accepted")
+filezilla after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.1"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.filezillaproject.Filezilla
+org.filezillaproject.Filezilla
+org.filezillaproject.Filezilla
+2026-11-28T12:44:58+00:00 filezilla current GUI WM_NAME(STRING) = "FileZilla"
+WM_CLASS(STRING) = "filezilla", "FileZilla"
+filezilla before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 72, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/filezilla-after210/data/flatpak/app/org.filezillaproject.Filezilla/x86_64/stable/908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4", package: Some("org.filezillaproject.Filezilla"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.72.1"), update_available: false, can_remove: true, can_open: true }
+filezilla JobFinished: Ok("Flathub app removed")
+filezilla after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/filezilla-after210/.var/app/org.filezillaproject.Filezilla/fixture.txt: OK
+2026-11-28T12:45:02+00:00 filezilla PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:45:03+00:00 filezilla EXIT 0 remove
+
+(xfconfd:6285): xfconfd-WARNING **: 12:45:03.243: Name org.xfce.Xfconf lost on the message dbus, exiting.

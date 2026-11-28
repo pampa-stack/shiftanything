@@ -1,0 +1,18 @@
+Cold profile /home/qa/n.oxGrYjMc
+Remotes before:
+
+Release v8.6.0 https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-linux-x64.flatpak bytes=21105688 hash=Some("2169c0a55c1cabbf8053075ab0ad47d992da1d55818489d593a33e9e638b2226")
+Detected None
+Downloaded 21105688 bytes through NativeBackend
+JobFinished install: Ok("NAPS2 installed: 8.6.0")
+Detected Some(Installed { version: Some(Version { major: 8, minor: 6, patch: 0 }), source: Flatpak, location: "com.naps2.Naps2", package: Some("com.naps2.Naps2"), externally_managed: false, origin: Some("naps2-origin"), installation: Some("user") })
+PASS NAPS2 install
+Remotes after:
+flathub	https://dl.flathub.org/repo/
+Runtimes and apps:
+com.naps2.Naps2/x86_64/stable	8.6.0	user
+org.freedesktop.Platform/x86_64/25.08	freedesktop-sdk-25.08.20	user
+org.freedesktop.Platform.GL.default/x86_64/25.08	26.2.7	user
+org.freedesktop.Platform.GL.default/x86_64/25.08-extra	26.2.7	user
+org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra		user
+Uninstalling app/com.naps2.Naps2/x86_64/stable

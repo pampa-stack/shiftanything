@@ -1,0 +1,19 @@
+commit 36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d
+Parent:  cb46de96e40ecae84385b2e5a060d4522bf52007f2431072bca84fb8a5f62801
+ContentChecksum:  1214160f2cdd0aa37be65af2b9cbddfe71744b87a6b608f85a99b4f2e01f8389
+Date:  2026-10-12 21:47:34 +0000
+
+    Merge pull request #86 from flathub/update-runtime (283d65d9eceb)
+
+    Name: org.atheme.audacious
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Oct 12 23:41:56 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

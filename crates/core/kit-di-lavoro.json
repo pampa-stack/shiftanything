@@ -1,62 +1,3114 @@
 {
-  "checked_on": "2026-11-27",
+  "checked_on": "2026-11-28",
   "kits": [
     {
       "id": "designer",
-      "name": {"it":"Designer","en":"Designer"},
-      "description": {"it":"Fotoritocco, grafica vettoriale, impaginazione e prototipi.","en":"Image editing, vector design, publishing and prototyping."},
+      "name": {
+        "it": "Designer",
+        "en": "Designer"
+      },
+      "description": {
+        "it": "Fotoritocco, grafica vettoriale, impaginazione e prototipi.",
+        "en": "Image editing, vector design, publishing and prototyping."
+      },
       "steps": [
-        {"id":"photo","name":{"it":"Fotoritocco","en":"Image editing"},"paid":["Adobe Photoshop"],"compare":"photoshop","options":[
-          {"app":"gimp","use":{"it":"Ritocco, composizione e livelli.","en":"Retouching, compositing and layers."},"source":"https://docs.gimp.org/en_GB/introduction.html"},
-          {"app":"photocraft","use":{"it":"Livelli, maschere e PSD. L’app è in alpha.","en":"Layers, masks and PSD. The app is in alpha."},"source":"https://github.com/storytold/photocraft#readme"},
-          {"app":"krita","use":{"it":"Illustrazione, pennelli, livelli e maschere.","en":"Illustration, brushes, layers and masks."},"source":"https://docs.krita.org/en/user_manual.html"}]},
-        {"id":"vector","name":{"it":"Grafica vettoriale","en":"Vector design"},"paid":["Adobe Illustrator"],"compare":"illustrator","options":[
-          {"app":"inks","use":{"it":"Loghi, icone e illustrazioni in SVG.","en":"Logos, icons and illustrations in SVG."},"source":"https://inkscape-manuals.readthedocs.io/en/latest/"},
-          {"app":"vectorcraft","use":{"it":"Tracciati, forme e grafica vettoriale. Verifica i file .ai complessi.","en":"Paths, shapes and vector artwork. Check complex .ai files."},"source":"https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md"}]},
-        {"id":"layout","name":{"it":"Impaginazione","en":"Publishing"},"paid":["Adobe InDesign"],"options":[
-          {"app":"scribus","use":{"it":"Documenti multipagina e PDF/X per la stampa.","en":"Multipage documents and print-ready PDF/X."},"source":"https://github.com/scribusproject/scribus/blob/master/doc/en/readme.html"},
-          {"app":"designcraft","use":{"it":"Impaginazione con testo e immagini. È un’app di ArtCraft.","en":"Page layout with text and images. Part of the ArtCraft suite."},"source":"https://github.com/storytold/designcraft#readme"}]},
-        {"id":"prototype","name":{"it":"Prototipi di interfacce","en":"Interface prototyping"},"paid":["Figma"],"compare":"figma","options":[
-          {"app":"figcraft","use":{"it":"Design e prototipi offline. Apre file .fig con compatibilità parziale.","en":"Offline design and prototyping. Opens .fig files on a best-effort basis."},"source":"https://github.com/storytold/figcraft#readme"},
-          {"app":"doop","use":{"it":"Prototipi HTML condivisi ed editing tramite MCP. La migrazione da Figma è disponibile su Doop Cloud.","en":"Shared HTML prototypes and MCP editing. Figma migration is available on Doop Cloud."},"source":"https://doop.design/docs"},
-          {"app":"penpot","use":{"it":"Collega tavole e crea prototipi navigabili. Disponibile in self-hosting.","en":"Connect boards into interactive prototypes. Available for self-hosting."},"source":"https://help.penpot.app/user-guide/prototyping-testing/prototyping/"}]}
+        {
+          "id": "photo",
+          "name": {
+            "it": "Fotoritocco",
+            "en": "Image editing"
+          },
+          "paid": [
+            "Adobe Photoshop"
+          ],
+          "compare": "photoshop",
+          "options": [
+            {
+              "app": "gimp",
+              "use": {
+                "it": "Ritocco, composizione e livelli.",
+                "en": "Retouching, compositing and layers."
+              },
+              "source": "https://docs.gimp.org/en_GB/introduction.html"
+            },
+            {
+              "app": "photocraft",
+              "use": {
+                "it": "Livelli, maschere e PSD. L’app è in alpha.",
+                "en": "Layers, masks and PSD. The app is in alpha."
+              },
+              "source": "https://github.com/storytold/photocraft#readme"
+            },
+            {
+              "app": "krita",
+              "use": {
+                "it": "Illustrazione, pennelli, livelli e maschere.",
+                "en": "Illustration, brushes, layers and masks."
+              },
+              "source": "https://docs.krita.org/en/user_manual.html"
+            }
+          ]
+        },
+        {
+          "id": "vector",
+          "name": {
+            "it": "Grafica vettoriale",
+            "en": "Vector design"
+          },
+          "paid": [
+            "Adobe Illustrator"
+          ],
+          "compare": "illustrator",
+          "options": [
+            {
+              "app": "inks",
+              "use": {
+                "it": "Loghi, icone e illustrazioni in SVG.",
+                "en": "Logos, icons and illustrations in SVG."
+              },
+              "source": "https://inkscape-manuals.readthedocs.io/en/latest/"
+            },
+            {
+              "app": "vectorcraft",
+              "use": {
+                "it": "Tracciati, forme e grafica vettoriale. Verifica i file .ai complessi.",
+                "en": "Paths, shapes and vector artwork. Check complex .ai files."
+              },
+              "source": "https://github.com/storytold/vectorcraft/blob/main/ROADMAP.md"
+            }
+          ]
+        },
+        {
+          "id": "layout",
+          "name": {
+            "it": "Impaginazione",
+            "en": "Publishing"
+          },
+          "paid": [
+            "Adobe InDesign"
+          ],
+          "options": [
+            {
+              "app": "scribus",
+              "use": {
+                "it": "Documenti multipagina e PDF/X per la stampa.",
+                "en": "Multipage documents and print-ready PDF/X."
+              },
+              "source": "https://github.com/scribusproject/scribus/blob/master/doc/en/readme.html"
+            },
+            {
+              "app": "designcraft",
+              "use": {
+                "it": "Impaginazione con testo e immagini. È un’app di ArtCraft.",
+                "en": "Page layout with text and images. Part of the ArtCraft suite."
+              },
+              "source": "https://github.com/storytold/designcraft#readme"
+            }
+          ]
+        },
+        {
+          "id": "prototype",
+          "name": {
+            "it": "Prototipi di interfacce",
+            "en": "Interface prototyping"
+          },
+          "paid": [
+            "Figma"
+          ],
+          "compare": "figma",
+          "options": [
+            {
+              "app": "figcraft",
+              "use": {
+                "it": "Design e prototipi offline. Apre file .fig con compatibilità parziale.",
+                "en": "Offline design and prototyping. Opens .fig files on a best-effort basis."
+              },
+              "source": "https://github.com/storytold/figcraft#readme"
+            },
+            {
+              "app": "doop",
+              "use": {
+                "it": "Prototipi HTML condivisi ed editing tramite MCP. La migrazione da Figma è disponibile su Doop Cloud.",
+                "en": "Shared HTML prototypes and MCP editing. Figma migration is available on Doop Cloud."
+              },
+              "source": "https://doop.design/docs"
+            },
+            {
+              "app": "openpencil",
+              "use": {
+                "it": "Apre e salva file .fig modificabili. Anteprima di componenti interattivi.",
+                "en": "Opens and saves editable .fig files. Previews interactive components."
+              },
+              "source": "https://openpencil.dev/"
+            },
+            {
+              "app": "penpot",
+              "use": {
+                "it": "Collega tavole e crea prototipi navigabili. Disponibile in self-hosting.",
+                "en": "Connect boards into interactive prototypes. Available for self-hosting."
+              },
+              "source": "https://help.penpot.app/user-guide/prototyping-testing/prototyping/"
+            }
+          ]
+        },
+        {
+          "id": "color",
+          "name": {
+            "it": "Campionare i colori",
+            "en": "Sample colors"
+          },
+          "paid": [
+            "Sip"
+          ],
+          "options": [
+            {
+              "app": "pika-color",
+              "use": {
+                "it": "Preleva i colori dallo schermo e confronta il contrasto.",
+                "en": "Pick colors from the screen and check their contrast."
+              },
+              "source": "https://github.com/superhighfives/pika#readme"
+            }
+          ]
+        },
+        {
+          "id": "illustration",
+          "name": {
+            "it": "Illustrazione digitale",
+            "en": "Digital illustration"
+          },
+          "paid": [
+            "Procreate"
+          ],
+          "options": [
+            {
+              "app": "krita",
+              "use": {
+                "it": "Disegna con pennelli, livelli e stabilizzatori.",
+                "en": "Draw with brushes, layers and stabilizers."
+              },
+              "source": "https://flathub.org/apps/org.kde.krita"
+            }
+          ]
+        },
+        {
+          "id": "diagrams",
+          "name": {
+            "it": "Flussi e mappe visuali",
+            "en": "Flows and visual maps"
+          },
+          "paid": [
+            "Lucidchart"
+          ],
+          "options": [
+            {
+              "app": "drawio",
+              "use": {
+                "it": "Disegna diagrammi con forme, frecce e connettori.",
+                "en": "Build diagrams with shapes, arrows and connectors."
+              },
+              "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md"
+            },
+            {
+              "app": "excalidraw",
+              "use": {
+                "it": "Butta giù un percorso utente in una lavagna vettoriale.",
+                "en": "Sketch a user journey on a vector whiteboard."
+              },
+              "source": "https://github.com/excalidraw/excalidraw#readme"
+            }
+          ]
+        },
+        {
+          "id": "review",
+          "name": {
+            "it": "Consegna e revisione PDF",
+            "en": "PDF handoff and review"
+          },
+          "paid": [
+            "Adobe Acrobat Pro"
+          ],
+          "compare": "acrobat",
+          "options": [
+            {
+              "app": "okular",
+              "use": {
+                "it": "Annota e consulta il PDF consegnato.",
+                "en": "Annotate and review the supplied PDF."
+              },
+              "source": "https://flathub.org/apps/org.kde.okular"
+            },
+            {
+              "app": "pdfarranger",
+              "use": {
+                "it": "Riordina, ruota e ritaglia le pagine del PDF.",
+                "en": "Reorder, rotate and crop PDF pages."
+              },
+              "source": "https://flathub.org/apps/com.github.jeromerobert.pdfarranger"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "architect",
-      "name": {"it":"Architetto","en":"Architect"},
-      "description": {"it":"Piante 2D, modello BIM, rendering e mappe del sito.","en":"2D plans, BIM models, rendering and site maps."},
+      "name": {
+        "it": "Architetto",
+        "en": "Architect"
+      },
+      "description": {
+        "it": "Piante 2D, modello BIM, rendering e mappe del sito.",
+        "en": "2D plans, BIM models, rendering and site maps."
+      },
       "steps": [
-        {"id":"draft","name":{"it":"Disegno 2D","en":"2D drafting"},"paid":["AutoCAD"],"options":[
-          {"app":"librecad","use":{"it":"Piante quotate e disegni 2D. Controlla gli scambi DWG.","en":"Dimensioned plans and 2D drawings. Check DWG interchange."},"source":"https://docs.librecad.org/en/latest/"},
-          {"app":"free","use":{"it":"Disegni 2D e scambio DXF.","en":"2D drawings and DXF interchange."},"source":"https://www.freecad.org/manual/a-freecad-manual.pdf#page=76"}]},
-        {"id":"bim","name":{"it":"Modello BIM","en":"BIM model"},"paid":["Revit","Archicad","Chief Architect","SoftPlan"],"options":[
-          {"app":"free","use":{"it":"Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.","en":"Parametric modeling, BIM tools and IFC. Verify interchange with your practice."},"source":"https://www.freecad.org/"}]},
-        {"id":"render","name":{"it":"Rendering","en":"Rendering"},"paid":["Enscape","Lumion"],"options":[
-          {"app":"blender","use":{"it":"Materiali, luci e rendering statici o animati.","en":"Materials, lighting, still renders and animations."},"source":"https://docs.blender.org/manual/en/4.5/render/index.html"}]},
-        {"id":"maps","name":{"it":"Analisi del sito e mappe","en":"Site analysis and maps"},"paid":["ArcGIS Pro"],"options":[
-          {"app":"qgis","use":{"it":"Dati geografici, mappe e tavole.","en":"Geographic data, maps and layouts."},"source":"https://docs.qgis.org/4.4/en/docs/about/features.html"}]}
+        {
+          "id": "draft",
+          "name": {
+            "it": "Disegno 2D",
+            "en": "2D drafting"
+          },
+          "paid": [
+            "AutoCAD"
+          ],
+          "options": [
+            {
+              "app": "librecad",
+              "use": {
+                "it": "Piante quotate e disegni 2D. Controlla gli scambi DWG.",
+                "en": "Dimensioned plans and 2D drawings. Check DWG interchange."
+              },
+              "source": "https://docs.librecad.org/en/latest/"
+            },
+            {
+              "app": "free",
+              "use": {
+                "it": "Disegni 2D e scambio DXF.",
+                "en": "2D drawings and DXF interchange."
+              },
+              "source": "https://www.freecad.org/manual/a-freecad-manual.pdf#page=76"
+            }
+          ]
+        },
+        {
+          "id": "bim",
+          "name": {
+            "it": "Modello BIM",
+            "en": "BIM model"
+          },
+          "paid": [
+            "Revit",
+            "Archicad",
+            "Chief Architect",
+            "SoftPlan"
+          ],
+          "options": [
+            {
+              "app": "free",
+              "use": {
+                "it": "Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.",
+                "en": "Parametric modeling, BIM tools and IFC. Verify interchange with your practice."
+              },
+              "source": "https://www.freecad.org/"
+            }
+          ]
+        },
+        {
+          "id": "render",
+          "name": {
+            "it": "Rendering",
+            "en": "Rendering"
+          },
+          "paid": [
+            "Enscape",
+            "Lumion"
+          ],
+          "options": [
+            {
+              "app": "blender",
+              "use": {
+                "it": "Materiali, luci e rendering statici o animati.",
+                "en": "Materials, lighting, still renders and animations."
+              },
+              "source": "https://docs.blender.org/manual/en/4.5/render/index.html"
+            }
+          ]
+        },
+        {
+          "id": "maps",
+          "name": {
+            "it": "Analisi del sito e mappe",
+            "en": "Site analysis and maps"
+          },
+          "paid": [
+            "ArcGIS Pro"
+          ],
+          "options": [
+            {
+              "app": "qgis",
+              "use": {
+                "it": "Dati geografici, mappe e tavole.",
+                "en": "Geographic data, maps and layouts."
+              },
+              "source": "https://docs.qgis.org/4.4/en/docs/about/features.html"
+            }
+          ]
+        },
+        {
+          "id": "planning",
+          "name": {
+            "it": "Pianificazione delle consegne",
+            "en": "Delivery planning"
+          },
+          "paid": [
+            "Microsoft Project"
+          ],
+          "options": [
+            {
+              "app": "ganttproject",
+              "use": {
+                "it": "Imposta dipendenze, scadenze e fasi nel diagramma di Gantt.",
+                "en": "Plan dependencies, milestones and stages in a Gantt chart."
+              },
+              "source": "https://www.ganttproject.biz/free-gantt-chart-software"
+            }
+          ]
+        },
+        {
+          "id": "mesh",
+          "name": {
+            "it": "Pulizia di rilievi 3D",
+            "en": "Clean 3D survey meshes"
+          },
+          "paid": [
+            "Autodesk ReCap Pro"
+          ],
+          "options": [
+            {
+              "app": "mesh-lab",
+              "use": {
+                "it": "Filtra e pulisci le mesh importate da un rilievo.",
+                "en": "Filter and clean meshes imported from a survey."
+              },
+              "source": "https://flathub.org/apps/net.meshlab.MeshLab"
+            }
+          ]
+        },
+        {
+          "id": "presentation",
+          "name": {
+            "it": "Tavole di presentazione",
+            "en": "Presentation boards"
+          },
+          "paid": [
+            "Adobe InDesign"
+          ],
+          "options": [
+            {
+              "app": "scribus",
+              "use": {
+                "it": "Impagina schemi, sezioni, foto e didascalie in un PDF.",
+                "en": "Lay out diagrams, sections, photos and captions in a PDF."
+              },
+              "source": "https://flathub.org/apps/net.scribus.Scribus"
+            }
+          ]
+        },
+        {
+          "id": "markups",
+          "name": {
+            "it": "Annotare piante e tavole",
+            "en": "Review and mark up drawings"
+          },
+          "paid": [
+            "Bluebeam Revu"
+          ],
+          "options": [
+            {
+              "app": "okular",
+              "use": {
+                "it": "Aggiungi evidenziazioni e note al PDF.",
+                "en": "Highlight and add notes to PDF drawings."
+              },
+              "source": "https://flathub.org/apps/org.kde.okular"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "video-production",
-      "name": {"it":"Produzione video","en":"Video production"},
-      "description": {"it":"Dalla registrazione di un tutorial al montaggio, ai sottotitoli e al file pronto da condividere.","en":"Record a tutorial, edit it, add subtitles and export a file ready to share."},
+      "name": {
+        "it": "Produzione video",
+        "en": "Video production"
+      },
+      "description": {
+        "it": "Dalla registrazione di un tutorial al montaggio, ai sottotitoli e al file pronto da condividere.",
+        "en": "Record a tutorial, edit it, add subtitles and export a file ready to share."
+      },
       "steps": [
-        {"id":"capture","name":{"it":"Registrazione schermo","en":"Screen recording"},"paid":["Loom"],"compare":"loom","options":[
-          {"app":"obs","use":{"it":"Registra schermo, webcam e microfono nella stessa scena.","en":"Record screen, webcam and microphone in the same scene."},"source":"https://obsproject.com/kb/quick-start-guide"},
-          {"app":"kooha","use":{"it":"Registra uno schermo o un’area su Linux, con microfono e audio di sistema.","en":"Record a screen or region on Linux with microphone and desktop audio."},"source":"https://github.com/SeaDve/Kooha#readme"}]},
-        {"id":"dialogue","name":{"it":"Montaggio audio","en":"Audio editing"},"paid":["Adobe Audition"],"compare":"audition","options":[
-          {"app":"audacity","use":{"it":"Mixa le tracce e regola effetti, volume e dinamica della voce.","en":"Mix tracks and adjust effects, volume and voice dynamics."},"source":"https://support.audacityteam.org/audio-editing"}]},
-        {"id":"editing","name":{"it":"Montaggio video","en":"Video editing"},"paid":["Adobe Premiere Pro","Final Cut Pro"],"compare":"premiere","options":[
-          {"app":"kdenlive","use":{"it":"Monta clip e audio su più tracce con transizioni ed effetti.","en":"Edit video and audio across multiple tracks with transitions and effects."},"source":"https://docs.kdenlive.org/en/getting_started/quickstart.html"},
-          {"app":"filmcraft","use":{"it":"Monta su più tracce e passa ai pannelli per colore ed effetti.","en":"Edit across multiple tracks and switch to color and effects workspaces."},"source":"https://github.com/storytold/filmcraft#edit"},
-          {"app":"shotcut","use":{"it":"Monta in timeline clip con risoluzioni e frequenze di fotogrammi diverse.","en":"Edit clips with different resolutions and frame rates on the same timeline."},"source":"https://www.shotcut.org/features/"}]},
-        {"id":"captions","name":{"it":"Sottotitoli","en":"Subtitles"},"paid":["Adobe Premiere Pro"],"options":[
-          {"app":"subtitle-edit","use":{"it":"Modifica testo, durata e sincronizzazione dei sottotitoli.","en":"Edit subtitle text, duration and timing."},"source":"https://subtitleedit.github.io/subtitleedit/"},
-          {"app":"shotcut","use":{"it":"Importa e prepara sottotitoli direttamente nel progetto video.","en":"Import and prepare subtitles directly in the video project."},"source":"https://www.shotcut.org/features/"}]},
-        {"id":"encoding","name":{"it":"Esportazione e compressione","en":"Export and compression"},"paid":["Apple Compressor"],"options":[
-          {"app":"handbrake","use":{"it":"Converti il master con preimpostazioni per dispositivi e controlli di qualità.","en":"Convert the master with device presets and quality controls."},"source":"https://handbrake.fr/docs/en/latest/introduction/about.html"}]}
+        {
+          "id": "capture",
+          "name": {
+            "it": "Registrazione schermo",
+            "en": "Screen recording"
+          },
+          "paid": [
+            "Loom"
+          ],
+          "compare": "loom",
+          "options": [
+            {
+              "app": "obs",
+              "use": {
+                "it": "Registra schermo, webcam e microfono nella stessa scena.",
+                "en": "Record screen, webcam and microphone in the same scene."
+              },
+              "source": "https://obsproject.com/kb/quick-start-guide"
+            },
+            {
+              "app": "kooha",
+              "use": {
+                "it": "Registra uno schermo o un’area su Linux, con microfono e audio di sistema.",
+                "en": "Record a screen or region on Linux with microphone and desktop audio."
+              },
+              "source": "https://github.com/SeaDve/Kooha#readme"
+            }
+          ]
+        },
+        {
+          "id": "dialogue",
+          "name": {
+            "it": "Montaggio audio",
+            "en": "Audio editing"
+          },
+          "paid": [
+            "Adobe Audition"
+          ],
+          "compare": "audition",
+          "options": [
+            {
+              "app": "audacity",
+              "use": {
+                "it": "Mixa le tracce e regola effetti, volume e dinamica della voce.",
+                "en": "Mix tracks and adjust effects, volume and voice dynamics."
+              },
+              "source": "https://support.audacityteam.org/audio-editing"
+            }
+          ]
+        },
+        {
+          "id": "editing",
+          "name": {
+            "it": "Montaggio video",
+            "en": "Video editing"
+          },
+          "paid": [
+            "Adobe Premiere Pro",
+            "Final Cut Pro"
+          ],
+          "compare": "premiere",
+          "options": [
+            {
+              "app": "kdenlive",
+              "use": {
+                "it": "Monta clip e audio su più tracce con transizioni ed effetti.",
+                "en": "Edit video and audio across multiple tracks with transitions and effects."
+              },
+              "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html"
+            },
+            {
+              "app": "filmcraft",
+              "use": {
+                "it": "Monta su più tracce e passa ai pannelli per colore ed effetti.",
+                "en": "Edit across multiple tracks and switch to color and effects workspaces."
+              },
+              "source": "https://github.com/storytold/filmcraft#edit"
+            },
+            {
+              "app": "shotcut",
+              "use": {
+                "it": "Monta in timeline clip con risoluzioni e frequenze di fotogrammi diverse.",
+                "en": "Edit clips with different resolutions and frame rates on the same timeline."
+              },
+              "source": "https://www.shotcut.org/features/"
+            }
+          ]
+        },
+        {
+          "id": "captions",
+          "name": {
+            "it": "Sottotitoli",
+            "en": "Subtitles"
+          },
+          "paid": [
+            "Adobe Premiere Pro"
+          ],
+          "options": [
+            {
+              "app": "subtitle-edit",
+              "use": {
+                "it": "Modifica testo, durata e sincronizzazione dei sottotitoli.",
+                "en": "Edit subtitle text, duration and timing."
+              },
+              "source": "https://subtitleedit.github.io/subtitleedit/"
+            },
+            {
+              "app": "shotcut",
+              "use": {
+                "it": "Importa e prepara sottotitoli direttamente nel progetto video.",
+                "en": "Import and prepare subtitles directly in the video project."
+              },
+              "source": "https://www.shotcut.org/features/"
+            }
+          ]
+        },
+        {
+          "id": "encoding",
+          "name": {
+            "it": "Esportazione e compressione",
+            "en": "Export and compression"
+          },
+          "paid": [
+            "Apple Compressor"
+          ],
+          "options": [
+            {
+              "app": "handbrake",
+              "use": {
+                "it": "Converti il master con preimpostazioni per dispositivi e controlli di qualità.",
+                "en": "Convert the master with device presets and quality controls."
+              },
+              "source": "https://handbrake.fr/docs/en/latest/introduction/about.html"
+            }
+          ]
+        },
+        {
+          "id": "motion",
+          "name": {
+            "it": "Motion graphics",
+            "en": "Motion graphics"
+          },
+          "paid": [
+            "Adobe After Effects"
+          ],
+          "options": [
+            {
+              "app": "friction",
+              "use": {
+                "it": "Anima forme vettoriali e livelli su una timeline.",
+                "en": "Animate vector shapes and layers on a timeline."
+              },
+              "source": "https://github.com/friction2d/friction#readme"
+            }
+          ]
+        },
+        {
+          "id": "composite",
+          "name": {
+            "it": "Compositing a nodi",
+            "en": "Node-based compositing"
+          },
+          "paid": [
+            "Adobe After Effects"
+          ],
+          "options": [
+            {
+              "app": "natron",
+              "use": {
+                "it": "Organizza chiavi, maschere ed effetti in un grafo di nodi.",
+                "en": "Arrange keys, masks and effects in a node graph."
+              },
+              "source": "https://github.com/NatronGitHub/Natron"
+            },
+            {
+              "app": "blender",
+              "use": {
+                "it": "Combina render e immagini con il compositore a nodi.",
+                "en": "Combine renders and images with the node compositor."
+              },
+              "source": "https://flathub.org/apps/org.blender.Blender"
+            }
+          ]
+        },
+        {
+          "id": "proxy",
+          "name": {
+            "it": "Montaggio con proxy",
+            "en": "Proxy editing"
+          },
+          "paid": [
+            "Adobe Premiere Pro"
+          ],
+          "compare": "premiere",
+          "options": [
+            {
+              "app": "kdenlive",
+              "use": {
+                "it": "Monta su copie leggere e usa gli originali per il render finale.",
+                "en": "Edit using smaller copies and use the originals for the final render."
+              },
+              "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "photography",
+      "name": {
+        "it": "Fotografo",
+        "en": "Photographer"
+      },
+      "description": {
+        "it": "Dal RAW all’archivio e alla consegna.",
+        "en": "From RAW files to archive and delivery."
+      },
+      "steps": [
+        {
+          "id": "ingest",
+          "name": {
+            "it": "Importare e catalogare",
+            "en": "Import and organize"
+          },
+          "paid": [
+            "Adobe Lightroom Classic"
+          ],
+          "compare": "lightroom",
+          "options": [
+            {
+              "app": "digikam",
+              "use": {
+                "it": "Raggruppa gli scatti in album e aggiungi tag e valutazioni.",
+                "en": "Organize photos into albums with tags and ratings."
+              },
+              "source": "https://flathub.org/apps/org.kde.digikam"
+            }
+          ]
+        },
+        {
+          "id": "raw",
+          "name": {
+            "it": "Sviluppare i RAW",
+            "en": "Develop RAW photos"
+          },
+          "paid": [
+            "Adobe Lightroom Classic"
+          ],
+          "compare": "lightroom",
+          "options": [
+            {
+              "app": "darktable",
+              "use": {
+                "it": "Regola esposizione, colore e maschere senza modificare il RAW.",
+                "en": "Adjust exposure, color and masks while preserving the RAW."
+              },
+              "source": "https://flathub.org/apps/org.darktable.Darktable"
+            },
+            {
+              "app": "rawtherapee",
+              "use": {
+                "it": "Sviluppa i RAW con riduzione del rumore e dettagli.",
+                "en": "Develop RAW photos with noise reduction and detail controls."
+              },
+              "source": "https://flathub.org/apps/com.rawtherapee.RawTherapee"
+            }
+          ]
+        },
+        {
+          "id": "retouch",
+          "name": {
+            "it": "Ritoccare e comporre",
+            "en": "Retouch and composite"
+          },
+          "paid": [
+            "Adobe Photoshop"
+          ],
+          "compare": "photoshop",
+          "options": [
+            {
+              "app": "gimp",
+              "use": {
+                "it": "Lavora con maschere e livelli per ritocchi locali.",
+                "en": "Use masks and layers for local retouching."
+              },
+              "source": "https://docs.gimp.org/en_GB/introduction.html"
+            }
+          ]
+        },
+        {
+          "id": "batch",
+          "name": {
+            "it": "Preparare più foto",
+            "en": "Process photos in batches"
+          },
+          "paid": [
+            "Adobe Lightroom Classic"
+          ],
+          "compare": "lightroom",
+          "options": [
+            {
+              "app": "digikam",
+              "use": {
+                "it": "Inserisci più foto nella coda per conversioni ed elaborazioni.",
+                "en": "Queue several photos for conversion and processing."
+              },
+              "source": "https://flathub.org/apps/org.kde.digikam"
+            }
+          ]
+        },
+        {
+          "id": "print",
+          "name": {
+            "it": "Impaginare un portfolio",
+            "en": "Lay out a portfolio"
+          },
+          "paid": [
+            "Adobe InDesign"
+          ],
+          "options": [
+            {
+              "app": "scribus",
+              "use": {
+                "it": "Impagina fotografie e didascalie ed esporta PDF.",
+                "en": "Lay out photographs and captions and export PDFs."
+              },
+              "source": "https://flathub.org/apps/net.scribus.Scribus"
+            }
+          ]
+        },
+        {
+          "id": "backup",
+          "name": {
+            "it": "Archiviare gli originali",
+            "en": "Archive originals"
+          },
+          "paid": [
+            "Arq Backup"
+          ],
+          "compare": "arq",
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Conserva snapshot cifrati degli originali e recupera una versione.",
+                "en": "Keep encrypted snapshots of originals and recover individual versions."
+              },
+              "source": "https://kopia.io/docs/features/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "podcasting",
+      "name": {
+        "it": "Podcast e interviste",
+        "en": "Podcasting and interviews"
+      },
+      "description": {
+        "it": "Dalla registrazione alle trascrizioni e alle clip.",
+        "en": "From recording to transcripts and clips."
+      },
+      "steps": [
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare voce e ospiti",
+            "en": "Record voices and guests"
+          },
+          "paid": [
+            "Riverside"
+          ],
+          "options": [
+            {
+              "app": "obs",
+              "use": {
+                "it": "Registra sorgenti diverse con tracce separate configurabili.",
+                "en": "Record different sources with configurable separate tracks."
+              },
+              "source": "https://obsproject.com/kb/advanced-recording-guide-and-multi-track-audio"
+            }
+          ]
+        },
+        {
+          "id": "transcribe",
+          "name": {
+            "it": "Trascrivere una conversazione",
+            "en": "Transcribe a conversation"
+          },
+          "paid": [
+            "Granola",
+            "Otter.ai"
+          ],
+          "compare": "granola",
+          "options": [
+            {
+              "app": "meetily",
+              "use": {
+                "it": "Trascrivi una riunione con i modelli supportati.",
+                "en": "Transcribe a meeting with supported models."
+              },
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme"
+            }
+          ]
+        },
+        {
+          "id": "edit",
+          "name": {
+            "it": "Tagliare e pulire la voce",
+            "en": "Edit and clean up dialogue"
+          },
+          "paid": [
+            "Adobe Audition"
+          ],
+          "compare": "audition",
+          "options": [
+            {
+              "app": "audacity",
+              "use": {
+                "it": "Taglia pause, applica riduzione del rumore e normalizza il segnale.",
+                "en": "Trim pauses, apply noise reduction and normalize audio."
+              },
+              "source": "https://flathub.org/apps/org.audacityteam.Audacity"
+            }
+          ]
+        },
+        {
+          "id": "mix",
+          "name": {
+            "it": "Mixare più tracce",
+            "en": "Mix multiple tracks"
+          },
+          "paid": [
+            "Adobe Audition"
+          ],
+          "compare": "audition",
+          "options": [
+            {
+              "app": "ardour",
+              "use": {
+                "it": "Bilancia voci e jingle con mixer e automazione.",
+                "en": "Balance voices and jingles using a mixer and automation."
+              },
+              "source": "https://manual.ardour.org/"
+            }
+          ]
+        },
+        {
+          "id": "clip",
+          "name": {
+            "it": "Preparare clip e sottotitoli",
+            "en": "Produce clips and captions"
+          },
+          "paid": [
+            "Descript"
+          ],
+          "options": [
+            {
+              "app": "kdenlive",
+              "use": {
+                "it": "Taglia clip, aggiungi sottotitoli ed esporta per la pubblicazione.",
+                "en": "Cut clips, add subtitles and export for publishing."
+              },
+              "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html"
+            }
+          ]
+        },
+        {
+          "id": "archive",
+          "name": {
+            "it": "Conservare progetto e sorgenti",
+            "en": "Archive project and sources"
+          },
+          "paid": [
+            "Arq Backup"
+          ],
+          "compare": "arq",
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Salva snapshot cifrati delle registrazioni e dei progetti.",
+                "en": "Save encrypted snapshots of recordings and projects."
+              },
+              "source": "https://kopia.io/docs/features/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "music-production",
+      "name": {
+        "it": "Produzione musicale",
+        "en": "Music production"
+      },
+      "description": {
+        "it": "Composizione, registrazione, missaggio e preparazione del master.",
+        "en": "Compose, record, mix and prepare a master."
+      },
+      "steps": [
+        {
+          "id": "rhythm",
+          "name": {
+            "it": "Programmare la batteria",
+            "en": "Program drums"
+          },
+          "paid": [
+            "FL Studio"
+          ],
+          "options": [
+            {
+              "app": "hydrogen",
+              "use": {
+                "it": "Costruisci pattern ritmici e concatenali in una canzone.",
+                "en": "Build drum patterns and arrange them into a song."
+              },
+              "source": "https://github.com/hydrogen-music/hydrogen"
+            }
+          ]
+        },
+        {
+          "id": "midi",
+          "name": {
+            "it": "Comporre con MIDI",
+            "en": "Compose with MIDI"
+          },
+          "paid": [
+            "Ableton Live"
+          ],
+          "options": [
+            {
+              "app": "lmms",
+              "use": {
+                "it": "Scrivi note nel piano roll e organizza pattern e strumenti virtuali.",
+                "en": "Write notes in the piano roll and arrange patterns and instruments."
+              },
+              "source": "https://flathub.org/apps/io.lmms.LMMS"
+            },
+            {
+              "app": "qtractor",
+              "use": {
+                "it": "Sequenzia note MIDI e tracce audio nello stesso progetto Linux.",
+                "en": "Sequence MIDI notes and audio tracks in the same Linux project."
+              },
+              "source": "https://github.com/rncbc/qtractor#readme"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare strumenti",
+            "en": "Record instruments"
+          },
+          "paid": [
+            "Pro Tools"
+          ],
+          "options": [
+            {
+              "app": "ardour",
+              "use": {
+                "it": "Registra più tracce e gestisci ingressi e uscite dalla sessione.",
+                "en": "Record multiple tracks and route session inputs and outputs."
+              },
+              "source": "https://manual.ardour.org/"
+            }
+          ]
+        },
+        {
+          "id": "design",
+          "name": {
+            "it": "Creare suoni",
+            "en": "Design sounds"
+          },
+          "paid": [
+            "Serum"
+          ],
+          "options": [
+            {
+              "app": "surge-xt",
+              "use": {
+                "it": "Combina oscillatori, filtri e modulazioni nel sintetizzatore.",
+                "en": "Combine oscillators, filters and modulation in the synthesizer."
+              },
+              "source": "https://surge-synthesizer.github.io/"
+            }
+          ]
+        },
+        {
+          "id": "mix",
+          "name": {
+            "it": "Mixare e automatizzare",
+            "en": "Mix and automate"
+          },
+          "paid": [
+            "Logic Pro"
+          ],
+          "options": [
+            {
+              "app": "ardour",
+              "use": {
+                "it": "Automatizza parametri e gestisci bus e livelli nel mixer.",
+                "en": "Automate parameters and manage buses and levels in the mixer."
+              },
+              "source": "https://manual.ardour.org/"
+            }
+          ]
+        },
+        {
+          "id": "master",
+          "name": {
+            "it": "Controllare ed esportare l’audio",
+            "en": "Check and export audio"
+          },
+          "paid": [
+            "Adobe Audition"
+          ],
+          "compare": "audition",
+          "options": [
+            {
+              "app": "audacity",
+              "use": {
+                "it": "Controlla picchi e livello prima di esportare il file audio.",
+                "en": "Check peaks and level before exporting the audio file."
+              },
+              "source": "https://flathub.org/apps/org.audacityteam.Audacity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-creation",
+      "name": {
+        "it": "Sviluppo videogiochi",
+        "en": "Game development"
+      },
+      "description": {
+        "it": "Dal prototipo alla grafica, ai suoni e alla prima build.",
+        "en": "From prototype to graphics, sound and the first build."
+      },
+      "steps": [
+        {
+          "id": "prototype",
+          "name": {
+            "it": "Creare scene e prototipi",
+            "en": "Build scenes and prototypes"
+          },
+          "paid": [
+            "Unity",
+            "Unreal Engine"
+          ],
+          "options": [
+            {
+              "app": "godot-engine",
+              "use": {
+                "it": "Crea scene e organizza il gioco con nodi riutilizzabili.",
+                "en": "Build scenes and organize the game with reusable nodes."
+              },
+              "source": "https://docs.godotengine.org/en/stable/"
+            }
+          ]
+        },
+        {
+          "id": "pixel",
+          "name": {
+            "it": "Disegnare sprite e animarli",
+            "en": "Draw and animate sprites"
+          },
+          "paid": [
+            "Aseprite"
+          ],
+          "options": [
+            {
+              "app": "libresprite",
+              "use": {
+                "it": "Disegna sprite e prepara sequenze di animazione.",
+                "en": "Draw sprites and create animation sequences."
+              },
+              "source": "https://flathub.org/apps/com.github.libresprite.LibreSprite"
+            },
+            {
+              "app": "pixelorama",
+              "use": {
+                "it": "Crea sprite e animazioni a fotogrammi.",
+                "en": "Create sprites and frame-by-frame animations."
+              },
+              "source": "https://flathub.org/apps/com.orama_interactive.Pixelorama"
+            }
+          ]
+        },
+        {
+          "id": "model",
+          "name": {
+            "it": "Modellare e animare in 3D",
+            "en": "Model and animate in 3D"
+          },
+          "paid": [
+            "Autodesk Maya"
+          ],
+          "options": [
+            {
+              "app": "blender",
+              "use": {
+                "it": "Modella, assegna materiali e prepara animazioni per asset 3D.",
+                "en": "Model, assign materials and animate 3D assets."
+              },
+              "source": "https://flathub.org/apps/org.blender.Blender"
+            }
+          ]
+        },
+        {
+          "id": "textures",
+          "name": {
+            "it": "Dipingere texture e concept",
+            "en": "Paint textures and concept art"
+          },
+          "paid": [
+            "Adobe Photoshop"
+          ],
+          "compare": "photoshop",
+          "options": [
+            {
+              "app": "krita",
+              "use": {
+                "it": "Dipingi texture e concept su livelli separati.",
+                "en": "Paint textures and concept art on separate layers."
+              },
+              "source": "https://flathub.org/apps/org.kde.krita"
+            }
+          ]
+        },
+        {
+          "id": "audio",
+          "name": {
+            "it": "Registrare ed elaborare i suoni",
+            "en": "Record and edit sound"
+          },
+          "paid": [
+            "Adobe Audition"
+          ],
+          "compare": "audition",
+          "options": [
+            {
+              "app": "audacity",
+              "use": {
+                "it": "Registra, ritaglia ed esporta effetti sonori.",
+                "en": "Record, trim and export sound effects."
+              },
+              "source": "https://flathub.org/apps/org.audacityteam.Audacity"
+            }
+          ]
+        },
+        {
+          "id": "delivery",
+          "name": {
+            "it": "Esportare e provare una build",
+            "en": "Export and test a build"
+          },
+          "paid": [
+            "Unity"
+          ],
+          "options": [
+            {
+              "app": "godot-engine",
+              "use": {
+                "it": "Configura un preset di esportazione e genera una build da provare.",
+                "en": "Configure an export preset and generate a build to test."
+              },
+              "source": "https://docs.godotengine.org/en/stable/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "name": {
+        "it": "Sviluppo software",
+        "en": "Software development"
+      },
+      "description": {
+        "it": "Dal codice alle API, al database e al rilascio.",
+        "en": "From code to APIs, databases and release."
+      },
+      "steps": [
+        {
+          "id": "editor",
+          "name": {
+            "it": "Modificare il codice",
+            "en": "Edit code"
+          },
+          "paid": [
+            "JetBrains IDEs"
+          ],
+          "options": [
+            {
+              "app": "zed",
+              "use": {
+                "it": "Lavora sul codice con editor e integrazione linguistica.",
+                "en": "Work on code with an editor and language integration."
+              },
+              "source": "https://zed.dev/terms/zed"
+            },
+            {
+              "app": "codeedit",
+              "use": {
+                "it": "Esplora e modifica progetti dall’editor nativo macOS.",
+                "en": "Explore and edit projects in a native macOS editor."
+              },
+              "source": "https://github.com/CodeEditApp/CodeEdit#readme"
+            }
+          ]
+        },
+        {
+          "id": "terminal",
+          "name": {
+            "it": "Gestire sessioni di lavoro",
+            "en": "Manage terminal sessions"
+          },
+          "paid": [
+            "Warp"
+          ],
+          "options": [
+            {
+              "app": "iterm2",
+              "use": {
+                "it": "Usa schede e riquadri affiancati nelle sessioni su macOS.",
+                "en": "Use tabs and side-by-side panes in macOS terminal sessions."
+              },
+              "source": "https://iterm2.com/features.html"
+            }
+          ]
+        },
+        {
+          "id": "api",
+          "name": {
+            "it": "Provare richieste API",
+            "en": "Test API requests"
+          },
+          "paid": [
+            "Postman"
+          ],
+          "options": [
+            {
+              "app": "bruno",
+              "use": {
+                "it": "Crea collezioni di richieste e salvale in file versionabili.",
+                "en": "Build request collections and save them as versionable files."
+              },
+              "source": "https://github.com/usebruno/bruno/blob/main/readme.md"
+            }
+          ]
+        },
+        {
+          "id": "database",
+          "name": {
+            "it": "Consultare il database",
+            "en": "Inspect databases"
+          },
+          "paid": [
+            "DataGrip"
+          ],
+          "options": [
+            {
+              "app": "dbeaver-ce",
+              "use": {
+                "it": "Gestisci connessioni, modifica query ed esplora gli schemi.",
+                "en": "Manage connections, edit queries and browse schemas."
+              },
+              "source": "https://dbeaver.com/docs/dbeaver/"
+            }
+          ]
+        },
+        {
+          "id": "virtual",
+          "name": {
+            "it": "Provare ambienti separati",
+            "en": "Test in separate environments"
+          },
+          "paid": [
+            "Parallels Desktop"
+          ],
+          "compare": "parallels",
+          "options": [
+            {
+              "app": "utm",
+              "use": {
+                "it": "Avvia un sistema operativo in una macchina virtuale su Apple Silicon.",
+                "en": "Run an operating system in a virtual machine on Apple Silicon."
+              },
+              "source": "https://docs.getutm.app/"
+            },
+            {
+              "app": "gnome-boxes",
+              "use": {
+                "it": "Crea e avvia macchine virtuali da immagini di sistema su Linux.",
+                "en": "Create and start virtual machines from system images on Linux."
+              },
+              "source": "https://apps.gnome.org/Boxes/"
+            }
+          ]
+        },
+        {
+          "id": "tracking",
+          "name": {
+            "it": "Seguire bug e rilasci",
+            "en": "Track bugs and releases"
+          },
+          "paid": [
+            "Linear"
+          ],
+          "compare": "linear",
+          "options": [
+            {
+              "app": "plane",
+              "use": {
+                "it": "Organizza le issue in cicli e moduli nella versione Community.",
+                "en": "Organize issues in cycles and modules in the Community edition."
+              },
+              "source": "https://github.com/makeplane/plane/blob/preview/README.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": {
+        "it": "Marketing digitale",
+        "en": "Digital marketing"
+      },
+      "description": {
+        "it": "Pianifica social e campagne, raccogli feedback e misura il traffico.",
+        "en": "Plan social and email campaigns, gather feedback and measure traffic."
+      },
+      "steps": [
+        {
+          "id": "assets",
+          "name": {
+            "it": "Preparare immagini e grafiche",
+            "en": "Create graphics"
+          },
+          "paid": [
+            "Adobe Photoshop",
+            "Adobe Illustrator"
+          ],
+          "compare": "photoshop",
+          "options": [
+            {
+              "app": "gimp",
+              "use": {
+                "it": "Prepara asset bitmap e composizioni per le campagne.",
+                "en": "Create bitmap assets and campaign composites."
+              },
+              "source": "https://docs.gimp.org/en_GB/introduction.html"
+            },
+            {
+              "app": "inks",
+              "use": {
+                "it": "Imposta un sistema di grafiche modificabili in SVG.",
+                "en": "Build a set of editable SVG graphics."
+              },
+              "source": "https://flathub.org/apps/org.inkscape.Inkscape"
+            }
+          ]
+        },
+        {
+          "id": "calendar",
+          "name": {
+            "it": "Pianificare i post social",
+            "en": "Schedule social posts"
+          },
+          "paid": [
+            "Buffer",
+            "Hootsuite"
+          ],
+          "options": [
+            {
+              "app": "postiz",
+              "use": {
+                "it": "Prepara e programma contenuti sui canali supportati.",
+                "en": "Prepare and schedule content for supported channels."
+              },
+              "source": "https://docs.postiz.com/self-host/installation/overview"
+            }
+          ]
+        },
+        {
+          "id": "email",
+          "name": {
+            "it": "Gestire la newsletter",
+            "en": "Run a newsletter"
+          },
+          "paid": [
+            "Mailchimp"
+          ],
+          "options": [
+            {
+              "app": "listmonk",
+              "use": {
+                "it": "Gestisci liste e invia campagne email usando un servizio SMTP.",
+                "en": "Manage lists and send campaigns through an SMTP service."
+              },
+              "source": "https://listmonk.app/docs/installation/"
+            }
+          ]
+        },
+        {
+          "id": "campaigns",
+          "name": {
+            "it": "Gestire i flussi di campagne",
+            "en": "Manage campaign flows"
+          },
+          "paid": [
+            "HubSpot Marketing Hub"
+          ],
+          "options": [
+            {
+              "app": "mautic",
+              "use": {
+                "it": "Organizza segmenti e campagne in un’installazione self-hosted.",
+                "en": "Organize segments and campaigns in a self-hosted installation."
+              },
+              "source": "https://docs.mautic.org/en/7.0/"
+            }
+          ]
+        },
+        {
+          "id": "feedback",
+          "name": {
+            "it": "Raccogliere feedback",
+            "en": "Collect feedback"
+          },
+          "paid": [
+            "Typeform"
+          ],
+          "options": [
+            {
+              "app": "formbricks",
+              "use": {
+                "it": "Pubblica sondaggi con la versione Community self-hosted.",
+                "en": "Publish surveys with the self-hosted Community edition."
+              },
+              "source": "https://formbricks.com/docs/self-hosting/overview"
+            }
+          ]
+        },
+        {
+          "id": "analytics",
+          "name": {
+            "it": "Misurare il traffico del sito",
+            "en": "Measure website traffic"
+          },
+          "paid": [
+            "Adobe Analytics"
+          ],
+          "options": [
+            {
+              "app": "matomo",
+              "use": {
+                "it": "Raccogli statistiche e usa rapporti sulle visite sul tuo server.",
+                "en": "Collect statistics and use visitor reports on your own server."
+              },
+              "source": "https://matomo.org/faq/log-analytics-tool/is-matomo-truly-free-to-use-what-are-the-costs-or-requirements/"
+            },
+            {
+              "app": "plausible-ce",
+              "use": {
+                "it": "Consulta il traffico e gli obiettivi sulla dashboard autogestita.",
+                "en": "Review traffic and goals in a self-hosted dashboard."
+              },
+              "source": "https://github.com/plausible/community-edition#readme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-office",
+      "name": {
+        "it": "Ufficio e amministrazione",
+        "en": "Office and administration"
+      },
+      "description": {
+        "it": "Documenti, conti, fatture e condivisione dei file.",
+        "en": "Documents, spreadsheets, invoices and file sharing."
+      },
+      "steps": [
+        {
+          "id": "write",
+          "name": {
+            "it": "Scrivere documenti",
+            "en": "Write documents"
+          },
+          "paid": [
+            "Microsoft Word"
+          ],
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Scrivi, revisiona e impagina documenti con Writer.",
+                "en": "Write, review and lay out documents in Writer."
+              },
+              "source": "https://documentation.libreoffice.org/en/english-documentation/"
+            },
+            {
+              "app": "onlyoffice",
+              "use": {
+                "it": "Modifica documenti Office con Desktop Editors.",
+                "en": "Edit Office documents with Desktop Editors."
+              },
+              "source": "https://github.com/ONLYOFFICE/DesktopEditors/blob/master/README.md"
+            }
+          ]
+        },
+        {
+          "id": "sheets",
+          "name": {
+            "it": "Elaborare un foglio di calcolo",
+            "en": "Work with spreadsheets"
+          },
+          "paid": [
+            "Microsoft Excel"
+          ],
+          "compare": "microsoft-excel",
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Usa formule, grafici e tabelle pivot in Calc.",
+                "en": "Use formulas, charts and pivot tables in Calc."
+              },
+              "source": "https://documentation.libreoffice.org/en/english-documentation/"
+            },
+            {
+              "app": "gridcraft",
+              "use": {
+                "it": "Modifica file XLSX, crea grafici e riepiloga i dati con le tabelle pivot.",
+                "en": "Edit XLSX files, create charts and summarize data with pivot tables."
+              },
+              "source": "https://github.com/storytold/gridcraft#readme"
+            },
+            {
+              "app": "onlyoffice",
+              "use": {
+                "it": "Apri e salva in XLSX o CSV con Desktop Editors.",
+                "en": "Open and save XLSX or CSV files in Desktop Editors."
+              },
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx"
+            }
+          ]
+        },
+        {
+          "id": "invoice",
+          "name": {
+            "it": "Preparare e seguire fatture",
+            "en": "Prepare and track invoices"
+          },
+          "paid": [
+            "FreshBooks"
+          ],
+          "options": [
+            {
+              "app": "invoiceplane",
+              "use": {
+                "it": "Gestisci clienti, preventivi, fatture e pagamenti registrati.",
+                "en": "Manage clients, quotes, invoices and recorded payments."
+              },
+              "source": "https://github.com/InvoicePlane/InvoicePlane"
+            }
+          ]
+        },
+        {
+          "id": "pdf",
+          "name": {
+            "it": "Assemblare PDF",
+            "en": "Assemble PDFs"
+          },
+          "paid": [
+            "Adobe Acrobat Pro"
+          ],
+          "compare": "acrobat",
+          "options": [
+            {
+              "app": "pdfsam-basic",
+              "use": {
+                "it": "Unisci, dividi o estrai pagine dai PDF con PDFsam Basic.",
+                "en": "Merge, split or extract PDF pages in PDFsam Basic."
+              },
+              "source": "https://github.com/torakiki/pdfsam"
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "name": {
+            "it": "Condividere cartelle di lavoro",
+            "en": "Share work folders"
+          },
+          "paid": [
+            "Dropbox Business",
+            "Microsoft OneDrive for Business"
+          ],
+          "options": [
+            {
+              "app": "nextcloud-files",
+              "use": {
+                "it": "Gestisci condivisioni e permessi dal server Nextcloud.",
+                "en": "Manage shares and permissions on a Nextcloud server."
+              },
+              "source": "https://github.com/nextcloud/server#readme"
+            }
+          ]
+        },
+        {
+          "id": "backup",
+          "name": {
+            "it": "Proteggere i file dell’ufficio",
+            "en": "Back up office files"
+          },
+          "paid": [
+            "Arq Backup"
+          ],
+          "compare": "arq",
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Programma snapshot cifrati e ripristina file selezionati.",
+                "en": "Schedule encrypted snapshots and restore selected files."
+              },
+              "source": "https://kopia.io/docs/features/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "project-management",
+      "name": {
+        "it": "Gestione progetti",
+        "en": "Project management"
+      },
+      "description": {
+        "it": "Pianifica consegne, assegna attività e documenta le decisioni.",
+        "en": "Plan deliveries, assign tasks and document decisions."
+      },
+      "steps": [
+        {
+          "id": "roadmap",
+          "name": {
+            "it": "Pianificare fasi e scadenze",
+            "en": "Plan schedules and milestones"
+          },
+          "paid": [
+            "Microsoft Project"
+          ],
+          "options": [
+            {
+              "app": "openproject",
+              "use": {
+                "it": "Organizza pacchetti di lavoro e dipendenze con il diagramma di Gantt.",
+                "en": "Organize work packages and dependencies in the Gantt chart."
+              },
+              "source": "https://www.openproject.org/docs/user-guide/"
+            },
+            {
+              "app": "ganttproject",
+              "use": {
+                "it": "Definisci fasi, carico e dipendenze su una timeline locale.",
+                "en": "Define phases, workload and dependencies on a local timeline."
+              },
+              "source": "https://www.ganttproject.biz/free-gantt-chart-software"
+            }
+          ]
+        },
+        {
+          "id": "board",
+          "name": {
+            "it": "Tenere una bacheca operativa",
+            "en": "Run a work board"
+          },
+          "paid": [
+            "Asana",
+            "Trello"
+          ],
+          "options": [
+            {
+              "app": "kanboard",
+              "use": {
+                "it": "Distribuisci le attività per colonne, responsabili e date.",
+                "en": "Organize work by stage, assignee and date."
+              },
+              "source": "https://docs.kanboard.org/en/latest/admin_guide/installation.html"
+            },
+            {
+              "app": "vikunja",
+              "use": {
+                "it": "Usa viste a lista, Kanban o Gantt per lo stesso progetto.",
+                "en": "Use list, Kanban or Gantt views for a project."
+              },
+              "source": "https://vikunja.io/docs/installing/"
+            }
+          ]
+        },
+        {
+          "id": "issues",
+          "name": {
+            "it": "Organizzare issue e cicli",
+            "en": "Organize issues and cycles"
+          },
+          "paid": [
+            "Linear",
+            "Jira"
+          ],
+          "compare": "linear",
+          "options": [
+            {
+              "app": "plane",
+              "use": {
+                "it": "Gestisci cicli, assegnazioni e moduli per le issue.",
+                "en": "Manage issue cycles, assignments and modules."
+              },
+              "source": "https://github.com/makeplane/plane/blob/preview/README.md"
+            }
+          ]
+        },
+        {
+          "id": "diagrams",
+          "name": {
+            "it": "Mappare i processi",
+            "en": "Map processes"
+          },
+          "paid": [
+            "Lucidchart",
+            "Miro"
+          ],
+          "options": [
+            {
+              "app": "drawio",
+              "use": {
+                "it": "Crea diagrammi di flusso con forme e connettori.",
+                "en": "Draw flowcharts with shapes and connectors."
+              },
+              "source": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md"
+            },
+            {
+              "app": "excalidraw",
+              "use": {
+                "it": "Abbozza un processo su lavagna e salvalo come file.",
+                "en": "Sketch a process on a whiteboard and save it as a file."
+              },
+              "source": "https://github.com/excalidraw/excalidraw#readme"
+            }
+          ]
+        },
+        {
+          "id": "meeting",
+          "name": {
+            "it": "Registrare decisioni di riunione",
+            "en": "Capture meeting decisions"
+          },
+          "paid": [
+            "Granola"
+          ],
+          "compare": "granola",
+          "options": [
+            {
+              "app": "meetily",
+              "use": {
+                "it": "Conserva la trascrizione e rivedi ciò che si è deciso.",
+                "en": "Keep a transcript and review decisions."
+              },
+              "source": "https://github.com/Zackriya-Solutions/meetily#readme"
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "name": {
+            "it": "Mantenere la documentazione",
+            "en": "Maintain documentation"
+          },
+          "paid": [
+            "Notion",
+            "Evernote"
+          ],
+          "options": [
+            {
+              "app": "joplin",
+              "use": {
+                "it": "Organizza note, allegati e checklist in taccuini.",
+                "en": "Organize notes, attachments and checklists in notebooks."
+              },
+              "source": "https://joplinapp.org/help/apps/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research-study",
+      "name": {
+        "it": "Studio e ricerca",
+        "en": "Study and research"
+      },
+      "description": {
+        "it": "Dalle fonti alle annotazioni, alla bibliografia e al ripasso.",
+        "en": "From sources to annotations, bibliography and revision."
+      },
+      "steps": [
+        {
+          "id": "sources",
+          "name": {
+            "it": "Catalogare articoli e fonti",
+            "en": "Catalog research sources"
+          },
+          "paid": [
+            "EndNote"
+          ],
+          "options": [
+            {
+              "app": "zotero",
+              "use": {
+                "it": "Salva riferimenti, allegati e metadati in una raccolta.",
+                "en": "Save references, attachments and metadata in a library."
+              },
+              "source": "https://github.com/zotero/zotero"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "name": {
+            "it": "Leggere e annotare PDF",
+            "en": "Read and annotate PDFs"
+          },
+          "paid": [
+            "Adobe Acrobat Pro"
+          ],
+          "compare": "acrobat",
+          "options": [
+            {
+              "app": "okular",
+              "use": {
+                "it": "Segna, evidenzia e annota mentre leggi un PDF.",
+                "en": "Mark, highlight and annotate as you read a PDF."
+              },
+              "source": "https://flathub.org/apps/org.kde.okular"
+            }
+          ]
+        },
+        {
+          "id": "ocr",
+          "name": {
+            "it": "Estrarre testo dalle immagini",
+            "en": "Extract text from images"
+          },
+          "paid": [
+            "ABBYY FineReader PDF"
+          ],
+          "options": [
+            {
+              "app": "normcap",
+              "use": {
+                "it": "Seleziona una zona dello schermo per copiarne il testo.",
+                "en": "Select an area of the screen to copy its text."
+              },
+              "source": "https://github.com/dynobo/normcap/blob/main/README.md"
+            }
+          ]
+        },
+        {
+          "id": "notes",
+          "name": {
+            "it": "Collegare appunti e idee",
+            "en": "Connect notes and ideas"
+          },
+          "paid": [
+            "Notion"
+          ],
+          "options": [
+            {
+              "app": "logseq",
+              "use": {
+                "it": "Usa riferimenti tra blocchi, pagine e diario.",
+                "en": "Use references across blocks, pages and journal entries."
+              },
+              "source": "https://github.com/logseq/logseq"
+            },
+            {
+              "app": "joplin",
+              "use": {
+                "it": "Organizza appunti in taccuini con tag e allegati.",
+                "en": "Organize notes in notebooks with tags and attachments."
+              },
+              "source": "https://joplinapp.org/help/apps/"
+            }
+          ]
+        },
+        {
+          "id": "revision",
+          "name": {
+            "it": "Fare ripasso programmato",
+            "en": "Schedule revision"
+          },
+          "paid": [
+            "Quizlet Plus"
+          ],
+          "options": [
+            {
+              "app": "anki",
+              "use": {
+                "it": "Ripassa schede con un algoritmo di ripetizione dilazionata.",
+                "en": "Review flashcards with a spaced-repetition algorithm."
+              },
+              "source": "https://github.com/ankitects/anki"
+            }
+          ]
+        },
+        {
+          "id": "write",
+          "name": {
+            "it": "Comporre il documento finale",
+            "en": "Write the final document"
+          },
+          "paid": [
+            "Microsoft Word"
+          ],
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Scrivi con stili, indice e note in Writer.",
+                "en": "Write with styles, a table of contents and footnotes in Writer."
+              },
+              "source": "https://documentation.libreoffice.org/en/english-documentation/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fabrication",
+      "name": {
+        "it": "Prototipazione e stampa 3D",
+        "en": "Prototyping and 3D printing"
+      },
+      "description": {
+        "it": "Dal modello parametrico alle impostazioni di stampa.",
+        "en": "From parametric modeling to print settings."
+      },
+      "steps": [
+        {
+          "id": "sketch",
+          "name": {
+            "it": "Disegnare il pezzo 2D",
+            "en": "Sketch a 2D part"
+          },
+          "paid": [
+            "AutoCAD"
+          ],
+          "options": [
+            {
+              "app": "librecad",
+              "use": {
+                "it": "Disegna con quote e livelli prima di passare al modello.",
+                "en": "Sketch with dimensions and layers before modeling."
+              },
+              "source": "https://flathub.org/apps/org.librecad.librecad"
+            }
+          ]
+        },
+        {
+          "id": "parametric",
+          "name": {
+            "it": "Creare il modello parametrico",
+            "en": "Build a parametric model"
+          },
+          "paid": [
+            "Autodesk Fusion"
+          ],
+          "options": [
+            {
+              "app": "free",
+              "use": {
+                "it": "Costruisci solidi da schizzi e vincoli parametrici.",
+                "en": "Construct solids using sketches and parametric constraints."
+              },
+              "source": "https://flathub.org/apps/org.freecad.FreeCAD"
+            },
+            {
+              "app": "openscad",
+              "use": {
+                "it": "Genera forme riproducibili con un modello dichiarativo.",
+                "en": "Generate reproducible shapes using a declarative model."
+              },
+              "source": "https://flathub.org/apps/org.openscad.OpenSCAD"
+            }
+          ]
+        },
+        {
+          "id": "mechanism-motion",
+          "name": {
+            "it": "Verificare il movimento di un meccanismo",
+            "en": "Check how a mechanism moves"
+          },
+          "paid": [
+            "Autodesk Fusion"
+          ],
+          "options": [
+            {
+              "app": "solvespace",
+              "use": {
+                "it": "Traccia la traiettoria di un punto del meccanismo ed esportala per analizzarla.",
+                "en": "Trace the path of a point in the mechanism and export it for analysis."
+              },
+              "source": "https://solvespace.com/features.pl"
+            }
+          ]
+        },
+        {
+          "id": "board",
+          "name": {
+            "it": "Progettare una scheda elettronica",
+            "en": "Design a circuit board"
+          },
+          "paid": [
+            "Altium Designer"
+          ],
+          "options": [
+            {
+              "app": "kicad",
+              "use": {
+                "it": "Disegna schemi, assegna impronte e prepara il PCB.",
+                "en": "Draw schematics, assign footprints and prepare a PCB."
+              },
+              "source": "https://flathub.org/apps/org.kicad.KiCad"
+            }
+          ]
+        },
+        {
+          "id": "mesh",
+          "name": {
+            "it": "Controllare la mesh",
+            "en": "Inspect the mesh"
+          },
+          "paid": [
+            "Autodesk Fusion"
+          ],
+          "options": [
+            {
+              "app": "mesh-lab",
+              "use": {
+                "it": "Analizza la geometria e ripulisci la mesh importata.",
+                "en": "Inspect geometry and clean up imported meshes."
+              },
+              "source": "https://flathub.org/apps/net.meshlab.MeshLab"
+            }
+          ]
+        },
+        {
+          "id": "slice",
+          "name": {
+            "it": "Preparare il G-code",
+            "en": "Prepare G-code"
+          },
+          "paid": [
+            "Simplify3D"
+          ],
+          "options": [
+            {
+              "app": "prusaslicer",
+              "use": {
+                "it": "Imposta materiali e supporti e visualizza l’anteprima dei percorsi.",
+                "en": "Set materials and supports and preview tool paths."
+              },
+              "source": "https://flathub.org/apps/com.prusa3d.PrusaSlicer"
+            },
+            {
+              "app": "orca-slicer",
+              "use": {
+                "it": "Calibra filamento e stampa, poi esporta il G-code.",
+                "en": "Calibrate filament and print settings, then export G-code."
+              },
+              "source": "https://www.orcaslicer.com/"
+            }
+          ]
+        },
+        {
+          "id": "presentation",
+          "name": {
+            "it": "Mostrare il prototipo",
+            "en": "Present the prototype"
+          },
+          "paid": [
+            "KeyShot"
+          ],
+          "options": [
+            {
+              "app": "blender",
+              "use": {
+                "it": "Prepara materiali, luci e camere per il rendering del prototipo.",
+                "en": "Set up materials, lights and cameras to render the prototype."
+              },
+              "source": "https://flathub.org/apps/org.blender.Blender"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "computer-support",
+      "name": {
+        "it": "Assistenza informatica",
+        "en": "IT support"
+      },
+      "description": {
+        "it": "Accesso remoto, monitoraggio, diagnostica e backup.",
+        "en": "Remote access, monitoring, diagnostics and backup."
+      },
+      "steps": [
+        {
+          "id": "remote",
+          "name": {
+            "it": "Fornire assistenza da remoto",
+            "en": "Provide remote assistance"
+          },
+          "paid": [
+            "TeamViewer",
+            "AnyDesk"
+          ],
+          "options": [
+            {
+              "app": "rustdesk",
+              "use": {
+                "it": "Controlla un computer con il consenso dell’utente.",
+                "en": "Control a computer with the user’s consent."
+              },
+              "source": "https://github.com/rustdesk/rustdesk#readme"
+            },
+            {
+              "app": "remmina",
+              "use": {
+                "it": "Accedi da Linux a desktop RDP e VNC autorizzati.",
+                "en": "Access authorized RDP and VNC desktops from Linux."
+              },
+              "source": "https://flathub.org/apps/org.remmina.Remmina"
+            }
+          ]
+        },
+        {
+          "id": "storage",
+          "name": {
+            "it": "Capire dove finisce lo spazio",
+            "en": "Find what uses disk space"
+          },
+          "paid": [
+            "DaisyDisk"
+          ],
+          "options": [
+            {
+              "app": "filelight",
+              "use": {
+                "it": "Visualizza l’occupazione per cartella e cerca i file più grandi.",
+                "en": "Visualize disk usage by folder and find the biggest files."
+              },
+              "source": "https://flathub.org/apps/org.kde.filelight"
+            }
+          ]
+        },
+        {
+          "id": "system",
+          "name": {
+            "it": "Controllare risorse e processi",
+            "en": "Monitor resources and processes"
+          },
+          "paid": [
+            "iStat Menus"
+          ],
+          "options": [
+            {
+              "app": "stats",
+              "use": {
+                "it": "Controlla CPU, memoria e rete dalla barra di macOS.",
+                "en": "Monitor CPU, memory and network activity from the macOS menu bar."
+              },
+              "source": "https://github.com/exelban/stats#readme"
+            },
+            {
+              "app": "sloth",
+              "use": {
+                "it": "Consulta dal Mac file e socket aperti dai processi.",
+                "en": "Inspect files and sockets opened by Mac processes."
+              },
+              "source": "https://github.com/sveinbjornt/Sloth#readme"
+            }
+          ]
+        },
+        {
+          "id": "transfer",
+          "name": {
+            "it": "Trasferire file nella rete locale",
+            "en": "Transfer files over a local network"
+          },
+          "paid": [
+            "AirDroid Personal"
+          ],
+          "options": [
+            {
+              "app": "localsend",
+              "use": {
+                "it": "Invia un file vicino tra sistemi diversi sulla stessa rete.",
+                "en": "Send a file between nearby devices on the same network."
+              },
+              "source": "https://flathub.org/apps/org.localsend.localsend_app"
+            }
+          ]
+        },
+        {
+          "id": "sync",
+          "name": {
+            "it": "Sincronizzare cartelle",
+            "en": "Synchronize folders"
+          },
+          "paid": [
+            "Resilio Sync Home"
+          ],
+          "options": [
+            {
+              "app": "syncthing",
+              "use": {
+                "it": "Sincronizza le cartelle autorizzate direttamente tra i dispositivi.",
+                "en": "Sync authorized folders directly between devices."
+              },
+              "source": "https://github.com/syncthing/syncthing#readme"
+            }
+          ]
+        },
+        {
+          "id": "backup",
+          "name": {
+            "it": "Pianificare e provare un ripristino",
+            "en": "Schedule and test a restore"
+          },
+          "paid": [
+            "Arq Backup"
+          ],
+          "compare": "arq",
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Programma snapshot e ripristina un file a campione.",
+                "en": "Schedule snapshots and restore a sample file."
+              },
+              "source": "https://kopia.io/docs/features/"
+            },
+            {
+              "app": "backrest",
+              "use": {
+                "it": "Configura snapshot Restic e ripristino da una dashboard locale.",
+                "en": "Set up Restic snapshots and recovery from a local dashboard."
+              },
+              "source": "https://github.com/garethgeorge/backrest#readme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mac-setup",
+      "name": {
+        "it": "Organizzazione del Mac",
+        "en": "Mac workspace"
+      },
+      "description": {
+        "it": "Finestre, barra dei menu, appunti e scorciatoie per lavorare ogni giorno.",
+        "en": "Windows, menu bar, clipboard and shortcuts for daily work."
+      },
+      "steps": [
+        {
+          "id": "windows",
+          "name": {
+            "it": "Affiancare le finestre",
+            "en": "Arrange windows"
+          },
+          "paid": [
+            "Magnet"
+          ],
+          "options": [
+            {
+              "app": "rectangle",
+              "use": {
+                "it": "Affianca finestre con scorciatoie e zone ai bordi.",
+                "en": "Tile windows with shortcuts and screen-edge snap zones."
+              },
+              "source": "https://rectangleapp.com/"
+            },
+            {
+              "app": "loop-macos",
+              "use": {
+                "it": "Sposta e ridimensiona finestre con scorciatoie o un menu radiale.",
+                "en": "Move and resize windows with shortcuts or a radial menu."
+              },
+              "source": "https://github.com/mrkai77/Loop#readme"
+            }
+          ]
+        },
+        {
+          "id": "switch",
+          "name": {
+            "it": "Passare a una finestra",
+            "en": "Switch between windows"
+          },
+          "paid": [
+            "Witch"
+          ],
+          "options": [
+            {
+              "app": "alttab",
+              "use": {
+                "it": "Seleziona una finestra dalle anteprime con la tastiera.",
+                "en": "Select a window from previews using the keyboard."
+              },
+              "source": "https://github.com/lwouis/alt-tab-macos#readme"
+            },
+            {
+              "app": "dockdoor",
+              "use": {
+                "it": "Mostra anteprime dal Dock e passa alla finestra selezionata.",
+                "en": "Preview windows from the Dock and switch to the selected one."
+              },
+              "source": "https://dockdoor.net/"
+            }
+          ]
+        },
+        {
+          "id": "menu",
+          "name": {
+            "it": "Riordinare la barra dei menu",
+            "en": "Organize menu bar icons"
+          },
+          "paid": [
+            "Bartender"
+          ],
+          "compare": "bartender",
+          "options": [
+            {
+              "app": "ice",
+              "use": {
+                "it": "Nascondi, cerca e riordina le icone della barra del menu.",
+                "en": "Hide, search and rearrange menu bar icons."
+              },
+              "source": "https://github.com/jordanbaird/Ice#readme"
+            },
+            {
+              "app": "hidden-bar",
+              "use": {
+                "it": "Espandi o richiudi le icone dietro un separatore.",
+                "en": "Expand or collapse icons behind a separator."
+              },
+              "source": "https://github.com/consolelabs/hidden#readme"
+            }
+          ]
+        },
+        {
+          "id": "clipboard",
+          "name": {
+            "it": "Recuperare testi copiati",
+            "en": "Retrieve copied text"
+          },
+          "paid": [
+            "Paste"
+          ],
+          "compare": "paste",
+          "options": [
+            {
+              "app": "maccy",
+              "use": {
+                "it": "Cerca nella cronologia degli appunti dalla tastiera.",
+                "en": "Search your clipboard history from the keyboard."
+              },
+              "source": "https://github.com/p0deje/Maccy#readme"
+            },
+            {
+              "app": "clipy",
+              "use": {
+                "it": "Recupera elementi copiati e usa frammenti salvati.",
+                "en": "Retrieve previously copied items and use saved snippets."
+              },
+              "source": "https://github.com/Clipy/Clipy#readme"
+            }
+          ]
+        },
+        {
+          "id": "monitor",
+          "name": {
+            "it": "Regolare un monitor esterno",
+            "en": "Adjust an external monitor"
+          },
+          "paid": [
+            "Lunar Pro"
+          ],
+          "options": [
+            {
+              "app": "monitorcontrol",
+              "use": {
+                "it": "Regola luminosità e volume dei monitor compatibili dal Mac.",
+                "en": "Adjust brightness and volume on compatible displays from your Mac."
+              },
+              "source": "https://github.com/MonitorControl/MonitorControl#readme"
+            }
+          ]
+        },
+        {
+          "id": "input",
+          "name": {
+            "it": "Rimappare tastiera e mouse",
+            "en": "Remap keyboard and mouse"
+          },
+          "paid": [
+            "BetterTouchTool"
+          ],
+          "options": [
+            {
+              "app": "karabiner-elements",
+              "use": {
+                "it": "Rimappa tasti con regole semplici o combinazioni.",
+                "en": "Remap keys using simple rules or combinations."
+              },
+              "source": "https://github.com/pqrs-org/Karabiner-Elements#readme"
+            },
+            {
+              "app": "linearmouse",
+              "use": {
+                "it": "Regola scorrimento, accelerazione e tasti del mouse.",
+                "en": "Adjust mouse scrolling, acceleration and buttons."
+              },
+              "source": "https://github.com/linearmouse/linearmouse#readme"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "server-operations",
+      "name": {
+        "it": "Gestione server",
+        "en": "Server operations"
+      },
+      "description": {
+        "it": "Gestisci container, controlla la disponibilità dei servizi e verifica i backup.",
+        "en": "Manage containers, monitor service availability, and verify backups."
+      },
+      "steps": [
+        {
+          "id": "docker-stacks",
+          "name": {
+            "it": "Gestire gli stack Docker",
+            "en": "Manage Docker stacks"
+          },
+          "paid": [
+            "Portainer Business Edition"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "portainer-ce",
+              "use": {
+                "it": "Gestisci gli stack Docker Compose e controlla i servizi da una dashboard self-hosted.",
+                "en": "Manage Docker Compose stacks and inspect services in a self-hosted dashboard."
+              },
+              "source": "https://docs.portainer.io/user/docker/stacks"
+            }
+          ]
+        },
+        {
+          "id": "kubernetes",
+          "name": {
+            "it": "Esplorare le risorse Kubernetes",
+            "en": "Inspect Kubernetes resources"
+          },
+          "paid": [
+            "Portainer Business Edition"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "headlamp",
+              "use": {
+                "it": "Esplora le risorse di un cluster Kubernetes usando il tuo kubeconfig.",
+                "en": "Browse a Kubernetes cluster’s resources using your kubeconfig."
+              },
+              "source": "https://headlamp.dev/docs/latest/"
+            }
+          ]
+        },
+        {
+          "id": "availability",
+          "name": {
+            "it": "Controllare siti e API",
+            "en": "Monitor websites and APIs"
+          },
+          "paid": [
+            "Site24x7"
+          ],
+          "compare": "site24x7",
+          "options": [
+            {
+              "app": "uptime",
+              "use": {
+                "it": "Controlla se i siti e le API rispondono e invia una notifica quando diventano irraggiungibili.",
+                "en": "Check that sites and APIs respond and notify you when they become unreachable."
+              },
+              "source": "https://github.com/louislam/uptime-kuma#features"
+            },
+            {
+              "app": "gatus",
+              "use": {
+                "it": "Controlla HTTP, DNS e TCP secondo condizioni configurabili e mostra lo stato dei servizi.",
+                "en": "Check HTTP, DNS, and TCP with configurable conditions and display service status."
+              },
+              "source": "https://github.com/TwiN/gatus#features"
+            }
+          ]
+        },
+        {
+          "id": "server-metrics",
+          "name": {
+            "it": "Osservare risorse e avvisi",
+            "en": "Track resource usage and alerts"
+          },
+          "paid": [
+            "Datadog",
+            "Site24x7"
+          ],
+          "compare": "site24x7",
+          "options": [
+            {
+              "app": "beszel",
+              "use": {
+                "it": "Mostra lo storico di CPU, memoria e rete dei server e dei container.",
+                "en": "View historical CPU, memory, and network usage for servers and containers."
+              },
+              "source": "https://beszel.dev/"
+            },
+            {
+              "app": "grafana",
+              "use": {
+                "it": "Imposta avvisi sulle metriche e sui log delle fonti che hai collegato.",
+                "en": "Set alerts on metrics and logs from your data sources."
+              },
+              "source": "https://grafana.com/docs/grafana/latest/alerting/"
+            }
+          ]
+        },
+        {
+          "id": "scheduled-jobs",
+          "name": {
+            "it": "Controllare i job pianificati",
+            "en": "Monitor scheduled jobs"
+          },
+          "paid": [
+            "Cronitor",
+            "Site24x7"
+          ],
+          "compare": "site24x7",
+          "options": [
+            {
+              "app": "healthchecks",
+              "use": {
+                "it": "Avvisa quando un backup pianificato, uno script o un altro job smette di inviare il segnale atteso.",
+                "en": "Get alerts when a scheduled backup, script, or other job misses its expected check-in."
+              },
+              "source": "https://healthchecks.io/docs/monitoring_cron_jobs/"
+            }
+          ]
+        },
+        {
+          "id": "https",
+          "name": {
+            "it": "Configurare domini e HTTPS",
+            "en": "Set up domains and HTTPS"
+          },
+          "paid": [
+            "Cloudflare Application Services"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "nginx-proxy-manager",
+              "use": {
+                "it": "Gestisci domini interni o pubblici e certificati HTTPS dalla dashboard di Nginx.",
+                "en": "Manage internal or public domains and HTTPS certificates from the Nginx dashboard."
+              },
+              "source": "https://nginxproxymanager.com/guide/#features"
+            }
+          ]
+        },
+        {
+          "id": "restore",
+          "name": {
+            "it": "Provare un ripristino",
+            "en": "Test a restore"
+          },
+          "paid": [
+            "Arq Premium"
+          ],
+          "compare": "arq",
+          "options": [
+            {
+              "app": "backrest",
+              "use": {
+                "it": "Pianifica snapshot e prova il ripristino di un file attraverso l’interfaccia di Restic.",
+                "en": "Schedule snapshots and test restoring a file through the Restic web interface."
+              },
+              "source": "https://garethgeorge.github.io/backrest/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data-analysis",
+      "name": {
+        "it": "Analisi dati",
+        "en": "Data analysis"
+      },
+      "description": {
+        "it": "Pulisci i dati, interroga le fonti e condividi i risultati con grafici e dashboard.",
+        "en": "Clean data, query sources, and share results with charts and dashboards."
+      },
+      "steps": [
+        {
+          "id": "clean",
+          "name": {
+            "it": "Pulire i dati di partenza",
+            "en": "Clean the source data"
+          },
+          "paid": [
+            "Microsoft Excel con Power Query"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "openrefine",
+              "use": {
+                "it": "Raggruppa varianti di testo e correggi formati, righe e colonne nei CSV.",
+                "en": "Group text variants and clean formats, rows, and columns in CSV data."
+              },
+              "source": "https://openrefine.org/docs/manual/transforming"
+            }
+          ]
+        },
+        {
+          "id": "query",
+          "name": {
+            "it": "Interrogare database e file SQLite",
+            "en": "Query databases and SQLite files"
+          },
+          "paid": [
+            "DataGrip"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "dbeaver-ce",
+              "use": {
+                "it": "Scrivi query SQL, controlla il risultato e riusa gli script salvati.",
+                "en": "Write SQL queries, inspect their results, and reuse saved scripts."
+              },
+              "source": "https://dbeaver.com/docs/dbeaver/SQL-Editor/"
+            },
+            {
+              "app": "db-browser-for-sqlite",
+              "use": {
+                "it": "Apri database SQLite locali, esplora le tabelle ed esegui query SQL.",
+                "en": "Open local SQLite databases, browse tables, and run SQL queries."
+              },
+              "source": "https://sqlitebrowser.org/"
+            }
+          ]
+        },
+        {
+          "id": "charts",
+          "name": {
+            "it": "Creare grafici da un foglio",
+            "en": "Create spreadsheet charts"
+          },
+          "paid": [
+            "Microsoft Excel"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Crea grafici di confronto o andamento a partire da intervalli di un foglio Calc.",
+                "en": "Make comparison or trend charts from Calc cell ranges."
+              },
+              "source": "https://help.libreoffice.org/latest/en-US/text/schart/main0000.html"
+            }
+          ]
+        },
+        {
+          "id": "dashboard",
+          "name": {
+            "it": "Pubblicare dashboard interattive",
+            "en": "Publish interactive dashboards"
+          },
+          "paid": [
+            "Power BI",
+            "Tableau"
+          ],
+          "compare": "power-bi",
+          "options": [
+            {
+              "app": "apache-superset",
+              "use": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              },
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/"
+            },
+            {
+              "app": "grafana",
+              "use": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              },
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/"
+            }
+          ]
+        },
+        {
+          "id": "geography",
+          "name": {
+            "it": "Analizzare dati su una mappa",
+            "en": "Analyze geographic data"
+          },
+          "paid": [
+            "ArcGIS Pro"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "qgis",
+              "use": {
+                "it": "Carica strati geografici e visualizza i risultati dell’analisi sulla mappa.",
+                "en": "Load geographic layers and display analysis results on a map."
+              },
+              "source": "https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html"
+            }
+          ]
+        },
+        {
+          "id": "report",
+          "name": {
+            "it": "Preparare un report con tabelle e grafici",
+            "en": "Prepare a report with tables and charts"
+          },
+          "paid": [
+            "Microsoft Word"
+          ],
+          "compare": null,
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Unisci tabelle e grafici in un documento Writer da condividere.",
+                "en": "Combine tables and charts in a Writer document for sharing."
+              },
+              "source": "https://help.libreoffice.org/latest/en-US/text/schart/main0000.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "training-documentation",
+      "name": {
+        "it": "Formazione e documentazione",
+        "en": "Training and documentation"
+      },
+      "description": {
+        "it": "Prepara materiali didattici e procedure, poi registrali e rendili consultabili.",
+        "en": "Prepare training materials and procedures, then record and share them."
+      },
+      "steps": [
+        {
+          "id": "notes",
+          "name": {
+            "it": "Raccogliere i materiali",
+            "en": "Collect materials"
+          },
+          "paid": [
+            "Evernote",
+            "Notion"
+          ],
+          "compare": "notion",
+          "options": [
+            {
+              "app": "joplin",
+              "use": {
+                "it": "Organizza gli appunti scritti offline in taccuini con tag e allegati.",
+                "en": "Organize offline notes into notebooks with tags and attachments."
+              },
+              "source": "https://joplinapp.org/help/"
+            },
+            {
+              "app": "trilium",
+              "use": {
+                "it": "Collega gli appunti tra loro e raccoglili in un archivio gerarchico disponibile offline.",
+                "en": "Link notes together and organize them in a hierarchy that works offline."
+              },
+              "source": "https://triliumnotes.org/"
+            }
+          ]
+        },
+        {
+          "id": "annotate",
+          "name": {
+            "it": "Commentare le dispense",
+            "en": "Annotate handouts"
+          },
+          "paid": [
+            "Adobe Acrobat Pro"
+          ],
+          "compare": "acrobat",
+          "options": [
+            {
+              "app": "xournal",
+              "use": {
+                "it": "Scrivi o evidenzia sulle pagine del PDF con la penna e poi esportale.",
+                "en": "Write or highlight on PDF pages with a stylus and then export them."
+              },
+              "source": "https://xournalpp.github.io/guide/pdfs/"
+            },
+            {
+              "app": "okular",
+              "use": {
+                "it": "Evidenzia brani di testo e aggiungi note o commenti nel lettore.",
+                "en": "Highlight text and add notes or comments in the reader."
+              },
+              "source": "https://docs.kde.org/stable_kf6/en/okular/okular/annotations.html"
+            }
+          ]
+        },
+        {
+          "id": "slides",
+          "name": {
+            "it": "Comporre la lezione",
+            "en": "Build the lesson slides"
+          },
+          "paid": [
+            "Microsoft PowerPoint"
+          ],
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Crea diapositive e presentazioni multimediali con Impress.",
+                "en": "Create slides and multimedia presentations in Impress."
+              },
+              "source": "https://help.libreoffice.org/latest/en-US/text/simpress/main0000.html"
+            },
+            {
+              "app": "onlyoffice",
+              "use": {
+                "it": "Modifica temi, transizioni e note del relatore nell’editor di diapositive.",
+                "en": "Edit themes, transitions and speaker notes in the slide editor."
+              },
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/presentation-editor/working-with-slides/set-slide-parameters"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare una dimostrazione",
+            "en": "Record a demonstration"
+          },
+          "paid": [
+            "Loom"
+          ],
+          "compare": "loom",
+          "options": [
+            {
+              "app": "obs",
+              "use": {
+                "it": "Registra la dimostrazione con schermo, webcam e microfono nella stessa scena.",
+                "en": "Record a demonstration with screen, webcam and microphone in one scene."
+              },
+              "source": "https://obsproject.com/kb/quick-start-guide"
+            }
+          ]
+        },
+        {
+          "id": "captions",
+          "name": {
+            "it": "Correggere e sincronizzare i sottotitoli",
+            "en": "Correct and sync captions"
+          },
+          "paid": [
+            "Camtasia"
+          ],
+          "options": [
+            {
+              "app": "subtitle-edit",
+              "use": {
+                "it": "Adatta il testo al parlato e controlla il sincronismo sulla forma d’onda.",
+                "en": "Match captions to the spoken words and check timing against the waveform."
+              },
+              "source": "https://subtitleedit.github.io/subtitleedit/overview.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "digital-media-library",
+      "name": {
+        "it": "Biblioteca digitale",
+        "en": "Digital media library"
+      },
+      "description": {
+        "it": "Organizza film, musica ed ebook, prepara i file per i tuoi dispositivi e conserva una copia di sicurezza.",
+        "en": "Organize films, music and ebooks, prepare files for your devices and keep a backup."
+      },
+      "steps": [
+        {
+          "id": "films",
+          "name": {
+            "it": "Catalogare e riprodurre film",
+            "en": "Catalog and play films"
+          },
+          "paid": [
+            "Plex Pass"
+          ],
+          "options": [
+            {
+              "app": "jellyfin",
+              "use": {
+                "it": "Organizza film e serie per libreria e riproducili da un server che gestisci tu.",
+                "en": "Organize films and shows into libraries and stream them from your own server."
+              },
+              "source": "https://jellyfin.org/docs/general/quick-start/"
+            },
+            {
+              "app": "vlc",
+              "use": {
+                "it": "Riproduci un file locale o apri un flusso di rete da un indirizzo.",
+                "en": "Play a local file or open a network stream from its address."
+              },
+              "source": "https://docs.videolan.me/vlc-user/desktop/3.0/en/basic/media.html"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "name": {
+            "it": "Ascoltare la propria musica",
+            "en": "Stream your music collection"
+          },
+          "paid": [
+            "Audirvāna Origin"
+          ],
+          "options": [
+            {
+              "app": "navidrome",
+              "use": {
+                "it": "Ascolta la tua collezione dal browser o da un client compatibile con Subsonic.",
+                "en": "Listen to your collection in a browser or a Subsonic-compatible client."
+              },
+              "source": "https://www.navidrome.org/docs/overview/"
+            }
+          ]
+        },
+        {
+          "id": "convert",
+          "name": {
+            "it": "Convertire più video in coda",
+            "en": "Convert multiple videos in a queue"
+          },
+          "paid": [
+            "Adobe Media Encoder"
+          ],
+          "options": [
+            {
+              "app": "handbrake",
+              "use": {
+                "it": "Imposta i formati di uscita e accoda più conversioni video.",
+                "en": "Choose output settings and queue several video conversions."
+              },
+              "source": "https://handbrake.fr/docs/en/latest/advanced/queue.html"
+            }
+          ]
+        },
+        {
+          "id": "subtitles",
+          "name": {
+            "it": "Correggere i sottotitoli",
+            "en": "Fix subtitles"
+          },
+          "paid": [
+            "EZTitles"
+          ],
+          "options": [
+            {
+              "app": "subtitle-edit",
+              "use": {
+                "it": "Correggi i tempi dei sottotitoli con l’anteprima video ed esporta in SRT o WebVTT.",
+                "en": "Fix subtitle timing against the video and export as SRT or WebVTT."
+              },
+              "source": "https://subtitleedit.github.io/subtitleedit/faq.html"
+            }
+          ]
+        },
+        {
+          "id": "ebooks",
+          "name": {
+            "it": "Organizzare gli ebook",
+            "en": "Organize ebooks"
+          },
+          "paid": [
+            "BookFusion Advanced"
+          ],
+          "options": [
+            {
+              "app": "calibre",
+              "use": {
+                "it": "Correggi copertine e metadati, converti gli ebook e trasferiscili al lettore.",
+                "en": "Edit ebook covers and metadata, convert formats and send books to your reader."
+              },
+              "source": "https://manual.calibre-ebook.com/gui.html"
+            }
+          ]
+        },
+        {
+          "id": "backup",
+          "name": {
+            "it": "Creare una copia di sicurezza",
+            "en": "Back up the collection"
+          },
+          "paid": [
+            "Backblaze Computer Backup"
+          ],
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Salva copie cifrate su un disco o su una destinazione di rete e ripristina versioni precedenti.",
+                "en": "Save encrypted snapshots to a drive or network destination and restore earlier versions."
+              },
+              "source": "https://kopia.io/docs/features/"
+            }
+          ]
+        }
       ]
     }
   ],
@@ -69,7 +3121,7 @@
       "source":"https://xdapolidesign.com/wp-content/uploads/2026/09/Stato-UX-Italia-2026-Experience-Design-Academy.pdf#page=39",
       "publisher":"POLI.design · Experience Design Academy",
       "entries":[
-        {"paid":"Figma","value":91,"apps":["figcraft","doop","penpot"],"compare":"figma"},
+        {"paid":"Figma","value":91,"apps":["figcraft","doop","openpencil","penpot"],"compare":"figma"},
         {"paid":"Adobe Illustrator","value":29,"apps":["inks","vectorcraft"],"compare":"illustrator"},
         {"paid":"Adobe Photoshop","value":25,"apps":["gimp","photocraft","krita"],"compare":"photoshop"},
         {"paid":"Adobe InDesign","value":6,"apps":["scribus","designcraft"]}
@@ -99,7 +3151,7 @@
       "publisher":"Moss",
       "entries":[
         {"paid":"Adobe · suite","value":68.4,"apps":["gimp","photocraft","inks","vectorcraft","scribus","designcraft"]},
-        {"paid":"Figma","value":35.7,"apps":["figcraft","doop","penpot"],"compare":"figma"}
+        {"paid":"Figma","value":35.7,"apps":["figcraft","doop","openpencil","penpot"],"compare":"figma"}
       ]
     }
   ]

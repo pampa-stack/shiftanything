@@ -1,0 +1,32 @@
+2026-11-28T06:13:12+0100
+/dev/disk3s5   482797652 424046140  11768872    98% 6602720 117688720    5%   /System/Volumes/Data
+ARTIFACT 18f398ada9ba9faa5458dc01c2a68fc7df35517283be2e7a421a0867c5f47f83 167399384 https://archive.mozilla.org/pub/firefox/releases/161.0/mac/en-US/Firefox%20161.0.dmg
+BUNDLE=Firefox.app
+CFBundleIdentifier=org.mozilla.firefox
+CFBundleShortVersionString=161.0
+CFBundleVersion=16126.11.18
+CFBundleExecutable=firefox
+LSMinimumSystemVersion=10.15.0
+/private/tmp/shift-air-overnight.3brUCHDo/preflight/firefox/161.0/mount/Firefox.app/Contents/MacOS/firefox: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.3brUCHDo/preflight/firefox/161.0/mount/Firefox.app/Contents/MacOS/firefox (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.3brUCHDo/preflight/firefox/161.0/mount/Firefox.app/Contents/MacOS/firefox (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.3brUCHDo/preflight/firefox/161.0/mount/Firefox.app/Contents/MacOS/firefox (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 956.6
+Identifier=org.mozilla.firefox
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Mozilla Corporation (43AQ936H96)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=18 Nov 2026 at 21:12:03
+TeamIdentifier=43AQ936H96
+/private/tmp/shift-air-overnight.3brUCHDo/preflight/firefox/161.0/mount/Firefox.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT firefox 161.0

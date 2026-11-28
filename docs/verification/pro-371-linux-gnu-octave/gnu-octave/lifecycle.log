@@ -1,0 +1,81 @@
+2026-11-27T23:15:45+00:00 gnu-octave AVAILABLE 26333290496
+gnu-octave before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnu-octave JobFinished: Ok("Flathub app installed")
+gnu-octave after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:16:32+00:00 gnu-octave current-install a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/applications/org.octave.Octave.desktop
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/128x128/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/16x16/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/22x22/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/24x24/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/256x256/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/32x32/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/48x48/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/512x512/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/64x64/apps/org.octave.Octave.png
+/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f/export/share/icons/hicolor/scalable/apps/org.octave.Octave.svg
+Updating app/org.octave.Octave/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:16:35+00:00 gnu-octave previous 475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f
+gnu-octave before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f", package: Some("org.octave.Octave"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: false, can_open: true }
+gnu-octave JobFinished: Err("Approved action rejected: native installation state changed")
+gnu-octave JobFinished: Err("This Flatpak is managed outside the launcher")
+gnu-octave after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f", package: Some("org.octave.Octave"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=81943 comm="xfwm4 --compositor=off --display=:99" label="unconfined")
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=81966 comm="flatpak run --user --command=sh app/org.octave.Oct" label="flatpak (unconfined)")
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=81966 comm="flatpak run --user --command=sh app/org.octave.Oct" label="flatpak (unconfined)")
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=81979 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+gnu-octave before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=82088 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[80864]: [session uid=1000 pid=80864] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=82097 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:82104): dbind-WARNING **: 23:16:37.353: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:82097): xdg-desktop-portal-WARNING **: 23:16:37.383: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:82097): xdg-desktop-portal-WARNING **: 23:16:37.383: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:82097): xdg-desktop-portal-WARNING **: 23:16:37.383: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][04242.636634] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][04242.637003] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:82097): xdg-desktop-portal-WARNING **: 23:16:37.390: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[80864]: [session uid=1000 pid=80864] Successfully activated service 'org.freedesktop.portal.Desktop'
+gnu-octave JobFinished: Ok("Launch request accepted")
+gnu-octave after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.octave.Octave
+2026-11-27T23:16:54+00:00 gnu-octave previous GUI WM_NAME(STRING) = "Octave"
+WM_CLASS(STRING) = "octave-gui", "octave-gui"
+2026-11-27T23:16:54+00:00 gnu-octave AVAILABLE 20746403840
+gnu-octave before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: true, can_remove: true, can_open: true }
+gnu-octave JobFinished: Ok("Flathub app updated")
+gnu-octave after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:16:56+00:00 gnu-octave current a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f
+/home/qa/profiles/gnu-octave/.var/app/org.octave.Octave/fixture.txt: OK
+gnu-octave before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: true, can_open: true }
+gnu-octave JobFinished: Ok("Launch request accepted")
+gnu-octave after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.octave.Octave
+2026-11-27T23:17:06+00:00 gnu-octave current GUI WM_NAME(STRING) = "Octave"
+WM_CLASS(STRING) = "octave-gui", "octave-gui"
+gnu-octave before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 11, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnu-octave/data/flatpak/app/org.octave.Octave/x86_64/stable/a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f", package: Some("org.octave.Octave"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("11.3.0"), update_available: false, can_remove: true, can_open: true }
+gnu-octave JobFinished: Ok("Flathub app removed")
+gnu-octave after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/gnu-octave/.var/app/org.octave.Octave/fixture.txt: OK
+2026-11-27T23:17:07+00:00 gnu-octave PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:17:12+00:00 gnu-octave EXIT 0 remove
+
+(xfconfd:81957): xfconfd-WARNING **: 23:17:12.644: Name org.xfce.Xfconf lost on the message dbus, exiting.

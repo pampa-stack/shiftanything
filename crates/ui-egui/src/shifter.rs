@@ -252,13 +252,6 @@ impl LauncherUi {
     fn shifter_results(&mut self, ui: &mut Ui, profile: &shifter::Profile, language: &str) {
         let selected = self.comparison.selected.clone();
         let required = self.comparison.required.clone();
-        let scores = match profile.compare(&selected, &required) {
-            Ok(scores) => scores,
-            Err(error) => {
-                ui.label(error);
-                return;
-            }
-        };
         let tokens = crate::theme::Tokens::get(ui.ctx());
         egui::Frame::new().fill(tokens.sunken).stroke(egui::Stroke::new(1.0, tokens.line)).inner_margin(12).show(ui, |ui| {
             ui.horizontal(|ui| {
@@ -270,8 +263,19 @@ impl LauncherUi {
             ui.separator();
             if selected.is_empty() {
                 ui.label(tl!("Select at least one feature. No percentage is calculated."));
+                return;
             }
+            let scores = match profile.compare(&selected, &required) {
+                Ok(scores) => scores,
+                Err(error) => {
+                    ui.label(error);
+                    return;
+                }
+            };
             let (rows, search_changed) = self.shifter_result_search(ui, scores);
+            if rows.is_empty() {
+                return;
+            }
             let width = ui.available_width();
             let mut table = TableBuilder::new(ui)
                 .id_salt(("shifter-results", &profile.id))
@@ -318,8 +322,6 @@ impl LauncherUi {
                             if let Some(coverage) = score.coverage {
                                 ui.label(RichText::new(format!("{coverage}%")).size(18.0).strong().color(tokens.good));
                                 ui.label(format!("{}/{}", score.supported, selected.len()));
-                            } else {
-                                ui.label("—").on_hover_text(tl!("No verified evidence"));
                             }
                         });
                         if !required.is_empty() {
@@ -443,7 +445,13 @@ impl LauncherUi {
         }
     }
 
-    fn shifter_result_search(&mut self, ui: &mut Ui, scores: Vec<shifter::Score>) -> (Vec<(shifter::Score, &'static curated::App)>, bool) {
+    fn shifter_result_search(&mut self, ui: &mut Ui, mut scores: Vec<shifter::Score>) -> (Vec<(shifter::Score, &'static curated::App)>, bool) {
+        scores.retain(shifter::Score::has_positive_coverage);
+        if scores.is_empty() {
+            let status = ui.label(tl!("No alternatives have documented full support for any selected feature."));
+            ui.ctx().accesskit_node_builder(status.id, |node| node.set_live(egui::accesskit::Live::Polite));
+            return (Vec::new(), false);
+        }
         let mut search_changed = false;
         let rows = ui
             .horizontal(|ui| {
@@ -453,7 +461,7 @@ impl LauncherUi {
                     .changed();
                 let total = scores.len();
                 let rows = comparison_rows(scores, &self.comparison.app_query);
-                let count = ui.label(format!("{} · {}/{}", tl!("All apps"), rows.len(), total));
+                let count = ui.label(format!("{}/{}", rows.len(), total));
                 ui.ctx().accesskit_node_builder(count.id, |node| node.set_live(egui::accesskit::Live::Polite));
                 rows
             })
@@ -465,6 +473,10 @@ impl LauncherUi {
     }
 
     fn shifter_manual_results(&mut self, ui: &mut Ui, data: &shifter::Dataset, language: &str) {
+        if self.comparison.manual_features.is_empty() {
+            ui.label(tl!("Select at least one feature. No percentage is calculated."));
+            return;
+        }
         let scores = match data.compare_manual(&[], &self.comparison.manual_features, &self.comparison.manual_required) {
             Ok(scores) => scores,
             Err(error) => {
@@ -473,8 +485,8 @@ impl LauncherUi {
             }
         };
         let (rows, search_changed) = self.shifter_result_search(ui, scores);
-        if self.comparison.manual_features.is_empty() {
-            ui.label(tl!("Select at least one feature. No percentage is calculated."));
+        if rows.is_empty() {
+            return;
         }
         let features = &self.comparison.manual_features;
         let required = &self.comparison.manual_required;
@@ -521,8 +533,6 @@ impl LauncherUi {
                         row.col(|ui| {
                             if let Some(coverage) = score.coverage {
                                 ui.label(format!("{coverage}% · {}/{}", score.supported, features.len()));
-                            } else {
-                                ui.label("—").on_hover_text(tl!("No verified evidence"));
                             }
                         });
                         if !required.is_empty() {

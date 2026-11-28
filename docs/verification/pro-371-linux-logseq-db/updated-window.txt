@@ -1,0 +1,5 @@
+Logseq
+Window 4194307
+  Position: 150,100 (screen: 0)
+  Geometry: 980x700
+WM_CLASS(STRING) = "logseq", "logseq"

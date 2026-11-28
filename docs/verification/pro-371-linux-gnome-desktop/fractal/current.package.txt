@@ -1,0 +1,20 @@
+
+Fractal - Chat on Matrix
+
+          ID: org.gnome.Fractal
+         Ref: app/org.gnome.Fractal/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 14.3
+     License: GPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 79.7 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb
+      Parent: 079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42
+     Subject: Fractal 14.3 (bb3847d0ecca)
+        Date: 2026-10-26 16:17:26 +0000

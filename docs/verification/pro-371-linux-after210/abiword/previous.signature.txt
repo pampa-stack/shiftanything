@@ -1,0 +1,19 @@
+commit c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6
+Parent:  36d3cab2ce4207891d96c68b90ed18e65d5c23b5212c0a21a3d22faa2cbf1f97
+ContentChecksum:  9e00847f699ed1390296ad5a555fafad7c40bcda4804fe145d74847a1b79b60b
+Date:  2026-09-23 16:38:37 +0000
+
+    Update gsf and goffice modules (55dcdad66df2)
+
+    Name: com.abisource.AbiWord
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Sep 23 17:04:07 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

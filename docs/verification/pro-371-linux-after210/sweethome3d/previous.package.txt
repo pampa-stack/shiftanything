@@ -1,0 +1,20 @@
+
+Sweet Home 3D - Interior Design Application
+
+          ID: com.sweethome3d.Sweethome3d
+         Ref: app/com.sweethome3d.Sweethome3d/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 7.5
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 150.8 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f
+      Parent: 88b660a8d550c01ccfd47a12feaf598a805a0b45ea5032eb4e65aec2e4046e15
+     Subject: Remove unverified disclaimer (5ec2ec86d5b3)
+        Date: 2026-07-18 10:25:02 +0000

@@ -1,0 +1,19 @@
+commit 2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145
+Parent:  fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0
+ContentChecksum:  9e8cbcdf9dd7a83f5e48832cf075d8260e64a15f8786670bd44f63c15fc2a305
+Date:  2026-11-11 18:28:24 +0000
+
+    Merge pull request #120 from flathub/update-master-568dc29 (8577dcebe102)
+
+    Name: org.scilab.Scilab
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 11 19:07:20 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,19 @@
+commit 7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f
+Parent:  88b660a8d550c01ccfd47a12feaf598a805a0b45ea5032eb4e65aec2e4046e15
+ContentChecksum:  430c0e8ea97372f2dc721833ea0ce4ee0a859474806059ce4b18f2ee81dd5b5f
+Date:  2026-07-18 10:25:02 +0000
+
+    Remove unverified disclaimer (5ec2ec86d5b3)
+
+    Name: com.sweethome3d.Sweethome3d
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jul 18 11:01:33 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

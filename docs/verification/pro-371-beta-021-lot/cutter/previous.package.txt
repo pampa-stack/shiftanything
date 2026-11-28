@@ -1,0 +1,21 @@
+
+Cutter - Free and Open Source Reverse Engineering Platform powered by Rizin and
+Qt
+
+          ID: re.rizin.cutter
+         Ref: app/re.rizin.cutter/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.4.1
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 173.0 MB
+     Runtime: org.kde.Platform/x86_64/6.9
+         Sdk: org.kde.Sdk/x86_64/6.9
+
+      Commit: a4d4d4f7977c6e741f97f300ac1442a5b2e60e5ab4d8af009574402ea5091d84
+      Parent: db81739123d1377288b703fb44d8992c7729948859124a694319ced1ecc1dda6
+     Subject: Merge pull request #13 from flathub/v2.4.1 (1a30c3139574)
+        Date: 2025-06-05 14:42:54 +0000

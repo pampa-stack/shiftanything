@@ -1,0 +1,76 @@
+2026-11-28T11:26:43+00:00 siyuan AVAILABLE 22052298752
+siyuan before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+siyuan JobFinished: Ok("Flathub app installed")
+siyuan after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 11 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.11"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:26:49+00:00 siyuan current-install f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998
+/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998/export/share/applications/org.b3log.siyuan.desktop
+/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998/export/share/icons/hicolor/512x512/apps/org.b3log.siyuan.png
+Updating app/org.b3log.siyuan/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:26:58+00:00 siyuan previous 93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685
+siyuan before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685", package: Some("org.b3log.siyuan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.10"), update_available: false, can_remove: false, can_open: true }
+siyuan JobFinished: Err("Approved action rejected: native installation state changed")
+siyuan JobFinished: Err("This Flatpak is managed outside the launcher")
+siyuan after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685", package: Some("org.b3log.siyuan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.10"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.Flatpak' requested by ':1.4' (uid=1000 pid=9467 comm="flatpak run --user --command=sh app/org.b3log.siyu" label="flatpak (unconfined)")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.portal.Documents' requested by ':1.4' (uid=1000 pid=9467 comm="flatpak run --user --command=sh app/org.b3log.siyu" label="flatpak (unconfined)")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.xfce.Xfconf' requested by ':1.6' (uid=1000 pid=9451 comm="xfwm4 --compositor=off --display=:87" label="unconfined")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.7' (uid=1000 pid=9484 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+siyuan before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.10"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.12' (uid=1000 pid=9592 comm="xdg-dbus-proxy --args=41" label="flatpak (unconfined)")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.13' (uid=1000 pid=9605 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:9611): dbind-WARNING **: 11:26:59.452: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:9605): xdg-desktop-portal-WARNING **: 11:26:59.468: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:9605): xdg-desktop-portal-WARNING **: 11:26:59.468: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:9605): xdg-desktop-portal-WARNING **: 11:26:59.468: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:9605): xdg-desktop-portal-WARNING **: 11:26:59.473: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.portal.Desktop'
+
+(xdg-desktop-portal-gtk:9611): xdg-desktop-portal-gtk-WARNING **: 11:26:59.479: Unable to send notifications through org.freedesktop.Notifications: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+dbus-daemon[9102]: [session uid=1000 pid=9102] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.16' (uid=1000 pid=9592 comm="xdg-dbus-proxy --args=41" label="flatpak (unconfined)")
+dbus-daemon[9102]: [session uid=1000 pid=9102] Successfully activated service 'org.freedesktop.portal.Flatpak'
+siyuan JobFinished: Ok("Launch request accepted")
+siyuan after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.10"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.b3log.siyuan
+org.b3log.siyuan
+2026-11-28T11:27:10+00:00 siyuan previous GUI WM_NAME(UTF8_STRING) = "SiYuan - SiYuan v3.8.10"
+WM_CLASS(STRING) = "org.b3log.siyuan", "org.b3log.siyuan"
+2026-11-28T11:27:10+00:00 siyuan AVAILABLE 21190221824
+siyuan before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/93653ccc7f3977ea1e465d391a511f8c82368ef5d41af5ad781106ee326be685", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.10"), update_available: true, can_remove: true, can_open: true }
+siyuan JobFinished: Ok("Flathub app updated")
+siyuan after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 11 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.11"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:27:13+00:00 siyuan current f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998
+/home/qa/profiles/siyuan-after210/.var/app/org.b3log.siyuan/fixture.txt: OK
+siyuan before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 11 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.11"), update_available: false, can_remove: true, can_open: true }
+siyuan JobFinished: Ok("Launch request accepted")
+siyuan after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 11 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.11"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.b3log.siyuan
+org.b3log.siyuan
+2026-11-28T11:27:24+00:00 siyuan current GUI WM_NAME(UTF8_STRING) = "SiYuan - SiYuan v3.8.11"
+WM_CLASS(STRING) = "org.b3log.siyuan", "org.b3log.siyuan"
+siyuan before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 8, patch: 11 }), source: Flatpak, location: "/home/qa/profiles/siyuan-after210/data/flatpak/app/org.b3log.siyuan/x86_64/stable/f5eecc892815c9969ca6786d1aa1e7e35c890c8ef702191002f963806322f998", package: Some("org.b3log.siyuan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.8.11"), update_available: false, can_remove: true, can_open: true }
+siyuan JobFinished: Ok("Flathub app removed")
+siyuan after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/siyuan-after210/.var/app/org.b3log.siyuan/fixture.txt: OK
+2026-11-28T11:27:25+00:00 siyuan PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T11:27:25+00:00 siyuan EXIT 0 remove
+
+(xfconfd:9491): xfconfd-WARNING **: 11:27:25.474: Name org.xfce.Xfconf lost on the message dbus, exiting.

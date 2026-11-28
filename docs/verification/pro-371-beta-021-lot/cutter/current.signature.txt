@@ -1,0 +1,19 @@
+commit 5b78c303add5ae6fbe293ae1332b39e5e772225ddfcdc92f65cfe571be6ba500
+Parent:  a4d4d4f7977c6e741f97f300ac1442a5b2e60e5ab4d8af009574402ea5091d84
+ContentChecksum:  8e8c9555c8e5f6303eac859c043d06724977488de23810a91c66ac52c89b928c
+Date:  2026-09-22 15:34:04 +0000
+
+    feat: upgrade to 2.5.0 (ea7313398876)
+
+    Name: re.rizin.cutter
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Sep 22 16:20:48 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,23 @@
+HOST Linux x86_64
+UTC 2026-11-28T03:56:12+00:00
+PROFILE /var/tmp/shift-official-linux-profile.openwork-desktop.8tDUqFnn
+OFFICIAL different-ai/openwork 0.18.72 389084380 sha256=77185d1b68a5bddf7b6209723e5d65a7a75eda3892154a49aa63932c2a0e9e14
+PASS openwork-desktop install 4692ms: OpenWork installed: 0.18.72
+Exec="/fixture/home/Applications/openwork-linux-x86_64-0.18.72.AppImage" %F
+PASS openwork-desktop launch-old 0ms: Launch request accepted
+X11_WINDOW phase=launch-old title=OpenWork
+  Position: 50,0 (screen: 0)
+  Geometry: 1180x800
+X11_CAPTURED phase=launch-old
+OFFICIAL different-ai/openwork 0.18.73 389795831 sha256=90ab90d5c20d8b31389f3777001455316e21d91ca4ab0a7a89d46ecf2e833692
+PASS openwork-desktop update 4932ms: OpenWork updated to 0.18.73
+Exec="/fixture/home/Applications/openwork-linux-x86_64-0.18.73.AppImage" %F
+PASS openwork-desktop launch 0ms: Launch request accepted
+X11_WINDOW phase=launch title=OpenWork
+  Position: 50,0 (screen: 0)
+  Geometry: 1180x800
+X11_CAPTURED phase=launch
+PASS openwork-desktop uninstall 120ms: OpenWork was removed
+PASS openwork-desktop install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 35
+Temporary profile removed; test exit=0

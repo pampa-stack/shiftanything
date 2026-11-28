@@ -1,0 +1,12 @@
+Native Linux Flatpak tests on ad8968f plus a regression test, then with the reviewed fix and JASP recipe.
+test flatpak::linux::tests::corrects_stale_jasp_version_only_for_the_reviewed_flathub_commit ... FAILED
+  left: Some("0.98.1")
+ right: Some("0.99.0")
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 647 filtered out; finished in 0.00s
+  left: Some("0.98.1")
+ right: Some("0.99.0")
+RED VERSION REGRESSION REPRODUCED
+test flatpak::linux::tests::corrects_stale_jasp_version_only_for_the_reviewed_flathub_commit ... ok
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 638 filtered out; finished in 0.00s
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 176 filtered out; finished in 0.01s
+PASS Linux JASP build ad8968f1b7d4e3fb8ed03b9898d6548f5966ceaf plus reviewed patch

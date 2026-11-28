@@ -1,0 +1,20 @@
+
+MMEX Money Manager - Organize finances and track cash flow
+
+          ID: org.moneymanagerex.MMEX
+         Ref: app/org.moneymanagerex.MMEX/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.9.3
+     License: GPL-2.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 57.6 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 8f8dffaf5bf8d529b98678353df4e2a1078554024ceb6699df6b970fb8ae23c2
+      Parent: f7e42fbaedec11351b73b3605ec1a5b6424f9a497ca30f949705abdc79e008f7
+     Subject: Update MMEX to v1.9.3 (#45) (8e65d167dc3b)
+        Date: 2026-08-20 03:59:10 +0000

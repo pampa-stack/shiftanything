@@ -1,0 +1,18 @@
+PASS PREFLIGHT craft-anything v0.6.0
+PASS PREFLIGHT craft-anything v0.6.1
+/dev/disk3s5   482797652 426514904   9299008    98% 6622742 92990080    7%   /System/Volumes/Data
+OFFICIAL INDEX craft-anything v0.6.0 digest=published
+OFFICIAL INDEX craft-anything v0.6.1 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v0.6.0 Dmg https://github.com/storytold/craft-anything/releases/download/v0.6.0/craft-anything-0.6.0-macos-universal.dmg 133747537 c88b5b128eb2e827d232a910c026c7b23bb4c7002cf0e2d32fff48fbb675d8b5
+PASS OFFICIAL v0.6.1 Dmg https://github.com/storytold/craft-anything/releases/download/v0.6.1/craft-anything-0.6.1-macos-universal.dmg 135621623 bbb777d221a4ffe693323c1b6e625f02e71bfa04d74d32a5d50c4542655ed664
+NATIVE ORIGIN craft-anything GitHub
+PASS OFFICIAL v0.6.0 Dmg https://github.com/storytold/craft-anything/releases/download/v0.6.0/craft-anything-0.6.0-macos-universal.dmg 133747537 c88b5b128eb2e827d232a910c026c7b23bb4c7002cf0e2d32fff48fbb675d8b5
+PASS NATIVE craft-anything install: Craft Anything installed: 0.6.0; package_bytes=133747537; elapsed=32.392s
+NATIVE ORIGIN craft-anything ArtCraftApi
+PASS OFFICIAL v0.6.1 Dmg https://github.com/storytold/craft-anything/releases/download/v0.6.1/craft-anything-0.6.1-macos-universal.dmg 135621623 bbb777d221a4ffe693323c1b6e625f02e71bfa04d74d32a5d50c4542655ed664
+PASS NATIVE craft-anything update: Craft Anything updated to 0.6.1; package_bytes=135621623; elapsed=19.464s
+PASS NATIVE craft-anything remove: Craft Anything was removed; package_bytes=0; elapsed=0.122s
+PASS NATIVE CYCLE craft-anything (v0.6.0 → v0.6.1), private Trash and synthetic data preserved

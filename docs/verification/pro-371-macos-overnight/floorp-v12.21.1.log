@@ -1,0 +1,32 @@
+2026-11-28T07:18:50+0100
+/dev/disk3s5   482797652 424939096  10874860    98% 6612359 108748600    6%   /System/Volumes/Data
+ARTIFACT e3520c1f553319ff704a821cbcc72dae49e544459843ba2e8fadaff8ce370629 260513224 https://github.com/Floorp-Projects/Floorp/releases/download/v12.21.1/floorp-macOS-universal.dmg
+BUNDLE=Floorp.app
+CFBundleIdentifier=app.floorp.Floorp
+CFBundleShortVersionString=12.21.1@159.0.1
+CFBundleVersion=1226.11.3
+CFBundleExecutable=floorp
+LSMinimumSystemVersion=10.15.0
+<proof>/preflight/floorp/v12.21.1/mount/Floorp.app/Contents/MacOS/floorp: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+<proof>/preflight/floorp/v12.21.1/mount/Floorp.app/Contents/MacOS/floorp (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<proof>/preflight/floorp/v12.21.1/mount/Floorp.app/Contents/MacOS/floorp (for architecture arm64):	Mach-O 64-bit executable arm64
+<proof>/preflight/floorp/v12.21.1/mount/Floorp.app/Contents/MacOS/floorp (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 22.1.8
+Identifier=app.floorp.Floorp
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Ryousuke Asano (DV2U35YBHT)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=4 Nov 2026 at 00:22:37
+TeamIdentifier=DV2U35YBHT
+<proof>/preflight/floorp/v12.21.1/mount/Floorp.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT floorp v12.21.1

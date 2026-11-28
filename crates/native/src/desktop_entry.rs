@@ -22,6 +22,16 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         return (meta.desktop_categories.as_str(), Some(meta.startup_wm_class.as_str()));
     }
     match app.id {
+        "opencode" => ("Development;", Some("ai.opencode.desktop")),
+        "orca" => ("Development;IDE;", Some("orca")),
+        "dust3d" => ("Graphics;", Some("Dust3D")),
+        "rawtherapee" => ("Graphics;Photography;", None),
+        "mister-download-manager" => ("Network;FileTransfer;", None),
+        "openpencil" => ("Graphics;", Some("OpenPencil")),
+        "ultimaker-cura" => ("Graphics;3DGraphics;Engineering;", Some("UltiMaker-Cura")),
+        "paseo" => ("Development;", Some("Paseo")),
+        "t3code" => ("Development;", Some("com.t3tools.T3Code")),
+        "voice-studio" => ("Audio;", Some("VoiceStudio")),
         "pencil2d" => ("Graphics;2DGraphics;VectorGraphics;RasterGraphics;Qt;", Some("Pencil2D")),
         "openshot-video-editor" => ("GNOME;GTK;AudioVideo;Video;AudioVideoEditing;", Some("openshot")),
         "musescore" => ("AudioVideo;Audio;Music;Qt;", Some("MuseScore4")),
@@ -32,8 +42,11 @@ pub fn meta(app: &CraftApp) -> (&'static str, Option<&'static str>) {
         "audacity" => ("AudioVideo;Audio;AudioVideoEditing;", Some("Audacity4")),
         "drawio" => ("Graphics;", Some("draw-io")),
         "nextcloud-desktop" => ("Utility;X-SuSE-SyncUtility;", Some("Nextcloud")),
+        "neovide" => ("Development;TextEditor;", Some("neovide")),
+        "openscreen" => ("AudioVideo;Video;Recorder;", Some("openscreen")),
         "cryptomator" => ("Utility;Security;FileTools;", Some("org.cryptomator.launcher.Cryptomator$MainApp")),
         "joplin" => ("Office;", Some("appimagekit-joplin")),
+        "logseq-db" => ("Office;", Some("logseq")),
         "notepadnext" => ("Qt;TextEditor;Utility;", Some("NotepadNext")),
         "rapidraw" => ("Graphics;Photography;", Some("RapidRAW")),
         "rustdesk" => ("Utility;Network;", Some("rustdesk")),
@@ -230,6 +243,16 @@ mod tests {
         // The spec forbids `=` in the executable name or path, even quoted.
         assert_eq!(exec_quote(Path::new("/opt/artcraft=beta/app")), None);
         assert!(render(app("photocraft"), Path::new("/a/line\nbreak.AppImage"), true).is_none());
+    }
+
+    #[test]
+    fn desktop_entries_match_their_x11_windows() {
+        for (id, class) in [("neovide", "neovide"), ("openscreen", "openscreen"), ("logseq-db", "logseq")] {
+            let app = app(id);
+            let text = render(app, Path::new("/home/ana/Applications/app.AppImage"), true).unwrap();
+            assert!(text.lines().any(|line| line.strip_prefix("StartupWMClass=") == Some(class)));
+            assert!(text.lines().any(|line| line.strip_prefix("Icon=") == Some(app.linux_desktop_id().as_str())));
+        }
     }
 
     #[test]

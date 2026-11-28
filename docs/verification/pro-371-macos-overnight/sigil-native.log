@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL 2.8.1 MacTarXz https://github.com/Sigil-Ebook/Sigil/releases/download/2.8.1/Sigil.app-2.8.1-Mac-arm64.txz 129467312 285addb9abee1d69c913d6a6b504240946b5274fd2193942ed59697536279afe
+PASS OFFICIAL 2.8.6 MacTarXz https://github.com/Sigil-Ebook/Sigil/releases/download/2.8.6/Sigil.app-2.8.6-Mac-arm64.txz 132137600 3be3be094745dfec892a02ac2f8d90934d4da2dc595ec1a95a8525f9ad27efd6
+NATIVE ORIGIN sigil GitHub
+PASS OFFICIAL 2.8.1 MacTarXz https://github.com/Sigil-Ebook/Sigil/releases/download/2.8.1/Sigil.app-2.8.1-Mac-arm64.txz 129467312 285addb9abee1d69c913d6a6b504240946b5274fd2193942ed59697536279afe
+PASS NATIVE sigil install: Sigil installed: 2.8.1; package_bytes=129467312; elapsed=39.679s
+/private/tmp/shift-air-overnight.5kVCoTMQ/profile-sigil.Rrg6lBPR/Applications/Sigil.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kevin Hendricks (2SMCVQU3CJ)
+PASS NATIVE sigil open: Launch request accepted
+PASS OPEN AND CLOSE Sigil executable in the isolated profile
+NATIVE ORIGIN sigil GitHub
+PASS OFFICIAL 2.8.6 MacTarXz https://github.com/Sigil-Ebook/Sigil/releases/download/2.8.6/Sigil.app-2.8.6-Mac-arm64.txz 132137600 3be3be094745dfec892a02ac2f8d90934d4da2dc595ec1a95a8525f9ad27efd6
+PASS NATIVE sigil update: Sigil updated to 2.8.6; package_bytes=132137600; elapsed=36.926s
+/private/tmp/shift-air-overnight.5kVCoTMQ/profile-sigil.Rrg6lBPR/Applications/Sigil.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kevin Hendricks (2SMCVQU3CJ)
+PASS NATIVE sigil open: Launch request accepted
+PASS OPEN AND CLOSE Sigil executable in the isolated profile
+PASS NATIVE sigil remove: Sigil was removed; package_bytes=0; elapsed=0.200s
+PASS NATIVE CYCLE sigil (2.8.1 → 2.8.6), private Trash and synthetic data preserved

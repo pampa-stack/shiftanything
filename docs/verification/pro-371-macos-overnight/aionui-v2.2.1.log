@@ -1,0 +1,29 @@
+2026-11-28T09:29:43+0100
+ARTIFACT e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648 289988054 https://static.aionui.com/releases/2.2.1/AionUi-2.2.1-mac-arm64.dmg
+BUNDLE=AionUi.app
+CFBundleIdentifier=com.aionui.app
+CFBundleShortVersionString=2.2.1
+CFBundleVersion=2.2.1
+CFBundleExecutable=AionUi
+LSMinimumSystemVersion=11.0
+<fixture>/preflight/aionui/v2.2.1/mount/AionUi.app/Contents/MacOS/AionUi: Mach-O 64-bit executable arm64
+<fixture>/preflight/aionui/v2.2.1/mount/AionUi.app/Contents/MacOS/AionUi (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.4
+   ntools 1
+     tool 4
+  version 21.0
+Identifier=com.aionui.app
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: AionUi Inc. (52JQX2HUSC)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=1 Sep 2026 at 12:25:26
+TeamIdentifier=52JQX2HUSC
+<fixture>/preflight/aionui/v2.2.1/mount/AionUi.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT aionui v2.2.1

@@ -1,0 +1,88 @@
+2026-11-28T07:33:18+00:00 openttd AVAILABLE 27434520576
+openttd before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+openttd JobFinished: Ok("Flathub app installed")
+openttd after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T07:33:36+00:00 openttd current-install d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/applications/org.openttd.OpenTTD.desktop
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/128x128/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/16x16/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/256x256/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/32x32/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/48x48/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/64x64/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/scalable/apps/org.openttd.OpenTTD.svg
+Updating app/org.openttd.OpenTTD/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T07:33:37+00:00 openttd previous 04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f
+openttd before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f", package: Some("org.openttd.OpenTTD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: false, can_open: true }
+openttd JobFinished: Err("Approved action rejected: native installation state changed")
+openttd JobFinished: Err("This Flatpak is managed outside the launcher")
+openttd after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f", package: Some("org.openttd.OpenTTD"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=4768 comm="xfwm4 --compositor=off --display=:88" label="unconfined")
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=4781 comm="flatpak run --user --command=sh app/org.openttd.Op" label="flatpak (unconfined)")
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=4781 comm="flatpak run --user --command=sh app/org.openttd.Op" label="flatpak (unconfined)")
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=4807 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+openttd before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.12' (uid=1000 pid=4907 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[4328]: [session uid=1000 pid=4328] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.13' (uid=1000 pid=4914 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:4920): dbind-WARNING **: 07:33:39.055: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:39.069: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:39.070: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:39.070: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00328.788218] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00328.788509] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:39.074: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[4328]: [session uid=1000 pid=4328] Successfully activated service 'org.freedesktop.portal.Desktop'
+
+(xdg-desktop-portal-gtk:4920): xdg-desktop-portal-gtk-WARNING **: 07:33:39.085: Backend call failed: Cannot invoke method; proxy is for the well-known name org.freedesktop.ScreenSaver without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+
+(xdg-desktop-portal-gtk:4920): xdg-desktop-portal-gtk-WARNING **: 07:33:39.174: Backend call failed: Cannot invoke method; proxy is for the well-known name org.freedesktop.ScreenSaver without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:39.298: Realtime error: Could not map tid: Process ids could not be found: 19
+openttd JobFinished: Ok("Launch request accepted")
+openttd after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.openttd.OpenTTD
+2026-11-28T07:33:49+00:00 openttd previous GUI WM_NAME(STRING) = "OpenTTD 15.3"
+WM_CLASS(STRING) = "openttd", "openttd"
+2026-11-28T07:33:49+00:00 openttd AVAILABLE 25095680000
+openttd before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: true, can_remove: true, can_open: true }
+openttd JobFinished: Ok("Flathub app updated")
+openttd after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T07:33:50+00:00 openttd current d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc
+/home/qa/profiles/openttd-after210/.var/app/org.openttd.OpenTTD/fixture.txt: OK
+openttd before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: true, can_open: true }
+
+(xdg-desktop-portal-gtk:4920): xdg-desktop-portal-gtk-WARNING **: 07:33:50.794: Backend call failed: Cannot invoke method; proxy is for the well-known name org.freedesktop.ScreenSaver without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+
+(/usr/libexec/xdg-desktop-portal:4914): xdg-desktop-portal-WARNING **: 07:33:50.934: Realtime error: Could not map tid: Process ids could not be found: 14
+openttd JobFinished: Ok("Launch request accepted")
+openttd after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.openttd.OpenTTD
+2026-11-28T07:34:00+00:00 openttd current GUI WM_NAME(STRING) = "OpenTTD 15.3"
+WM_CLASS(STRING) = "openttd", "openttd"
+openttd before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 15, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc", package: Some("org.openttd.OpenTTD"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("15.3"), update_available: false, can_remove: true, can_open: true }
+openttd JobFinished: Ok("Flathub app removed")
+openttd after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/openttd-after210/.var/app/org.openttd.OpenTTD/fixture.txt: OK
+2026-11-28T07:34:01+00:00 openttd PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T07:34:02+00:00 openttd EXIT 0 remove
+
+(xfconfd:4793): xfconfd-WARNING **: 07:34:02.352: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,0 +1,19 @@
+commit a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae
+Parent:  7a03713c7595d6babaa617cddabf4e1fd6e65e85206ef973c35bab59468eca53
+ContentChecksum:  68dd85debbecb82063f3d3f895a2c95b00f5593215e27f6f15cebe50aa3eb905
+Date:  2026-04-08 21:34:41 +0000
+
+    Added patch to fix thumbnailing failures (afb1be81a006)
+
+    Name: org.pitivi.Pitivi
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Wed Apr  8 22:05:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,2 @@
+WM_NAME(UTF8_STRING) = "Bruno"
+WM_CLASS(STRING) = "bruno", "bruno"

@@ -1,0 +1,20 @@
+
+Transmission - Download and share files over BitTorrent
+
+          ID: com.transmissionbt.Transmission
+         Ref: app/com.transmissionbt.Transmission/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.1.4
+     License: GPL-2.0 OR GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 19.9 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7
+      Parent: cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23
+     Subject: Merge pull request #113 from flathub/fix-release-date (37cb5eff09a2)
+        Date: 2026-10-25 21:38:13 +0000

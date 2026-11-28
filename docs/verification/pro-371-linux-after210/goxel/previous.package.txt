@@ -1,0 +1,20 @@
+
+Goxel - Open Source 3D voxel editor
+
+          ID: io.github.guillaumechereau.Goxel
+         Ref: app/io.github.guillaumechereau.Goxel/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 0.13.0
+     License: GPL-3.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 5.7 MB
+     Runtime: org.freedesktop.Platform/x86_64/23.08
+         Sdk: org.freedesktop.Sdk/x86_64/23.08
+
+      Commit: 6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6
+      Parent: 6057a3f0eab79bcdf17c071b539b6e2e5d5b92147a0891a325eeb579a18a85ef
+     Subject: Update SCons-4.6.0.tar.gz to 4.7.0 (2c6d493b)
+        Date: 2024-03-19 01:53:14 +0000

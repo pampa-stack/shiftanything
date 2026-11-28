@@ -1,0 +1,19 @@
+commit ed9ec6ad3fc27db90080e2d992e6b56b9d132c5d8e28cb122471e4c19aa0607f
+Parent:  da94c7b31c06e00991f9360c061ca615d16a81a3743b4ab19cbf8f5de2b21b88
+ContentChecksum:  35dbb1a7e47654faaa5aaf2cf50d2b8da298a2d994d04f8e7318fa2cbff365b8
+Date:  2026-08-10 09:22:25 +0000
+
+    Merge pull request #46 from flathub/famistudio-453 (4625123e32f9)
+
+    Name: org.famistudio.FamiStudio
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Aug 10 10:36:06 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

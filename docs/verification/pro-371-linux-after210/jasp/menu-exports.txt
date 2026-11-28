@@ -1,0 +1,4 @@
+/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/applications/org.jaspstats.JASP.desktop
+/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/128x128/apps/org.jaspstats.JASP.png
+/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/64x64/apps/org.jaspstats.JASP.png
+/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/scalable/apps/org.jaspstats.JASP.svg

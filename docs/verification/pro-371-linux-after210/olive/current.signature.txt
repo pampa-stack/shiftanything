@@ -1,0 +1,19 @@
+commit 776fe513617aee65d95ea8a5fe9ed8207aef1977660c19d4fbf097a31fc8ded7
+Parent:  045dc74e197fbe4ce20c8cc0cb8a33511e1631b91253ca5ebba9f77e14780d26
+ContentChecksum:  86ed810915edf15b17911ccb59c0f23e7cb3cc4c5d8e5ca14f0907926534a6cb
+Date:  2026-07-13 13:04:30 +0000
+
+    Add more cleanup rules (3aabf2a5652b)
+
+    Name: org.olivevideoeditor.Olive
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Jul 13 13:51:01 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

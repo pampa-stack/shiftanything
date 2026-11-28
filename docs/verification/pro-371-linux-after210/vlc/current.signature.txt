@@ -1,0 +1,19 @@
+commit c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771
+Parent:  aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85
+ContentChecksum:  d39fd98e85db8c09edcd6a2ceff6a25e7777664b49b7a640f899abf89f9fc0e5
+Date:  2026-11-17 21:01:07 +0000
+
+    Fix ffmpeg version (a0f425f6a9a8)
+
+    Name: org.videolan.VLC
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 17 22:02:26 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

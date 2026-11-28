@@ -1,0 +1,2 @@
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6/export/share/applications/com.bespokesynth.BespokeSynth.desktop
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6/export/share/icons/hicolor/512x512/apps/com.bespokesynth.BespokeSynth.png

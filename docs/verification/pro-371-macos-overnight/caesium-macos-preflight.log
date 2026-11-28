@@ -1,0 +1,20 @@
+2026-11-28T10:52:22+0100
+ARTIFACT c6cec65bee37047e163d6d1337f15eae7a1327e19e1cb8cda19c28ed2480cfe0 29735451 https://github.com/Lymphatus/caesium-image-compressor/releases/download/v2.8.5/caesium-image-compressor-2.8.5-macos.dmg
+BUNDLE=Caesium Image Compressor.app
+CFBundleIdentifier=com.saerasoft.caesium
+CFBundleShortVersionString=2.8.5
+CFBundleVersion=2.8.5
+CFBundleExecutable=Caesium Image Compressor
+LSMinimumSystemVersion=12.0
+<read-only mount>/Caesium Image Compressor.app/Contents/MacOS/Caesium Image Compressor: Mach-O 64-bit executable x86_64
+RESULT caesium v2.8.5 1
+2026-11-28T10:52:45+0100
+ARTIFACT 21d0ffe4aff9d9d240a81ff28c485eac9b88667edc6cb65516de717d5e700980 29744597 https://github.com/Lymphatus/caesium-image-compressor/releases/download/v2.8.4/caesium-image-compressor-2.8.4-macos.dmg
+BUNDLE=Caesium Image Compressor.app
+CFBundleIdentifier=com.saerasoft.caesium
+CFBundleShortVersionString=2.8.4
+CFBundleVersion=2.8.4
+CFBundleExecutable=Caesium Image Compressor
+LSMinimumSystemVersion=10.15
+<read-only mount>/Caesium Image Compressor.app/Contents/MacOS/Caesium Image Compressor: Mach-O 64-bit executable x86_64
+RESULT caesium v2.8.4 1

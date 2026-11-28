@@ -1,0 +1,18 @@
+PASS PREFLIGHT element 1.12.35
+PASS PREFLIGHT element 1.12.36
+/dev/disk3s5   482797652 424157240  11656740    98% 6606057 116567400    5%   /System/Volumes/Data
+OFFICIAL INDEX element 1.12.35 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX element 1.12.36 digest=computed, signer/notarization corroborated
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL 1.12.35 Dmg https://packages.element.io/desktop/install/macos/Element-1.12.35-universal.dmg 308561528 374a19159a7108128ea6bbcaca30c4909249f41068edb01746669a05db65e276
+PASS OFFICIAL 1.12.36 Dmg https://packages.element.io/desktop/install/macos/Element-1.12.36-universal.dmg 309305729 01133c2196702d6bd3587a65b0c29fac166facbe10c38e2ddf4b2366487120cb
+NATIVE ORIGIN element Element
+PASS OFFICIAL 1.12.35 Dmg https://packages.element.io/desktop/install/macos/Element-1.12.35-universal.dmg 308561528 374a19159a7108128ea6bbcaca30c4909249f41068edb01746669a05db65e276
+PASS NATIVE element install: Element installed: 1.12.35; package_bytes=308561528; elapsed=48.444s
+NATIVE ORIGIN element Element
+PASS OFFICIAL 1.12.36 Dmg https://packages.element.io/desktop/install/macos/Element-1.12.36-universal.dmg 309305729 01133c2196702d6bd3587a65b0c29fac166facbe10c38e2ddf4b2366487120cb
+PASS NATIVE element update: Element updated to 1.12.36; package_bytes=309305729; elapsed=46.425s
+PASS NATIVE element remove: Element was removed; package_bytes=0; elapsed=0.106s
+PASS NATIVE CYCLE element (1.12.35 → 1.12.36), private Trash and synthetic data preserved

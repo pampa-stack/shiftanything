@@ -1,0 +1,19 @@
+commit 7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d
+Parent:  3dc0c7fe694626bec72ca56d07114d93e9f83287a92b6a3d27f423a0f2dbeb2c
+ContentChecksum:  b2d5c478764c5383d9da03c43c91516f2a8ffabbf93a8c73a8c83d4c5e6306ad
+Date:  2026-11-03 16:00:09 +0000
+
+    Fix update checker tag patterns (0bdaff867872)
+
+    Name: org.deskflow.deskflow
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov  3 17:00:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

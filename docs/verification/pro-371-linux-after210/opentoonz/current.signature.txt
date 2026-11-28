@@ -1,0 +1,19 @@
+commit 0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c
+Parent:  66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505
+ContentChecksum:  5c19b9bcf1701f1d7d25a2bd1169c6a27fd0d8548707bfeac2a73970d0f9cc40
+Date:  2026-07-25 01:09:57 +0000
+
+    Update to 1.8.0 (aed6bd2f9fab)
+
+    Name: io.github.OpenToonz
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jul 25 02:01:01 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

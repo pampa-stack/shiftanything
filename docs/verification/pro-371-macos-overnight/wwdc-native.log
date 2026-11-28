@@ -1,0 +1,22 @@
+PASS PREFLIGHT wwdc 7.4.2
+PASS PREFLIGHT wwdc 7.5
+/dev/disk3s5   239362496 173419872  24815052    88% 3238619 248150520    1%   /System/Volumes/Data
+OFFICIAL INDEX wwdc 7.4.2 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX wwdc 7.5 digest=computed, signer/notarization corroborated
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 7.4.2 Dmg https://github.com/insidegui/WWDC/releases/download/7.4.2/WWDC_v7.4.2-1040.dmg 18563919 023abb817eb971eb514c27c53a0e1fb55913e680e7293742201ed0a69df6faa5
+PASS OFFICIAL 7.5 Dmg https://github.com/insidegui/WWDC/releases/download/7.5/WWDC_v7.5-1044.dmg 19325975 539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c
+NATIVE ORIGIN wwdc GitHub
+PASS OFFICIAL 7.4.2 Dmg https://github.com/insidegui/WWDC/releases/download/7.4.2/WWDC_v7.4.2-1040.dmg 18563919 023abb817eb971eb514c27c53a0e1fb55913e680e7293742201ed0a69df6faa5
+PASS NATIVE wwdc install: WWDC for macOS installed: 7.4.2; package_bytes=18563919; elapsed=24.211s
+PASS NATIVE wwdc open: Launch request accepted
+PASS OPEN AND CLOSE WWDC executable in the isolated profile
+NATIVE ORIGIN wwdc GitHub
+PASS OFFICIAL 7.5 Dmg https://github.com/insidegui/WWDC/releases/download/7.5/WWDC_v7.5-1044.dmg 19325975 539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c
+PASS NATIVE wwdc update: WWDC for macOS updated to 7.5.0; package_bytes=19325975; elapsed=8.387s
+PASS NATIVE wwdc open: Launch request accepted
+PASS OPEN AND CLOSE WWDC executable in the isolated profile
+PASS NATIVE wwdc remove: WWDC for macOS was removed; package_bytes=0; elapsed=0.113s
+PASS NATIVE CYCLE wwdc (7.4.2 → 7.5), private Trash and synthetic data preserved

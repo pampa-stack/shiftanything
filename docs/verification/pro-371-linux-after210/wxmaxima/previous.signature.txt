@@ -1,0 +1,19 @@
+commit 7d321095be3c3909b4edfdf53e25d4f88c35c691ae2eb0a3db2e8b86dadd6bff
+Parent:  76794cd650dc773b6a9b3bff0d8d39137ab0e626b0af39b726afeb3ac961041e
+ContentChecksum:  31f212277c4c314233858c0c5812962c46213eacd17c6aa498f2ad6d6290538a
+Date:  2026-10-16 21:46:18 +0000
+
+    Update runtime version to 51 (73c4aee33c3e)
+
+    Name: io.github.wxmaxima_developers.wxMaxima
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct 16 22:02:03 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

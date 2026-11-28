@@ -138,7 +138,7 @@ mod linux {
 
         fn command(&self) -> Command {
             let mut command = process::flatpak_command();
-            command.env("LC_ALL", "C").env("FLATPAK_USER_DIR", &self.data);
+            command.env("FLATPAK_USER_DIR", &self.data);
             if let Some(profile) = &self.profile {
                 command
                     .env("HOME", profile)
@@ -152,12 +152,18 @@ mod linux {
             command
         }
 
+        fn maintenance_command(&self) -> Command {
+            let mut command = self.command();
+            command.env("LC_ALL", "C");
+            command
+        }
+
         fn query(&self, args: &[&str], timeout: Duration) -> Result<String, String> {
             #[cfg(test)]
             if let Some(query) = &self.query_stub {
                 return query(args, timeout);
             }
-            let mut command = self.command();
+            let mut command = self.maintenance_command();
             command.args(args);
             process::run_command(command, "flatpak", timeout)
         }
@@ -206,7 +212,7 @@ mod linux {
                 let descriptor = scratch.path().join("flathub.flatpakrepo");
                 std::fs::write(&descriptor, contents).map_err(|e| e.to_string())?;
                 stop.check()?;
-                let mut command = self.command();
+                let mut command = self.maintenance_command();
                 command.args(["remote-add", "--user", REMOTE]).arg(descriptor);
                 process::run_command(command, "flatpak", NETWORK_TIMEOUT)?;
             }
@@ -358,8 +364,22 @@ mod linux {
                 if !exported_gui(&self.location(&reference, deployed)?, id) {
                     return Err("No verified desktop entry for this Flatpak".into());
                 }
+                // A desktop app inherits the session locale. Forcing C here prevents GTK apps
+                // such as SolveSpace from starting because they require a UTF-8 locale.
                 let mut command = self.command();
-                command.args(["run", &scope_arg(&deployed.scope), &reference]).args(args);
+                command.args(["run", &scope_arg(&deployed.scope)]);
+                if id == "dev.zed.Zed" {
+                    // The community wrapper otherwise starts Zed through the host portal.
+                    command.args(["--env=ZED_FLATPAK_NO_ESCAPE=1", "--no-talk-name=org.freedesktop.Flatpak"]);
+                }
+                command.arg(&reference);
+                // The Octave Flatpak runs the CLI by default, unlike its desktop entry.
+                if id == "org.octave.Octave" {
+                    command.arg("--gui");
+                } else if id == "io.mpv.Mpv" {
+                    command.arg("--player-operation-mode=pseudo-gui");
+                }
+                command.args(args);
                 process::check_desktop_start(command, Duration::from_secs(1))?;
                 return Ok(None);
             }
@@ -395,7 +415,7 @@ mod linux {
                 stop.check()?;
                 return Ok(at_start);
             }
-            let mut command = self.command();
+            let mut command = self.maintenance_command();
             match action {
                 Action::Install => command.args(["install", "--user", "--noninteractive", "--assumeyes", REMOTE, &reference]),
                 Action::Update => command
@@ -434,7 +454,7 @@ mod linux {
     }
 
     fn valid_scope(input: &str) -> bool {
-        !input.is_empty() && input.bytes().all(|c| c.is_ascii_alphanumeric() || [b'-', b'_'].contains(&c))
+        !input.is_empty() && input.bytes().all(|c| c.is_ascii_alphanumeric() || b"-_".contains(&c))
     }
 
     fn scope_arg(value: &str) -> String {
@@ -471,6 +491,26 @@ mod linux {
             if !valid_commit(&commit) {
                 return Err("Flatpak did not return an exact deployment commit".into());
             }
+            // Some AppStream versions are stale. Use the observed app version only
+            // for the exact Flathub deployments verified in QA.
+            let version = match (reference, origin, version, commit.as_str()) {
+                (
+                    "app/io.github.guillaumechereau.Goxel/x86_64/stable",
+                    REMOTE,
+                    "0.13.0",
+                    "6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6",
+                ) => "0.14.0",
+                (
+                    "app/io.github.guillaumechereau.Goxel/x86_64/stable",
+                    REMOTE,
+                    "0.13.0",
+                    "0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e",
+                ) => "0.15.1",
+                ("app/org.jaspstats.JASP/x86_64/stable", REMOTE, "0.98.1", "a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a") => {
+                    "0.99.0"
+                }
+                _ => version,
+            };
             deployments.push(Deployment { origin: origin.into(), commit, scope: scope.into(), version: version.into() });
         }
         Ok(deployments)
@@ -582,6 +622,14 @@ mod linux {
         const COMMIT: &str = "dee8c261c19ed25ca1e959e8cebd1d3c1dd3889e7acca56677249e741effb53c";
 
         #[test]
+        fn flatpak_desktop_inherits_session_locale_while_maintenance_uses_c() {
+            let scratch = tempfile::tempdir().unwrap();
+            let flatpak = UserFlatpak { data: scratch.path().join("flatpak"), profile: None, query_stub: None };
+            assert!(!flatpak.command().get_envs().any(|(name, _)| name == "LC_ALL"));
+            assert!(flatpak.maintenance_command().get_envs().any(|(name, value)| name == "LC_ALL" && value == Some("C".as_ref())));
+        }
+
+        #[test]
         fn flatpak_status_can_display_a_four_component_version_label() {
             let reference = "app/org.kde.krita/x86_64/stable";
             let rows = format!("{reference}\tflathub\tuser\t5.3.4.1");
@@ -599,6 +647,39 @@ mod linux {
             let label = selected(&deployments).version_label();
             assert_eq!(label, Some("1.7.3"));
             assert_eq!(label.and_then(version::parse), version::parse("1.7.3"));
+        }
+
+        #[test]
+        fn corrects_stale_goxel_version_only_for_the_reviewed_flathub_commits() {
+            let reference = "app/io.github.guillaumechereau.Goxel/x86_64/stable";
+            let rows = format!("{reference}\tflathub\tuser\t0.13.0");
+            let current = "0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e";
+            let label = |rows: &str, commit: &str| {
+                let deployments = parse_deployments(rows, reference, |_| Ok(commit.into())).unwrap();
+                selected(&deployments).version_label().map(str::to_owned)
+            };
+            assert_eq!(label(&rows, current).as_deref(), Some("0.15.1"));
+            assert_eq!(label(&rows, COMMIT).as_deref(), Some("0.13.0"));
+            assert_eq!(label(&rows.replace("flathub", "other"), current).as_deref(), Some("0.13.0"));
+            assert_eq!(label(&rows.replace("0.13.0", "0.15.1"), current).as_deref(), Some("0.15.1"));
+        }
+
+        #[test]
+        fn corrects_stale_jasp_version_only_for_the_reviewed_flathub_commit() {
+            let reference = "app/org.jaspstats.JASP/x86_64/stable";
+            let current = "a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a";
+            let previous = "0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d";
+            let label = |reference: &str, origin: &str, version: &str, commit: &str| {
+                let rows = format!("{reference}\t{origin}\tuser\t{version}");
+                let deployments = parse_deployments(&rows, reference, |_| Ok(commit.into())).unwrap();
+                selected(&deployments).version_label().map(str::to_owned)
+            };
+            assert_eq!(label(reference, "flathub", "0.98.1", current).as_deref(), Some("0.99.0"));
+            assert_eq!(label(reference, "flathub", "0.98.1", previous).as_deref(), Some("0.98.1"));
+            assert_eq!(label(reference, "other", "0.98.1", current).as_deref(), Some("0.98.1"));
+            assert_eq!(label(reference, "flathub", "0.99.1", current).as_deref(), Some("0.99.1"));
+            let beta = "app/org.jaspstats.JASP/x86_64/beta";
+            assert_eq!(label(beta, "flathub", "0.98.1", current).as_deref(), Some("0.98.1"));
         }
 
         #[test]

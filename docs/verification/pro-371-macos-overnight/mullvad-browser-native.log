@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL 16.0.2 Dmg https://github.com/mullvad/mullvad-browser/releases/download/16.0.2/mullvad-browser-macos-16.0.2.dmg 162985935 7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841
+PASS OFFICIAL 16.0.3 Dmg https://github.com/mullvad/mullvad-browser/releases/download/16.0.3/mullvad-browser-macos-16.0.3.dmg 163035356 28d7053a27eead62a8e551d2dbf460745508571c561f6226d00c867ef1e6c9b4
+NATIVE ORIGIN mullvad-browser GitHub
+PASS OFFICIAL 16.0.2 Dmg https://github.com/mullvad/mullvad-browser/releases/download/16.0.2/mullvad-browser-macos-16.0.2.dmg 162985935 7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841
+PASS NATIVE mullvad-browser install: Mullvad Browser installed: 16.0.2; package_bytes=162985935; elapsed=50.284s
+16.0.2
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+/private/tmp/shift-air-overnight.vfttBUHQ/profile-mullvad-browser.hmeHCf0U/Applications/Mullvad Browser.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Tor Project, Inc (MADPSAYN6T)
+NATIVE ORIGIN mullvad-browser GitHub
+PASS OFFICIAL 16.0.3 Dmg https://github.com/mullvad/mullvad-browser/releases/download/16.0.3/mullvad-browser-macos-16.0.3.dmg 163035356 28d7053a27eead62a8e551d2dbf460745508571c561f6226d00c867ef1e6c9b4
+PASS NATIVE mullvad-browser update: Mullvad Browser updated to 16.0.3; package_bytes=163035356; elapsed=38.621s
+16.0.3
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+/private/tmp/shift-air-overnight.vfttBUHQ/profile-mullvad-browser.hmeHCf0U/Applications/Mullvad Browser.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: The Tor Project, Inc (MADPSAYN6T)
+PASS NATIVE mullvad-browser remove: Mullvad Browser was removed; package_bytes=0; elapsed=0.116s
+PASS NATIVE CYCLE mullvad-browser, private Trash and synthetic data preserved

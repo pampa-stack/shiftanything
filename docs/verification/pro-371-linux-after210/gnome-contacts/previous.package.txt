@@ -1,0 +1,20 @@
+
+Contacts - Manage your contacts
+
+          ID: org.gnome.Contacts
+         Ref: app/org.gnome.Contacts/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 50.0
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 28.5 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 68bb34c2dd0059b468c958b7401c509a545de984ef72dff3971a00ba83bf4a76
+      Parent: d4978f60ed04f3eeadd2ccde3be92ab1555078d8d9feb8de9e558f8f93fb515c
+     Subject: Merge pull request #98 from flathub/update-master-c9a2e8c (5d2525223370)
+        Date: 2026-03-19 23:10:26 +0000

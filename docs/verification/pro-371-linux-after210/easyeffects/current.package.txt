@@ -1,0 +1,20 @@
+
+Easy Effects - Simple audio effects
+
+          ID: com.github.wwmm.easyeffects
+         Ref: app/com.github.wwmm.easyeffects/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 8.3.3
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 81.0 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3
+      Parent: c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c
+     Subject: Merge pull request #254 from flathub/wwmm-patch-3 (bb4a047f61fc)
+        Date: 2026-11-21 18:51:47 +0000

@@ -1,0 +1,20 @@
+
+Olive - Non-linear video editor
+
+          ID: org.olivevideoeditor.Olive
+         Ref: app/org.olivevideoeditor.Olive/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 0.1.2
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 67.3 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 045dc74e197fbe4ce20c8cc0cb8a33511e1631b91253ca5ebba9f77e14780d26
+      Parent: acf4e43a784c3f26a1bbdc9acaa4e8c3a1e6ea4ba5c011e89e3c049e9ce118a4
+     Subject: Update runtime to 5.15-25.08 (7aeb7ab855d9)
+        Date: 2025-12-18 01:32:42 +0000

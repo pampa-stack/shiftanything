@@ -1,0 +1,39 @@
+URL https://github.com/PlayCover/PlayCover/releases/download/3.0.0/PlayCover_3.0.0.dmg
+BYTES 5564506
+SHA256 c25deeedbe4806d4c5c486e05e7696e3479c1294a7c51f0baf1715ed53371e26
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $EAE754EF
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $88096915
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $64169DF9
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_APFS : 4)…
+         disk image (Apple_APFS : 4): verificato   CRC32 $EC1B2FAE
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $64169DF9
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $6ABE0744
+verificato   CRC32 $87567722
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_APFS
+/dev/disk8          	EF57347C-0000-11AA-AA11-0030654
+/dev/disk8s1        	41504653-0000-11AA-AA11-0030654	/private/tmp/shift-air-overnight.T540kJgl/playcover-3.0.0/mount
+APP PlayCover.app
+io.playcover.PlayCover
+3.0.0
+793
+12.0
+arm64
+    minos 12.0
+Identifier=io.playcover.PlayCover
+Authority=Developer ID Application: XIN LI (792V9HMJW3)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=792V9HMJW3
+/private/tmp/shift-air-overnight.T540kJgl/playcover-3.0.0/mount/PlayCover.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: XIN LI (792V9HMJW3)

@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v1.2.10 Dmg https://github.com/lzhgus/Capso/releases/download/v1.2.10/Capso-1.2.10.dmg 10402244 cb69b06203b73811dfa0d48b869617eacc7808d5433e55d7e62767ec0a40344f
+PASS OFFICIAL v1.2.11 Dmg https://github.com/lzhgus/Capso/releases/download/v1.2.11/Capso-1.2.11.dmg 10734508 78187b1d529e1fcf78fba658f8f63333ed9cf6c86a84403eddb380cfecba9c56
+NATIVE ORIGIN capso GitHub
+PASS OFFICIAL v1.2.10 Dmg https://github.com/lzhgus/Capso/releases/download/v1.2.10/Capso-1.2.10.dmg 10402244 cb69b06203b73811dfa0d48b869617eacc7808d5433e55d7e62767ec0a40344f
+PASS NATIVE capso install: Capso installed: 1.2.10; package_bytes=10402244; elapsed=27.491s
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-capso.OrolsUNz/Applications/Capso.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Zhihao Li (T247WTJV77)
+1.2.10
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN capso GitHub
+PASS OFFICIAL v1.2.11 Dmg https://github.com/lzhgus/Capso/releases/download/v1.2.11/Capso-1.2.11.dmg 10734508 78187b1d529e1fcf78fba658f8f63333ed9cf6c86a84403eddb380cfecba9c56
+PASS NATIVE capso update: Capso updated to 1.2.11; package_bytes=10734508; elapsed=8.898s
+1.2.11
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-capso.OrolsUNz/Applications/Capso.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Zhihao Li (T247WTJV77)
+PASS NATIVE capso remove: Capso was removed; package_bytes=0; elapsed=0.104s
+PASS NATIVE CYCLE capso, private Trash and synthetic data preserved

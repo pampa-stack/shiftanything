@@ -1,0 +1,19 @@
+commit b10badec2dfa906f3535901b8bb82cc527607b30fdfd46ad806cee9d959c6d57
+Parent:  08c50466149aa35eaf85c3152a0a8b2c8b02fe43e6545154483ffe7c19d823ae
+ContentChecksum:  a9aa564d8c8b0cca6e37491c549273975b5311f75124d9791d980c7e6b6e9ab0
+Date:  2026-06-17 02:06:19 +0000
+
+    Release 1.16.12 (4210fc28d480)
+
+    Name: net.sourceforge.liferea
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Jun 17 03:00:15 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

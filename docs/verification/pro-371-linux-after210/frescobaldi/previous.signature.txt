@@ -1,0 +1,19 @@
+commit 47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5
+Parent:  6c97fe04b7f411773f4dbee1835cdfccf39d4d57fc798adce1238e4914472d87
+ContentChecksum:  b52c23f53ed80b8c26f3b084a67915cce1ec6fa11e79f639fa8adba3c88cface
+Date:  2026-05-30 17:41:51 +0000
+
+    Guile: remove obsolete patch (06dd3ff51413)
+
+    Name: org.frescobaldi.Frescobaldi
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.6
+
+Found 1 signature:
+
+  Signature made Sat May 30 18:00:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,20 @@
+
+Warehouse - Manage all things Flatpak
+
+          ID: io.github.flattool.Warehouse
+         Ref: app/io.github.flattool.Warehouse/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.2.0
+     License: GPL-3.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 1.3 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: 2817ff85dd5455287b6014bc01cd95a35694e85c4fd525559747d58b525e8fa8
+      Parent: 3b3c898d2202b6892adec33477033d4dc7f1bd549b3be52cee0fcfd3ba465f48
+     Subject: Merge pull request #32 from flathub/heliguy4599-patch-5 (89c5a584d687)
+        Date: 2026-01-17 20:57:12 +0000

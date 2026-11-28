@@ -1,0 +1,3 @@
+name,msi_version,bytes,sha256,publisher,url
+soundcraft-0.20.0-windows-x64.msi,0.20.0,14782464,c55c80cc1c9ff959a49ddc69d46a025c76355340ef6e46c65c497a74a4ae0d28,Learning Machines Inc,https://github.com/storytold/soundcraft/releases/download/v0.20.0/soundcraft-0.20.0-windows-x64.msi
+soundcraft-0.20.1-windows-x64.msi,0.20.1,15441920,dc2d31d05fd6ccfdd2aac8651b1dcabc12032a7eab34665d48af59d40c945dfe,Learning Machines Inc,https://github.com/storytold/soundcraft/releases/download/v0.20.1/soundcraft-0.20.1-windows-x64.msi

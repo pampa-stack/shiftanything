@@ -1,0 +1,17 @@
+URL https://github.com/peazip/PeaZip/releases/download/11.4.0/peazip-11.4.0.DARWIN.aarch64.dmg
+BYTES 26237034
+SHA256 b31ec81e13dbe21a6189637855e55b827b2c7de046ba97060b689ace3f6248f9
+Protective Master Boot Record (MBR :: verificato   CRC32 $F55EE1A6
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $EB2F5B63
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $1F463041
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $1F463041
+APP peazip.app
+com.peazip.peazip
+11.4.0
+1
+Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+arm64
+Identifier=peazip
+Signature=adhoc
+TeamIdentifier=not set
+/private/tmp/shift-air-overnight.PEWwwyc1/peazip-11.4.0/mount/peazip.app: code has no resources but signature indicates they must be present

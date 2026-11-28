@@ -1,0 +1,78 @@
+2026-11-27T23:01:21+00:00 librewolf AVAILABLE 26678415360
+librewolf before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+librewolf JobFinished: Ok("Flathub app installed")
+librewolf after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 161, minor: 0, patch: 0, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("161.0-1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:15+00:00 librewolf current-install 6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d
+/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d/export/share/applications/io.gitlab.librewolf-community.desktop
+/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d/export/share/icons/hicolor/128x128/apps/io.gitlab.librewolf-community.png
+Updating app/io.gitlab.librewolf-community/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:23+00:00 librewolf previous ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d
+librewolf before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 160, minor: 0, patch: 1, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d", package: Some("io.gitlab.librewolf-community"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("160.0.1-1"), update_available: false, can_remove: false, can_open: true }
+librewolf JobFinished: Err("Approved action rejected: native installation state changed")
+librewolf JobFinished: Err("This Flatpak is managed outside the launcher")
+librewolf after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 160, minor: 0, patch: 1, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d", package: Some("io.gitlab.librewolf-community"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("160.0.1-1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=69229 comm="xfwm4 --compositor=off --display=:95" label="unconfined")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=69243 comm="flatpak run --user --command=sh app/io.gitlab.libr" label="flatpak (unconfined)")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=69243 comm="flatpak run --user --command=sh app/io.gitlab.libr" label="flatpak (unconfined)")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=69312 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+librewolf before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 160, minor: 0, patch: 1, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("160.0.1-1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=69513 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.17' (uid=1000 pid=69601 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:69607): dbind-WARNING **: 23:02:25.134: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:69601): xdg-desktop-portal-WARNING **: 23:02:25.168: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:69601): xdg-desktop-portal-WARNING **: 23:02:25.168: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:69601): xdg-desktop-portal-WARNING **: 23:02:25.168: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03390.434922] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03390.434977] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:69601): xdg-desktop-portal-WARNING **: 23:02:25.177: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[67537]: [session uid=1000 pid=67537] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.20' (uid=1000 pid=69513 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[67537]: [session uid=1000 pid=67537] Successfully activated service 'org.freedesktop.portal.Flatpak'
+librewolf JobFinished: Ok("Launch request accepted")
+librewolf after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 160, minor: 0, patch: 1, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("160.0.1-1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.gitlab.librewolf-community
+io.gitlab.librewolf-community
+io.gitlab.librewolf-community
+2026-11-27T23:02:34+00:00 librewolf previous GUI WM_NAME(STRING) = "LibreWolf"
+WM_CLASS(STRING) = "Navigator", "librewolf"
+2026-11-27T23:02:34+00:00 librewolf AVAILABLE 18614042624
+librewolf before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 160, minor: 0, patch: 1, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("160.0.1-1"), update_available: true, can_remove: true, can_open: true }
+librewolf JobFinished: Ok("Flathub app updated")
+librewolf after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 161, minor: 0, patch: 0, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("161.0-1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:38+00:00 librewolf current 6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d
+/home/qa/profiles/librewolf/.var/app/io.gitlab.librewolf-community/fixture.txt: OK
+librewolf before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 161, minor: 0, patch: 0, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("161.0-1"), update_available: false, can_remove: true, can_open: true }
+librewolf JobFinished: Ok("Launch request accepted")
+librewolf after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 161, minor: 0, patch: 0, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("161.0-1"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.gitlab.librewolf-community
+io.gitlab.librewolf-community
+io.gitlab.librewolf-community
+2026-11-27T23:02:48+00:00 librewolf current GUI WM_NAME(STRING) = "LibreWolf"
+WM_CLASS(STRING) = "Navigator", "librewolf"
+librewolf before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 161, minor: 0, patch: 0, pre: Prerelease("1") }), source: Flatpak, location: "/home/qa/profiles/librewolf/data/flatpak/app/io.gitlab.librewolf-community/x86_64/stable/6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d", package: Some("io.gitlab.librewolf-community"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("161.0-1"), update_available: false, can_remove: true, can_open: true }
+librewolf JobFinished: Ok("Flathub app removed")
+librewolf after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/librewolf/.var/app/io.gitlab.librewolf-community/fixture.txt: OK
+2026-11-27T23:02:49+00:00 librewolf PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:02:50+00:00 librewolf EXIT 0 remove
+
+(xfconfd:69273): xfconfd-WARNING **: 23:02:50.894: Name org.xfce.Xfconf lost on the message dbus, exiting.

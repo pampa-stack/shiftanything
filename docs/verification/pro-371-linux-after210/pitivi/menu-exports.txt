@@ -1,0 +1,2 @@
+/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3/export/share/applications/org.pitivi.Pitivi.desktop
+/home/qa/profiles/pitivi-after210/data/flatpak/app/org.pitivi.Pitivi/x86_64/stable/39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3/export/share/icons/hicolor/scalable/apps/org.pitivi.Pitivi.svg

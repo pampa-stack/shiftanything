@@ -1,0 +1,32 @@
+2026-11-28T03:26:07+0100
+/dev/disk3s5   239362496 181265124  16969924    92% 3340089 169699240    2%   /System/Volumes/Data
+ARTIFACT 3c48963f50e6aa854a9e6d5faf12ba38c2e082e4c6ab13a1438f76df0a7eec69 22828534 https://github.com/ejbills/DockDoor/releases/download/1.42.4/DockDoor.dmg
+BUNDLE=DockDoor.app
+CFBundleIdentifier=com.ethanbills.DockDoor
+CFBundleShortVersionString=1.42.4
+CFBundleVersion=1.42.4
+CFBundleExecutable=DockDoor
+LSMinimumSystemVersion=13.0
+/private/tmp/shift-air-overnight.b5lMSgK6/preflight/dockdoor/1.42.4/mount/DockDoor.app/Contents/MacOS/DockDoor: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.b5lMSgK6/preflight/dockdoor/1.42.4/mount/DockDoor.app/Contents/MacOS/DockDoor (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.b5lMSgK6/preflight/dockdoor/1.42.4/mount/DockDoor.app/Contents/MacOS/DockDoor (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.b5lMSgK6/preflight/dockdoor/1.42.4/mount/DockDoor.app/Contents/MacOS/DockDoor (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=com.ethanbills.DockDoor
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Ethan Bills (2Q775S63Q3)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=9 Nov 2026 at 00:54:03
+TeamIdentifier=2Q775S63Q3
+/private/tmp/shift-air-overnight.b5lMSgK6/preflight/dockdoor/1.42.4/mount/DockDoor.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT dockdoor 1.42.4

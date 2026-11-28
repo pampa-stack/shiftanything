@@ -152,6 +152,13 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
         "https://getartcraft.com/",
         "https://dl.flathub.org/",
         "https://paseo.sh/",
+        "https://docs.freeplane.org/images/",
+        "https://deskflow.org/screenshots/",
+        "https://docs.langflow.org/assets/images/quickstart-simple-agent-",
+        "https://docs.syncthing.net/_images/gs",
+        "https://jellyfin.org/assets/images/setup-wizard-4-media-popup-",
+        "https://cdn.mac-stats.com/assets/",
+        "https://www.home-assistant.io/images/blog/2026-02/new-overview.png",
         "https://uptime.kuma.pet/",
         "https://getsharex.com/",
         "https://media.docs.plane.so/",
@@ -169,7 +176,27 @@ fn load_catalog_picture(http: Option<&Http>, paths: &Paths, app_id: &str, key: &
         "https://www.librechat.ai/",
         "https://www.naps2.com/",
     ];
-    if !allowed.iter().any(|base| url.starts_with(base)) {
+    let reviewed_pictures = [
+        "https://a-us.storyblok.com/f/1022730/1999x1020/36a8151d38/embed-dashboards_sample-dashboard.png",
+        "https://umami.is/_next/static/immutable/media/app.06ov74hy3esf9.jpg",
+        "https://rectangleapp.com/assets/images/shortcutScreenshot.jpg",
+        "https://rectangleapp.com/assets/images/snapAreaScreenshot.jpg",
+        "https://icemenubar.app/gallery/menu-bar-layout.png?ts=1737648866",
+        "https://icemenubar.app/gallery/ice-bar.png?ts=1737648866",
+        "https://maccy.app/img/maccy/Instructions.png",
+        "https://iterm2.com/img/screenshots/split_panes.png",
+        "https://iterm2.com/img/screenshots/find.png",
+        "https://docs.github.com/assets/cb-66158/images/help/desktop/diff-selection.png",
+        "https://docs.github.com/assets/cb-16555/images/help/desktop/commit-all.png",
+        "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-home-screen.png",
+        "https://guacamole.apache.org/doc/1.6.0/gug/_images/guacamole-client-interface.png",
+        "https://netnewswire.com/images/nnw-mac-7-appicon-256.png",
+        "https://karabiner-elements.pqrs.org/images/logo.png",
+        "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/images/karabiner-elements-simple-modifications@2x.png",
+        "https://karabiner-elements.pqrs.org/docs/manual/configuration/configure-simple-modifications/images/karabiner-elements-eventviewer-name@2x.png",
+        "https://signal.org/assets/images/screenshots/download-desktop-mac.png",
+    ];
+    if !reviewed_pictures.contains(&url) && !allowed.iter().any(|base| url.starts_with(base)) {
         return Err("Unapproved catalog media origin".into());
     }
     let bytes = http

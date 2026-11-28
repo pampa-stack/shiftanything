@@ -1,0 +1,19 @@
+commit eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57
+Parent:  b78c3d8bae5b70f91fa5227071a7b747e97c4718c2c4e83d4659f580d5aed15b
+ContentChecksum:  4b44c6bdce7887393aed33adb2c51cd6622ee6751d943af77adc26a73d7c0cd0
+Date:  2026-11-17 17:55:03 +0000
+
+    Merge pull request #121 from flathub/update-master-4100843 (3a3befcbbd28)
+
+    Name: net.mullvad.MullvadBrowser
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 17 19:00:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

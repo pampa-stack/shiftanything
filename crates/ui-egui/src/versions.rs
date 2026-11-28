@@ -203,7 +203,9 @@ impl LauncherUi {
         let entry = self.entry(id)?;
         let installed = entry.installed.as_ref()?.version.as_ref()?;
         let tag = self.chosen_tag(entry)?;
-        version::parse(&tag).is_some_and(|chosen| version::is_newer(installed, &chosen)).then_some(tag)
+        artcraft_launcher_core::release::release_tag_version(entry.app.release_repository(), &tag)
+            .is_some_and(|chosen| version::is_newer(installed, &chosen))
+            .then_some(tag)
     }
 
     /// Whether version `tag` of `entry` can be installed now: `None` until the release on screen
@@ -543,7 +545,7 @@ mod tests {
         )
         .unwrap()
     }
-    fn picker(id: &'static str, saved: VersionTrack) -> (egui_kittest::Harness<'static, Option<LauncherUi>>, PickerRecorder) {
+    fn picker(id: &'static str, saved: VersionTrack, stable: &'static str) -> (egui_kittest::Harness<'static, Option<LauncherUi>>, PickerRecorder) {
         let sent = PickerRecorder(Default::default());
         let recorder = sent.clone();
         let mut harness = egui_kittest::Harness::builder().with_size(egui::vec2(700.0, 700.0)).build_ui_state(
@@ -553,9 +555,11 @@ mod tests {
                     settings.versions.insert(id.into(), saved.clone());
                     let mut launcher = LauncherUi::new(ui.ctx(), Box::new(recorder.clone()), settings);
                     let app = CraftApp::by_id(id).unwrap();
-                    launcher
-                        .version_lists
-                        .insert(id.into(), Ok(vec![picker_release(app, "v1.0.0-dev.nightly.1", true), picker_release(app, "v0.9.0", false)]));
+                    let stable = artcraft_launcher_core::release::reviewed_windows_msi_repo(id).map_or_else(
+                        || picker_release(app, stable, false),
+                        |repo| artcraft_launcher_core::release::release_from_sums(repo, stable, &[]),
+                    );
+                    launcher.version_lists.insert(id.into(), Ok(vec![picker_release(app, "v1.0.0-dev.nightly.1", true), stable]));
                     launcher
                 });
                 let label = ui.label("Version").id;
@@ -572,7 +576,7 @@ mod tests {
         // Apps without their own Nightly channel keep main's ordinary picker behaviour.
         for id in ["solidcraft", "pdfcraft"] {
             assert!(!CraftApp::by_id(id).unwrap().has_separate_nightly_channel(), "{id} must stay an app without its own Nightly channel");
-            let (mut harness, sent) = picker(id, VersionTrack::Stable);
+            let (mut harness, sent) = picker(id, VersionTrack::Stable, "v0.9.0");
             harness.get_by_value("v0.9.0 (latest release)").click();
             harness.run_steps(3);
             harness.get_by_label("Nightly").click();
@@ -597,13 +601,13 @@ mod tests {
     fn shared_selection_saved_photo_nightly_is_reconciled_before_the_ordinary_picker_draws() {
         use egui_kittest::kittest::Queryable;
         for saved in [VersionTrack::Nightly, VersionTrack::Pinned("v1.0.0-dev.nightly.1".into())] {
-            let (mut harness, _) = picker("photocraft", saved);
+            let (mut harness, _) = picker("photocraft", saved, "v0.23.1");
             assert!(!harness.state().as_ref().unwrap().settings.versions.contains_key("photocraft"));
-            harness.get_by_value("v0.9.0 (latest release)").click();
+            harness.get_by_value("v0.23.1 (latest release)").click();
             harness.run_steps(3);
             assert!(harness.query_by_label("Nightly").is_none());
             assert!(harness.query_by_label("v1.0.0-dev.nightly.1").is_none());
-            assert!(harness.query_by_label("v0.9.0 (latest release)").is_some());
+            assert!(harness.query_by_label("v0.23.1 (latest release)").is_some());
         }
     }
 }

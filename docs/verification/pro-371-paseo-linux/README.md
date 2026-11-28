@@ -1,0 +1,7 @@
+# Paseo 0.18.0 → 0.18.1 su Ubuntu 24.04 amd64
+
+Il 27 novembre 2026 il NativeBackend di Sh*ftAnything ha installato e aperto Paseo 0.18.0, scaricato e verificato l'AppImage 0.18.1, aperto la nuova versione e rimosso l'app. L'esecuzione è avvenuta in un guest QEMU su AX42. La rimozione ha lasciato intatto il file utente di prova e ha eliminato AppImage, voce desktop e icona. [Log](native-lifecycle.txt), [finestra precedente](open-old.png), [finestra aggiornata](open-new.png).
+
+La prima prova aveva fatto terminare il namespace della GUI prima che il daemon del profilo pulisse il proprio file PID. Il log della seconda apertura diceva che era già attivo un daemon. Ripetendo il ciclo da zero, abbiamo chiuso la finestra e chiesto al solo daemon del profilo temporaneo di terminare con SIGTERM. Abbiamo aspettato che rimuovesse il proprio file PID prima di inviare l'aggiornamento. Le due finestre si sono aperte con i parametri predefiniti, rete limitata a loopback e portachiavi di prova. Durante il test non sono stati collegati provider o account.
+
+La ricetta richiede Linux x64 e FUSE 2. Serve una nuova ricevuta per abilitare pacchetti di tag successivi. [Release 0.18.0](https://github.com/getpaseo/paseo/releases/tag/v0.18.0), [release 0.18.1](https://github.com/getpaseo/paseo/releases/tag/v0.18.1), [licenza Apache-2.0](https://github.com/getpaseo/paseo/blob/v0.18.1/LICENSE), [sonda Rust](../pro-371-linux-desktop-expansion/verify_native_appimages.rs).

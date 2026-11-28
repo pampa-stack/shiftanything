@@ -1,0 +1,63 @@
+2026-11-28T19:16:49+00:00 angryip AVAILABLE 72331382784
+angryip before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+angryip JobFinished: Ok("Flathub app installed")
+angryip after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:17:49+00:00 angryip current-install 85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4
+/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4/export/share/applications/org.angryip.ipscan.desktop
+/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4/export/share/icons/hicolor/scalable/apps/org.angryip.ipscan.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform/x86_64/25.08
+Updating app/org.angryip.ipscan/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:18:27+00:00 angryip previous 91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710
+angryip before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710", package: Some("org.angryip.ipscan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.9.3"), update_available: false, can_remove: false, can_open: true }
+angryip JobFinished: Err("Approved action rejected: native installation state changed")
+angryip JobFinished: Err("This Flatpak is managed outside the launcher")
+angryip after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710", package: Some("org.angryip.ipscan"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.9.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[24882]: [session uid=1000 pid=24882] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=28841 comm="xfwm4 --compositor=on --display=:92" label="unconfined")
+dbus-daemon[24882]: [session uid=1000 pid=24882] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[24882]: [session uid=1000 pid=24882] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=28855 comm="flatpak run --user --command=sh app/org.angryip.ip" label="flatpak (unconfined)")
+dbus-daemon[24882]: [session uid=1000 pid=24882] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[24882]: [session uid=1000 pid=24882] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=28855 comm="flatpak run --user --command=sh app/org.angryip.ip" label="flatpak (unconfined)")
+dbus-daemon[24882]: [session uid=1000 pid=24882] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=28879 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[24882]: [session uid=1000 pid=24882] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[24882]: [session uid=1000 pid=24882] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+angryip before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.9.3"), update_available: true, can_remove: true, can_open: true }
+angryip JobFinished: Ok("Launch request accepted")
+angryip after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.9.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.angryip.ipscan
+2026-11-28T19:18:59+00:00 angryip previous GUI WM_NAME(STRING) = "IP Range - Angry IP Scanner "
+WM_CLASS(STRING) = "Angry IP Scanner", "Angry IP Scanner"
+2026-11-28T19:18:59+00:00 angryip AVAILABLE 68758839296
+angryip before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 9, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.9.3"), update_available: true, can_remove: true, can_open: true }
+angryip JobFinished: Ok("Flathub app updated")
+angryip after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:19:04+00:00 angryip current 85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4
+/home/qa/profiles/angryip-composited/.var/app/org.angryip.ipscan/fixture.txt: OK
+angryip before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.0"), update_available: false, can_remove: true, can_open: true }
+dbus-daemon[24882]: [session uid=1000 pid=24882] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.27' (uid=1000 pid=30124 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[24882]: [session uid=1000 pid=24882] Successfully activated service 'org.freedesktop.portal.Flatpak'
+angryip JobFinished: Ok("Launch request accepted")
+angryip after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.angryip.ipscan
+org.angryip.ipscan
+org.angryip.ipscan
+2026-11-28T19:19:36+00:00 angryip current GUI WM_NAME(STRING) = "IP Range - Angry IP Scanner "
+WM_CLASS(STRING) = "Angry IP Scanner", "Angry IP Scanner"
+angryip before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/angryip-composited/data/flatpak/app/org.angryip.ipscan/x86_64/stable/85e93ab73fb069af4c037fdf261c3d2946459ceaab10c6e6805ada047353c0b4", package: Some("org.angryip.ipscan"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.10.0"), update_available: false, can_remove: true, can_open: true }
+angryip JobFinished: Ok("Flathub app removed")
+angryip after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/angryip-composited/.var/app/org.angryip.ipscan/fixture.txt: OK
+2026-11-28T19:19:36+00:00 angryip PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T19:19:37+00:00 angryip EXIT 0 remove

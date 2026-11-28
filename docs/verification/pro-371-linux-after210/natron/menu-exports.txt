@@ -1,0 +1,2 @@
+/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2/export/share/applications/fr.natron.Natron.desktop
+/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2/export/share/icons/hicolor/256x256/apps/fr.natron.Natron.png

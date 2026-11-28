@@ -38,9 +38,9 @@ pub(crate) fn compare_shifter(comparison: Comparison, selected: Vec<String>, req
     if selected.len() > MAX_FEATURES || required.len() > selected.len() || selected.iter().chain(&required).any(|id| id.len() > MAX_ID_BYTES) {
         return Err("Invalid feature selection".into());
     }
-    match comparison {
+    let mut scores = match comparison {
         Comparison::Profile { profile_id } => {
-            data.profiles.iter().find(|profile| profile.id == profile_id).ok_or("Unknown profile")?.compare(&selected, &required)
+            data.profiles.iter().find(|profile| profile.id == profile_id).ok_or("Unknown profile")?.compare(&selected, &required)?
         }
         Comparison::Manual { app_ids } => {
             if app_ids.len() > curated::apps().len() || app_ids.iter().any(|id| id.len() > MAX_ID_BYTES) {
@@ -52,9 +52,15 @@ pub(crate) fn compare_shifter(comparison: Comparison, selected: Vec<String>, req
                     return Err("Unknown manual feature".into());
                 }
             }
-            data.compare_manual(&app_ids, &selected, &required)
+            let scores = data.compare_manual(&app_ids, &selected, &required)?;
+            if !app_ids.is_empty() {
+                return Ok(scores);
+            }
+            scores
         }
-    }
+    };
+    scores.retain(shifter::Score::has_positive_coverage);
+    Ok(scores)
 }
 
 #[derive(Deserialize)]
@@ -92,7 +98,8 @@ mod tests {
         let profile = Comparison::Profile { profile_id: "photoshop".into() };
         let selected = ["layers", "reversible", "psd", "genfill"].map(String::from);
         let scores = compare_shifter(profile, selected.to_vec(), vec!["genfill".into()])?;
-        assert_eq!(scores.len(), shifter_workspace()?.apps.len());
+        assert!(scores.len() < shifter_workspace()?.apps.len());
+        assert!(scores.iter().all(shifter::Score::has_positive_coverage));
         let photocraft = scores.iter().find(|score| score.app_id == "photocraft").ok_or("PhotoCraft missing")?;
         assert_eq!(photocraft.coverage, Some(75));
         assert_eq!(photocraft.missing_required, ["genfill"]);
@@ -110,10 +117,26 @@ mod tests {
         assert_eq!(scores[0].unverified, 1);
         assert_eq!(scores[0].missing_required, ["custom:0"]);
 
-        let manual = Comparison::Manual { app_ids: vec![] };
-        let scores = compare_shifter(manual, vec![], vec![])?;
-        assert_eq!(scores.len(), shifter_workspace()?.apps.len());
-        assert!(scores.iter().all(|score| score.coverage.is_none()));
+        Ok(())
+    }
+
+    #[test]
+    fn discovery_omits_zero_and_unknown_but_manual_shortlist_keeps_them() -> Result<(), String> {
+        let photoshop = || Comparison::Profile { profile_id: "photoshop".into() };
+        let all_apps = || Comparison::Manual { app_ids: vec![] };
+        assert!(compare_shifter(photoshop(), vec![], vec![])?.is_empty());
+        assert!(compare_shifter(photoshop(), vec!["genfill".into()], vec![])?.is_empty());
+        assert!(compare_shifter(all_apps(), vec!["custom:0".into()], vec![])?.is_empty());
+
+        let known = compare_shifter(all_apps(), vec!["photoshop:layers".into(), "custom:0".into()], vec![])?;
+        assert!(known.iter().any(|score| score.app_id == "photocraft" && score.coverage == Some(50)));
+        assert!(known.iter().all(shifter::Score::has_positive_coverage));
+
+        let shortlist = Comparison::Manual { app_ids: vec!["photocraft".into(), "handy".into()] };
+        let scores = compare_shifter(shortlist, vec!["photoshop:genfill".into()], vec![])?;
+        assert_eq!(scores.len(), 2);
+        assert!(scores.iter().any(|score| score.app_id == "photocraft" && score.coverage == Some(0)));
+        assert!(scores.iter().any(|score| score.app_id == "handy" && score.coverage.is_none()));
         Ok(())
     }
 

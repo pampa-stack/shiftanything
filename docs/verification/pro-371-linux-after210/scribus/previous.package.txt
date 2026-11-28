@@ -1,0 +1,20 @@
+
+Scribus - Open Source Page Layout and Desktop Publishing (DTP)
+
+          ID: net.scribus.Scribus
+         Ref: app/net.scribus.Scribus/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.6.4
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 288.4 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 81f59950d1d001be771da47fb723b57aa70b461b12a297f54f10c60c9206c22f
+      Parent: 4cd22aef4e17eed052ab416b799e7075ff16f99ab31d6a9431f48cdcafbd7064
+     Subject: Update runtime to 5.15-25.08 (64c29ce5615e)
+        Date: 2025-12-22 22:52:44 +0000

@@ -1,0 +1,20 @@
+
+Sweet Home 3D - Interior Design Application
+
+          ID: com.sweethome3d.Sweethome3d
+         Ref: app/com.sweethome3d.Sweethome3d/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 7.5
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 151.6 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c
+      Parent: 7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f
+     Subject: Remove bundle creation in build script (c83cf658e341)
+        Date: 2026-09-07 19:30:22 +0000

@@ -61,7 +61,11 @@ pub(crate) fn from_manifest(app: &CraftApp, manifest: &Manifest) -> Option<Insta
     #[cfg(target_os = "macos")]
     if matches!(
         rec.kind,
-        artcraft_launcher_core::PackageKind::Dmg | artcraft_launcher_core::PackageKind::MacZip | artcraft_launcher_core::PackageKind::MacPkg
+        artcraft_launcher_core::PackageKind::Dmg
+            | artcraft_launcher_core::PackageKind::MacZip
+            | artcraft_launcher_core::PackageKind::MacPkg
+            | artcraft_launcher_core::PackageKind::MacTarGz
+            | artcraft_launcher_core::PackageKind::MacTarXz
     ) {
         return macos::read_bundle(app, &rec.path);
     }
@@ -137,7 +141,12 @@ const PUBLISHER: &str = "Learning Machines LLC";
 /// installers have registered.
 #[cfg_attr(not(windows), allow(dead_code))]
 fn is_installer_entry(app: &CraftApp, display_name: &str, publisher: &str) -> bool {
-    publisher == app.msi_publisher.unwrap_or(PUBLISHER) && app.names().any(|n| n == display_name)
+    publisher == app.msi_publisher.unwrap_or(PUBLISHER)
+        && if app.uses_tdf_releases() {
+            display_name.strip_prefix("LibreOffice ").and_then(libreoffice_msi_version).is_some()
+        } else {
+            app.names().any(|n| n == display_name)
+        }
 }
 
 /// Where a Windows install of `app` may keep its exe, in the order to try: the entry's
@@ -148,6 +157,9 @@ fn is_installer_entry(app: &CraftApp, display_name: &str, publisher: &str) -> bo
 fn exe_candidates(app: &CraftApp, location: Option<&Path>, program_files: &[PathBuf]) -> Vec<PathBuf> {
     let in_program_files = program_files.iter().flat_map(|root| app.names().map(move |n| root.join(n)));
     let dirs = location.map(Path::to_path_buf).into_iter().chain(in_program_files);
+    if app.uses_tdf_releases() {
+        return dirs.map(|dir| dir.join("program").join("soffice.exe")).collect();
+    }
     dirs.flat_map(|d| app.stems().map(move |s| d.join(format!("{s}.exe")))).collect()
 }
 
@@ -234,16 +246,50 @@ pub mod macos {
         if !app.bundle_ids().any(|b| b == id) {
             return None;
         }
+        // OpenWork's public, Cloud, and Enterprise builds share the bundle identifier.
+        let openwork = artcraft_launcher_core::curated::OPENWORK_DESKTOP;
+        if (app.id, app.repo) == (openwork.id, openwork.repo) && dict.get("CFBundleExecutable").and_then(plist::Value::as_string) != Some("OpenWork")
+        {
+            return None;
+        }
+        let curated = (app.id, app.repo);
+        let dbeaver = artcraft_launcher_core::curated::DBEAVER_CE;
+        let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+        let onlyoffice = artcraft_launcher_core::curated::ONLYOFFICE;
+        if (curated == (dbeaver.id, dbeaver.repo) && id != "org.jkiss.dbeaver.core.product")
+            || (curated == (prusa.id, prusa.repo) && id != artcraft_launcher_core::curated::PRUSA_SLICER_MAC_BUNDLE)
+            || (curated == (onlyoffice.id, onlyoffice.repo) && id != artcraft_launcher_core::curated::ONLYOFFICE_MAC_BUNDLE)
+        {
+            return None;
+        }
         // `<App>Version` carries the full version including a pre-release suffix;
-        // CFBundleShortVersionString only has the numbers.
+        // CFBundleShortVersionString only has the numbers. An empty value leaves CFBundleVersion authoritative.
         let full_keys: Vec<String> = app.mac_bundle_names().map(|n| format!("{n}Version")).collect();
-        let text = full_keys
-            .iter()
-            .map(String::as_str)
-            .chain(["CFBundleShortVersionString", "CFBundleVersion"])
-            .find_map(|k| dict.get(k).and_then(plist::Value::as_string));
+        let text = if app.uses_kdenlive_releases() {
+            dict.get("CFBundleVersion").and_then(plist::Value::as_string)
+        } else {
+            full_keys
+                .iter()
+                .map(String::as_str)
+                .chain(["CFBundleShortVersionString", "CFBundleVersion"])
+                .find_map(|k| dict.get(k)?.as_string().filter(|value| !value.trim().is_empty()))
+        };
+        let karing = artcraft_launcher_core::curated::KARING;
+        let version = if curated == (karing.id, karing.repo) {
+            dict.get("CFBundleShortVersionString").and_then(plist::Value::as_string).and_then(|core| {
+                let build = dict.get("CFBundleVersion")?.as_string()?;
+                version::parse_karing(&format!("{core}.{build}"))
+            })
+        } else {
+            text.and_then(|text| bundle_version(app, text))
+        };
+        let logseq_db = artcraft_launcher_core::curated::LOGSEQ_DB;
+        // The legacy file edition and the database edition share an identifier and bundle name.
+        if curated == (logseq_db.id, logseq_db.repo) && !version.as_ref().is_some_and(|version| version.major >= 2) {
+            return None;
+        }
         Some(Installed {
-            version: text.and_then(|text| bundle_version(app, text)),
+            version,
             source: InstallSource::MacApp,
             location: path.display().to_string(),
             package: None,
@@ -254,7 +300,43 @@ pub mod macos {
     }
 
     fn bundle_version(app: &CraftApp, text: &str) -> Option<version::Version> {
-        use artcraft_launcher_core::curated::DOSBOX_STAGING;
+        use artcraft_launcher_core::curated::{DBEAVER_CE, DOSBOX_STAGING, FLOORP, GNUCASH, PRUSA_SLICER, SYNCTHING_MACOS};
+
+        if app.uses_kdenlive_releases() {
+            return artcraft_launcher_core::release::kdenlive_mac_version(text);
+        }
+        if (app.id, app.repo) == (DBEAVER_CE.id, DBEAVER_CE.repo) {
+            return version::parse_dbeaver(text);
+        }
+        if (app.id, app.repo) == (SYNCTHING_MACOS.id, SYNCTHING_MACOS.repo) {
+            return artcraft_launcher_core::release::syncthing_macos_version(text);
+        }
+        if (app.id, app.repo) == (PRUSA_SLICER.id, PRUSA_SLICER.repo) {
+            let label = text.strip_prefix("PrusaSlicer ").unwrap_or(text).strip_prefix("PrusaSlicer-")?;
+            return artcraft_launcher_core::release::prusa_slicer_version(label);
+        }
+        // Floorp's short version includes the Firefox engine version after an '@'.
+        if (app.id, app.repo) == (FLOORP.id, FLOORP.repo)
+            && let Some((label, engine)) = text.split_once('@')
+            && let Ok(floorp_version) = version::Version::parse(label)
+            && let Ok(engine_version) = version::Version::parse(engine)
+            && floorp_version.pre.is_empty()
+            && floorp_version.build.is_empty()
+            && engine_version.pre.is_empty()
+            && engine_version.build.is_empty()
+        {
+            return Some(floorp_version);
+        }
+        // GnuCash appends a numeric macOS package revision to its two-component release tag.
+        if (app.id, app.repo) == (GNUCASH.id, GNUCASH.repo)
+            && let Some((tag, revision)) = text.rsplit_once('-')
+            && !revision.is_empty()
+            && revision.bytes().all(|byte| byte.is_ascii_digit())
+            && let Some(parsed) = version::parse(tag)
+            && tag == format!("{}.{}", parsed.major, parsed.minor)
+        {
+            return Some(parsed);
+        }
 
         // Stable DOSBox Staging bundles append the five-character git commit (e.g. 0.83.1-8888e).
         if (app.id, app.repo) == (DOSBOX_STAGING.id, DOSBOX_STAGING.repo)
@@ -284,6 +366,85 @@ pub mod macos {
             return None;
         }
         artcraft_launcher_core::release::libreoffice_stable_version(stable)
+    }
+
+    #[test]
+    fn reviewed_bundle_versions_match_their_publisher_tags() {
+        use artcraft_launcher_core::curated::{DBEAVER_CE, FLOORP, GNUCASH, HANDY, PRUSA_SLICER};
+
+        for (app, text, label) in [
+            (DBEAVER_CE, "26.2.5", "26.2.5"),
+            (DBEAVER_CE, "26.2.5.2", "26.2.5.2"),
+            (FLOORP, "12.21.1@159.0.1", "12.21.1"),
+            (FLOORP, "12.21.2@160.0.1", "12.21.2"),
+            (GNUCASH, "5.16-3", "5.16.0"),
+            (GNUCASH, "5.17-1", "5.17.0"),
+            (PRUSA_SLICER, "PrusaSlicer PrusaSlicer-2.9.7", "2.9.7"),
+            (PRUSA_SLICER, "PrusaSlicer-2.9.6", "2.9.6"),
+        ] {
+            assert_eq!(bundle_version(&app, text).as_ref().map(version::label).as_deref(), Some(label));
+        }
+        assert!(bundle_version(&DBEAVER_CE, "26.2.5.2.1").is_none());
+        assert!(bundle_version(&FLOORP, "12.21.2@invalid").is_none());
+        assert!(bundle_version(&HANDY, "12.21.2@160.0.1").is_none());
+        assert!(bundle_version(&PRUSA_SLICER, "PrusaSlicer-2.9.7-rc.1").is_none());
+        assert_eq!(bundle_version(&GNUCASH, "5.17-rc.1").as_ref().map(version::label).as_deref(), Some("5.17.0-rc.1"));
+    }
+
+    #[test]
+    fn logseq_db_detection_leaves_file_edition_bundles_alone() {
+        use artcraft_launcher_core::curated::LOGSEQ_DB;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("Logseq.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        for (label, expected) in [("0.10.15", false), ("1.0.0", false), ("", false), ("invalid", false), ("2.0.2", true)] {
+            let dict = plist::Dictionary::from_iter([
+                ("CFBundleIdentifier", plist::Value::String("com.logseq.logseq".into())),
+                ("CFBundleShortVersionString", plist::Value::String(label.into())),
+            ]);
+            plist::Value::Dictionary(dict).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&LOGSEQ_DB, &bundle).is_some(), expected, "{label}");
+        }
+    }
+
+    #[test]
+    fn empty_short_bundle_version_falls_back_to_bundle_version() {
+        use artcraft_launcher_core::curated::FREECAD;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("FreeCAD.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        let mut info = plist::Dictionary::new();
+        info.insert("CFBundleIdentifier".into(), FREECAD.bundle.unwrap().into());
+        info.insert("CFBundleVersion".into(), "1.1.3".into());
+
+        for (short, expected) in [("", Some("1.1.3")), ("1.1.4", Some("1.1.4")), ("invalid", None)] {
+            info.insert("CFBundleShortVersionString".into(), short.into());
+            plist::Value::Dictionary(info.clone()).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&FREECAD, &bundle).unwrap().version, expected.and_then(version::parse));
+        }
+    }
+
+    #[test]
+    fn renamed_openwork_cloud_or_enterprise_is_not_detected_as_public() {
+        use artcraft_launcher_core::curated::OPENWORK_DESKTOP;
+
+        let root = tempfile::tempdir().unwrap();
+        let bundle = root.path().join("OpenWork.app");
+        let contents = bundle.join("Contents");
+        std::fs::create_dir_all(&contents).unwrap();
+        let mut info = plist::Dictionary::new();
+        info.insert("CFBundleIdentifier".into(), OPENWORK_DESKTOP.bundle.unwrap().into());
+        info.insert("CFBundleShortVersionString".into(), "0.18.73".into());
+
+        for (name, expected) in [("OpenWork", true), ("OpenWork Cloud", false), ("OpenWork Enterprise", false)] {
+            info.insert("CFBundleExecutable".into(), name.into());
+            plist::Value::Dictionary(info.clone()).to_file_xml(contents.join("Info.plist")).unwrap();
+            assert_eq!(read_bundle(&OPENWORK_DESKTOP, &bundle).is_some(), expected, "{name}");
+        }
     }
 
     #[test]
@@ -322,6 +483,34 @@ fn newest_first(a: Option<&version::Version>, b: Option<&version::Version>) -> s
     }
 }
 
+#[cfg(any(windows, test))]
+fn msi_display_version(app: &CraftApp, text: &str) -> Option<version::Version> {
+    if app.uses_tdf_releases() {
+        return libreoffice_msi_version(text);
+    }
+    // The official draw.io MSI registers X.Y.Z.0 for the upstream release X.Y.Z.
+    if app.id == "drawio"
+        && let Some(core) = text.trim().strip_suffix(".0")
+        && let Ok(parsed) = version::Version::parse(core)
+        && parsed.pre.is_empty()
+        && parsed.build.is_empty()
+    {
+        return Some(parsed);
+    }
+    version::parse(text)
+}
+
+#[cfg_attr(not(any(windows, test)), allow(dead_code))]
+fn libreoffice_msi_version(raw: &str) -> Option<version::Version> {
+    // The MSI registers all four numeric components. The release channel names the first three.
+    let (stable, build) = raw.rsplit_once('.')?;
+    let parsed_build = build.parse::<u32>().ok()?;
+    if parsed_build.to_string() != build {
+        return None;
+    }
+    artcraft_launcher_core::release::libreoffice_stable_version(stable)
+}
+
 #[cfg(windows)]
 pub mod windows {
     use std::path::PathBuf;
@@ -329,7 +518,9 @@ pub mod windows {
     use winreg::enums::{HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE, KEY_READ, KEY_WOW64_32KEY, KEY_WOW64_64KEY};
     use winreg::{HKEY, RegKey};
 
-    use super::{CraftApp, InstallSource, Installed, exe_candidates, install_dir_keys, is_installer_entry, suite_folders, version};
+    use super::{
+        CraftApp, InstallSource, Installed, exe_candidates, install_dir_keys, is_installer_entry, msi_display_version, suite_folders, version,
+    };
 
     const UNINSTALL: &str = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
 
@@ -412,7 +603,11 @@ pub mod windows {
                 if !is_installer_entry(app, &name, &publisher) || out.iter().any(|m: &MsiInstall| m.product_code == code) {
                     continue;
                 }
-                let version = key.get_value::<String, _>("DisplayVersion").ok().and_then(|v| version::parse(&v));
+                let display_version: String = key.get_value("DisplayVersion").unwrap_or_default();
+                if app.uses_tdf_releases() && name.strip_prefix("LibreOffice ") != Some(display_version.as_str()) {
+                    continue;
+                }
+                let version = msi_display_version(app, &display_version);
                 let location: String = key.get_value("InstallLocation").unwrap_or_default();
                 let exe =
                     exe_path(app, (!location.is_empty()).then(|| PathBuf::from(location)).or_else(|| install_dir(app, hive, flags)), hive, flags);
@@ -1047,6 +1242,42 @@ mod tests {
         let mut versions = vec![None, old.clone(), new.clone(), None];
         versions.sort_by(|a, b| newest_first(a.as_ref(), b.as_ref()));
         assert_eq!(versions, vec![new, old, None, None]);
+    }
+
+    #[test]
+    fn drawio_msi_display_version_matches_upstream_release() {
+        use artcraft_launcher_core::curated::DRAWIO;
+
+        assert_eq!(msi_display_version(&DRAWIO, "31.5.2.0"), version::parse("31.5.2"));
+        assert_eq!(msi_display_version(&DRAWIO, "32.7.4.0"), version::parse("32.7.4"));
+        assert_eq!(msi_display_version(&DRAWIO, "32.7.4"), version::parse("32.7.4"));
+        for unsupported in ["32.7.4.1", "32.7.4.0.0", "32.7.4-rc.0.0", "32.7.4.0+build"] {
+            // Legitimate semver suffixes still use the shared parser unchanged.
+            assert_eq!(msi_display_version(&DRAWIO, unsupported), version::parse(unsupported));
+        }
+        assert_eq!(msi_display_version(SUITE.iter().find(|app| app.id == "photocraft").unwrap(), "32.7.4.0"), None);
+    }
+
+    #[test]
+    fn libreoffice_requires_the_four_component_msi_identity_and_nested_executable() {
+        use artcraft_launcher_core::curated::LIBREOFFICE;
+
+        let publisher = "The Document Foundation";
+        assert!(is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.2.2", publisher));
+        assert!(is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.3.1", publisher));
+        assert!(!is_installer_entry(&LIBREOFFICE, "LibreOffice 26.8.3.1", "Other"));
+        for fake in ["26.8.3", "26.8.3.01", "26.8.3.1-dev", "26.8.3.1 Help Pack"] {
+            assert!(!is_installer_entry(&LIBREOFFICE, &format!("LibreOffice {fake}"), publisher));
+            assert_eq!(msi_display_version(&LIBREOFFICE, fake), None);
+        }
+        assert_eq!(msi_display_version(&LIBREOFFICE, "26.8.2.2"), version::parse("26.8.2"));
+        assert_eq!(msi_display_version(&LIBREOFFICE, "26.8.3.1"), version::parse("26.8.3"));
+        let program_files = PathBuf::from("Program Files");
+        let root = Path::new("Custom Office");
+        assert_eq!(
+            exe_candidates(&LIBREOFFICE, Some(root), std::slice::from_ref(&program_files)),
+            [root.join("program").join("soffice.exe"), program_files.join("LibreOffice").join("program").join("soffice.exe")],
+        );
     }
 
     /// A file without VERSIONINFO, or one that isn't there, has no version.

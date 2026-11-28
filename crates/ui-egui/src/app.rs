@@ -1282,21 +1282,61 @@ impl LauncherUi {
         let mut api = false;
         let mut github = false;
         let mut tdf = false;
+        let mut zotero = false;
+        let mut blender = false;
+        let mut gimp = false;
+        let mut krita = false;
+        let mut videolan = false;
+        let mut inkscape = false;
+        let mut kdenlive = false;
+        let mut iterm2 = false;
+        let mut itsycal = false;
+        let mut signal = false;
+        let mut mozilla = false;
+        let mut element = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
                     Some(Origin::ArtCraftApi) => api = true,
                     Some(Origin::GitHub) => github = true,
                     Some(Origin::TheDocumentFoundation) => tdf = true,
+                    Some(Origin::Zotero) => zotero = true,
+                    Some(Origin::Blender) => blender = true,
+                    Some(Origin::Gimp) => gimp = true,
+                    Some(Origin::Krita) => krita = true,
+                    Some(Origin::VideoLan) => videolan = true,
+                    Some(Origin::Inkscape) => inkscape = true,
+                    Some(Origin::Kdenlive) => kdenlive = true,
+                    Some(Origin::ITerm2) => iterm2 = true,
+                    Some(Origin::Itsycal) => itsycal = true,
+                    Some(Origin::Signal) => signal = true,
+                    Some(Origin::Mozilla) => mozilla = true,
+                    Some(Origin::Element) => element = true,
                     None => {}
                 }
             }
         }
-        [(api, Origin::ArtCraftApi), (github, Origin::GitHub), (tdf, Origin::TheDocumentFoundation)]
-            .into_iter()
-            .filter(|&(present, _)| present)
-            .map(|(_, origin)| origin.label().to_string())
-            .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
+        [
+            (api, Origin::ArtCraftApi),
+            (github, Origin::GitHub),
+            (tdf, Origin::TheDocumentFoundation),
+            (zotero, Origin::Zotero),
+            (blender, Origin::Blender),
+            (gimp, Origin::Gimp),
+            (krita, Origin::Krita),
+            (videolan, Origin::VideoLan),
+            (inkscape, Origin::Inkscape),
+            (kdenlive, Origin::Kdenlive),
+            (iterm2, Origin::ITerm2),
+            (itsycal, Origin::Itsycal),
+            (signal, Origin::Signal),
+            (mozilla, Origin::Mozilla),
+            (element, Origin::Element),
+        ]
+        .into_iter()
+        .filter(|&(present, _)| present)
+        .map(|(_, origin)| origin.label().to_string())
+        .reduce(|first, next| crate::i18n::fmt(tl!("{a} and {b}"), &[("a", &first), ("b", &next)]))
     }
 
     pub(crate) fn count(&self, filter: Filter) -> usize {
@@ -1809,7 +1849,7 @@ mod tests {
             screenshot(&mut h, "shifter");
             h.get_by_label(if language == "it" { "Fonti · PhotoCraft" } else { "Sources · PhotoCraft" }).click_accesskit();
             h.run_steps(3);
-            assert!(h.query_all_by_label(if language == "it" { "Assente" } else { "Absent" }).next().is_some());
+            assert!(h.query_all_by_label(if language == "it" { "Parziale" } else { "Partial" }).next().is_some());
             screenshot(&mut h, "shifter-sources");
             h.key_press(egui::Key::Escape);
             h.run_steps(3);
@@ -1826,20 +1866,44 @@ mod tests {
             } else {
                 "Manual comparison. Reuse documented features or add your own."
             });
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
-                .click();
-            h.get_by_role_and_label(egui::accesskit::Role::TextInput, if language == "it" { "Aggiungi una funzione" } else { "Add a feature" })
-                .type_text("Fixture feature");
+            let (add_feature, add, empty, reuse, search) = if language == "it" {
+                (
+                    "Aggiungi una funzione",
+                    "Aggiungi",
+                    "Nessuna alternativa con supporto completo documentato per almeno una delle funzioni selezionate.",
+                    "Riusa una funzione documentata",
+                    "Cerca app, categoria o alternativa",
+                )
+            } else {
+                (
+                    "Add a feature",
+                    "Add",
+                    "No alternatives have documented full support for any selected feature.",
+                    "Reuse a documented feature",
+                    "Search apps",
+                )
+            };
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, add_feature).click();
+            h.get_by_role_and_label(egui::accesskit::Role::TextInput, add_feature).type_text("Fixture feature");
             h.run_steps(3);
-            h.get_by_label(if language == "it" { "Aggiungi" } else { "Add" }).click_accesskit();
+            h.get_by_label(add).click_accesskit();
             h.run_steps(3);
-            let search = if language == "it" { "Cerca app, categoria o alternativa" } else { "Search apps" };
+            h.get_by_label(empty);
+            let details = if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" };
+            assert!(h.query_by_label(details).is_none(), "no comparison row without positive coverage");
+
+            h.get_by_label(reuse).click_accesskit();
+            h.run_steps(3);
+            let (_, layers) = artcraft_launcher_core::shifter::data().unwrap().feature("photoshop:layers").unwrap();
+            h.get_by_label(&format!("Adobe Photoshop · {}", layers.name.in_language(language))).click_accesskit();
+            h.run_steps(3);
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).click();
             h.get_by_role_and_label(egui::accesskit::Role::TextInput, search).type_text("PhotoCraft");
             h.run_steps(3);
+            h.get_by_label("50% · 1/2");
             assert!(h.query_all_by_label("—").next().is_some());
             assert!(h.query_by_label(if language == "it" { "Non verificato" } else { "Unverified" }).is_none());
-            h.get_by_label(if language == "it" { "Vedi scheda · PhotoCraft" } else { "App details · PhotoCraft" }).click_accesskit();
+            h.get_by_label(details).click_accesskit();
             h.run_steps(3);
             assert!(h.state().as_ref().unwrap().curated.detail.as_deref() == Some("photocraft"));
         }

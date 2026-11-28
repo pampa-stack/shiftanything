@@ -1,0 +1,30 @@
+2026-11-28T03:10:43+0100
+/dev/disk3s5   239362496 180561564  17673484    92% 3290934 176734840    2%   /System/Volumes/Data
+ARTIFACT 801babe2b3629d12f59431189cf45f3c5d5006bc75e8a6871a7d0c97f17ec47f 123800559 https://github.com/ganeshrvel/openmtp/releases/download/v3.2.25/openmtp-3.2.25-mac-arm64.dmg
+BUNDLE=OpenMTP.app
+CFBundleIdentifier=io.ganeshrvel.openmtp
+CFBundleShortVersionString=3.2.25
+CFBundleVersion=3.2.25.29
+CFBundleExecutable=OpenMTP
+LSMinimumSystemVersion=10.11.0
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/openmtp/v3.2.25/mount/OpenMTP.app/Contents/MacOS/OpenMTP: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/openmtp/v3.2.25/mount/OpenMTP.app/Contents/MacOS/OpenMTP (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 12.3
+   ntools 1
+     tool LD
+  version 15.0
+Identifier=io.ganeshrvel.openmtp
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Ganesh Rathinavel (6UR4H85SA2)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=4 Jul 2024 at 13:17:32
+TeamIdentifier=6UR4H85SA2
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/openmtp/v3.2.25/mount/OpenMTP.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT openmtp v3.2.25

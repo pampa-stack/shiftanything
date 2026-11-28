@@ -1,0 +1,33 @@
+URL https://github.com/OpenBoard-org/OpenBoard/releases/download/v1.7.6/OpenBoard-1.7.6.dmg
+BYTES 463841224
+SHA256 33c41fc8debe93dbb99fb2643470ea07418f02071900c7c9b68f44dfe59d9332
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $6FF13BD8
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $B7132ED3
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $F8C3D0E0
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $521C0B1B
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $F8C3D0E0
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $46B77989
+verificato   CRC32 $B5336025
+/dev/disk7          	GUID_partition_scheme          	
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-air-overnight.PEWwwyc1/openboard-1.7.6/mount
+APP OpenBoard.app
+org.oe-f.OpenBoard
+1.7.6
+1.7.6
+x86_64 arm64
+    minos 12.0
+Identifier=org.oe-f.OpenBoard
+Authority=Developer ID Application: DIP - Etat de Geneve (A6HNXYT969)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=A6HNXYT969

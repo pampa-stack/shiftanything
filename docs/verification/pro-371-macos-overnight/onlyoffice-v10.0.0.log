@@ -1,0 +1,34 @@
+ARTIFACT 9095cc8c46f1206237d690c7e146fada0d72dbf7f40c035cd5fd218b680c2deb 340135365 https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v10.0.0/ONLYOFFICE-arm.dmg
+ONLYOFFICE-arm.dmg: OK
+340135365
+Calcolo checksum di Protective Master Boot Record (MBR : 0)…
+Protective Master Boot Record (MBR :: verificato   CRC32 $D81F64CE
+Calcolo checksum di GPT Header (Primary GPT Header : 1)…
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $A102D26D
+Calcolo checksum di GPT Partition Data (Primary GPT Table : 2)…
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $905302D5
+Calcolo checksum di  (Apple_Free : 3)…
+                    (Apple_Free : 3): verificato   CRC32 $00000000
+Calcolo checksum di disk image (Apple_HFS : 4)…
+          disk image (Apple_HFS : 4): verificato   CRC32 $865D6EC5
+Calcolo checksum di  (Apple_Free : 5)…
+                    (Apple_Free : 5): verificato   CRC32 $00000000
+Calcolo checksum di GPT Partition Data (Backup GPT Table : 6)…
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $905302D5
+Calcolo checksum di GPT Header (Backup GPT Header : 7)…
+  GPT Header (Backup GPT Header : 7): verificato   CRC32 $1A1B5ACE
+verificato   CRC32 $733EDB48
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-office-preflight.wvVRc1/onlyoffice
+asc.onlyoffice.ONLYOFFICE
+10.0.0
+/private/tmp/shift-office-preflight.wvVRc1/onlyoffice/ONLYOFFICE.app/Contents/MacOS/ONLYOFFICE: Mach-O 64-bit executable arm64
+Authority=Developer ID Application: Ascensio System SIA (2WH24U26GJ)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=2WH24U26GJ
+/private/tmp/shift-office-preflight.wvVRc1/onlyoffice/ONLYOFFICE.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Ascensio System SIA (2WH24U26GJ)
+PASS onlyoffice signature
+PASS PREFLIGHT onlyoffice v10.0.0

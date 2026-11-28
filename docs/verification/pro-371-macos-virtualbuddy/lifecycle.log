@@ -1,0 +1,14 @@
+PASS PREFLIGHT virtualbuddy 2.2
+PASS PREFLIGHT virtualbuddy 2.2.1
+OFFICIAL INDEX virtualbuddy 2.2 digest=published
+OFFICIAL INDEX virtualbuddy 2.2.1 digest=published
+PASS OFFICIAL 2.2 Dmg https://github.com/insidegui/VirtualBuddy/releases/download/2.2/VirtualBuddy_v2.2-428.dmg 22042242 7e672ebca6aec1e7de3adecb6cbbdf978f68dabe5406e48f22187f5dedc98339
+PASS OFFICIAL 2.2.1 Dmg https://github.com/insidegui/VirtualBuddy/releases/download/2.2.1/VirtualBuddy_v2.2.1-430.dmg 22041237 16fac6dddbb012548911c0a6807a882e8df5b5b4897a218923b108aaa333fc63
+NATIVE ORIGIN virtualbuddy GitHub
+PASS OFFICIAL 2.2 Dmg https://github.com/insidegui/VirtualBuddy/releases/download/2.2/VirtualBuddy_v2.2-428.dmg 22042242 7e672ebca6aec1e7de3adecb6cbbdf978f68dabe5406e48f22187f5dedc98339
+PASS NATIVE virtualbuddy install: VirtualBuddy installed: 2.2.0; package_bytes=22042242; elapsed=19.968s
+NATIVE ORIGIN virtualbuddy GitHub
+PASS OFFICIAL 2.2.1 Dmg https://github.com/insidegui/VirtualBuddy/releases/download/2.2.1/VirtualBuddy_v2.2.1-430.dmg 22041237 16fac6dddbb012548911c0a6807a882e8df5b5b4897a218923b108aaa333fc63
+PASS NATIVE virtualbuddy update: VirtualBuddy updated to 2.2.1; package_bytes=22041237; elapsed=7.748s
+PASS NATIVE virtualbuddy remove: VirtualBuddy was removed; package_bytes=0; elapsed=0.138s
+PASS NATIVE CYCLE virtualbuddy (2.2 → 2.2.1), private Trash and synthetic data preserved

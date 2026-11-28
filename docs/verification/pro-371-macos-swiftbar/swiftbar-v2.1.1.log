@@ -1,0 +1,17 @@
+ARTIFACT fcdec490782d6587046304044951c63de49ac422fc63892a6fab2dd7bc70c0cd 2991349 https://github.com/swiftbar/SwiftBar/releases/download/v2.1.1/SwiftBar.v2.1.1.b597.zip
+BUNDLE=SwiftBar.app
+CFBundleIdentifier=com.ameba.SwiftBar
+CFBundleShortVersionString=2.1.1
+CFBundleVersion=597
+CFBundleExecutable=SwiftBar
+LSMinimumSystemVersion=12.0
+x86_64 arm64
+Identifier=com.ameba.SwiftBar
+Authority=Developer ID Application: Ameba Labs, LLC (X93LWC49WV)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=11 Aug 2026 at 16:04:42
+TeamIdentifier=X93LWC49WV
+/private/tmp/shift-air-overnight.lHetztjZ/preflight/swiftbar/v2.1.1/review/SwiftBar.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT swiftbar v2.1.1

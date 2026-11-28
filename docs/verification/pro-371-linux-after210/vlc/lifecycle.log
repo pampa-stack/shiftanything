@@ -1,0 +1,74 @@
+2026-11-28T15:12:08+00:00 vlc AVAILABLE 43977465856
+vlc before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+vlc JobFinished: Ok("Flathub app installed")
+vlc after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:13:04+00:00 vlc current-install c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/applications/org.videolan.VLC.desktop
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/128x128/apps/org.videolan.VLC.png
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/16x16/apps/org.videolan.VLC.png
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/256x256/apps/org.videolan.VLC.png
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/32x32/apps/org.videolan.VLC.png
+<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771/export/share/icons/hicolor/48x48/apps/org.videolan.VLC.png
+Updating app/org.videolan.VLC/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:13:08+00:00 vlc previous aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85
+vlc before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85", package: Some("org.videolan.VLC"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: false, can_open: true }
+vlc JobFinished: Err("Approved action rejected: native installation state changed")
+vlc JobFinished: Err("This Flatpak is managed outside the launcher")
+vlc after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85", package: Some("org.videolan.VLC"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=29127 comm="xfwm4 --compositor=on --display=:86" label="unconfined")
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=29144 comm="flatpak run --user --command=sh app/org.videolan.V" label="flatpak (unconfined)")
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=29144 comm="flatpak run --user --command=sh app/org.videolan.V" label="flatpak (unconfined)")
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=29180 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+vlc before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=29302 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[27519]: [session uid=1000 pid=27519] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=29315 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:29322): dbind-WARNING **: 15:13:09.512: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:29315): xdg-desktop-portal-WARNING **: 15:13:09.530: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29315): xdg-desktop-portal-WARNING **: 15:13:09.530: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29315): xdg-desktop-portal-WARNING **: 15:13:09.531: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:29315): xdg-desktop-portal-WARNING **: 15:13:09.536: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[27519]: [session uid=1000 pid=27519] Successfully activated service 'org.freedesktop.portal.Desktop'
+vlc JobFinished: Ok("Launch request accepted")
+vlc after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.videolan.VLC
+2026-11-28T15:13:40+00:00 vlc previous GUI WM_NAME(STRING) = "VLC media player"
+WM_CLASS(STRING) = "vlc", "vlc"
+2026-11-28T15:13:40+00:00 vlc AVAILABLE 37784260608
+vlc before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: true, can_remove: true, can_open: true }
+vlc JobFinished: Ok("Flathub app updated")
+vlc after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:13:42+00:00 vlc current c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771
+<scratch>/profiles/vlc-composited/.var/app/org.videolan.VLC/fixture.txt: OK
+vlc before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: true, can_open: true }
+vlc JobFinished: Ok("Launch request accepted")
+vlc after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.videolan.VLC
+2026-11-28T15:14:14+00:00 vlc current GUI WM_NAME(STRING) = "VLC media player"
+WM_CLASS(STRING) = "vlc", "vlc"
+vlc before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 24 }), source: Flatpak, location: "<scratch>/profiles/vlc-composited/data/flatpak/app/org.videolan.VLC/x86_64/stable/c1f90edc95d2bfa5a096e1c4adf8cec5be6443bbbbe3aa713e1edfb484863771", package: Some("org.videolan.VLC"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.24"), update_available: false, can_remove: true, can_open: true }
+vlc JobFinished: Ok("Flathub app removed")
+vlc after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+<scratch>/profiles/vlc-composited/.var/app/org.videolan.VLC/fixture.txt: OK
+2026-11-28T15:14:15+00:00 vlc PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T15:14:17+00:00 vlc EXIT 0 remove
+
+(xfconfd:29158): xfconfd-WARNING **: 15:14:17.446: Name org.xfce.Xfconf lost on the message dbus, exiting.

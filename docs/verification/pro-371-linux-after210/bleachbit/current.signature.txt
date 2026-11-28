@@ -1,0 +1,19 @@
+commit 4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70
+Parent:  1e3aaa314cb64f67a9afb48f123a420afc6aaae96676202a69d211388ae19173
+ContentChecksum:  586c92bf3e32ea2fe7f922bcad5f5d746b95e3d2997d0788e263e66ce249021f
+Date:  2026-10-28 05:58:27 +0000
+
+    Update certifi to 2026.10.19 (#51) (ce4c4d59b817)
+
+    Name: org.bleachbit.BleachBit
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 28 07:01:37 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

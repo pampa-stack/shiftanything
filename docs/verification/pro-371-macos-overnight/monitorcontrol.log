@@ -1,0 +1,19 @@
+PASS PREFLIGHT monitorcontrol v4.2.0
+PASS PREFLIGHT monitorcontrol v4.4.0
+/dev/disk3s5   482797652 426033152   9780828    98% 6608700 97808280    6%   /System/Volumes/Data
+OFFICIAL INDEX monitorcontrol v4.2.0 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX monitorcontrol v4.4.0 digest=published
+26.4
+Aqua
+assessments enabled
+NATIVE ORIGIN monitorcontrol GitHub
+PASS OFFICIAL v4.4.0 Dmg https://github.com/MonitorControl/MonitorControl/releases/download/v4.4.0/MonitorControl.4.4.0.dmg 20391423 e058da598b92f6ca674f4398c0b6fa49b3b5567ccfddccf6c6a5b23c5c625612
+PASS NATIVE monitorcontrol install-latest: MonitorControl installed: 4.4.0; package_bytes=20391423; elapsed=21.218s
+PASS NATIVE monitorcontrol remove: MonitorControl was removed; package_bytes=0; elapsed=0.163s
+PASS SIGNED MIGRATION FIXTURE MonitorControl v4.2.0
+SIGNED MIGRATION FIXTURE RECEIPT 4.2.0
+NATIVE ORIGIN monitorcontrol GitHub
+PASS OFFICIAL v4.4.0 Dmg https://github.com/MonitorControl/MonitorControl/releases/download/v4.4.0/MonitorControl.4.4.0.dmg 20391423 e058da598b92f6ca674f4398c0b6fa49b3b5567ccfddccf6c6a5b23c5c625612
+PASS NATIVE monitorcontrol update-from-fixture: MonitorControl updated to 4.4.0; package_bytes=20391423; elapsed=8.070s
+PASS NATIVE monitorcontrol remove: MonitorControl was removed; package_bytes=0; elapsed=0.097s
+PASS NATIVE CYCLE monitorcontrol (v4.2.0 → v4.4.0), private Trash and synthetic data preserved

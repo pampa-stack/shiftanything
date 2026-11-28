@@ -1,0 +1,76 @@
+2026-11-28T13:09:42+00:00 scilab AVAILABLE 48603213824
+scilab before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+scilab JobFinished: Ok("Flathub app installed")
+scilab after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:34+00:00 scilab current-install 2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145
+/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145/export/share/applications/org.scilab.Scilab.desktop
+/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145/export/share/icons/hicolor/256x256/apps/org.scilab.Scilab.png
+Updating app/org.scilab.Scilab/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:43+00:00 scilab previous fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0
+scilab before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0", package: Some("org.scilab.Scilab"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: false, can_open: true }
+scilab JobFinished: Err("Approved action rejected: native installation state changed")
+scilab JobFinished: Err("This Flatpak is managed outside the launcher")
+scilab after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0", package: Some("org.scilab.Scilab"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=13478 comm="xfwm4 --compositor=on --display=:77" label="unconfined")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=13492 comm="flatpak run --user --command=sh app/org.scilab.Sci" label="flatpak (unconfined)")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=13492 comm="flatpak run --user --command=sh app/org.scilab.Sci" label="flatpak (unconfined)")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=13520 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+scilab before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: true, can_remove: true, can_open: true }
+scilab JobFinished: Ok("Launch request accepted")
+scilab after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.17' (uid=1000 pid=13686 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.18' (uid=1000 pid=14194 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:14202): dbind-WARNING **: 13:11:50.473: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:14194): xdg-desktop-portal-WARNING **: 13:11:50.710: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14194): xdg-desktop-portal-WARNING **: 13:11:50.710: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14194): xdg-desktop-portal-WARNING **: 13:11:50.710: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:14194): xdg-desktop-portal-WARNING **: 13:11:50.728: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[11440]: [session uid=1000 pid=11440] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.21' (uid=1000 pid=13686 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[11440]: [session uid=1000 pid=11440] Successfully activated service 'org.freedesktop.portal.Flatpak'
+  Map State: IsViewable
+org.scilab.Scilab
+org.scilab.Scilab
+XGetWindowProperty[_NET_WM_DESKTOP] failed (code=1)
+2026-11-28T13:12:15+00:00 scilab previous GUI WM_NAME(STRING) = "Content window"
+WM_CLASS(STRING) = "Scilab", "Scilab"
+2026-11-28T13:12:15+00:00 scilab AVAILABLE 39798779904
+scilab before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/fbe60f8e637aa0d50b5fc74a850b9d6d4cc37512119ec7cdf582d64efcb5b9c0", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: true, can_remove: true, can_open: true }
+scilab JobFinished: Ok("Flathub app updated")
+scilab after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:12:19+00:00 scilab current 2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145
+/home/qa/profiles/scilab-composited/.var/app/org.scilab.Scilab/fixture.txt: OK
+scilab before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: true, can_open: true }
+scilab JobFinished: Ok("Launch request accepted")
+scilab after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.scilab.Scilab
+org.scilab.Scilab
+XGetWindowProperty[_NET_WM_DESKTOP] failed (code=1)
+2026-11-28T13:12:50+00:00 scilab current GUI WM_NAME(STRING) = "Content window"
+WM_CLASS(STRING) = "Scilab", "Scilab"
+scilab before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2027, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/scilab-composited/data/flatpak/app/org.scilab.Scilab/x86_64/stable/2a2f241b200be8ebd082f92d51c68c131eb154df40dcc146905e6638a267b145", package: Some("org.scilab.Scilab"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2027.0.0"), update_available: false, can_remove: true, can_open: true }
+scilab JobFinished: Ok("Flathub app removed")
+scilab after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/scilab-composited/.var/app/org.scilab.Scilab/fixture.txt: OK
+2026-11-28T13:12:53+00:00 scilab PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:12:55+00:00 scilab EXIT 0 remove
+
+(xfconfd:13505): xfconfd-WARNING **: 13:12:55.044: Name org.xfce.Xfconf lost on the message dbus, exiting.

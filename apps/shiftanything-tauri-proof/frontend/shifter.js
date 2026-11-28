@@ -6,14 +6,19 @@
     tagline: ['Trova alternative open source per le funzioni che usi.', 'Find open-source alternatives for the features you use.'],
     software: ['Software a pagamento', 'Paid software'],
     search: ['Cerca, es. Photoshop', 'Search, e.g. Photoshop'],
-    choose: ['Confronta', 'Compare'],
+    choose: ['Scegli software', 'Choose software'],
     browse: ['Elenco software A–Z', 'Software list A–Z'],
-    noMatch: ['Nessuna corrispondenza. Premi Invio per il confronto manuale.', 'No matches. Press Enter to compare manually.'],
+    noMatch: ['Nessun profilo pronto. Premi Invio per scegliere le funzioni a mano.', 'No prepared profile. Press Enter to choose features manually.'],
     features: ['Funzioni che usi', 'Features you use'],
+    chooseFeatures: ['Spunta le funzioni che usi per aggiornare il confronto.', 'Check the features you use to update the comparison.'],
+    manualFeatures: ['Scegli una funzione documentata per trovare alternative.', 'Choose a documented feature to find alternatives.'],
+    selectAll: ['Seleziona tutte', 'Select all'],
+    clearAll: ['Deseleziona tutte', 'Clear all'],
     required: ['Indispensabile', 'Essential'],
     results: ['Confronto con il catalogo', 'Catalog comparison'],
     candidate: ['Applicazione', 'App'],
     coverage: ['Copertura documentata', 'Documented coverage'],
+    coverageInfo: ['Dettaglio delle funzioni', 'Feature coverage details'],
     essentials: ['Indispensabili', 'Essentials'],
     clearGaps: ['Tutti coperti', 'All covered'],
     missingEssential: ['funzione da coprire', 'feature to cover'],
@@ -29,11 +34,10 @@
     close: ['Chiudi', 'Close'],
     nothing: ['Scegli almeno una funzione per calcolare la copertura.', 'Choose at least one feature to calculate coverage.'],
     empty: ['Cerca un software oppure scegli un confronto pronto.', 'Search for software or choose an existing comparison.'],
-    noResults: ['Non ci sono app nel confronto.', 'There are no apps in the comparison.'],
+    noResults: ['Nessuna alternativa con supporto completo documentato per almeno una delle funzioni selezionate.', 'No alternatives have documented full support for any selected feature.'],
     noAppMatches: ['Nessuna app corrisponde alla ricerca.', 'No apps match your search.'],
     findApp: ['Cerca app nel confronto', 'Search apps in comparison'],
     appCount: ['app nel confronto', 'apps in comparison'],
-    needsSources: ['La copertura appare quando ci sono fonti per le funzioni selezionate.', 'Coverage appears when there are sources for the selected features.'],
     previousPage: ['Precedente', 'Previous'],
     nextPage: ['Successiva', 'Next'],
     resultPages: ['Pagine delle app', 'App result pages'],
@@ -75,7 +79,7 @@
             <input id="sh-software" class="inp" maxlength="100" autocomplete="off"
               placeholder="${labels.search}" role="combobox" aria-autocomplete="list" aria-expanded="false"
               aria-controls="sh-software-options" data-software-name required>
-            <button type="button" class="btn" tabindex="-1" aria-label="${labels.browse}" aria-expanded="false"
+            <button type="button" class="btn" aria-label="${labels.browse}" aria-expanded="false"
               aria-controls="sh-software-options" data-software-toggle>▾</button>
           </div>
           <div class="sh-options" data-software-popup hidden>
@@ -89,8 +93,12 @@
     <div class="sh-layout">
       <section class="sh-wing" aria-labelledby="sh-features-title">
         <header><h2 id="sh-features-title">${labels.features}</h2><span data-feature-count class="dim" aria-live="polite"></span></header>
+        <div class="sh-feature-tools" data-feature-tools hidden>
+          <span data-feature-help class="dim"></span><button type="button" class="btn" data-toggle-features></button>
+        </div>
         <div class="sh-features" data-features></div>
         <div class="sh-manual" data-manual hidden>
+          <span class="dim">${labels.manualFeatures}</span>
           <form data-add-known><select class="inp" data-known-feature aria-label="${labels.knownFunction}" required></select><button type="submit" class="btn">${labels.addFunction}</button></form>
           <form data-add-feature><input class="inp" data-feature-name maxlength="110" aria-label="${labels.customFunction}"
             placeholder="${labels.customFunction}" required><button type="submit" class="btn">${labels.addFunction}</button></form>
@@ -114,7 +122,7 @@
         <div class="sh-scroll">
           <table id="sh-results-table" data-results hidden>
             <thead class="mono"><tr>
-              <th scope="col">${labels.candidate}</th><th scope="col" data-coverage-column>${labels.coverage}</th>
+              <th scope="col">${labels.candidate}</th><th scope="col">${labels.coverage}</th>
               <th scope="col" data-essentials-column hidden>${labels.essentials}</th><th scope="col">${labels.proofs} / ${labels.app}</th>
             </tr></thead>
             <tbody data-candidates></tbody>
@@ -123,7 +131,6 @@
         <p class="sh-announce" data-sh-announce role="status"></p>
         <footer class="sh-note" data-sh-note hidden>
           <span>${labels.about} <time></time>.</span>
-          <span data-coverage-note hidden>${labels.needsSources}</span>
         </footer>
       </section>
     </div>`;
@@ -134,7 +141,12 @@
   dialog.setAttribute('aria-labelledby', 'sh-dialog-title');
   dialog.innerHTML = `<div class="detail-toolbar"><button type="button" class="btn" data-sh-close>${labels.close}</button></div>
     <div class="sh-dialog-body" data-sh-content></div><p role="status" class="dim" data-source-status></p>`;
-  document.body.append(dialog);
+  const coverageTooltip = document.createElement('aside');
+  coverageTooltip.id = 'sh-coverage-tooltip';
+  coverageTooltip.className = 'sh-coverage-tooltip';
+  coverageTooltip.setAttribute('role', 'tooltip');
+  coverageTooltip.hidden = true;
+  document.body.append(dialog, coverageTooltip);
 
   const find = key => root.querySelector('[data-' + key + ']');
   const status = find('sh-status');
@@ -192,6 +204,7 @@
     shopify: ['Shopify'],
     sketch: ['Sketch'],
     slack: ['Slack'],
+    teamviewer: ['TeamViewer', 'TeamViewer Remote', 'TeamViewer Classic'],
     trimble: ['SketchUp'],
     wispr: ['Wispr Flow'],
     zoom: ['Zoom'],
@@ -213,6 +226,8 @@
   let customSequence = 0;
   let renderRevision = 0;
   let dialogTrigger;
+  let coverageTrigger;
+  let coverageHideTimer;
   let icons;
 
   function node(tag, text, className) {
@@ -274,15 +289,18 @@
       .map(feature => [feature.key, feature.name[lang]]));
   }
 
-  function choose(name) {
-    const term = normalize(name);
-    if (!term || !workspace) return;
-    activeProfile = profiles.find(profile => [profile.name, ...profile.aliases].some(alias => normalize(alias) === term));
-    startingName = activeProfile?.name ?? name.trim();
+  function choose(name, profile) {
+    if (!workspace) return;
+    const newName = profile?.name ?? name.trim();
+    if (!normalize(newName)) return;
+    const unchanged = activeProfile === profile && startingName === newName;
+    startingName = newName;
     search.value = startingName;
     updatePickerBrand();
+    if (unchanged) return;
+    activeProfile = profile;
     features = (activeProfile?.features ?? []).map(feature => ({
-      ...feature, key: activeProfile.id + ':' + feature.id, selected: true, essential: false,
+      ...feature, key: activeProfile.id + ':' + feature.id, selected: false, essential: false,
     }));
     appSearch.value = '';
     resultPage = 0;
@@ -356,6 +374,73 @@
     if (previous) list.querySelector('[data-sh-focus="' + CSS.escape(previous) + '"]')?.focus({ preventScroll: true });
   }
 
+  function hideCoverage() {
+    clearTimeout(coverageHideTimer);
+    coverageTrigger?.removeAttribute('aria-describedby');
+    coverageTrigger = undefined;
+    coverageTooltip.hidden = true;
+  }
+
+  function showCoverage(trigger, app, features) {
+    clearTimeout(coverageHideTimer);
+    if (coverageTrigger === trigger && !coverageTooltip.hidden) return;
+    hideCoverage();
+    coverageTrigger = trigger;
+    const items = node('ul');
+    for (const feature of features) {
+      const state = evidenceByApp.get(app.id)?.get(feature.key)?.state ?? 'unverified';
+      const supported = state === 'supported';
+      const mark = node('span', supported ? '✓' : '×', supported ? 'is-covered' : 'is-missing');
+      mark.setAttribute('aria-hidden', 'true');
+      const description = node('span', feature.name[lang]);
+      description.append(node('small', labels[state]));
+      const item = node('li');
+      item.append(mark, description);
+      items.append(item);
+    }
+    coverageTooltip.replaceChildren(node('strong', app.name), items);
+    coverageTooltip.hidden = false;
+    trigger.setAttribute('aria-describedby', coverageTooltip.id);
+    const anchor = trigger.getBoundingClientRect();
+    const tooltip = coverageTooltip.getBoundingClientRect();
+    const margin = 8;
+    const left = Math.max(margin, Math.min(anchor.left, window.innerWidth - tooltip.width - margin));
+    const top = anchor.bottom + tooltip.height + margin <= window.innerHeight
+      ? anchor.bottom + margin : Math.max(margin, anchor.top - tooltip.height - margin);
+    coverageTooltip.style.left = left + 'px';
+    coverageTooltip.style.top = top + 'px';
+  }
+
+  function coverageInfo(app, selected) {
+    const control = button('i', undefined, 'sh-coverage-info');
+    control.setAttribute('aria-label', labels.coverageInfo + ' · ' + app.name);
+    const show = () => showCoverage(control, app, selected);
+    control.addEventListener('focus', show);
+    control.addEventListener('click', show);
+    control.addEventListener('pointerenter', show);
+    control.addEventListener('blur', hideCoverage);
+    control.addEventListener('pointerleave', () => {
+      if (document.activeElement !== control) coverageHideTimer = setTimeout(hideCoverage, 160);
+    });
+    return control;
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && coverageTrigger) {
+      hideCoverage();
+      event.preventDefault();
+    }
+  }, true);
+  document.addEventListener('pointerdown', event => {
+    if (coverageTrigger && !coverageTrigger.contains(event.target) && !coverageTooltip.contains(event.target)) hideCoverage();
+  });
+  coverageTooltip.addEventListener('pointerenter', () => clearTimeout(coverageHideTimer));
+  coverageTooltip.addEventListener('pointerleave', () => {
+    if (document.activeElement !== coverageTrigger) coverageHideTimer = setTimeout(hideCoverage, 160);
+  });
+  find('results').parentElement.addEventListener('scroll', hideCoverage);
+  window.addEventListener('resize', hideCoverage);
+
   function drawRows(scores, selected, required) {
     const rows = find('candidates');
     for (const score of scores) {
@@ -381,12 +466,9 @@
       name.append(identity);
 
       row.append(name);
-      if (selected.length) {
-        const coverage = node('td', undefined, 'sh-rate');
-        if (score.coverage === null) coverage.append(node('span', '—', 'dim'));
-        else coverage.append(node('strong', score.coverage + '%'), node('span', score.supported + '/' + selected.length, 'dim'));
-        row.append(coverage);
-      }
+      const coverage = node('td', undefined, 'sh-rate');
+      coverage.append(node('strong', score.coverage + '%'), ' ', node('span', score.supported + '/' + selected.length, 'dim'), coverageInfo(app, selected));
+      row.append(coverage);
       const source = evidenceByApp.get(app.id);
       const evidenceKey = feature => activeProfile ? feature.id : feature.key;
       if (required.length) {
@@ -420,6 +502,7 @@
   }
 
   function drawResultPage() {
+    hideCoverage();
     if (!comparisonResult) return;
     const { scores, selected, required } = comparisonResult;
     const term = normalize(appSearch.value);
@@ -434,8 +517,6 @@
     const total = format(scores.length) + ' ' + labels.appCount;
     const range = matched.length ? format(start + 1) + '–' + format(end) + ' ' + labels.rangeOf + ' ' + format(matched.length) : '';
     find('result-total').textContent = total;
-    find('coverage-note').hidden = !selected.length || !matched.some(score => score.coverage === null);
-    find('coverage-column').hidden = selected.length === 0;
     find('essentials-column').hidden = required.length === 0;
     results.toggleAttribute('data-has-essentials', required.length > 0);
     find('result-tools').hidden = scores.length === 0;
@@ -449,11 +530,12 @@
     find('candidates').replaceChildren();
     drawRows(matched.slice(start, end), selected, required);
     results.hidden = matched.length === 0;
-    setStatus(!scores.length ? labels.noResults : !matched.length ? labels.noAppMatches : !selected.length ? labels.nothing : '');
+    setStatus(!scores.length ? labels.noResults : !matched.length ? labels.noAppMatches : '');
     find('sh-announce').textContent = range ? total + ' · ' + range : '';
   }
 
   async function render() {
+    hideCoverage();
     const revision = ++renderRevision;
     const selected = features.filter(feature => feature.selected);
     const manual = Boolean(startingName && !activeProfile);
@@ -464,10 +546,12 @@
       comparisonName.append(softwareBrand(startingName), node('span', startingName + (manual ? ' · ' + labels.manual : '')));
     }
     find('manual').hidden = !manual;
+    find('feature-tools').hidden = features.length === 0;
+    find('feature-help').textContent = labels.chooseFeatures;
+    find('toggle-features').textContent = selected.length === features.length ? labels.clearAll : labels.selectAll;
     drawFeatures();
     comparisonResult = undefined;
     find('result-total').textContent = '';
-    find('coverage-note').hidden = true;
     find('result-tools').hidden = true;
     results.hidden = true;
     find('candidates').replaceChildren();
@@ -475,6 +559,10 @@
 
     if (!startingName) {
       setStatus(labels.empty);
+      return;
+    }
+    if (!selected.length) {
+      setStatus(labels.nothing);
       return;
     }
     setStatus(labels.loading);
@@ -502,20 +590,25 @@
     }
   }
 
+  function matchingProfiles(query) {
+    const term = normalize(query);
+    return suggestions.filter(profile => [profile.name, ...profile.aliases].some(alias => normalize(alias).includes(term)));
+  }
+
   function showOptions(query) {
     if (!workspace) return;
-    const term = normalize(query);
-    matches = suggestions.filter(software => software.aliases.some(alias => normalize(alias).includes(term)));
+    matches = matchingProfiles(query);
     highlighted = -1;
     search.removeAttribute('aria-activedescendant');
-    options.replaceChildren(...matches.map(({ name }, index) => {
+    options.replaceChildren(...matches.map((profile, index) => {
+      const { name } = profile;
       const option = node('div', undefined, 'sh-option');
       option.append(softwareBrand(name), node('span', name));
       option.id = 'sh-software-option-' + index;
       option.setAttribute('role', 'option');
       option.setAttribute('aria-selected', 'false');
       option.addEventListener('pointerdown', event => event.preventDefault());
-      option.addEventListener('click', () => applySoftware(name));
+      option.addEventListener('click', () => applySoftware(name, profile));
       return option;
     }));
     popup.scrollTop = 0;
@@ -534,9 +627,27 @@
   }
 
   const openOptions = () => showOptions(search.value === startingName ? '' : search.value);
-  function applySoftware(name) {
+  function applySoftware(name, profile) {
     setPopup(false);
-    choose(name);
+    choose(name, profile);
+  }
+
+  function submitSoftware() {
+    if (!workspace || !search.reportValidity()) return;
+    const name = search.value;
+    const term = normalize(name);
+    if (!term) return;
+    const choices = matchingProfiles(name);
+    const exact = choices.find(profile => normalize(profile.name) === term)
+      ?? choices.find(profile => profile.aliases.some(alias => normalize(alias) === term));
+    const profile = exact ?? (choices.length === 1 ? choices[0] : undefined);
+    if (profile || choices.length === 0) {
+      applySoftware(name, profile);
+    } else {
+      search.focus({ preventScroll: true });
+      showOptions(name);
+      highlight(0);
+    }
   }
 
   toggle.addEventListener('click', () => {
@@ -563,9 +674,9 @@
       setPopup(false);
     } else if (event.key === 'Enter') {
       event.preventDefault();
-      if (!search.reportValidity()) return;
-      const option = matches[highlighted] ?? (matches.length === 1 ? matches[0] : null);
-      applySoftware(!popup.hidden && option ? option.name : search.value);
+      const option = popup.hidden ? undefined : matches[highlighted];
+      if (option) applySoftware(option.name, option);
+      else submitSoftware();
     }
   });
 
@@ -589,7 +700,15 @@
     });
   }
 
-  onSubmit('software', () => applySoftware(search.value));
+  find('toggle-features').addEventListener('click', () => {
+    const selected = features.some(feature => !feature.selected);
+    for (const feature of features) {
+      feature.selected = selected;
+      if (!selected) feature.essential = false;
+    }
+    render();
+  });
+  onSubmit('software', submitSoftware);
   onSubmit('add-feature', () => {
     if (features.length >= 100) return setStatus(labels.featureLimit);
     const field = find('feature-name');
@@ -620,7 +739,7 @@
     const profile = profiles.find(candidate => candidate.id === requestedProfile);
     requestedProfile = undefined;
     if (!profile) return false;
-    applySoftware(profile.name);
+    applySoftware(profile.name, profile);
     return true;
   }
 
@@ -634,10 +753,8 @@
       byId = new Map(loaded.apps.map(app => [app.id, app]));
       icons = new Map([...catalog.querySelectorAll('.catalog-grid [data-app]')]
         .map(card => [card.dataset.app, card.querySelector('.product-icon')]));
-      const names = new Map(loaded.dataset.suggested_software.map(name => [normalize(name), { name, aliases: [name] }]));
       for (const profile of profiles) {
-        const { id, name, aliases } = profile;
-        names.set(normalize(name), { name, aliases: [name, ...aliases] });
+        const { id } = profile;
         for (const feature of profile.features) {
           const key = id + ':' + feature.id;
           known.set(key, { ...feature, key });
@@ -648,7 +765,7 @@
           evidenceByApp.set(candidate.app_id, evidence);
         }
       }
-      suggestions = [...names.values()].sort((a, b) => collator.compare(a.name, b.name));
+      suggestions = profiles.filter(profile => profile.features.length).sort((a, b) => collator.compare(a.name, b.name));
       const note = find('sh-note');
       const time = note.querySelector('time');
       time.dateTime = loaded.dataset.checked_on;
@@ -656,8 +773,8 @@
       note.hidden = false;
       workspace = loaded;
       if (!selectRequestedProfile()) {
-        if (profiles.length) choose(profiles[0].name);
-        else setStatus(labels.empty);
+        setStatus(labels.empty);
+        if (document.activeElement === search) openOptions();
       }
     } catch {
       setStatus(labels.loadError);
@@ -667,6 +784,7 @@
   }
 
   function close() {
+    hideCoverage();
     root.hidden = true;
     bar.removeAttribute('data-shifter-active');
     setPopup(false);

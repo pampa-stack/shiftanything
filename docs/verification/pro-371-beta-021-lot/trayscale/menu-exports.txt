@@ -1,0 +1,2 @@
+/home/qa/profiles/trayscale-after210/data/flatpak/app/dev.deedles.Trayscale/x86_64/stable/f14ad61fc569a4a2c4512505b638e2d0e8df6e4016615b83c893767a6dcdb5e2/export/share/applications/dev.deedles.Trayscale.desktop
+/home/qa/profiles/trayscale-after210/data/flatpak/app/dev.deedles.Trayscale/x86_64/stable/f14ad61fc569a4a2c4512505b638e2d0e8df6e4016615b83c893767a6dcdb5e2/export/share/icons/hicolor/256x256/apps/dev.deedles.Trayscale.png

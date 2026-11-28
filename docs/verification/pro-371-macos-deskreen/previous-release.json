@@ -1,0 +1,15 @@
+{
+  "tag_name": "v3.2.15",
+  "draft": false,
+  "prerelease": false,
+  "html_url": "https://github.com/pavlobu/deskreen/releases/tag/v3.2.15",
+  "published_at": "2026-05-05T19:42:07Z",
+  "assets": [
+    {
+      "name": "deskreen-ce-3.2.15-arm64.dmg",
+      "size": 148740787,
+      "digest": "sha256:bfeb75823971706af9a2123a4c212a5244c0a0000f094be703a8125dbdeba3c8",
+      "browser_download_url": "https://github.com/pavlobu/deskreen/releases/download/v3.2.15/deskreen-ce-3.2.15-arm64.dmg"
+    }
+  ]
+}

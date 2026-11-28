@@ -1,0 +1,32 @@
+2026-11-28T05:47:18+0100
+/dev/disk3s5   482797652 423950008  11865000    98% 6604118 118650000    5%   /System/Volumes/Data
+ARTIFACT fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc 8624563 https://github.com/sw33tLie/macshot/releases/download/v4.4.0/MacShot-Offline.dmg
+BUNDLE=macshot Offline.app
+CFBundleIdentifier=com.sw33tlie.macshot.offline
+CFBundleShortVersionString=4.4.0
+CFBundleVersion=119
+CFBundleExecutable=macshot Offline
+LSMinimumSystemVersion=12.3
+/private/tmp/shift-air-overnight.ewoAj9gq/preflight/macshot/v4.4.0/mount/macshot Offline.app/Contents/MacOS/macshot Offline: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.ewoAj9gq/preflight/macshot/v4.4.0/mount/macshot Offline.app/Contents/MacOS/macshot Offline (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.ewoAj9gq/preflight/macshot/v4.4.0/mount/macshot Offline.app/Contents/MacOS/macshot Offline (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.ewoAj9gq/preflight/macshot/v4.4.0/mount/macshot Offline.app/Contents/MacOS/macshot Offline (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.3
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=com.sw33tlie.macshot.offline
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: PAOLO ARNOLFO (J4XGH8RFS8)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=1 Nov 2026 at 17:39:44
+TeamIdentifier=J4XGH8RFS8
+/private/tmp/shift-air-overnight.ewoAj9gq/preflight/macshot/v4.4.0/mount/macshot Offline.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT macshot v4.4.0

@@ -1,0 +1,72 @@
+2026-11-28T07:59:27+00:00 zed AVAILABLE 27411177472
+zed before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+zed JobFinished: Ok("Flathub app installed")
+zed after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 30, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.30.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T07:59:53+00:00 zed current-install 90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8
+/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8/export/share/applications/dev.zed.Zed.desktop
+/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8/export/share/icons/hicolor/512x512/apps/dev.zed.Zed.png
+Updating app/dev.zed.Zed/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:00:01+00:00 zed previous f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6
+zed before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 29, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6", package: Some("dev.zed.Zed"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.29.3"), update_available: false, can_remove: false, can_open: true }
+zed JobFinished: Err("Approved action rejected: native installation state changed")
+zed JobFinished: Err("This Flatpak is managed outside the launcher")
+zed after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 29, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6", package: Some("dev.zed.Zed"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.29.3"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=10326 comm="xfwm4 --compositor=off --display=:84" label="unconfined")
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=10343 comm="flatpak run --user --command=sh app/dev.zed.Zed/x8" label="flatpak (unconfined)")
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=10343 comm="flatpak run --user --command=sh app/dev.zed.Zed/x8" label="flatpak (unconfined)")
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=10369 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+zed before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 29, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.29.3"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=10468 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[9923]: [session uid=1000 pid=9923] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=10498 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:10505): dbind-WARNING **: 08:00:02.641: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:10498): xdg-desktop-portal-WARNING **: 08:00:02.668: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10498): xdg-desktop-portal-WARNING **: 08:00:02.668: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10498): xdg-desktop-portal-WARNING **: 08:00:02.668: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][01137.528293] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][01137.528674] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:10498): xdg-desktop-portal-WARNING **: 08:00:02.673: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[9923]: [session uid=1000 pid=9923] Successfully activated service 'org.freedesktop.portal.Desktop'
+zed JobFinished: Ok("Launch request accepted")
+zed after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 29, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.29.3"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+dev.zed.Zed
+2026-11-28T08:00:11+00:00 zed previous GUI WM_NAME(STRING) = "empty project"
+WM_CLASS(STRING) = "dev.zed.Zed", "dev.zed.Zed"
+2026-11-28T08:00:11+00:00 zed AVAILABLE 23773421568
+zed before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 29, patch: 3 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.29.3"), update_available: true, can_remove: true, can_open: true }
+zed JobFinished: Ok("Flathub app updated")
+zed after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 30, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.30.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:00:15+00:00 zed current 90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8
+/home/qa/profiles/zed-after210/.var/app/dev.zed.Zed/fixture.txt: OK
+zed before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 30, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.30.2"), update_available: false, can_remove: true, can_open: true }
+zed JobFinished: Ok("Launch request accepted")
+zed after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 30, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.30.2"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+dev.zed.Zed
+2026-11-28T08:00:24+00:00 zed current GUI WM_NAME(STRING) = "empty project"
+WM_CLASS(STRING) = "dev.zed.Zed", "dev.zed.Zed"
+zed before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 30, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zed-after210/data/flatpak/app/dev.zed.Zed/x86_64/stable/90ed482a3f2257f0d22fc1ea4f9eb074ed97c7f53b586513a980b33f6f3bfcd8", package: Some("dev.zed.Zed"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v1.30.2"), update_available: false, can_remove: true, can_open: true }
+zed JobFinished: Ok("Flathub app removed")
+zed after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/zed-after210/.var/app/dev.zed.Zed/fixture.txt: OK
+2026-11-28T08:00:25+00:00 zed PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T08:00:27+00:00 zed EXIT 0 remove
+
+(xfconfd:10355): xfconfd-WARNING **: 08:00:27.103: Name org.xfce.Xfconf lost on the message dbus, exiting.

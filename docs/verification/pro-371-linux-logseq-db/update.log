@@ -1,0 +1,13 @@
+OFFICIAL https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-linux-x86_64-2.0.1.AppImage bytes=182773866 sha256=49de367078b37670febdb987e562b75dee1e1ae96c28bfb8738779c42297dd0c
+FILE /home/qa/profile-logseq-db-linux-cycle/Applications/Logseq-linux-x86_64-2.0.1.AppImage version=2.0.1 bytes=182773866 sha256=49de367078b37670febdb987e562b75dee1e1ae96c28bfb8738779c42297dd0c
+DESKTOP /home/qa/profile-logseq-db-linux-cycle/data/applications/com.logseq.logseq.desktop ICON /home/qa/profile-logseq-db-linux-cycle/data/icons/hicolor/128x128/apps/com.logseq.logseq.png sha256=5a49392188a045dbd6303ea73670ebbfb0afa245c842a6d558b5ad0aa70056ec
+PASS logseq-db install 2125 ms Logseq DB installed: 2.0.1
+OFFICIAL https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-linux-x86_64-2.0.2.AppImage bytes=175847888 sha256=1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870
+DISCOVERY GitHubApi
+FILE /home/qa/profile-logseq-db-linux-cycle/Applications/Logseq-linux-x86_64-2.0.2.AppImage version=2.0.2 bytes=175847888 sha256=1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870
+DESKTOP /home/qa/profile-logseq-db-linux-cycle/data/applications/com.logseq.logseq.desktop ICON /home/qa/profile-logseq-db-linux-cycle/data/icons/hicolor/128x128/apps/com.logseq.logseq.png sha256=5a49392188a045dbd6303ea73670ebbfb0afa245c842a6d558b5ad0aa70056ec
+PASS logseq-db update 2124 ms Logseq DB updated to 2.0.2
+PASS logseq-db open-new 1 ms Launch request accepted
+2026-11-28T11:04:29+00:00	GUI OFFLINE open-new
+Latest GUI result: 0
+PASS logseq-db remove 80 ms Logseq DB was removed

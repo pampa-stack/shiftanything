@@ -1,7 +1,9 @@
 use std::collections::BTreeSet;
 
+use artcraft_launcher_core::curated::LIBREOFFICE;
 use artcraft_launcher_core::release::{
-    Asset, LIBREOFFICE_STABLE_URL, Release, libreoffice_arm64_asset, libreoffice_arm64_dmg, libreoffice_stable_version,
+    Asset, LIBREOFFICE_STABLE_URL, Release, libreoffice_arm64_asset, libreoffice_arm64_dmg, libreoffice_stable_version, libreoffice_windows_msi,
+    reviewed_windows_msi_asset,
 };
 use artcraft_launcher_core::version::Version;
 
@@ -20,14 +22,21 @@ pub(super) fn releases(http: &Http, latest_only: bool) -> Result<Vec<Release>, S
         return Err("The LibreOffice stable directory contains no recognized releases".into());
     }
     let limit = if latest_only { 1 } else { VERSION_LIMIT };
+    let windows = cfg!(all(windows, target_arch = "x86_64"));
     tags.into_iter()
         .rev()
+        .filter(|version| !windows || libreoffice_windows_msi(version).is_some())
         .take(limit)
         .map(|version| {
-            let (name, url) = libreoffice_arm64_dmg(&version);
+            let (name, url) = if windows {
+                let asset = libreoffice_windows_msi(&version).ok_or("No reviewed Windows x64 installer")?;
+                (asset.name, asset.url)
+            } else {
+                libreoffice_arm64_dmg(&version)
+            };
             let bytes = http
                 .get_tdf_bytes(&format!("{url}.meta4"), METALINK_LIMIT)?
-                .ok_or_else(|| format!("LibreOffice {version} is missing its Apple Silicon checksum"))?;
+                .ok_or_else(|| format!("LibreOffice {version} is missing its installer checksum"))?;
             let metalink = std::str::from_utf8(&bytes).map_err(|_| format!("The checksum for LibreOffice {version} is unreadable"))?;
             let (size, sha256) =
                 package_metadata(metalink, &name).ok_or_else(|| format!("The checksum and size for LibreOffice {version} could not be verified"))?;
@@ -39,8 +48,10 @@ pub(super) fn releases(http: &Http, latest_only: bool) -> Result<Vec<Release>, S
                 version: Some(version),
                 ..Release::default()
             };
-            if !libreoffice_arm64_asset(&release, &asset) {
-                return Err(format!("Invalid Apple Silicon package for LibreOffice {}", release.tag));
+            let valid =
+                if windows { reviewed_windows_msi_asset(LIBREOFFICE.repo, &release, &asset) } else { libreoffice_arm64_asset(&release, &asset) };
+            if !valid {
+                return Err(format!("Invalid installer for LibreOffice {}", release.tag));
             }
             Ok(Release { assets: vec![asset], ..release })
         })

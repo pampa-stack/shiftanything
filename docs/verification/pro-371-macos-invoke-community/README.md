@@ -1,0 +1,7 @@
+# Invoke Community su Apple Silicon
+
+Il motore nativo ha installato il launcher ufficiale 1.8.4, rilevato la 1.8.5 e applicato l’aggiornamento. Ha spostato l’app aggiornata nel Cestino del profilo temporaneo e preservato il file di prova del profilo. L’avvio della finestra, l’installazione del motore di generazione e i download dei modelli restano da verificare. [Registro del ciclo](invoke-community-native-cycle.log).
+
+- Test eseguito su arm64 con macOS 26.4 e Gatekeeper attivo. Il requisito minimo nei bundle e nei binari è macOS 11.0. I due DMG riportano l’identificatore `com.invoke.invoke-community-edition` e superano la verifica rigorosa con il Developer ID del team `2RGH26SB2H`. [Controlli 1.8.4](invoke-community-v1.8.4.log) · [Controlli 1.8.5](invoke-community-v1.8.5.log).
+- La ricetta scarica il DMG arm64 dal repository ufficiale del launcher. La scheda continua a rimandare al codice e alla documentazione di InvokeAI. [Release 1.8.4](https://github.com/invoke-ai/launcher/releases/tag/v1.8.4) · [Release 1.8.5](https://github.com/invoke-ai/launcher/releases/tag/v1.8.5) · [Licenza Apache-2.0 del launcher](https://github.com/invoke-ai/launcher/blob/v1.8.5/LICENSE).
+- Per ripetere il ciclo usa il [banco macOS](../pro-371-macos-overnight/README.md), salva le pagine degli asset come `invoke-community-v1.8.4-assets.html` e `invoke-community-v1.8.5-assets.html`, poi esegui `bash run-native.sh invoke-community invoke-ai/launcher "Invoke Community Edition" v1.8.4 v1.8.5`.

@@ -1,0 +1,19 @@
+commit f655ae8a02c2bb92e03cd09284e21c1df663b912b0a995c0783a56e9ef9453a9
+Parent:  5f7508b7a381eef640eaf5e3ee1ecc1deceefe69f3e383b8d1bd2f1dbd99aed8
+ContentChecksum:  b4594ae774ba41b655e71a6e653df67ae32e4b6294c7d708d692cb90b756832a
+Date:  2026-11-25 17:17:23 +0000
+
+    Remove StartupWMClass to match upstream (1f2f24790634)
+
+    Name: org.zulip.Zulip
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 17:19:23 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,19 @@
+commit b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf
+Parent:  9165392f7623ced1ec202ba68497f766008ed69bab8d00372cb09185b613cf8a
+ContentChecksum:  d7d0f939627e0cd705361dc36e6ded122b4c73a64454db11e0847fafa4c688ca
+Date:  2025-11-24 18:47:20 +0000
+
+    gnome-boxes: Update gnome-boxes-49.0.tar.xz to 49.1 (735028fed147)
+
+    Name: org.gnome.Boxes
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Mon Nov 24 19:00:24 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

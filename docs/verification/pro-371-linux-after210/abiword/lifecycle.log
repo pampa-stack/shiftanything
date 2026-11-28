@@ -1,0 +1,73 @@
+2026-11-28T12:49:00+00:00 abiword AVAILABLE 17082617856
+abiword before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+abiword JobFinished: Ok("Flathub app installed")
+abiword after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:49:21+00:00 abiword current-install 6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/applications/com.abisource.AbiWord.desktop
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/16x16/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/22x22/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/256x256/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/32x32/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/48x48/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/512x512/apps/com.abisource.AbiWord.png
+/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6/export/share/icons/hicolor/scalable/apps/com.abisource.AbiWord.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.gnome.Platform.Locale/x86_64/50
+Installing runtime/org.gnome.Platform/x86_64/50
+Updating app/com.abisource.AbiWord/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:49:48+00:00 abiword previous c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6
+abiword before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6", package: Some("com.abisource.AbiWord"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: false, can_open: true }
+abiword JobFinished: Err("Approved action rejected: native installation state changed")
+abiword JobFinished: Err("This Flatpak is managed outside the launcher")
+abiword after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6", package: Some("com.abisource.AbiWord"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[22629]: [session uid=1000 pid=22629] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=25098 comm="xfwm4 --compositor=off --display=:70" label="unconfined")
+dbus-daemon[22629]: [session uid=1000 pid=22629] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[22629]: [session uid=1000 pid=22629] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=25111 comm="flatpak run --user --command=sh app/com.abisource." label="flatpak (unconfined)")
+dbus-daemon[22629]: [session uid=1000 pid=22629] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[22629]: [session uid=1000 pid=22629] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=25111 comm="flatpak run --user --command=sh app/com.abisource." label="flatpak (unconfined)")
+dbus-daemon[22629]: [session uid=1000 pid=22629] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=25137 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[22629]: [session uid=1000 pid=22629] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[22629]: [session uid=1000 pid=22629] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+abiword before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[22629]: [session uid=1000 pid=22629] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.16' (uid=1000 pid=25239 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[22629]: [session uid=1000 pid=22629] Successfully activated service 'org.freedesktop.portal.Flatpak'
+abiword JobFinished: Ok("Launch request accepted")
+abiword after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.abisource.AbiWord
+com.abisource.AbiWord
+com.abisource.AbiWord
+2026-11-28T12:50:00+00:00 abiword previous GUI WM_NAME(STRING) = "Untitled1"
+WM_CLASS(STRING) = "abiword", "Abiword"
+2026-11-28T12:50:00+00:00 abiword AVAILABLE 14111977472
+abiword before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: true, can_remove: true, can_open: true }
+abiword JobFinished: Ok("Flathub app updated")
+abiword after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:50:02+00:00 abiword current 6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6
+/home/qa/profiles/abiword-after210/.var/app/com.abisource.AbiWord/fixture.txt: OK
+abiword before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: true, can_open: true }
+abiword JobFinished: Ok("Launch request accepted")
+abiword after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.abisource.AbiWord
+com.abisource.AbiWord
+com.abisource.AbiWord
+2026-11-28T12:50:12+00:00 abiword current GUI WM_NAME(STRING) = "Untitled1"
+WM_CLASS(STRING) = "abiword", "Abiword"
+abiword before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 0, patch: 8 }), source: Flatpak, location: "/home/qa/profiles/abiword-after210/data/flatpak/app/com.abisource.AbiWord/x86_64/stable/6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6", package: Some("com.abisource.AbiWord"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.0.8"), update_available: false, can_remove: true, can_open: true }
+abiword JobFinished: Ok("Flathub app removed")
+abiword after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/abiword-after210/.var/app/com.abisource.AbiWord/fixture.txt: OK
+2026-11-28T12:50:13+00:00 abiword PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:50:14+00:00 abiword EXIT 0 remove
+
+(xfconfd:25123): xfconfd-WARNING **: 12:50:14.044: Name org.xfce.Xfconf lost on the message dbus, exiting.

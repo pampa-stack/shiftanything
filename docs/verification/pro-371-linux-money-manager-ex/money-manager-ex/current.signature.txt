@@ -1,0 +1,19 @@
+commit 58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736
+Parent:  03f4d1f8f188f23f718c1017f2107b04c20cb564cf11567a8ad0d2dcad06a492
+ContentChecksum:  0f3fb92508a8f1020f395209150add65fd24c183cc4378b57ebf1c48333f3e2f
+Date:  2026-11-25 17:22:43 +0000
+
+    wxWidgets: Update wxWidgets-3.3.3.tar.bz2 to 3.3.4 (#49) (62f8e97fb3ea)
+
+    Name: org.moneymanagerex.MMEX
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 17:26:22 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

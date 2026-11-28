@@ -1,0 +1,20 @@
+
+LibreWolf - LibreWolf Web Browser
+
+          ID: io.gitlab.librewolf-community
+         Ref: app/io.gitlab.librewolf-community/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 161.0-1
+     License: MPL-2.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 515.7 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 6f299110c1baf7be2ce73e3301c31bbde762527c2fa94c858011e0abac14985d
+      Parent: ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d
+     Subject: Update librewolf module (#278) (eb740d1f06aa)
+        Date: 2026-11-25 15:35:16 +0000

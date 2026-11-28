@@ -222,7 +222,7 @@ impl VerifiedCatalog {
         }
         for recipe in crate::curated::COMMUNITY_RECIPES {
             apps.retain(|app| app.id != recipe.id);
-            apps.push(recipe);
+            apps.push(*recipe);
         }
         Snapshot { apps, details, metadata, icons: kept_icons }
     }

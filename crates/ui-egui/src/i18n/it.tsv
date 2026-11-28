@@ -68,6 +68,8 @@
 	Check for updates	Aggiornamenti
 
 	Desktop app	App desktop
+	Browser app	App nel browser
+	Open in browser	Apri nel browser
 
 	Last update	Ultimo aggiornamento
 
@@ -211,6 +213,7 @@
 	Reuse a documented feature	Riusa una funzione documentata
 
 	Open-source alternatives	Alternative open source
+	No alternatives have documented full support for any selected feature.	Nessuna alternativa con supporto completo documentato per almeno una delle funzioni selezionate.
 	Sources / details	Fonti / scheda
 	Workflow Kits	Kit di lavoro
 	Workflow kit data unavailable	Dati dei kit non disponibili

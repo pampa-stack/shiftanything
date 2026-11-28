@@ -1,0 +1,20 @@
+
+File Roller - Open, modify and create compressed archive files
+
+          ID: org.gnome.FileRoller
+         Ref: app/org.gnome.FileRoller/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 44.6
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 5.6 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: 558cfaadcb6bc469b8efbf3d9a899e2880abf6cea9daabfc25bd1ce548d0d527
+      Parent: b805e301028d7010c0315597e3e109b05e3741c7389d3da32f0d725cb231f1d7
+     Subject: Use correct 7-Zip variant (f27361f809bb)
+        Date: 2026-02-23 22:51:15 +0000

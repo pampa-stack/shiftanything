@@ -1,0 +1,77 @@
+2026-11-28T03:06:48+00:00 bleachbit AVAILABLE 17743544320
+bleachbit before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+bleachbit JobFinished: Ok("Flathub app installed")
+bleachbit after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:06:58+00:00 bleachbit current-install 4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/applications/org.bleachbit.BleachBit.desktop
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/icons/hicolor/256x256/apps/org.bleachbit.BleachBit.png
+/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70/export/share/icons/hicolor/scalable/apps/org.bleachbit.BleachBit.svg
+Updating app/org.bleachbit.BleachBit/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:07:02+00:00 bleachbit previous 9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0
+bleachbit before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0", package: Some("org.bleachbit.BleachBit"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.5"), update_available: false, can_remove: false, can_open: true }
+bleachbit JobFinished: Err("Approved action rejected: native installation state changed")
+bleachbit JobFinished: Err("This Flatpak is managed outside the launcher")
+bleachbit after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0", package: Some("org.bleachbit.BleachBit"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.5"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=10240 comm="xfwm4 --compositor=off --display=:92" label="unconfined")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=10260 comm="flatpak run --user --command=sh app/org.bleachbit." label="flatpak (unconfined)")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=10260 comm="flatpak run --user --command=sh app/org.bleachbit." label="flatpak (unconfined)")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=10303 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+bleachbit before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.5"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=10406 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=10421 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:10427): dbind-WARNING **: 03:07:04.560: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:10421): xdg-desktop-portal-WARNING **: 03:07:04.578: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10421): xdg-desktop-portal-WARNING **: 03:07:04.578: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10421): xdg-desktop-portal-WARNING **: 03:07:04.579: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00568.068235] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00568.068277] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:10421): xdg-desktop-portal-WARNING **: 03:07:04.583: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[9604]: [session uid=1000 pid=9604] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=10406 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[9604]: [session uid=1000 pid=9604] Successfully activated service 'org.freedesktop.portal.Flatpak'
+bleachbit JobFinished: Ok("Launch request accepted")
+bleachbit after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.5"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.bleachbit.BleachBit
+org.bleachbit.BleachBit
+2026-11-28T03:07:14+00:00 bleachbit previous GUI WM_NAME(STRING) = "BleachBit"
+WM_CLASS(STRING) = "org.bleachbit.BleachBit", "Bleachbit"
+2026-11-28T03:07:14+00:00 bleachbit AVAILABLE 17047752704
+bleachbit before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/9f9283a136ad216fc083ce7f6404e1569c1d50abff41e51bce161ee6f4b26dd0", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.5"), update_available: true, can_remove: true, can_open: true }
+bleachbit JobFinished: Ok("Flathub app updated")
+bleachbit after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.6"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:07:15+00:00 bleachbit current 4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70
+/home/qa/profiles/bleachbit-after210/.var/app/org.bleachbit.BleachBit/fixture.txt: OK
+bleachbit before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.6"), update_available: false, can_remove: true, can_open: true }
+bleachbit JobFinished: Ok("Launch request accepted")
+bleachbit after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.6"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.bleachbit.BleachBit
+org.bleachbit.BleachBit
+2026-11-28T03:07:26+00:00 bleachbit current GUI WM_NAME(STRING) = "BleachBit"
+WM_CLASS(STRING) = "org.bleachbit.BleachBit", "Bleachbit"
+bleachbit before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 6, minor: 0, patch: 6 }), source: Flatpak, location: "/home/qa/profiles/bleachbit-after210/data/flatpak/app/org.bleachbit.BleachBit/x86_64/stable/4ab2e6e8f5e45c55d53e4dcf0dbce1f627faf61d17101a67e2b766874d16af70", package: Some("org.bleachbit.BleachBit"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v6.0.6"), update_available: false, can_remove: true, can_open: true }
+bleachbit JobFinished: Ok("Flathub app removed")
+bleachbit after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/bleachbit-after210/.var/app/org.bleachbit.BleachBit/fixture.txt: OK
+2026-11-28T03:07:26+00:00 bleachbit PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T03:07:27+00:00 bleachbit EXIT 0 remove
+
+(xfconfd:10274): xfconfd-WARNING **: 03:07:27.003: Name org.xfce.Xfconf lost on the message dbus, exiting.

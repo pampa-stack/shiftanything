@@ -53,3 +53,31 @@ pub fn data() -> Result<&'static Dataset, &'static str> {
         .as_ref()
         .map_err(String::as_str)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::collections::BTreeSet;
+
+    #[test]
+    fn kits_only_offer_catalog_apps_and_documented_comparisons() {
+        let catalog: BTreeSet<_> = crate::curated::apps().iter().map(|app| app.id.as_str()).collect();
+        let profiles: BTreeSet<_> = crate::shifter::data().unwrap().profiles.iter().map(|profile| profile.id.as_str()).collect();
+        let mut kit_ids = BTreeSet::new();
+        for kit in &data().unwrap().kits {
+            assert!(kit_ids.insert(&kit.id), "duplicate kit {}", kit.id);
+            assert!(!kit.steps.is_empty(), "empty kit {}", kit.id);
+            let mut steps = BTreeSet::new();
+            for step in &kit.steps {
+                assert!(steps.insert(&step.id), "duplicate step {}/{}", kit.id, step.id);
+                assert!(!step.paid.is_empty() && !step.options.is_empty(), "empty step {}/{}", kit.id, step.id);
+                assert!(step.compare.as_deref().is_none_or(|profile| profiles.contains(profile)));
+                let mut apps = BTreeSet::new();
+                for option in &step.options {
+                    assert!(apps.insert(&option.app) && catalog.contains(option.app.as_str()), "invalid option {}", option.app);
+                    assert!(option.source.starts_with("https://"), "missing source for {}", option.app);
+                }
+            }
+        }
+    }
+}

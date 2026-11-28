@@ -1,0 +1,57 @@
+=== dyad-cycle-retry ===
+PASS PREFLIGHT dyad v1.23.0
+PASS PREFLIGHT dyad v1.24.0
+/dev/disk3s5   482797652 424593660  11221284    98% 6538254 112212840    6%   /System/Volumes/Data
+OFFICIAL INDEX dyad v1.23.0 digest=published
+OFFICIAL INDEX dyad v1.24.0 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v1.23.0 MacZip https://github.com/dyad-sh/dyad/releases/download/v1.23.0/dyad-darwin-arm64-1.23.0.zip 130606146 50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15
+PASS OFFICIAL v1.24.0 MacZip https://github.com/dyad-sh/dyad/releases/download/v1.24.0/dyad-darwin-arm64-1.24.0.zip 130496464 edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb
+NATIVE ORIGIN dyad GitHub
+PASS OFFICIAL v1.23.0 MacZip https://github.com/dyad-sh/dyad/releases/download/v1.23.0/dyad-darwin-arm64-1.23.0.zip 130606146 50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15
+PASS NATIVE dyad install: Dyad installed: 1.23.0; package_bytes=130606146; elapsed=32.063s
+NATIVE ORIGIN dyad GitHub
+PASS OFFICIAL v1.24.0 MacZip https://github.com/dyad-sh/dyad/releases/download/v1.24.0/dyad-darwin-arm64-1.24.0.zip 130496464 edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb
+PASS NATIVE dyad update: Dyad updated to 1.24.0; package_bytes=130496464; elapsed=21.836s
+PASS NATIVE dyad remove: Dyad was removed; package_bytes=0; elapsed=0.064s
+PASS NATIVE CYCLE dyad (v1.23.0 → v1.24.0), private Trash and synthetic data preserved
+=== finicky-cycle ===
+PASS PREFLIGHT finicky v4.2.1
+PASS PREFLIGHT finicky v4.2.2
+/dev/disk3s5   482797652 424298468  11516476    98% 6538080 115164760    5%   /System/Volumes/Data
+OFFICIAL INDEX finicky v4.2.1 digest=published
+OFFICIAL INDEX finicky v4.2.2 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v4.2.1 Dmg https://github.com/johnste/finicky/releases/download/v4.2.1/Finicky.dmg 28569559 4b6008735a2885d0ae6135ba0eaefa3e0fc4e8d84d0b6166bd79cc732e6091cc
+PASS OFFICIAL v4.2.2 Dmg https://github.com/johnste/finicky/releases/download/v4.2.2/Finicky.dmg 28569676 5f0020782c9075d27411d6083d7be8663891e3146c86eafad118c44acc12208f
+NATIVE ORIGIN finicky GitHub
+PASS OFFICIAL v4.2.1 Dmg https://github.com/johnste/finicky/releases/download/v4.2.1/Finicky.dmg 28569559 4b6008735a2885d0ae6135ba0eaefa3e0fc4e8d84d0b6166bd79cc732e6091cc
+PASS NATIVE finicky install: Finicky installed: 4.2.1; package_bytes=28569559; elapsed=29.523s
+NATIVE ORIGIN finicky GitHub
+PASS OFFICIAL v4.2.2 Dmg https://github.com/johnste/finicky/releases/download/v4.2.2/Finicky.dmg 28569676 5f0020782c9075d27411d6083d7be8663891e3146c86eafad118c44acc12208f
+PASS NATIVE finicky update: Finicky updated to 4.2.2; package_bytes=28569676; elapsed=8.455s
+PASS NATIVE finicky remove: Finicky was removed; package_bytes=0; elapsed=0.151s
+PASS NATIVE CYCLE finicky (v4.2.1 → v4.2.2), private Trash and synthetic data preserved
+=== hammerspoon-cycle-retry ===
+PASS PREFLIGHT hammerspoon 1.1.0
+PASS PREFLIGHT hammerspoon 1.1.1
+/dev/disk3s5   482797652 424593660  11221284    98% 6538254 112212840    6%   /System/Volumes/Data
+OFFICIAL INDEX hammerspoon 1.1.0 digest=published
+OFFICIAL INDEX hammerspoon 1.1.1 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL 1.1.0 MacZip https://github.com/Hammerspoon/hammerspoon/releases/download/1.1.0/Hammerspoon-1.1.0.zip 9879298 39ef907b7984f6cd38778d5bee3772abac8be6b48aa46a1ff5d7adccd41e73b5
+PASS OFFICIAL 1.1.1 MacZip https://github.com/Hammerspoon/hammerspoon/releases/download/1.1.1/Hammerspoon-1.1.1.zip 9704557 11bb1c90faf5427f37c7bd4fe7eab9774ae43e1d5cb020c5b3088dac32849efa
+NATIVE ORIGIN hammerspoon GitHub
+PASS OFFICIAL 1.1.0 MacZip https://github.com/Hammerspoon/hammerspoon/releases/download/1.1.0/Hammerspoon-1.1.0.zip 9879298 39ef907b7984f6cd38778d5bee3772abac8be6b48aa46a1ff5d7adccd41e73b5
+PASS NATIVE hammerspoon install: Hammerspoon installed: 1.1.0; package_bytes=9879298; elapsed=25.643s
+NATIVE ORIGIN hammerspoon GitHub
+PASS OFFICIAL 1.1.1 MacZip https://github.com/Hammerspoon/hammerspoon/releases/download/1.1.1/Hammerspoon-1.1.1.zip 9704557 11bb1c90faf5427f37c7bd4fe7eab9774ae43e1d5cb020c5b3088dac32849efa
+PASS NATIVE hammerspoon update: Hammerspoon updated to 1.1.1; package_bytes=9704557; elapsed=7.787s
+PASS NATIVE hammerspoon remove: Hammerspoon was removed; package_bytes=0; elapsed=0.109s
+PASS NATIVE CYCLE hammerspoon (1.1.0 → 1.1.1), private Trash and synthetic data preserved

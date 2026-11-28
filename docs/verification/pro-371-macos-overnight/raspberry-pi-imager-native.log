@@ -1,0 +1,18 @@
+PASS PREFLIGHT raspberry-pi-imager v2.0.11
+PASS PREFLIGHT raspberry-pi-imager v2.0.12
+/dev/disk3s5   239362496 174212972  24021956    88% 3286864 240219560    1%   /System/Volumes/Data
+OFFICIAL INDEX raspberry-pi-imager v2.0.11 digest=published
+OFFICIAL INDEX raspberry-pi-imager v2.0.12 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v2.0.11 Dmg https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.11/rpi-imager-v2.0.11.dmg 51896529 7af0c2c3038c69d1bbc565daf4bfb8830bbf8413a1634ac31b89f90700a7add7
+PASS OFFICIAL v2.0.12 Dmg https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.12/rpi-imager-v2.0.12.dmg 36609779 15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421
+NATIVE ORIGIN raspberry-pi-imager GitHub
+PASS OFFICIAL v2.0.11 Dmg https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.11/rpi-imager-v2.0.11.dmg 51896529 7af0c2c3038c69d1bbc565daf4bfb8830bbf8413a1634ac31b89f90700a7add7
+PASS NATIVE raspberry-pi-imager install: Raspberry Pi Imager installed: 2.0.11; package_bytes=51896529; elapsed=14.432s
+NATIVE ORIGIN raspberry-pi-imager GitHub
+PASS OFFICIAL v2.0.12 Dmg https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.12/rpi-imager-v2.0.12.dmg 36609779 15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421
+PASS NATIVE raspberry-pi-imager update: Raspberry Pi Imager updated to 2.0.12; package_bytes=36609779; elapsed=12.082s
+PASS NATIVE raspberry-pi-imager remove: Raspberry Pi Imager was removed; package_bytes=0; elapsed=0.102s
+PASS NATIVE CYCLE raspberry-pi-imager (v2.0.11 → v2.0.12), private Trash and synthetic data preserved

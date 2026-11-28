@@ -1,0 +1,20 @@
+
+Angry IP Scanner - Fast and friendly network scanner
+
+          ID: org.angryip.ipscan
+         Ref: app/org.angryip.ipscan/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 3.9.3
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 207.6 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 91df1e002154acb405ec54c0fac1907ed8ff84bdd329aec31314eb6052e05710
+      Parent: 0305c0cac113d1214b1495993ed8340f414a919e3a7033ed229c9e96515984a9
+     Subject: fix: add release information for version 3.9.3 (432202201e21)
+        Date: 2026-03-06 23:15:16 +0000

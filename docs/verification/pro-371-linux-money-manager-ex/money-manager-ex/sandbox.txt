@@ -1,0 +1,11 @@
+[Context]
+shared=!network;
+sockets=x11;!wayland;!pulseaudio;!system-bus;!ssh-auth;
+devices=!all;
+filesystems=!host:reset;!xdg-run/pipewire-0;!host;
+
+[Session Bus Policy]
+org.freedesktop.Flatpak=none
+
+[Environment]
+QT_X11_NO_MITSHM=1

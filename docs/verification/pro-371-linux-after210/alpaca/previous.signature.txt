@@ -1,0 +1,19 @@
+commit 8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb
+Parent:  db3fbd4fe3d1b7171dd6e1646d6aca24b45d6305078570e3fc1b147bda0eb31f
+ContentChecksum:  f72201f7ad2944b6e768ae90344328cf800f4028fc04498c5224875db3e1e91e
+Date:  2026-06-26 18:27:22 +0000
+
+    Merge pull request #190 from flathub/Jeffser-patch-4 (613ed9eaa890)
+
+    Name: com.jeffser.Alpaca
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Jun 26 19:00:55 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

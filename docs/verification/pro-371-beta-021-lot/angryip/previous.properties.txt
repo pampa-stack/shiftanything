@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "IP Range - Angry IP Scanner "
+WM_CLASS(STRING) = "Angry IP Scanner", "Angry IP Scanner"

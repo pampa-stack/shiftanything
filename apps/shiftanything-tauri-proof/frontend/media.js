@@ -93,25 +93,30 @@
     watch(preview, card.dataset.app, preview?.matches('.preview-logo') ? null : 0);
   }
 
-  let comparisonLogos = [];
-  document.addEventListener('comparison-rows-rendered', event => {
-    for (const fallback of comparisonLogos) {
+  const smallLogos = new WeakMap();
+  function watchSmallLogos(container, attribute, className) {
+    for (const fallback of smallLogos.get(container) ?? []) {
       observer.unobserve(fallback);
       visible.delete(fallback);
       tasks.delete(fallback);
     }
-    comparisonLogos = [...event.target.querySelectorAll('[data-sh-logo]')];
-    for (const fallback of comparisonLogos) {
-      queue(fallback, fallback.dataset.shLogo, null, source => {
+    const fallbacks = [...container.querySelectorAll(`[${attribute}]`)];
+    smallLogos.set(container, fallbacks);
+    for (const fallback of fallbacks) {
+      queue(fallback, fallback.getAttribute(attribute), null, source => {
         if (!source) return;
         const image = document.createElement('img');
-        image.className = 'icoapp product-icon';
+        image.className = className;
         image.alt = '';
         image.src = source;
         fallback.replaceWith(image);
       });
     }
-  });
+  }
+  document.addEventListener('comparison-rows-rendered', event => watchSmallLogos(event.target, 'data-sh-logo', 'icoapp product-icon'));
+  document.addEventListener('kit-logos-rendered', event => watchSmallLogos(event.target, 'data-kit-logo', 'kit-logo'));
+  document.addEventListener('find-logos-rendered', event => watchSmallLogos(event.target, 'data-find-logo', 'find-logo'));
+  for (const table of document.querySelectorAll('.kit-table-wrap')) watchSmallLogos(table, 'data-kit-logo', 'kit-logo');
 
   function watchDetail() {
     const appId = detailContent.querySelector('[data-native-app]')?.dataset.nativeApp;

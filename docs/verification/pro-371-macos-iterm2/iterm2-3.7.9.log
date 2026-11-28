@@ -1,0 +1,18 @@
+ARTIFACT beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2 78118306 https://iterm2.com/downloads/stable/iTerm2-3_7_9.zip
+BUNDLE=iTerm.app
+CFBundleIdentifier=com.googlecode.iterm2
+CFBundleShortVersionString=3.7.9
+CFBundleVersion=3.7.9
+CFBundleExecutable=iTerm2
+LSMinimumSystemVersion=13.0
+x86_64 arm64
+Identifier=com.googlecode.iterm2
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: GEORGE NACHMAN (H7V7XYVQ7D)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=21 Nov 2026 at 02:52:43
+TeamIdentifier=H7V7XYVQ7D
+/private/tmp/shift-air-overnight.QVHti1TJ/preflight/iterm2/3.7.9/check.UKW7ojV2/unpack/iTerm.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT iterm2 3.7.9

@@ -37,7 +37,7 @@ pub struct Release {
 
 impl Release {
     pub fn version_label(&self) -> String {
-        self.version.as_ref().map_or_else(|| self.tag.clone(), ToString::to_string)
+        self.version.as_ref().map_or_else(|| self.tag.clone(), version::label)
     }
 
     /// Fills in checksums from a publisher manifest for assets that don't have one.
@@ -52,10 +52,12 @@ impl Release {
     pub fn sums_asset(&self) -> Option<&Asset> {
         self.assets.iter().find(|asset| {
             asset.name == "SHA256SUMS.txt"
-                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].iter().any(|repo| {
-                    let manifest = checksum_manifest_name(repo);
-                    asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
-                })
+                || [crate::curated::KOPIA.repo, crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo]
+                    .iter()
+                    .any(|repo| {
+                        let manifest = checksum_manifest_name(repo);
+                        asset.name == manifest && asset.url == format!("{}{}/{manifest}", download_prefix(repo), self.tag)
+                    })
         })
     }
 }
@@ -64,7 +66,7 @@ impl Release {
 pub fn checksum_manifest_name(repo: &str) -> &'static str {
     if repo == crate::curated::KOPIA.repo {
         "checksums.txt"
-    } else if [crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo].contains(&repo) {
+    } else if [crate::curated::TERMIX.repo, crate::curated::OPENCODE.repo, crate::curated::OPEN_PENCIL.repo].contains(&repo) {
         "SHA256SUMS"
     } else {
         "SHA256SUMS.txt"
@@ -77,9 +79,344 @@ pub(crate) fn is_hex64(s: &str) -> bool {
     s.len() == 64 && s.bytes().all(|b| b.is_ascii_hexdigit())
 }
 
+pub const OPENTTD_DMG_URL: &str = "https://cdn.openttd.org/openttd-releases/";
 pub const CALIBRE_DMG_URL: &str = "https://download.calibre-ebook.com/";
 pub const LIBREOFFICE_STABLE_URL: &str = "https://download.documentfoundation.org/libreoffice/stable/";
 pub const LIBREOFFICE_DMG_MAX_SIZE: u64 = 1024 * 1024 * 1024;
+pub const ZOTERO_STABLE_URL: &str = "https://www.zotero.org/download/client/dl?channel=release&platform=mac";
+pub const ZOTERO_DMG_URL: &str = "https://download.zotero.org/client/release/";
+pub const ZOTERO_CHANGELOG: &str = "https://www.zotero.org/support/changelog";
+pub const BLENDER_DMG_URL: &str = "https://download.blender.org/release/";
+pub const BLENDER_RELEASES_URL: &str = "https://www.blender.org/releases/";
+pub const GIMP_DMG_URL: &str = "https://download.gimp.org/gimp/";
+pub const GIMP_DOWNLOADS_URL: &str = "https://www.gimp.org/downloads/";
+pub const GIMP_INDEX_URL: &str = "https://www.gimp.org/gimp_versions.json";
+pub const VLC_DMG_URL: &str = "https://download.videolan.org/pub/videolan/vlc/";
+pub const VLC_DOWNLOADS_URL: &str = "https://www.videolan.org/vlc/download-macosx.html";
+pub const INKSCAPE_DMG_URL: &str = "https://media.inkscape.org/dl/resources/file/";
+pub const INKSCAPE_DOWNLOADS_URL: &str = "https://inkscape.org/release/";
+pub const KDENLIVE_DMG_URL: &str = "https://cdn.download.kde.org/stable/kdenlive/";
+pub const KDENLIVE_DOWNLOADS_URL: &str = "https://kdenlive.org/en/download/";
+pub const KDENLIVE_RELEASES_URL: &str = "https://apps.kde.org/kdenlive/index.xml";
+pub const KRITA_DOWNLOADS_URL: &str = "https://krita.org/en/download/";
+pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
+pub const SIGNAL_DOWNLOADS_URL: &str = "https://signal.org/download/";
+pub const SIGNAL_DMG_URL: &str = "https://updates.signal.org/desktop/";
+pub const SIGNAL_MAC_FEED: &str = "https://updates.signal.org/desktop/latest-mac.yml";
+pub const ELEMENT_RELEASES_URL: &str = "https://packages.element.io/desktop/install/macos/index.html";
+pub const ELEMENT_DMG_URL: &str = "https://packages.element.io/desktop/install/macos/";
+pub const AIONUI_DMG_URL: &str = "https://static.aionui.com/releases/";
+pub const SCUMMVM_DMG_URL: &str = "https://downloads.scummvm.org/frs/scummvm/";
+
+pub fn element_mac_release(tag: &str) -> Option<Release> {
+    let version = version::parse(tag)?;
+    if !version.pre.is_empty() || !version.build.is_empty() || tag != version.to_string() {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::ELEMENT.repo, tag).collect(),
+        name: format!("Element {tag}"),
+        html_url: ELEMENT_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub const FIREFOX_RELEASES_URL: &str = "https://www.firefox.com/en-US/releases/";
+pub const FIREFOX_ARCHIVE_URL: &str = "https://archive.mozilla.org/pub/firefox/releases/";
+pub const FIREFOX_VERSIONS_URL: &str = "https://product-details.mozilla.org/1.0/firefox_versions.json";
+
+pub const FIREFOX_REVIEWED_TAGS: &[&str] = &["161.0", "160.0.1"];
+
+pub fn firefox_mac_release(tag: &str) -> Option<Release> {
+    let version = version::parse(tag)?;
+    let two_components = version.patch == 0 && tag == format!("{}.{}", version.major, version.minor);
+    if !version.pre.is_empty() || !version.build.is_empty() || (!two_components && tag != version.to_string()) {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::FIREFOX.repo, tag).collect(),
+        name: format!("Firefox {tag}"),
+        html_url: FIREFOX_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub const ITERM2_DOWNLOADS_URL: &str = "https://iterm2.com/downloads.html";
+pub const ITERM2_APPCAST_URL: &str = "https://iterm2.com/appcasts/final_modern.xml";
+pub const ITERM2_ZIP_URL: &str = "https://iterm2.com/downloads/stable/";
+pub const ITSYCAL_RELEASES_URL: &str = "https://www.mowglii.com/itsycal/versionhistory";
+pub const ITSYCAL_APPCAST_URL: &str = "https://s3.amazonaws.com/itsycal/itsycal.xml";
+pub const ITSYCAL_APPCAST_DOWNLOADS: &str = "https://s3.amazonaws.com/itsycal/";
+pub const ITSYCAL_ZIP_URL: &str = "https://itsycal.s3.amazonaws.com/";
+pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
+type DigestReceipt = (&'static str, u64, &'static str);
+const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
+    ("10.0.9", ("Zotero-10.0.9.dmg", 192_346_587, "fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387")),
+    ("10.0.8", ("Zotero-10.0.8.dmg", 192_345_844, "bf6192a0745ae67efbb7ff4e7f1953d8b78f5eed7083f4eefa12b762ecddcabe")),
+];
+
+pub fn zotero_stable_version(location: &str) -> Option<Version> {
+    let (tag, name) = location.strip_prefix(ZOTERO_DMG_URL)?.split_once('/')?;
+    let version = version::parse(tag)?;
+    (version.to_string() == tag && version.pre.is_empty() && version.build.is_empty() && name == format!("Zotero-{tag}.dmg")).then_some(version)
+}
+
+pub fn zotero_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::ZOTERO.repo, &tag).collect(),
+        name: format!("Zotero {tag}"),
+        html_url: ZOTERO_CHANGELOG.to_string(),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
+}
+
+/// The official latest version, followed by previously qualified versions still in the archive.
+pub fn zotero_release_history(latest: Release) -> Vec<Release> {
+    let latest_version = latest.version.clone();
+    let older = ZOTERO_DMG_RECEIPTS
+        .iter()
+        .filter_map(|&(tag, _)| version::parse(tag))
+        .filter(|version| Some(version) < latest_version.as_ref())
+        .map(zotero_release);
+    std::iter::once(latest).chain(older).collect()
+}
+
+pub fn blender_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::BLENDER.repo, &tag).collect(),
+        name: format!("Blender {tag}"),
+        html_url: BLENDER_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
+}
+
+pub fn gimp_release(version: Version) -> Release {
+    let tag = version.to_string();
+    Release {
+        assets: reviewed_assets(crate::curated::GIMP.repo, &tag).collect(),
+        name: format!("GIMP {tag}"),
+        html_url: format!("https://www.gimp.org/release/{tag}/"),
+        version: Some(version),
+        tag,
+        ..Release::default()
+    }
+}
+
+pub fn vlc_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::VLC.repo, tag).collect(),
+        name: format!("VLC {tag}"),
+        html_url: VLC_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+/// The modern stable feed can show a newer version before its bytes have been verified.
+pub fn iterm2_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag || version < Version::new(3, 7, 9) {
+        return None;
+    }
+    let assets = match tag {
+        "3.7.9" => vec![Asset {
+            name: "iTerm2-3_7_9.zip".into(),
+            size: 78_118_306,
+            url: format!("{ITERM2_ZIP_URL}iTerm2-3_7_9.zip"),
+            sha256: Some("beb96a1089b061c80e030101947aee13d54ba5e4058ad00b82e79633be29d3d2".into()),
+        }],
+        _ => Vec::new(),
+    };
+    Some(Release {
+        assets,
+        name: format!("iTerm2 {tag}"),
+        html_url: ITERM2_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn iterm2_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && iterm2_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
+}
+
+/// Report stable Itsycal releases, with install assets only for qualified ZIPs.
+pub fn itsycal_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if version.to_string() != tag || !version.pre.is_empty() || !version.build.is_empty() || version < Version::new(0, 15, 14) {
+        return None;
+    }
+    let reviewed = match tag {
+        "0.15.14" => Some((1_068_566, "c66dc8a76dfb9d13396fc7bc3f5b18a41d8710840fb091aa849af747439bc949")),
+        "0.15.15" => Some((1_074_708, "35116fb8a6afe79ca6177554774be9a4c961f1bf47371c7a8f0f39a8b0c7d331")),
+        _ => None,
+    };
+    let assets = reviewed
+        .into_iter()
+        .map(|(size, digest)| {
+            let name = format!("Itsycal-{tag}.zip");
+            Asset { url: format!("{ITSYCAL_ZIP_URL}{name}"), name, size, sha256: Some(digest.into()) }
+        })
+        .collect();
+    Some(Release {
+        assets,
+        name: format!("Itsycal {tag}"),
+        html_url: ITSYCAL_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn itsycal_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.html_url == ITSYCAL_RELEASES_URL
+        && itsycal_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
+}
+
+/// A stable release may be listed before its exact package has passed qualification.
+pub fn signal_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if version.to_string() != tag || !version.pre.is_empty() || !version.build.is_empty() || version < Version::new(8, 35, 0) {
+        return None;
+    }
+    let name = format!("signal-desktop-mac-universal-{tag}.dmg");
+    let reviewed = match tag {
+        "8.35.0" => Some((271_241_278, "2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804")),
+        "8.36.0" => Some((269_303_849, "452c1c39ca0bada168e738e8022e682cafbbfd5be3cdf56f6c9d4bce4aef249c")),
+        _ => None,
+    };
+    let assets = reviewed
+        .map(|(size, digest)| Asset { url: format!("{SIGNAL_DMG_URL}{name}"), name, size, sha256: Some(digest.into()) })
+        .into_iter()
+        .collect();
+    Some(Release {
+        assets,
+        name: format!("Signal Desktop {tag}"),
+        html_url: SIGNAL_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn signal_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.html_url == SIGNAL_DOWNLOADS_URL
+        && signal_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
+}
+
+pub fn inkscape_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if !version.pre.is_empty() || !version.build.is_empty() || version.to_string() != tag {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::INKSCAPE.repo, tag).collect(),
+        name: format!("Inkscape {tag}"),
+        html_url: INKSCAPE_DOWNLOADS_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+/// KDE’s macOS bundle and release feed use YY.MM.PATCH with a zero-padded month.
+pub fn kdenlive_mac_version(tag: &str) -> Option<Version> {
+    let (year, remainder) = tag.split_once('.')?;
+    let (month, patch) = remainder.split_once('.')?;
+    let version = Version::new(year.parse().ok()?, month.parse().ok()?, patch.parse().ok()?);
+    ((1..=12).contains(&version.minor) && format!("{}.{:02}.{}", version.major, version.minor, version.patch) == tag).then_some(version)
+}
+
+pub fn kdenlive_mac_release(tag: &str) -> Option<Release> {
+    Some(Release {
+        assets: reviewed_assets(crate::curated::KDENLIVE.repo, tag).collect(),
+        name: format!("Kdenlive {tag}"),
+        html_url: KDENLIVE_DOWNLOADS_URL.to_string(),
+        version: Some(kdenlive_mac_version(tag)?),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+fn krita_mac_version(tag: &str) -> Option<Version> {
+    // KDE labels the hotfix 5.3.4.1, but the signed Mac bundle identifies itself as 5.3.4.
+    let label = if tag == "5.3.4.1" { "5.3.4" } else { tag };
+    let version = Version::parse(label).ok()?;
+    (version.to_string() == label && version.pre.is_empty() && version.build.is_empty()).then_some(version)
+}
+
+pub fn krita_mac_release(tag: &str) -> Option<Release> {
+    Some(Release {
+        assets: reviewed_assets(crate::curated::KRITA.repo, tag).collect(),
+        name: format!("Krita {tag}"),
+        html_url: KRITA_DOWNLOADS_URL.to_string(),
+        version: Some(krita_mac_version(tag)?),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn krita_mac_release_from_download(address: &str) -> Option<Release> {
+    let (tag, name) = address.strip_prefix(KRITA_DMG_URL)?.split_once('/')?;
+    (name == format!("krita-{tag}-signed.dmg")).then(|| krita_mac_release(tag))?
+}
+
+fn netnewswire_mac_version(tag: &str) -> Option<Version> {
+    let raw = tag.strip_prefix("mac-")?;
+    let version = version::parse(raw)?;
+    (version.to_string() == raw || (version.patch == 0 && raw == format!("{}.{}", version.major, version.minor)))
+        .then_some(version)
+        .filter(|version| version.pre.is_empty() && version.build.is_empty())
+}
+
+fn netnewswire_release(tag: &str, version: Version) -> Release {
+    let repo = crate::curated::NETNEWSWIRE.repo;
+    Release {
+        assets: reviewed_assets(repo, tag).collect(),
+        name: format!("NetNewsWire {}", tag.trim_start_matches("mac-")),
+        html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    }
+}
+
+/// The publisher's Mac download link is separate from the shared GitHub latest release.
+pub fn netnewswire_mac_release_from_download(location: &str) -> Option<Release> {
+    let prefix = download_prefix(crate::curated::NETNEWSWIRE.repo);
+    let (tag, file) = location.strip_prefix(&prefix)?.split_once('/')?;
+    let version = netnewswire_mac_version(tag)?;
+    (file == format!("NetNewsWire{}.zip", tag.strip_prefix("mac-")?)).then(|| netnewswire_release(tag, version))
+}
+
+pub fn netnewswire_mac_release_history(latest: Release) -> Vec<Release> {
+    let latest_version = latest.version.clone();
+    let older = ["mac-7.3.1", "mac-7.3"]
+        .into_iter()
+        .filter_map(|tag| Some((tag, netnewswire_mac_version(tag)?)))
+        .filter(|(_, version)| Some(version) < latest_version.as_ref())
+        .map(|(tag, version)| netnewswire_release(tag, version));
+    std::iter::once(latest).chain(older).collect()
+}
 
 pub fn libreoffice_stable_version(tag: &str) -> Option<Version> {
     let version = version::parse(tag)?;
@@ -101,6 +438,18 @@ pub fn libreoffice_arm64_asset(release: &Release, asset: &Asset) -> bool {
         && asset.url == url
         && (1..=LIBREOFFICE_DMG_MAX_SIZE).contains(&asset.size)
         && asset.sha256.as_deref().is_some_and(is_hex64)
+}
+
+/// Windows Installer packages reviewed on the official TDF stable channel, limited to x64.
+pub fn libreoffice_windows_msi(version: &Version) -> Option<Asset> {
+    let (size, sha256) = match version.to_string().as_str() {
+        "26.8.2" => (375_934_976, "ff4b911403b67ee9e6249f820f9782c44bb32c94fdaa45b0da53a8e419e5307a"),
+        "26.8.3" => (376_311_808, "0e6918c273eabbdbbd800ee0dacbbf130a14c13c2e4cec861b06dd59e015bf94"),
+        _ => return None,
+    };
+    let name = format!("LibreOffice_{version}_Win_x86-64.msi");
+    let url = format!("{LIBREOFFICE_STABLE_URL}{version}/win/x86_64/{name}");
+    Some(Asset { name, url, size, sha256: Some(sha256.to_string()) })
 }
 
 /// Whether `url` is safe to hand to the system browser from untrusted text (release notes):
@@ -466,8 +815,8 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
                 .collect()
         })
         .unwrap_or_default();
-    // GitHub drops older Calibre binaries. Keep this recipe on the publisher's reviewed archive.
-    if repo == crate::curated::CALIBRE.repo {
+    // These publishers keep the reviewed macOS images in their own release archives.
+    if [crate::curated::CALIBRE.repo, crate::curated::OPENTTD.repo, crate::curated::AIONUI.repo, crate::curated::SCUMMVM.repo].contains(&repo) {
         for asset in reviewed_assets(repo, &tag) {
             assets.retain(|other| other.name != asset.name);
             assets.push(asset);
@@ -485,25 +834,69 @@ fn release_from_value(v: &serde_json::Value, repo: &str) -> Result<Release, Stri
     })
 }
 
-fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
-    if repo == crate::curated::AUDACITY.repo {
+/// Reads a release tag using only the version rules of its exact publisher repository.
+pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
+    if repo == crate::curated::DBEAVER_CE.repo {
+        version::parse_dbeaver(tag)
+    } else if repo == crate::curated::KARING.repo {
+        version::parse_karing(tag.strip_prefix("v")?)
+    } else if repo == crate::curated::PRUSA_SLICER.repo {
+        prusa_slicer_version(tag.strip_prefix("version_")?)
+    } else if repo == crate::curated::KDENLIVE.repo {
+        kdenlive_mac_version(tag)
+    } else if repo == crate::curated::AUDACITY.repo {
         version::parse(tag.strip_prefix("Audacity-")?)
+    } else if [crate::curated::FREEPLANE.repo, crate::curated::GITHUB_DESKTOP.repo].contains(&repo) {
+        version::parse(tag.strip_prefix("release-")?)
+    } else if repo == crate::curated::MACVIM.repo {
+        match tag {
+            "release-183" => Some(Version::new(9, 2, 321)),
+            "release-184" => Some(Version::new(9, 2, 1252)),
+            _ => None,
+        }
     } else if repo == crate::curated::ENTE_AUTH.repo {
         ente_auth_version(tag)
     } else if repo == crate::curated::TERMIX.repo {
         termix_desktop_version(tag)
     } else if repo == crate::curated::OPENCODE.repo {
         opencode_desktop_version(tag)
+    } else if repo == crate::curated::KRITA.repo {
+        krita_mac_version(tag)
+    } else if repo == crate::curated::NETNEWSWIRE.repo {
+        netnewswire_mac_version(tag)
     } else if repo == crate::curated::PICARD.repo {
         picard_version(tag)
     } else if repo == crate::curated::ANKI.repo {
         anki_date_version(tag).or_else(|| version::parse(tag))
+    } else if repo == crate::curated::UTM.repo && tag == "v5.0.9-2" {
+        // The stable retag contains UTM 5.0.9 build 132, not a prerelease.
+        version::parse("5.0.9")
+    } else if repo == crate::curated::MEETINGBAR.repo && tag == "v5.0.0" {
+        // This exact stable DMG contains a notarized app reporting 5.0.1.
+        Some(Version::new(5, 0, 1))
+    } else if repo == crate::curated::SYNCTHING_MACOS.repo {
+        syncthing_macos_version(tag)
     } else if repo == crate::curated::ZEN.repo {
         zen_release_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
         godot_stable_version(tag)
     } else {
         version::parse(tag)
+    }
+}
+
+/// PrusaSlicer's stable release and bundle metadata contain the same numeric version.
+pub fn prusa_slicer_version(label: &str) -> Option<Version> {
+    let version = Version::parse(label).ok()?;
+    (version.pre.is_empty() && version.build.is_empty() && version.to_string() == label).then_some(version)
+}
+
+/// The two reviewed Syncthing for macOS releases use a packaging suffix on stable builds.
+pub fn syncthing_macos_version(label: &str) -> Option<Version> {
+    match label {
+        "2.1.5-1" | "v2.1.5-1" => Some(Version::new(2, 1, 5)),
+        "2.1.6-1" | "v2.1.6-1" => Some(Version::new(2, 1, 6)),
+        _ => version::parse(label),
     }
 }
 
@@ -547,24 +940,90 @@ pub fn opencode_desktop_release(bytes: &[u8]) -> Option<Release> {
     if !version.pre.is_empty() || !version.build.is_empty() {
         return None;
     }
-    let name = "opencode-desktop-mac-arm64.dmg";
-    let file = &value["metadata"]["files"][name];
-    let size = file["size"].as_u64().filter(|size| *size > 0)?;
-    let sha256 = file["sha256"].as_str().filter(|hash| is_hex64(hash))?.to_ascii_lowercase();
-    if file["url"].as_str()? != format!("https://opencode.ai/files/bin/{version_label}/{name}") {
-        return None;
-    }
-
     let repo = crate::curated::OPENCODE.repo;
-    let url = format!("{}{tag}/{name}", download_prefix(repo));
+    let asset = |name: &str| {
+        let file = &value["metadata"]["files"][name];
+        let size = file["size"].as_u64().filter(|size| *size > 0)?;
+        let sha256 = file["sha256"].as_str().filter(|hash| is_hex64(hash))?.to_ascii_lowercase();
+        if file["url"].as_str()? != format!("https://opencode.ai/files/bin/{version_label}/{name}") {
+            return None;
+        }
+        let url = format!("{}{tag}/{name}", download_prefix(repo));
+        Some(Asset { name: name.into(), url, size, sha256: Some(sha256) })
+    };
+    let mut assets = vec![asset("opencode-desktop-mac-arm64.dmg")?];
+    assets.extend(asset("opencode-desktop-linux-x86_64.AppImage"));
     Some(Release {
         version: Some(version),
         name: format!("OpenCode {version_label}"),
         html_url: format!("https://github.com/{repo}/releases/tag/{tag}"),
         tag,
-        assets: vec![Asset { name: name.into(), url, size, sha256: Some(sha256) }],
+        assets,
         ..Release::default()
     })
+}
+
+/// Desktop recipes that require an exact upstream x86_64 AppImage.
+pub fn qualified_linux_appimage_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
+    use crate::curated::{
+        DESKREEN, DUST3D, DYAD, INVOKE_COMMUNITY, LOGSEQ_DB, MISTER_DOWNLOAD_MANAGER, NEOVIDE, OPEN_PENCIL, OPEN_WHISPR, OPENCHAMBER, OPENCODE,
+        OPENSCREEN, OPENWORK_DESKTOP, ORCA, PASEO, RAWTHERAPEE, RECORDLY, SNIFFNET, T3_CODE, TERMIX, ULTIMAKER_CURA, VOICE_STUDIO,
+    };
+
+    const RECIPES: &[crate::CraftApp] = &[
+        DESKREEN,
+        DUST3D,
+        DYAD,
+        INVOKE_COMMUNITY,
+        LOGSEQ_DB,
+        MISTER_DOWNLOAD_MANAGER,
+        NEOVIDE,
+        OPEN_PENCIL,
+        OPEN_WHISPR,
+        OPENCHAMBER,
+        OPENCODE,
+        OPENSCREEN,
+        OPENWORK_DESKTOP,
+        ORCA,
+        PASEO,
+        RAWTHERAPEE,
+        RECORDLY,
+        SNIFFNET,
+        T3_CODE,
+        TERMIX,
+        ULTIMAKER_CURA,
+        VOICE_STUDIO,
+    ];
+    RECIPES.iter().find(|app| stems.contains(&app.id))
+}
+
+pub fn qualified_linux_appimage_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+    use crate::curated::{OPENCODE, ORCA, TERMIX};
+
+    let Some(version) = release.version.as_ref() else {
+        return false;
+    };
+    if qualified_linux_appimage_recipe(&[app.id]).is_none_or(|recipe| recipe.repo != app.repo)
+        || release.prerelease
+        || !version.pre.is_empty()
+        || !version.build.is_empty()
+        || release_tag_version(app.repo, &release.tag).as_ref() != Some(version)
+    {
+        return false;
+    }
+    let name = match app.id {
+        id if id == OPENCODE.id => "opencode-desktop-linux-x86_64.AppImage",
+        id if id == ORCA.id => "orca-linux.AppImage",
+        id if id == TERMIX.id => return crate::pending::termix_appimage_asset(release, asset),
+        _ => {
+            return reviewed_assets(app.repo, &release.tag).any(|reviewed| reviewed.name.ends_with(".AppImage") && &reviewed == asset);
+        }
+    };
+    release.tag == format!("v{version}")
+        && asset.name == name
+        && asset.url == format!("{}{}/{name}", download_prefix(app.repo), release.tag)
+        && asset.size > 0
+        && asset.sha256.as_deref().is_some_and(is_hex64)
 }
 
 pub(crate) fn godot_stable_version(tag: &str) -> Option<Version> {
@@ -779,6 +1238,19 @@ pub fn db_browser_sqlite_mac_asset(release: &Release, asset: &Asset) -> bool {
 pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftApp> {
     const RECIPES: &[crate::CraftApp] = &[
         crate::curated::OPENCLAW,
+        crate::curated::SYNCTHING_MACOS,
+        crate::curated::MEETINGBAR,
+        crate::curated::KARING,
+        crate::curated::PLAYCOVER,
+        crate::curated::MATERIAL_MAKER,
+        crate::curated::MULLVAD_BROWSER,
+        crate::curated::OPENBOARD,
+        crate::curated::MARKEDIT,
+        crate::curated::CAPSO,
+        crate::curated::VORSSAINT,
+        crate::curated::ONIONSHARE,
+        crate::curated::ZULIP,
+        crate::curated::AIDER_DESK,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -787,7 +1259,6 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::VOICE_STUDIO,
         crate::curated::T3_CODE,
         crate::curated::ANYTHING_LLM,
-        crate::curated::CHERRY_STUDIO,
         crate::curated::UPSCAYL,
         crate::curated::LOSSLESSCUT,
         crate::curated::SIYUAN,
@@ -804,22 +1275,133 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::OSAURUS,
         crate::curated::ZEN,
         crate::curated::HEADLAMP,
+        crate::curated::KAP,
+        crate::curated::SIMPLEX_CHAT,
         crate::curated::LOCALAI,
         crate::curated::BRUNO,
+        crate::curated::AIONUI,
+        crate::curated::SCUMMVM,
         crate::curated::JAN,
+        crate::curated::DEEPTUTOR,
+        crate::curated::OPENWORK_DESKTOP,
+        crate::curated::PASEO,
+        crate::curated::FREECAD,
+        crate::curated::OPENMAUSBOT,
+        crate::curated::MUSESCORE,
+        crate::curated::ORCA_SLICER,
+        crate::curated::DBEAVER_CE,
+        crate::curated::PRUSA_SLICER,
+        crate::curated::ZOTERO,
+        crate::curated::DESKREEN,
+        crate::curated::MOONLIGHT,
+        crate::curated::OPEN_PENCIL,
+        crate::curated::OPEN_WHISPR,
+        crate::curated::SUNSHINE,
+        crate::curated::OPENTTD,
+        crate::curated::RECTANGLE,
+        crate::curated::CODEEDIT,
+        crate::curated::LINEAR_MOUSE,
+        crate::curated::FINICKY,
+        crate::curated::VIRTUALBUDDY,
+        crate::curated::BLENDER,
+        crate::curated::GIMP,
+        crate::curated::KRITA,
+        crate::curated::VLC,
+        crate::curated::INKSCAPE,
+        crate::curated::KDENLIVE,
+        crate::curated::SUBTITLE_EDIT,
+        crate::curated::DEEPCHAT,
+        crate::curated::EASYDICT,
+        crate::curated::UTM,
+        crate::curated::RASPBERRY_PI_IMAGER,
+        crate::curated::WWDC,
+        crate::curated::PIKA_COLOR,
+        crate::curated::LOGSEQ_DB,
+        crate::curated::OPENMTP,
+        crate::curated::INVOKE_COMMUNITY,
+        crate::curated::MIST,
+        crate::curated::COTEDITOR,
+        crate::curated::MONITORCONTROL,
+        crate::curated::GNUCASH,
+        crate::curated::FLOORP,
+        crate::curated::JELLYFIN_DESKTOP,
+        crate::curated::MACSHOT,
+        crate::curated::SIGNAL_DESKTOP,
+        crate::curated::FIREFOX,
+        crate::curated::ELEMENT,
+        crate::curated::FREEPLANE,
+        crate::curated::DOCKDOOR,
+        crate::curated::MACVIM,
+        crate::curated::ONLYOFFICE,
     ];
-    RECIPES.iter().find(|app| stems.contains(&app.id))
+    RECIPES
+        .iter()
+        .find(|app| stems.contains(&app.id))
+        .or_else(|| stems.contains(&"craft-anything").then(|| crate::CraftApp::by_id("craft-anything")).flatten())
 }
 
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
+    if app.uses_signal_releases() {
+        return signal_mac_asset(release, asset);
+    }
+    if app.uses_element_releases() {
+        return !release.prerelease
+            && release.html_url == ELEMENT_RELEASES_URL
+            && element_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset));
+    }
+    if app.uses_firefox_releases() {
+        return !release.prerelease
+            && release.html_url == FIREFOX_RELEASES_URL
+            && firefox_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset));
+    }
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| {
-            let canonical_tag = if app.id == crate::curated::ANKI.id {
+            if [crate::curated::DBEAVER_CE, crate::curated::KARING].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+                return release_tag_version(app.repo, &release.tag).as_ref() == Some(version);
+            }
+            let canonical_tag = if app.uses_krita_releases() {
+                krita_mac_version(&release.tag).as_ref() == Some(version)
+            } else if app.uses_kdenlive_releases() {
+                kdenlive_mac_version(&release.tag).as_ref() == Some(version)
+            } else if (app.id, app.repo) == (crate::curated::PRUSA_SLICER.id, crate::curated::PRUSA_SLICER.repo) {
+                release.tag == format!("version_{version}")
+            } else if (app.id, app.repo) == (crate::curated::FREEPLANE.id, crate::curated::FREEPLANE.repo) {
+                release.tag == format!("release-{version}")
+            } else if [crate::curated::MACVIM, crate::curated::MEETINGBAR].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+                release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
+            } else if [crate::curated::OPENTTD, crate::curated::GNUCASH].iter().any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo)) {
+                version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
+            } else if (app.id, app.repo) == (crate::curated::MIST.id, crate::curated::MIST.repo) {
+                version.patch == 0 && release.tag == format!("v{}.{}", version.major, version.minor)
+            } else if [crate::curated::PIKA_COLOR, crate::curated::LOGSEQ_DB, crate::curated::PLAYCOVER, crate::curated::MULLVAD_BROWSER]
+                .iter()
+                .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo))
+            {
+                release.tag == version.to_string()
+            } else if [crate::curated::VIRTUALBUDDY, crate::curated::WWDC, crate::curated::MATERIAL_MAKER]
+                .iter()
+                .any(|recipe| (app.id, app.repo) == (recipe.id, recipe.repo))
+            {
+                release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
+            } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
+                release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
+            } else if (app.id, app.repo) == (crate::curated::SYNCTHING_MACOS.id, crate::curated::SYNCTHING_MACOS.repo) {
+                release.tag == format!("v{version}-1")
+            } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
                 zen_release_version(&release.tag).as_ref() == Some(version)
             } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
+                || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
+                || (app.id, app.repo) == (crate::curated::EASYDICT.id, crate::curated::EASYDICT.repo)
+                || (app.id, app.repo) == (crate::curated::DOCKDOOR.id, crate::curated::DOCKDOOR.repo)
+                || (app.id, app.repo) == (crate::curated::COTEDITOR.id, crate::curated::COTEDITOR.repo)
+                || app.uses_zotero_releases()
+                || app.uses_blender_releases()
+                || app.uses_gimp_releases()
+                || app.uses_vlc_releases()
+                || app.uses_inkscape_releases()
             {
                 release.tag == version.to_string()
             } else {
@@ -838,6 +1420,15 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
 
 /// A PKG is extracted only after qualification of that exact release and layout.
 pub fn naps2_mac_asset(release: &Release, asset: &Asset) -> bool {
+    asset.name.ends_with(".pkg") && reviewed_naps2_asset(release, asset)
+}
+
+/// Only the publisher's reviewed x64 bundles are eligible for the Linux user installation.
+pub fn naps2_linux_asset(release: &Release, asset: &Asset) -> bool {
+    asset.name.ends_with("-linux-x64.flatpak") && reviewed_naps2_asset(release, asset)
+}
+
+fn reviewed_naps2_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
         && reviewed_assets(crate::curated::NAPS2.repo, &release.tag).any(|reviewed| {
@@ -893,6 +1484,90 @@ pub fn keycastr_mac_asset(release: &Release, asset: &Asset) -> bool {
         && reviewed_assets(crate::curated::KEYCASTR.repo, &release.tag)
             .find(|reviewed| reviewed.name == asset.name)
             .is_none_or(|reviewed| reviewed.size == asset.size && reviewed.sha256 == asset.sha256)
+}
+
+/// The official Maccy ZIP has one name across versions, so qualify each exact archive.
+pub fn maccy_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| version.pre.is_empty() && version.build.is_empty() && release.tag == version.to_string())
+        && reviewed_assets(crate::curated::MACCY.repo, &release.tag).any(|reviewed| {
+            reviewed.name == asset.name && reviewed.url == asset.url && reviewed.size == asset.size && reviewed.sha256 == asset.sha256
+        })
+}
+
+pub fn alt_tab_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::ALT_TAB.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
+pub fn amethyst_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::AMETHYST.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn hidden_bar_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::HIDDEN_BAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn sloth_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && version::parse(&release.tag).is_some_and(|version| release.version.as_ref() == Some(&version))
+        && reviewed_assets(crate::curated::SLOTH.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
+pub fn swiftbar_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::SWIFTBAR.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn github_desktop_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("release-{version}"))
+        && reviewed_assets(crate::curated::GITHUB_DESKTOP.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn loop_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::LOOP.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn dyad_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && asset.name.ends_with(".zip")
+        && reviewed_assets(crate::curated::DYAD.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn hammerspoon_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::HAMMERSPOON.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn ice_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::ICE.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+pub fn netnewswire_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && netnewswire_mac_version(&release.tag).as_ref() == release.version.as_ref()
+        && reviewed_assets(crate::curated::NETNEWSWIRE.repo, &release.tag).any(|reviewed| reviewed == *asset)
+}
+
+pub fn stellarium_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| {
+            version.patch == 0 && version.pre.is_empty() && version.build.is_empty() && release.tag == format!("v{}.{}", version.major, version.minor)
+        })
+        && reviewed_assets(crate::curated::STELLARIUM.repo, &release.tag).any(|reviewed| &reviewed == asset)
 }
 
 fn picard_version(tag: &str) -> Option<Version> {
@@ -969,9 +1644,121 @@ pub fn ente_auth_tag_from_download(location: &str) -> Option<String> {
     (name == format!("ente-{tag}.dmg")).then(|| tag.to_string())
 }
 
+/// Repositories whose Windows installer recipe requires a reviewed x64 MSI.
+pub fn reviewed_windows_msi_repo(id: &str) -> Option<&'static str> {
+    match id {
+        "lightcraft" => Some("storytold/lightcraft"),
+        "photocraft" => Some("storytold/photocraft"),
+        "soundcraft" => Some("storytold/soundcraft"),
+        "texturecraft" => Some("storytold/texturecraft"),
+        "wordcraft" => Some("storytold/wordcraft"),
+        "keepassxc" => Some(crate::curated::KEEPASSXC.repo),
+        "drawio" => Some(crate::curated::DRAWIO.repo),
+        "libreoffice" => Some(crate::curated::LIBREOFFICE.repo),
+        _ => None,
+    }
+}
+
+/// Admit only the exact official x64 MSI whose signed package was reviewed.
+pub fn reviewed_windows_msi_asset(repo: &str, release: &Release, asset: &Asset) -> bool {
+    if repo == crate::curated::LIBREOFFICE.repo {
+        return !release.prerelease
+            && libreoffice_stable_version(&release.tag).as_ref() == release.version.as_ref()
+            && release.version.as_ref().and_then(libreoffice_windows_msi).as_ref() == Some(asset);
+    }
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag.strip_prefix('v').unwrap_or(&release.tag) == version.to_string())
+        && asset.name.ends_with(".msi")
+        && reviewed_assets(repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+/// The official signed Ruffle archive reviewed on Apple Silicon.
+pub fn ruffle_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
+        && reviewed_assets(crate::curated::RUFFLE.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
+/// Sigil's signed Apple Silicon archives contain bundle metadata and framework links.
+pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.version.as_ref().is_some_and(|version| release.tag == version.to_string())
+        && reviewed_assets(crate::curated::SIGIL.repo, &release.tag).any(|reviewed| &reviewed == asset)
+}
+
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("magiksoft/aider-desk", "v0.92.0") => {
+            &[("aider-desk-0.92.0-macos-arm64.dmg", 339_492_455, "9472c4afd8bbe5bb3b15f730e151090b7c2559d5398c8321d9ddf7c85aae6cc6")]
+        }
+        ("magiksoft/aider-desk", "v0.93.0") => {
+            &[("aider-desk-0.93.0-macos-arm64.dmg", 338_687_954, "b166d37fc423172df8f38e6b2af44baa216d470f82241b0fe8cb4af6c47b25a8")]
+        }
+        ("zulip/zulip-desktop", "v5.14.2") => {
+            &[("Zulip-5.14.2-arm64.dmg", 123_295_839, "e54a5e6bcd0150914cf2a2942ccf8ac8df58aa1102039dc66d47af79c6d28776")]
+        }
+        ("zulip/zulip-desktop", "v5.14.3") => {
+            &[("Zulip-5.14.3-arm64.dmg", 123_486_500, "ef1cd8427f54553f828ece1db8eca2acd4f28dc41a298e5aaf33a29db49343f4")]
+        }
+        ("onionshare/onionshare", "v2.7.2") => {
+            &[("OnionShare-2.7.2.dmg", 183_956_471, "1723fc3ffe50208fd6a32e59118f379183881194ebdab351ce69b5e40a1caf0e")]
+        }
+        ("onionshare/onionshare", "v2.7.3") => {
+            &[("OnionShare-2.7.3.dmg", 184_429_470, "6fa4fe394834cea3082f4e13f2972cefef3a3edb5bdf73ca2d473b61890c7f03")]
+        }
+        ("MarkEdit-app/MarkEdit", "v1.37.0") => {
+            &[("MarkEdit-1.37.0-apple-silicon.dmg", 3_418_554, "d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89")]
+        }
+        ("MarkEdit-app/MarkEdit", "v1.37.1") => {
+            &[("MarkEdit-1.37.1-apple-silicon.dmg", 3_425_682, "36fb91d3451c4d239ef168dd38614d1f4b24e56a50e696b2c8ac2d608ec54626")]
+        }
+        ("lzhgus/Capso", "v1.2.10") => &[("Capso-1.2.10.dmg", 10_402_244, "cb69b06203b73811dfa0d48b869617eacc7808d5433e55d7e62767ec0a40344f")],
+        ("lzhgus/Capso", "v1.2.11") => &[("Capso-1.2.11.dmg", 10_734_508, "78187b1d529e1fcf78fba658f8f63333ed9cf6c86a84403eddb380cfecba9c56")],
+        ("vorssaint/vorssaint-utils", "v3.4.4") => {
+            &[("Vorssaint-3.4.4.dmg", 28_244_392, "952582444fe60d460a0453dea7392a5b6641d98c79d60e98f9f25d323bdb47d3")]
+        }
+        ("vorssaint/vorssaint-utils", "v3.4.5") => {
+            &[("Vorssaint-3.4.5.dmg", 29_041_485, "f4f1eb6ccb3d5b4e3a16f5350dfdd0d541e6130b3e5a418f1f0017ad8540eb89")]
+        }
+        ("OpenBoard-org/OpenBoard", "v1.7.6") => {
+            &[("OpenBoard-1.7.6.dmg", 463_841_224, "33c41fc8debe93dbb99fb2643470ea07418f02071900c7c9b68f44dfe59d9332")]
+        }
+        ("OpenBoard-org/OpenBoard", "v1.7.7") => {
+            &[("OpenBoard-1.7.7.dmg", 463_927_736, "23a0c2eb78a21f7edf36649c6cd99890a819a757d4f5f8b0498e13dac0353a88")]
+        }
+        ("mullvad/mullvad-browser", "16.0.2") => {
+            &[("mullvad-browser-macos-16.0.2.dmg", 162_985_935, "7076f0355c054c9cb3c5f22af298495abd23721b23fa03b7c698870ef53d7841")]
+        }
+        ("mullvad/mullvad-browser", "16.0.3") => {
+            &[("mullvad-browser-macos-16.0.3.dmg", 163_035_356, "28d7053a27eead62a8e551d2dbf460745508571c561f6226d00c867ef1e6c9b4")]
+        }
+        ("RodZill4/material-maker", "1.7") => {
+            &[("material_maker_1_7.dmg", 138_206_490, "af07244151d890f2ee4863c0cb8cdc526b7ca226b8dfcfe14bb8ae6acbc98550")]
+        }
+        ("RodZill4/material-maker", "1.8") => {
+            &[("material_maker_1_8.dmg", 137_711_855, "2549aa9c18b71550355b752e03a1afd5a199dc7f56eafb371c06b721182ef3d8")]
+        }
+        ("PlayCover/PlayCover", "3.0.0") => &[("PlayCover_3.0.0.dmg", 5_564_506, "c25deeedbe4806d4c5c486e05e7696e3479c1294a7c51f0baf1715ed53371e26")],
+        ("PlayCover/PlayCover", "3.1.0") => &[("PlayCover_3.1.0.dmg", 5_563_083, "5c3a291827f4802f665daf5c33a6bfe6ef0df2c6dff3f9e554db6514176196e7")],
+        ("KaringX/karing", "v1.2.26.2932") => {
+            &[("karing_1.2.26.2932_macos_universal.dmg", 116_879_271, "3631628da559b802aebb8435431f2f0aa01da132cb2a87985abc636fcb4369fc")]
+        }
+        ("KaringX/karing", "v1.2.26.2934") => {
+            &[("karing_1.2.26.2934_macos_universal.dmg", 116_908_954, "eade8421f83695ce440709fb07a477995fa64ff0608e6180d6e4cca1bf7bc79e")]
+        }
+        ("leits/MeetingBar", "v4.11.6") => &[("MeetingBar.dmg", 11_294_412, "4f19af496d4ff44b9b0ee02be02bc76207f3e365a7f9e77c7219a08c607838d7")],
+        ("leits/MeetingBar", "v5.0.0") => &[("MeetingBar.dmg", 8_210_845, "26d4759f73f429c2aa93d225704bf85cdde8b1c035c12aadeb63d4dddbdae1e4")],
+        ("syncthing/syncthing-macos", "v2.1.5-1") => {
+            &[("Syncthing-2.1.5-1.dmg", 28_061_360, "50903a2a6221856e1c36e3c5c5ff39e897053d29aa1f685ad576622c93069e88")]
+        }
+        ("syncthing/syncthing-macos", "v2.1.6-1") => {
+            &[("Syncthing-2.1.6-1.dmg", 28_069_114, "f81d091bb19c42b3bb7a2fda9e80f1794cdb27fadb18b094b0c99b53ef571e2d")]
+        }
+        // 3.7.0 was validated only as the already-installed source of a security update.
+        ("desktop/desktop", "release-3.7.1") => {
+            &[("GitHub.Desktop-arm64.zip", 556_131_016, "3706e508bb16d96f4c23c1e760d0867ede27d35ead00545d9a9e206ee83049f5")]
+        }
         ("XiaoYouChR/Ghost-Downloader-3", "v4.5.11") => &[
             ("Ghost-Downloader-v4.5.11-Linux-x86_64.AppImage", 94_968_312, "39177d2cde51617182be5bcd836a1722012acb0147f4f93791587effe2794956"),
             ("Ghost-Downloader-v4.5.11-macOS-arm64.dmg", 67_408_491, "36d531576819349920abb0008a6105046f5e48c3bcf7d8e478c61b03edb87ca9"),
@@ -980,6 +1767,57 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb"),
             ("Ghost-Downloader-v4.6.1-macOS-arm64.dmg", 59_261_074, "85f87ae7d2100b2296bf09097cc3e56011b1dc96e05fab7e1c7af6bf29caf38c"),
         ],
+        ("utmapp/UTM", "v5.0.8") => &[("UTM.dmg", 304_304_581, "7b2d7b2e2a02b3de1757ef19a8f36573e6d9cceae8c8cca0abcbcaa4a852019a")],
+        ("utmapp/UTM", "v5.0.9-2") => &[("UTM.dmg", 304_699_821, "1a76ddcf61ab424a5ae1d1b68a16a9b2e84b748716afce905ee77740d8e86127")],
+        ("tisfeng/Easydict", "2.25.0") => &[("Easydict.dmg", 35_766_921, "a8b6893cd3366c864eaac22fd8fadd52968c5119dd40fe5d61947cad3d2bfd16")],
+        ("tisfeng/Easydict", "2.26.0") => &[("Easydict.dmg", 35_761_660, "b88e29e8ffb62ecad2159964e2b2c06150c522c1de34f41c62faadd750d5715e")],
+        ("ganeshrvel/openmtp", "v3.2.25") => {
+            &[("openmtp-3.2.25-mac-arm64.dmg", 123_800_559, "801babe2b3629d12f59431189cf45f3c5d5006bc75e8a6871a7d0c97f17ec47f")]
+        }
+        ("ganeshrvel/openmtp", "v3.3.0") => {
+            &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
+        }
+        ("invoke-ai/launcher", "v1.8.4") => &[
+            ("Invoke-Community-Edition-1.8.4-arm64.dmg", 132_977_226, "1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6"),
+            ("Invoke-Community-Edition-1.8.4.AppImage", 145_780_182, "071f4dabc2aebf9f302af21d438826b6d5aec80ec9c4ed6bd76ebb07b5fdf266"),
+        ],
+        ("invoke-ai/launcher", "v1.8.5") => &[
+            ("Invoke-Community-Edition-1.8.5-arm64.dmg", 132_949_779, "33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc"),
+            ("Invoke-Community-Edition-1.8.5.AppImage", 145_780_235, "2a1da742c26ff541b39a2b337ef4639e1a6709fdb52d54957016a886c3cb5e5f"),
+        ],
+        ("ninxsoft/Mist", "v0.30") => &[("Mist.0.30.dmg", 14_906_897, "2773b1b70fb2155d8ca73a9ce8da8f3c947beabd03c32c09740535152bdb60a1")],
+        ("ninxsoft/Mist", "v0.40") => &[("Mist.0.40.dmg", 15_997_728, "889d05e0139bf1627b4334c331c47f5747f904993f4cd919b072d84a4f2984d8")],
+        ("coteditor/CotEditor", "7.1.3") => {
+            &[("CotEditor_7.1.3.dmg", 26_757_632, "c8cbe6437434516bb23f93efe057fd058ad56ded5523ac113081a8ae68dab184")]
+        }
+        ("coteditor/CotEditor", "7.2.0") => {
+            &[("CotEditor_7.2.0.dmg", 27_885_568, "7df697c2108e55c1431b6f4563128e1fcb436ee56a7156df9c2846a573d42a27")]
+        }
+        ("MonitorControl/MonitorControl", "v4.4.0") => {
+            &[("MonitorControl.4.4.0.dmg", 20_391_423, "e058da598b92f6ca674f4398c0b6fa49b3b5567ccfddccf6c6a5b23c5c625612")]
+        }
+        ("Gnucash/gnucash", "5.16") => &[("Gnucash-Arm-5.16-3.dmg", 180_283_562, "26ae2e340edf2a58fdb906962cc48eb4ec1cf1a7b5862b72108f9a5401fd664b")],
+        ("Gnucash/gnucash", "5.17") => &[("Gnucash-Arm-5.17-1.dmg", 180_289_229, "adbc91d6d69a297c1c599ad2849303a06c01310130d355473c0700f80dd2eb32")],
+        ("Floorp-Projects/Floorp", "v12.21.1") => {
+            &[("floorp-macOS-universal.dmg", 260_513_224, "e3520c1f553319ff704a821cbcc72dae49e544459843ba2e8fadaff8ce370629")]
+        }
+        ("Floorp-Projects/Floorp", "v12.21.2") => {
+            &[("floorp-macOS-universal.dmg", 262_628_533, "3a6a7b4b38d300ed1f38a38a42127a4d26502e14e4308713af31ac4af4083c7f")]
+        }
+        ("Stellarium/stellarium", "v26.2") => {
+            &[("Stellarium-26.2-qt6-macOS.zip", 540_774_033, "960cdf1526a2989d213bc2c75f4b5747fd77f5a580345286a4913825ad192978")]
+        }
+        ("Stellarium/stellarium", "v26.3") => {
+            &[("Stellarium-26.3-qt6-macOS.zip", 552_945_699, "919579d2e5537089796e7fb925d8f2d07926dae657a147b60cb756cb391aba8b")]
+        }
+        ("sw33tLie/macshot", "v4.3.0") => &[("MacShot-Offline.dmg", 7_421_744, "6b2e735d3812ac136c5c6a2f130550c29aed0e37179fadf8776ed4ae2fc7c890")],
+        ("sw33tLie/macshot", "v4.4.0") => &[("MacShot-Offline.dmg", 8_624_563, "fd845b5e691c9094cf012d466bd4754350d6df6e0142098172c04c1ca5d951bc")],
+        ("freeplane/freeplane", "release-1.13.3") => {
+            &[("Freeplane-1.13.3-apple.dmg", 144_017_558, "f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347")]
+        }
+        ("freeplane/freeplane", "release-1.13.5") => {
+            &[("Freeplane-1.13.5-apple.dmg", 147_343_258, "14e0badf46ac98aa3919503700772c66c02b59c0bba4711c370d149838d6acfb")]
+        }
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
@@ -1034,12 +1872,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("audacity-linux-4.0.2-x86_64.AppImage", 73_726_456, "a5f8787aa13cdb500a60fc013403b986776876b960cca962bc6e7fff066172f3"),
             ("audacity-macOS-4.0.2-arm64.dmg", 50_030_766, "fd462da6204cbf9758b44c7ce1c29d5fe5cab4f31ba308d33c125f1b170401c3"),
         ],
-        ("keepassxreboot/keepassxc", "2.7.12") => {
-            &[("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40")]
-        }
-        ("keepassxreboot/keepassxc", "2.8.0") => {
-            &[("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c")]
-        }
+        ("keepassxreboot/keepassxc", "2.7.12") => &[
+            ("KeePassXC-2.7.12-arm64.dmg", 34_360_675, "65f4f63607180c0a15794b4a4068f85e99ed5391c87c1fb9312648f1b36fed40"),
+            ("KeePassXC-2.7.12-Win64.msi", 35_901_440, "feee096c1d5d0d7bb7b36b18174818f7bac889be7668c550ff0e5ef9206ea9a5"),
+        ],
+        ("keepassxreboot/keepassxc", "2.8.0") => &[
+            ("KeePassXC-2.8.0-1-arm64.dmg", 47_786_914, "85f0e75e258ef513f0fc7f5bf470cad0943b7d7e8191b2171f9898ad32e62b9c"),
+            ("KeePassXC-2.8.0-x64.msi", 69_419_008, "4f105af5ba780428718c8be5614cf95deceed5cb3b474a9bd624c5df81cec6e5"),
+        ],
         ("laurent22/joplin", "v3.7.22") => &[
             ("Joplin-3.7.22.AppImage", 207_329_204, "2b0b1ee82999f00883d21d950c2fb5dff28ccc3d2f570248b3abd40e5100dfdc"),
             ("Joplin-3.7.22-arm64.DMG", 211_992_036, "185395eba8d9dac2d8656884cbb0e5b96bcb40b41d80c67126ce5526cb5186c8"),
@@ -1062,6 +1902,9 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         }
         ("zed-industries/zed", "v1.29.3") => &[("Zed-aarch64.dmg", 88_779_557, "b692c9effdfcec874c47f56c3b27df069a63c6b3d23ecd070ffec9238a708bb8")],
         ("zed-industries/zed", "v1.30.2") => &[("Zed-aarch64.dmg", 88_057_394, "36ab60379627730fc3ac6ab79bc57dba7a1cf6d6df8117b8e22190d9b639fff5")],
+        ("jgraph/drawio-desktop", "v31.5.2") => {
+            &[("draw.io-31.5.2.msi", 151_302_144, "08629728da5caee6c5975e9ae6142ce2f64a5608cf785da2ba993c70aabf1911")]
+        }
         ("jgraph/drawio-desktop", "v32.6.10") => &[
             ("drawio-x86_64-32.6.10.AppImage", 152_706_651, "94158126a43016b4e6f24bbc2c840ab8b5a51c6bf2796e1b3dadc64390b2d256"),
             ("draw.io-arm64-32.6.10.dmg", 157_367_951, "83e4027837f89bfba9dafbcc5c0e4befa76e2ac7f4e37f7a7b40c817141a6727"),
@@ -1069,6 +1912,7 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("jgraph/drawio-desktop", "v32.7.4") => &[
             ("drawio-x86_64-32.7.4.AppImage", 154_092_007, "7d78c781d4ec33d86dc48251c3cadc9c18dcea6bc5d581322c0335ccb33b222c"),
             ("draw.io-arm64-32.7.4.dmg", 158_930_055, "b0ba01224cdc4817ebf218d73b2a45ff3569f8c9135ad422c5157655062900b3"),
+            ("draw.io-32.7.4.msi", 150_347_776, "e2ab1ca54a249b29dd4935017c4994ab2b7732a99fdf7b5b90c50799c75c3bc9"),
         ],
         ("exelban/stats", "v3.1.0") => &[("Stats.dmg", 8_257_600, "a5f16b6606c8bd1fc847439a3b4a507153837167cb333514954882c2bc31e0e7")],
         ("exelban/stats", "v3.1.1") => &[("Stats.dmg", 8_386_915, "2fbe64690251e5c92102a2091052c76f440561397fcb7e0246821c331386bdd9")],
@@ -1098,12 +1942,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ],
         ("borgbase/vorta", "v0.12.1") => &[("Vorta-v0.12.1-arm.dmg", 45_686_573, "b65da5b0fc3dcb1792897eaf2dad62e0b2cbc1db4a577ff39668b28c7ae2600b")],
         ("borgbase/vorta", "v0.12.2") => &[("Vorta-v0.12.2-arm.dmg", 45_694_460, "2a377fa5e04068cdc4f8c9316e34046cc1bae11acca4e8daf20e4ca7fdb8723d")],
-        ("getopenscreen/openscreen", "v2.3.0") => {
-            &[("Openscreen-macOS-Apple-Silicon-2.3.0.dmg", 141_157_755, "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82")]
-        }
-        ("getopenscreen/openscreen", "v2.4.0") => {
-            &[("Openscreen-macOS-Apple-Silicon-2.4.0.dmg", 141_308_945, "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51")]
-        }
+        ("getopenscreen/openscreen", "v2.3.0") => &[
+            ("Openscreen-macOS-Apple-Silicon-2.3.0.dmg", 141_157_755, "db2f75451ac364e19c4d56e45a85b8572056312c54461979f13c7b1053ea2d82"),
+            ("Openscreen-Linux-2.3.0.AppImage", 272_069_580, "8bc894f406122a058ae4d749d009b54abe8848486f830b849fe4b247d8290841"),
+        ],
+        ("getopenscreen/openscreen", "v2.4.0") => &[
+            ("Openscreen-macOS-Apple-Silicon-2.4.0.dmg", 141_308_945, "177374fd4b1b9290661db535010032247e0cea42f9bdf281c918c5e418876a51"),
+            ("Openscreen-Linux-2.4.0.AppImage", 272_114_534, "7e07a389378b4d7ebac5a4270bc3ea1aa03d5af920401310df3ed96d2f794da5"),
+        ],
         ("thewh1teagle/vibe", "v3.3.5") => {
             &[("vibe_3.3.5_aarch64.dmg", 38_715_249, "efaf965175cf9d6b7c6782e38eb42b50800a4645c06771584fcbd46c74d75807")]
         }
@@ -1147,11 +1993,43 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("sqlitebrowser/sqlitebrowser", "v3.13.1") => {
             &[("DB.Browser.for.SQLite-v3.13.1.dmg", 45_618_256, "a641cfbfcc2ce609f07de44a35134dab53485ecc18e6d9afa297b514d74bd75e")]
         }
-        ("storytold/photocraft", "v0.23.0") => {
-            &[("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d")]
+        ("storytold/craft-anything", "v0.6.0") => {
+            &[("craft-anything-0.6.0-macos-universal.dmg", 133_747_537, "c88b5b128eb2e827d232a910c026c7b23bb4c7002cf0e2d32fff48fbb675d8b5")]
         }
-        ("storytold/photocraft", "v0.23.1") => {
-            &[("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d")]
+        ("storytold/craft-anything", "v0.6.1") => {
+            &[("craft-anything-0.6.1-macos-universal.dmg", 135_621_623, "bbb777d221a4ffe693323c1b6e625f02e71bfa04d74d32a5d50c4542655ed664")]
+        }
+        ("storytold/lightcraft", "v0.21.0") => {
+            &[("lightcraft-0.21.0-windows-x64.msi", 99_975_168, "e900ac8e70b2212c71b85190e4e1f75111e48c4f776b28d93963eac5c807d7ef")]
+        }
+        ("storytold/lightcraft", "v0.21.1") => {
+            &[("lightcraft-0.21.1-windows-x64.msi", 99_999_744, "16b8f4e12c93120b2db5a5f567798d1d1f33e2f55ddee901f1c8c0f072558a25")]
+        }
+        ("storytold/photocraft", "v0.23.0") => &[
+            ("photocraft-0.23.0-macos-universal.dmg", 274_134_041, "8ca761f3e9af4d932cc6efdd6ecbfa22128153ba30cce955547ca6256e61516d"),
+            ("photocraft-0.23.0-windows-x64.msi", 118_390_784, "eac24e0e5a675c3cb50d25752138d63c405f0fb9482163968f0553d04653c789"),
+        ],
+        ("storytold/photocraft", "v0.23.1") => &[
+            ("photocraft-0.23.1-macos-universal.dmg", 274_188_048, "606a52917188c65dc71709781180a0e3244e0f3b7f40b2f5b80170e87364420d"),
+            ("photocraft-0.23.1-windows-x64.msi", 118_427_648, "de757802d8a12a41718ba24248c281d83f3bbecd64c5230f46f10c7f62070671"),
+        ],
+        ("storytold/soundcraft", "v0.20.0") => {
+            &[("soundcraft-0.20.0-windows-x64.msi", 14_782_464, "c55c80cc1c9ff959a49ddc69d46a025c76355340ef6e46c65c497a74a4ae0d28")]
+        }
+        ("storytold/soundcraft", "v0.20.1") => {
+            &[("soundcraft-0.20.1-windows-x64.msi", 15_441_920, "dc2d31d05fd6ccfdd2aac8651b1dcabc12032a7eab34665d48af59d40c945dfe")]
+        }
+        ("storytold/texturecraft", "v0.6.0") => {
+            &[("texturecraft-0.6.0-windows-x64.msi", 35_454_976, "9da7b303ac4027c2972aad655b9c89b294bb70c23758962f3a31310c8e8339d0")]
+        }
+        ("storytold/texturecraft", "v0.6.1") => {
+            &[("texturecraft-0.6.1-windows-x64.msi", 35_463_168, "c06fb85f81a1568b02d50bdacea197450a18825f1d113f2d0c88d9cdd1462eed")]
+        }
+        ("storytold/wordcraft", "v0.18.0") => {
+            &[("wordcraft-0.18.0-windows-x64.msi", 95_031_296, "8a0bed4ddd40a96f6d7439a3bc7d9bebefe2507066b96ced67f4ef954174012c")]
+        }
+        ("storytold/wordcraft", "v0.19.1") => {
+            &[("wordcraft-0.19.1-windows-x64.msi", 103_383_040, "526abab4619d19ee432a834673044dc19f6ee2eac8f0f0bec6e9f6bf06cb7661")]
         }
         ("openclaw/openclaw", "v2026.11.9") => {
             &[("OpenClaw-2026.11.9-arm64.dmg", 256_294_306, "b8583ed29e820ff9482839a73744d433c0530ba54019440c7faa6ff733f4f56f")]
@@ -1159,12 +2037,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("openclaw/openclaw", "v2026.11.10") => {
             &[("OpenClaw-2026.11.10-arm64.dmg", 248_813_181, "e4d6ceaae36a9198a1410f985682541dfa719229ec30c9ed1a791f824db12f1a")]
         }
-        ("anomalyco/opencode", "v2.4.1") => {
-            &[("opencode-desktop-mac-arm64.dmg", 345_340_005, "0d69386bec754af9a4d933148a47bc21beea85c1d414295a5b295f2e34640cea")]
-        }
-        ("anomalyco/opencode", "v2.4.2") => {
-            &[("opencode-desktop-mac-arm64.dmg", 345_253_101, "e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7")]
-        }
+        ("anomalyco/opencode", "v2.4.1") => &[
+            ("opencode-desktop-mac-arm64.dmg", 345_340_005, "0d69386bec754af9a4d933148a47bc21beea85c1d414295a5b295f2e34640cea"),
+            ("opencode-desktop-linux-x86_64.AppImage", 325_645_884, "0b68c8f5a6d1ad992815c026bb90a56e43d9e3db37c7fba5ea3f6094080b9a33"),
+        ],
+        ("anomalyco/opencode", "v2.4.2") => &[
+            ("opencode-desktop-mac-arm64.dmg", 345_253_101, "e7bd4ab50d5c870e5eec5f0d57effee94ae54e0f76ac86502f20ed41ff3e39a7"),
+            ("opencode-desktop-linux-x86_64.AppImage", 325_566_590, "b42c238487bdd08ee551d08053e6a5a765bd7bec65f7ca899fec66464bd0fb2b"),
+        ],
         ("ollama/ollama", "v0.40.17") => &[("Ollama.dmg", 231_575_873, "cc5eb8fa68f2f15ea6dbc79a705092a1b1e666102c54ed535c91bbbeccab8c78")],
         ("ollama/ollama", "v0.40.18") => &[("Ollama.dmg", 232_758_599, "78880366c6ecc18891bf32eb6dd7d132938aaf55fa8bc9007503701ad6d7d1ed")],
         ("clash-verge-rev/clash-verge-rev", "v2.5.9") => {
@@ -1173,37 +2053,82 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("clash-verge-rev/clash-verge-rev", "v2.5.10") => {
             &[("Clash.Verge_2.5.10_aarch64.dmg", 80_769_307, "40d4a7da4543d75f573a5cfcc31543b0b4bf7e02caa122a9ca50654859585839")]
         }
-        ("stablyai/orca", "v1.4.279") => &[("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb")],
-        ("stablyai/orca", "v1.4.280") => &[("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528")],
-        ("debpalash/VoiceStudio", "v0.5.7") => {
-            &[("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0")]
-        }
-        ("debpalash/VoiceStudio", "v0.5.8") => {
-            &[("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e")]
-        }
-        ("pingdotgg/t3code", "v0.1.12") => {
-            &[("T3-Code-0.1.12-arm64.dmg", 237_227_036, "4613582f18d0c8ba60164e5d5d779bcebe4bb6cf7824b75fe94ecfe00a21f9bf")]
-        }
-        ("pingdotgg/t3code", "v0.1.13") => {
-            &[("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa")]
-        }
+        ("stablyai/orca", "v1.4.279") => &[
+            ("orca-macos-arm64.dmg", 305_433_992, "fc22bd68e1da6c93df0848671dc35ed00aeb9716c28c4834cf47437fa7755bbb"),
+            ("orca-linux.AppImage", 287_088_086, "72a0cd5f5cb09c69b0d998ca255dfe35aa4bf7f22145f2d218b92393cb70cd5a"),
+        ],
+        ("stablyai/orca", "v1.4.280") => &[
+            ("orca-macos-arm64.dmg", 306_833_918, "3e2dd7fe4c6dc6db227142b16d8f69bdfb5a66ce86746945b12c7c13ef4f9528"),
+            ("orca-linux.AppImage", 285_631_432, "7fa4d975bdd151787bb12537908464f87695ecc3f1c26cf553220ee86d3c06c2"),
+        ],
+        ("debpalash/VoiceStudio", "v0.5.7") => &[
+            ("VoiceStudio-0.5.7-mac-arm64.dmg", 280_523_075, "8db7a16f35af1e4eaca25c389d376acc86b3885f30d1982f5fd6497953f888a0"),
+            ("VoiceStudio-0.5.7-linux-x64.AppImage", 267_623_923, "39a3e0aae23f2a95cb2aabf4a1ca4a1b9c17931b19571179ace017981e364700"),
+        ],
+        ("debpalash/VoiceStudio", "v0.5.8") => &[
+            ("VoiceStudio-0.5.8-mac-arm64.dmg", 284_723_682, "378db9d7bf71a69a227b0f442d40acfe957a09d1a8ce17566059b235b8ed209e"),
+            ("VoiceStudio-0.5.8-linux-x64.AppImage", 289_429_504, "90bf90e0dd057632c76e5b286a2e068f9fb9cb1e1363ebaa215a17cb2e3d430e"),
+        ],
+        ("pingdotgg/t3code", "v0.1.12") => &[
+            ("T3-Code-0.1.12-arm64.dmg", 237_227_036, "4613582f18d0c8ba60164e5d5d779bcebe4bb6cf7824b75fe94ecfe00a21f9bf"),
+            ("T3-Code-x86_64.AppImage", 255_860_306, "66b91551571df6d29b55cb590295edf411cff96c95a8feb3f41c3ca595d722e2"),
+        ],
+        ("pingdotgg/t3code", "v0.1.13") => &[
+            ("T3-Code-0.1.13-arm64.dmg", 237_415_130, "dfdc4e87a7e56ac11fb5c7ec3cf608db854b3e9c4f755acc75b13f266a9478fa"),
+            ("T3-Code-x86_64.AppImage", 256_003_692, "dac1bbe9e93c1a5fb0942332befa998597f6a086232a87766ef5d8235a44f56d"),
+        ],
         ("Mintplex-Labs/anything-llm", "v1.19.0") => {
             &[("AnythingLLMDesktop-Silicon.dmg", 584_275_091, "0498b5d929aa7776a30f453d2a3a16fe172a9d63e149e67d224d2630c88e7dd5")]
         }
         ("Mintplex-Labs/anything-llm", "v1.20.0") => {
             &[("AnythingLLMDesktop-Silicon.dmg", 604_481_437, "eb5d0702d86ba7452660efcb6482141e8da863e397e802498a3884f21404aade")]
         }
-        ("CherryHQ/cherry-studio", "v2.2.2") => {
-            &[("Cherry-Studio-2.2.2-mac-arm64.dmg", 300_083_451, "5de08748e4a62023e5b942722fc84623e5c466d51b403a3429a0f29dc31270cd")]
-        }
-        ("CherryHQ/cherry-studio", "v2.2.3") => {
-            &[("Cherry-Studio-2.2.3-mac-arm64.dmg", 291_610_226, "afa9c479997a3c28b5a8a79d5dff71bd38f0d2d662dce6093aee642ccbaafae3")]
-        }
         ("usebruno/bruno", "v4.3.0") => {
             &[("bruno_4.3.0_arm64_mac.dmg", 167_922_780, "bb4c4d8de817a6f529880627606137fd16346ddece547c6a0862e84bd1cc69bf")]
         }
         ("usebruno/bruno", "v4.4.0") => {
             &[("bruno_4.4.0_arm64_mac.dmg", 183_254_552, "b9e7a4d8a371578116c67c20ae2892e840324d58be5a0407b2623701dd40f2a3")]
+        }
+        ("iOfficeAI/AionUi", "v2.2.1") => {
+            &[("AionUi-2.2.1-mac-arm64.dmg", 289_988_054, "e2fe252c8bee966099413cdb449cc7694429ab9fb48e1e32df135e41d414b648")]
+        }
+        ("raspberrypi/rpi-imager", "v2.0.11") => {
+            &[("rpi-imager-v2.0.11.dmg", 51_896_529, "7af0c2c3038c69d1bbc565daf4bfb8830bbf8413a1634ac31b89f90700a7add7")]
+        }
+        ("raspberrypi/rpi-imager", "v2.0.12") => {
+            &[("rpi-imager-v2.0.12.dmg", 36_609_779, "15b1a94c712c0032750855653c2bf129dceb401329fbce0a83d7cf05dc58a421")]
+        }
+        ("insidegui/WWDC", "7.4.2") => &[("WWDC_v7.4.2-1040.dmg", 18_563_919, "023abb817eb971eb514c27c53a0e1fb55913e680e7293742201ed0a69df6faa5")],
+        ("insidegui/WWDC", "7.5") => &[("WWDC_v7.5-1044.dmg", 19_325_975, "539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c")],
+        ("logseq/logseq", "2.0.1") => {
+            &[("Logseq-darwin-arm64-2.0.1.dmg", 168_847_627, "b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd")]
+        }
+        ("logseq/logseq", "2.0.2") => &[
+            ("Logseq-darwin-arm64-2.0.2.dmg", 177_591_867, "b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314"),
+            ("Logseq-linux-x86_64-2.0.2.AppImage", 175_847_888, "1335725626f6cbfbf3b00b7743a60356d2d7dad123cf00bbf974a9beef556870"),
+        ],
+        ("superhighfives/pika", "2.0.2") => &[("Pika-2.0.2.dmg", 8_509_840, "03d1856ae0ce43659e23b60af74b1ce4c217ea03e24b2c3dbb0c569ed8ba9734")],
+        ("superhighfives/pika", "2.0.3") => &[("Pika-2.0.3.dmg", 8_613_124, "0c089146dd1c89a47dbb66dcca023b8af2427bf38ccd4f40c907214c037f8b3f")],
+        ("Sigil-Ebook/Sigil", "2.8.1") => {
+            &[("Sigil.app-2.8.1-Mac-arm64.txz", 129_467_312, "285addb9abee1d69c913d6a6b504240946b5274fd2193942ed59697536279afe")]
+        }
+        ("Sigil-Ebook/Sigil", "2.8.6") => {
+            &[("Sigil.app-2.8.6-Mac-arm64.txz", 132_137_600, "3be3be094745dfec892a02ac2f8d90934d4da2dc595ec1a95a8525f9ad27efd6")]
+        }
+        ("ruffle-rs/ruffle", "v0.7.1") => {
+            &[("ruffle-0.7.1-macos-universal.tar.gz", 33_270_538, "7a86a09b0ca1d5756abcbb093108265019d77edad79e91c98689126c940bea4e")]
+        }
+        ("ruffle-rs/ruffle", "v0.8.0") => {
+            &[("ruffle-0.8.0-macos-universal.tar.gz", 33_797_959, "da1527c22e2869274be8af07b7fe04fb8fb2a13a810dfc311722f8b328039e0c")]
+        }
+        ("iOfficeAI/AionUi", "v2.2.2") => {
+            &[("AionUi-2.2.2-mac-arm64.dmg", 290_125_639, "813dae4972fdc6352567ed201702e79ad67b0332e400a281fcd4a46e36b3b253")]
+        }
+        ("scummvm/scummvm", "v2026.3.0") => {
+            &[("scummvm-2026.3.0-macosx.dmg", 163_659_840, "d483f41a67d389a3bf50832b9a1a054fbeded56fc148216e4f84a06d330d2172")]
+        }
+        ("scummvm/scummvm", "v2026.4.0") => {
+            &[("scummvm-2026.4.0-macosx.dmg", 169_280_944, "5614527fa57ffce14773c69923b96eeb7b1b135bcd96bfe74640ca341cad4598")]
         }
         ("upscayl/upscayl", "v2.11.5") => {
             &[("upscayl-2.11.5-mac.dmg", 351_772_230, "abf7b625641560cfa180dd1b2b0864138559d29f2a3d0f9951e5034496ce8dac")]
@@ -1212,8 +2137,224 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             &[("upscayl-2.15.0-mac.dmg", 385_264_901, "0e53c9ee8c1800cb3e2ce0f574e4e1a35a51945e19ff2b93f33928bbd7fd4c5a")]
         }
         ("janhq/jan", "v0.8.8") => &[("Jan_0.8.8_universal.dmg", 115_908_917, "7467b2c06ab1d2e0812b36ca73aebcbe8377c2d89207edaba266a2a0e39f404b")],
+        ("wulkano/Kap", "v3.5.5") => &[("Kap-3.5.5-arm64.dmg", 124_649_861, "b9a36a9fb882eee232a89077c9bbd2776517f5f858b714c14ca745b564e60420")],
+        ("wulkano/Kap", "v3.6.0") => &[("Kap-3.6.0-arm64.dmg", 124_651_995, "0f4b69d5fd4ec59da7b6e153722314c93dc263db2b81c0d0191e256360473ce3")],
+        ("simplex-chat/simplex-chat", "v7.1.3") => {
+            &[("simplex-desktop-macos-aarch64.dmg", 281_471_349, "9642c6fc18ba0ea07b83afab92f77a76fb069fd85695313ce3c35496fa0d0644")]
+        }
+        ("simplex-chat/simplex-chat", "v7.1.4") => {
+            &[("simplex-desktop-macos-aarch64.dmg", 281_579_270, "d6aae0906b8adf9c18299cb795d7bd5ef79dd007d40ace37912cfb61d3617f7e")]
+        }
         ("mudler/LocalAI", "v5.0.0") => &[("LocalAI.dmg", 120_721_974, "f7df5384af6523406ff303153d4c8058215356547ce7721de724ef4664298c62")],
         ("mudler/LocalAI", "v5.0.1") => &[("LocalAI.dmg", 120_740_780, "bb6099e29a45fe3d9dd6c74403f8020d9fb7cd03cc1d54145d4d82e6985f8c85")],
+        ("HKUDS/DeepTutor", "v1.7.3") => {
+            &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.3.dmg", 504_015_269, "cc48aa2dd80a78856233cfbf23d8934f2aebea9d1e69012a13923d59c5030699")]
+        }
+        ("HKUDS/DeepTutor", "v1.7.4") => {
+            &[("Open-DeepTutor-MacOS-Apple-Silicon-v1.7.4.dmg", 505_892_868, "afe5bb50e9b29af77dbf1a03ab1e04e4db6112dcacb61d11ef7f822b9321dd79")]
+        }
+        ("different-ai/openwork", "v0.18.72") => &[
+            ("openwork-mac-arm64-0.18.72.dmg", 382_734_040, "13f1b2e4597df2d7938848629bbe9325a5c9ce6bc9399d4144048fa942e15af5"),
+            ("openwork-linux-x86_64-0.18.72.AppImage", 389_084_380, "77185d1b68a5bddf7b6209723e5d65a7a75eda3892154a49aa63932c2a0e9e14"),
+        ],
+        ("different-ai/openwork", "v0.18.73") => &[
+            ("openwork-mac-arm64-0.18.73.dmg", 383_492_503, "6462fbe564667f37eeeabb7a7d5fc49c03d54f862364efc7f1dffa6473c5ec7b"),
+            ("openwork-linux-x86_64-0.18.73.AppImage", 389_795_831, "90ab90d5c20d8b31389f3777001455316e21d91ca4ab0a7a89d46ecf2e833692"),
+        ],
+        ("FreeCAD/FreeCAD", "1.1.3") => {
+            &[("FreeCAD_1.1.3-macOS-arm64-py311.dmg", 649_856_006, "f5c0ece7cd7c932466d6effadc0fc6e179b0538a9d9a6a77a6769eae3af2667c")]
+        }
+        ("FreeCAD/FreeCAD", "1.1.4") => {
+            &[("FreeCAD_1.1.4-macOS-arm64-py311.dmg", 649_760_538, "071343b4abb70492b75c973f41eaf1d2528f9b9c7ea018d22a4f46ae14d27ac0")]
+        }
+        ("milind-soni/OpenMausBot", "v0.1.182") => {
+            &[("OpenMausBot-0.1.182-arm64.dmg", 329_009_773, "6bd04ed658c9e56d840106947ba5dea4af60f538ec60a9661f236c52ffce46cd")]
+        }
+        ("milind-soni/OpenMausBot", "v0.1.184") => {
+            &[("OpenMausBot-0.1.184-arm64.dmg", 329_203_649, "6382b1cb17860aae80fd71a2da1643ecff13266dad406d1aecbf61e950271a44")]
+        }
+        ("huxingyi/dust3d", "1.1.5") => &[("dust3d-1.1.5.AppImage", 36_648_128, "8575ac93f7403717cf92893471b8ea8525a1321c57cf0f5edaf134e6ff3e5844")],
+        ("huxingyi/dust3d", "1.1.6") => &[("dust3d-1.1.6.AppImage", 36_680_896, "efbc1fafe9aa6cbc2679494e45a43bae6df50c7feec58e4a850e94189904fc5a")],
+        ("RawTherapee/RawTherapee", "5.12") => {
+            &[("RawTherapee_5.12_release.AppImage", 129_234_112, "95d0db7b9c6af85209af66b10b31ac47270e39d937763ac919f826586ea49f08")]
+        }
+        ("RawTherapee/RawTherapee", "5.13") => {
+            &[("RawTherapee_5.13_x86_64_release.AppImage", 130_180_288, "746a3509a234804c3a5f66649006ac29ac67f193a8559d2297357949a890b097")]
+        }
+        ("anefzaoui/misterdownloadmanager", "v0.5.0") => {
+            &[("MisterDownloadManager-0.5.0-linux-x86_64.AppImage", 20_625_912, "d2c7c568240a938f1010610b49b5fe591a7f37db7070a593735e11ba125a3878")]
+        }
+        ("anefzaoui/misterdownloadmanager", "v0.5.2") => {
+            &[("MisterDownloadManager-0.5.2-linux-x86_64.AppImage", 20_777_464, "70bcad9677b754dfffd118cea1e9f0bcb4b7f28f8f70bd3128fbc1b3ad6a74f4")]
+        }
+        ("OpenTTD/OpenTTD", "15.2") => {
+            &[("openttd-15.2-macos-universal.dmg", 14_464_742, "fbc8048714aae1199a9e444a469a0a75f7b5dcb5c43aaedfc91df12859cabe2a")]
+        }
+        ("OpenTTD/OpenTTD", "15.3") => {
+            &[("openttd-15.3-macos-universal.dmg", 14_459_846, "7ca8c0dddd7dc4f26d66a5170af4bf094ed36440cf5641db564356c807308614")]
+        }
+        ("rxhanson/Rectangle", "v2.0.4") => &[("Rectangle2.0.4.dmg", 4_960_820, "9f820a2e56bd2c27cdda4fb4556de3cbcfcbac052d9eeb2179d49e2dae277abc")],
+        ("rxhanson/Rectangle", "v2.0.5") => &[("Rectangle2.0.5.dmg", 4_940_143, "4dec773a2f550d64147d88e07d987ce8119bdff045f1c6993a9a5eeb9f68496c")],
+        ("CodeEditApp/CodeEdit", "v0.3.5") => &[("CodeEdit.dmg", 35_095_199, "bd143db6a4d3e85b6e9cd0126dbfa8e3186f57904e893d144acc3cf2b3c065f2")],
+        ("CodeEditApp/CodeEdit", "v0.3.6") => &[("CodeEdit.dmg", 35_962_501, "fa5478f80d591c15f08f5e7a93662b5baf33012718768bf0ae800b44ac4eeac9")],
+        ("p0deje/Maccy", "2.7.1") => &[("Maccy.app.zip", 4_709_233, "f388aee34de09a0c7531631303785d9938bef9a92130e21ce1049c8f56aad077")],
+        ("p0deje/Maccy", "2.8.0") => &[("Maccy.app.zip", 5_288_775, "e684e1ce0c60d7cffd3a2b182dc37bd7e88c29967a64a431a2c71be65b1d27e0")],
+        ("lwouis/alt-tab-macos", "v11.10.1") => {
+            &[("AltTab-11.10.1.zip", 4_831_056, "aa353197537ccfd378dd4a7ff43030561ce7c62267dd0b31b385691b0e7f594c")]
+        }
+        ("lwouis/alt-tab-macos", "v11.10.2") => {
+            &[("AltTab-11.10.2.zip", 4_885_500, "5a2a821a83be1092df0f63d2403359ef2f7d52ad39cec36d930e4c7554cc045b")]
+        }
+        ("ianyh/Amethyst", "v0.25.0") => &[("Amethyst.zip", 7_480_074, "cbdcab38c14e5b1cb359537faf0f274b7d77aeb2d3cfef1982866e2084880437")],
+        ("ianyh/Amethyst", "v0.25.1") => &[("Amethyst.zip", 7_597_173, "ab1a290a40bb4d31bf589f74246683660789a2c988110aadc6d7e2c24a7f7835")],
+        ("ejbills/DockDoor", "1.42.4") => &[("DockDoor.dmg", 22_828_534, "3c48963f50e6aa854a9e6d5faf12ba38c2e082e4c6ab13a1438f76df0a7eec69")],
+        ("ejbills/DockDoor", "1.42.5") => &[("DockDoor.dmg", 22_832_758, "dced8f338319ab22e49101b00d44cbac79c33ab96c16abc2414abcf1c0825021")],
+        ("macvim-dev/macvim", "release-183") => &[("MacVim.dmg", 25_939_870, "c27fb8948328074dcb81f45b7d88ff4e123a86c06eaf3d5b330369bc39ffab69")],
+        ("macvim-dev/macvim", "release-184") => &[("MacVim.dmg", 26_360_181, "9e980b758b3855deb8dca78b05335c85bfd3592a79d5d52ce104b3f20ed4f6e8")],
+        ("consolelabs/hidden", "v1.13.3") => {
+            &[("Hidden-Bar-v1.13.3-macos.zip", 2_727_233, "e6168b27091fd002b4d7d47db02e40a02eb07431e4ed8037c260393434d0a73f")]
+        }
+        ("consolelabs/hidden", "v1.13.4") => {
+            &[("Hidden-Bar-v1.13.4-macos.zip", 2_757_264, "3aeacbeacdcc52b6095da6084d1c7f7c4df2e0c6d09421ff3ebbc0b4717c7d09")]
+        }
+        ("jellyfin/jellyfin-desktop", "v1.11.1") => {
+            &[("JellyfinMediaPlayer-1.11.1-AppleSilicon.dmg", 182_503_420, "6d5478a7eb457c0c842e3b4265f254d9504fe8e4c8bc5e49e59bf8c68d3cdfcd")]
+        }
+        ("jellyfin/jellyfin-desktop", "v1.12.0") => {
+            &[("JellyfinMediaPlayer-1.12.0-AppleSilicon.dmg", 186_166_526, "272412af869f5278b93c16cda2657de3cda50e595a68a1c062b8dff5e40980bc")]
+        }
+        ("sveinbjornt/Sloth", "3.5") => &[("sloth-3.5.zip", 1_348_310, "ef5e0e064ac5ce85d9ada7bb3ad22dace2bd4981a4920a7470f9d2673b8cdcb5")],
+        ("sveinbjornt/Sloth", "3.6") => &[("sloth-3.6.zip", 1_343_658, "d3997c364c0b5f58e8676d336b78943cfcbc54e6c78cab348bd1580c29332da6")],
+        ("swiftbar/SwiftBar", "v2.1.0") => {
+            &[("SwiftBar.v2.1.0.b594.zip", 2_989_039, "54b425256f449dd90f8d167993cc65c3673bcd44d206e1aaf641a09fb58bc0da")]
+        }
+        ("swiftbar/SwiftBar", "v2.1.1") => {
+            &[("SwiftBar.v2.1.1.b597.zip", 2_991_349, "fcdec490782d6587046304044951c63de49ac422fc63892a6fab2dd7bc70c0cd")]
+        }
+        ("linearmouse/linearmouse", "v0.12.0") => {
+            &[("LinearMouse.dmg", 5_001_442, "aff50f3c818ced5a4e22a6174c872e3223797d43263fe647d7f955f9be0fcf3c")]
+        }
+        ("linearmouse/linearmouse", "v0.13.0") => {
+            &[("LinearMouse.dmg", 6_184_959, "609276d5db79874034c9469a4eb56ccde6ed6fd01c52404f41fd4b493042789b")]
+        }
+        ("mrkai77/Loop", "1.4.1") => &[("Loop.zip", 33_816_818, "ed617a58b1c204257fd76eff1fd405db8305a9c2159396a052613a86544ef6e8")],
+        ("mrkai77/Loop", "1.4.2") => &[("Loop.zip", 24_046_630, "514e97faab3843cdfb8b1859b91333704639a1a2ce580e4f684d75efe007d386")],
+        ("dyad-sh/dyad", "v1.23.0") => &[
+            ("dyad-darwin-arm64-1.23.0.zip", 130_606_146, "50667b4acc859d936222703bddfc51b4729a311ea281ab95f274b216b6a2fe15"),
+            ("dyad_1.23.0_x86_64.AppImage", 144_538_104, "9dbea7aa51943a9ad6e9073053b260eb98b107bf02f8ad561e0ed386fe908f0a"),
+        ],
+        ("dyad-sh/dyad", "v1.24.0") => &[
+            ("dyad-darwin-arm64-1.24.0.zip", 130_496_464, "edd4dd227fd00d33350f5a25b8c1ca7ff7d67c2b44f637d03e8eef1e8785dbcb"),
+            ("dyad_1.24.0_x86_64.AppImage", 144_435_704, "541e17691fe0bd342ac4ecf099b1d10fd0c7c9b7ebf0f26fc951882401e4c2f2"),
+        ],
+        ("GyulyVGC/sniffnet", "v1.5.1") => {
+            &[("Sniffnet_LinuxAppImage_amd64.AppImage", 21_002_744, "04f209d5e45157c57a6fdf34acf82359df88be36046af247fa55693beda7722f")]
+        }
+        ("GyulyVGC/sniffnet", "v1.6.0") => {
+            &[("Sniffnet_LinuxAppImage_amd64.AppImage", 18_721_272, "0d03ede587bd60f8d1aa84b007476aa8c88e63dd65c9e437fd70ab6ebc494d65")]
+        }
+        ("johnste/finicky", "v4.2.1") => &[("Finicky.dmg", 28_569_559, "4b6008735a2885d0ae6135ba0eaefa3e0fc4e8d84d0b6166bd79cc732e6091cc")],
+        ("johnste/finicky", "v4.2.2") => &[("Finicky.dmg", 28_569_676, "5f0020782c9075d27411d6083d7be8663891e3146c86eafad118c44acc12208f")],
+        ("Hammerspoon/hammerspoon", "1.1.0") => {
+            &[("Hammerspoon-1.1.0.zip", 9_879_298, "39ef907b7984f6cd38778d5bee3772abac8be6b48aa46a1ff5d7adccd41e73b5")]
+        }
+        ("Hammerspoon/hammerspoon", "1.1.1") => {
+            &[("Hammerspoon-1.1.1.zip", 9_704_557, "11bb1c90faf5427f37c7bd4fe7eab9774ae43e1d5cb020c5b3088dac32849efa")]
+        }
+        ("jordanbaird/Ice", "0.11.11") => &[("Ice.zip", 3_478_127, "21ea5ffa614def29bb699bb7c6725526840d0d999216fb75e504c6757b6f49cb")],
+        ("jordanbaird/Ice", "0.11.12") => &[("Ice.zip", 3_497_507, "d770e81597566dd2d2363feb350f808c7a92e363df95c51e48140eb30e452cc9")],
+        ("insidegui/VirtualBuddy", "2.2") => {
+            &[("VirtualBuddy_v2.2-428.dmg", 22_042_242, "7e672ebca6aec1e7de3adecb6cbbdf978f68dabe5406e48f22187f5dedc98339")]
+        }
+        ("insidegui/VirtualBuddy", "2.2.1") => {
+            &[("VirtualBuddy_v2.2.1-430.dmg", 22_041_237, "16fac6dddbb012548911c0a6807a882e8df5b5b4897a218923b108aaa333fc63")]
+        }
+        ("blender/blender", "5.2.5") => {
+            &[("blender-5.2.5-macos-arm64.dmg", 346_321_744, "3703b832f5cb04c404a96bcb3da192b20e26a78d619abc46a6ac4578e76fbdf4")]
+        }
+        ("blender/blender", "5.3.0") => {
+            &[("blender-5.3.0-macos-arm64.dmg", 359_893_873, "2d802b54766741e612cead50b03ebbc8eb64dadc71eda932573d256b8a784720")]
+        }
+        ("GNOME/gimp", "3.2.6") => &[("gimp-3.2.6-arm64.dmg", 185_680_887, "854573aec2be6a185aa021109c3c0ca94f210379204b704231bdd191b4060294")],
+        ("GNOME/gimp", "3.2.8") => &[("gimp-3.2.8-arm64.dmg", 185_827_254, "06404a375106b7613ba3a14c7d8d9a7cbe18b9b9e2b2050bb72f3162cbcfc395")],
+        ("videolan/vlc", "3.0.23") => &[("vlc-3.0.23-arm64.dmg", 51_273_389, "fc6fac08d87f538517d44aca0c5e7a244b67c8c4cb589bf478363a7315fd5e0d")],
+        ("videolan/vlc", "3.0.24") => &[("vlc-3.0.24-arm64.dmg", 56_960_605, "64a89d93cdd30b0e97131743e246373db82d6826ea882d265d46d74b136da2b7")],
+        ("inkscape/inkscape", "1.4.3") => {
+            &[("Inkscape-1.4.3_arm64.dmg", 156_533_257, "f4aa9c9b2e06db432c6f81a494ad9aa59b87cb7d9539cd7e6f6000002cb9edff")]
+        }
+        ("inkscape/inkscape", "1.4.4") => {
+            &[("Inkscape-1.4.4_arm64.dmg", 156_920_591, "eacca94ab01e59467cdd5452a2867c3734450f9a4cfb3346956cc9b07f34f3f1")]
+        }
+        ("KDE/kdenlive", "26.08.2") => {
+            &[("kdenlive-26.08.2-arm64.dmg", 144_286_250, "ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac")]
+        }
+        ("KDE/kdenlive", "26.08.3") => {
+            &[("kdenlive-26.08.3-arm64.dmg", 141_459_245, "22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e")]
+        }
+        ("KDE/krita", "5.3.4.1") => &[("krita-5.3.4.1-signed.dmg", 392_023_759, "531e261da1fd8d5c468cfcd4eebd16e9edf6ab320e89406d2875f2e43c1148de")],
+        ("KDE/krita", "5.3.5") => &[("krita-5.3.5-signed.dmg", 392_026_525, "273f61d6b6a0bfacb21084336cc6522b66c1d74b9f92a59e641b69cd66988175")],
+        ("Ranchero-Software/NetNewsWire", "mac-7.3") => {
+            &[("NetNewsWire7.3.zip", 10_478_881, "9031210d1b7772f6171c6acfbe87f46e522804f48e9c3b9a598e77b2de508bc1")]
+        }
+        ("Ranchero-Software/NetNewsWire", "mac-7.3.1") => {
+            &[("NetNewsWire7.3.1.zip", 10_473_901, "280ffd15e2df86a39146410d362f2bafca2c559f33cab78cd538669e96245ab9")]
+        }
+        ("SunshineStream/Sunshine", "v2026.906.222525") => {
+            &[("Sunshine-macOS-arm64.dmg", 40_287_527, "b630d35a184d8eaff39c5104f3c6a0c40e91ddc447ccf7a0c5b24706465fab6a")]
+        }
+        ("SunshineStream/Sunshine", "v2026.914.233613") => {
+            &[("Sunshine-macOS-arm64.dmg", 40_375_035, "795f03a389c5726f9a7b15f501dc1ddf204b442cae565859ac83aae027a9e07c")]
+        }
+        ("ThinkInAIXYZ/deepchat", "v1.1.3") => {
+            &[("DeepChat-1.1.3-mac-arm64.dmg", 425_447_652, "1a65b868af90992b5af0268115253c25bbee0dc689607a229db9648db686056f")]
+        }
+        ("ThinkInAIXYZ/deepchat", "v1.1.4") => {
+            &[("DeepChat-1.1.4-mac-arm64.dmg", 421_016_003, "e63b0d18e7cf0a26e9d80084cc2e3b50df1aa87d82cff3494e28e001ad766055")]
+        }
+        ("SubtitleEdit/subtitleedit", "v5.3.0") => {
+            &[("SubtitleEdit-macOS-ARM64.dmg", 135_167_783, "8cf1535b1984f10557076324245f716d6abd858f71c59ef2ca2f474079fc404b")]
+        }
+        ("SubtitleEdit/subtitleedit", "v5.4.0") => {
+            &[("SubtitleEdit-macOS-ARM64.dmg", 138_297_144, "23ff6eb5afd79c4448cced84979b3c428bbab6f2de0de9c01a5f3370f91042e6")]
+        }
+        ("moonlight-stream/moonlight-qt", "v6.1.0") => {
+            &[("Moonlight-6.1.0.dmg", 59_806_624, "d494740eead8ad4e620cdc8feedb56083bc29cabbbeef34cb82585fd87725fa2")]
+        }
+        ("moonlight-stream/moonlight-qt", "v6.2.0") => {
+            &[("Moonlight-6.2.0.dmg", 78_299_984, "43617e5210d53968fcfb4a46526d1625a9056c6fe97e731673c31193dae776fc")]
+        }
+        ("open-pencil/open-pencil", "v0.16.0") => &[
+            ("OpenPencil_0.16.0_amd64.AppImage", 96_438_776, "a7d893ac35367c8ea000b00890136ce5861a13bf2574b44760f77849cfdf77a2"),
+            ("OpenPencil_0.16.0_aarch64.dmg", 16_213_804, "000976fa54233d324f38842203d87976331733f5de68480c66d7fbcf0a877d09"),
+        ],
+        ("open-pencil/open-pencil", "v0.17.0") => &[
+            ("OpenPencil_0.17.0_amd64.AppImage", 99_834_360, "43da3dbd7a223a103692dd2d9193a86f8ddcb3db7577bd373949aae8455e94fc"),
+            ("OpenPencil_0.17.0_aarch64.dmg", 19_490_106, "72c1332fe713ed97b52cc5f45811f55dc350ec4bd02dbdd8e8db4d54196018ba"),
+        ],
+        ("OpenWhispr/openwhispr", "v1.12.1") => &[
+            ("OpenWhispr-1.12.1-arm64.dmg", 362_841_873, "e2484ac2823707732d011fb0a5eee1c592bb1d455b744283676846024c4d2c13"),
+            ("OpenWhispr-1.12.1-linux-x86_64.AppImage", 562_510_821, "718808eb5114511dcf71118917008ee64648c3266dacf301a7e6f4e66a87138e"),
+        ],
+        ("OpenWhispr/openwhispr", "v1.12.2") => &[
+            ("OpenWhispr-1.12.2-arm64.dmg", 362_952_454, "324f3b071dc21325701a6b25f0672b29c5829f191e850d2eb09516d8bb1179ea"),
+            ("OpenWhispr-1.12.2-linux-x86_64.AppImage", 562_555_582, "9be930e031d09cec4f9d5d418235299f34e22b17172d40a7d1c251191bb991a8"),
+        ],
+        ("Ultimaker/Cura", "5.13.0") => {
+            &[("UltiMaker-Cura-5.13.0-linux-X64.AppImage", 334_154_232, "100f068127b2598167f00ba4db0e0699ded45adf97bbab2d22ff171a1e1ecc40")]
+        }
+        ("Ultimaker/Cura", "5.14.0") => {
+            &[("UltiMaker-Cura-5.14.0-linux-X64.AppImage", 370_960_888, "988a2a67cce7ee7b9b9a843aad65ec4754d2ceb0a72e70eeaf884b995b75990f")]
+        }
+        ("getpaseo/paseo", "v0.17.6") => {
+            &[("Paseo-0.17.6-arm64.dmg", 190_151_170, "3807556e33e6680a982138c534033b1e2101a6fc5a1c84ceb53d3614be6dfce5")]
+        }
+        ("getpaseo/paseo", "v0.18.0") => &[
+            ("Paseo-0.18.0-arm64.dmg", 190_247_198, "2fa0fe84825e3e4df60d6d8625adcd23995868f85a378206fe0e4cf8a69c1f91"),
+            ("Paseo-x86_64.AppImage", 171_962_101, "3498024f3a3a7c55c7421a5dd6d85824745e638ddfb612c1909ec1058b03c24e"),
+        ],
+        ("getpaseo/paseo", "v0.18.1") => {
+            &[("Paseo-x86_64.AppImage", 171_958_150, "a17d26d6930da647c0eacad3ebcae779bfc4bb47a824236ff790a60c199d85b6")]
+        }
         ("siyuan-note/siyuan", "v3.8.11") => {
             &[("siyuan-3.8.11-mac-arm64.dmg", 285_951_329, "30c3be91cac9e2b4644766f20b788725922097f18524f861cff065311b9ba4c0")]
         }
@@ -1238,12 +2379,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("kando-menu/kando", "v3.0.1") => {
             &[("Kando-3.0.1-arm64.dmg", 154_825_532, "da33fde36a63766e1d646c5ebfaaf62865dcb764b835c0c38873d18c45d642c2")]
         }
-        ("webadderallorg/Recordly", "v1.3.3") => {
-            &[("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5")]
-        }
-        ("webadderallorg/Recordly", "v1.4.0") => {
-            &[("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4")]
-        }
+        ("webadderallorg/Recordly", "v1.3.3") => &[
+            ("Recordly-arm64.dmg", 219_898_815, "7fa8f4116e870d40fd78bb36d2ad20af364c945023b7b5ec3e72b568b6bbdee5"),
+            ("Recordly-linux-x64.AppImage", 237_379_502, "45828b49bfddf6e2f746cd4a7d1f2e118195f1a45af7c0d922c2ac6bbf598f7a"),
+        ],
+        ("webadderallorg/Recordly", "v1.4.0") => &[
+            ("Recordly-arm64.dmg", 187_987_169, "520ee1d5570f2342e126306eda84b95e442c844b6f0e84c6e81c208445be8cc4"),
+            ("Recordly-linux-x64.AppImage", 204_317_716, "37b16c416ee9970e0117a9839abe0b7e024f3f02db767f1a6122528b84704a41"),
+        ],
         ("VSCodium/vscodium", "1.143.17183") => {
             &[("VSCodium.arm64.1.143.17183.dmg", 206_695_167, "b6cb6359484dfdbc1989528ab4e7429c68bf555f3853173801e9293ce282e902")]
         }
@@ -1262,12 +2405,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("ankitects/anki", "26.09.4") => {
             &[("anki-26.09.4-mac-apple.dmg", 228_182_839, "527b968b88d54cb0308d1de7a1ee193109863546e1cb62dcd016bd93bd816684")]
         }
-        ("openchamber/openchamber", "v2.8.0") => {
-            &[("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9")]
-        }
-        ("openchamber/openchamber", "v2.8.1") => {
-            &[("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217")]
-        }
+        ("openchamber/openchamber", "v2.8.0") => &[
+            ("OpenChamber-2.8.0-mac-arm64.dmg", 172_726_811, "336ca3514797568cd54a37343777e2d2a7ffdfb4abd18569afcd36fb45fc3ae9"),
+            ("OpenChamber-2.8.0-linux-x86_64.AppImage", 180_823_904, "215ded1fdf87d610889b27e4f076bc6878f607346bda58cee5e29f548ff5a55c"),
+        ],
+        ("openchamber/openchamber", "v2.8.1") => &[
+            ("OpenChamber-2.8.1-mac-arm64.dmg", 173_393_080, "9cfa5aebfb8a5e643e7c4856f9685b784cd430d2d20e376aaccb79b6130a3217"),
+            ("OpenChamber-2.8.1-linux-x86_64.AppImage", 181_496_363, "4d6de636a9611e673ce6eea6cc9cf5e2dce2f2e20f0304e3eb46de8b4f62955e"),
+        ],
         ("osaurus-ai/osaurus", "1.0.12") => {
             &[("Osaurus-1.0.12.dmg", 126_257_063, "181b5f527f30bcde1ffa73f08d6cda4d720c3e26284d3197ca2d7449af10dd4d")]
         }
@@ -1286,12 +2431,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("zen-browser/desktop", "1.24.3b") => {
             &[("zen.macos-universal.dmg", 240_816_809, "86f6a01e786095d7661c68357396a00cd3e169d6ae5e176245077bb701af8b65")]
         }
-        ("cyanfish/naps2", "v8.6.0") => {
-            &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
-        }
-        ("cyanfish/naps2", "v8.6.1") => {
-            &[("naps2-8.6.1-mac-arm64.pkg", 27_550_717, "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601")]
-        }
+        ("cyanfish/naps2", "v8.6.0") => &[
+            ("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc"),
+            ("naps2-8.6.0-linux-x64.flatpak", 21_105_688, "2169c0a55c1cabbf8053075ab0ad47d992da1d55818489d593a33e9e638b2226"),
+        ],
+        ("cyanfish/naps2", "v8.6.1") => &[
+            ("naps2-8.6.1-mac-arm64.pkg", 27_550_717, "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601"),
+            ("naps2-8.6.1-linux-x64.flatpak", 21_212_400, "f433399b062b68a87092537667ebce716564faa9967a6dee48b89d4b0d370759"),
+        ],
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],
         ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],
@@ -1304,8 +2451,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("metabrainz/picard", "release-3.0.5") => {
             &[("MusicBrainz-Picard-3.0.5-macOS-13.0-arm64.dmg", 59_600_174, "53b1f8c3a971c538421ddc89a14a7322bd5bc90521ade1f5aded51d10a64ddfe")]
         }
-        ("neovide/neovide", "0.17.3") => &[(NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc")],
-        ("neovide/neovide", "0.17.4") => &[(NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a")],
+        ("neovide/neovide", "0.17.3") => &[
+            (NEOVIDE_MAC_DMG, 12_337_549, "024f11f8e5a69b58cd9f9c01cf5d6bbe5c4813474f0c5cc1150cddb70e7cd2cc"),
+            ("neovide.AppImage", 13_486_584, "eda631003273819e84d2d4b2a4d8229da02fa027e081b7d166f0d630f7811340"),
+        ],
+        ("neovide/neovide", "0.17.4") => &[
+            (NEOVIDE_MAC_DMG, 12_338_261, "5a4647cce0703552906552ae1d0d955e221f3153af832fa6739ffc0592774e2a"),
+            ("neovide.AppImage", 13_511_160, "70e84a4cd20f8ff989e90d5ffd44f260ce305d53591eaa8fa66d1cf150da54f6"),
+        ],
         ("Termix-SSH/Termix", "v26.11.2") => &[(TERMIX_MAC_DMG, 254_640_116, "c9b8eda86bf88f85ab2f2aa295e76fe1409805f65b3ab3c69a0cd7186c7cac5e")],
         ("Termix-SSH/Termix", "v26.11.3") => &[(TERMIX_MAC_DMG, 263_900_889, "a509ba2eebd74b7562f38d5adca342c137e431fab1744af34bdbd07eb9a96f3c")],
         (crate::curated::GODOT_RELEASES_REPO, "4.7.1-stable") => {
@@ -1326,12 +2479,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("OpenShot/openshot-qt", "v4.1.1") => {
             &[("OpenShot-v4.1.1-x86_64.AppImage", 258_921_664, "662d0c3cec67ddc90df6a8b0c723c0aac0d3bddf0c3c467eff562e818bb8c72f")]
         }
-        ("musescore/MuseScore", "v4.7.6") => {
-            &[("MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952, "5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6")]
-        }
-        ("musescore/MuseScore", "v4.7.7") => {
-            &[("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d")]
-        }
+        ("musescore/MuseScore", "v4.7.6") => &[
+            ("MuseScore-Studio-4.7.6.261022093.dmg", 207_171_137, "dd78357e652a4df6ec074b9bd63a79e09eedb7c1c9dd6262eb7d9304508dec9c"),
+            ("MuseScore-Studio-4.7.6.261022093-x86_64.AppImage", 192_616_952, "5fcbd1f292270eca5c3867d56b767c31a173a155216a415f5caee22553f8e7a6"),
+        ],
+        ("musescore/MuseScore", "v4.7.7") => &[
+            ("MuseScore-Studio-4.7.7.261109195.dmg", 206_969_738, "16a6b33bb12f4a54cd97dfe8e7bc2f21477b9897e4c503e26fa3e332e4ddf8ad"),
+            ("MuseScore-Studio-4.7.7.261109195-x86_64.AppImage", 192_743_928, "8597105814359676483807ce4c4051eaf439bd723ebccaa9160632f56c05a02d"),
+        ],
         ("mifi/lossless-cut", "v3.70.1") => &[
             ("LosslessCut-mac-arm64.dmg", 165_847_881, "82964e13ca65beeee508fbdb27fe823121701748b8b4023800bdcf701183d2ea"),
             ("LosslessCut-linux-x86_64.AppImage", 221_418_564, "04c87c97ff3980b8ebb6a62f0394204232e73a7dff89ea86ef49be3c372b0842"),
@@ -1340,16 +2495,26 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("LosslessCut-mac-arm64.dmg", 165_792_537, "3c0e2b3ec25fec66cf0cef343450d9a333e4bba5d64456c34cd18e891a3f5947"),
             ("LosslessCut-linux-x86_64.AppImage", 221_357_823, "e9ea00c9cf6cdda10db9d9cd13fc9ca10d61cdc046a60f5ee340db6643164a4a"),
         ],
-        ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[(
-            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage",
-            201_116_152,
-            "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb",
-        )],
-        ("OrcaSlicer/OrcaSlicer", "v2.5.2") => &[(
-            "OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage",
-            201_034_232,
-            "22fa88884dec3fdbd29e90cba9912fcff6fb57a60b1bdc1a6c189c61a6b0a870",
-        )],
+        ("dbeaver/dbeaver", "26.2.5") => {
+            &[("dbeaver-ce-26.2.5-macos-aarch64.dmg", 124_466_382, "2d739a95bbc3bb2f9fada4863a9f11904b94ebb34673999915809f788e849d73")]
+        }
+        ("dbeaver/dbeaver", "26.2.5.2") => {
+            &[("dbeaver-ce-26.2.5.2-macos-aarch64.dmg", 124_461_569, "84aa5edce7f78aa7c9bac8204956968cbdc6e194208a5654134ccbc6e29af60e")]
+        }
+        ("prusa3d/PrusaSlicer", "version_2.9.6") => {
+            &[("PrusaSlicer-2.9.6.dmg", 142_444_072, "94fd7b8a9f87c9631e1c71739b15b184fc5f4c0ceabd69072f1c78f229a4fe40")]
+        }
+        ("prusa3d/PrusaSlicer", "version_2.9.7") => {
+            &[("PrusaSlicer-2.9.7.dmg", 142_446_004, "f735f9d527823d159d9ac1e8f84ce1b74ea571e705e70e723bee546d070db60b")]
+        }
+        ("OrcaSlicer/OrcaSlicer", "v2.5.1") => &[
+            ("OrcaSlicer_Mac_universal_V2.5.1.dmg", 364_654_009, "ddf48a7f34785a4d5b4313e4dc4d7ad01769d48bc4c8d825f809da96593e6f46"),
+            ("OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.1.AppImage", 201_116_152, "073b8105c928356141db0ddbce88b81d52c7a9e2442f9baae0a9089c89ff04eb"),
+        ],
+        ("OrcaSlicer/OrcaSlicer", "v2.5.2") => &[
+            ("OrcaSlicer_Mac_universal_V2.5.2.dmg", 359_667_480, "6ea1afcdffb7e9ab011e2d6f6db665cb18463d1c4774591cd5db7ee0225479d9"),
+            ("OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.5.2.AppImage", 201_034_232, "22fa88884dec3fdbd29e90cba9912fcff6fb57a60b1bdc1a6c189c61a6b0a870"),
+        ],
         ("Zettlr/Zettlr", "v4.10.0") => {
             &[("Zettlr-4.10.0-x86_64.AppImage", 172_628_308, "bf6f7458c2377818d5d4ed008a721c295bec2c25d570cf8f54d053f8819508fc")]
         }
@@ -1357,12 +2522,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("Zettlr-4.11.0-x86_64.AppImage", 172_657_896, "e9b5406d62e2c9e5fef3adb092877669d849d16a217375c4e1736cf9c7aa9bd7"),
             ("Zettlr-4.11.0-arm64.dmg", 202_782_993, "68e57c3dcb8275b175ac1b67f7d94945c84e0a7c4da6e1ab6b6e8fcd64458793"),
         ],
-        ("ONLYOFFICE/DesktopEditors", "v9.4.0") => {
-            &[("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c")]
-        }
-        ("ONLYOFFICE/DesktopEditors", "v10.0.0") => {
-            &[("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745")]
-        }
+        ("ONLYOFFICE/DesktopEditors", "v9.4.0") => &[
+            ("DesktopEditors-x86_64.AppImage", 625_961_464, "f5faf24552665262fe94486a510b997d2e5a24bde14df94c802c79bf17f9254c"),
+            ("ONLYOFFICE-arm.dmg", 542_306_356, "e965be2222609add6b5a70baa2a8cdb599402491fb2925825d9039dcb154beb4"),
+        ],
+        ("ONLYOFFICE/DesktopEditors", "v10.0.0") => &[
+            ("DesktopEditors-x86_64.AppImage", 425_810_424, "3e4668d44f6881d1d8873b38ea9c9fd81b9c77132facdb735bfebfe960edb745"),
+            ("ONLYOFFICE-arm.dmg", 340_135_365, "9095cc8c46f1206237d690c7e146fada0d72dbf7f40c035cd5fd218b680c2deb"),
+        ],
         ("nextcloud-releases/desktop", "v35.0.2") => {
             &[("Nextcloud-35.0.2-x86_64.AppImage", 63_248_888, "cd62e276ecc8172b3075043abeec789024355bba3d0cd9ad8b3c850e9ad0d7d8")]
         }
@@ -1389,17 +2556,64 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("rustdesk-1.5.3-x86_64.AppImage", 88_492_536, "ff7fff208fed218fc9f895457a36cc2dd31fefbfae0461a27b54f3d391204506"),
             ("rustdesk-1.5.3-aarch64.dmg", 31_464_911, "e6d30fa1633d772c48935907c208ca4e555a856fb2038af3aaa87a327c29360b"),
         ],
+        ("pavlobu/deskreen", "v3.2.15") => &[
+            ("deskreen-ce-3.2.15-arm64.dmg", 148_740_787, "bfeb75823971706af9a2123a4c212a5244c0a0000f094be703a8125dbdeba3c8"),
+            ("deskreen-ce-3.2.15-x86_64.AppImage", 155_298_417, "cbabe91564be48733659675a6876ce869f4fa987d96a16de0fa6a2c2b77b2720"),
+        ],
+        ("pavlobu/deskreen", "v3.2.16") => &[
+            ("deskreen-ce-3.2.16-arm64.dmg", 147_505_602, "09a3be94f5fa2afc13e9098b8f6ad1f3285cf41f6f7a0de64a529944398d9177"),
+            ("deskreen-ce-3.2.16-x86_64.AppImage", 155_306_590, "25c54a448344587257ce977288c4b3c7e729fc1cc7061ad7471622cd09a47ab2"),
+        ],
+        ("zotero/zotero", tag) => {
+            ZOTERO_DMG_RECEIPTS.iter().find(|&&(reviewed, _)| reviewed == tag).map_or(&[], |(_, receipt)| std::slice::from_ref(receipt))
+        }
+        ("element-hq/element-web", "1.12.35") => {
+            &[("Element-1.12.35-universal.dmg", 308_561_528, "374a19159a7108128ea6bbcaca30c4909249f41068edb01746669a05db65e276")]
+        }
+        ("element-hq/element-web", "1.12.36") => {
+            &[("Element-1.12.36-universal.dmg", 309_305_729, "01133c2196702d6bd3587a65b0c29fac166facbe10c38e2ddf4b2366487120cb")]
+        }
+        ("mozilla-firefox/firefox", "160.0.1") => {
+            &[("Firefox-160.0.1.dmg", 165_761_466, "db9a522291d82cbe9a2b2922822def4db0a79d4fa3e614979039d705b13b1c25")]
+        }
+        ("mozilla-firefox/firefox", "161.0") => {
+            &[("Firefox-161.0.dmg", 167_399_384, "18f398ada9ba9faa5458dc01c2a68fc7df35517283be2e7a421a0867c5f47f83")]
+        }
         _ => &[],
     };
-    receipts.iter().map(move |&(name, size, sha256)| Asset {
-        name: name.into(),
-        size,
-        url: if repo == crate::curated::CALIBRE.repo {
+    receipts.iter().filter_map(move |&(name, size, sha256)| {
+        let url = if repo == crate::curated::CALIBRE.repo {
             format!("{CALIBRE_DMG_URL}{}/{name}", tag.trim_start_matches('v'))
+        } else if repo == crate::curated::AIONUI.repo || repo == crate::curated::SCUMMVM.repo {
+            let base = if repo == crate::curated::AIONUI.repo { AIONUI_DMG_URL } else { SCUMMVM_DMG_URL };
+            format!("{base}{}/{name}", tag.strip_prefix('v')?)
+        } else if repo == crate::curated::OPENTTD.repo {
+            format!("{OPENTTD_DMG_URL}{tag}/{name}")
+        } else if repo == crate::curated::ZOTERO.repo {
+            format!("{ZOTERO_DMG_URL}{tag}/{name}")
+        } else if repo == crate::curated::BLENDER.repo {
+            let (series, _) = tag.rsplit_once('.')?;
+            format!("{BLENDER_DMG_URL}Blender{series}/{name}")
+        } else if repo == crate::curated::VLC.repo {
+            format!("{VLC_DMG_URL}{tag}/macosx/{name}")
+        } else if repo == crate::curated::INKSCAPE.repo {
+            format!("{INKSCAPE_DMG_URL}{name}")
+        } else if repo == crate::curated::KDENLIVE.repo {
+            let series = tag.rsplit_once('.').map_or(tag, |(series, _)| series);
+            format!("{KDENLIVE_DMG_URL}{series}/macOS/{name}")
+        } else if repo == crate::curated::KRITA.repo {
+            format!("{KRITA_DMG_URL}{tag}/{name}")
+        } else if repo == crate::curated::GIMP.repo {
+            let (series, _) = tag.rsplit_once('.')?;
+            format!("{GIMP_DMG_URL}v{series}/macos/{name}")
+        } else if repo == crate::curated::ELEMENT.repo {
+            format!("{ELEMENT_DMG_URL}{name}")
+        } else if repo == crate::curated::FIREFOX.repo {
+            format!("{FIREFOX_ARCHIVE_URL}{tag}/mac/en-US/Firefox%20{tag}.dmg")
         } else {
             format!("{}{tag}/{name}", download_prefix(repo))
-        },
-        sha256: Some(sha256.into()),
+        };
+        Some(Asset { name: name.into(), size, url, sha256: Some(sha256.into()) })
     })
 }
 
@@ -1489,6 +2703,379 @@ mod tests {
     use super::*;
 
     #[test]
+    fn pika_uses_only_the_reviewed_apple_silicon_disk_images() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::PIKA_COLOR};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[PIKA_COLOR.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.0.2", "2.0.3"] {
+            let mut release = release_from_sums(PIKA_COLOR.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, Platform { arch: Arch::X64, ..mac }), None);
+            release.assets[0].sha256 = None;
+            assert_eq!(select(&release, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(PIKA_COLOR.repo, "2.0.4", &[]), mac), None);
+    }
+
+    #[test]
+    fn logseq_db_selects_only_reviewed_database_edition_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::LOGSEQ_DB};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[LOGSEQ_DB.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.0.1", "2.0.2"] {
+            let mut release = release_from_sums(LOGSEQ_DB.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, linux), (tag == "2.0.2").then_some(PackageKind::AppImage));
+            assert_eq!(select(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(select(&release, Platform { arch: Arch::Arm64, ..linux }), None);
+            assert_eq!(select(&release, Platform { os: Os::Windows, ..linux }), None);
+            for asset in &mut release.assets {
+                asset.sha256 = None;
+            }
+            assert_eq!(select(&release, mac), None);
+            assert_eq!(select(&release, linux), None);
+        }
+        for tag in ["0.10.15", "2.0.3"] {
+            let release = release_from_sums(LOGSEQ_DB.repo, tag, &[]);
+            assert_eq!(select(&release, mac), None);
+            assert_eq!(select(&release, linux), None);
+        }
+    }
+
+    #[test]
+    fn wwdc_uses_only_the_reviewed_apple_silicon_disk_images() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::WWDC};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[WWDC.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for (tag, version) in [("7.4.2", "7.4.2"), ("7.5", "7.5.0")] {
+            let release = release_from_sums(WWDC.repo, tag, &[]);
+            assert_eq!(release.version, Version::parse(version).ok());
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, intel), None);
+
+            let mut changed = release.clone();
+            changed.assets[0].sha256 = None;
+            assert_eq!(select(&changed, mac), None);
+            changed.assets[0] = release.assets[0].clone();
+            changed.prerelease = true;
+            assert_eq!(select(&changed, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(WWDC.repo, "7.6", &[]), mac), None);
+    }
+
+    #[test]
+    fn raspberry_pi_imager_macos_uses_only_the_reviewed_disk_images() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::RASPBERRY_PI_IMAGER};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[RASPBERRY_PI_IMAGER.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["v2.0.11", "v2.0.12"] {
+            let release = release_from_sums(RASPBERRY_PI_IMAGER.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::Dmg));
+            assert_eq!(select(&release, intel), None);
+
+            let mut changed = release.clone();
+            changed.assets[0].size += 1;
+            assert_eq!(select(&changed, mac), None);
+
+            let mut prerelease = release;
+            prerelease.prerelease = true;
+            assert_eq!(select(&prerelease, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(RASPBERRY_PI_IMAGER.repo, "v2.1.0", &[]), mac), None);
+    }
+
+    #[test]
+    fn karing_requires_the_exact_reviewed_build_and_only_enables_arm64() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::KARING};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| crate::platform::pick_asset(release, &[KARING.id], platform, &[PackageKind::Dmg]).is_some();
+        let previous = release_from_sums(KARING.repo, "v1.2.26.2932", &[]);
+        let mut current = release_from_sums(KARING.repo, "v1.2.26.2934", &[]);
+        assert_eq!(previous.version_label(), "1.2.26.2932");
+        assert_eq!(current.version_label(), "1.2.26.2934");
+        assert!(version::is_update(current.version.as_ref().unwrap(), previous.version.as_ref().unwrap()));
+        assert!(pick(&previous, mac) && pick(&current, mac));
+        assert!(!pick(&current, Platform { arch: Arch::X64, ..mac }));
+        assert!(!pick(&release_from_sums(KARING.repo, "v1.2.26.2933", &[]), mac));
+        assert_eq!(release_tag_version("example/karing", "v1.2.26.2934"), None);
+        assert_eq!(release_tag_version(KARING.repo, "v1.2.26"), None);
+        current.version = previous.version;
+        assert!(!pick(&current, mac));
+    }
+
+    #[test]
+    fn meetingbar_uses_the_signed_bundle_version_for_the_reviewed_release() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::MEETINGBAR};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| crate::platform::pick_asset(release, &[MEETINGBAR.id], platform, &[PackageKind::Dmg]).is_some();
+        let previous = release_from_sums(MEETINGBAR.repo, "v4.11.6", &[]);
+        let mut current = release_from_sums(MEETINGBAR.repo, "v5.0.0", &[]);
+        assert_eq!(previous.version, Some(Version::new(4, 11, 6)));
+        assert_eq!(current.version, Some(Version::new(5, 0, 1)));
+        assert_eq!(release_tag_version("example/MeetingBar", "v5.0.0"), Some(Version::new(5, 0, 0)));
+        assert!(pick(&previous, mac));
+        assert!(pick(&current, mac));
+        assert!(!pick(&current, Platform { arch: Arch::X64, ..mac }));
+        assert!(!pick(&release_from_sums(MEETINGBAR.repo, "v5.0.1", &[]), mac));
+        current.assets[0].sha256 = Some("0".repeat(64));
+        assert!(!pick(&current, mac));
+    }
+
+    #[test]
+    fn syncthing_macos_stable_uses_only_reviewed_apple_silicon_dmgs() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::SYNCTHING_MACOS, protocol::VersionTrack};
+
+        let apple_silicon = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..apple_silicon };
+        let previous = release_from_sums(SYNCTHING_MACOS.repo, "v2.1.5-1", &[]);
+        let current = release_from_sums(SYNCTHING_MACOS.repo, "v2.1.6-1", &[]);
+        assert_eq!(choose_version_for(&[current.clone(), previous.clone()], &VersionTrack::Stable, false), Some(current.clone()));
+        let choose =
+            |release: &Release, platform| crate::platform::pick_asset(release, &[SYNCTHING_MACOS.id], platform, &[PackageKind::Dmg]).is_some();
+        for mut release in [previous, current] {
+            assert!(choose(&release, apple_silicon));
+            assert!(!choose(&release, intel));
+            release.assets[0].sha256 = None;
+            assert!(!choose(&release, apple_silicon));
+        }
+        assert!(!choose(&release_from_sums(SYNCTHING_MACOS.repo, "v2.1.6-2", &[]), apple_silicon));
+    }
+
+    #[test]
+    fn sigil_macos_accepts_only_the_reviewed_apple_silicon_archives() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::SIGIL};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let choose = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[SIGIL.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["2.8.1", "2.8.6"] {
+            let mut release = release_from_sums(SIGIL.repo, tag, &[]);
+            assert_eq!(choose(&release, mac), Some(PackageKind::MacTarXz));
+            assert_eq!(choose(&release, intel), None);
+            release.prerelease = true;
+            assert_eq!(choose(&release, mac), None);
+            release.prerelease = false;
+            release.assets.iter_mut().for_each(|asset| asset.sha256 = None);
+            assert_eq!(choose(&release, mac), None);
+        }
+        assert_eq!(choose(&release_from_sums(SIGIL.repo, "2.8.7", &[]), mac), None);
+    }
+
+    #[test]
+    fn ruffle_macos_uses_only_the_reviewed_arm64_archive() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::RUFFLE};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform: Platform| {
+            crate::platform::pick_asset(release, &[RUFFLE.id], platform, platform.default_kinds()).map(|(_, kind)| kind)
+        };
+        for tag in ["v0.7.1", "v0.8.0"] {
+            let mut release = release_from_sums(RUFFLE.repo, tag, &[]);
+            assert_eq!(select(&release, mac), Some(PackageKind::MacTarGz));
+            assert_eq!(select(&release, intel), None);
+            assert_eq!(select(&release, linux), None);
+            release.assets.iter_mut().filter(|asset| asset.name.ends_with("-macos-universal.tar.gz")).for_each(|asset| asset.size += 1);
+            assert_eq!(select(&release, mac), None);
+        }
+        assert_eq!(select(&release_from_sums(RUFFLE.repo, "v0.8.1", &[]), mac), None);
+    }
+
+    #[test]
+    fn github_release_resolves_only_reviewed_publisher_downloads() {
+        for (app, tag, newer_tag, url, size) in [
+            (crate::curated::AIONUI, "v2.2.2", "v2.2.3", "https://static.aionui.com/releases/2.2.2/AionUi-2.2.2-mac-arm64.dmg", 290_125_639),
+            (
+                crate::curated::SCUMMVM,
+                "v2026.4.0",
+                "v2026.5.0",
+                "https://downloads.scummvm.org/frs/scummvm/2026.4.0/scummvm-2026.4.0-macosx.dmg",
+                169_280_944,
+            ),
+        ] {
+            let release = release_from_value(&serde_json::json!({"tag_name": tag, "assets": []}), app.repo).unwrap();
+            let [asset] = release.assets.as_slice() else { panic!("expected one reviewed DMG") };
+            assert_eq!(asset.url, url);
+            assert_eq!(asset.size, size);
+            assert!(qualified_mac_dmg_asset(&app, &release, asset));
+            assert!(release_from_sums(app.repo, tag, &[]).assets.contains(asset));
+
+            let newer = release_from_value(&serde_json::json!({"tag_name": newer_tag, "assets": []}), app.repo).unwrap();
+            assert!(newer.assets.is_empty());
+            assert!(!release_from_sums(app.repo, newer_tag, &[]).assets.iter().any(|asset| asset.name.ends_with(".dmg")));
+        }
+    }
+
+    #[test]
+    fn netnewswire_mac_pointer_rejects_ios_prereleases_and_mismatched_assets() {
+        let address = "https://github.com/Ranchero-Software/NetNewsWire/releases/download/mac-7.3.1/NetNewsWire7.3.1.zip";
+        let current = netnewswire_mac_release_from_download(address).unwrap();
+        assert!(netnewswire_mac_asset(&current, &current.assets[0]));
+        assert!(!netnewswire_mac_asset(&current, &Asset { size: 1, ..current.assets[0].clone() }));
+        let history = netnewswire_mac_release_history(current);
+        assert_eq!(history.iter().map(|release| release.tag.as_str()).collect::<Vec<_>>(), ["mac-7.3.1", "mac-7.3"]);
+        assert_eq!(history[1].version_label(), "7.3.0");
+        assert!(netnewswire_mac_release_from_download(&address.replace("mac-", "iOS-")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("7.3.1", "7.3.1b1")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("NetNewsWire7.3.1.zip", "NetNewsWire7.3.2.zip")).is_none());
+        assert!(netnewswire_mac_release_from_download(&address.replace("github.com", "example.org")).is_none());
+    }
+
+    #[test]
+    fn zotero_stable_redirect_is_canonical_and_never_qualifies_new_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::ZOTERO, platform::pick_asset};
+
+        let location = "https://download.zotero.org/client/release/10.0.9/Zotero-10.0.9.dmg";
+        let stable = zotero_release(zotero_stable_version(location).unwrap());
+        let history = zotero_release_history(stable.clone());
+        assert_eq!(history.iter().map(|release| release.tag.as_str()).collect::<Vec<_>>(), ["10.0.9", "10.0.8"]);
+        assert_eq!(stable.html_url, ZOTERO.releases_url());
+        for invalid in [
+            location.replace("https://", "http://"),
+            location.replace("download.zotero.org", "download.zotero.org.example.com"),
+            location.replace("10.0.9/", "10.0.9-beta/"),
+            location.replace("10.0.9/", "10.0.09/"),
+            location.replace("Zotero-10.0.9", "Zotero-10.0.8"),
+            format!("{location}?tracking=1"),
+            format!("{location}/../"),
+        ] {
+            assert!(zotero_stable_version(&invalid).is_none(), "{invalid}");
+        }
+
+        let arm = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[ZOTERO.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        assert_eq!(pick(&stable, arm).as_ref().map(|asset| asset.url.as_str()), Some(location));
+        assert!(pick(&history[1], arm).is_some());
+        assert!(pick(&stable, Platform { arch: Arch::X64, ..arm }).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].sha256 = Some("0".repeat(64));
+        assert!(pick(&changed, arm).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].url = "https://example.org/Zotero-10.0.9.dmg".into();
+        assert!(pick(&changed, arm).is_none());
+        let mut changed = stable.clone();
+        changed.assets[0].size -= 1;
+        assert!(pick(&changed, arm).is_none());
+        assert!(pick(&zotero_release(version::parse("10.0.10").unwrap()), arm).is_none());
+        assert_eq!(zotero_release_history(history[1].clone()).len(), 1);
+    }
+
+    #[test]
+    fn deeptutor_uses_only_reviewed_apple_silicon_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::DEEPTUTOR, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let pick = |release: &Release, platform| pick_asset(release, &[DEEPTUTOR.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+        for tag in ["v1.7.3", "v1.7.4"] {
+            let expected = reviewed_assets(DEEPTUTOR.repo, tag).next().unwrap();
+            let api = serde_json::json!({
+                "tag_name": tag,
+                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+            });
+            let release = parse_github_release(&api.to_string(), DEEPTUTOR.repo).unwrap();
+            assert_eq!(pick(&release, mac), Some(expected.clone()));
+            assert_eq!(pick(&release_from_sums(DEEPTUTOR.repo, tag, &[]), mac), Some(expected));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+
+            let mut wrong_digest = release.clone();
+            wrong_digest.assets[0].sha256 = Some("0".repeat(64));
+            assert_eq!(pick(&wrong_digest, mac), None);
+            let mut wrong_origin = release;
+            wrong_origin.assets[0].url = "https://mirror.example/download.dmg".into();
+            assert_eq!(pick(&wrong_origin, mac), None);
+        }
+        let unknown = release_from_sums(DEEPTUTOR.repo, "v1.7.5", &[]);
+        assert_eq!(pick(&unknown, mac), None);
+    }
+
+    #[test]
+    fn openwork_uses_only_reviewed_public_apple_silicon_packages() {
+        use crate::{Arch, Os, PackageKind, Platform, curated::OPENWORK_DESKTOP, platform::pick_asset};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for tag in ["v0.18.72", "v0.18.73"] {
+            let expected = reviewed_assets(OPENWORK_DESKTOP.repo, tag).next().unwrap();
+            let api = serde_json::json!({
+                "tag_name": tag,
+                "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+            });
+            let mut release = parse_github_release(&api.to_string(), OPENWORK_DESKTOP.repo).unwrap();
+            let pick = |release: &Release, platform| {
+                pick_asset(release, &[OPENWORK_DESKTOP.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone())
+            };
+            assert_eq!(pick(&release, mac), Some(expected.clone()));
+            assert_eq!(pick(&release_from_sums(OPENWORK_DESKTOP.repo, tag, &[]), mac), Some(expected.clone()));
+            assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+            assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+            for edition in ["cloud", "enterprise"] {
+                let mut other_edition = expected.clone();
+                other_edition.name = expected.name.replacen("openwork-", &format!("openwork-{edition}-"), 1);
+                other_edition.url = expected.url.replace(&expected.name, &other_edition.name);
+                release.assets = vec![other_edition];
+                assert_eq!(pick(&release, mac), None, "{edition}");
+            }
+        }
+    }
+
+    #[test]
+    fn desktop_recipes_use_only_reviewed_apple_silicon_packages() {
+        use crate::{
+            Arch, Os, PackageKind, Platform,
+            curated::{DBEAVER_CE, FREECAD, MUSESCORE, OPENMAUSBOT, ORCA_SLICER, PASEO, PRUSA_SLICER},
+            platform::pick_asset,
+        };
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, tags, next) in [
+            (PASEO, ["v0.17.6", "v0.18.0"], "v0.18.1"),
+            (FREECAD, ["1.1.3", "1.1.4"], "1.1.5"),
+            (OPENMAUSBOT, ["v0.1.182", "v0.1.184"], "v0.1.185"),
+            (MUSESCORE, ["v4.7.6", "v4.7.7"], "v4.7.8"),
+            (ORCA_SLICER, ["v2.5.1", "v2.5.2"], "v2.5.3"),
+            (DBEAVER_CE, ["26.2.5", "26.2.5.2"], "26.2.6"),
+            (PRUSA_SLICER, ["version_2.9.6", "version_2.9.7"], "version_2.9.8"),
+        ] {
+            let pick = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).map(|(asset, _)| asset.clone());
+            for tag in tags {
+                let expected = reviewed_assets(app.repo, tag).find(|asset| asset.name.ends_with(".dmg")).unwrap();
+                let api = serde_json::json!({
+                    "tag_name": tag,
+                    "assets": [{"name": expected.name, "size": expected.size, "browser_download_url": expected.url}]
+                });
+                let mut release = parse_github_release(&api.to_string(), app.repo).unwrap();
+                assert_eq!(pick(&release, mac), Some(expected.clone()));
+                assert_eq!(pick(&release_from_sums(app.repo, tag, &[]), mac), Some(expected));
+                assert_eq!(pick(&release, Platform { arch: Arch::X64, ..mac }), None);
+                assert_eq!(pick(&release, Platform { os: Os::Linux, arch: Arch::X64 }), None);
+                release.prerelease = true;
+                assert_eq!(pick(&release, mac), None);
+            }
+            assert_eq!(pick(&release_from_sums(app.repo, next, &[]), mac), None);
+        }
+    }
+
+    #[test]
     fn calibre_archive_has_only_reviewed_official_arm64_dmgs() {
         use crate::{Arch, Os, PackageKind, Platform, curated::CALIBRE, platform::pick_asset};
 
@@ -1564,6 +3151,8 @@ mod tests {
         let name = "opencode-desktop-mac-arm64.dmg";
         let expected = crate::release::release_from_sums(crate::curated::OPENCODE.repo, "v2.4.2", &[]);
         let approved = &expected.assets[0];
+        let linux_name = "opencode-desktop-linux-x86_64.AppImage";
+        let linux = expected.assets.iter().find(|asset| asset.name == linux_name).unwrap();
         let fixture = serde_json::json!({
             "channel": "latest",
             "distribution": "opencode",
@@ -1574,6 +3163,10 @@ mod tests {
                 "size": approved.size,
                 "sha256": approved.sha256,
                 "url": format!("https://opencode.ai/files/bin/2.4.2/{name}"),
+            }, (linux_name): {
+                "size": linux.size,
+                "sha256": linux.sha256,
+                "url": format!("https://opencode.ai/files/bin/2.4.2/{linux_name}"),
             }}}
         });
         let parse = |value: &serde_json::Value| opencode_desktop_release(&serde_json::to_vec(value).unwrap());
@@ -1581,6 +3174,11 @@ mod tests {
         assert_eq!(release.tag, "v2.4.2");
         assert_eq!(&release.assets[0], approved);
         assert!(qualified_mac_dmg_asset(&crate::curated::OPENCODE, &release, approved));
+        assert_eq!(&release.assets[1], linux);
+        assert!(qualified_linux_appimage_asset(&crate::curated::OPENCODE, &release, linux));
+        let mut invalid_linux = fixture.clone();
+        invalid_linux["metadata"]["files"][linux_name]["url"] = serde_json::json!("https://elsewhere.example/download");
+        assert_eq!(parse(&invalid_linux).unwrap().assets, vec![approved.clone()]);
         for (pointer, field) in [
             ("/channel", serde_json::json!("beta")),
             ("/distribution", serde_json::json!("other")),
@@ -1958,6 +3556,14 @@ mod tests {
         assert_eq!(official.version, Some(Version::new(4, 0, 2)));
         assert_eq!(official.tag, "Audacity-4.0.2");
         assert!(parse_github_release(json, "example/audacity").unwrap().version.is_none());
+    }
+
+    #[test]
+    fn utm_only_maps_the_reviewed_retag_to_a_stable_version() {
+        let repo = crate::curated::UTM.repo;
+        assert_eq!(release_tag_version(repo, "v5.0.9-2"), Some(Version::new(5, 0, 9)));
+        assert!(!release_tag_version("example/UTM", "v5.0.9-2").unwrap().pre.is_empty());
+        assert!(!release_tag_version(repo, "v5.0.10-2").unwrap().pre.is_empty());
     }
 
     #[test]

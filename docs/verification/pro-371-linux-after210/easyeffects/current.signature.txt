@@ -1,0 +1,19 @@
+commit db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3
+Parent:  c64915a85a48510b42ee6a0bfd15ed6656f6fee3ccb965aa7b4ec861a707bb2c
+ContentChecksum:  78c7c75cae1a557d39d752233852a8589d4391ec680243ad7ce7c2f941b8f9c9
+Date:  2026-11-21 18:51:47 +0000
+
+    Merge pull request #254 from flathub/wwmm-patch-3 (bb4a047f61fc)
+
+    Name: com.github.wwmm.easyeffects
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Nov 21 19:01:45 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

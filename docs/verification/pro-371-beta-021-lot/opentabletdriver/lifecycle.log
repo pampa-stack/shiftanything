@@ -1,0 +1,71 @@
+2026-11-28T19:16:49+00:00 opentabletdriver AVAILABLE 72330735616
+opentabletdriver before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+opentabletdriver JobFinished: Ok("Flathub app installed")
+opentabletdriver after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.8.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:17:49+00:00 opentabletdriver current-install f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa
+/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa/export/share/applications/net.opentabletdriver.OpenTabletDriver.desktop
+/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa/export/share/icons/hicolor/256x256/apps/net.opentabletdriver.OpenTabletDriver.png
+Updating app/net.opentabletdriver.OpenTabletDriver/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:17:57+00:00 opentabletdriver previous 21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3
+opentabletdriver before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.7"), update_available: false, can_remove: false, can_open: true }
+opentabletdriver JobFinished: Err("Approved action rejected: native installation state changed")
+opentabletdriver JobFinished: Err("This Flatpak is managed outside the launcher")
+opentabletdriver after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.7"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=27334 comm="xfwm4 --compositor=on --display=:91" label="unconfined")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=27348 comm="flatpak run --user --command=sh app/net.opentablet" label="flatpak (unconfined)")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=27348 comm="flatpak run --user --command=sh app/net.opentablet" label="flatpak (unconfined)")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=27394 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+opentabletdriver before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.7"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=27528 comm="xdg-dbus-proxy --args=35" label="flatpak (unconfined)")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=27565 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+(xdg-desktop-portal-gtk:27571): dbind-WARNING **: 19:18:00.419: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+(/usr/libexec/xdg-desktop-portal:27565): xdg-desktop-portal-WARNING **: 19:18:00.451: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:27565): xdg-desktop-portal-WARNING **: 19:18:00.451: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:27565): xdg-desktop-portal-WARNING **: 19:18:00.451: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00814.488599] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00814.489010] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+(/usr/libexec/xdg-desktop-portal:27565): xdg-desktop-portal-WARNING **: 19:18:00.457: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[24885]: [session uid=1000 pid=24885] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=27528 comm="xdg-dbus-proxy --args=35" label="flatpak (unconfined)")
+dbus-daemon[24885]: [session uid=1000 pid=24885] Successfully activated service 'org.freedesktop.portal.Flatpak'
+opentabletdriver JobFinished: Ok("Launch request accepted")
+opentabletdriver after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.7"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.opentabletdriver.OpenTabletDriver
+net.opentabletdriver.OpenTabletDriver
+net.opentabletdriver.OpenTabletDriver
+2026-11-28T19:18:16+00:00 opentabletdriver previous GUI WM_NAME(STRING) = "OpenTabletDriver Guide"
+WM_CLASS(STRING) = "OpenTabletDriver.UX", "OpenTabletDriver.UX"
+2026-11-28T19:18:16+00:00 opentabletdriver AVAILABLE 66060189696
+opentabletdriver before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 6, patch: 7 }), source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.7"), update_available: true, can_remove: true, can_open: true }
+opentabletdriver JobFinished: Ok("Flathub app updated")
+opentabletdriver after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.8.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T19:18:23+00:00 opentabletdriver current f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa
+/home/qa/profiles/opentabletdriver-composited/.var/app/net.opentabletdriver.OpenTabletDriver/fixture.txt: OK
+opentabletdriver before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.8.1"), update_available: false, can_remove: true, can_open: true }
+opentabletdriver JobFinished: Ok("Launch request accepted")
+opentabletdriver after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.8.1"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+net.opentabletdriver.OpenTabletDriver
+net.opentabletdriver.OpenTabletDriver
+net.opentabletdriver.OpenTabletDriver
+2026-11-28T19:18:41+00:00 opentabletdriver current GUI WM_NAME(STRING) = "OpenTabletDriver Guide"
+WM_CLASS(STRING) = "OpenTabletDriver.UX", "OpenTabletDriver.UX"
+opentabletdriver before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/opentabletdriver-composited/data/flatpak/app/net.opentabletdriver.OpenTabletDriver/x86_64/stable/f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa", package: Some("net.opentabletdriver.OpenTabletDriver"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("v0.6.8.1"), update_available: false, can_remove: true, can_open: true }
+opentabletdriver JobFinished: Ok("Flathub app removed")
+opentabletdriver after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/opentabletdriver-composited/.var/app/net.opentabletdriver.OpenTabletDriver/fixture.txt: OK
+2026-11-28T19:18:42+00:00 opentabletdriver PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T19:18:43+00:00 opentabletdriver EXIT 0 remove

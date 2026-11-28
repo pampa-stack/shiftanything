@@ -1,0 +1,76 @@
+2026-11-28T12:27:17+00:00 rhythmbox AVAILABLE 22745145344
+rhythmbox before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+rhythmbox JobFinished: Ok("Flathub app installed")
+rhythmbox after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:28:52+00:00 rhythmbox current-install 33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877
+/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877/export/share/applications/org.gnome.Rhythmbox3.desktop
+/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877/export/share/icons/hicolor/scalable/apps/org.gnome.Rhythmbox3.svg
+Updating app/org.gnome.Rhythmbox3/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:28:56+00:00 rhythmbox previous de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779
+rhythmbox before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779", package: Some("org.gnome.Rhythmbox3"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: false, can_open: true }
+rhythmbox JobFinished: Err("Approved action rejected: native installation state changed")
+rhythmbox JobFinished: Err("This Flatpak is managed outside the launcher")
+rhythmbox after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779", package: Some("org.gnome.Rhythmbox3"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=11682 comm="xfwm4 --compositor=off --display=:86" label="unconfined")
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=11709 comm="flatpak run --user --command=sh app/org.gnome.Rhyt" label="flatpak (unconfined)")
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=11709 comm="flatpak run --user --command=sh app/org.gnome.Rhyt" label="flatpak (unconfined)")
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=11735 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+rhythmbox before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.15' (uid=1000 pid=11871 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+rhythmbox JobFinished: Ok("Launch request accepted")
+rhythmbox after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.16' (uid=1000 pid=12055 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:12061): dbind-WARNING **: 12:29:02.372: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:12055): xdg-desktop-portal-WARNING **: 12:29:02.430: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12055): xdg-desktop-portal-WARNING **: 12:29:02.430: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12055): xdg-desktop-portal-WARNING **: 12:29:02.431: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12055): xdg-desktop-portal-WARNING **: 12:29:02.444: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[9722]: [session uid=1000 pid=9722] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=11871 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[9722]: [session uid=1000 pid=9722] Successfully activated service 'org.freedesktop.portal.Flatpak'
+  Map State: IsViewable
+org.gnome.Rhythmbox3
+org.gnome.Rhythmbox3
+org.gnome.Rhythmbox3
+2026-11-28T12:29:17+00:00 rhythmbox previous GUI WM_NAME(STRING) = "Rhythmbox"
+WM_CLASS(STRING) = "org.gnome.Rhythmbox3", "Org.gnome.Rhythmbox3"
+2026-11-28T12:29:17+00:00 rhythmbox AVAILABLE 15333937152
+rhythmbox before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/de008aeea4f2f9af0b2096083a77d0ac5783340e1313975ab1092a3ab8110779", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: true, can_remove: true, can_open: true }
+rhythmbox JobFinished: Ok("Flathub app updated")
+rhythmbox after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T12:29:19+00:00 rhythmbox current 33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877
+/home/qa/profiles/rhythmbox-after210/.var/app/org.gnome.Rhythmbox3/fixture.txt: OK
+rhythmbox before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: true, can_open: true }
+rhythmbox JobFinished: Ok("Launch request accepted")
+rhythmbox after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Rhythmbox3
+org.gnome.Rhythmbox3
+org.gnome.Rhythmbox3
+2026-11-28T12:29:29+00:00 rhythmbox current GUI WM_NAME(STRING) = "Rhythmbox"
+WM_CLASS(STRING) = "org.gnome.Rhythmbox3", "Org.gnome.Rhythmbox3"
+rhythmbox before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 3, minor: 5, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/rhythmbox-after210/data/flatpak/app/org.gnome.Rhythmbox3/x86_64/stable/33d6340c9233c6fa4c7e739cae8426323fd26b131a3266d1a994d5e1c31e6877", package: Some("org.gnome.Rhythmbox3"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("3.5.1"), update_available: false, can_remove: true, can_open: true }
+rhythmbox JobFinished: Ok("Flathub app removed")
+rhythmbox after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/rhythmbox-after210/.var/app/org.gnome.Rhythmbox3/fixture.txt: OK
+2026-11-28T12:29:30+00:00 rhythmbox PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T12:29:32+00:00 rhythmbox EXIT 0 remove
+
+(xfconfd:11721): xfconfd-WARNING **: 12:29:32.054: Name org.xfce.Xfconf lost on the message dbus, exiting.

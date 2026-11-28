@@ -1,0 +1,13 @@
+ARTIFACT 87a27f000dff7aed3e63a3da55a0a0f33637aec3b29556e5283de7a3e393a58b 43112023 https://github.com/jurplel/qView/releases/download/7.0/qView-7.0.dmg
+BUNDLE=qView.app
+CFBundleIdentifier=com.interversehq.qView
+CFBundleShortVersionString=7.0
+CFBundleVersion=
+CFBundleExecutable=qView
+LSMinimumSystemVersion=12
+ platform MACOS
+    minos 12.0
+Identifier=com.interversehq.qView
+Format=app bundle with Mach-O universal (x86_64 arm64)
+TeamIdentifier=not set
+test-requirement: code failed to satisfy specified code requirement(s)

@@ -1,0 +1,69 @@
+2026-11-28T02:43:32+00:00 freeplane AVAILABLE 24117248000
+freeplane before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+freeplane JobFinished: Ok("Flathub app installed")
+freeplane after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:05+00:00 freeplane current-install a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41
+/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41/export/share/applications/org.freeplane.App.desktop
+/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41/export/share/icons/hicolor/scalable/apps/org.freeplane.App.svg
+Updating app/org.freeplane.App/x86_64/stable
+F: Removing magic mime rule from exports
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/freeplane-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/freeplane-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:07+00:00 freeplane previous 6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2
+freeplane before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2", package: Some("org.freeplane.App"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.4"), update_available: false, can_remove: false, can_open: true }
+freeplane JobFinished: Err("Approved action rejected: native installation state changed")
+freeplane JobFinished: Err("This Flatpak is managed outside the launcher")
+freeplane after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2", package: Some("org.freeplane.App"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[12115]: [session uid=1000 pid=12115] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=13184 comm="xfwm4 --compositor=off --display=:87" label="unconfined")
+dbus-daemon[12115]: [session uid=1000 pid=12115] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[12115]: [session uid=1000 pid=12115] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=13197 comm="flatpak run --user --command=sh app/org.freeplane." label="flatpak (unconfined)")
+dbus-daemon[12115]: [session uid=1000 pid=12115] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[12115]: [session uid=1000 pid=12115] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=13197 comm="flatpak run --user --command=sh app/org.freeplane." label="flatpak (unconfined)")
+dbus-daemon[12115]: [session uid=1000 pid=12115] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=13223 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[12115]: [session uid=1000 pid=12115] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[12115]: [session uid=1000 pid=12115] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+freeplane before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.4"), update_available: true, can_remove: true, can_open: true }
+freeplane JobFinished: Ok("Launch request accepted")
+freeplane after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.4"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.freeplane.App
+2026-11-28T02:44:38+00:00 freeplane previous GUI WM_NAME(STRING) = "freeplaneFunctions - Freeplane - Mind map mode (Read Only) /app/Freeplane/doc/freeplaneFunctions.mm"
+WM_CLASS(STRING) = "org-knopflerfish-framework-BundleThread", "org-knopflerfish-framework-BundleThread"
+2026-11-28T02:44:38+00:00 freeplane AVAILABLE 21668683776
+freeplane before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/6f2ec9a69c2441df07f8375b3bc40ffffcc35c66e1eac10b949b0b26f5bb44f2", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.4"), update_available: true, can_remove: true, can_open: true }
+freeplane JobFinished: Ok("Flathub app updated")
+freeplane after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:44:40+00:00 freeplane current a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41
+/home/qa/profiles/freeplane-after210/.var/app/org.freeplane.App/fixture.txt: OK
+freeplane before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.5"), update_available: false, can_remove: true, can_open: true }
+freeplane JobFinished: Ok("Launch request accepted")
+freeplane after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.5"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.freeplane.App
+2026-11-28T02:45:01+00:00 freeplane current GUI WM_NAME(STRING) = "Map1* - Freeplane - Mind map mode"
+WM_CLASS(STRING) = "org-knopflerfish-framework-BundleThread", "org-knopflerfish-framework-BundleThread"
+freeplane before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 13, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/freeplane-after210/data/flatpak/app/org.freeplane.App/x86_64/stable/a47571f21e61c839b970fe07aa420216d504bf693add47f2ebd2ee17bb5a6f41", package: Some("org.freeplane.App"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.13.5"), update_available: false, can_remove: true, can_open: true }
+freeplane JobFinished: Ok("Flathub app removed")
+freeplane after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/freeplane-after210/.var/app/org.freeplane.App/fixture.txt: OK
+2026-11-28T02:45:01+00:00 freeplane PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:45:02+00:00 freeplane EXIT 0 remove
+
+(xfconfd:13209): xfconfd-WARNING **: 02:45:02.786: Name org.xfce.Xfconf lost on the message dbus, exiting.

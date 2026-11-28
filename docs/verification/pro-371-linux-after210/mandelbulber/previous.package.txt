@@ -1,0 +1,20 @@
+
+Mandelbulber2 - Free and open source 3D fractals generator
+
+          ID: com.github.buddhi1980.mandelbulber2
+         Ref: app/com.github.buddhi1980.mandelbulber2/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.33
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 200.7 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a
+      Parent: 3a217fbc1569eeb57c73222cbd2473f3b830154323fad3bc59624a18bc5c58a5
+     Subject: Merge pull request #57 from kevinsmia1939/master (f3928126715e)
+        Date: 2026-09-07 07:57:38 +0000

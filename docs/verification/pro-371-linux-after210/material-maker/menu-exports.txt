@@ -1,0 +1,2 @@
+/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933/export/share/applications/io.github.RodZill4.Material-Maker.desktop
+/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933/export/share/icons/hicolor/256x256/apps/io.github.RodZill4.Material-Maker.png

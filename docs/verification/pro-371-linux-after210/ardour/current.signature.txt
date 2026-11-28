@@ -1,0 +1,19 @@
+commit 2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7
+Parent:  f67817a9d5389d6878490fad0bd05fe83d83b4e038f0a4af706a68d05fe78912
+ContentChecksum:  860fdf34f39c90240a4ffdffbabd397272acb887f932909b4c0a223edb68ad41
+Date:  2026-11-20 01:34:21 +0000
+
+    Update to 9.10 (cc727d3431df)
+
+    Name: org.ardour.Ardour
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 20 02:00:43 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

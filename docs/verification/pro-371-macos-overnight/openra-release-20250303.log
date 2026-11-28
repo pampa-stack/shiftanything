@@ -1,0 +1,89 @@
+2026-11-28T11:38:39+0100
+/dev/disk3s5   239362496 173474596  24760328    88% 3238841 247603280    1%   /System/Volumes/Data
+ARTIFACT 3e2239d9776e660d49ce509cf318a305eed086feccaa799c0f7c3b0c0b1d0d1b 159440118 https://github.com/OpenRA/OpenRA/releases/download/release-20250303/OpenRA-release-20250303.dmg
+BUNDLE_COUNT=3
+BUNDLE=OpenRA - Dune 2000.app
+CFBundleIdentifier=net.openra.mod.d2k
+CFBundleShortVersionString=release-20250303
+CFBundleExecutable=Launcher
+LSMinimumSystemVersion=10.11
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Dune 2000.app/Contents/MacOS/Launcher: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Dune 2000.app/Contents/MacOS/Launcher (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Dune 2000.app/Contents/MacOS/Launcher (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Dune 2000.app/Contents/MacOS/Launcher (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=net.openra.mod.d2k
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Matthias Mailander (XT33TSN4G6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=4 Mar 2025 at 00:14:20
+TeamIdentifier=XT33TSN4G6
+Signature=valid
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Dune 2000.app: accepted
+source=Notarized Developer ID
+BUNDLE=OpenRA - Red Alert.app
+CFBundleIdentifier=net.openra.mod.ra
+CFBundleShortVersionString=release-20250303
+CFBundleExecutable=Launcher
+LSMinimumSystemVersion=10.11
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Red Alert.app/Contents/MacOS/Launcher: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Red Alert.app/Contents/MacOS/Launcher (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Red Alert.app/Contents/MacOS/Launcher (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Red Alert.app/Contents/MacOS/Launcher (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=net.openra.mod.ra
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Matthias Mailander (XT33TSN4G6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=4 Mar 2025 at 00:11:47
+TeamIdentifier=XT33TSN4G6
+Signature=valid
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Red Alert.app: accepted
+source=Notarized Developer ID
+BUNDLE=OpenRA - Tiberian Dawn.app
+CFBundleIdentifier=net.openra.mod.cnc
+CFBundleShortVersionString=release-20250303
+CFBundleExecutable=Launcher
+LSMinimumSystemVersion=10.11
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Tiberian Dawn.app/Contents/MacOS/Launcher: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Tiberian Dawn.app/Contents/MacOS/Launcher (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Tiberian Dawn.app/Contents/MacOS/Launcher (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Tiberian Dawn.app/Contents/MacOS/Launcher (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=net.openra.mod.cnc
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Matthias Mailander (XT33TSN4G6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=4 Mar 2025 at 00:13:06
+TeamIdentifier=XT33TSN4G6
+Signature=valid
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/openra/release-20250303/mount/OpenRA - Tiberian Dawn.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT openra release-20250303

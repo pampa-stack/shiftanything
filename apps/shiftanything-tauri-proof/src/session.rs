@@ -1,14 +1,15 @@
 //! Typed lifecycle adapter. The core approval contract and native installer remain authoritative.
+use crate::app_restart::{self, OpenBundles};
 use artcraft_launcher_core::{
     CraftApp, Os, PackageKind, Platform,
     automation::{InventoryEntry, Operation, Request, Snapshot as Inventory},
-    curated::verified_linux_appimage,
+    curated::{NAPS2, verified_linux_appimage},
     platform::{pick_asset, recipe_platform_verified},
     protocol::{Backend, BackendOptions, CANCELLED, Command, Event, INSTALL_CANCELLED, InstallLocations, JobPhase, LatestRelease},
     release::{Asset, Release},
     status::Installed,
 };
-use artcraft_launcher_native::{NativeBackend, automation};
+use artcraft_launcher_native::{NativeBackend, automation, install};
 use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -30,11 +31,16 @@ pub struct NativeState {
     cancellations: BTreeMap<String, String>,
     pending: Option<Request>,
     pending_from_ui: bool,
+    pending_open: OpenBundles,
+    deciding: bool,
+    reopen_after_update: BTreeSet<String>,
+    reopening: BTreeSet<String>,
     open_after_install: BTreeSet<String>,
     next_request: u64,
     last_update_check: Instant,
     initial_detection_complete: bool,
     initial_release_check_complete: bool,
+    restarting: bool,
     enabled: bool,
     isolated: bool,
     pub diagnostics: PathBuf,
@@ -68,6 +74,8 @@ pub struct Snapshot {
     install_checks_pending: BTreeSet<String>,
     pending: Option<Request>,
     offer_open_after_install: bool,
+    open_for_update: Vec<String>,
+    quitting_for_update: bool,
     progress: BTreeMap<String, Progress>,
     favorites: std::collections::BTreeSet<String>,
 }
@@ -93,13 +101,11 @@ fn verified_installs(platform: Option<Platform>) -> &'static BTreeSet<String> {
 }
 
 fn compatible_asset<'a>(app: &CraftApp, platform: Platform, release: &'a Release) -> Option<&'a Asset> {
-    let allowed = if platform.os == Os::Linux {
-        if !verified_linux_appimage(app, platform) {
-            return None;
-        }
-        &[PackageKind::AppImage]
-    } else {
-        platform.download_kinds()
+    let allowed = match platform.os {
+        Os::Linux if (app.id, app.repo) == (NAPS2.id, NAPS2.repo) => &[PackageKind::Flatpak],
+        Os::Linux if verified_linux_appimage(app, platform) => &[PackageKind::AppImage],
+        Os::Linux => return None,
+        _ => platform.download_kinds(),
     };
     let stems: Vec<_> = app.stems().collect();
     let kinds: Vec<_> = allowed.iter().copied().filter(|kind| app.installs(*kind)).collect();
@@ -164,11 +170,16 @@ impl NativeState {
             cancellations: BTreeMap::new(),
             pending: None,
             pending_from_ui: false,
+            pending_open: OpenBundles::new(),
+            deciding: false,
+            reopen_after_update: BTreeSet::new(),
+            reopening: BTreeSet::new(),
             open_after_install: BTreeSet::new(),
             next_request: 0,
             last_update_check: Instant::now(),
             initial_detection_complete: false,
             initial_release_check_complete: false,
+            restarting: false,
             enabled,
             isolated,
             favorites: crate::favorites::Favorites::load(&root)?,
@@ -195,18 +206,38 @@ impl NativeState {
                     self.jobs.insert(app, phase);
                 }
                 Event::JobFinished { app, result } => {
+                    if self.reopening.remove(&app) {
+                        let message = match result {
+                            Ok(_) => "completed: app updated and reopened".into(),
+                            Err(error) => format!("updated; could not reopen: {error}"),
+                        };
+                        self.results.insert(format!("app:{app}"), message);
+                        continue;
+                    }
+                    let reopen = self.reopen_after_update.remove(&app) && result.is_ok();
                     let launch = self.open_after_install.remove(&app) && result.is_ok();
                     self.finish_job(&app, result);
-                    if launch && let Err(error) = self.open_installed_bundle(&app) {
-                        self.results.insert(format!("app:{app}"), format!("installed; could not open: {error}"));
+                    if reopen || launch {
+                        match self.open_installed_bundle(&app) {
+                            Ok(()) if reopen => {
+                                self.reopening.insert(app);
+                            }
+                            Err(error) => {
+                                let verb = if reopen { "updated; could not reopen" } else { "installed; could not open" };
+                                self.results.insert(format!("app:{app}"), format!("{verb}: {error}"));
+                            }
+                            Ok(()) => {}
+                        }
                     }
                 }
                 Event::Notice { app, result } => {
+                    self.reopen_after_update.remove(&app);
                     self.open_after_install.remove(&app);
                     self.finish_job(&app, result);
                 }
                 Event::Occupied { app, .. } | Event::GoBackFallback { app, .. } => {
                     // This proof never consents to overwriting an unrelated destination or downgrading.
+                    self.reopen_after_update.remove(&app);
                     self.open_after_install.remove(&app);
                     self.record_job_end(&app, "rejected: destination or version requires additional consent".into(), false);
                 }
@@ -264,8 +295,12 @@ impl NativeState {
                     _ => None,
                 };
                 let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
-                let installable =
-                    self.enabled && verified.contains(app.id) && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
+                let naps2_linux = app.id == NAPS2.id && platform.is_some_and(|platform| platform.os == Os::Linux);
+                let installable = self.enabled
+                    && verified.contains(app.id)
+                    && has_asset
+                    && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true))
+                    && (!naps2_linux || artcraft_launcher_native::process::is_flatpak_available());
                 let update_available = installable
                     && installed.zip(release).is_some_and(|(installed, release)| {
                         !installed.externally_managed
@@ -283,9 +318,9 @@ impl NativeState {
                     installable,
                     update_available,
                     can_open: None,
-                    can_remove: None,
-                    installed_version: installed.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
-                    latest_version: release.and_then(|entry| entry.version.as_ref()).map(ToString::to_string),
+                    can_remove: naps2_linux.then(|| installed.is_some_and(|copy| install::managed_elsewhere(app, copy, true).is_none())),
+                    installed_version: installed.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
+                    latest_version: release.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
                     job: self.jobs.get(app.id).map(|phase| format!("{phase:?}")),
                 }
             })
@@ -335,13 +370,14 @@ impl NativeState {
             return Err("Native lifecycle is disabled in this profile".into());
         }
         self.last_update_check = Instant::now();
+        self.backend.send(Command::Detect);
         self.backend.send(Command::CheckForUpdates { force: true });
         Ok(())
     }
 
     pub fn snapshot(&mut self) -> Snapshot {
         self.poll();
-        if self.enabled {
+        if self.enabled && !self.restarting {
             if self.pending.is_none() && self.jobs.is_empty() && self.last_update_check.elapsed() >= UPDATE_CHECK_INTERVAL {
                 self.last_update_check = Instant::now();
                 self.backend.send(Command::CheckForUpdates { force: false });
@@ -354,15 +390,9 @@ impl NativeState {
                 } else {
                     request.validate().and_then(|()| self.validate(&request))
                 };
-                match outcome {
-                    Ok(()) => {
-                        self.results.insert(request.id.clone(), "awaiting approval".into());
-                        self.pending = Some(request);
-                        self.pending_from_ui = false;
-                    }
-                    Err(error) => {
-                        self.results.insert(request.id, format!("rejected: {error}"));
-                    }
+                let id = request.id.clone();
+                if let Err(error) = outcome.and_then(|()| self.set_pending(request, false)) {
+                    self.results.insert(id, format!("rejected: {error}"));
                 }
             }
         }
@@ -413,6 +443,8 @@ impl NativeState {
             inventory,
             pending: self.pending.clone(),
             offer_open_after_install: self.pending.as_ref().is_some_and(|request| can_open_after_install(request, self.pending_from_ui, platform)),
+            open_for_update: self.pending_open.keys().cloned().collect(),
+            quitting_for_update: self.deciding && !self.pending_open.is_empty(),
             favorites: self.favorites.ids().clone(),
             progress: self
                 .jobs
@@ -438,6 +470,9 @@ impl NativeState {
     }
 
     pub fn request(&mut self, operation: Operation, apps: Vec<String>) -> Result<Request, String> {
+        if self.restarting {
+            return Err("Sh*ftAnything is restarting".into());
+        }
         self.poll();
         if self.pending.is_some() {
             return Err("Another request awaits approval".into());
@@ -445,16 +480,77 @@ impl NativeState {
         self.next_request = self.next_request.checked_add(1).ok_or("Request limit reached")?;
         let request = Request { id: format!("ui-{}", self.next_request), operation, apps };
         self.validate(&request)?;
-        self.results.insert(request.id.clone(), "awaiting approval".into());
-        self.pending = Some(request.clone());
-        self.pending_from_ui = true;
+        self.set_pending(request.clone(), true)?;
         Ok(request)
     }
 
-    pub fn decide(&mut self, id: &str, approve: bool, open_after_install: bool) -> Result<(), String> {
+    fn set_pending(&mut self, request: Request, from_ui: bool) -> Result<(), String> {
+        let open = if matches!(request.operation, Operation::Update | Operation::UpdateAll) {
+            let apps = request.apps.iter().filter_map(|id| {
+                let installed = self.detected.get(id)?.as_ref()?;
+                Some((id.as_str(), installed.location.as_str()))
+            });
+            app_restart::detect(apps)?
+        } else {
+            OpenBundles::new()
+        };
+        self.results.insert(request.id.clone(), "awaiting approval".into());
+        self.pending = Some(request);
+        self.pending_open = open;
+        self.pending_from_ui = from_ui;
+        Ok(())
+    }
+
+    pub fn begin_decision(&mut self, id: &str, approve: bool) -> Result<OpenBundles, String> {
         self.poll();
-        let request = self.pending.as_ref().filter(|request| request.id == id).ok_or("Unknown pending request")?.clone();
+        let request = self.pending.as_ref().filter(|request| request.id == id).ok_or("Unknown pending request")?;
+        if self.deciding {
+            return Err("The pending request is already being processed".into());
+        }
+        self.deciding = true;
+        if !approve {
+            return Ok(OpenBundles::new());
+        }
+        let current = self.validate(request).and_then(|()| {
+            for (id, approved_path) in &self.pending_open {
+                let current = self.detected.get(id).and_then(Option::as_ref).and_then(|entry| Path::new(&entry.location).canonicalize().ok());
+                if current.as_deref() != Some(Path::new(approved_path)) {
+                    return Err("The app location changed. Check for updates again.".into());
+                }
+            }
+            Ok(self.pending_open.clone())
+        });
+        if let Err(error) = &current {
+            self.deciding = false;
+            self.pending = None;
+            self.pending_open.clear();
+            self.pending_from_ui = false;
+            self.results.insert(id.into(), format!("rejected: {error}"));
+        }
+        current
+    }
+
+    pub fn begin_restart(&mut self) -> bool {
+        self.poll();
+        if self.restarting || self.pending.is_some() || !self.jobs.is_empty() || !self.active.is_empty() || !self.reopening.is_empty() {
+            return false;
+        }
+        self.restarting = true;
+        true
+    }
+
+    pub fn decide(
+        &mut self,
+        id: &str,
+        approve: bool,
+        open_after_install: bool,
+        quit_results: BTreeMap<String, Result<(), String>>,
+    ) -> Result<(), String> {
+        self.poll();
+        let mut request = self.pending.as_ref().filter(|request| request.id == id && self.deciding).ok_or("Unknown pending request")?.clone();
         self.pending = None;
+        self.deciding = false;
+        let open = std::mem::take(&mut self.pending_open);
         let from_ui = std::mem::take(&mut self.pending_from_ui);
         if !approve {
             self.results.insert(request.id, "rejected".into());
@@ -463,6 +559,19 @@ impl NativeState {
         if let Err(error) = self.validate(&request) {
             self.results.insert(request.id, format!("rejected: {error}"));
             return Err(error);
+        }
+        for app in open.keys() {
+            let result = quit_results.get(app).ok_or("No quit confirmation received").and_then(|result| result.as_ref().map_err(String::as_str));
+            if let Err(error) = result {
+                request.apps.retain(|id| id != app);
+                let result = format!("failed: {error}");
+                self.results.insert(format!("{}:{app}", request.id), result.clone());
+                self.results.insert(format!("app:{app}"), result);
+            }
+        }
+        if request.apps.is_empty() {
+            self.results.insert(request.id, "failed: no app closed for update".into());
+            return Ok(());
         }
         let command = match request.operation {
             Operation::Install | Operation::Update | Operation::UpdateAll => {
@@ -479,6 +588,7 @@ impl NativeState {
         for id in request.apps {
             if request.operation == Operation::Cancel {
                 self.open_after_install.remove(&id);
+                self.reopen_after_update.remove(&id);
                 self.cancellations.insert(id, request.id.clone());
                 continue;
             }
@@ -486,6 +596,9 @@ impl NativeState {
                 self.jobs.insert(id.clone(), JobPhase::Queued);
             }
             self.results.remove(&format!("app:{id}"));
+            if open.contains_key(&id) {
+                self.reopen_after_update.insert(id.clone());
+            }
             self.active.insert(id, request.id.clone());
         }
         println!("APPROVED {} {:?}", request.id, command);
@@ -526,17 +639,82 @@ mod tests {
     use super::*;
     use artcraft_launcher_core::Arch;
 
+    #[cfg(any(target_os = "macos", target_os = "linux"))]
+    #[test]
+    fn restart_waits_for_catalog_operations_and_reserves_the_idle_session() -> Result<(), Box<dyn std::error::Error>> {
+        const PROFILE: &str = "SHIFT_TEST_RESTART_PROFILE";
+        let Some(root) = std::env::var_os(PROFILE) else {
+            // Exercise the real isolated backend without changing the test runner's environment.
+            let profile = tempfile::tempdir()?;
+            let root = profile.path().canonicalize()?;
+            let home = root.join("home");
+            std::fs::create_dir(&home)?;
+            let mut child = std::process::Command::new(std::env::current_exe()?);
+            child.args(["--exact", "session::tests::restart_waits_for_catalog_operations_and_reserves_the_idle_session"]);
+            child.env(PROFILE, &root).env("HOME", &home).env("CFFIXED_USER_HOME", &home);
+            for (key, directory) in
+                [("XDG_CONFIG_HOME", "config"), ("XDG_DATA_HOME", "data"), ("XDG_CACHE_HOME", "cache"), ("XDG_STATE_HOME", "state")]
+            {
+                std::fs::create_dir(home.join(directory))?;
+                child.env(key, home.join(directory));
+            }
+            let output = child.output()?;
+            assert!(output.status.success(), "{}{}", String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr));
+            return Ok(());
+        };
+        let mut state = NativeState::new(root.into(), false, true)?;
+        let app = "handy".to_owned();
+        let id = "ui-1".to_owned();
+        state.pending = Some(Request { id: id.clone(), operation: Operation::Update, apps: vec![app.clone()] });
+        state.pending_open.insert(app.clone(), "/temporary/Fixture.app".into());
+        assert!(!state.begin_restart(), "must wait for the consent dialog");
+        assert!(state.begin_decision(&id, false)?.is_empty(), "rejection must never request a quit");
+        assert!(state.begin_decision(&id, false).is_err(), "a second decision must not override the first");
+        state.decide(&id, false, false, BTreeMap::new())?;
+        assert!(state.pending.is_none() && state.pending_open.is_empty());
+        assert_eq!(state.results.get(&id).map(String::as_str), Some("rejected"));
+        for phase in
+            [JobPhase::Queued, JobPhase::Downloading { done: 1, total: 2 }, JobPhase::Reconnecting { done: 1, total: 2 }, JobPhase::Installing]
+        {
+            state.jobs.insert(app.clone(), phase);
+            assert!(!state.begin_restart(), "must wait during {phase:?}");
+        }
+        state.jobs.clear();
+        state.active.insert(app.clone(), id);
+        assert!(!state.begin_restart(), "must wait for an active native operation without progress");
+        state.finish_job(&app, Err(CANCELLED.into()));
+        state.reopening.insert(app.clone());
+        assert!(!state.begin_restart(), "must wait for a relaunch to finish");
+        state.reopening.remove(&app);
+        assert!(state.begin_restart(), "cancelled jobs must release the restart");
+        assert!(!state.begin_restart(), "the same restart cannot be reserved twice");
+        assert_eq!(state.request(Operation::Install, vec![app]).unwrap_err(), "Sh*ftAnything is restarting");
+        Ok(())
+    }
+
     #[test]
     fn installation_evidence_is_scoped_to_catalog_app_and_target() {
         let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
         assert!(verified_installs(Some(mac)).contains("naps2"));
-        assert!(!verified_installs(Some(linux)).contains("naps2"));
+        assert!(verified_installs(Some(linux)).contains("naps2"));
+        assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("naps2"));
         assert!(verified_installs(Some(linux)).contains("photocraft"));
         assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("photocraft"));
-        assert!(verified_installs(Some(Platform { os: Os::Windows, ..linux })).is_empty());
+        assert!(verified_installs(Some(windows)).iter().map(String::as_str).eq([
+            "drawio",
+            "keepassxc",
+            "libreoffice",
+            "lightcraft",
+            "photocraft",
+            "soundcraft",
+            "texturecraft",
+            "wordcraft"
+        ]));
+        assert!(verified_installs(Some(Platform { arch: Arch::Arm64, ..windows })).is_empty());
         let catalog = artcraft_launcher_core::curated::apps();
-        for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))) {
+        for id in verified_installs(Some(mac)).iter().chain(verified_installs(Some(linux))).chain(verified_installs(Some(windows))) {
             assert!(catalog.iter().any(|app| &app.id == id), "verification refers to unknown app {id}");
         }
     }
@@ -609,5 +787,39 @@ mod tests {
         assert!(compatible_asset(photo, Platform { arch: Arch::Arm64, ..platform }, &image("photocraft-0.23.1-linux-aarch64.AppImage")).is_none());
         assert!(compatible_asset(designcraft, platform, &image("designcraft-0.21.1-linux-x86_64.AppImage")).is_some());
         assert!(compatible_asset(untested, platform, &image("kopia-0.23.1-linux-x86_64.AppImage")).is_none());
+        for (id, tag) in [("dust3d", "1.1.6"), ("invoke-community", "v1.8.5"), ("openwork-desktop", "v0.18.73"), ("rawtherapee", "5.13")] {
+            let app = CraftApp::by_id(id).unwrap();
+            assert!(verified_installs(Some(platform)).contains(id));
+            let mut release = artcraft_launcher_core::release::release_from_sums(app.repo, tag, &[]);
+            assert!(compatible_asset(app, platform, &release).is_some());
+            release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap().sha256 = None;
+            assert!(compatible_asset(app, platform, &release).is_none());
+        }
+    }
+
+    #[test]
+    fn naps2_offers_only_the_reviewed_package_for_its_platform() {
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let mut release = artcraft_launcher_core::release::release_from_sums(NAPS2.repo, "v8.6.1", &[]);
+        assert_eq!(compatible_asset(&NAPS2, linux, &release).unwrap().name, "naps2-8.6.1-linux-x64.flatpak");
+        assert_eq!(compatible_asset(&NAPS2, mac, &release).unwrap().name, "naps2-8.6.1-mac-arm64.pkg");
+        assert!(compatible_asset(&NAPS2, Platform { arch: Arch::Arm64, ..linux }, &release).is_none());
+        release.assets.iter_mut().find(|asset| asset.name.ends_with(".flatpak")).unwrap().sha256 = None;
+        assert!(compatible_asset(&NAPS2, linux, &release).is_none());
+    }
+
+    #[test]
+    fn ruffle_install_offer_exposes_only_the_reviewed_apple_silicon_archive() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let intel = Platform { arch: Arch::X64, ..mac };
+        let app = CraftApp::by_id("ruffle").unwrap();
+        let release = artcraft_launcher_core::release::release_from_sums(app.repo, "v0.8.0", &[]);
+        let offer = compatible_asset(app, mac, &release).unwrap();
+        assert_eq!(offer.name, "ruffle-0.8.0-macos-universal.tar.gz");
+        assert_eq!(offer.size, 33_797_959);
+        assert!(verified_installs(Some(mac)).contains(app.id));
+        assert!(!verified_installs(Some(intel)).contains(app.id));
+        assert!(compatible_asset(app, intel, &release).is_none());
     }
 }

@@ -240,6 +240,30 @@ pub enum Origin {
     GitHub,
     /// The LibreOffice release directory.
     TheDocumentFoundation,
+    /// Zotero's official macOS release channel.
+    Zotero,
+    /// Blender Foundation's release archive.
+    Blender,
+    /// GIMP's official stable version index.
+    Gimp,
+    /// Krita's official downloads page.
+    Krita,
+    /// VideoLAN's stable macOS release directory.
+    VideoLan,
+    /// Inkscape’s stable macOS download channel.
+    Inkscape,
+    /// KDE’s official Kdenlive stable release feed.
+    Kdenlive,
+    /// iTerm2’s official modern stable appcast.
+    ITerm2,
+    /// Itsycal’s official, OS-specific stable appcast.
+    Itsycal,
+    /// Signal Desktop’s stable macOS feed.
+    Signal,
+    /// Mozilla’s official stable Firefox release index.
+    Mozilla,
+    /// Element's official stable macOS package index.
+    Element,
 }
 
 impl Origin {
@@ -248,6 +272,18 @@ impl Origin {
             Self::ArtCraftApi => "ArtCraft API",
             Self::GitHub => "GitHub",
             Self::TheDocumentFoundation => "The Document Foundation",
+            Self::Zotero => "Zotero",
+            Self::Blender => "Blender Foundation",
+            Self::Gimp => "GIMP",
+            Self::Krita => "Krita",
+            Self::VideoLan => "VideoLAN",
+            Self::Inkscape => "Inkscape",
+            Self::Kdenlive => "KDE",
+            Self::ITerm2 => "iTerm2",
+            Self::Itsycal => "Mowglii",
+            Self::Signal => "Signal",
+            Self::Mozilla => "Mozilla",
+            Self::Element => "Element",
         }
     }
 }
@@ -264,6 +300,30 @@ pub enum Source {
     GitHubPages,
     /// The LibreOffice release directory.
     TheDocumentFoundation,
+    /// Zotero's official macOS release channel.
+    Zotero,
+    /// Blender Foundation's release archive.
+    Blender,
+    /// GIMP's official stable version index.
+    Gimp,
+    /// Krita's official downloads page.
+    Krita,
+    /// VideoLAN's stable macOS release directory.
+    VideoLan,
+    /// Inkscape’s stable macOS download channel.
+    Inkscape,
+    /// KDE’s official Kdenlive stable release feed.
+    Kdenlive,
+    /// iTerm2’s official modern stable appcast.
+    ITerm2,
+    /// Itsycal’s official, OS-specific stable appcast.
+    Itsycal,
+    /// Signal Desktop’s stable macOS feed.
+    Signal,
+    /// Mozilla’s official stable Firefox release index.
+    Mozilla,
+    /// Element's official stable macOS package index.
+    Element,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -275,6 +335,18 @@ impl Source {
             Self::GitHubApi => "GitHub",
             Self::GitHubPages => "GitHub (release pages)",
             Self::TheDocumentFoundation => "The Document Foundation",
+            Self::Zotero => "Zotero",
+            Self::Blender => "Blender Foundation",
+            Self::Gimp => "GIMP",
+            Self::Krita => "Krita",
+            Self::VideoLan => "VideoLAN",
+            Self::Inkscape => "Inkscape",
+            Self::Kdenlive => "KDE",
+            Self::ITerm2 => "iTerm2",
+            Self::Itsycal => "Mowglii",
+            Self::Signal => "Signal",
+            Self::Mozilla => "Mozilla",
+            Self::Element => "Element",
             Self::Cache => "saved results",
         }
     }

@@ -1,0 +1,74 @@
+2026-11-27T23:06:15+00:00 kbackup AVAILABLE 26555752448
+kbackup before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+kbackup JobFinished: Ok("Flathub app installed")
+kbackup after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:07:33+00:00 kbackup current-install 390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1
+/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1/export/share/applications/org.kde.kbackup.desktop
+/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1/export/share/icons/hicolor/128x128/apps/org.kde.kbackup.png
+/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1/export/share/icons/hicolor/16x16/apps/org.kde.kbackup.png
+/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1/export/share/icons/hicolor/32x32/apps/org.kde.kbackup.png
+Updating app/org.kde.kbackup/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:07:40+00:00 kbackup previous 7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55
+kbackup before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55", package: Some("org.kde.kbackup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: false, can_remove: false, can_open: true }
+kbackup JobFinished: Err("Approved action rejected: native installation state changed")
+kbackup JobFinished: Err("This Flatpak is managed outside the launcher")
+kbackup after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55", package: Some("org.kde.kbackup"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=73714 comm="xfwm4 --compositor=off --display=:95" label="unconfined")
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=73727 comm="flatpak run --user --command=sh app/org.kde.kbacku" label="flatpak (unconfined)")
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=73727 comm="flatpak run --user --command=sh app/org.kde.kbacku" label="flatpak (unconfined)")
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=73764 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+kbackup before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=73863 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[72638]: [session uid=1000 pid=72638] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=73871 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:73878): dbind-WARNING **: 23:07:42.476: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:73871): xdg-desktop-portal-WARNING **: 23:07:42.507: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:73871): xdg-desktop-portal-WARNING **: 23:07:42.507: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:73871): xdg-desktop-portal-WARNING **: 23:07:42.508: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03707.766005] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03707.766057] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:73871): xdg-desktop-portal-WARNING **: 23:07:42.512: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[72638]: [session uid=1000 pid=72638] Successfully activated service 'org.freedesktop.portal.Desktop'
+kbackup JobFinished: Ok("Launch request accepted")
+kbackup after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.kde.kbackup
+2026-11-27T23:07:52+00:00 kbackup previous GUI WM_NAME(STRING) =
+WM_CLASS(STRING) = "kbackup", "kbackup"
+2026-11-27T23:07:52+00:00 kbackup AVAILABLE 18367176704
+kbackup before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.04.2"), update_available: true, can_remove: true, can_open: true }
+kbackup JobFinished: Ok("Flathub app updated")
+kbackup after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:07:53+00:00 kbackup current 390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1
+/home/qa/profiles/kbackup/.var/app/org.kde.kbackup/fixture.txt: OK
+kbackup before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+kbackup JobFinished: Ok("Launch request accepted")
+kbackup after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.kde.kbackup
+2026-11-27T23:08:03+00:00 kbackup current GUI WM_NAME(STRING) =
+WM_CLASS(STRING) = "kbackup", "kbackup"
+kbackup before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/kbackup/data/flatpak/app/org.kde.kbackup/x86_64/stable/390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1", package: Some("org.kde.kbackup"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.08.3"), update_available: false, can_remove: true, can_open: true }
+kbackup JobFinished: Ok("Flathub app removed")
+kbackup after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/kbackup/.var/app/org.kde.kbackup/fixture.txt: OK
+2026-11-27T23:08:04+00:00 kbackup PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:08:06+00:00 kbackup EXIT 0 remove
+
+(xfconfd:73739): xfconfd-WARNING **: 23:08:06.973: Name org.xfce.Xfconf lost on the message dbus, exiting.

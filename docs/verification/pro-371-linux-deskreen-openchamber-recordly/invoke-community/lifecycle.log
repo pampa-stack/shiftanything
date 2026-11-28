@@ -1,0 +1,23 @@
+HOST Linux x86_64
+UTC 2026-11-28T03:52:30+00:00
+PROFILE /var/tmp/shift-official-linux-profile.invoke-community.iXm0yKOW
+OFFICIAL invoke-ai/launcher 1.8.4 145780182 sha256=071f4dabc2aebf9f302af21d438826b6d5aec80ec9c4ed6bd76ebb07b5fdf266
+PASS invoke-community install 2161ms: Invoke Community installed: 1.8.4
+Exec="/fixture/home/Applications/Invoke-Community-Edition-1.8.4.AppImage" %F
+PASS invoke-community launch-old 1ms: Launch request accepted
+X11_WINDOW phase=launch-old title=Invoke Community Edition
+  Position: 240,100 (screen: 0)
+  Geometry: 800x600
+X11_CAPTURED phase=launch-old
+OFFICIAL invoke-ai/launcher 1.8.5 145780235 sha256=2a1da742c26ff541b39a2b337ef4639e1a6709fdb52d54957016a886c3cb5e5f
+PASS invoke-community update 6525ms: Invoke Community updated to 1.8.5
+Exec="/fixture/home/Applications/Invoke-Community-Edition-1.8.5.AppImage" %F
+PASS invoke-community launch 4ms: Launch request accepted
+X11_WINDOW phase=launch title=Invoke Community Edition
+  Position: 240,100 (screen: 0)
+  Geometry: 800x600
+X11_CAPTURED phase=launch
+PASS invoke-community uninstall 120ms: Invoke Community was removed
+PASS invoke-community install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 18
+Temporary profile removed; test exit=0

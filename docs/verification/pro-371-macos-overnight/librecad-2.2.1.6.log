@@ -1,0 +1,17 @@
+URL https://github.com/LibreCAD/LibreCAD/releases/download/v2.2.1.6/LibreCAD-v2.2.1.6-arm64.dmg
+BYTES 98795332
+SHA256 2c5049f5d38346b6152e5b000bb60060f3a2113484bba4bcb388cb690f275879
+Protective Master Boot Record (MBR :: verificato   CRC32 $B6035437
+ GPT Header (Primary GPT Header : 1): verificato   CRC32 $72862EA3
+GPT Partition Data (Primary GPT Tabl: verificato   CRC32 $3A5F5633
+GPT Partition Data (Backup GPT Table: verificato   CRC32 $3A5F5633
+APP LibreCAD.app
+com.yourcompany.LibreCAD
+v2.2.1
+v2.2.1
+arm64
+Identifier=com.yourcompany.LibreCAD
+Signature=adhoc
+TeamIdentifier=not set
+Print: Entry, ":LSMinimumSystemVersion", Does Not Exist
+test-requirement: code failed to satisfy specified code requirement(s)

@@ -1,0 +1,19 @@
+commit 00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb
+Parent:  c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd
+ContentChecksum:  c8de18cb896506e5d8e843a60fa040e526a189f10ec2613145ac605f52f3e023
+Date:  2026-04-17 03:43:39 +0000
+
+    Release 4.8.4 (#100) (77a7b501fffa)
+
+    Name: net.mkiol.SpeechNote
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Apr 17 04:06:17 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

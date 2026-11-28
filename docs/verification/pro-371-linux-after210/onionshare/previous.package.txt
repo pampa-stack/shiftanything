@@ -1,0 +1,21 @@
+
+OnionShare - Securely and anonymously share files, host websites, and chat with
+friends
+
+          ID: org.onionshare.OnionShare
+         Ref: app/org.onionshare.OnionShare/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.7.2
+     License: GPL-3.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 422.2 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: f1ce4e23f4bf01b240722c60d67f3617f8d92ef9a8074b01ee2a9275655fbf83
+      Parent: 1740b1778ef2c71d83b04aa55bc340d30f1c1b104d532d49922d901061d7455d
+     Subject: Merge pull request #35 from flathub/v2.7.2 (0fa40b0a31dd)
+        Date: 2026-11-07 02:33:55 +0000

@@ -1,0 +1,20 @@
+
+Zed - High-performance code editor
+
+          ID: dev.zed.Zed
+         Ref: app/dev.zed.Zed/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: v1.29.3
+     License: AGPL-3.0-or-later and Apache-2.0 and GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 249.5 MB
+     Runtime: org.freedesktop.Sdk/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: f495a3e42127e30e0568c405cb261770e9ed572c65cf95f6c64795b5c072e7c6
+      Parent: ce9c7f6313d60c036c2927389aceb986e1de1d5627a529a862fdcd3c24900647
+     Subject: Update to v1.29.3 (#433) (ae4473a97b9c)
+        Date: 2026-11-21 11:30:25 +0000

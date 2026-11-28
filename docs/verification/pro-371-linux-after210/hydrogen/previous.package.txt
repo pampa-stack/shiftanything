@@ -1,0 +1,20 @@
+
+Hydrogen - The advanced drum machine
+
+          ID: org.hydrogenmusic.Hydrogen
+         Ref: app/org.hydrogenmusic.Hydrogen/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.2.6
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 33.6 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: d105adf5096f7aabe379c546f893b38358da2ed1639d34047f1a72866d6c304c
+      Parent: 3bd63962dfb964d1549c93421eccc75600552583522a204276cb0252de16c898
+     Subject: Update runtime to 6.11 (47c4ce394160)
+        Date: 2026-08-09 02:44:29 +0000

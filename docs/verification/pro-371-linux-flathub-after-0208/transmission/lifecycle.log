@@ -1,0 +1,51 @@
+2026-11-27T22:12:23+00:00 transmission AVAILABLE 27390263296
+transmission before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+transmission JobFinished: Ok("Flathub app installed")
+transmission after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:21+00:00 transmission current-install fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7
+/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7/export/share/applications/com.transmissionbt.Transmission.desktop
+/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7/export/share/icons/hicolor/scalable/apps/com.transmissionbt.Transmission.svg
+Updating app/com.transmissionbt.Transmission/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:24+00:00 transmission previous cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23
+transmission before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23", package: Some("com.transmissionbt.Transmission"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: false, can_open: true }
+transmission JobFinished: Err("Approved action rejected: native installation state changed")
+transmission JobFinished: Err("This Flatpak is managed outside the launcher")
+transmission after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23", package: Some("com.transmissionbt.Transmission"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[7231]: [session uid=1000 pid=7231] Activating service name='org.xfce.Xfconf' requested by ':1.3' (uid=1000 pid=8453 comm="xfwm4 --compositor=on --display=:71" label="unconfined")
+dbus-daemon[7231]: [session uid=1000 pid=7231] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[7231]: [session uid=1000 pid=7231] Activating service name='org.freedesktop.Flatpak' requested by ':1.5' (uid=1000 pid=8464 comm="flatpak run --user --command=sh app/com.transmissi" label="flatpak (unconfined)")
+dbus-daemon[7231]: [session uid=1000 pid=7231] Successfully activated service 'org.freedesktop.Flatpak'
+transmission before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: true, can_remove: true, can_open: true }
+transmission JobFinished: Ok("Launch request accepted")
+transmission after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.transmissionbt.Transmission
+2026-11-27T22:13:34+00:00 transmission previous GUI WM_NAME(STRING) = "Transmission"
+WM_CLASS(STRING) = "transmission-gtk", "transmission-gtk"
+2026-11-27T22:13:34+00:00 transmission AVAILABLE 19437408256
+transmission before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/cddf632d5afc3a6259c00d595ee35f72d7bb7e8ed9c5ec8e62ca522776ab4d23", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: true, can_remove: true, can_open: true }
+transmission JobFinished: Ok("Flathub app updated")
+transmission after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:13:37+00:00 transmission current fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7
+/home/qa/profiles/transmission/.var/app/com.transmissionbt.Transmission/fixture.txt: OK
+transmission before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: true, can_open: true }
+transmission JobFinished: Ok("Launch request accepted")
+transmission after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.transmissionbt.Transmission
+2026-11-27T22:13:45+00:00 transmission current GUI WM_NAME(STRING) = "Transmission"
+WM_CLASS(STRING) = "transmission-gtk", "transmission-gtk"
+transmission before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/transmission/data/flatpak/app/com.transmissionbt.Transmission/x86_64/stable/fe90db8e11df3b1929ff03f764e3cfd6798de32238f8a1ffa79a569c2424d0b7", package: Some("com.transmissionbt.Transmission"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.1.4"), update_available: false, can_remove: true, can_open: true }
+transmission JobFinished: Ok("Flathub app removed")
+transmission after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/transmission/.var/app/com.transmissionbt.Transmission/fixture.txt: OK
+2026-11-27T22:13:45+00:00 transmission PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:13:47+00:00 transmission EXIT 0 remove
+
+(xfconfd:8476): xfconfd-WARNING **: 22:13:47.021: Name org.xfce.Xfconf lost on the message dbus, exiting.

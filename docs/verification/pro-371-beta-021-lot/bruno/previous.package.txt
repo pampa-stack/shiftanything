@@ -1,0 +1,20 @@
+
+Bruno - Fast and Git-Friendly API Client
+
+          ID: com.usebruno.Bruno
+         Ref: app/com.usebruno.Bruno/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: v4.3.0
+     License: LicenseRef-proprietary
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 39.3 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5
+      Parent: bb43b290d4740eb9a0ec06646f833896c92d1a2a36808e554ce1408c71d07658
+     Subject: Merge pull request #130 from Pragadesh-45/release (993e8802b620)
+        Date: 2026-10-22 14:35:53 +0000

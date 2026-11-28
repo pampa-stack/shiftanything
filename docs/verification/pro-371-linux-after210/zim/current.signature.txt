@@ -1,0 +1,19 @@
+commit fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25
+Parent:  e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed
+ContentChecksum:  333734cd358c76d7cc37472659862cf4c18970a1d728b249c16b513e585982ab
+Date:  2026-10-27 12:34:10 +0000
+
+    Use fallback-x11 instead of x11 and document flatpak-spawn access (ad3977566acb)
+
+    Name: org.zim_wiki.Zim
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Oct 27 13:13:06 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

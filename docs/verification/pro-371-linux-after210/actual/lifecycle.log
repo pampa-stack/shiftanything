@@ -1,0 +1,60 @@
+2026-11-28T02:06:46+00:00 actual AVAILABLE 19641622528
+actual before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+actual JobFinished: Ok("Flathub app installed")
+actual after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:08:08+00:00 actual current-install b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e
+/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e/export/share/applications/com.actualbudget.actual.desktop
+/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e/export/share/icons/hicolor/512x512/apps/com.actualbudget.actual.png
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform/x86_64/25.08
+Updating app/com.actualbudget.actual/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:09:04+00:00 actual previous be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692
+actual before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692", package: Some("com.actualbudget.actual"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: false, can_open: true }
+actual JobFinished: Err("Approved action rejected: native installation state changed")
+actual JobFinished: Err("This Flatpak is managed outside the launcher")
+actual after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692", package: Some("com.actualbudget.actual"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[11686]: [session uid=1000 pid=11686] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=13167 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[11686]: [session uid=1000 pid=11686] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[11686]: [session uid=1000 pid=11686] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=13180 comm="flatpak run --user --command=sh app/com.actualbudg" label="flatpak (unconfined)")
+dbus-daemon[11686]: [session uid=1000 pid=11686] Successfully activated service 'org.freedesktop.Flatpak'
+actual before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[11686]: [session uid=1000 pid=11686] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.11' (uid=1000 pid=13299 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[11686]: [session uid=1000 pid=11686] Successfully activated service 'org.freedesktop.portal.Flatpak'
+actual JobFinished: Ok("Launch request accepted")
+actual after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.actualbudget.actual
+com.actualbudget.actual
+2026-11-28T02:09:16+00:00 actual previous GUI WM_NAME(UTF8_STRING) = "Actual"
+WM_CLASS(STRING) = "actual", "actual"
+2026-11-28T02:09:16+00:00 actual AVAILABLE 17406947328
+actual before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.10.0"), update_available: true, can_remove: true, can_open: true }
+actual JobFinished: Ok("Flathub app updated")
+actual after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:09:23+00:00 actual current b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e
+/home/qa/profiles/actual-after210/.var/app/com.actualbudget.actual/fixture.txt: OK
+actual before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.0"), update_available: false, can_remove: true, can_open: true }
+actual JobFinished: Ok("Launch request accepted")
+actual after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.actualbudget.actual
+com.actualbudget.actual
+2026-11-28T02:09:33+00:00 actual current GUI WM_NAME(UTF8_STRING) = "Actual"
+WM_CLASS(STRING) = "actual", "actual"
+actual before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 26, minor: 11, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e", package: Some("com.actualbudget.actual"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("26.11.0"), update_available: false, can_remove: true, can_open: true }
+actual JobFinished: Ok("Flathub app removed")
+actual after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/actual-after210/.var/app/com.actualbudget.actual/fixture.txt: OK
+2026-11-28T02:09:34+00:00 actual PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:09:35+00:00 actual EXIT 0 remove
+
+(xfconfd:13192): xfconfd-WARNING **: 02:09:35.257: Name org.xfce.Xfconf lost on the message dbus, exiting.

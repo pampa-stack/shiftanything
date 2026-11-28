@@ -1,0 +1,7 @@
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/applications/org.zim_wiki.Zim.desktop
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/16x16/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/22x22/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/24x24/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/32x32/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/48x48/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/scalable/apps/org.zim_wiki.Zim.svg

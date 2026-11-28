@@ -1,0 +1,84 @@
+2026-11-28T13:09:34+00:00 lazpaint AVAILABLE 43413520384
+lazpaint before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+lazpaint JobFinished: Ok("Flathub app installed")
+lazpaint after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:10:40+00:00 lazpaint current-install d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed
+/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed/export/share/applications/io.github.bgrabitmap.LazPaint.desktop
+/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed/export/share/icons/hicolor/256x256/apps/io.github.bgrabitmap.LazPaint.png
+Info: org.kde.Platform is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.kde.Platform.Locale is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.kde.KStyle.Adwaita/x86_64/5.15-24.08
+Installing runtime/org.kde.Platform.Locale/x86_64/5.15-24.08
+Installing runtime/org.kde.Platform/x86_64/5.15-24.08
+Info: org.kde.Platform is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.kde.Platform.Locale is end-of-life, with reason: We strongly recommend moving to the latest stable version of the Platform and SDK
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/io.github.bgrabitmap.LazPaint/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:53+00:00 lazpaint previous f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813
+lazpaint before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: false, can_open: true }
+lazpaint JobFinished: Err("Approved action rejected: native installation state changed")
+lazpaint JobFinished: Err("This Flatpak is managed outside the launcher")
+lazpaint after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=15030 comm="xfwm4 --compositor=on --display=:75" label="unconfined")
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=15043 comm="flatpak run --user --command=sh app/io.github.bgra" label="flatpak (unconfined)")
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=15043 comm="flatpak run --user --command=sh app/io.github.bgra" label="flatpak (unconfined)")
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=15072 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+lazpaint before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=15246 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[10695]: [session uid=1000 pid=10695] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=15275 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:15284): dbind-WARNING **: 13:11:55.720: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:15275): xdg-desktop-portal-WARNING **: 13:11:55.741: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15275): xdg-desktop-portal-WARNING **: 13:11:55.741: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15275): xdg-desktop-portal-WARNING **: 13:11:55.741: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15275): xdg-desktop-portal-WARNING **: 13:11:55.747: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[10695]: [session uid=1000 pid=10695] Successfully activated service 'org.freedesktop.portal.Desktop'
+lazpaint JobFinished: Ok("Launch request accepted")
+lazpaint after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.bgrabitmap.LazPaint
+2026-11-28T13:12:05+00:00 lazpaint previous GUI WM_NAME(STRING) = "667x500 - LazPaint 7.3 (64-bit)"
+WM_CLASS(STRING) = "lazpaint", "LazPaint"
+2026-11-28T13:12:05+00:00 lazpaint AVAILABLE 36869152768
+lazpaint before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/f687c94f01197d18cda9c04490a12228a5543c895f9a64027d62b6824353f813", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: true, can_remove: true, can_open: true }
+lazpaint JobFinished: Ok("Flathub app updated")
+lazpaint after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:12:07+00:00 lazpaint current d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed
+/home/qa/profiles/lazpaint-composited/.var/app/io.github.bgrabitmap.LazPaint/fixture.txt: OK
+lazpaint before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: true, can_open: true }
+lazpaint JobFinished: Ok("Launch request accepted")
+lazpaint after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.bgrabitmap.LazPaint
+2026-11-28T13:12:17+00:00 lazpaint current GUI WM_NAME(STRING) = "667x500 - LazPaint 7.3 (64-bit)"
+WM_CLASS(STRING) = "lazpaint", "lazpaint"
+lazpaint before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/lazpaint-composited/data/flatpak/app/io.github.bgrabitmap.LazPaint/x86_64/stable/d038fd01ffd780dd46f4d22a92df37e77c06ed460c3e969d0dcfe02a9511eaed", package: Some("io.github.bgrabitmap.LazPaint"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.3.0"), update_available: false, can_remove: true, can_open: true }
+lazpaint JobFinished: Ok("Flathub app removed")
+lazpaint after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/lazpaint-composited/.var/app/io.github.bgrabitmap.LazPaint/fixture.txt: OK
+2026-11-28T13:12:18+00:00 lazpaint PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:12:20+00:00 lazpaint EXIT 0 remove
+
+(xfconfd:15052): xfconfd-WARNING **: 13:12:20.119: Name org.xfce.Xfconf lost on the message dbus, exiting.

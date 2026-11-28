@@ -26,6 +26,55 @@ Craft App Suite app icons (assets/app-icons/*.png) — from each app's repositor
 contributors.
 
 
+Neovide 0.17.4 app icon (rendered from upstream SVG)
+--------------------------------------------------
+MIT License
+
+Copyright (c) 2023 Neovide Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+OpenScreen v2.4.0 app icon (unmodified upstream PNG)
+--------------------------------------------------
+MIT License
+
+Copyright (c) 2025 Siddharth Vaddem
+Copyright (c) 2025-2026 OpenScreen contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 egui icon font subset (dependency asset)
 ----------------------------------------
 epaint_default_fonts 0.37 embeds egui-icons.ttf, a five-glyph subset of
@@ -611,6 +660,16 @@ SOFTWARE.
 
 Termix v26.11.3 catalog icon
 Copyright Termix contributors. Licensed under the Apache License, Version 2.0 (LICENSE-APACHE).
+
+MarkEdit v1.37.1 and Capso v1.2.11 catalog media
+Copyright (c) 2023 MarkEdit.app
+Copyright (c) 2026 lzhgus
+Their catalog media are distributed under the MIT terms in LICENSE-MIT.
+
+Vorssaint Tools v3.4.5 catalog media
+Original icon and preview by the Vorssaint Tools project.
+Source: https://github.com/vorssaint/vorssaint-utils/tree/v3.4.5/docs/assets/readme
+The catalog media are distributed under the GPL version 3 printed below.
 
 simplewall v.3.8.7 main icon
 Original icon by the simplewall project, extracted as PNG for the catalog.

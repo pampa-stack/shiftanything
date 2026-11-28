@@ -1,0 +1,19 @@
+commit acc13d37bd4e1402f83474d24bb343590a822881278d2e3d212a4a8b4779fcc5
+Parent:  bb43b290d4740eb9a0ec06646f833896c92d1a2a36808e554ce1408c71d07658
+ContentChecksum:  100f8e32ce6554e7dc182800660fe222ecaaf7f3733f716216e19150412be00d
+Date:  2026-10-22 14:35:53 +0000
+
+    Merge pull request #130 from Pragadesh-45/release (993e8802b620)
+
+    Name: com.usebruno.Bruno
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct 22 15:02:39 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,7 @@
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/applications/com.calibre_ebook.calibre.desktop
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/128x128/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/16x16/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/256x256/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/32x32/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/48x48/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/64x64/apps/com.calibre_ebook.calibre.png

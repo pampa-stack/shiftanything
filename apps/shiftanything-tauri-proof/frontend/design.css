@@ -267,7 +267,10 @@ main.main{overflow-y:auto;display:block}
 .rail .seg{margin:0 14px 15px;width:max-content}
 .rail .cat{line-height:1.25}
 .rail .n{padding-left:4px}
-.category-group summary{padding:9px 12px;color:var(--dim);cursor:pointer;font-size:12px;line-height:1.35}
+.category-group summary{display:flex;align-items:center;gap:6px;padding:9px 12px;color:var(--dim);cursor:pointer;font-size:12px;line-height:1.35;list-style:none}
+.category-group summary::-webkit-details-marker{display:none}
+.category-group summary::before{content:"";flex:none;border-left:5px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent}
+.category-group[open]>summary::before{transform:rotate(90deg)}
 .category-group summary:hover,.category-group[open]>summary{color:var(--tx)}
 .category-group summary:focus-visible{outline:2px solid var(--acc);outline-offset:-3px}
 .category-group button.cat{padding-left:24px}
@@ -345,7 +348,9 @@ main.main{overflow-y:auto;display:block}
 .favorite-btn[aria-pressed=true]{color:#fc86ab}
 .favorite-btn[aria-pressed=true] svg{fill:currentColor}
 .favorite-btn:focus-visible{outline:2px solid #e9ff74;outline-offset:2px}
-.install-indicator{display:inline-grid;place-items:center;flex:0 0 17px;width:17px;height:25px;color:var(--dim);font:700 12px var(--mono)}
+.install-indicator{display:inline-grid;place-items:center;flex:0 0 17px;width:17px;height:25px;color:var(--dim)}
+.install-indicator::before{content:"";width:6px;border-bottom:1px solid currentColor}
+.install-indicator[data-tested="true"]::before{width:5px;height:8px;border-right:2px solid currentColor;border-bottom-width:2px;transform:translateY(-1px) rotate(45deg)}
 .install-indicator[data-verified="true"]{color:#81e1ac}
 .catalog-grid .c-acts,.catalog-table .c-acts{flex-wrap:wrap}
 .install-reason{flex-basis:100%;min-height:1lh;color:var(--dim);font-size:10.5px;line-height:1.25}

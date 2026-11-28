@@ -1053,21 +1053,23 @@ impl NativeBackend {
                 });
             }
             let now = crate::now();
-            let queue = Mutex::new(
-                artcraft_launcher_core::hosted_catalog::apps()
-                    .iter()
-                    .filter(|a| platform.is_none_or(|p| a.runs_on(p.os)))
-                    .filter(|a| {
-                        shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
-                            || a.kind == artcraft_launcher_core::catalog::AppKind::Official
-                    })
-                    .chain(std::iter::once(&LAUNCHER))
-                    .filter(|app| {
-                        shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
-                            || platform.is_some_and(|platform| crate::nightly_profile::for_app(app, platform).is_ok())
-                    })
-                    .collect::<Vec<&CraftApp>>(),
-            );
+            let mut queue = artcraft_launcher_core::hosted_catalog::apps()
+                .iter()
+                .filter(|a| platform.is_none_or(|p| a.runs_on(p.os)))
+                .filter(|a| {
+                    shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
+                        || a.kind == artcraft_launcher_core::catalog::AppKind::Official
+                })
+                .chain(std::iter::once(&LAUNCHER))
+                .filter(|app| {
+                    shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable
+                        || platform.is_some_and(|platform| crate::nightly_profile::for_app(app, platform).is_ok())
+                })
+                .collect::<Vec<&CraftApp>>();
+            if last.is_none() && shared.channel == artcraft_launcher_core::nightly::InstallChannel::Stable {
+                prioritize_catalog_startup(&mut queue);
+            }
+            let queue = Mutex::new(queue);
             let sources = sweep(&queue, &mirror, feed.as_ref(), fallback, &source, &shared, &paths, (platform, &options), force, now, Some(&http));
             source.save();
             {
@@ -1650,7 +1652,7 @@ fn downgrade_previous(
     let Some(installed) = existing.filter(|_| is_chosen_downgrade(track, chosen, existing, by_name)) else {
         return Ok(None);
     };
-    let installed_v = installed.version.as_ref().map(ToString::to_string).unwrap_or_default();
+    let installed_v = installed.version.as_ref().map(version::label).unwrap_or_default();
     let releases = list().map_err(|e| {
         NoWayBack::Refused(format!("couldn't find {} {installed_v} to put back if going back fails ({e}), so nothing was changed.", app.name))
     })?;
@@ -1673,7 +1675,7 @@ fn downgrade_previous(
 /// update can't run. [`run_install`] and the UI's [`Event::Installable`] both ask this.
 fn repository_update<'a>(app: &CraftApp, existing: Option<&'a Installed>, options: &BackendOptions) -> Option<Result<&'a Installed, String>> {
     let inst = existing.filter(|i| i.source == artcraft_launcher_core::InstallSource::Flatpak && i.externally_managed)?;
-    Some(if !matches!(options.versions.get(app.id), None | Some(VersionTrack::Stable)) {
+    Some(if app.id == artcraft_launcher_core::curated::NAPS2.id || !matches!(options.versions.get(app.id), None | Some(VersionTrack::Stable)) {
         Err(install::managed_elsewhere(app, inst, false).unwrap_or_else(|| "Update this app through its Flatpak repository".into()))
     } else if !cfg!(target_os = "linux") {
         Err(flatpak_unsupported(app))
@@ -2479,6 +2481,16 @@ fn remote_plan(pre: bool, (feed, fallback): (Option<Feed>, Fallback)) -> (Option
     if pre { (feed, Fallback { trust_feed: false, ..fallback }) } else { (feed, fallback) }
 }
 
+/// The sweep pops from the end. Resolve the self-update first, then the visible catalog in its display order.
+fn prioritize_catalog_startup(queue: &mut [&CraftApp]) {
+    let order =
+        artcraft_launcher_core::curated::apps().iter().enumerate().map(|(index, app)| (app.id.as_str(), index + 1)).collect::<HashMap<_, _>>();
+    queue.sort_by_key(|app| {
+        let priority = if app.id == LAUNCHER_ID { 0 } else { order.get(app.id).copied().unwrap_or(usize::MAX) };
+        std::cmp::Reverse(priority)
+    });
+}
+
 /// Answers the apps from a shared queue over a few workers, and returns which sources answered.
 #[allow(clippy::too_many_arguments)]
 fn sweep(
@@ -2592,6 +2604,30 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::GitHubApi
     } else if sources.contains(&Source::TheDocumentFoundation) {
         Source::TheDocumentFoundation
+    } else if sources.contains(&Source::Zotero) {
+        Source::Zotero
+    } else if sources.contains(&Source::Blender) {
+        Source::Blender
+    } else if sources.contains(&Source::VideoLan) {
+        Source::VideoLan
+    } else if sources.contains(&Source::Inkscape) {
+        Source::Inkscape
+    } else if sources.contains(&Source::Signal) {
+        Source::Signal
+    } else if sources.contains(&Source::Mozilla) {
+        Source::Mozilla
+    } else if sources.contains(&Source::Element) {
+        Source::Element
+    } else if sources.contains(&Source::ITerm2) {
+        Source::ITerm2
+    } else if sources.contains(&Source::Itsycal) {
+        Source::Itsycal
+    } else if sources.contains(&Source::Kdenlive) {
+        Source::Kdenlive
+    } else if sources.contains(&Source::Krita) {
+        Source::Krita
+    } else if sources.contains(&Source::Gimp) {
+        Source::Gimp
     } else {
         Source::Feed
     }
@@ -2804,7 +2840,7 @@ fn asked_key(app: &CraftApp, pre: bool) -> String {
 /// Whether GitHub names a newer stable release of `repo` than the feed's `latest` (`None`: the
 /// feed says there is none). `false` whenever the redirect can't be read: the feed then stands.
 fn feed_is_behind(source: &dyn ReleaseSource, repo: &str, latest: Option<&Release>) -> bool {
-    let Some(newest) = source.newest_tag(repo).and_then(|tag| version::parse(&tag)) else {
+    let Some(newest) = source.newest_tag(repo).and_then(|tag| artcraft_launcher_core::release::release_tag_version(repo, &tag)) else {
         return false;
     };
     match latest.and_then(|r| r.version.as_ref()) {
@@ -2827,12 +2863,60 @@ fn feed_repo(feed: Option<&Feed>, app: &CraftApp) -> String {
 
 fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> {
     let calibre = artcraft_launcher_core::curated::CALIBRE;
-    // The generic feed references GitHub assets; Calibre uses the publisher's retained archive.
-    if app.uses_tdf_releases() || app.release_repository() != app.repo || (app.id, app.repo) == (calibre.id, calibre.repo) { None } else { feed }
+    // Some publishers serve their qualified packages outside the generic GitHub feed.
+    if app.uses_tdf_releases()
+        || app.uses_zotero_releases()
+        || app.uses_blender_releases()
+        || app.uses_gimp_releases()
+        || app.uses_krita_releases()
+        || app.uses_vlc_releases()
+        || app.uses_inkscape_releases()
+        || app.uses_kdenlive_releases()
+        || app.uses_iterm2_releases()
+        || app.uses_itsycal_releases()
+        || app.uses_signal_releases()
+        || app.uses_firefox_releases()
+        || app.uses_element_releases()
+        || (app.id, app.repo) == (artcraft_launcher_core::curated::NETNEWSWIRE.id, artcraft_launcher_core::curated::NETNEWSWIRE.repo)
+        || app.release_repository() != app.repo
+        || (app.id, app.repo) == (calibre.id, calibre.repo)
+    {
+        None
+    } else {
+        feed
+    }
 }
 
 fn release_origin(app: &CraftApp) -> Origin {
-    if app.uses_tdf_releases() { Origin::TheDocumentFoundation } else { Origin::GitHub }
+    if app.uses_tdf_releases() {
+        Origin::TheDocumentFoundation
+    } else if app.uses_zotero_releases() {
+        Origin::Zotero
+    } else if app.uses_blender_releases() {
+        Origin::Blender
+    } else if app.uses_vlc_releases() {
+        Origin::VideoLan
+    } else if app.uses_inkscape_releases() {
+        Origin::Inkscape
+    } else if app.uses_signal_releases() {
+        Origin::Signal
+    } else if app.uses_firefox_releases() {
+        Origin::Mozilla
+    } else if app.uses_element_releases() {
+        Origin::Element
+    } else if app.uses_iterm2_releases() {
+        Origin::ITerm2
+    } else if app.uses_itsycal_releases() {
+        Origin::Itsycal
+    } else if app.uses_kdenlive_releases() {
+        Origin::Kdenlive
+    } else if app.uses_krita_releases() {
+        Origin::Krita
+    } else if app.uses_gimp_releases() {
+        Origin::Gimp
+    } else {
+        Origin::GitHub
+    }
 }
 
 /// What to ask GitHub about `app`: the feed may rename its repo, but the separate-channel policy
@@ -3426,6 +3510,18 @@ mod tests {
     use crate::source::Answer;
 
     #[test]
+    fn startup_checks_the_launcher_and_first_visible_catalog_apps_first() {
+        let photocraft = CraftApp::by_id("photocraft").unwrap();
+        let meetily = CraftApp::by_id("meetily").unwrap();
+        let mut queue = vec![photocraft, &artcraft_launcher_core::curated::KRITA, meetily, &artcraft_launcher_core::curated::HANDY, &LAUNCHER];
+
+        prioritize_catalog_startup(&mut queue);
+
+        let scheduled: Vec<_> = queue.iter().rev().map(|app| app.id).collect();
+        assert_eq!(scheduled, [LAUNCHER_ID, "photocraft", "handy", "meetily", "krita"]);
+    }
+
+    #[test]
     fn calibre_keeps_its_publisher_archive_instead_of_the_generic_feed() {
         let feed = Feed::default();
         let calibre = artcraft_launcher_core::curated::CALIBRE;
@@ -3433,6 +3529,103 @@ mod tests {
         assert!(feed_for_app(Some(&feed), &calibre).is_none());
         assert_eq!(release_query(Some(&feed), &calibre).repo, calibre.repo);
         assert_eq!(feed_for_app(Some(&feed), &handy), Some(&feed));
+    }
+
+    #[test]
+    fn zotero_uses_publisher_releases_on_macos_and_flathub_on_linux() {
+        use artcraft_launcher_core::{Arch, curated::ZOTERO, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(ZOTERO.id), Some(&ZOTERO));
+        assert!(feed_for_app(Some(&feed), &ZOTERO).is_none());
+        assert_eq!(release_origin(&ZOTERO), Origin::Zotero);
+        assert_eq!(release_query(Some(&feed), &ZOTERO).repo, ZOTERO.repo);
+        assert!(routes_to_flathub(ZOTERO.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(ZOTERO.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn verified_github_apps_keep_their_flathub_route_on_linux() {
+        use artcraft_launcher_core::{
+            Arch,
+            curated::{FLOORP, MULLVAD_BROWSER, OPENBOARD, STELLARIUM},
+            nightly::InstallChannel,
+        };
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for app in [FLOORP, MULLVAD_BROWSER, OPENBOARD, STELLARIUM] {
+            assert_eq!(release_origin(&app), Origin::GitHub);
+            assert_eq!(release_query(Some(&feed), &app).repo, app.repo);
+            assert!(routes_to_flathub(app.id, Some(linux), InstallChannel::Stable));
+            assert!(!routes_to_flathub(app.id, Some(mac), InstallChannel::Stable));
+        }
+    }
+
+    #[test]
+    fn gimp_uses_its_official_index_on_macos_and_keeps_flathub_on_linux() {
+        use artcraft_launcher_core::{Arch, curated::GIMP, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(GIMP.id), Some(&GIMP));
+        assert!(feed_for_app(Some(&feed), &GIMP).is_none());
+        assert_eq!(release_origin(&GIMP), Origin::Gimp);
+        assert_eq!(release_query(Some(&feed), &GIMP).repo, GIMP.repo);
+        assert!(routes_to_flathub(GIMP.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(GIMP.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn krita_uses_official_mac_download_and_preserves_its_linux_flathub_route() {
+        use artcraft_launcher_core::{Arch, curated::KRITA, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(KRITA.id), Some(&KRITA));
+        assert!(feed_for_app(Some(&feed), &KRITA).is_none());
+        assert_eq!(release_origin(&KRITA), Origin::Krita);
+        assert!(routes_to_flathub(KRITA.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(KRITA.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn vlc_uses_videolan_on_mac_and_flathub_on_linux() {
+        use artcraft_launcher_core::{Arch, curated::VLC, nightly::InstallChannel};
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        assert_eq!(CraftApp::by_id(VLC.id), Some(&VLC));
+        assert!(feed_for_app(Some(&feed), &VLC).is_none());
+        assert_eq!(release_origin(&VLC), Origin::VideoLan);
+        assert!(routes_to_flathub(VLC.id, Some(linux), InstallChannel::Stable));
+        assert!(!routes_to_flathub(VLC.id, Some(mac), InstallChannel::Stable));
+    }
+
+    #[test]
+    fn inkscape_and_kdenlive_use_native_mac_assets_and_keep_the_linux_flatpak_route() {
+        use artcraft_launcher_core::{
+            Arch,
+            curated::{INKSCAPE, KDENLIVE},
+            nightly::InstallChannel,
+        };
+
+        let feed = Feed::default();
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, origin) in [(INKSCAPE, Origin::Inkscape), (KDENLIVE, Origin::Kdenlive)] {
+            assert_eq!(CraftApp::by_id(app.id), Some(&app));
+            assert!(feed_for_app(Some(&feed), &app).is_none());
+            assert_eq!(release_origin(&app), origin);
+            assert!(routes_to_flathub(app.id, Some(linux), InstallChannel::Stable));
+            assert!(!routes_to_flathub(app.id, Some(mac), InstallChannel::Stable));
+        }
     }
 
     #[test]
@@ -4562,9 +4755,9 @@ mod tests {
         }
     }
 
-    const APP: &str = "photocraft";
+    const APP: &str = "deckcraft";
 
-    /// A PhotoCraft release with one file per platform and format, so whichever this machine
+    /// A DeckCraft release with one file per platform and format, so whichever this machine
     /// installs is there.
     fn release(version: &str) -> Release {
         let suffixes = ["-portable.zip", ".tar.gz", ".msi", ".dmg", ".AppImage", ".deb", ".rpm", ".flatpak"];
@@ -4598,7 +4791,7 @@ mod tests {
         let msi = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Msi,
-            location: r"C:\Apps\PhotoCraft\photocraft.exe".into(),
+            location: r"C:\Apps\DeckCraft\deckcraft.exe".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4608,7 +4801,7 @@ mod tests {
         let launcher = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Launcher,
-            location: r"D:\Craft Apps\PhotoCraft\photocraft.exe".into(),
+            location: r"D:\Craft Apps\DeckCraft\deckcraft.exe".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4647,7 +4840,7 @@ mod tests {
         let existing = Installed {
             version: None,
             source: artcraft_launcher_core::InstallSource::Deb,
-            location: "/usr/bin/photocraft".into(),
+            location: "/usr/bin/deckcraft".into(),
             package: None,
             externally_managed: false,
             origin: None,
@@ -4887,7 +5080,7 @@ mod tests {
         publish_latest(app, LatestRelease::Found(stable("0.5.0")), Origin::GitHub, &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["latest"], "nothing installed: no answer");
 
-        publish_detected(app, Some(copy_of("0.4.0", InstallSource::Launcher, "/Applications/PhotoCraft.app")), &backend.shared, Some(platform));
+        publish_detected(app, Some(copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app")), &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["installable true", "detected"]);
 
         let mut windows_only = stable("0.6.0");
@@ -4949,7 +5142,7 @@ mod tests {
         let mut backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/PhotoCraft.app"));
+        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app"));
         let installable = |events: Vec<Event>| told(events).into_iter().filter(|t| t.starts_with("installable")).collect::<Vec<_>>();
 
         report_partial(app, &backend.shared, &backend.paths, Some(platform));
@@ -4971,7 +5164,7 @@ mod tests {
         let asked = Instant::now().checked_sub(SYSTEM_KINDS_FOR * 2).unwrap_or_else(Instant::now);
         *backend.shared.system.lock().unwrap() = Some((asked, install::SystemKinds { available: vec![PackageKind::Dmg], can_pacman: false }));
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/PhotoCraft.app"));
+        backend.shared.installed.lock().unwrap().insert(APP.to_string(), copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app"));
 
         let answer = {
             let _reporting = backend.shared.reporting.lock().unwrap();
@@ -4991,7 +5184,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
-        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/PhotoCraft.app");
+        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app");
         publish_detected(app, Some(installed.clone()), &backend.shared, Some(platform));
         let shared = backend.shared.clone();
         let publisher = std::thread::spawn(move || {
@@ -5029,7 +5222,7 @@ mod tests {
         let mut backend = backend(dir.path(), platform, None);
         system_installs(&backend, vec![PackageKind::Dmg]);
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.6.0"));
-        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/PhotoCraft.app");
+        let installed = copy_of("0.4.0", InstallSource::Launcher, "/Applications/DeckCraft.app");
 
         publish_detected(app, Some(installed.clone()), &backend.shared, Some(platform));
         assert_eq!(told(backend.poll()), ["installable true", "detected"]);
@@ -5052,7 +5245,7 @@ mod tests {
         // Nothing this system could download: only `flatpak update` can say yes.
         system_installs(&backend, Vec::new());
         backend.shared.latest.lock().unwrap().insert(APP.to_string(), stable("0.5.0"));
-        let flatpark = Installed { externally_managed: true, ..copy_of("0.5.0", InstallSource::Flatpak, "ai.storyteller.photocraft") };
+        let flatpark = Installed { externally_managed: true, ..copy_of("0.5.0", InstallSource::Flatpak, "ai.storyteller.deckcraft") };
         let options = BackendOptions::default();
         assert_eq!(repository_update(app, Some(&flatpark), &options).map(|u| u.is_ok()), Some(cfg!(target_os = "linux")));
 
@@ -5209,7 +5402,7 @@ mod tests {
         assert!(!ids.iter().any(|id| backend.shared.jobs.lock().unwrap().contains_key(*id)), "and the jobs are free again");
     }
 
-    /// Wherever the tests run: with or without a PhotoCraft installed on the machine (here a
+    /// Wherever the tests run: with or without a DeckCraft installed on the machine (here a
     /// stubbed host Flatpak, newer than any release the backend knows), JobFinished observers see
     /// the job's final busy state and download plan.
     #[test]
@@ -5220,8 +5413,8 @@ mod tests {
         let host_flatpak = || Installed {
             version: version::parse("99.0.0"),
             source: InstallSource::Flatpak,
-            location: "ai.storyteller.photocraft".into(),
-            package: Some("ai.storyteller.photocraft".into()),
+            location: "ai.storyteller.deckcraft".into(),
+            package: Some("ai.storyteller.deckcraft".into()),
             externally_managed: false,
             origin: None,
             installation: Some("system".into()),
@@ -5357,7 +5550,7 @@ mod tests {
             Installed {
                 version: None,
                 source: InstallSource::Msi,
-                location: r"C:\Apps\PhotoCraft\photocraft.exe".into(),
+                location: r"C:\Apps\DeckCraft\deckcraft.exe".into(),
                 package: None,
                 externally_managed: false,
                 origin: None,

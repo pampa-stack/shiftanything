@@ -1,0 +1,19 @@
+commit 08b88c9967887efa7da1d162c0e3c2454a165d28d0d75a3798ca10f34f8e86bb
+Parent:  079decd4f0521993570fd066c64a010a375cb4bae1990309395b3485dfd1ee42
+ContentChecksum:  6b384408f4470121d4055111598a3f6ecf172df954a50abc9e75a3ead6f450a5
+Date:  2026-10-26 16:17:26 +0000
+
+    Fractal 14.3 (bb3847d0ecca)
+
+    Name: org.gnome.Fractal
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Oct 26 17:00:45 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

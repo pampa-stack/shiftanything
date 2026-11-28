@@ -1,0 +1,20 @@
+
+jamovi - Real-time statistical spreadsheet
+
+          ID: org.jamovi.jamovi
+         Ref: app/org.jamovi.jamovi/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 28.7
+     License: AGPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 1.1 GB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: 7fd73fe04fa8571531805a81e41e8b8916a97632ab650b700f6bb70fde8b6e5a
+      Parent: bad119b14df2ce122f1d9c50cbb398fe8507b77a235f7afe0f9a1a8576f13316
+     Subject: Version 28.19 (c6e12cac09db)
+        Date: 2026-11-28 03:31:03 +0000

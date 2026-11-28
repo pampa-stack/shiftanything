@@ -1,0 +1,22 @@
+PASS PREFLIGHT logseq-db 2.0.1
+PASS PREFLIGHT logseq-db 2.0.2
+/dev/disk3s5   239362496 173450544  24784384    88% 3238779 247843840    1%   /System/Volumes/Data
+OFFICIAL INDEX logseq-db 2.0.1 digest=published
+OFFICIAL INDEX logseq-db 2.0.2 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 2.0.1 Dmg https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-darwin-arm64-2.0.1.dmg 168847627 b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd
+PASS OFFICIAL 2.0.2 Dmg https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-darwin-arm64-2.0.2.dmg 177591867 b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314
+NATIVE ORIGIN logseq-db GitHub
+PASS OFFICIAL 2.0.1 Dmg https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-darwin-arm64-2.0.1.dmg 168847627 b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd
+PASS NATIVE logseq-db install: Logseq DB installed: 2.0.1; package_bytes=168847627; elapsed=44.727s
+PASS NATIVE logseq-db open: Launch request accepted
+PASS OPEN AND CLOSE Logseq executable in the isolated profile
+NATIVE ORIGIN logseq-db GitHub
+PASS OFFICIAL 2.0.2 Dmg https://github.com/logseq/logseq/releases/download/2.0.2/Logseq-darwin-arm64-2.0.2.dmg 177591867 b9a16b6ddef1659aa3c2301ce37a0336377644bbf1016051e3d19d1a66776314
+PASS NATIVE logseq-db update: Logseq DB updated to 2.0.2; package_bytes=177591867; elapsed=34.644s
+PASS NATIVE logseq-db open: Launch request accepted
+PASS OPEN AND CLOSE Logseq executable in the isolated profile
+PASS NATIVE logseq-db remove: Logseq DB was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE logseq-db (2.0.1 → 2.0.2), private Trash and synthetic data preserved

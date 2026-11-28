@@ -1,0 +1,32 @@
+2026-11-28T06:00:18+0100
+/dev/disk3s5   482797652 424212112  11602896    98% 6607599 116028960    5%   /System/Volumes/Data
+ARTIFACT 2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804 271241278 https://updates.signal.org/desktop/signal-desktop-mac-universal-8.35.0.dmg
+BUNDLE=Signal.app
+CFBundleIdentifier=org.whispersystems.signal-desktop
+CFBundleShortVersionString=8.35.0
+CFBundleVersion=1
+CFBundleExecutable=Signal
+LSMinimumSystemVersion=13.0
+/private/tmp/shift-air-overnight.4hg9AqTR/preflight/signal-desktop/8.35.0/mount/Signal.app/Contents/MacOS/Signal: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.4hg9AqTR/preflight/signal-desktop/8.35.0/mount/Signal.app/Contents/MacOS/Signal (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.4hg9AqTR/preflight/signal-desktop/8.35.0/mount/Signal.app/Contents/MacOS/Signal (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.4hg9AqTR/preflight/signal-desktop/8.35.0/mount/Signal.app/Contents/MacOS/Signal (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 24.0
+Identifier=org.whispersystems.signal-desktop
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Signal Messenger, LLC (U68MSDN6DR)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=12 Nov 2026 at 00:32:43
+TeamIdentifier=U68MSDN6DR
+/private/tmp/shift-air-overnight.4hg9AqTR/preflight/signal-desktop/8.35.0/mount/Signal.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT signal-desktop 8.35.0

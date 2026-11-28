@@ -1,0 +1,19 @@
+commit ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac
+Parent:  5a17a3f05db774219d669df0a046e66957395fa11ab3d0b146b561af746a8dc6
+ContentChecksum:  28b143037f31f145eb87799fec1aa6e8b3ac208e164b15cf17f5275f54a68ffe
+Date:  2026-11-06 11:54:28 +0000
+
+    Update akonadi, akonadi-mime, kpimtextedit and 43 more modules (151077a8ef58)
+
+    Name: org.kde.kontact
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov  6 13:00:45 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

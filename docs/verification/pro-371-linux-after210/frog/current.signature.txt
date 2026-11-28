@@ -1,0 +1,19 @@
+commit 55f45d3768342dabaf815d1a9c79225df439579432e2b2b758acc63200ef1faa
+Parent:  c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f
+ContentChecksum:  8d9e1c45b457f4238cfe30a50b2ca281df3b9b6e4dddc761661c29a759f2de00
+Date:  2026-10-29 19:24:42 +0000
+
+    Merge pull request #17 from flathub/update-master-fec2c3a (6066fe282162)
+
+    Name: com.github.tenderowl.frog
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct 29 20:02:32 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

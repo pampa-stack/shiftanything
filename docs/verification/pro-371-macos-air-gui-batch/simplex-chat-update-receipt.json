@@ -1,0 +1,12 @@
+{
+  "apps": {
+    "simplex-chat": {
+      "version": "7.1.4",
+      "kind": "Dmg",
+      "path": "/private/tmp/shift-mac-air-batch.abBQbN1k/profile-simplex-chat.cfPLUHda/Applications/SimpleX.app",
+      "installed_at": 1795807464,
+      "files": [],
+      "needs_root": false
+    }
+  }
+}

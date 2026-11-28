@@ -1,0 +1,20 @@
+
+Frescobaldi - Write beautiful music sheets
+
+          ID: org.frescobaldi.Frescobaldi
+         Ref: app/org.frescobaldi.Frescobaldi/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.0.7
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 490.2 MB
+     Runtime: org.kde.Platform/x86_64/6.10
+         Sdk: org.kde.Sdk/x86_64/6.10
+
+      Commit: 47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5
+      Parent: 6c97fe04b7f411773f4dbee1835cdfccf39d4d57fc798adce1238e4914472d87
+     Subject: Guile: remove obsolete patch (06dd3ff51413)
+        Date: 2026-05-30 17:41:51 +0000

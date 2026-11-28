@@ -1,0 +1,18 @@
+PASS PREFLIGHT swiftbar v2.1.0
+PASS PREFLIGHT swiftbar v2.1.1
+/dev/disk3s5   239362496 176969472  21264548    90% 3229382 212645480    1%   /System/Volumes/Data
+OFFICIAL INDEX swiftbar v2.1.0 digest=published
+OFFICIAL INDEX swiftbar v2.1.1 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v2.1.0 MacZip https://github.com/swiftbar/SwiftBar/releases/download/v2.1.0/SwiftBar.v2.1.0.b594.zip 2989039 54b425256f449dd90f8d167993cc65c3673bcd44d206e1aaf641a09fb58bc0da
+PASS OFFICIAL v2.1.1 MacZip https://github.com/swiftbar/SwiftBar/releases/download/v2.1.1/SwiftBar.v2.1.1.b597.zip 2991349 fcdec490782d6587046304044951c63de49ac422fc63892a6fab2dd7bc70c0cd
+NATIVE ORIGIN swiftbar GitHub
+PASS OFFICIAL v2.1.0 MacZip https://github.com/swiftbar/SwiftBar/releases/download/v2.1.0/SwiftBar.v2.1.0.b594.zip 2989039 54b425256f449dd90f8d167993cc65c3673bcd44d206e1aaf641a09fb58bc0da
+PASS NATIVE swiftbar install: SwiftBar installed: 2.1.0; package_bytes=2989039; elapsed=19.903s
+NATIVE ORIGIN swiftbar GitHub
+PASS OFFICIAL v2.1.1 MacZip https://github.com/swiftbar/SwiftBar/releases/download/v2.1.1/SwiftBar.v2.1.1.b597.zip 2991349 fcdec490782d6587046304044951c63de49ac422fc63892a6fab2dd7bc70c0cd
+PASS NATIVE swiftbar update: SwiftBar updated to 2.1.1; package_bytes=2991349; elapsed=6.861s
+PASS NATIVE swiftbar remove: SwiftBar was removed; package_bytes=0; elapsed=0.107s
+PASS NATIVE CYCLE swiftbar (v2.1.0 → v2.1.1), private Trash and synthetic data preserved

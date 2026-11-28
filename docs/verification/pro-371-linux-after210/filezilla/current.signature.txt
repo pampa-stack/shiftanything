@@ -1,0 +1,19 @@
+commit 908014e407e53fcccf046c66195a56eadb0f0748c7340a2fb37e444bee3854e4
+Parent:  6ee35c7a0448e9f732875902dc472fd5caa56a3291af036f9dd6c300b46db36a
+ContentChecksum:  6a020af282d767b1455ab728218506a584ea8f6a226be9d37a12c60b686ceef8
+Date:  2026-11-17 10:06:50 +0000
+
+    Merge pull request #154 from flathub/update-master-28d4cc4 (4d387bbbdec1)
+
+    Name: org.filezillaproject.Filezilla
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 17 21:22:20 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,19 @@
+/dev/disk7          	Apple_partition_scheme
+/dev/disk7s1        	Apple_partition_map
+/dev/disk7s2        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.8/mount
+COPY INSTALL
+/private/tmp/shift-mac-air-batch.abBQbN1k/profile-zotero.rGA1f3PI/staging/Zotero-10.0.8.app: accepted
+source=Notarized Developer ID
+PASS isolated copy Zotero 10.0.8
+/private/tmp/shift-mac-air-batch.abBQbN1k/profile-zotero.rGA1f3PI/Applications/Zotero.app: accepted
+source=Notarized Developer ID
+/dev/disk7          	Apple_partition_scheme
+/dev/disk7s1        	Apple_partition_map
+/dev/disk7s2        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.9/mount
+UPDATE
+/private/tmp/shift-mac-air-batch.abBQbN1k/profile-zotero.rGA1f3PI/staging/Zotero-10.0.9.app: accepted
+source=Notarized Developer ID
+PASS isolated copy Zotero 10.0.9
+/private/tmp/shift-mac-air-batch.abBQbN1k/profile-zotero.rGA1f3PI/Applications/Zotero.app: accepted
+source=Notarized Developer ID
+PASS isolated removal; synthetic user data preserved

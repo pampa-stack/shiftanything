@@ -656,5 +656,26 @@
     "file": "fleetdm-shot-0.png",
     "source": "https://raw.githubusercontent.com/fleetdm/fleet/main/docs/images/add-new-host-modal.png",
     "sha256": "97927cb747038f63419e0bd2746cd955163cf2581bd775f4b3f639732fee9e87"
+  },
+  {
+    "app": "grafana",
+    "key": "logo",
+    "file": "grafana-logo.png",
+    "source": "https://raw.githubusercontent.com/grafana/grafana/HEAD/public/img/grafana_icon.svg",
+    "sha256": "adf088f92a3a8771258df7af78dac0496a6eb33b752739aacbe5c857b9ecf1b5"
+  },
+  {
+    "app": "ragflow",
+    "key": "logo",
+    "file": "ragflow-logo.png",
+    "source": "https://raw.githubusercontent.com/infiniflow/ragflow/HEAD/web/public/logo.svg",
+    "sha256": "0e7795b6eeaacdee3623748844726229e68ff76143cc229749e99a27304364a8"
+  },
+  {
+    "app": "netnewswire",
+    "key": "shot-0",
+    "file": "netnewswire-shot-0.png",
+    "source": "https://netnewswire.com/images/NNW7-Light.png",
+    "sha256": "4c9e2b42bf3af10c3bcb9dd4cf26757d140800dfbfe81d0ac64dbe7eabce3125"
   }
 ]

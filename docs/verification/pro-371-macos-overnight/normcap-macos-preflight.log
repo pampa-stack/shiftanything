@@ -1,0 +1,26 @@
+2026-11-28T10:53:30+0100
+ARTIFACT 69ce59d6ac3fb6420d62b7fc2ac5bf703b5b34eec05ad319a41b1c2f979f9ee2 76008653 https://github.com/dynobo/normcap/releases/download/v0.6.0/NormCap-0.6.0-arm64-macOS.dmg
+BUNDLE=NormCap.app
+CFBundleIdentifier=eu.dynobo.normcap
+CFBundleShortVersionString=0.6.0
+CFBundleVersion=1
+CFBundleExecutable=NormCap
+LSMinimumSystemVersion=11.0
+<read-only mount>/NormCap.app/Contents/MacOS/NormCap: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+<read-only mount>/NormCap.app/Contents/MacOS/NormCap (for architecture x86_64):	Mach-O 64-bit executable x86_64
+<read-only mount>/NormCap.app/Contents/MacOS/NormCap (for architecture arm64):	Mach-O 64-bit executable arm64
+<read-only mount>/NormCap.app/Contents/MacOS/NormCap (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.5
+   ntools 1
+     tool LD
+  version 1053.12
+Identifier=eu.dynobo.normcap
+Format=app bundle with Mach-O universal (x86_64 arm64)
+TeamIdentifier=not set
+test-requirement: code failed to satisfy specified code requirement(s)
+RESULT normcap v0.6.0 3

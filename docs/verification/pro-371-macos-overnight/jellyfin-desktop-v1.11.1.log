@@ -1,0 +1,30 @@
+2026-11-28T09:13:05+0100
+/dev/disk3s5   239362496 171855856  26379120    87% 3194733 263791200    1%   /System/Volumes/Data
+ARTIFACT 6d5478a7eb457c0c842e3b4265f254d9504fe8e4c8bc5e49e59bf8c68d3cdfcd 182503420 https://github.com/jellyfin/jellyfin-desktop/releases/download/v1.11.1/JellyfinMediaPlayer-1.11.1-AppleSilicon.dmg
+BUNDLE=Jellyfin Media Player.app
+CFBundleIdentifier=tv.jellyfin.player
+CFBundleShortVersionString=1.11.1
+CFBundleVersion=1.11.1
+CFBundleExecutable=Jellyfin Media Player
+LSMinimumSystemVersion=10.9
+/private/tmp/shift-air-overnight.PNiYRjQQ/preflight/jellyfin-desktop/v1.11.1/mount/Jellyfin Media Player.app/Contents/MacOS/Jellyfin Media Player: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.PNiYRjQQ/preflight/jellyfin-desktop/v1.11.1/mount/Jellyfin Media Player.app/Contents/MacOS/Jellyfin Media Player (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.0
+   ntools 1
+     tool LD
+  version 1015.7
+Identifier=tv.jellyfin.player
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Anthony Lavado (6YC6EAV7ES)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=8 Jun 2024 at 04:56:08
+TeamIdentifier=6YC6EAV7ES
+/private/tmp/shift-air-overnight.PNiYRjQQ/preflight/jellyfin-desktop/v1.11.1/mount/Jellyfin Media Player.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT jellyfin-desktop v1.11.1

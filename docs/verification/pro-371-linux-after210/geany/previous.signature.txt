@@ -1,0 +1,19 @@
+commit d54993a583e5f24247648cc6da3af82f6ae437129b607657e86e20a924942d1e
+Parent:  53ff2a280739e51d9d861eb27ba1b123331fba4c67919e55fe93545333776dfc
+ContentChecksum:  8971f0ed4a0556b908790cf179e167a86d5a82af0e725ae0205e7937592e84d0
+Date:  2025-12-06 23:35:21 +0000
+
+    Update ide-first-run.txt and cppcheck (0acab746a425)
+
+    Name: org.geany.Geany
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Sun Dec  7 00:17:10 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,20 @@
+PASS OFFICIAL 10.0.8 Dmg https://download.zotero.org/client/release/10.0.8/Zotero-10.0.8.dmg 192345844 bf6192a0745ae67efbb7ff4e7f1953d8b78f5eed7083f4eefa12b762ecddcabe
+PASS OFFICIAL 10.0.9 Dmg https://download.zotero.org/client/release/10.0.9/Zotero-10.0.9.dmg 192346587 fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387
+PASS OFFICIAL 10.0.8 Dmg https://download.zotero.org/client/release/10.0.8/Zotero-10.0.8.dmg 192345844 bf6192a0745ae67efbb7ff4e7f1953d8b78f5eed7083f4eefa12b762ecddcabe
+PASS NATIVE install: Zotero installed: 10.0.8; transferred=192345844
+/private/tmp/shift-zotero-native-scratch.hHIrhmsk/home/Applications/Zotero.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Corporation for Digital Scholarship (8LAYR367YV)
+PASS SIGNATURE + PROFILE MARKER install 10.0.8
+PASS OFFICIAL 10.0.9 Dmg https://download.zotero.org/client/release/10.0.9/Zotero-10.0.9.dmg 192346587 fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387
+PASS NATIVE update: Zotero updated to 10.0.9; transferred=192346587
+/private/tmp/shift-zotero-native-scratch.hHIrhmsk/home/Applications/Zotero.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Corporation for Digital Scholarship (8LAYR367YV)
+PASS SIGNATURE + PROFILE MARKER update 10.0.9
+PASS NATIVE remove: Zotero was removed; transferred=0
+/private/tmp/shift-zotero-native-scratch.hHIrhmsk/home/.Trash/Zotero.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Corporation for Digital Scholarship (8LAYR367YV)
+PASS SIGNATURE + PROFILE MARKER remove 10.0.9
+CLEANUP /private/tmp/shift-zotero-native-scratch.hHIrhmsk exit=0

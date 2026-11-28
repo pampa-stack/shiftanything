@@ -1,0 +1,70 @@
+2026-11-28T11:41:32+00:00 parabolic AVAILABLE 24545931264
+parabolic before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+parabolic JobFinished: Ok("Flathub app installed")
+parabolic after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.5.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:41:41+00:00 parabolic current-install dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46
+/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46/export/share/applications/org.nickvision.tubeconverter.desktop
+/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46/export/share/icons/hicolor/scalable/apps/org.nickvision.tubeconverter.svg
+Updating app/org.nickvision.tubeconverter/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:42:03+00:00 parabolic previous f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d
+parabolic before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2026, minor: 4, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d", package: Some("org.nickvision.tubeconverter"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.4.1"), update_available: false, can_remove: false, can_open: true }
+parabolic JobFinished: Err("Approved action rejected: native installation state changed")
+parabolic JobFinished: Err("This Flatpak is managed outside the launcher")
+parabolic after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2026, minor: 4, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d", package: Some("org.nickvision.tubeconverter"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.4.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5784 comm="xfwm4 --compositor=off --display=:96" label="unconfined")
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5797 comm="flatpak run --user --command=sh app/org.nickvision" label="flatpak (unconfined)")
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=5797 comm="flatpak run --user --command=sh app/org.nickvision" label="flatpak (unconfined)")
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=5823 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+parabolic before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 4, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.4.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=5922 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[5445]: [session uid=1000 pid=5445] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=5941 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:5947): dbind-WARNING **: 11:42:04.436: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:5941): xdg-desktop-portal-WARNING **: 11:42:04.452: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5941): xdg-desktop-portal-WARNING **: 11:42:04.452: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5941): xdg-desktop-portal-WARNING **: 11:42:04.452: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:5941): xdg-desktop-portal-WARNING **: 11:42:04.458: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[5445]: [session uid=1000 pid=5445] Successfully activated service 'org.freedesktop.portal.Desktop'
+parabolic JobFinished: Ok("Launch request accepted")
+parabolic after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 4, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.4.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.nickvision.tubeconverter
+2026-11-28T11:42:20+00:00 parabolic previous GUI WM_NAME(STRING) = "Parabolic"
+WM_CLASS(STRING) = "org.nickvision.tubeconverter", "org.nickvision.tubeconverter"
+2026-11-28T11:42:20+00:00 parabolic AVAILABLE 23710629888
+parabolic before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 4, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/f634c9b62268a151d383926f8ff6351cdcd380e2097728875d1b52f158605f8d", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.4.1"), update_available: true, can_remove: true, can_open: true }
+parabolic JobFinished: Ok("Flathub app updated")
+parabolic after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.5.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T11:42:26+00:00 parabolic current dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46
+/home/qa/profiles/parabolic-after210/.var/app/org.nickvision.tubeconverter/fixture.txt: OK
+parabolic before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.5.0"), update_available: false, can_remove: true, can_open: true }
+parabolic JobFinished: Ok("Launch request accepted")
+parabolic after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.5.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.nickvision.tubeconverter
+2026-11-28T11:42:42+00:00 parabolic current GUI WM_NAME(STRING) = "Parabolic"
+WM_CLASS(STRING) = "org.nickvision.tubeconverter", "org.nickvision.tubeconverter"
+parabolic before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2026, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/parabolic-after210/data/flatpak/app/org.nickvision.tubeconverter/x86_64/stable/dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46", package: Some("org.nickvision.tubeconverter"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2026.5.0"), update_available: false, can_remove: true, can_open: true }
+parabolic JobFinished: Ok("Flathub app removed")
+parabolic after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/parabolic-after210/.var/app/org.nickvision.tubeconverter/fixture.txt: OK
+2026-11-28T11:42:43+00:00 parabolic PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T11:42:43+00:00 parabolic EXIT 0 remove
+
+(xfconfd:5809): xfconfd-WARNING **: 11:42:43.425: Name org.xfce.Xfconf lost on the message dbus, exiting.

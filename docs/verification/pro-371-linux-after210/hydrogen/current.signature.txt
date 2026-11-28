@@ -1,0 +1,19 @@
+commit 40cd2927af6be7590b573551243c07262eb1f5eef2c880ce4ad68f66137fdb8a
+Parent:  d105adf5096f7aabe379c546f893b38358da2ed1639d34047f1a72866d6c304c
+ContentChecksum:  29c05fe448774ac3871eda309534627aa2da40162ab105a4997ff33ade146e77
+Date:  2026-10-03 02:33:41 +0000
+
+    Update Hydrogen to 1.2.7 (47b0e87c6998)
+
+    Name: org.hydrogenmusic.Hydrogen
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Oct  3 03:00:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

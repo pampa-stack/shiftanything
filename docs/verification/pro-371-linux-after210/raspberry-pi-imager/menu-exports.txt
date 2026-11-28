@@ -1,0 +1,2 @@
+/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4/export/share/applications/org.raspberrypi.rpi-imager.desktop
+/home/qa/profiles/raspberry-pi-imager-after210/data/flatpak/app/org.raspberrypi.rpi-imager/x86_64/stable/bb0d6c273684a84787a9a2badf16e1d7e2002b7dbdf5d1108cd5308df66537d4/export/share/icons/hicolor/scalable/apps/org.raspberrypi.rpi-imager.svg

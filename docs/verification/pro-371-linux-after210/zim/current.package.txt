@@ -1,0 +1,20 @@
+
+Zim - Write notes in a desktop wiki
+
+          ID: org.zim_wiki.Zim
+         Ref: app/org.zim_wiki.Zim/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 0.77.2
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 49.5 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25
+      Parent: e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed
+     Subject: Use fallback-x11 instead of x11 and document flatpak-spawn access (ad3977566acb)
+        Date: 2026-10-27 12:34:10 +0000

@@ -1,0 +1,21 @@
+
+Speech Note - Notes with offline Speech to Text, Text to Speech and Machine
+Translation
+
+          ID: net.mkiol.SpeechNote
+         Ref: app/net.mkiol.SpeechNote/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.8.4
+     License: MPL-2.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 3.9 GB
+     Runtime: org.kde.Platform/x86_64/5.15-24.08
+         Sdk: org.kde.Sdk/x86_64/5.15-24.08
+
+      Commit: 00253bfe0ac61122ce13e1d53f5937a4e130c3775cc26abaf5c6ed8d1d3426fb
+      Parent: c0609db01a0b15dd685e4b6129b1d4ab041c4c7383d0f8454ffa81f69d346abd
+     Subject: Release 4.8.4 (#100) (77a7b501fffa)
+        Date: 2026-04-17 03:43:39 +0000

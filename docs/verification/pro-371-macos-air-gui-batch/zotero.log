@@ -1,0 +1,42 @@
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   166Gi    23Gi    88%    3.2M  239M    1%   /System/Volumes/Data
+zotero 10.0.8 bytes=192345844 sha256=bf6192a0745ae67efbb7ff4e7f1953d8b78f5eed7083f4eefa12b762ecddcabe
+/dev/disk7          	Apple_partition_scheme
+/dev/disk7s1        	Apple_partition_map
+/dev/disk7s2        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.8/mount
+BUNDLE=Zotero.app
+CFBundleIdentifier=org.zotero.zotero
+CFBundleShortVersionString=10.0.8
+CFBundleVersion=10.0.8
+LSMinimumSystemVersion=10.9.0
+x86_64 arm64
+    minos 11.0
+Identifier=org.zotero.zotero
+Authority=Developer ID Application: Corporation for Digital Scholarship (8LAYR367YV)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=8LAYR367YV
+PASS PREFLIGHT zotero 10.0.8
+/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.8/mount/Zotero.app: accepted
+source=Notarized Developer ID
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   167Gi    22Gi    89%    3.2M  232M    1%   /System/Volumes/Data
+zotero 10.0.9 bytes=192346587 sha256=fa42a04c33028ee020ccf47e64b3e135ce2fc57ba9a099e9f467f280ea56a387
+/dev/disk7          	Apple_partition_scheme
+/dev/disk7s1        	Apple_partition_map
+/dev/disk7s2        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.9/mount
+BUNDLE=Zotero.app
+CFBundleIdentifier=org.zotero.zotero
+CFBundleShortVersionString=10.0.9
+CFBundleVersion=10.0.9
+LSMinimumSystemVersion=10.9.0
+x86_64 arm64
+    minos 11.0
+Identifier=org.zotero.zotero
+Authority=Developer ID Application: Corporation for Digital Scholarship (8LAYR367YV)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=8LAYR367YV
+PASS PREFLIGHT zotero 10.0.9
+/private/tmp/shift-mac-air-batch.abBQbN1k/zotero/10.0.9/mount/Zotero.app: accepted
+source=Notarized Developer ID

@@ -1,0 +1,20 @@
+
+Audacious - Lightweight audio player
+
+          ID: org.atheme.audacious
+         Ref: app/org.atheme.audacious/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 4.6.1
+     License: BSD-2-Clause
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 16.5 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d
+      Parent: cb46de96e40ecae84385b2e5a060d4522bf52007f2431072bca84fb8a5f62801
+     Subject: Merge pull request #86 from flathub/update-runtime (283d65d9eceb)
+        Date: 2026-10-12 21:47:34 +0000

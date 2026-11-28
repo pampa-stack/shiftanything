@@ -1,0 +1,19 @@
+commit 1bca9c49e6722a3a0bb3b4787ffd9e129fb7dfd4978b88ace3c4ea59c5f75ce3
+Parent:  f7f96c5d2dfe9ad35a59c2c189143a5e304e273654e9c88dd459eb4c464e43d5
+ContentChecksum:  bb6c6462562795aa94a1cd6bb671fde79d34638f0cc51d23421911163e9cce06
+Date:  2026-11-25 15:17:57 +0000
+
+    Merge pull request #136 from Pragadesh-45/revert/v4.4.0 (ac012c92bf75)
+
+    Name: com.usebruno.Bruno
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 25 15:41:50 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

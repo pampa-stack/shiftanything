@@ -1,0 +1,20 @@
+
+GNU Octave - Scientific Programming Language
+
+          ID: org.octave.Octave
+         Ref: app/org.octave.Octave/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 11.3.0
+     License: GPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 550.7 MB
+     Runtime: org.kde.Sdk/x86_64/6.10
+         Sdk: org.kde.Sdk/x86_64/6.10
+
+      Commit: a37e6c8b9898ad580b4666407cb324fe8cd6e18dd1860fa811028b34575c577f
+      Parent: 475a1d58a15fb70519407398d01984eb1a14a50842e3abe7646cc78a4d96191f
+     Subject: Refactor the manifest to make it modular (#478) (08a74eb845ea)
+        Date: 2026-06-09 00:14:46 +0000

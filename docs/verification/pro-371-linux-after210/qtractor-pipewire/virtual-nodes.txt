@@ -1,0 +1,22 @@
+	id 29, type PipeWire:Interface:Node/3
+    object.serial = "29"
+    factory.id = "10"
+    priority.driver = "20000"
+    node.name = "Dummy-Driver"
+	id 30, type PipeWire:Interface:Node/3
+    object.serial = "30"
+    factory.id = "10"
+    priority.driver = "19000"
+    node.name = "Freewheel-Driver"
+	id 31, type PipeWire:Interface:Node/3
+    object.serial = "31"
+    factory.id = "18"
+    node.description = "Shift QA Output"
+    node.name = "shift-qa-output"
+    media.class = "Audio/Sink"
+	id 32, type PipeWire:Interface:Node/3
+    object.serial = "32"
+    factory.id = "18"
+    node.description = "Shift QA Input"
+    node.name = "shift-qa-input"
+    media.class = "Audio/Source/Virtual"

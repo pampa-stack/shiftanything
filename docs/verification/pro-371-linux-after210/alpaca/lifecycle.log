@@ -1,0 +1,73 @@
+2026-11-28T13:06:41+00:00 alpaca AVAILABLE 54456926208
+alpaca before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+alpaca JobFinished: Ok("Flathub app installed")
+alpaca after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:09:02+00:00 alpaca current-install ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb
+/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb/export/share/applications/com.jeffser.Alpaca.desktop
+/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb/export/share/icons/hicolor/512x512/apps/com.jeffser.Alpaca.png
+/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb/export/share/icons/hicolor/scalable/apps/com.jeffser.Alpaca.svg
+Updating app/com.jeffser.Alpaca/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:09:09+00:00 alpaca previous 8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb
+alpaca before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb", package: Some("com.jeffser.Alpaca"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.4"), update_available: false, can_remove: false, can_open: true }
+alpaca JobFinished: Err("Approved action rejected: native installation state changed")
+alpaca JobFinished: Err("This Flatpak is managed outside the launcher")
+alpaca after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb", package: Some("com.jeffser.Alpaca"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=8001 comm="xfwm4 --compositor=on --display=:71" label="unconfined")
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=8014 comm="flatpak run --user --command=sh app/com.jeffser.Al" label="flatpak (unconfined)")
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=8014 comm="flatpak run --user --command=sh app/com.jeffser.Al" label="flatpak (unconfined)")
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=8040 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+alpaca before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.4"), update_available: true, can_remove: true, can_open: true }
+alpaca JobFinished: Ok("Launch request accepted")
+alpaca after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.4"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=8153 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[5271]: [session uid=1000 pid=5271] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=8308 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:8320): dbind-WARNING **: 13:09:13.731: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:8308): xdg-desktop-portal-WARNING **: 13:09:13.746: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:8308): xdg-desktop-portal-WARNING **: 13:09:13.747: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:8308): xdg-desktop-portal-WARNING **: 13:09:13.747: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:8308): xdg-desktop-portal-WARNING **: 13:09:13.752: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[5271]: [session uid=1000 pid=5271] Successfully activated service 'org.freedesktop.portal.Desktop'
+  Map State: IsViewable
+com.jeffser.Alpaca
+2026-11-28T13:09:22+00:00 alpaca previous GUI WM_NAME(STRING) = "Alpaca"
+WM_CLASS(STRING) = "Alpaca", "Alpaca"
+2026-11-28T13:09:22+00:00 alpaca AVAILABLE 40072048640
+alpaca before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.4"), update_available: true, can_remove: true, can_open: true }
+alpaca JobFinished: Ok("Flathub app updated")
+alpaca after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:09:26+00:00 alpaca current ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb
+/home/qa/profiles/alpaca-composited/.var/app/com.jeffser.Alpaca/fixture.txt: OK
+alpaca before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.5"), update_available: false, can_remove: true, can_open: true }
+alpaca JobFinished: Ok("Launch request accepted")
+alpaca after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.5"), update_available: false, can_remove: true, can_open: true })
+
+(/usr/libexec/xdg-desktop-portal:8308): xdg-desktop-portal-WARNING **: 13:09:31.044: Realtime error: Could not map tid: Process ids could not be found: 44
+  Map State: IsViewable
+com.jeffser.Alpaca
+2026-11-28T13:09:37+00:00 alpaca current GUI WM_NAME(STRING) = "Alpaca"
+WM_CLASS(STRING) = "Alpaca", "Alpaca"
+alpaca before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 2, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/alpaca-composited/data/flatpak/app/com.jeffser.Alpaca/x86_64/stable/ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb", package: Some("com.jeffser.Alpaca"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.2.5"), update_available: false, can_remove: true, can_open: true }
+alpaca JobFinished: Ok("Flathub app removed")
+alpaca after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/alpaca-composited/.var/app/com.jeffser.Alpaca/fixture.txt: OK
+2026-11-28T13:09:40+00:00 alpaca PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:09:42+00:00 alpaca EXIT 0 remove
+
+(xfconfd:8026): xfconfd-WARNING **: 13:09:42.402: Name org.xfce.Xfconf lost on the message dbus, exiting.

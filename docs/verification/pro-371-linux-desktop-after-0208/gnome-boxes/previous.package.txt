@@ -1,0 +1,20 @@
+
+Boxes - Virtualization made simple
+
+          ID: org.gnome.Boxes
+         Ref: app/org.gnome.Boxes/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 49.1
+     License: LGPL-2.1+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 337.9 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf
+      Parent: 9165392f7623ced1ec202ba68497f766008ed69bab8d00372cb09185b613cf8a
+     Subject: gnome-boxes: Update gnome-boxes-49.0.tar.xz to 49.1 (735028fed147)
+        Date: 2025-11-24 18:47:20 +0000

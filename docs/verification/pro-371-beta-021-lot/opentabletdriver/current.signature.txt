@@ -1,0 +1,19 @@
+commit f7b35a433fdc9220fa891638feb4a67beedb2fc97ac75bc72ea45e1af3202caa
+Parent:  3430942c518b36ca2ec3f89c8e9f3b1c7bfac5ba812d0ee7b370cfb2b9f07d82
+ContentChecksum:  9a68a1224045a50a3392f5a61da57dc2506f1ed7145527311f65a8df4e793d3d
+Date:  2026-10-30 01:40:51 +0000
+
+    Merge pull request #59 from Kuuuube/update-requires-recommends-supports (6ba9686ee170)
+
+    Name: net.opentabletdriver.OpenTabletDriver
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct 30 03:15:59 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,2 @@
+/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d/export/share/applications/ch.openboard.OpenBoard.desktop
+/home/qa/profiles/openboard-canonical/data/flatpak/app/ch.openboard.OpenBoard/x86_64/stable/021919476e49bfa06ae98a543ee14a4cc4f79c7d9c15d8393bd9c413c3bf9c8d/export/share/icons/hicolor/scalable/apps/ch.openboard.OpenBoard.svg

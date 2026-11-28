@@ -40,10 +40,13 @@ fn the_command_line_is_the_single_app_route_with_the_same_parts() {
     let (package, log) = (resolved.display().to_string(), resolved.with_extension("log").display().to_string());
     let folder = Path::new(r"C:\Program Files\ArtCraft\CADCraft");
 
-    let all_users = line(&msi, Some(folder), Some(MsiScope::PerMachine)).unwrap();
+    let all_users = line("cadcraft", &msi, Some(folder), Some(MsiScope::PerMachine)).unwrap();
     assert_eq!(all_users, format!("/i \"{package}\" /passive /norestart /l*v \"{log}\" INSTALLFOLDER=\"{}\" ALLUSERS=1", folder.display()));
     // No folder and no scope: only the package and the log.
-    assert_eq!(line(&msi, None, None).unwrap(), format!("/i \"{package}\" /passive /norestart /l*v \"{log}\""));
+    assert_eq!(line("cadcraft", &msi, None, None).unwrap(), format!("/i \"{package}\" /passive /norestart /l*v \"{log}\""));
+    let office = Path::new(r"C:\Program Files\LibreOffice");
+    let tdf = line("libreoffice", &msi, Some(office), Some(MsiScope::PerMachine)).unwrap();
+    assert_eq!(tdf, format!("/i \"{package}\" /passive /norestart /l*v \"{log}\" INSTALLLOCATION=\"{}\" ALLUSERS=1", office.display()));
     // The same package, as the single-app route builds it.
     let single = crate::install::msi_command(Path::new("msiexec.exe"), &msi).unwrap();
     let args: Vec<String> = single.get_args().map(|a| a.to_string_lossy().into_owned()).collect();
@@ -56,7 +59,7 @@ fn a_path_that_could_break_out_of_the_quotes_is_refused() {
     let msi = dir.path().join("a.msi");
     std::fs::write(&msi, b"x").unwrap();
     for folder in ["C:\\a\"b", "C:\\a\nb"] {
-        assert!(line(&msi, Some(Path::new(folder)), Some(MsiScope::PerMachine)).is_err(), "{folder:?}");
+        assert!(line("cadcraft", &msi, Some(Path::new(folder)), Some(MsiScope::PerMachine)).is_err(), "{folder:?}");
     }
 }
 

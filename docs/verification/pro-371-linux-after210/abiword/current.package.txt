@@ -1,0 +1,20 @@
+
+AbiWord - A word processor
+
+          ID: com.abisource.AbiWord
+         Ref: app/com.abisource.AbiWord/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 3.0.8
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 56.0 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: 6d584181df8e23914ddc2113b4b043a4a0f6581ecf29dcff2c6aeb2bca162cd6
+      Parent: c7154f2a7a0d2f0760a54996ec926fd5adc223795d32b3b35b34bfe3ff9a8da6
+     Subject: gsf: Update libgsf-1.14.59.tar.xz to 1.14.60 (3d6c499b6c30)
+        Date: 2026-10-01 13:36:34 +0000

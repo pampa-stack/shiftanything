@@ -1,0 +1,32 @@
+2026-11-28T15:44:34+0100
+/dev/disk3s5   239362496 174597060  23637864    89% 3239237 236378640    1%   /System/Volumes/Data
+ARTIFACT 78187b1d529e1fcf78fba658f8f63333ed9cf6c86a84403eddb380cfecba9c56 10734508 https://github.com/lzhgus/Capso/releases/download/v1.2.11/Capso-1.2.11.dmg
+BUNDLE=Capso.app
+CFBundleIdentifier=com.awesomemacapps.capso
+CFBundleShortVersionString=1.2.11
+CFBundleVersion=72
+CFBundleExecutable=Capso
+LSMinimumSystemVersion=15.0
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/capso/v1.2.11/mount/Capso.app/Contents/MacOS/Capso: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/capso/v1.2.11/mount/Capso.app/Contents/MacOS/Capso (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/capso/v1.2.11/mount/Capso.app/Contents/MacOS/Capso (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/capso/v1.2.11/mount/Capso.app/Contents/MacOS/Capso (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 15.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=com.awesomemacapps.capso
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Zhihao Li (T247WTJV77)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=26 Nov 2026 at 03:45:00
+TeamIdentifier=T247WTJV77
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/capso/v1.2.11/mount/Capso.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT capso v1.2.11

@@ -1,0 +1,19 @@
+commit fa60a43e2b09b9e1e6068cac487423dbccea1337cc11f45c87423579fddd9955
+Parent:  44bed91b880bfcc9f44e70233ffb44ec8e5878716c6156f50ae9947d974be48e
+ContentChecksum:  c22425cdf52a079c3bcf12a123fd86a049775063b9b2e0a652fd40a91b41920c
+Date:  2026-07-26 15:37:46 +0000
+
+    Update fluidsynth to 2.5.7 (e344b20dcd29)
+
+    Name: studio.kx.carla
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Jul 26 16:00:49 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

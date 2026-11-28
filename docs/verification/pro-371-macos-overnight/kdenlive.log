@@ -1,0 +1,75 @@
+2026-11-28T00:18:30+0100
+ARTIFACT ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac 144286250 https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-arm64.dmg
+BUNDLE=kdenlive.app
+CFBundleIdentifier=org.kde.Kdenlive
+CFBundleShortVersionString=26.08
+CFBundleVersion=26.08.2
+CFBundleExecutable=kdenlive
+LSMinimumSystemVersion=13.0.0
+<scratch>/preflight/kdenlive/26.08.2/mount/kdenlive.app/Contents/MacOS/kdenlive: Mach-O 64-bit executable arm64
+<scratch>/preflight/kdenlive/26.08.2/mount/kdenlive.app/Contents/MacOS/kdenlive (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.3
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.kde.Kdenlive
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: K Desktop Environment e.V. (5433B4KXM8)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=13 Oct 2026 at 16:18:00
+TeamIdentifier=5433B4KXM8
+<scratch>/preflight/kdenlive/26.08.2/mount/kdenlive.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT kdenlive 26.08.2
+2026-11-28T00:18:30+0100
+ARTIFACT 22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e 141459245 https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.3-arm64.dmg
+BUNDLE=kdenlive.app
+CFBundleIdentifier=org.kde.Kdenlive
+CFBundleShortVersionString=26.08
+CFBundleVersion=26.08.3
+CFBundleExecutable=kdenlive
+LSMinimumSystemVersion=13.0.0
+<scratch>/preflight/kdenlive/26.08.3/mount/kdenlive.app/Contents/MacOS/kdenlive: Mach-O 64-bit executable arm64
+<scratch>/preflight/kdenlive/26.08.3/mount/kdenlive.app/Contents/MacOS/kdenlive (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.3
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=org.kde.Kdenlive
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: K Desktop Environment e.V. (5433B4KXM8)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=6 Nov 2026 at 15:40:52
+TeamIdentifier=5433B4KXM8
+<scratch>/preflight/kdenlive/26.08.3/mount/kdenlive.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT kdenlive 26.08.3
+PASS PREFLIGHT kdenlive 26.08.2
+PASS PREFLIGHT kdenlive 26.08.3
+OFFICIAL INDEX kdenlive 26.08.2 digest=published
+OFFICIAL INDEX kdenlive 26.08.3 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 26.08.2 Dmg https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-arm64.dmg 144286250 ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac
+PASS OFFICIAL 26.08.3 Dmg https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.3-arm64.dmg 141459245 22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e
+NATIVE ORIGIN kdenlive Kdenlive
+PASS OFFICIAL 26.08.2 Dmg https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.2-arm64.dmg 144286250 ffcbff6d6e6651fe7a7cd2b00cb7304c8ef049da8287c389dbda146d5e8928ac
+PASS NATIVE kdenlive install: Kdenlive installed: 26.8.2; package_bytes=144286250; elapsed=61.310s
+NATIVE ORIGIN kdenlive Kdenlive
+PASS OFFICIAL 26.08.3 Dmg https://cdn.download.kde.org/stable/kdenlive/26.08/macOS/kdenlive-26.08.3-arm64.dmg 141459245 22b385f1e2e5bf45c5bb6954bd58a97db34cead219a9a9ae6faa499f0096d71e
+PASS NATIVE kdenlive update: Kdenlive updated to 26.8.3; package_bytes=141459245; elapsed=62.779s
+PASS NATIVE kdenlive remove: Kdenlive was removed; package_bytes=0; elapsed=0.085s
+PASS NATIVE CYCLE kdenlive (26.08.2 → 26.08.3), private Trash and synthetic data preserved

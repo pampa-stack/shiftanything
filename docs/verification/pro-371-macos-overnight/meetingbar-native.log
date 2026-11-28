@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v4.11.6 Dmg https://github.com/leits/MeetingBar/releases/download/v4.11.6/MeetingBar.dmg 11294412 4f19af496d4ff44b9b0ee02be02bc76207f3e365a7f9e77c7219a08c607838d7
+PASS OFFICIAL v5.0.0 Dmg https://github.com/leits/MeetingBar/releases/download/v5.0.0/MeetingBar.dmg 8210845 26d4759f73f429c2aa93d225704bf85cdde8b1c035c12aadeb63d4dddbdae1e4
+NATIVE ORIGIN meetingbar GitHub
+PASS OFFICIAL v4.11.6 Dmg https://github.com/leits/MeetingBar/releases/download/v4.11.6/MeetingBar.dmg 11294412 4f19af496d4ff44b9b0ee02be02bc76207f3e365a7f9e77c7219a08c607838d7
+PASS NATIVE meetingbar install: MeetingBar installed: 4.11.6; package_bytes=11294412; elapsed=25.591s
+/private/tmp/shift-air-overnight.mQkz2euq/profile-meetingbar.rlRCMAJq/Applications/MeetingBar.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Andrii Leitsius (KGH289N6T8)
+4.11.6
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN meetingbar GitHub
+PASS OFFICIAL v5.0.0 Dmg https://github.com/leits/MeetingBar/releases/download/v5.0.0/MeetingBar.dmg 8210845 26d4759f73f429c2aa93d225704bf85cdde8b1c035c12aadeb63d4dddbdae1e4
+PASS NATIVE meetingbar update: MeetingBar updated to 5.0.1; package_bytes=8210845; elapsed=7.805s
+/private/tmp/shift-air-overnight.mQkz2euq/profile-meetingbar.rlRCMAJq/Applications/MeetingBar.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Andrii Leitsius (KGH289N6T8)
+5.0.1
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE meetingbar remove: MeetingBar was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE meetingbar (4.11.6 → 5.0.1), private Trash and synthetic data preserved

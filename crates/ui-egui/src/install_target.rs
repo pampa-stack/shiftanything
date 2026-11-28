@@ -20,7 +20,7 @@ use crate::model::AppEntry;
 fn platform_kinds(os: Os) -> &'static [PackageKind] {
     match os {
         Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-        Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg],
+        Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
         Os::FreeBsd => &[PackageKind::TarGz],
         Os::Linux => &[],
     }
@@ -49,7 +49,7 @@ fn fresh_kinds(app: &CraftApp, os: Os, preferred: &[PackageKind]) -> Vec<Package
 
 /// The format the copy that's there was installed as, where the UI can tell: on Windows an MSI is
 /// found in the registry and anything the launcher records is its portable ZIP (MSI installs
-/// leave no record); on macOS every copy is the DMG's app; an AppImage found on Linux is one.
+/// leave no record); on macOS every copy is an app bundle; an AppImage found on Linux is one.
 /// What the launcher put on Linux (an AppImage or a tarball) it alone knows.
 fn installed_kind(app: &CraftApp, os: Os, source: InstallSource) -> Option<PackageKind> {
     match (os, source) {

@@ -1,0 +1,34 @@
+Ubuntu 24.04 amd64, disposable AX42 QEMU guest
+libfuse2t64:amd64	2.9.9-8.1build1
+OFFICIAL https://github.com/pingdotgg/t3code/releases/download/v0.1.12/T3-Code-x86_64.AppImage bytes=255860306 sha256=66b91551571df6d29b55cb590295edf411cff96c95a8feb3f41c3ca595d722e2
+FILE /home/qa/profile-t3code-native-appimage-final/Applications/T3-Code-x86_64.AppImage version=0.1.12 bytes=255860306 sha256=66b91551571df6d29b55cb590295edf411cff96c95a8feb3f41c3ca595d722e2
+DESKTOP /home/qa/profile-t3code-native-appimage-final/data/applications/t3code.desktop ICON /home/qa/profile-t3code-native-appimage-final/data/icons/hicolor/128x128/apps/t3code.png sha256=01aa3b46d5eb65276068b6b8ab435605f23115dec158b180354ff9a764547aa5
+PASS t3code install 16997 ms T3 Code installed: 0.1.12
+PASS t3code open-old 0 ms Launch request accepted
+T3 Code (Beta)
+Window 4194307
+  Position: 90,60 (screen: 0)
+  Geometry: 1100x780
+WM_CLASS(STRING) = "com.t3tools.t3code", "com.t3tools.T3Code"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+OFFICIAL https://github.com/pingdotgg/t3code/releases/download/v0.1.13/T3-Code-x86_64.AppImage bytes=256003692 sha256=dac1bbe9e93c1a5fb0942332befa998597f6a086232a87766ef5d8235a44f56d
+DISCOVERY GitHubApi
+FILE /home/qa/profile-t3code-native-appimage-final/Applications/T3-Code-x86_64.AppImage version=0.1.13 bytes=256003692 sha256=dac1bbe9e93c1a5fb0942332befa998597f6a086232a87766ef5d8235a44f56d
+DESKTOP /home/qa/profile-t3code-native-appimage-final/data/applications/t3code.desktop ICON /home/qa/profile-t3code-native-appimage-final/data/icons/hicolor/128x128/apps/t3code.png sha256=01aa3b46d5eb65276068b6b8ab435605f23115dec158b180354ff9a764547aa5
+PASS t3code update 9901 ms T3 Code updated to 0.1.13
+PASS t3code open-new 0 ms Launch request accepted
+T3 Code (Beta)
+Window 4194307
+  Position: 90,60 (screen: 0)
+  Geometry: 1100x780
+WM_CLASS(STRING) = "com.t3tools.t3code", "com.t3tools.T3Code"
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+    lo:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+PASS t3code remove 80 ms T3 Code was removed
+2026-11-27T19:12:46+00:00	DISK AVAILABLE 27447054336
+2026-11-27T19:13:11+00:00	GUI OFFLINE open-old
+2026-11-27T19:13:59+00:00	GUI OFFLINE open-new
+2026-11-27T19:13:59+00:00	PASS NATIVE APPIMAGE PACKAGE AND GUI CYCLE; DATA PRESERVED

@@ -1,0 +1,90 @@
+2026-11-28T04:38:33+00:00 calibre AVAILABLE 27406987264
+calibre before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+calibre JobFinished: Ok("Flathub app installed")
+calibre after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 18, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.18.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T04:39:14+00:00 calibre current-install c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/applications/com.calibre_ebook.calibre.desktop
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/128x128/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/16x16/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/256x256/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/32x32/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/48x48/apps/com.calibre_ebook.calibre.png
+/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af/export/share/icons/hicolor/64x64/apps/com.calibre_ebook.calibre.png
+Updating app/com.calibre_ebook.calibre/x86_64/stable
+
+Note that '/home/qa/profiles/calibre-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/calibre-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T04:39:16+00:00 calibre previous 8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac
+calibre before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 17, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac", package: Some("com.calibre_ebook.calibre"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.17.0"), update_available: false, can_remove: false, can_open: true }
+calibre JobFinished: Err("Approved action rejected: native installation state changed")
+calibre JobFinished: Err("This Flatpak is managed outside the launcher")
+calibre after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 9, minor: 17, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac", package: Some("com.calibre_ebook.calibre"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.17.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=8606 comm="xfwm4 --compositor=off --display=:89" label="unconfined")
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=8620 comm="flatpak run --user --command=sh app/com.calibre_eb" label="flatpak (unconfined)")
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=8620 comm="flatpak run --user --command=sh app/com.calibre_eb" label="flatpak (unconfined)")
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=8646 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+calibre before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 17, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.17.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=8745 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[8156]: [session uid=1000 pid=8156] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=8753 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:8760): dbind-WARNING **: 04:39:17.845: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:8753): xdg-desktop-portal-WARNING **: 04:39:17.860: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:8753): xdg-desktop-portal-WARNING **: 04:39:17.860: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:8753): xdg-desktop-portal-WARNING **: 04:39:17.860: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00907.932316] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00907.932356] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:8753): xdg-desktop-portal-WARNING **: 04:39:17.864: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[8156]: [session uid=1000 pid=8156] Successfully activated service 'org.freedesktop.portal.Desktop'
+calibre JobFinished: Ok("Launch request accepted")
+calibre after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 17, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.17.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.calibre_ebook.calibre
+2026-11-28T04:39:32+00:00 calibre previous GUI WM_NAME(COMPOUND_TEXT) = "calibre — || Calibre Library ||"
+WM_CLASS(STRING) = "calibre-gui", "calibre"
+2026-11-28T04:39:32+00:00 calibre AVAILABLE 24526880768
+calibre before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 17, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/8ae010ee52f70f3dfda5183cc4cefb88f19491cb7347370802b6831881495aac", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.17.0"), update_available: true, can_remove: true, can_open: true }
+calibre JobFinished: Ok("Flathub app updated")
+calibre after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 18, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.18.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T04:39:36+00:00 calibre current c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af
+/home/qa/profiles/calibre-after210/.var/app/com.calibre_ebook.calibre/fixture.txt: OK
+calibre before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 18, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.18.0"), update_available: false, can_remove: true, can_open: true }
+calibre JobFinished: Ok("Launch request accepted")
+calibre after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 18, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.18.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.calibre_ebook.calibre
+2026-11-28T04:39:47+00:00 calibre current GUI WM_NAME(COMPOUND_TEXT) = "calibre — || Calibre Library ||"
+WM_CLASS(STRING) = "calibre-gui", "calibre"
+/home/qa/profiles/calibre-after210/Calibre Library/John Schember/Quick Start Guide (1)/Quick Start Guide - John Schember.epub: OK
+calibre before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 9, minor: 18, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/calibre-after210/data/flatpak/app/com.calibre_ebook.calibre/x86_64/stable/c3727fb1962e40ab53668185b67a8b16544f0e2dbbd6999fdc5313209901e9af", package: Some("com.calibre_ebook.calibre"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("9.18.0"), update_available: false, can_remove: true, can_open: true }
+calibre JobFinished: Ok("Flathub app removed")
+calibre after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/calibre-after210/.var/app/com.calibre_ebook.calibre/fixture.txt: OK
+/home/qa/profiles/calibre-after210/Calibre Library/John Schember/Quick Start Guide (1)/Quick Start Guide - John Schember.epub: OK
+2026-11-28T04:39:47+00:00 calibre PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T04:39:48+00:00 calibre EXIT 0 remove
+
+(xfconfd:8632): xfconfd-WARNING **: 04:39:48.855: Name org.xfce.Xfconf lost on the message dbus, exiting.

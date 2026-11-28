@@ -1,0 +1,19 @@
+commit 007a658add1bdb00c098ce18ad3490163444cb402ab563059e10bc7eab75d9ee
+Parent:  47e961bc89a06a505789d6e795bc859bec6c5807c2d9ed529a342975d41d5cd5
+ContentChecksum:  82c45b0914910aae2226019f7d5dcdbb175ea807b7b65cf1761dc78c69cdf0f0
+Date:  2026-07-24 20:47:55 +0000
+
+    Update to runtime 6.11 (81c6e6aae6fa)
+
+    Name: org.frescobaldi.Frescobaldi
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Jul 24 21:01:37 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

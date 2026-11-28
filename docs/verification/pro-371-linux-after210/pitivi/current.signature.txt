@@ -1,0 +1,19 @@
+commit 39629494e74be36c78c403561715d26a49ff814546913fc3d503cf507c4917a3
+Parent:  a2a5564c0eed9a28d283b72ff271c2dbbd08cc336007f00ed328c848b602f9ae
+ContentChecksum:  d02f1d75841fb1fedecb821e5d942d551e4d89138ad4186ff9e83008b91cf07d
+Date:  2026-10-28 07:57:03 +0000
+
+    Update certifi to 2026.10.19 (#50) (5d991506045d)
+
+    Name: org.pitivi.Pitivi
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 28 09:24:23 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

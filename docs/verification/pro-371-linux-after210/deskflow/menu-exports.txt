@@ -1,0 +1,2 @@
+/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d/export/share/applications/org.deskflow.deskflow.desktop
+/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d/export/share/icons/hicolor/512x512/apps/org.deskflow.deskflow.png

@@ -1,0 +1,20 @@
+
+Deskflow - Software Keyboard and mouse sharing
+
+          ID: org.deskflow.deskflow
+         Ref: app/org.deskflow.deskflow/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.26.0
+     License: GPL-2.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 6.6 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380
+      Parent: de009819b1d5f650651b860d332525a7b8a28d01cf43e8b839c3caed5002ef06
+     Subject: libportal: Update 0.10.0.tar.gz to 0.11.0 (9f727e981c2e)
+        Date: 2026-09-12 16:39:35 +0000

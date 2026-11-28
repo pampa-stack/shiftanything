@@ -1,0 +1,72 @@
+2026-11-27T23:01:21+00:00 bazaar AVAILABLE 26678415360
+bazaar before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+bazaar JobFinished: Ok("Flathub app installed")
+bazaar after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:15+00:00 bazaar current-install ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f
+/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f/export/share/applications/io.github.kolunmi.Bazaar.desktop
+/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f/export/share/icons/hicolor/scalable/apps/io.github.kolunmi.Bazaar.svg
+Updating app/io.github.kolunmi.Bazaar/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:18+00:00 bazaar previous ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c
+bazaar before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c", package: Some("io.github.kolunmi.Bazaar"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.10"), update_available: false, can_remove: false, can_open: true }
+bazaar JobFinished: Err("Approved action rejected: native installation state changed")
+bazaar JobFinished: Err("This Flatpak is managed outside the launcher")
+bazaar after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c", package: Some("io.github.kolunmi.Bazaar"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.10"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=68779 comm="xfwm4 --compositor=off --display=:97" label="unconfined")
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=68792 comm="flatpak run --user --command=sh app/io.github.kolu" label="flatpak (unconfined)")
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=68792 comm="flatpak run --user --command=sh app/io.github.kolu" label="flatpak (unconfined)")
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=68819 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+bazaar before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.10"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=68941 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[67539]: [session uid=1000 pid=67539] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=68990 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:68998): dbind-WARNING **: 23:02:23.115: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:68990): xdg-desktop-portal-WARNING **: 23:02:23.137: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:68990): xdg-desktop-portal-WARNING **: 23:02:23.138: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:68990): xdg-desktop-portal-WARNING **: 23:02:23.138: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03388.404741] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03388.404793] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:68990): xdg-desktop-portal-WARNING **: 23:02:23.147: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[67539]: [session uid=1000 pid=67539] Successfully activated service 'org.freedesktop.portal.Desktop'
+bazaar JobFinished: Ok("Launch request accepted")
+bazaar after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.10"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.kolunmi.Bazaar
+2026-11-27T23:02:32+00:00 bazaar previous GUI WM_NAME(STRING) = "Bazaar"
+WM_CLASS(STRING) = "bazaar", "bazaar"
+2026-11-27T23:02:32+00:00 bazaar AVAILABLE 18620358656
+bazaar before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 9, patch: 10 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ce476062e01cdc5646b89e4a106849e1cfadc5a17f56b4e87237190e7d49257c", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.9.10"), update_available: true, can_remove: true, can_open: true }
+bazaar JobFinished: Ok("Flathub app updated")
+bazaar after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.10.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T23:02:34+00:00 bazaar current ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f
+/home/qa/profiles/bazaar/.var/app/io.github.kolunmi.Bazaar/fixture.txt: OK
+bazaar before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.10.0"), update_available: false, can_remove: true, can_open: true }
+bazaar JobFinished: Ok("Launch request accepted")
+bazaar after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.10.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.kolunmi.Bazaar
+2026-11-27T23:02:44+00:00 bazaar current GUI WM_NAME(STRING) = "Bazaar"
+WM_CLASS(STRING) = "bazaar", "bazaar"
+bazaar before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 10, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/bazaar/data/flatpak/app/io.github.kolunmi.Bazaar/x86_64/stable/ed23800cbe353b840929a1228374b4f1c45a832cef35bb21d20a386e568cdd2f", package: Some("io.github.kolunmi.Bazaar"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.10.0"), update_available: false, can_remove: true, can_open: true }
+bazaar JobFinished: Ok("Flathub app removed")
+bazaar after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/bazaar/.var/app/io.github.kolunmi.Bazaar/fixture.txt: OK
+2026-11-27T23:02:45+00:00 bazaar PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T23:02:46+00:00 bazaar EXIT 0 remove
+
+(xfconfd:68804): xfconfd-WARNING **: 23:02:46.369: Name org.xfce.Xfconf lost on the message dbus, exiting.

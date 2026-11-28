@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v2.1.5-1 Dmg https://github.com/syncthing/syncthing-macos/releases/download/v2.1.5-1/Syncthing-2.1.5-1.dmg 28061360 50903a2a6221856e1c36e3c5c5ff39e897053d29aa1f685ad576622c93069e88
+PASS OFFICIAL v2.1.6-1 Dmg https://github.com/syncthing/syncthing-macos/releases/download/v2.1.6-1/Syncthing-2.1.6-1.dmg 28069114 f81d091bb19c42b3bb7a2fda9e80f1794cdb27fadb18b094b0c99b53ef571e2d
+NATIVE ORIGIN syncthing-macos GitHub
+PASS OFFICIAL v2.1.5-1 Dmg https://github.com/syncthing/syncthing-macos/releases/download/v2.1.5-1/Syncthing-2.1.5-1.dmg 28061360 50903a2a6221856e1c36e3c5c5ff39e897053d29aa1f685ad576622c93069e88
+PASS NATIVE syncthing-macos install: Syncthing for macOS installed: 2.1.5; package_bytes=28061360; elapsed=25.856s
+2.1.5-1
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+/private/tmp/shift-air-overnight.5kVCoTMQ/profile-syncthing.FruLryh6/Applications/Syncthing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kastelo AB (LQE5SYM783)
+NATIVE ORIGIN syncthing-macos GitHub
+PASS OFFICIAL v2.1.6-1 Dmg https://github.com/syncthing/syncthing-macos/releases/download/v2.1.6-1/Syncthing-2.1.6-1.dmg 28069114 f81d091bb19c42b3bb7a2fda9e80f1794cdb27fadb18b094b0c99b53ef571e2d
+PASS NATIVE syncthing-macos update: Syncthing for macOS updated to 2.1.6; package_bytes=28069114; elapsed=9.881s
+2.1.6-1
+/private/tmp/shift-air-overnight.5kVCoTMQ/profile-syncthing.FruLryh6/Applications/Syncthing.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Kastelo AB (LQE5SYM783)
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+PASS NATIVE syncthing-macos remove: Syncthing for macOS was removed; package_bytes=0; elapsed=0.070s
+PASS NATIVE CYCLE syncthing-macos (2.1.5-1 → 2.1.6-1), private Trash and synthetic data preserved

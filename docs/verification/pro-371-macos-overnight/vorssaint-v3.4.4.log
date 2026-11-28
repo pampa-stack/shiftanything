@@ -1,0 +1,30 @@
+2026-11-28T15:48:29+0100
+/dev/disk3s5   239362496 174590548  23644376    89% 3239251 236443760    1%   /System/Volumes/Data
+ARTIFACT 952582444fe60d460a0453dea7392a5b6641d98c79d60e98f9f25d323bdb47d3 28244392 https://github.com/vorssaint/vorssaint-utils/releases/download/v3.4.4/Vorssaint-3.4.4.dmg
+BUNDLE=Vorssaint.app
+CFBundleIdentifier=com.vorssaint.utils
+CFBundleShortVersionString=3.4.4
+CFBundleVersion=106
+CFBundleExecutable=Vorssaint
+LSMinimumSystemVersion=14.0
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/vorssaint/v3.4.4/mount/Vorssaint.app/Contents/MacOS/Vorssaint: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/vorssaint/v3.4.4/mount/Vorssaint.app/Contents/MacOS/Vorssaint (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 14.0
+      sdk 26.5
+   ntools 1
+     tool LD
+  version 1267.0
+Identifier=com.vorssaint.utils
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Pedro Gomes (3D485NHW29)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=11 Nov 2026 at 15:06:32
+TeamIdentifier=3D485NHW29
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/vorssaint/v3.4.4/mount/Vorssaint.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT vorssaint v3.4.4

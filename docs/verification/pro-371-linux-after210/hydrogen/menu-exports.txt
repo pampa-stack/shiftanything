@@ -1,0 +1,2 @@
+/home/qa/profiles/hydrogen-after210/data/flatpak/app/org.hydrogenmusic.Hydrogen/x86_64/stable/40cd2927af6be7590b573551243c07262eb1f5eef2c880ce4ad68f66137fdb8a/export/share/applications/org.hydrogenmusic.Hydrogen.desktop
+/home/qa/profiles/hydrogen-after210/data/flatpak/app/org.hydrogenmusic.Hydrogen/x86_64/stable/40cd2927af6be7590b573551243c07262eb1f5eef2c880ce4ad68f66137fdb8a/export/share/icons/hicolor/scalable/apps/org.hydrogenmusic.Hydrogen.svg

@@ -1,0 +1,19 @@
+commit b15d1aa31b2b06ce228dda493412d2df798a297edee4a54626dc7ceae554f32a
+Parent:  4a7eacce28c1288329669b632d78947bf71647282db461c3ed01d338179f3f96
+ContentChecksum:  e57020ff9d4dd99d9695cc7120e6d8c4b4b1290d8dacc4601ef6cf9dcb4695e2
+Date:  2026-11-13 10:38:27 +0000
+
+    Merge pull request #81 from flathub/rncbc-v1.7.0-release-patch-1 (331684a5e5a5)
+
+    Name: org.rncbc.qtractor
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 13 12:04:38 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,0 +1,1425 @@
+HOST Linux x86_64
+UTC 2026-11-28T19:16:49+00:00
+PROFILE /var/tmp/shift-official-linux-profile.termix.lQ69jRwz
+OFFICIAL Termix-SSH/Termix 26.11.2 263185084 sha256=a002a84337140c2a6558c5a6f7d5167b9a9f31405dbf566a56cd0697d940996a
+PASS termix install 8444ms: Termix installed: 26.11.2
+Exec="/fixture/home/Applications/termix_linux_x64_appimage.AppImage" %F
+1280 800
+PASS termix launch-old 0ms: Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.0' (uid=1000 pid=167 comm="/tmp/appimage_extracted_e93971100b024a4df9c655ff23" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.portal.Documents' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.2' (uid=1000 pid=226 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: fuse device not found, try 'modprobe fuse' first
+error: fuse init failed: Can't mount path /fixture/runtime/doc
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.433: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.433: The preferred method to match portal implementations to desktop environments is to use the portals.conf(5) configuration file
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:256): Gtk-WARNING **: 19:17:01.442: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.452: Failed to create RealtimeKit proxy: Could not connect: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.452: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.452: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:265): Gtk-WARNING **: 19:17:01.460: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.462: Failed to create file chooser proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.462: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.462: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:267): Gtk-WARNING **: 19:17:01.473: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.474: Failed to create app chooser proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.474: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.474: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:278): Gtk-WARNING **: 19:17:01.483: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.485: Failed to create print proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.485: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.485: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:280): Gtk-WARNING **: 19:17:01.493: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.494: Failed to create notification proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.494: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.494: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:282): Gtk-WARNING **: 19:17:01.502: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.504: Failed to create inhibit proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.504: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.504: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:284): Gtk-WARNING **: 19:17:01.511: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.513: Failed to create access proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.513: No skeleton to export
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:286): Gtk-WARNING **: 19:17:01.521: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:288): Gtk-WARNING **: 19:17:01.530: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.531: Failed to create access proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.531: No skeleton to export
+[W][00755.565053] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00755.565059] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.532: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.532: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:292): Gtk-WARNING **: 19:17:01.540: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.542: Failed to create account proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.542: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.542: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:299): Gtk-WARNING **: 19:17:01.551: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.552: Failed to create email proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.552: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.552: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=214 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:301): Gtk-WARNING **: 19:17:01.561: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.563: Failed to create dynamic_launcher proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:214): xdg-desktop-portal-WARNING **: 19:17:01.563: No skeleton to export
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.portal.Desktop'
+X11_WINDOW phase=launch-old title=Termix
+Window 2097155
+  Position: 40,0 (screen: 0)
+  Geometry: 1200x800
+X11_CAPTURED phase=launch-old
+6b598a6b3a159d96ea110f39d21e0fd5ed2277add4235db9118ab7bc94714b17  config/profile-fingerprint.txt
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Cache/Cache_Data/index
+aa20888ce15bd438f5d64493c1ec6fb57151fcb68220bdfb4329eea41867828c  config/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Cache/No_Vary_Search/snapshot.baf
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/js/index
+ba176ffb644fbd82492e2ecceca99abf7d40a01befaf26b64817abb5b29cbb4c  config/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/wasm/index
+135061ce9c0fdbec293893ec7fdcddae5d39ffb10e23a46d378c87277dd95a6d  config/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Cookies-journal
+438280432b8293f40ae28123f33a67ac08f5233c056386c8edc958974971aea2  config/termix/Crashpad/client_id
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnGraphiteCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnGraphiteCache/data_3
+3e074fba6d5e8695d2eed59388c558473b8e9a40a999965945ec8d4c76bc22d5  config/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnWebGPUCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnWebGPUCache/data_3
+5fa0e94a7d76c6c862c116fa977ec6ffdd98189c9a5367e53b27284396deff40  config/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/LOCK
+df6d930c7f7531c6a408e11d46cc7a50f83d276ea5797138d5e3690bc0522fbc  config/termix/Extension State/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/GPUCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/GPUCache/data_3
+f5321203e5f386a46268113c9257d2ef1427b953121519a8bab37e0ee0bd3e3a  config/termix/GPUCache/index
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db
+bee6ad5beff476c5c5ee50e386c712af5b47883040923a7710a731b84730f542  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db-wal
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.journal
+4a575b33b2aff7d08b14cb97c1f764e47ccec09cd9f87949af3b92c796e5b501  config/termix/Local State
+8bd2ea70a0b70c91de138a5b87c7936c6a6fa7c4275c54b97f4ef0ccc5b79bb4  config/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Local Storage/leveldb/LOCK
+c65a940432a73861aff91cab1bcbc6a8b19c84accd3d4bdb9d7ac536c77c96d0  config/termix/Local Storage/leveldb/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Network Persistent State
+703488bbe4808b833f0697a33ed6d514140343fc0ca23631955469f91412b00d  config/termix/Partitions/termix/Cache/Cache_Data/03021c6764b3840e_0
+0031cb70c608353ea797c071ccf0526b92acb7b88350e9b2e089512c9f713f29  config/termix/Partitions/termix/Cache/Cache_Data/0aa2b9d3e9eb3577_0
+227aa6a98b0631a125de6a9dbe572e5ab7c8c9868ce6bef39fa295100c8f4ef5  config/termix/Partitions/termix/Cache/Cache_Data/0aac813e2a170ecd_0
+dd171e8c946063665c6244f786cfb61161df9a605d1454b838e3a269d981fee5  config/termix/Partitions/termix/Cache/Cache_Data/0dc29364c652a55c_0
+656341d615ffdc83846305c0bdc1127ee8d3c113e4c8c34b1efde1f3cc8e3cdf  config/termix/Partitions/termix/Cache/Cache_Data/0e7698e9f992419f_0
+90e3205ce9bdcb7ecc732b768bdd9fc1756d4f41d6198ac63df04116f9cb743f  config/termix/Partitions/termix/Cache/Cache_Data/1dad2efe47c6fe27_0
+b7eee955af6123fe9cbcf5d9c1257633dac0eeeb94bc4475a330335a0970c7db  config/termix/Partitions/termix/Cache/Cache_Data/279bfaf9f183793c_0
+47ac717f2be9a148b93fc4923460d786dbf65ec0deb2045c44fcef6e07c0f558  config/termix/Partitions/termix/Cache/Cache_Data/279d8821a0dd672c_0
+264b6c705a27ec1f52d9b1a0cbf23d1255a3d36b11fef6e406bd3eae9f8b1663  config/termix/Partitions/termix/Cache/Cache_Data/2ce5f88b72a8518a_0
+b0d8ac06088bf7946ad3b5879a615e55db0150ac58fdf9236d81dc9edcb56b2a  config/termix/Partitions/termix/Cache/Cache_Data/2f031d40eea6e054_0
+c1b98de7bef3d92813ff0d3236fc76c545b15358b1c273dd2c21e96c6aa59ea7  config/termix/Partitions/termix/Cache/Cache_Data/30ee99acb6fbe0f2_0
+34fa4d9ba1235780ebf25087d71be6800b2516a9b661bb30b91342b9b649149b  config/termix/Partitions/termix/Cache/Cache_Data/31a2200f4af58d36_0
+61f1284981320488fdadd7ab036ad6ca5f814691e51b456b24fea289416d2530  config/termix/Partitions/termix/Cache/Cache_Data/371c3887f3fce951_0
+0c34d37ac7b1c9b4db871ea1b9323b059002e313874d582b49b840d46c390818  config/termix/Partitions/termix/Cache/Cache_Data/37f309b8f254f511_0
+e149570422d46f11d9011462d5ffb61093f09b5de2a77fc5fdee15a0b2237868  config/termix/Partitions/termix/Cache/Cache_Data/39231e223d1c84d5_0
+ec7afffb90ffc4264a390371b35c30962504ebffe4adb36b1a894ee83ea876ed  config/termix/Partitions/termix/Cache/Cache_Data/39b06bfd7f0f8095_0
+8f08237cec0da0010f161dd7ef98bdef24462164faf1d5606fada2949d68afeb  config/termix/Partitions/termix/Cache/Cache_Data/3dc298d6f1120fdb_0
+80e24d4a9d1cec4cbd09f0cd908f4e8b0d7ec3d01c64ca7bf3b6fc50b0d10b8b  config/termix/Partitions/termix/Cache/Cache_Data/3ee423433adcac32_0
+eb54f7fb6323c451cb3f24997a137bbaabef27dbc746f6e355f34ff1f7e2548e  config/termix/Partitions/termix/Cache/Cache_Data/444ad89d6a7009c6_0
+5dddb98bb24a04dbee3786ed40e5a80d61804dea127f81ceff2ea7e0fe7d089d  config/termix/Partitions/termix/Cache/Cache_Data/4766b46f01dd4585_0
+de4377f76af3d465aa0f627624987929d2f5a8b4bee10e2f618897b4cf4e1cfd  config/termix/Partitions/termix/Cache/Cache_Data/4ef2e7e95417978c_0
+00023e874dacc1eb76a9f42e1b1c148c507ae313e47b010faaec0d07e9eebe2c  config/termix/Partitions/termix/Cache/Cache_Data/55cd0a6b75ceeaef_0
+531d7b419d0dedc616f5eaf4b5f7e3e64fffd45aac1f0f75f67abd3ba3c1b6d1  config/termix/Partitions/termix/Cache/Cache_Data/565b287fc0126fdf_0
+fda674eb3590ea0d41b080942b8b13ea6c079670b4eba26d8ed68838b92ac2da  config/termix/Partitions/termix/Cache/Cache_Data/5838970c977d528b_0
+0e3a21678e35ba28fea392302a5f266ff106ee655863bf79f35ffb6d9dfe3e8f  config/termix/Partitions/termix/Cache/Cache_Data/5daad970ac28f2f7_0
+e36fef77d6f0dce8212f58bb272ad41b1781940c682041067ce973606839a135  config/termix/Partitions/termix/Cache/Cache_Data/6112da60acd6d851_0
+08eb396bb895a7c1fa631dffd37ea4b7addd4c7bb8cca455bb545ba46dd13f2b  config/termix/Partitions/termix/Cache/Cache_Data/6199843d92b9d5bd_0
+5f8438944bb0fdd72f1db410880040a6493a81bbdd7fb2028cf4ea1aeec5fe03  config/termix/Partitions/termix/Cache/Cache_Data/637236d54fa8afe0_0
+cbb9914a633dd046ac516df6c45af3f33872459bfd3bebf9c4fe52c8484f5eaa  config/termix/Partitions/termix/Cache/Cache_Data/644aba7416caed41_0
+2e3f1e79e9479315f58620a311a2e87ced91078188ce6a743d72128b183bb6a6  config/termix/Partitions/termix/Cache/Cache_Data/6565eb3a6f441501_0
+764a0e94b5eda2d4bacca4de7f2db922e4411a49a409fff9741d7316383bc04b  config/termix/Partitions/termix/Cache/Cache_Data/69420c12903cb401_0
+613e13527221922d51148bf34652691295c2ed65e351f21aeb86c466ea98cdfb  config/termix/Partitions/termix/Cache/Cache_Data/6a5b4bd8e076bd31_0
+df830a0118b11e0a376aab2bd9180808d44a0062d52b9015ecddf230759fb2b8  config/termix/Partitions/termix/Cache/Cache_Data/6b8dd2399e394f8a_0
+e70c4bc76bb89753d75057f108c2813700b808fc63006eb9e3ec68234798dc97  config/termix/Partitions/termix/Cache/Cache_Data/7034851439a26914_0
+d841b9a9669748da6c3bcb10cdfd5e80cf7247cbe14743d6772065dc75163789  config/termix/Partitions/termix/Cache/Cache_Data/7284ba2da3774d43_0
+1e888d729236fe162c85804fbf2a600a364142aa577ecc2c6dfb99d0302bf7f9  config/termix/Partitions/termix/Cache/Cache_Data/73901689f28ef7f4_0
+765497029bddb5086e948a97b7998165594b0b5be50fcd9dafffe3acd9b8e465  config/termix/Partitions/termix/Cache/Cache_Data/7730a8ea1f37c851_0
+7e9bfaf2f418d08d8212b2a4000d917e86e52cec4d02413d2cdddb51e61e3a03  config/termix/Partitions/termix/Cache/Cache_Data/77b8ceddcf32c87d_0
+ad788353fe9fecddbccde2e69e14cf232adab895fc0475aa62afce652a2a4439  config/termix/Partitions/termix/Cache/Cache_Data/77dbb298e4fbb781_0
+eeedbcd179be00833e58d148f43ecf0ba426b16a3bfb1f2b7096d312c5f5664e  config/termix/Partitions/termix/Cache/Cache_Data/783b30175f4ec127_0
+605114c06154b93f07084c4aa56b6795ade919399f7c7e37b56803ef48b5a672  config/termix/Partitions/termix/Cache/Cache_Data/7843849ac048a039_0
+097092d69534147ef9110ef10a2d7f04da54d3372a4358508422bc7581313b40  config/termix/Partitions/termix/Cache/Cache_Data/7a8fb7a873ed03a2_0
+93102e39b9d33c2dbf25af522fcf2889014fbbb2d311e665a5200f5d99148816  config/termix/Partitions/termix/Cache/Cache_Data/7c0753d4173baede_0
+e4df3c1b377f9935d2453fe1338a6c954c34c72a55675d32fd7270dd56d51e4c  config/termix/Partitions/termix/Cache/Cache_Data/803255944f72c218_0
+bdd51be03d56b0212b689010210254b8da591fc138f399a3248ee55163ac571c  config/termix/Partitions/termix/Cache/Cache_Data/8117ef895526686c_0
+4f743b824f6308e49e6396d95439f8d23c9f017ac1ecabaaf2714a83f5dbdbe8  config/termix/Partitions/termix/Cache/Cache_Data/8424dea400a6805f_0
+4ff77b89ac857dc3bb61b8f84d3e4875e310c7717e280e1464307757174e3ff7  config/termix/Partitions/termix/Cache/Cache_Data/8623add0ddabcfe4_0
+14355b8113dda31d1d69a47eb33c3ce22c7c48e5e96a6d113bf20aee197a682a  config/termix/Partitions/termix/Cache/Cache_Data/86b377ba100c091a_0
+c6b5d9c3cabe7bd121d317e4bc918caf77e4ede1077edd83bda8d715bf25ef37  config/termix/Partitions/termix/Cache/Cache_Data/890d9b601476e2e9_0
+b65a8b7aba53625e737a6b2a36d31ecb250dd766098a7e7bbfb73529351b1b59  config/termix/Partitions/termix/Cache/Cache_Data/89e0b8d4b76794fd_0
+a245f4e01d16212e73349024e80c5dd0030b1c9f38d865cbfcd80fcb61d4695e  config/termix/Partitions/termix/Cache/Cache_Data/8a16d0f1b5b2a2ce_0
+5007e9a7d84a01eedb97866f294e25a0cd410971c9a894036a8c4ed69f41faa2  config/termix/Partitions/termix/Cache/Cache_Data/91533ebb53f2cb05_0
+0c6e5d4a6d8db772e8d0b7a360f36de94ed5185e3e0ae3ae1fb28d7d3f295d70  config/termix/Partitions/termix/Cache/Cache_Data/926325a0d3973670_0
+65e1e9f9970e3bfafc2c3f0f66d5f85b1918c17480a9761dea1f9756a31708dd  config/termix/Partitions/termix/Cache/Cache_Data/9673f673303a4ddb_0
+5846fb3c7584906f190b988e0452d14c3769ab4d06d3ee2db8774d617e2161c0  config/termix/Partitions/termix/Cache/Cache_Data/9744af2163e8780a_0
+648a53c327276505efb2e45681b66b168fe0b225906b32a70a32e746859d958b  config/termix/Partitions/termix/Cache/Cache_Data/97cec285aa9f4760_0
+883fa6cc72869ead3b14c0be5b7ed9c623d48c793d54568bd37dec99f6ffefe9  config/termix/Partitions/termix/Cache/Cache_Data/9dd40289b0f5a30e_0
+dcbf245167f0a4fe888453456cb83482cd50d5dd459a3e7f7e6627a140f43f2e  config/termix/Partitions/termix/Cache/Cache_Data/a0bc09d481f2942e_0
+6c45c6f636a0a3d6061b4b176bbc4639be9ed1cafdf52e425e1c29d0b775376b  config/termix/Partitions/termix/Cache/Cache_Data/a10377f483e56026_0
+a04121425eb3554d7be9289d8869d633d7c9c90e10ba0f78c8a58ecbf65ef2e9  config/termix/Partitions/termix/Cache/Cache_Data/a2a2edb27c7a81fe_0
+aa8bcef44abc818a4dea806768c891bbd2885fc4163ea9f0cc2ead3e7398c666  config/termix/Partitions/termix/Cache/Cache_Data/a3f5b6e47af9d64e_0
+fe452d4ead7960b3629678320dcb9257c8198d27b0185a2b3f60f37075198ce4  config/termix/Partitions/termix/Cache/Cache_Data/a505ec1a516ba24d_0
+a9271abcb034b73a04c22a589e2c301ae2bcda8cbf6c0eaf478c4cd861f0d32b  config/termix/Partitions/termix/Cache/Cache_Data/a5bc105cbb551dff_0
+638fa62f50374225fd73d8d725f1d780b168f847b7d79959f333e7df2f6075e9  config/termix/Partitions/termix/Cache/Cache_Data/a601520ab98e425d_0
+9c1b0aca7c4b7e70c145c65e7f179aeb4490b1f4ecc264694b1fca18134e3127  config/termix/Partitions/termix/Cache/Cache_Data/a657bf1873cb5bd9_0
+74df16f44e265975e75905aeccceeef23b8f4ff16565a306c9cc8ccedd1192b3  config/termix/Partitions/termix/Cache/Cache_Data/a6aee82cd97b14fe_0
+97db9f51f899bc5a9f5101538c81f043959bcfcf7da2a033fcc64b81b8aeb5fe  config/termix/Partitions/termix/Cache/Cache_Data/a6d0a9323db1769a_0
+11c124e92a8d104d3ed059d929e0e3dc0e6545f64fc4fed5ce40166e167251ed  config/termix/Partitions/termix/Cache/Cache_Data/aa177ba8086e014c_0
+13ce071be5e2dcb1f65147a5634ec2903357777839d573f8d2649af59682070a  config/termix/Partitions/termix/Cache/Cache_Data/ac0e48547c8dddc9_0
+b6367478ec91f39a74b135953843e4d1a507449d2b443cedebd3c1e8964bc385  config/termix/Partitions/termix/Cache/Cache_Data/affae392277fb56d_0
+6c56aab2d34953f72663efd35f422bed91ec2ddac31bece9cc8a7c04ef219540  config/termix/Partitions/termix/Cache/Cache_Data/b22f4a3a5a8900dc_0
+5e16eaebfc3df47effe466dac032fa0901d5518d03a09ada5d1e57086c64ce19  config/termix/Partitions/termix/Cache/Cache_Data/bdc1d66873a24151_0
+2fc952200d75be1fdb268771fa739bc35d67d50dd88f89b70231e372c7d4d0bb  config/termix/Partitions/termix/Cache/Cache_Data/c0f3a3d0f228bfcc_0
+1d9799b54f253b393aaf7955ea7df01b86b7b52b54ddc6a5bc36c28b51c5d0fb  config/termix/Partitions/termix/Cache/Cache_Data/c1cbd96adcf27ad5_0
+456637aba5022847882dc9fffd46943d5a966c047759025d5fb56513451de003  config/termix/Partitions/termix/Cache/Cache_Data/cd7fb574add311f6_0
+5370b7d902edb189b961d32d630fc486bc83d8366333af36c875113d7f7623fe  config/termix/Partitions/termix/Cache/Cache_Data/ce6a830533124020_0
+460da3bcd47aaec91992ffd9910f96c8bd557da60e3a78b4edd2c8c8589d43d4  config/termix/Partitions/termix/Cache/Cache_Data/d0588735b96b7e52_0
+733e8f2f5a7fe3163726036866bf2b3986a402828cb3a276d9aeb4639af12fea  config/termix/Partitions/termix/Cache/Cache_Data/d79be571b44cd82c_0
+8d6d54764d54849e7303c31e691c8b1354666a35542f058f619c18b43554da0c  config/termix/Partitions/termix/Cache/Cache_Data/d8ef521641cf0e7f_0
+54abf90db235afeb59da411038f88f429e39a7316e7267a17a4225f088159a6d  config/termix/Partitions/termix/Cache/Cache_Data/dafa094113c16edc_0
+06953f9ba1a4d06676d3018d8912e162c3b7e09ba976ae43ec7cd729a7349f41  config/termix/Partitions/termix/Cache/Cache_Data/db1045b4e3c5cdfd_0
+62a06589f066e6c05d37a943bbc8e2f7771bb66dde73ce31f5c63ae5d1098825  config/termix/Partitions/termix/Cache/Cache_Data/de0024387798f777_0
+31a108359f39c09f37a19585f657560ec8050e70e50e5e793c320662970e23ce  config/termix/Partitions/termix/Cache/Cache_Data/e09558cabe4fef54_0
+687e9deebd0410735ada0f93577091e95dc65b0cf0bc39be782ada898723f581  config/termix/Partitions/termix/Cache/Cache_Data/e123c9fafac61dc0_0
+9a1ef1b0f317572caa1ece3c585ccaf37705bdac84e6c68b73b2d62e1815a0e6  config/termix/Partitions/termix/Cache/Cache_Data/e3b872505fa33ff3_0
+5fadc2fab332d98d91972951d2bb8f487032470a1def91c8c738be14b1d0b1ed  config/termix/Partitions/termix/Cache/Cache_Data/e3d879f81e325685_0
+13e369d43d70b2a2659e6e17da4cc2db602871ac584a04b3d90f6130a9d7b960  config/termix/Partitions/termix/Cache/Cache_Data/e499a605effb2497_0
+5955cb693c5c1785316c940647613917e1e88b0a3c2984f7f768ec82549bf1a9  config/termix/Partitions/termix/Cache/Cache_Data/e636e82267b8dac0_0
+2605e0ef254be3b5c2da0e57641c6e936e97f343e520f4d6572bea91d40702fc  config/termix/Partitions/termix/Cache/Cache_Data/e6f9dd45e233dde9_0
+f7db0b20f0a5029fc6753d924241dc9c0ddc23c93575952a4deaa025a9e4cee0  config/termix/Partitions/termix/Cache/Cache_Data/ed8e958772baf52d_0
+a8b3950d086ac94a184b23c073af93bdfc91b77c483b7852b055a741f6fc34cb  config/termix/Partitions/termix/Cache/Cache_Data/f25820a53306e579_0
+2e66b10953a8efc2ddcb1cebfba7bd9f1229fe2fabca3a6ceaed25ef8849fc71  config/termix/Partitions/termix/Cache/Cache_Data/f3c2c8d26749488d_0
+83c55b3e823b62f617274e117b40302b1ee7441b9786f329ea626922353560d8  config/termix/Partitions/termix/Cache/Cache_Data/f434008ed76bb3e8_0
+f429c51af0ac45ff678b1818a322bcd14060fa399b1f024dbc2f2115c8cf1850  config/termix/Partitions/termix/Cache/Cache_Data/f5095a1e48b9f29b_0
+cf9773171ff1f0d9e3e2c8347bf98137370962a5f7cdf79dfa06a3188a15dcc6  config/termix/Partitions/termix/Cache/Cache_Data/fc031c26ad554140_0
+c8ac5af07d9cd838548a6c214d404ba70be856b93d5559107394cee9c276d24e  config/termix/Partitions/termix/Cache/Cache_Data/fd16a1e6032d5faa_0
+753704551b6ef67c5e4279442db7e9f2b87ae9083c9124915193e0c079e9ab63  config/termix/Partitions/termix/Cache/Cache_Data/fdfffedb69e2e294_0
+6672825a25a89cb198a995b13e9d0c14017d4ee31fa7af34b56e08ecba24cfc4  config/termix/Partitions/termix/Cache/Cache_Data/fe84c33b3ffdecb0_0
+f847a1ade12ce3901122156de4479dcf2282d7c175f57efff2e8174d56087397  config/termix/Partitions/termix/Cache/Cache_Data/ff4dc6c5c5a5c539_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Cache/Cache_Data/index
+9f2c11b5b6f654c2591d20ac0848afb1e9f49a1500fc6508176b40486092a1c4  config/termix/Partitions/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Partitions/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Partitions/termix/Cache/No_Vary_Search/snapshot.baf
+590d55bffa02cb216ac8b8b7419587203546f945d5a4cf4a4f74a3e9cfd6f581  config/termix/Partitions/termix/Code Cache/electron-preload/41C1B13B73E84A4FE61FC3B8750F03DACBDFAE604B307129FA9CDAAEF516F049-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+090e96bcd0f3db82e2d6b8c5903acdb4012e59b0a5efe7d54c04d91c530c84e8  config/termix/Partitions/termix/Code Cache/js/070301b8daa6c17e_0
+e397303e79e5b43e289515fe4f51dd184417b6635a6fa696999d74540635fa12  config/termix/Partitions/termix/Code Cache/js/0a43008814be6c89_0
+3e7351d280f5ac84e35b5bf16cbb12fcefa091e926b5dad0d79dce7b4ae5a4bb  config/termix/Partitions/termix/Code Cache/js/1c963a7cfaf461e0_0
+61400a4da9b46bfd6624637052d504e267cec451f9c10ce60c6cf1fd20b32348  config/termix/Partitions/termix/Code Cache/js/1d73c8da3599e02e_0
+8d8bbcba299dd7c00eec5b3c83bec0afc5287f438e7eb943e5815de428916b57  config/termix/Partitions/termix/Code Cache/js/2b01ca085a173f80_0
+5bd6512c611fbc29e1811a4c6c215fef8c21a7eaac4ec3cdf356006d0de6e3bc  config/termix/Partitions/termix/Code Cache/js/31e91cba23b6820c_0
+35fa0841ad0843302361580e73d4c2bb4fa2213bb37a3959a552f4eab7228d8d  config/termix/Partitions/termix/Code Cache/js/47dcafbbfd802c5f_0
+e372b14ac2a3bf2bc2d6dc0459bffbeb4d3da5ae3b2bb3f66d0670bee5d2e893  config/termix/Partitions/termix/Code Cache/js/67204cc88a68ecf8_0
+834be86d0f3a20b780dde1a727224b8c170e5b29c8b12a3ce9910526477fba4c  config/termix/Partitions/termix/Code Cache/js/838dfc2863d4fd9c_0
+7afae2779dc658afd1bf81d8227d4da380ca55cc56bd6d41094bb296e2fadef8  config/termix/Partitions/termix/Code Cache/js/8b34e8a614769605_0
+2105c629a9f7afb7e498d6d83e32ea4db2b3606f6730ffb4ca7be76419e2b41a  config/termix/Partitions/termix/Code Cache/js/a4a9f31141ae25f6_0
+450b19a908a89536824b0f47e0c5cb657bb108d54e9a3ba83aebf96134ddf5ff  config/termix/Partitions/termix/Code Cache/js/ad4374fb11eb7c07_0
+6d06342b7c2dc07ff9cb1041099bb610cc165b2e8f3faa7368a88b25080d47c7  config/termix/Partitions/termix/Code Cache/js/b3505808cb0dcec7_0
+b5ddda9011932c8631be815c31166c29980cb272cb761685ce0106f0b54bc697  config/termix/Partitions/termix/Code Cache/js/c46b76650026e7ef_0
+4fdd7412c97018094646e07c61b966d330202afe8d30531ea28826cd12b069af  config/termix/Partitions/termix/Code Cache/js/d2ecc3a60dcaf5f9_0
+9698cde70a3b6da5a50c7367299e0155fbd459cdb5d5a6d3bec67a0dfaea9795  config/termix/Partitions/termix/Code Cache/js/d5856ee939b01872_0
+0319e76e698aa58713faac2378508c805a41fa19e340f92c0ac3c37949dbda8c  config/termix/Partitions/termix/Code Cache/js/dcf6da0d5fc39e71_0
+e5038fdfa63c9f5dc759a2e37d9eb7027ac025accb8e6ac095c905d5834ff120  config/termix/Partitions/termix/Code Cache/js/f244d8261f9df705_0
+0b26752e10589a102d6cb6682b5d00400151d2c879ff2ef43a7db17925f55ea9  config/termix/Partitions/termix/Code Cache/js/f83a15955da5e4ae_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/js/index
+44ff05e597ac1b94f4c15f709bc9960f7d719ba6c09e44abf33ce111e70ff6c2  config/termix/Partitions/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/wasm/index
+7dd818c3e26db882bcfb93d41c00adff00751bd139134cd12267ffcaa363353e  config/termix/Partitions/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Partitions/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Cookies-journal
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/Partitions/termix/DIPS
+86cf6a9bd735d4cda1e83256986b7b9fe6067072d4447264da0f6d1e07996f3d  config/termix/Partitions/termix/DIPS-wal
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnGraphiteCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnGraphiteCache/data_3
+4f473444217747cb505bf515a45c1e0267f904b0b5a78b16443c030d6f1d437d  config/termix/Partitions/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnWebGPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnWebGPUCache/data_3
+c4191db6cd3f59605546ffa5bc70d003e3cf826547636f621fd17a0257617fba  config/termix/Partitions/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/LOCK
+0bbd37a419153dbda270e19714329934da2e57ee9bb0dda22e23cc79031d4a48  config/termix/Partitions/termix/Extension State/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/GPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/GPUCache/data_3
+071ffabb4196bf47c1824a3c14d6f2a24926a496df630427d1cfa493ff2c9ceb  config/termix/Partitions/termix/GPUCache/index
+73f023be3ae1441b4961de41704f7122fec47a910b15b7846f3348b44bca8bf4  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOCK
+d8071bfa41d843e6dcac9a5dd1a5fcf3ec618e175d4a1e5cf8ecdb6c89e0d53b  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG
+720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/MANIFEST-000001
+f36ad5946ac273b16421e6b06bc4de47c13e618db79ec05eaee99cc3f284115f  config/termix/Partitions/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Local Storage/leveldb/LOCK
+b4d6c3c926cc1a93faf7e912cc1ae157621ffeab5edb527f984bb349009b8964  config/termix/Partitions/termix/Local Storage/leveldb/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Partitions/termix/Network Persistent State
+be4b8924ab38e8acf350e6e3b9f1f63a1a94952d8002759acd6946c4d5d0b5de  config/termix/Partitions/termix/Preferences
+ace9875fef7e1426d3590993377bc2e4af93c1c323a00266cdca240e91c0c82a  config/termix/Partitions/termix/Session Storage/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Session Storage/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Session Storage/LOCK
+8da1cccbc73086f65542b3b7059dd47c5ba9e5edb6d0cd85478345a757e1cb8a  config/termix/Partitions/termix/Session Storage/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Shared Dictionary/cache/index
+5b1576bfa42833d8169e3326fd405d3daa32eca799e52831a141a3f41c1185a4  config/termix/Partitions/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Partitions/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Partitions/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Trust Tokens-journal
+113fad4f6f87fafd43cdc3ec1226fa5023bb13215f3e90344b60e38df417dfdb  config/termix/Partitions/termix/WebStorage/QuotaManager
+8c19e91efb6b411b760eca60520b982b4d6fb9b8f4fa5de0919b333a4699eb8d  config/termix/Partitions/termix/WebStorage/QuotaManager-journal
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/Partitions/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/declarative_performance_observer.db-journal
+f313439921bed7a3f97ebe33e74e5cace79bd02803f420b4ef4d47d302c4d681  config/termix/Preferences
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Shared Dictionary/cache/index
+ff7a913ce7f5fa6d98e55e5647fd8f33f129dc909caaa614d5d65e898933c567  config/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Trust Tokens-journal
+4c8c3aa22f80cbd16843184e7a483619baeb366dc8fa67985ffc584b90821ddc  config/termix/WebStorage/QuotaManager
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/WebStorage/QuotaManager-journal
+1dbdfae0a49a1048cdfe91e95b1e2d80147aea4b2dde10d8b2ca3ef6a36f14c5  config/termix/app-origin.json
+02cca3803b564ede11ccf9f303c9910b39c532061e7a8c3b773169bc3d3c140b  config/termix/backend.pid
+ff4e7ce67f2afb548b06fe80f25174f869a0aa0f2d318ba3d22cf74ef5cf344a  config/termix/client-cache-build.json
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/declarative_performance_observer.db-journal
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/.env
+09d79498e611c860d3b7aafff1e7ad78318ead35c9ca06dbe5716c9c64cb22ee  config/termix/server-data/.plugin-awake.json
+74ce92748fd547c9f2683d883961d6af53feca850e0543591e640f37d61e872d  config/termix/server-data/db.sqlite.encrypted
+d8f1eb825da56526dbdd91b18a205fc56eeb93c573b67c22875541bb8fc99995  config/termix/termix-main.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/flatpak/.changed
+2e3fcc1095510ad8f1135db8ec36296a628c10608f03c176beec6525d49dcacd  data/flatpak/repo/config
+OFFICIAL Termix-SSH/Termix 26.11.3 269939874 sha256=0d8066fe07cbc64f4682bfd037329aaa0bbdfc076461f982502855528a1df926
+PASS termix update 5338ms: Termix updated to 26.11.3
+6b598a6b3a159d96ea110f39d21e0fd5ed2277add4235db9118ab7bc94714b17  config/profile-fingerprint.txt
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Cache/Cache_Data/index
+aa20888ce15bd438f5d64493c1ec6fb57151fcb68220bdfb4329eea41867828c  config/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Cache/No_Vary_Search/snapshot.baf
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/js/index
+ba176ffb644fbd82492e2ecceca99abf7d40a01befaf26b64817abb5b29cbb4c  config/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/wasm/index
+135061ce9c0fdbec293893ec7fdcddae5d39ffb10e23a46d378c87277dd95a6d  config/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Cookies-journal
+438280432b8293f40ae28123f33a67ac08f5233c056386c8edc958974971aea2  config/termix/Crashpad/client_id
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnGraphiteCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnGraphiteCache/data_3
+3e074fba6d5e8695d2eed59388c558473b8e9a40a999965945ec8d4c76bc22d5  config/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnWebGPUCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnWebGPUCache/data_3
+5fa0e94a7d76c6c862c116fa977ec6ffdd98189c9a5367e53b27284396deff40  config/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/LOCK
+df6d930c7f7531c6a408e11d46cc7a50f83d276ea5797138d5e3690bc0522fbc  config/termix/Extension State/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/GPUCache/data_0
+a54331bce8745915205ea343392954445fe95c8e567835e368e19d58aad49790  config/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/GPUCache/data_3
+f5321203e5f386a46268113c9257d2ef1427b953121519a8bab37e0ee0bd3e3a  config/termix/GPUCache/index
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db
+bee6ad5beff476c5c5ee50e386c712af5b47883040923a7710a731b84730f542  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db-wal
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.journal
+4a575b33b2aff7d08b14cb97c1f764e47ccec09cd9f87949af3b92c796e5b501  config/termix/Local State
+8bd2ea70a0b70c91de138a5b87c7936c6a6fa7c4275c54b97f4ef0ccc5b79bb4  config/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Local Storage/leveldb/LOCK
+c65a940432a73861aff91cab1bcbc6a8b19c84accd3d4bdb9d7ac536c77c96d0  config/termix/Local Storage/leveldb/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Network Persistent State
+703488bbe4808b833f0697a33ed6d514140343fc0ca23631955469f91412b00d  config/termix/Partitions/termix/Cache/Cache_Data/03021c6764b3840e_0
+0031cb70c608353ea797c071ccf0526b92acb7b88350e9b2e089512c9f713f29  config/termix/Partitions/termix/Cache/Cache_Data/0aa2b9d3e9eb3577_0
+227aa6a98b0631a125de6a9dbe572e5ab7c8c9868ce6bef39fa295100c8f4ef5  config/termix/Partitions/termix/Cache/Cache_Data/0aac813e2a170ecd_0
+dd171e8c946063665c6244f786cfb61161df9a605d1454b838e3a269d981fee5  config/termix/Partitions/termix/Cache/Cache_Data/0dc29364c652a55c_0
+656341d615ffdc83846305c0bdc1127ee8d3c113e4c8c34b1efde1f3cc8e3cdf  config/termix/Partitions/termix/Cache/Cache_Data/0e7698e9f992419f_0
+90e3205ce9bdcb7ecc732b768bdd9fc1756d4f41d6198ac63df04116f9cb743f  config/termix/Partitions/termix/Cache/Cache_Data/1dad2efe47c6fe27_0
+b7eee955af6123fe9cbcf5d9c1257633dac0eeeb94bc4475a330335a0970c7db  config/termix/Partitions/termix/Cache/Cache_Data/279bfaf9f183793c_0
+47ac717f2be9a148b93fc4923460d786dbf65ec0deb2045c44fcef6e07c0f558  config/termix/Partitions/termix/Cache/Cache_Data/279d8821a0dd672c_0
+264b6c705a27ec1f52d9b1a0cbf23d1255a3d36b11fef6e406bd3eae9f8b1663  config/termix/Partitions/termix/Cache/Cache_Data/2ce5f88b72a8518a_0
+b0d8ac06088bf7946ad3b5879a615e55db0150ac58fdf9236d81dc9edcb56b2a  config/termix/Partitions/termix/Cache/Cache_Data/2f031d40eea6e054_0
+c1b98de7bef3d92813ff0d3236fc76c545b15358b1c273dd2c21e96c6aa59ea7  config/termix/Partitions/termix/Cache/Cache_Data/30ee99acb6fbe0f2_0
+34fa4d9ba1235780ebf25087d71be6800b2516a9b661bb30b91342b9b649149b  config/termix/Partitions/termix/Cache/Cache_Data/31a2200f4af58d36_0
+61f1284981320488fdadd7ab036ad6ca5f814691e51b456b24fea289416d2530  config/termix/Partitions/termix/Cache/Cache_Data/371c3887f3fce951_0
+0c34d37ac7b1c9b4db871ea1b9323b059002e313874d582b49b840d46c390818  config/termix/Partitions/termix/Cache/Cache_Data/37f309b8f254f511_0
+e149570422d46f11d9011462d5ffb61093f09b5de2a77fc5fdee15a0b2237868  config/termix/Partitions/termix/Cache/Cache_Data/39231e223d1c84d5_0
+ec7afffb90ffc4264a390371b35c30962504ebffe4adb36b1a894ee83ea876ed  config/termix/Partitions/termix/Cache/Cache_Data/39b06bfd7f0f8095_0
+8f08237cec0da0010f161dd7ef98bdef24462164faf1d5606fada2949d68afeb  config/termix/Partitions/termix/Cache/Cache_Data/3dc298d6f1120fdb_0
+80e24d4a9d1cec4cbd09f0cd908f4e8b0d7ec3d01c64ca7bf3b6fc50b0d10b8b  config/termix/Partitions/termix/Cache/Cache_Data/3ee423433adcac32_0
+eb54f7fb6323c451cb3f24997a137bbaabef27dbc746f6e355f34ff1f7e2548e  config/termix/Partitions/termix/Cache/Cache_Data/444ad89d6a7009c6_0
+5dddb98bb24a04dbee3786ed40e5a80d61804dea127f81ceff2ea7e0fe7d089d  config/termix/Partitions/termix/Cache/Cache_Data/4766b46f01dd4585_0
+de4377f76af3d465aa0f627624987929d2f5a8b4bee10e2f618897b4cf4e1cfd  config/termix/Partitions/termix/Cache/Cache_Data/4ef2e7e95417978c_0
+00023e874dacc1eb76a9f42e1b1c148c507ae313e47b010faaec0d07e9eebe2c  config/termix/Partitions/termix/Cache/Cache_Data/55cd0a6b75ceeaef_0
+531d7b419d0dedc616f5eaf4b5f7e3e64fffd45aac1f0f75f67abd3ba3c1b6d1  config/termix/Partitions/termix/Cache/Cache_Data/565b287fc0126fdf_0
+fda674eb3590ea0d41b080942b8b13ea6c079670b4eba26d8ed68838b92ac2da  config/termix/Partitions/termix/Cache/Cache_Data/5838970c977d528b_0
+0e3a21678e35ba28fea392302a5f266ff106ee655863bf79f35ffb6d9dfe3e8f  config/termix/Partitions/termix/Cache/Cache_Data/5daad970ac28f2f7_0
+e36fef77d6f0dce8212f58bb272ad41b1781940c682041067ce973606839a135  config/termix/Partitions/termix/Cache/Cache_Data/6112da60acd6d851_0
+08eb396bb895a7c1fa631dffd37ea4b7addd4c7bb8cca455bb545ba46dd13f2b  config/termix/Partitions/termix/Cache/Cache_Data/6199843d92b9d5bd_0
+5f8438944bb0fdd72f1db410880040a6493a81bbdd7fb2028cf4ea1aeec5fe03  config/termix/Partitions/termix/Cache/Cache_Data/637236d54fa8afe0_0
+cbb9914a633dd046ac516df6c45af3f33872459bfd3bebf9c4fe52c8484f5eaa  config/termix/Partitions/termix/Cache/Cache_Data/644aba7416caed41_0
+2e3f1e79e9479315f58620a311a2e87ced91078188ce6a743d72128b183bb6a6  config/termix/Partitions/termix/Cache/Cache_Data/6565eb3a6f441501_0
+764a0e94b5eda2d4bacca4de7f2db922e4411a49a409fff9741d7316383bc04b  config/termix/Partitions/termix/Cache/Cache_Data/69420c12903cb401_0
+613e13527221922d51148bf34652691295c2ed65e351f21aeb86c466ea98cdfb  config/termix/Partitions/termix/Cache/Cache_Data/6a5b4bd8e076bd31_0
+df830a0118b11e0a376aab2bd9180808d44a0062d52b9015ecddf230759fb2b8  config/termix/Partitions/termix/Cache/Cache_Data/6b8dd2399e394f8a_0
+e70c4bc76bb89753d75057f108c2813700b808fc63006eb9e3ec68234798dc97  config/termix/Partitions/termix/Cache/Cache_Data/7034851439a26914_0
+d841b9a9669748da6c3bcb10cdfd5e80cf7247cbe14743d6772065dc75163789  config/termix/Partitions/termix/Cache/Cache_Data/7284ba2da3774d43_0
+1e888d729236fe162c85804fbf2a600a364142aa577ecc2c6dfb99d0302bf7f9  config/termix/Partitions/termix/Cache/Cache_Data/73901689f28ef7f4_0
+765497029bddb5086e948a97b7998165594b0b5be50fcd9dafffe3acd9b8e465  config/termix/Partitions/termix/Cache/Cache_Data/7730a8ea1f37c851_0
+7e9bfaf2f418d08d8212b2a4000d917e86e52cec4d02413d2cdddb51e61e3a03  config/termix/Partitions/termix/Cache/Cache_Data/77b8ceddcf32c87d_0
+ad788353fe9fecddbccde2e69e14cf232adab895fc0475aa62afce652a2a4439  config/termix/Partitions/termix/Cache/Cache_Data/77dbb298e4fbb781_0
+eeedbcd179be00833e58d148f43ecf0ba426b16a3bfb1f2b7096d312c5f5664e  config/termix/Partitions/termix/Cache/Cache_Data/783b30175f4ec127_0
+605114c06154b93f07084c4aa56b6795ade919399f7c7e37b56803ef48b5a672  config/termix/Partitions/termix/Cache/Cache_Data/7843849ac048a039_0
+097092d69534147ef9110ef10a2d7f04da54d3372a4358508422bc7581313b40  config/termix/Partitions/termix/Cache/Cache_Data/7a8fb7a873ed03a2_0
+93102e39b9d33c2dbf25af522fcf2889014fbbb2d311e665a5200f5d99148816  config/termix/Partitions/termix/Cache/Cache_Data/7c0753d4173baede_0
+e4df3c1b377f9935d2453fe1338a6c954c34c72a55675d32fd7270dd56d51e4c  config/termix/Partitions/termix/Cache/Cache_Data/803255944f72c218_0
+bdd51be03d56b0212b689010210254b8da591fc138f399a3248ee55163ac571c  config/termix/Partitions/termix/Cache/Cache_Data/8117ef895526686c_0
+4f743b824f6308e49e6396d95439f8d23c9f017ac1ecabaaf2714a83f5dbdbe8  config/termix/Partitions/termix/Cache/Cache_Data/8424dea400a6805f_0
+4ff77b89ac857dc3bb61b8f84d3e4875e310c7717e280e1464307757174e3ff7  config/termix/Partitions/termix/Cache/Cache_Data/8623add0ddabcfe4_0
+14355b8113dda31d1d69a47eb33c3ce22c7c48e5e96a6d113bf20aee197a682a  config/termix/Partitions/termix/Cache/Cache_Data/86b377ba100c091a_0
+c6b5d9c3cabe7bd121d317e4bc918caf77e4ede1077edd83bda8d715bf25ef37  config/termix/Partitions/termix/Cache/Cache_Data/890d9b601476e2e9_0
+b65a8b7aba53625e737a6b2a36d31ecb250dd766098a7e7bbfb73529351b1b59  config/termix/Partitions/termix/Cache/Cache_Data/89e0b8d4b76794fd_0
+a245f4e01d16212e73349024e80c5dd0030b1c9f38d865cbfcd80fcb61d4695e  config/termix/Partitions/termix/Cache/Cache_Data/8a16d0f1b5b2a2ce_0
+5007e9a7d84a01eedb97866f294e25a0cd410971c9a894036a8c4ed69f41faa2  config/termix/Partitions/termix/Cache/Cache_Data/91533ebb53f2cb05_0
+0c6e5d4a6d8db772e8d0b7a360f36de94ed5185e3e0ae3ae1fb28d7d3f295d70  config/termix/Partitions/termix/Cache/Cache_Data/926325a0d3973670_0
+65e1e9f9970e3bfafc2c3f0f66d5f85b1918c17480a9761dea1f9756a31708dd  config/termix/Partitions/termix/Cache/Cache_Data/9673f673303a4ddb_0
+5846fb3c7584906f190b988e0452d14c3769ab4d06d3ee2db8774d617e2161c0  config/termix/Partitions/termix/Cache/Cache_Data/9744af2163e8780a_0
+648a53c327276505efb2e45681b66b168fe0b225906b32a70a32e746859d958b  config/termix/Partitions/termix/Cache/Cache_Data/97cec285aa9f4760_0
+883fa6cc72869ead3b14c0be5b7ed9c623d48c793d54568bd37dec99f6ffefe9  config/termix/Partitions/termix/Cache/Cache_Data/9dd40289b0f5a30e_0
+dcbf245167f0a4fe888453456cb83482cd50d5dd459a3e7f7e6627a140f43f2e  config/termix/Partitions/termix/Cache/Cache_Data/a0bc09d481f2942e_0
+6c45c6f636a0a3d6061b4b176bbc4639be9ed1cafdf52e425e1c29d0b775376b  config/termix/Partitions/termix/Cache/Cache_Data/a10377f483e56026_0
+a04121425eb3554d7be9289d8869d633d7c9c90e10ba0f78c8a58ecbf65ef2e9  config/termix/Partitions/termix/Cache/Cache_Data/a2a2edb27c7a81fe_0
+aa8bcef44abc818a4dea806768c891bbd2885fc4163ea9f0cc2ead3e7398c666  config/termix/Partitions/termix/Cache/Cache_Data/a3f5b6e47af9d64e_0
+fe452d4ead7960b3629678320dcb9257c8198d27b0185a2b3f60f37075198ce4  config/termix/Partitions/termix/Cache/Cache_Data/a505ec1a516ba24d_0
+a9271abcb034b73a04c22a589e2c301ae2bcda8cbf6c0eaf478c4cd861f0d32b  config/termix/Partitions/termix/Cache/Cache_Data/a5bc105cbb551dff_0
+638fa62f50374225fd73d8d725f1d780b168f847b7d79959f333e7df2f6075e9  config/termix/Partitions/termix/Cache/Cache_Data/a601520ab98e425d_0
+9c1b0aca7c4b7e70c145c65e7f179aeb4490b1f4ecc264694b1fca18134e3127  config/termix/Partitions/termix/Cache/Cache_Data/a657bf1873cb5bd9_0
+74df16f44e265975e75905aeccceeef23b8f4ff16565a306c9cc8ccedd1192b3  config/termix/Partitions/termix/Cache/Cache_Data/a6aee82cd97b14fe_0
+97db9f51f899bc5a9f5101538c81f043959bcfcf7da2a033fcc64b81b8aeb5fe  config/termix/Partitions/termix/Cache/Cache_Data/a6d0a9323db1769a_0
+11c124e92a8d104d3ed059d929e0e3dc0e6545f64fc4fed5ce40166e167251ed  config/termix/Partitions/termix/Cache/Cache_Data/aa177ba8086e014c_0
+13ce071be5e2dcb1f65147a5634ec2903357777839d573f8d2649af59682070a  config/termix/Partitions/termix/Cache/Cache_Data/ac0e48547c8dddc9_0
+b6367478ec91f39a74b135953843e4d1a507449d2b443cedebd3c1e8964bc385  config/termix/Partitions/termix/Cache/Cache_Data/affae392277fb56d_0
+6c56aab2d34953f72663efd35f422bed91ec2ddac31bece9cc8a7c04ef219540  config/termix/Partitions/termix/Cache/Cache_Data/b22f4a3a5a8900dc_0
+5e16eaebfc3df47effe466dac032fa0901d5518d03a09ada5d1e57086c64ce19  config/termix/Partitions/termix/Cache/Cache_Data/bdc1d66873a24151_0
+2fc952200d75be1fdb268771fa739bc35d67d50dd88f89b70231e372c7d4d0bb  config/termix/Partitions/termix/Cache/Cache_Data/c0f3a3d0f228bfcc_0
+1d9799b54f253b393aaf7955ea7df01b86b7b52b54ddc6a5bc36c28b51c5d0fb  config/termix/Partitions/termix/Cache/Cache_Data/c1cbd96adcf27ad5_0
+456637aba5022847882dc9fffd46943d5a966c047759025d5fb56513451de003  config/termix/Partitions/termix/Cache/Cache_Data/cd7fb574add311f6_0
+5370b7d902edb189b961d32d630fc486bc83d8366333af36c875113d7f7623fe  config/termix/Partitions/termix/Cache/Cache_Data/ce6a830533124020_0
+460da3bcd47aaec91992ffd9910f96c8bd557da60e3a78b4edd2c8c8589d43d4  config/termix/Partitions/termix/Cache/Cache_Data/d0588735b96b7e52_0
+733e8f2f5a7fe3163726036866bf2b3986a402828cb3a276d9aeb4639af12fea  config/termix/Partitions/termix/Cache/Cache_Data/d79be571b44cd82c_0
+8d6d54764d54849e7303c31e691c8b1354666a35542f058f619c18b43554da0c  config/termix/Partitions/termix/Cache/Cache_Data/d8ef521641cf0e7f_0
+54abf90db235afeb59da411038f88f429e39a7316e7267a17a4225f088159a6d  config/termix/Partitions/termix/Cache/Cache_Data/dafa094113c16edc_0
+06953f9ba1a4d06676d3018d8912e162c3b7e09ba976ae43ec7cd729a7349f41  config/termix/Partitions/termix/Cache/Cache_Data/db1045b4e3c5cdfd_0
+62a06589f066e6c05d37a943bbc8e2f7771bb66dde73ce31f5c63ae5d1098825  config/termix/Partitions/termix/Cache/Cache_Data/de0024387798f777_0
+31a108359f39c09f37a19585f657560ec8050e70e50e5e793c320662970e23ce  config/termix/Partitions/termix/Cache/Cache_Data/e09558cabe4fef54_0
+687e9deebd0410735ada0f93577091e95dc65b0cf0bc39be782ada898723f581  config/termix/Partitions/termix/Cache/Cache_Data/e123c9fafac61dc0_0
+9a1ef1b0f317572caa1ece3c585ccaf37705bdac84e6c68b73b2d62e1815a0e6  config/termix/Partitions/termix/Cache/Cache_Data/e3b872505fa33ff3_0
+5fadc2fab332d98d91972951d2bb8f487032470a1def91c8c738be14b1d0b1ed  config/termix/Partitions/termix/Cache/Cache_Data/e3d879f81e325685_0
+13e369d43d70b2a2659e6e17da4cc2db602871ac584a04b3d90f6130a9d7b960  config/termix/Partitions/termix/Cache/Cache_Data/e499a605effb2497_0
+5955cb693c5c1785316c940647613917e1e88b0a3c2984f7f768ec82549bf1a9  config/termix/Partitions/termix/Cache/Cache_Data/e636e82267b8dac0_0
+2605e0ef254be3b5c2da0e57641c6e936e97f343e520f4d6572bea91d40702fc  config/termix/Partitions/termix/Cache/Cache_Data/e6f9dd45e233dde9_0
+f7db0b20f0a5029fc6753d924241dc9c0ddc23c93575952a4deaa025a9e4cee0  config/termix/Partitions/termix/Cache/Cache_Data/ed8e958772baf52d_0
+a8b3950d086ac94a184b23c073af93bdfc91b77c483b7852b055a741f6fc34cb  config/termix/Partitions/termix/Cache/Cache_Data/f25820a53306e579_0
+2e66b10953a8efc2ddcb1cebfba7bd9f1229fe2fabca3a6ceaed25ef8849fc71  config/termix/Partitions/termix/Cache/Cache_Data/f3c2c8d26749488d_0
+83c55b3e823b62f617274e117b40302b1ee7441b9786f329ea626922353560d8  config/termix/Partitions/termix/Cache/Cache_Data/f434008ed76bb3e8_0
+f429c51af0ac45ff678b1818a322bcd14060fa399b1f024dbc2f2115c8cf1850  config/termix/Partitions/termix/Cache/Cache_Data/f5095a1e48b9f29b_0
+cf9773171ff1f0d9e3e2c8347bf98137370962a5f7cdf79dfa06a3188a15dcc6  config/termix/Partitions/termix/Cache/Cache_Data/fc031c26ad554140_0
+c8ac5af07d9cd838548a6c214d404ba70be856b93d5559107394cee9c276d24e  config/termix/Partitions/termix/Cache/Cache_Data/fd16a1e6032d5faa_0
+753704551b6ef67c5e4279442db7e9f2b87ae9083c9124915193e0c079e9ab63  config/termix/Partitions/termix/Cache/Cache_Data/fdfffedb69e2e294_0
+6672825a25a89cb198a995b13e9d0c14017d4ee31fa7af34b56e08ecba24cfc4  config/termix/Partitions/termix/Cache/Cache_Data/fe84c33b3ffdecb0_0
+f847a1ade12ce3901122156de4479dcf2282d7c175f57efff2e8174d56087397  config/termix/Partitions/termix/Cache/Cache_Data/ff4dc6c5c5a5c539_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Cache/Cache_Data/index
+9f2c11b5b6f654c2591d20ac0848afb1e9f49a1500fc6508176b40486092a1c4  config/termix/Partitions/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Partitions/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Partitions/termix/Cache/No_Vary_Search/snapshot.baf
+590d55bffa02cb216ac8b8b7419587203546f945d5a4cf4a4f74a3e9cfd6f581  config/termix/Partitions/termix/Code Cache/electron-preload/41C1B13B73E84A4FE61FC3B8750F03DACBDFAE604B307129FA9CDAAEF516F049-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+090e96bcd0f3db82e2d6b8c5903acdb4012e59b0a5efe7d54c04d91c530c84e8  config/termix/Partitions/termix/Code Cache/js/070301b8daa6c17e_0
+e397303e79e5b43e289515fe4f51dd184417b6635a6fa696999d74540635fa12  config/termix/Partitions/termix/Code Cache/js/0a43008814be6c89_0
+3e7351d280f5ac84e35b5bf16cbb12fcefa091e926b5dad0d79dce7b4ae5a4bb  config/termix/Partitions/termix/Code Cache/js/1c963a7cfaf461e0_0
+61400a4da9b46bfd6624637052d504e267cec451f9c10ce60c6cf1fd20b32348  config/termix/Partitions/termix/Code Cache/js/1d73c8da3599e02e_0
+8d8bbcba299dd7c00eec5b3c83bec0afc5287f438e7eb943e5815de428916b57  config/termix/Partitions/termix/Code Cache/js/2b01ca085a173f80_0
+5bd6512c611fbc29e1811a4c6c215fef8c21a7eaac4ec3cdf356006d0de6e3bc  config/termix/Partitions/termix/Code Cache/js/31e91cba23b6820c_0
+35fa0841ad0843302361580e73d4c2bb4fa2213bb37a3959a552f4eab7228d8d  config/termix/Partitions/termix/Code Cache/js/47dcafbbfd802c5f_0
+e372b14ac2a3bf2bc2d6dc0459bffbeb4d3da5ae3b2bb3f66d0670bee5d2e893  config/termix/Partitions/termix/Code Cache/js/67204cc88a68ecf8_0
+834be86d0f3a20b780dde1a727224b8c170e5b29c8b12a3ce9910526477fba4c  config/termix/Partitions/termix/Code Cache/js/838dfc2863d4fd9c_0
+7afae2779dc658afd1bf81d8227d4da380ca55cc56bd6d41094bb296e2fadef8  config/termix/Partitions/termix/Code Cache/js/8b34e8a614769605_0
+2105c629a9f7afb7e498d6d83e32ea4db2b3606f6730ffb4ca7be76419e2b41a  config/termix/Partitions/termix/Code Cache/js/a4a9f31141ae25f6_0
+450b19a908a89536824b0f47e0c5cb657bb108d54e9a3ba83aebf96134ddf5ff  config/termix/Partitions/termix/Code Cache/js/ad4374fb11eb7c07_0
+6d06342b7c2dc07ff9cb1041099bb610cc165b2e8f3faa7368a88b25080d47c7  config/termix/Partitions/termix/Code Cache/js/b3505808cb0dcec7_0
+b5ddda9011932c8631be815c31166c29980cb272cb761685ce0106f0b54bc697  config/termix/Partitions/termix/Code Cache/js/c46b76650026e7ef_0
+4fdd7412c97018094646e07c61b966d330202afe8d30531ea28826cd12b069af  config/termix/Partitions/termix/Code Cache/js/d2ecc3a60dcaf5f9_0
+9698cde70a3b6da5a50c7367299e0155fbd459cdb5d5a6d3bec67a0dfaea9795  config/termix/Partitions/termix/Code Cache/js/d5856ee939b01872_0
+0319e76e698aa58713faac2378508c805a41fa19e340f92c0ac3c37949dbda8c  config/termix/Partitions/termix/Code Cache/js/dcf6da0d5fc39e71_0
+e5038fdfa63c9f5dc759a2e37d9eb7027ac025accb8e6ac095c905d5834ff120  config/termix/Partitions/termix/Code Cache/js/f244d8261f9df705_0
+0b26752e10589a102d6cb6682b5d00400151d2c879ff2ef43a7db17925f55ea9  config/termix/Partitions/termix/Code Cache/js/f83a15955da5e4ae_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/js/index
+44ff05e597ac1b94f4c15f709bc9960f7d719ba6c09e44abf33ce111e70ff6c2  config/termix/Partitions/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/wasm/index
+7dd818c3e26db882bcfb93d41c00adff00751bd139134cd12267ffcaa363353e  config/termix/Partitions/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Partitions/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Cookies-journal
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/Partitions/termix/DIPS
+86cf6a9bd735d4cda1e83256986b7b9fe6067072d4447264da0f6d1e07996f3d  config/termix/Partitions/termix/DIPS-wal
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnGraphiteCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnGraphiteCache/data_3
+4f473444217747cb505bf515a45c1e0267f904b0b5a78b16443c030d6f1d437d  config/termix/Partitions/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnWebGPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnWebGPUCache/data_3
+c4191db6cd3f59605546ffa5bc70d003e3cf826547636f621fd17a0257617fba  config/termix/Partitions/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/LOCK
+0bbd37a419153dbda270e19714329934da2e57ee9bb0dda22e23cc79031d4a48  config/termix/Partitions/termix/Extension State/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/GPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/GPUCache/data_3
+071ffabb4196bf47c1824a3c14d6f2a24926a496df630427d1cfa493ff2c9ceb  config/termix/Partitions/termix/GPUCache/index
+73f023be3ae1441b4961de41704f7122fec47a910b15b7846f3348b44bca8bf4  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOCK
+d8071bfa41d843e6dcac9a5dd1a5fcf3ec618e175d4a1e5cf8ecdb6c89e0d53b  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG
+720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/MANIFEST-000001
+f36ad5946ac273b16421e6b06bc4de47c13e618db79ec05eaee99cc3f284115f  config/termix/Partitions/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Local Storage/leveldb/LOCK
+b4d6c3c926cc1a93faf7e912cc1ae157621ffeab5edb527f984bb349009b8964  config/termix/Partitions/termix/Local Storage/leveldb/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Partitions/termix/Network Persistent State
+be4b8924ab38e8acf350e6e3b9f1f63a1a94952d8002759acd6946c4d5d0b5de  config/termix/Partitions/termix/Preferences
+ace9875fef7e1426d3590993377bc2e4af93c1c323a00266cdca240e91c0c82a  config/termix/Partitions/termix/Session Storage/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Session Storage/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Session Storage/LOCK
+8da1cccbc73086f65542b3b7059dd47c5ba9e5edb6d0cd85478345a757e1cb8a  config/termix/Partitions/termix/Session Storage/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Shared Dictionary/cache/index
+5b1576bfa42833d8169e3326fd405d3daa32eca799e52831a141a3f41c1185a4  config/termix/Partitions/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Partitions/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Partitions/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Trust Tokens-journal
+113fad4f6f87fafd43cdc3ec1226fa5023bb13215f3e90344b60e38df417dfdb  config/termix/Partitions/termix/WebStorage/QuotaManager
+8c19e91efb6b411b760eca60520b982b4d6fb9b8f4fa5de0919b333a4699eb8d  config/termix/Partitions/termix/WebStorage/QuotaManager-journal
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/Partitions/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/declarative_performance_observer.db-journal
+f313439921bed7a3f97ebe33e74e5cace79bd02803f420b4ef4d47d302c4d681  config/termix/Preferences
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Shared Dictionary/cache/index
+ff7a913ce7f5fa6d98e55e5647fd8f33f129dc909caaa614d5d65e898933c567  config/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Trust Tokens-journal
+4c8c3aa22f80cbd16843184e7a483619baeb366dc8fa67985ffc584b90821ddc  config/termix/WebStorage/QuotaManager
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/WebStorage/QuotaManager-journal
+1dbdfae0a49a1048cdfe91e95b1e2d80147aea4b2dde10d8b2ca3ef6a36f14c5  config/termix/app-origin.json
+02cca3803b564ede11ccf9f303c9910b39c532061e7a8c3b773169bc3d3c140b  config/termix/backend.pid
+ff4e7ce67f2afb548b06fe80f25174f869a0aa0f2d318ba3d22cf74ef5cf344a  config/termix/client-cache-build.json
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/declarative_performance_observer.db-journal
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/.env
+09d79498e611c860d3b7aafff1e7ad78318ead35c9ca06dbe5716c9c64cb22ee  config/termix/server-data/.plugin-awake.json
+74ce92748fd547c9f2683d883961d6af53feca850e0543591e640f37d61e872d  config/termix/server-data/db.sqlite.encrypted
+d8f1eb825da56526dbdd91b18a205fc56eeb93c573b67c22875541bb8fc99995  config/termix/termix-main.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/flatpak/.changed
+2e3fcc1095510ad8f1135db8ec36296a628c10608f03c176beec6525d49dcacd  data/flatpak/repo/config
+Exec="/fixture/home/Applications/termix_linux_x64_appimage.AppImage" %F
+1280 800
+PASS termix launch 0ms: Launch request accepted
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.0' (uid=1000 pid=186 comm="/tmp/appimage_extracted_23b9382c9b8e8d3ec89fb14d8c" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.portal.Documents' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.2' (uid=1000 pid=316 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.portal.Documents'
+fusermount3: fuse device not found, try 'modprobe fuse' first
+error: fuse init failed: Can't mount path /fixture/runtime/doc
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.552: Choosing gtk.portal for org.freedesktop.impl.portal.Lockdown as a last-resort fallback
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.552: The preferred method to match portal implementations to desktop environments is to use the portals.conf(5) configuration file
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:333): Gtk-WARNING **: 19:17:54.561: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.571: Failed to create RealtimeKit proxy: Could not connect: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.571: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.571: Choosing gtk.portal for org.freedesktop.impl.portal.FileChooser as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:353): Gtk-WARNING **: 19:17:54.580: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.581: Failed to create file chooser proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.581: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.581: Choosing gtk.portal for org.freedesktop.impl.portal.AppChooser as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:364): Gtk-WARNING **: 19:17:54.588: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.590: Failed to create app chooser proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.590: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.590: Choosing gtk.portal for org.freedesktop.impl.portal.Print as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:366): Gtk-WARNING **: 19:17:54.598: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.599: Failed to create print proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.599: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.599: Choosing gtk.portal for org.freedesktop.impl.portal.Notification as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:368): Gtk-WARNING **: 19:17:54.607: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.609: Failed to create notification proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.609: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.609: Choosing gtk.portal for org.freedesktop.impl.portal.Inhibit as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:370): Gtk-WARNING **: 19:17:54.618: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.619: Failed to create inhibit proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.619: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.619: Choosing gtk.portal for org.freedesktop.impl.portal.Access as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:372): Gtk-WARNING **: 19:17:54.627: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.629: Failed to create access proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.629: No skeleton to export
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:374): Gtk-WARNING **: 19:17:54.637: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:376): Gtk-WARNING **: 19:17:54.648: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.649: Failed to create access proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.649: No skeleton to export
+[W][00808.682057] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00808.682064] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.650: Failed connect to PipeWire: Couldn't create PipeWire context
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.650: Choosing gtk.portal for org.freedesktop.impl.portal.Account as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:378): Gtk-WARNING **: 19:17:54.657: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.659: Failed to create account proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.659: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.659: Choosing gtk.portal for org.freedesktop.impl.portal.Email as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:380): Gtk-WARNING **: 19:17:54.667: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.671: Failed to create email proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.671: No skeleton to export
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.671: Choosing gtk.portal for org.freedesktop.impl.portal.DynamicLauncher as a last-resort fallback
+dbus-daemon[3]: [session uid=1000 pid=3] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.1' (uid=1000 pid=310 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:382): Gtk-WARNING **: 19:17:54.679: cannot open display: 
+dbus-daemon[3]: [session uid=1000 pid=3] Activated service 'org.freedesktop.impl.portal.desktop.gtk' failed: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.680: Failed to create dynamic_launcher proxy: Error calling StartServiceByName for org.freedesktop.impl.portal.desktop.gtk: Process org.freedesktop.impl.portal.desktop.gtk exited with status 1
+
+(/usr/libexec/xdg-desktop-portal:310): xdg-desktop-portal-WARNING **: 19:17:54.680: No skeleton to export
+dbus-daemon[3]: [session uid=1000 pid=3] Successfully activated service 'org.freedesktop.portal.Desktop'
+X11_WINDOW phase=launch title=Termix
+Window 2097155
+  Position: 40,0 (screen: 0)
+  Geometry: 1200x800
+X11_CAPTURED phase=launch
+6b598a6b3a159d96ea110f39d21e0fd5ed2277add4235db9118ab7bc94714b17  config/profile-fingerprint.txt
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Cache/Cache_Data/index
+3f2dc7f7c358da7990110c2606cbd6fccf4c89460e83d4ff5ca8d9bee495b5e0  config/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Cache/No_Vary_Search/snapshot.baf
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/js/index
+ba176ffb644fbd82492e2ecceca99abf7d40a01befaf26b64817abb5b29cbb4c  config/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/wasm/index
+135061ce9c0fdbec293893ec7fdcddae5d39ffb10e23a46d378c87277dd95a6d  config/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Cookies-journal
+438280432b8293f40ae28123f33a67ac08f5233c056386c8edc958974971aea2  config/termix/Crashpad/client_id
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnGraphiteCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnGraphiteCache/data_3
+26d2a1f2db84083f9505cba8b748f0fbf35b3de77e69946e94b65a225dbf39e1  config/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnWebGPUCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnWebGPUCache/data_3
+89ce9078a6986bdb71c2aa12dc175c1eab1dad6e0ddfcf6effeed99b486c7053  config/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/LOCK
+8c6988b1be77812eb1ae40b86deb7c9f8b8e28a196adf2a238d7369eafa2caab  config/termix/Extension State/LOG
+df6d930c7f7531c6a408e11d46cc7a50f83d276ea5797138d5e3690bc0522fbc  config/termix/Extension State/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/GPUCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/GPUCache/data_3
+c76a0c0a62d06663503b480db88404a70c6c734bdc60b56c8b9d82e92418a51b  config/termix/GPUCache/index
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db
+bee6ad5beff476c5c5ee50e386c712af5b47883040923a7710a731b84730f542  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db-wal
+4a575b33b2aff7d08b14cb97c1f764e47ccec09cd9f87949af3b92c796e5b501  config/termix/Local State
+8bd2ea70a0b70c91de138a5b87c7936c6a6fa7c4275c54b97f4ef0ccc5b79bb4  config/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Local Storage/leveldb/LOCK
+74af34a49f4daf59b425e1dd6a2e1c8a0a63272dd0b06688332118ea6197e94f  config/termix/Local Storage/leveldb/LOG
+c65a940432a73861aff91cab1bcbc6a8b19c84accd3d4bdb9d7ac536c77c96d0  config/termix/Local Storage/leveldb/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Network Persistent State
+0ecdb6e1f434cb6159cd97be99b3f8a3a3905a427e1019905ee962b9e381944f  config/termix/Partitions/termix/Cache/Cache_Data/03021c6764b3840e_0
+c0b6986d83f823704ed49226b489e8f0f39040745a47673cf7976c8ebdef6046  config/termix/Partitions/termix/Cache/Cache_Data/07558cadaa599960_0
+b9c6a2966c0d6e272841249f0266ecf7da4ead9d4415ce9a6904d2e2fdbad517  config/termix/Partitions/termix/Cache/Cache_Data/08abcd672f2e5ccd_0
+26ccad875448a774942d6ca9f380c9df411d1d349508daa6ce0c04dab1113288  config/termix/Partitions/termix/Cache/Cache_Data/0aa2b9d3e9eb3577_0
+227aa6a98b0631a125de6a9dbe572e5ab7c8c9868ce6bef39fa295100c8f4ef5  config/termix/Partitions/termix/Cache/Cache_Data/0aac813e2a170ecd_0
+f03cd3f902e894de26b9eb7c03b900b004084dd36b3dfc75a364b8279e82f851  config/termix/Partitions/termix/Cache/Cache_Data/0c6849e660c1cf3c_0
+dd171e8c946063665c6244f786cfb61161df9a605d1454b838e3a269d981fee5  config/termix/Partitions/termix/Cache/Cache_Data/0dc29364c652a55c_0
+656341d615ffdc83846305c0bdc1127ee8d3c113e4c8c34b1efde1f3cc8e3cdf  config/termix/Partitions/termix/Cache/Cache_Data/0e7698e9f992419f_0
+a656341fb261044fcf19fb384fda4f47136bc130d41acb2fe22bf7a976290d5e  config/termix/Partitions/termix/Cache/Cache_Data/137b77604b870f82_0
+ebd64ff021b1431eb3b68979fc106398d476d715dfaa1f7077963f161592322a  config/termix/Partitions/termix/Cache/Cache_Data/1bfb800ea7a0c06a_0
+5ff8d7a3d71ede0c82b8016731e3afe6b563a7163ba55b0e2315565de96055cb  config/termix/Partitions/termix/Cache/Cache_Data/1dad2efe47c6fe27_0
+bb37d7c1cd4a89031306f35a7a10fff568ba924e9b8aa99bd2ecf4bc509c75a1  config/termix/Partitions/termix/Cache/Cache_Data/279bfaf9f183793c_0
+04b4011bd89cdff8d616731c52439ec2b681c161621a96439752a421c3c70471  config/termix/Partitions/termix/Cache/Cache_Data/279d8821a0dd672c_0
+7d5a8335e179383d36aa984dcaeedad215697d4cef670efd5c0887740e92dfd2  config/termix/Partitions/termix/Cache/Cache_Data/2848a8d18af1f718_0
+264b6c705a27ec1f52d9b1a0cbf23d1255a3d36b11fef6e406bd3eae9f8b1663  config/termix/Partitions/termix/Cache/Cache_Data/2ce5f88b72a8518a_0
+b0d8ac06088bf7946ad3b5879a615e55db0150ac58fdf9236d81dc9edcb56b2a  config/termix/Partitions/termix/Cache/Cache_Data/2f031d40eea6e054_0
+31bae88f42b43fc14aad469a1650aa5d6b23faf5181ac042e21fed48181db908  config/termix/Partitions/termix/Cache/Cache_Data/2fc68b990fb9ecdc_0
+c1b98de7bef3d92813ff0d3236fc76c545b15358b1c273dd2c21e96c6aa59ea7  config/termix/Partitions/termix/Cache/Cache_Data/30ee99acb6fbe0f2_0
+34fa4d9ba1235780ebf25087d71be6800b2516a9b661bb30b91342b9b649149b  config/termix/Partitions/termix/Cache/Cache_Data/31a2200f4af58d36_0
+712461cf595186c0db6fc6a098db69f1e248d361f65463f889f9e2e6a4ac1a6b  config/termix/Partitions/termix/Cache/Cache_Data/35c5fda3a78e5538_0
+f620ae657f105e2a61c8e26a44e228278cf5a900f6fa6b78cef7a56d2b4465ff  config/termix/Partitions/termix/Cache/Cache_Data/3638a477aba1dc9a_0
+61f1284981320488fdadd7ab036ad6ca5f814691e51b456b24fea289416d2530  config/termix/Partitions/termix/Cache/Cache_Data/371c3887f3fce951_0
+0c34d37ac7b1c9b4db871ea1b9323b059002e313874d582b49b840d46c390818  config/termix/Partitions/termix/Cache/Cache_Data/37f309b8f254f511_0
+e149570422d46f11d9011462d5ffb61093f09b5de2a77fc5fdee15a0b2237868  config/termix/Partitions/termix/Cache/Cache_Data/39231e223d1c84d5_0
+ec7afffb90ffc4264a390371b35c30962504ebffe4adb36b1a894ee83ea876ed  config/termix/Partitions/termix/Cache/Cache_Data/39b06bfd7f0f8095_0
+dfd38c73ad70c3232d2ad7aeccead1731b1e16e89b7cbd85d44da2d5326b06e6  config/termix/Partitions/termix/Cache/Cache_Data/3b4369344b37090e_0
+8f08237cec0da0010f161dd7ef98bdef24462164faf1d5606fada2949d68afeb  config/termix/Partitions/termix/Cache/Cache_Data/3dc298d6f1120fdb_0
+80e24d4a9d1cec4cbd09f0cd908f4e8b0d7ec3d01c64ca7bf3b6fc50b0d10b8b  config/termix/Partitions/termix/Cache/Cache_Data/3ee423433adcac32_0
+690f5461dc866537dc24cf65a5b46530034aafb3691e99709a32409f1e727e4c  config/termix/Partitions/termix/Cache/Cache_Data/3faf212ed85f8829_0
+eb54f7fb6323c451cb3f24997a137bbaabef27dbc746f6e355f34ff1f7e2548e  config/termix/Partitions/termix/Cache/Cache_Data/444ad89d6a7009c6_0
+5dddb98bb24a04dbee3786ed40e5a80d61804dea127f81ceff2ea7e0fe7d089d  config/termix/Partitions/termix/Cache/Cache_Data/4766b46f01dd4585_0
+7c2b572c31940b4adc59144a50802d61c82f6957960ec20e8a9a7d58afd8eb19  config/termix/Partitions/termix/Cache/Cache_Data/4d019b6b73a123e8_0
+4a9d82b232034ddcdeadeaac4520a88c3aa542fa3a1e97343911b5317a04aad0  config/termix/Partitions/termix/Cache/Cache_Data/4daec9660092645a_0
+de4377f76af3d465aa0f627624987929d2f5a8b4bee10e2f618897b4cf4e1cfd  config/termix/Partitions/termix/Cache/Cache_Data/4ef2e7e95417978c_0
+a566d633fdfc7704e8b850b8b2aee61dd981c1cb7fe4403cd0a3755011040cd7  config/termix/Partitions/termix/Cache/Cache_Data/5151bfe40d2bfeca_0
+2507aaa12d135a576e37ec2e55629a54fc6b5fc8792a6ff17a8ed97c06ff35be  config/termix/Partitions/termix/Cache/Cache_Data/52c6862b5443d435_0
+ad008fe7b405858d4f2efada6df79ad316443c2592da3ba09caa1f322bc23bb3  config/termix/Partitions/termix/Cache/Cache_Data/52f39f6dcefe03ed_0
+00023e874dacc1eb76a9f42e1b1c148c507ae313e47b010faaec0d07e9eebe2c  config/termix/Partitions/termix/Cache/Cache_Data/55cd0a6b75ceeaef_0
+531d7b419d0dedc616f5eaf4b5f7e3e64fffd45aac1f0f75f67abd3ba3c1b6d1  config/termix/Partitions/termix/Cache/Cache_Data/565b287fc0126fdf_0
+77934d68647f868cd58a120aa4e5f7e631df9819cd742ff93e8a31871591ca37  config/termix/Partitions/termix/Cache/Cache_Data/570090edda38f5e0_0
+fda674eb3590ea0d41b080942b8b13ea6c079670b4eba26d8ed68838b92ac2da  config/termix/Partitions/termix/Cache/Cache_Data/5838970c977d528b_0
+a97ae82540382a79a814b417805de8d594dd01544679dfe9fd451846c3717f72  config/termix/Partitions/termix/Cache/Cache_Data/584b7928d926ebe1_0
+575532ca5756493d2b3e991d943667bb0c75a578886183dd6aef3598769f7c1d  config/termix/Partitions/termix/Cache/Cache_Data/587ebd9866af7407_0
+24a3cdac76e174a76d92d800c82a7d1a191204ec3253b2b5b9207f0d1eae9eaa  config/termix/Partitions/termix/Cache/Cache_Data/59d00b91daae3cef_0
+0e3a21678e35ba28fea392302a5f266ff106ee655863bf79f35ffb6d9dfe3e8f  config/termix/Partitions/termix/Cache/Cache_Data/5daad970ac28f2f7_0
+e36fef77d6f0dce8212f58bb272ad41b1781940c682041067ce973606839a135  config/termix/Partitions/termix/Cache/Cache_Data/6112da60acd6d851_0
+08eb396bb895a7c1fa631dffd37ea4b7addd4c7bb8cca455bb545ba46dd13f2b  config/termix/Partitions/termix/Cache/Cache_Data/6199843d92b9d5bd_0
+14e4232404326297c4ac999c2dd9e875188fe1cd17df1b12a1ff6a5cc61a9e4e  config/termix/Partitions/termix/Cache/Cache_Data/632845b35e2c3569_0
+5f8438944bb0fdd72f1db410880040a6493a81bbdd7fb2028cf4ea1aeec5fe03  config/termix/Partitions/termix/Cache/Cache_Data/637236d54fa8afe0_0
+cbb9914a633dd046ac516df6c45af3f33872459bfd3bebf9c4fe52c8484f5eaa  config/termix/Partitions/termix/Cache/Cache_Data/644aba7416caed41_0
+2e3f1e79e9479315f58620a311a2e87ced91078188ce6a743d72128b183bb6a6  config/termix/Partitions/termix/Cache/Cache_Data/6565eb3a6f441501_0
+0ac155a2e7432205f6ffb9c22e10d439cbd166aed0f69a7a976f806aabbe6944  config/termix/Partitions/termix/Cache/Cache_Data/6799004fe0b5ca78_0
+9379e1c1a5b4fb971b9451e2cedb3914166d5a05af2d3226cfd6c7b30548c336  config/termix/Partitions/termix/Cache/Cache_Data/679b6d55eab30459_0
+e0b84dc0ff657ceb2b0423386c46cc802c9b613f0631c9ed71f8d30ae5c2b5cf  config/termix/Partitions/termix/Cache/Cache_Data/69420c12903cb401_0
+613e13527221922d51148bf34652691295c2ed65e351f21aeb86c466ea98cdfb  config/termix/Partitions/termix/Cache/Cache_Data/6a5b4bd8e076bd31_0
+28ed028facb6bafcf5bde80a6a7eeb99c2344c50911f3acaa4687d7b619a5e18  config/termix/Partitions/termix/Cache/Cache_Data/6b0859d58c802a04_0
+df830a0118b11e0a376aab2bd9180808d44a0062d52b9015ecddf230759fb2b8  config/termix/Partitions/termix/Cache/Cache_Data/6b8dd2399e394f8a_0
+b6d1c9db01cf235ce37e29bb2ed40f262e7e0fd49c9e52321fa9ab9509659162  config/termix/Partitions/termix/Cache/Cache_Data/6bb50b5de93e28a4_0
+bfe6504b3a200fbb126e42d013cc62ebb3780ecec88f52f4b033c61b88eafc3a  config/termix/Partitions/termix/Cache/Cache_Data/6cb5091babb9d46b_0
+e08b807e534e958f7a40e22ce7d3c1ea84e385b5f5d018ac7fe60aaee6beffa9  config/termix/Partitions/termix/Cache/Cache_Data/6defe76dab4352f6_0
+e70c4bc76bb89753d75057f108c2813700b808fc63006eb9e3ec68234798dc97  config/termix/Partitions/termix/Cache/Cache_Data/7034851439a26914_0
+e89e159ae35033a7f9057c2305286fc4933aecf4583808be17ea2625ffe2470e  config/termix/Partitions/termix/Cache/Cache_Data/7284ba2da3774d43_0
+79aaf649c038387575323a8ec9e8d582e897f73cb5a9f281e6e539d606260069  config/termix/Partitions/termix/Cache/Cache_Data/72e79972d4cbee83_0
+1e888d729236fe162c85804fbf2a600a364142aa577ecc2c6dfb99d0302bf7f9  config/termix/Partitions/termix/Cache/Cache_Data/73901689f28ef7f4_0
+765497029bddb5086e948a97b7998165594b0b5be50fcd9dafffe3acd9b8e465  config/termix/Partitions/termix/Cache/Cache_Data/7730a8ea1f37c851_0
+7e9bfaf2f418d08d8212b2a4000d917e86e52cec4d02413d2cdddb51e61e3a03  config/termix/Partitions/termix/Cache/Cache_Data/77b8ceddcf32c87d_0
+ad788353fe9fecddbccde2e69e14cf232adab895fc0475aa62afce652a2a4439  config/termix/Partitions/termix/Cache/Cache_Data/77dbb298e4fbb781_0
+eeedbcd179be00833e58d148f43ecf0ba426b16a3bfb1f2b7096d312c5f5664e  config/termix/Partitions/termix/Cache/Cache_Data/783b30175f4ec127_0
+605114c06154b93f07084c4aa56b6795ade919399f7c7e37b56803ef48b5a672  config/termix/Partitions/termix/Cache/Cache_Data/7843849ac048a039_0
+8c9f4ac268574bc123de79f92e32369931b58bffa25ad860fd738eeeb6c0088f  config/termix/Partitions/termix/Cache/Cache_Data/78ed2fdcfd53c78e_0
+097092d69534147ef9110ef10a2d7f04da54d3372a4358508422bc7581313b40  config/termix/Partitions/termix/Cache/Cache_Data/7a8fb7a873ed03a2_0
+93102e39b9d33c2dbf25af522fcf2889014fbbb2d311e665a5200f5d99148816  config/termix/Partitions/termix/Cache/Cache_Data/7c0753d4173baede_0
+5d9bb93bca38b60c59dff57fb5fe551d6df7d13735f3930a1dadc6d2b1af8792  config/termix/Partitions/termix/Cache/Cache_Data/7d1489a1ef0fc757_0
+3e6476f9615a76146ec9f8fcd4a3d882e84baefc1e62d9e84e7b04917afda591  config/termix/Partitions/termix/Cache/Cache_Data/7d3aeec947c75b2c_0
+e4df3c1b377f9935d2453fe1338a6c954c34c72a55675d32fd7270dd56d51e4c  config/termix/Partitions/termix/Cache/Cache_Data/803255944f72c218_0
+2618bc2a5800056c1647e37b5ddd1ec28d3b0728e45db3bd9d2d1b4cb5abf76a  config/termix/Partitions/termix/Cache/Cache_Data/80a4fb3de5120f36_0
+bdd51be03d56b0212b689010210254b8da591fc138f399a3248ee55163ac571c  config/termix/Partitions/termix/Cache/Cache_Data/8117ef895526686c_0
+4f743b824f6308e49e6396d95439f8d23c9f017ac1ecabaaf2714a83f5dbdbe8  config/termix/Partitions/termix/Cache/Cache_Data/8424dea400a6805f_0
+150cf9e001149c49c0acab144906d3267f90c8c8475d0e0d3fa49d64269d3478  config/termix/Partitions/termix/Cache/Cache_Data/85b41eddc6ad21d7_0
+08371bcd9e48ce65413f23b68ec71d8940fc7d1f6e2ea6bd73edfc8be09d6cca  config/termix/Partitions/termix/Cache/Cache_Data/85f542f78ee553fd_0
+4ff77b89ac857dc3bb61b8f84d3e4875e310c7717e280e1464307757174e3ff7  config/termix/Partitions/termix/Cache/Cache_Data/8623add0ddabcfe4_0
+db3dd85fee0eaf16f43237e759004d675ec1ab05957cdc908cecf6d9a3a3f90b  config/termix/Partitions/termix/Cache/Cache_Data/86b377ba100c091a_0
+c6b5d9c3cabe7bd121d317e4bc918caf77e4ede1077edd83bda8d715bf25ef37  config/termix/Partitions/termix/Cache/Cache_Data/890d9b601476e2e9_0
+1ff7f15c98f8670c44c58942d4a5ff9735ef975ba1c928cca794bd9c7e8b776e  config/termix/Partitions/termix/Cache/Cache_Data/89e0b8d4b76794fd_0
+a245f4e01d16212e73349024e80c5dd0030b1c9f38d865cbfcd80fcb61d4695e  config/termix/Partitions/termix/Cache/Cache_Data/8a16d0f1b5b2a2ce_0
+702fea71557fdd5168cd0c903fb87e2568fa75c47bb60d41c8e36f4ac7443596  config/termix/Partitions/termix/Cache/Cache_Data/8b842379bb48fc4f_0
+1898411b11ae1ce52425d339b580ac53847e664952a8cac089ef4f6220cdddca  config/termix/Partitions/termix/Cache/Cache_Data/8e1ce7b76e0be24b_0
+e34bd3d256e301aa20933723c3171ab36dca22d3345c45572b83f3a5e5fa805f  config/termix/Partitions/termix/Cache/Cache_Data/8ed330090c47593f_0
+5007e9a7d84a01eedb97866f294e25a0cd410971c9a894036a8c4ed69f41faa2  config/termix/Partitions/termix/Cache/Cache_Data/91533ebb53f2cb05_0
+980f6ee976f69f8615b5e6f7058b57eb3aac4e7c1207a9b0163910380a19f25d  config/termix/Partitions/termix/Cache/Cache_Data/91f65be94d276164_0
+0c6e5d4a6d8db772e8d0b7a360f36de94ed5185e3e0ae3ae1fb28d7d3f295d70  config/termix/Partitions/termix/Cache/Cache_Data/926325a0d3973670_0
+6e3223d54ea83c33c1f04acaf704b3b3daf9472711fee551f58eea400a72b2e3  config/termix/Partitions/termix/Cache/Cache_Data/9515e79635439964_0
+65e1e9f9970e3bfafc2c3f0f66d5f85b1918c17480a9761dea1f9756a31708dd  config/termix/Partitions/termix/Cache/Cache_Data/9673f673303a4ddb_0
+6fb81fe84bb20bafc81e9779887e3b5690f266cccc963a9c467affbb69eeb08d  config/termix/Partitions/termix/Cache/Cache_Data/9744af2163e8780a_0
+0438d0f5019c8a1b7b77e93d57a8a5c6ff27b891e4be45237633892960e3b342  config/termix/Partitions/termix/Cache/Cache_Data/97cec285aa9f4760_0
+8b27706081f46b3c4e971bea977284307e8934781453b644bfa667053e059d08  config/termix/Partitions/termix/Cache/Cache_Data/9c624286e222f226_0
+3f1bb1936e0fd13f0e394ee641ec14b4e5af9ad9ee27922d70b3b9c0c7fac26d  config/termix/Partitions/termix/Cache/Cache_Data/9dd40289b0f5a30e_0
+dcbf245167f0a4fe888453456cb83482cd50d5dd459a3e7f7e6627a140f43f2e  config/termix/Partitions/termix/Cache/Cache_Data/a0bc09d481f2942e_0
+6c45c6f636a0a3d6061b4b176bbc4639be9ed1cafdf52e425e1c29d0b775376b  config/termix/Partitions/termix/Cache/Cache_Data/a10377f483e56026_0
+e9827676d3cca2a369f9d7f6e67f180e2fa2d55597454f7a156333c1712254ff  config/termix/Partitions/termix/Cache/Cache_Data/a242686dec4fcacd_0
+a04121425eb3554d7be9289d8869d633d7c9c90e10ba0f78c8a58ecbf65ef2e9  config/termix/Partitions/termix/Cache/Cache_Data/a2a2edb27c7a81fe_0
+aa8bcef44abc818a4dea806768c891bbd2885fc4163ea9f0cc2ead3e7398c666  config/termix/Partitions/termix/Cache/Cache_Data/a3f5b6e47af9d64e_0
+fe452d4ead7960b3629678320dcb9257c8198d27b0185a2b3f60f37075198ce4  config/termix/Partitions/termix/Cache/Cache_Data/a505ec1a516ba24d_0
+5e4e3d46d50e4f27f1c297b45bee8b3cd320907d79a62936b29762aa1ba3f18d  config/termix/Partitions/termix/Cache/Cache_Data/a51383e5b9c8ccef_0
+a9271abcb034b73a04c22a589e2c301ae2bcda8cbf6c0eaf478c4cd861f0d32b  config/termix/Partitions/termix/Cache/Cache_Data/a5bc105cbb551dff_0
+0c30f5fab7d5a62a690996267aad64d771e394585e378622ccf729705792ff36  config/termix/Partitions/termix/Cache/Cache_Data/a5eeb71c6efe78b9_0
+638fa62f50374225fd73d8d725f1d780b168f847b7d79959f333e7df2f6075e9  config/termix/Partitions/termix/Cache/Cache_Data/a601520ab98e425d_0
+9c1b0aca7c4b7e70c145c65e7f179aeb4490b1f4ecc264694b1fca18134e3127  config/termix/Partitions/termix/Cache/Cache_Data/a657bf1873cb5bd9_0
+fe82a87b65c17142ee92b47314d750b1bc6bef1cfcc2af1cbdafb809f4eb96e4  config/termix/Partitions/termix/Cache/Cache_Data/a6aee82cd97b14fe_0
+97db9f51f899bc5a9f5101538c81f043959bcfcf7da2a033fcc64b81b8aeb5fe  config/termix/Partitions/termix/Cache/Cache_Data/a6d0a9323db1769a_0
+9c5901da241b4ed3a23889da6a43d04ffb6ea9fff080e51bdb15702d2b32971d  config/termix/Partitions/termix/Cache/Cache_Data/a6da7cbbdb2d0bda_0
+31039dd3c1130ec5013a87c00460d1a67de6f08e2bc8ebad9f2b13e7afed2e1b  config/termix/Partitions/termix/Cache/Cache_Data/a74eda87135a46c4_0
+11c124e92a8d104d3ed059d929e0e3dc0e6545f64fc4fed5ce40166e167251ed  config/termix/Partitions/termix/Cache/Cache_Data/aa177ba8086e014c_0
+9cf439dbd8c2609c670c6d0294bb0325ac588addf1f5ec496d9555048966c2e8  config/termix/Partitions/termix/Cache/Cache_Data/ab469a2c6261ddde_0
+13ce071be5e2dcb1f65147a5634ec2903357777839d573f8d2649af59682070a  config/termix/Partitions/termix/Cache/Cache_Data/ac0e48547c8dddc9_0
+b6367478ec91f39a74b135953843e4d1a507449d2b443cedebd3c1e8964bc385  config/termix/Partitions/termix/Cache/Cache_Data/affae392277fb56d_0
+6c56aab2d34953f72663efd35f422bed91ec2ddac31bece9cc8a7c04ef219540  config/termix/Partitions/termix/Cache/Cache_Data/b22f4a3a5a8900dc_0
+8d218f4dee0899b29448783a19bb7375e207945502f76c733aaccea220ace603  config/termix/Partitions/termix/Cache/Cache_Data/b34c987a2eb056fe_0
+700f5a46dc119cd9598d76a12343eda8522d8a6dc72f05afaa5b402636aa2b41  config/termix/Partitions/termix/Cache/Cache_Data/b6cb3ada025fca4f_0
+826da3e1a8bbc80687dce20d8130bf1aa62e9cb22c80a526392d7bb021f0cd1f  config/termix/Partitions/termix/Cache/Cache_Data/bd5e2197cde5f901_0
+5e16eaebfc3df47effe466dac032fa0901d5518d03a09ada5d1e57086c64ce19  config/termix/Partitions/termix/Cache/Cache_Data/bdc1d66873a24151_0
+916a0ee5fc7021b440faf4040fd25975b37a7df3066bd855e2509630aa57a85c  config/termix/Partitions/termix/Cache/Cache_Data/bfd7b29382fc294a_0
+2fc952200d75be1fdb268771fa739bc35d67d50dd88f89b70231e372c7d4d0bb  config/termix/Partitions/termix/Cache/Cache_Data/c0f3a3d0f228bfcc_0
+1d9799b54f253b393aaf7955ea7df01b86b7b52b54ddc6a5bc36c28b51c5d0fb  config/termix/Partitions/termix/Cache/Cache_Data/c1cbd96adcf27ad5_0
+63e6f4d7a5dd4dc8ca81fe5e6eada67e1fc98fc5a4333ffac8eb3d5e2524bf8b  config/termix/Partitions/termix/Cache/Cache_Data/c4ec01bfc2a6d06a_0
+088c289b5d886fec701892cee9b32701ebb2cb61b4b93e3fc6a0f56406abb470  config/termix/Partitions/termix/Cache/Cache_Data/c62606be45cf4ede_0
+456637aba5022847882dc9fffd46943d5a966c047759025d5fb56513451de003  config/termix/Partitions/termix/Cache/Cache_Data/cd7fb574add311f6_0
+2134b275c9c2963daf7a3012a554f700d1c14e58ee5de4b4970d7aff1471dbc0  config/termix/Partitions/termix/Cache/Cache_Data/ce6a830533124020_0
+460da3bcd47aaec91992ffd9910f96c8bd557da60e3a78b4edd2c8c8589d43d4  config/termix/Partitions/termix/Cache/Cache_Data/d0588735b96b7e52_0
+733e8f2f5a7fe3163726036866bf2b3986a402828cb3a276d9aeb4639af12fea  config/termix/Partitions/termix/Cache/Cache_Data/d79be571b44cd82c_0
+e9a60fe19b12f9f0e384a68e264765ded6eb432629dbf168225544fcb5437b26  config/termix/Partitions/termix/Cache/Cache_Data/d88c641a20fc5ace_0
+8d6d54764d54849e7303c31e691c8b1354666a35542f058f619c18b43554da0c  config/termix/Partitions/termix/Cache/Cache_Data/d8ef521641cf0e7f_0
+54abf90db235afeb59da411038f88f429e39a7316e7267a17a4225f088159a6d  config/termix/Partitions/termix/Cache/Cache_Data/dafa094113c16edc_0
+06953f9ba1a4d06676d3018d8912e162c3b7e09ba976ae43ec7cd729a7349f41  config/termix/Partitions/termix/Cache/Cache_Data/db1045b4e3c5cdfd_0
+d0dd6643d23a7cde88e90876442c15407e4ce4dffee5cc18b3fb9bfb61241232  config/termix/Partitions/termix/Cache/Cache_Data/dc15c35bc4afa1a1_0
+62a06589f066e6c05d37a943bbc8e2f7771bb66dde73ce31f5c63ae5d1098825  config/termix/Partitions/termix/Cache/Cache_Data/de0024387798f777_0
+31a108359f39c09f37a19585f657560ec8050e70e50e5e793c320662970e23ce  config/termix/Partitions/termix/Cache/Cache_Data/e09558cabe4fef54_0
+687e9deebd0410735ada0f93577091e95dc65b0cf0bc39be782ada898723f581  config/termix/Partitions/termix/Cache/Cache_Data/e123c9fafac61dc0_0
+9a1ef1b0f317572caa1ece3c585ccaf37705bdac84e6c68b73b2d62e1815a0e6  config/termix/Partitions/termix/Cache/Cache_Data/e3b872505fa33ff3_0
+5fadc2fab332d98d91972951d2bb8f487032470a1def91c8c738be14b1d0b1ed  config/termix/Partitions/termix/Cache/Cache_Data/e3d879f81e325685_0
+dbc09ee1bba3c6a4eab376911f4e6c16e4c89ad91796a04e612bc8879eaefee8  config/termix/Partitions/termix/Cache/Cache_Data/e499a605effb2497_0
+5955cb693c5c1785316c940647613917e1e88b0a3c2984f7f768ec82549bf1a9  config/termix/Partitions/termix/Cache/Cache_Data/e636e82267b8dac0_0
+2605e0ef254be3b5c2da0e57641c6e936e97f343e520f4d6572bea91d40702fc  config/termix/Partitions/termix/Cache/Cache_Data/e6f9dd45e233dde9_0
+47a4e341a236f434023a66951c987ebe2207f204e62e7dd2ff827806b4d0f7b1  config/termix/Partitions/termix/Cache/Cache_Data/e7137f514bf9d351_0
+0bfc14ca261c23fa297e20e89027ffe2d85b9ca30f5b91013eb067b5b15a69f7  config/termix/Partitions/termix/Cache/Cache_Data/e8413c6dd5232936_0
+1392d50feec15b0fbbdd525919dcba7cdc083cd8d32a3350c33113b5bd6316ca  config/termix/Partitions/termix/Cache/Cache_Data/ed86900e303c035b_0
+a8efb708e16ca255af2d8c5cfd8caacb9e14678d6653b8495c6d2972e6fb3798  config/termix/Partitions/termix/Cache/Cache_Data/ed8e958772baf52d_0
+0299d12f47bcccfe3b6ce2fb4ea7feb65fa4df5a3983380335ef99336362f72f  config/termix/Partitions/termix/Cache/Cache_Data/f04d4354f961e3a9_0
+a8b3950d086ac94a184b23c073af93bdfc91b77c483b7852b055a741f6fc34cb  config/termix/Partitions/termix/Cache/Cache_Data/f25820a53306e579_0
+2e66b10953a8efc2ddcb1cebfba7bd9f1229fe2fabca3a6ceaed25ef8849fc71  config/termix/Partitions/termix/Cache/Cache_Data/f3c2c8d26749488d_0
+e6085d7a73049abb5c736ce535b9717cc6574b654daeb2c24b51724d5e28214d  config/termix/Partitions/termix/Cache/Cache_Data/f434008ed76bb3e8_0
+f429c51af0ac45ff678b1818a322bcd14060fa399b1f024dbc2f2115c8cf1850  config/termix/Partitions/termix/Cache/Cache_Data/f5095a1e48b9f29b_0
+68b0fb79a8af1bc2d0a60094a54ed627ca50ec027317a9413066ee59d7d9f4a4  config/termix/Partitions/termix/Cache/Cache_Data/f623dfb3f2aee59a_0
+f846164348f47dc5ec09196876803bd03ef9079ef7438cb919e0d6f5e00282b2  config/termix/Partitions/termix/Cache/Cache_Data/f852c1bddd38a4b9_0
+03c01bd6a599802ece9c9f4417d9dff658644599726d3ec670dfc36eb366bd90  config/termix/Partitions/termix/Cache/Cache_Data/fb0cd8841126c587_0
+2b1ac021d7f931efab1cd842326573f31aa3d8d83514e72afbaa141c2e56045e  config/termix/Partitions/termix/Cache/Cache_Data/fbbcdd8652a66be8_0
+cf9773171ff1f0d9e3e2c8347bf98137370962a5f7cdf79dfa06a3188a15dcc6  config/termix/Partitions/termix/Cache/Cache_Data/fc031c26ad554140_0
+c8ac5af07d9cd838548a6c214d404ba70be856b93d5559107394cee9c276d24e  config/termix/Partitions/termix/Cache/Cache_Data/fd16a1e6032d5faa_0
+f512415084c8877924854fb873c293ba32f71e8e77566208fd950918d25f1650  config/termix/Partitions/termix/Cache/Cache_Data/fdf92bf648600eef_0
+753704551b6ef67c5e4279442db7e9f2b87ae9083c9124915193e0c079e9ab63  config/termix/Partitions/termix/Cache/Cache_Data/fdfffedb69e2e294_0
+0e0a7183f12dd2b89330aaf1e9102f78309e0b32c760efe86dbfd33e1d2672d7  config/termix/Partitions/termix/Cache/Cache_Data/fe21d349fe1cefb1_0
+6672825a25a89cb198a995b13e9d0c14017d4ee31fa7af34b56e08ecba24cfc4  config/termix/Partitions/termix/Cache/Cache_Data/fe84c33b3ffdecb0_0
+67846bfdc68e536c9c70d46e6e67554bb682349981751da0cc74d9e17d7be4fc  config/termix/Partitions/termix/Cache/Cache_Data/ff4dc6c5c5a5c539_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Cache/Cache_Data/index
+c2861552c71c5e920acce3071e0f9fda28be6f5edbe1a1b31882c43b626b2ef7  config/termix/Partitions/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Partitions/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Partitions/termix/Cache/No_Vary_Search/snapshot.baf
+590d55bffa02cb216ac8b8b7419587203546f945d5a4cf4a4f74a3e9cfd6f581  config/termix/Partitions/termix/Code Cache/electron-preload/41C1B13B73E84A4FE61FC3B8750F03DACBDFAE604B307129FA9CDAAEF516F049-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+d056cd162d1df79f407d7026f4440023e8eadea29c101d77d71c468b1188b9df  config/termix/Partitions/termix/Code Cache/electron-preload/4FE13288B98816A17ECAFA6385DFBC4ABB592E57472B58994115ED797A4292B0-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+a9718b40f0203674ff7a9a47ed3944511345a6b92ec06e6d6a81d92b1ba561e4  config/termix/Partitions/termix/Code Cache/js/070301b8daa6c17e_0
+e397303e79e5b43e289515fe4f51dd184417b6635a6fa696999d74540635fa12  config/termix/Partitions/termix/Code Cache/js/0a43008814be6c89_0
+e8b33dff0595a0af79dfc3f7a2b030bced6e477a58ea0a69cbcb23c37d10570a  config/termix/Partitions/termix/Code Cache/js/0acd2e99cc17f764_0
+12c967a689f6838f37941f4dcb44deae053f61c8211e18854fbbb35a75e3fe43  config/termix/Partitions/termix/Code Cache/js/15021c8a55257ccd_0
+3e7351d280f5ac84e35b5bf16cbb12fcefa091e926b5dad0d79dce7b4ae5a4bb  config/termix/Partitions/termix/Code Cache/js/1c963a7cfaf461e0_0
+61400a4da9b46bfd6624637052d504e267cec451f9c10ce60c6cf1fd20b32348  config/termix/Partitions/termix/Code Cache/js/1d73c8da3599e02e_0
+15a6be117168fd9e7b8498a522862392fc4014771aca762bb5281398f9d8b4a0  config/termix/Partitions/termix/Code Cache/js/276b25290af5e18e_0
+f2e714864dbb4e57b9226e8894241195e89ba2e0161a454ccb46f9a5fc1aca8b  config/termix/Partitions/termix/Code Cache/js/2808221fe4a340e7_0
+8d8bbcba299dd7c00eec5b3c83bec0afc5287f438e7eb943e5815de428916b57  config/termix/Partitions/termix/Code Cache/js/2b01ca085a173f80_0
+a8c3d9e2e46480229b4d6996398b86992cac8bb4a7495c6f0d565a99b1f45416  config/termix/Partitions/termix/Code Cache/js/3136a542bb70e1d2_0
+5bd6512c611fbc29e1811a4c6c215fef8c21a7eaac4ec3cdf356006d0de6e3bc  config/termix/Partitions/termix/Code Cache/js/31e91cba23b6820c_0
+ca31cbddb2fb8923b7e07476750cfc68b542934caae7f619f8f2229d460f9792  config/termix/Partitions/termix/Code Cache/js/428e3c0b256ffc15_0
+b71d389290dae86c338d6d540da7d09655f7d091f2e67119aa0d6d1507d8b348  config/termix/Partitions/termix/Code Cache/js/46029186fc2f0129_0
+35fa0841ad0843302361580e73d4c2bb4fa2213bb37a3959a552f4eab7228d8d  config/termix/Partitions/termix/Code Cache/js/47dcafbbfd802c5f_0
+d79fa1c9bba044c39948931283617e1ee2d9b9eeb909b0d875f7d7d3b78a38ec  config/termix/Partitions/termix/Code Cache/js/482f33de4d2f9593_0
+eaa776454c78fbb898e321c03bdf73bf21e40132093c1f3186e1a9fc64189f9f  config/termix/Partitions/termix/Code Cache/js/5a6ae6b77363a51d_0
+e372b14ac2a3bf2bc2d6dc0459bffbeb4d3da5ae3b2bb3f66d0670bee5d2e893  config/termix/Partitions/termix/Code Cache/js/67204cc88a68ecf8_0
+e3b1d258fbc6c33cc2af0b261d0b17ab4305bf7dc5bf8ab91bb3f8b1724a883e  config/termix/Partitions/termix/Code Cache/js/82a2a791f22823ff_0
+ee35b813de548d0d7280e935a9d25caca24f1acac55d0d9d57aaa15174ec0b24  config/termix/Partitions/termix/Code Cache/js/838dfc2863d4fd9c_0
+7afae2779dc658afd1bf81d8227d4da380ca55cc56bd6d41094bb296e2fadef8  config/termix/Partitions/termix/Code Cache/js/8b34e8a614769605_0
+5a05a757dcb5fc06c3c473a8421b303f2abf50d7200d0dad36be572d7ca50fdb  config/termix/Partitions/termix/Code Cache/js/8c33507c4ffdd475_0
+74ce9df93278355b9e25a7a98c404fae3480e30dc7a5536e0d1b4eece1c81e0d  config/termix/Partitions/termix/Code Cache/js/a4376a8a972d0708_0
+2105c629a9f7afb7e498d6d83e32ea4db2b3606f6730ffb4ca7be76419e2b41a  config/termix/Partitions/termix/Code Cache/js/a4a9f31141ae25f6_0
+913495425a6c85a0866edf465e2baa3dcc5d8e35e9d771a231687bec3ce14606  config/termix/Partitions/termix/Code Cache/js/ad4374fb11eb7c07_0
+6d06342b7c2dc07ff9cb1041099bb610cc165b2e8f3faa7368a88b25080d47c7  config/termix/Partitions/termix/Code Cache/js/b3505808cb0dcec7_0
+000f8d3dd78452c337a10e12bf2e6c847aa56472d6d0d1468ef59ac338766bd4  config/termix/Partitions/termix/Code Cache/js/c46b76650026e7ef_0
+0c4a46e561dc47f56852bab3bf487ec152382084002959615d1604ee7ae20942  config/termix/Partitions/termix/Code Cache/js/c72f1ded09c12616_0
+ccba3fa98642335b691d6ef0f1da2797df608fd9bca291a2fee29c54ddca5ef3  config/termix/Partitions/termix/Code Cache/js/c9274fbc63e3ad06_0
+8995515410c34cf4c0fe1c9276a2e844cd378efb50a37ae06526a28f488cc343  config/termix/Partitions/termix/Code Cache/js/d2ecc3a60dcaf5f9_0
+9698cde70a3b6da5a50c7367299e0155fbd459cdb5d5a6d3bec67a0dfaea9795  config/termix/Partitions/termix/Code Cache/js/d5856ee939b01872_0
+0319e76e698aa58713faac2378508c805a41fa19e340f92c0ac3c37949dbda8c  config/termix/Partitions/termix/Code Cache/js/dcf6da0d5fc39e71_0
+52e40db2ad802d8d347409d03982570c65ed5dc7b6a71dc398ad1c0761af0302  config/termix/Partitions/termix/Code Cache/js/e7a7e324f3218ce7_0
+12525d4eccb38a73cee77e2040bba96707d4753e5fb305f8839dd0dc2063cfad  config/termix/Partitions/termix/Code Cache/js/f244d8261f9df705_0
+92ffe48de9333f9b80f48e94b9454db86f6b330c5fa44ca1fc1b43a78dc7c276  config/termix/Partitions/termix/Code Cache/js/f276e012e1d29769_0
+7d0bae717dfe069ae3ba59c0a57b0267668eae3014d1357b39edd139376c9c8f  config/termix/Partitions/termix/Code Cache/js/f83a15955da5e4ae_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/js/index
+fea153a27eb0e3a5b6c0d1adfd1e0803536c68bdf7664b2776f67ec331e49fa2  config/termix/Partitions/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/wasm/index
+7dd818c3e26db882bcfb93d41c00adff00751bd139134cd12267ffcaa363353e  config/termix/Partitions/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Partitions/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Cookies-journal
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/Partitions/termix/DIPS
+86cf6a9bd735d4cda1e83256986b7b9fe6067072d4447264da0f6d1e07996f3d  config/termix/Partitions/termix/DIPS-wal
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnGraphiteCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnGraphiteCache/data_3
+e0288975570b29302dabf7a33c5770fadbef3b0c4476abef30520d13d9e425c5  config/termix/Partitions/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnWebGPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnWebGPUCache/data_3
+04284abf9ebd1fa9578cc76254b14d18a13e42a8e30cb53770c7f3ea39f1e741  config/termix/Partitions/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/LOCK
+b042563f8c09b67f8ab4c1be0f5ba953dfae7191569619ecbe8486159960a3bb  config/termix/Partitions/termix/Extension State/LOG
+0bbd37a419153dbda270e19714329934da2e57ee9bb0dda22e23cc79031d4a48  config/termix/Partitions/termix/Extension State/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/GPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/GPUCache/data_3
+ac023006dc7de1aaec15b60151d08ef44678802fbbe8dc3ef3e2fd45153d2b1e  config/termix/Partitions/termix/GPUCache/index
+1669f16cf28b2bb669bc7b75050a68cc0b173047ae8d6ea88d9fa92e087b4776  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOCK
+ce6a4fd7cdbbe24baf8adf0fd2ed246c97d30ab7d396a1b609379213d3df4083  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG
+d8071bfa41d843e6dcac9a5dd1a5fcf3ec618e175d4a1e5cf8ecdb6c89e0d53b  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG.old
+720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/MANIFEST-000001
+88fd74bd2619ab34f9e8ed304d16e3258f1aee515d542d1b0a97aeb0cb62cd70  config/termix/Partitions/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Local Storage/leveldb/LOCK
+c9b1d01808c1c6593c3709ec45b6ecb2efea13df2902774c4259a5bf6d845f6f  config/termix/Partitions/termix/Local Storage/leveldb/LOG
+b4d6c3c926cc1a93faf7e912cc1ae157621ffeab5edb527f984bb349009b8964  config/termix/Partitions/termix/Local Storage/leveldb/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Partitions/termix/Network Persistent State
+be4b8924ab38e8acf350e6e3b9f1f63a1a94952d8002759acd6946c4d5d0b5de  config/termix/Partitions/termix/Preferences
+ffd700cf04be6fe8d51e2ffb8a2e37bc3fa95a6679a4102fa35e8494c2350eae  config/termix/Partitions/termix/Session Storage/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Session Storage/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Session Storage/LOCK
+0384b9b2f763de53e097abbd2d0dea94a50ab2763a46ccf0a67daf4900bc6987  config/termix/Partitions/termix/Session Storage/LOG
+8da1cccbc73086f65542b3b7059dd47c5ba9e5edb6d0cd85478345a757e1cb8a  config/termix/Partitions/termix/Session Storage/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Shared Dictionary/cache/index
+5b1576bfa42833d8169e3326fd405d3daa32eca799e52831a141a3f41c1185a4  config/termix/Partitions/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Partitions/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Partitions/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Trust Tokens-journal
+113fad4f6f87fafd43cdc3ec1226fa5023bb13215f3e90344b60e38df417dfdb  config/termix/Partitions/termix/WebStorage/QuotaManager
+4f20f15d95284a238b4fd9f1ec3b985a2af7381513604ab32dc97f999cc13ef8  config/termix/Partitions/termix/WebStorage/QuotaManager-journal
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/Partitions/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/declarative_performance_observer.db-journal
+9abe2f60dcf2f75a42774172b4dcba8ffb2d4e9956c283928013f5069d394f4e  config/termix/Preferences
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Session Storage/LOCK
+e6ffc532ee6b8d96ef0fd8ba590f8b24374aa0300957158bf5f5991bca433fd3  config/termix/Session Storage/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Shared Dictionary/cache/index
+ff7a913ce7f5fa6d98e55e5647fd8f33f129dc909caaa614d5d65e898933c567  config/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Trust Tokens-journal
+4c8c3aa22f80cbd16843184e7a483619baeb366dc8fa67985ffc584b90821ddc  config/termix/WebStorage/QuotaManager
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/WebStorage/QuotaManager-journal
+1dbdfae0a49a1048cdfe91e95b1e2d80147aea4b2dde10d8b2ca3ef6a36f14c5  config/termix/app-origin.json
+b98880883fd8d975260f1807fa46a5156fcc4cc82bf6d657a417d8bb4e42cd55  config/termix/backend.pid
+4d45e6a74a1e807b02db9c2fbd0ef178a61b6db8dfcdfbc369c50601e4baa323  config/termix/client-cache-build.json
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/declarative_performance_observer.db-journal
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/.env
+0ed68f008a762a0c2bcdb56160c394d44171ee328b35c90c46ad2b49a0b7fc1d  config/termix/server-data/.plugin-awake.json
+6318cb0d30cb18761dfb35693cdad07013e902f90ca60ac075fcb571ef473c34  config/termix/server-data/.preupgrade-backup-pre-plugin-runtime.json
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/.env
+74ce92748fd547c9f2683d883961d6af53feca850e0543591e640f37d61e872d  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/db.sqlite.encrypted
+6318cb0d30cb18761dfb35693cdad07013e902f90ca60ac075fcb571ef473c34  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/manifest.json
+f50fbf71351d02a3b14dbc3034ac3dbf67be7d3e18d8964b2d3abedb834dfe8f  config/termix/server-data/db.sqlite.encrypted
+4326749868cd096f7781c551c32a9efbaa240b43a9a69c9c79c0114c7faeff57  config/termix/termix-main.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/flatpak/.changed
+2e3fcc1095510ad8f1135db8ec36296a628c10608f03c176beec6525d49dcacd  data/flatpak/repo/config
+PASS termix uninstall 120ms: Termix was removed
+6b598a6b3a159d96ea110f39d21e0fd5ed2277add4235db9118ab7bc94714b17  config/profile-fingerprint.txt
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Cache/Cache_Data/index
+3f2dc7f7c358da7990110c2606cbd6fccf4c89460e83d4ff5ca8d9bee495b5e0  config/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Cache/No_Vary_Search/snapshot.baf
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/js/index
+ba176ffb644fbd82492e2ecceca99abf7d40a01befaf26b64817abb5b29cbb4c  config/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Code Cache/wasm/index
+135061ce9c0fdbec293893ec7fdcddae5d39ffb10e23a46d378c87277dd95a6d  config/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Cookies-journal
+438280432b8293f40ae28123f33a67ac08f5233c056386c8edc958974971aea2  config/termix/Crashpad/client_id
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnGraphiteCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnGraphiteCache/data_3
+26d2a1f2db84083f9505cba8b748f0fbf35b3de77e69946e94b65a225dbf39e1  config/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/DawnWebGPUCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/DawnWebGPUCache/data_3
+89ce9078a6986bdb71c2aa12dc175c1eab1dad6e0ddfcf6effeed99b486c7053  config/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Extension State/LOCK
+8c6988b1be77812eb1ae40b86deb7c9f8b8e28a196adf2a238d7369eafa2caab  config/termix/Extension State/LOG
+df6d930c7f7531c6a408e11d46cc7a50f83d276ea5797138d5e3690bc0522fbc  config/termix/Extension State/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/GPUCache/data_0
+4757abe2c6d8a9db44e6dbf8870200b74c502cfbf019321aa7b5dfe77d41c059  config/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/GPUCache/data_3
+c76a0c0a62d06663503b480db88404a70c6c734bdc60b56c8b9d82e92418a51b  config/termix/GPUCache/index
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db
+bee6ad5beff476c5c5ee50e386c712af5b47883040923a7710a731b84730f542  config/termix/GPUPersistentCache/GPUCache/LTUGOJ7VFIZ6VRZCJXFF5GINLTUNEY6K/cache.db-wal
+4a575b33b2aff7d08b14cb97c1f764e47ccec09cd9f87949af3b92c796e5b501  config/termix/Local State
+8bd2ea70a0b70c91de138a5b87c7936c6a6fa7c4275c54b97f4ef0ccc5b79bb4  config/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Local Storage/leveldb/LOCK
+74af34a49f4daf59b425e1dd6a2e1c8a0a63272dd0b06688332118ea6197e94f  config/termix/Local Storage/leveldb/LOG
+c65a940432a73861aff91cab1bcbc6a8b19c84accd3d4bdb9d7ac536c77c96d0  config/termix/Local Storage/leveldb/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Network Persistent State
+0ecdb6e1f434cb6159cd97be99b3f8a3a3905a427e1019905ee962b9e381944f  config/termix/Partitions/termix/Cache/Cache_Data/03021c6764b3840e_0
+c0b6986d83f823704ed49226b489e8f0f39040745a47673cf7976c8ebdef6046  config/termix/Partitions/termix/Cache/Cache_Data/07558cadaa599960_0
+b9c6a2966c0d6e272841249f0266ecf7da4ead9d4415ce9a6904d2e2fdbad517  config/termix/Partitions/termix/Cache/Cache_Data/08abcd672f2e5ccd_0
+26ccad875448a774942d6ca9f380c9df411d1d349508daa6ce0c04dab1113288  config/termix/Partitions/termix/Cache/Cache_Data/0aa2b9d3e9eb3577_0
+227aa6a98b0631a125de6a9dbe572e5ab7c8c9868ce6bef39fa295100c8f4ef5  config/termix/Partitions/termix/Cache/Cache_Data/0aac813e2a170ecd_0
+f03cd3f902e894de26b9eb7c03b900b004084dd36b3dfc75a364b8279e82f851  config/termix/Partitions/termix/Cache/Cache_Data/0c6849e660c1cf3c_0
+dd171e8c946063665c6244f786cfb61161df9a605d1454b838e3a269d981fee5  config/termix/Partitions/termix/Cache/Cache_Data/0dc29364c652a55c_0
+656341d615ffdc83846305c0bdc1127ee8d3c113e4c8c34b1efde1f3cc8e3cdf  config/termix/Partitions/termix/Cache/Cache_Data/0e7698e9f992419f_0
+a656341fb261044fcf19fb384fda4f47136bc130d41acb2fe22bf7a976290d5e  config/termix/Partitions/termix/Cache/Cache_Data/137b77604b870f82_0
+ebd64ff021b1431eb3b68979fc106398d476d715dfaa1f7077963f161592322a  config/termix/Partitions/termix/Cache/Cache_Data/1bfb800ea7a0c06a_0
+5ff8d7a3d71ede0c82b8016731e3afe6b563a7163ba55b0e2315565de96055cb  config/termix/Partitions/termix/Cache/Cache_Data/1dad2efe47c6fe27_0
+bb37d7c1cd4a89031306f35a7a10fff568ba924e9b8aa99bd2ecf4bc509c75a1  config/termix/Partitions/termix/Cache/Cache_Data/279bfaf9f183793c_0
+04b4011bd89cdff8d616731c52439ec2b681c161621a96439752a421c3c70471  config/termix/Partitions/termix/Cache/Cache_Data/279d8821a0dd672c_0
+7d5a8335e179383d36aa984dcaeedad215697d4cef670efd5c0887740e92dfd2  config/termix/Partitions/termix/Cache/Cache_Data/2848a8d18af1f718_0
+264b6c705a27ec1f52d9b1a0cbf23d1255a3d36b11fef6e406bd3eae9f8b1663  config/termix/Partitions/termix/Cache/Cache_Data/2ce5f88b72a8518a_0
+b0d8ac06088bf7946ad3b5879a615e55db0150ac58fdf9236d81dc9edcb56b2a  config/termix/Partitions/termix/Cache/Cache_Data/2f031d40eea6e054_0
+31bae88f42b43fc14aad469a1650aa5d6b23faf5181ac042e21fed48181db908  config/termix/Partitions/termix/Cache/Cache_Data/2fc68b990fb9ecdc_0
+c1b98de7bef3d92813ff0d3236fc76c545b15358b1c273dd2c21e96c6aa59ea7  config/termix/Partitions/termix/Cache/Cache_Data/30ee99acb6fbe0f2_0
+34fa4d9ba1235780ebf25087d71be6800b2516a9b661bb30b91342b9b649149b  config/termix/Partitions/termix/Cache/Cache_Data/31a2200f4af58d36_0
+712461cf595186c0db6fc6a098db69f1e248d361f65463f889f9e2e6a4ac1a6b  config/termix/Partitions/termix/Cache/Cache_Data/35c5fda3a78e5538_0
+f620ae657f105e2a61c8e26a44e228278cf5a900f6fa6b78cef7a56d2b4465ff  config/termix/Partitions/termix/Cache/Cache_Data/3638a477aba1dc9a_0
+61f1284981320488fdadd7ab036ad6ca5f814691e51b456b24fea289416d2530  config/termix/Partitions/termix/Cache/Cache_Data/371c3887f3fce951_0
+0c34d37ac7b1c9b4db871ea1b9323b059002e313874d582b49b840d46c390818  config/termix/Partitions/termix/Cache/Cache_Data/37f309b8f254f511_0
+e149570422d46f11d9011462d5ffb61093f09b5de2a77fc5fdee15a0b2237868  config/termix/Partitions/termix/Cache/Cache_Data/39231e223d1c84d5_0
+ec7afffb90ffc4264a390371b35c30962504ebffe4adb36b1a894ee83ea876ed  config/termix/Partitions/termix/Cache/Cache_Data/39b06bfd7f0f8095_0
+dfd38c73ad70c3232d2ad7aeccead1731b1e16e89b7cbd85d44da2d5326b06e6  config/termix/Partitions/termix/Cache/Cache_Data/3b4369344b37090e_0
+8f08237cec0da0010f161dd7ef98bdef24462164faf1d5606fada2949d68afeb  config/termix/Partitions/termix/Cache/Cache_Data/3dc298d6f1120fdb_0
+80e24d4a9d1cec4cbd09f0cd908f4e8b0d7ec3d01c64ca7bf3b6fc50b0d10b8b  config/termix/Partitions/termix/Cache/Cache_Data/3ee423433adcac32_0
+690f5461dc866537dc24cf65a5b46530034aafb3691e99709a32409f1e727e4c  config/termix/Partitions/termix/Cache/Cache_Data/3faf212ed85f8829_0
+eb54f7fb6323c451cb3f24997a137bbaabef27dbc746f6e355f34ff1f7e2548e  config/termix/Partitions/termix/Cache/Cache_Data/444ad89d6a7009c6_0
+5dddb98bb24a04dbee3786ed40e5a80d61804dea127f81ceff2ea7e0fe7d089d  config/termix/Partitions/termix/Cache/Cache_Data/4766b46f01dd4585_0
+7c2b572c31940b4adc59144a50802d61c82f6957960ec20e8a9a7d58afd8eb19  config/termix/Partitions/termix/Cache/Cache_Data/4d019b6b73a123e8_0
+4a9d82b232034ddcdeadeaac4520a88c3aa542fa3a1e97343911b5317a04aad0  config/termix/Partitions/termix/Cache/Cache_Data/4daec9660092645a_0
+de4377f76af3d465aa0f627624987929d2f5a8b4bee10e2f618897b4cf4e1cfd  config/termix/Partitions/termix/Cache/Cache_Data/4ef2e7e95417978c_0
+a566d633fdfc7704e8b850b8b2aee61dd981c1cb7fe4403cd0a3755011040cd7  config/termix/Partitions/termix/Cache/Cache_Data/5151bfe40d2bfeca_0
+2507aaa12d135a576e37ec2e55629a54fc6b5fc8792a6ff17a8ed97c06ff35be  config/termix/Partitions/termix/Cache/Cache_Data/52c6862b5443d435_0
+ad008fe7b405858d4f2efada6df79ad316443c2592da3ba09caa1f322bc23bb3  config/termix/Partitions/termix/Cache/Cache_Data/52f39f6dcefe03ed_0
+00023e874dacc1eb76a9f42e1b1c148c507ae313e47b010faaec0d07e9eebe2c  config/termix/Partitions/termix/Cache/Cache_Data/55cd0a6b75ceeaef_0
+531d7b419d0dedc616f5eaf4b5f7e3e64fffd45aac1f0f75f67abd3ba3c1b6d1  config/termix/Partitions/termix/Cache/Cache_Data/565b287fc0126fdf_0
+77934d68647f868cd58a120aa4e5f7e631df9819cd742ff93e8a31871591ca37  config/termix/Partitions/termix/Cache/Cache_Data/570090edda38f5e0_0
+fda674eb3590ea0d41b080942b8b13ea6c079670b4eba26d8ed68838b92ac2da  config/termix/Partitions/termix/Cache/Cache_Data/5838970c977d528b_0
+a97ae82540382a79a814b417805de8d594dd01544679dfe9fd451846c3717f72  config/termix/Partitions/termix/Cache/Cache_Data/584b7928d926ebe1_0
+575532ca5756493d2b3e991d943667bb0c75a578886183dd6aef3598769f7c1d  config/termix/Partitions/termix/Cache/Cache_Data/587ebd9866af7407_0
+24a3cdac76e174a76d92d800c82a7d1a191204ec3253b2b5b9207f0d1eae9eaa  config/termix/Partitions/termix/Cache/Cache_Data/59d00b91daae3cef_0
+0e3a21678e35ba28fea392302a5f266ff106ee655863bf79f35ffb6d9dfe3e8f  config/termix/Partitions/termix/Cache/Cache_Data/5daad970ac28f2f7_0
+e36fef77d6f0dce8212f58bb272ad41b1781940c682041067ce973606839a135  config/termix/Partitions/termix/Cache/Cache_Data/6112da60acd6d851_0
+08eb396bb895a7c1fa631dffd37ea4b7addd4c7bb8cca455bb545ba46dd13f2b  config/termix/Partitions/termix/Cache/Cache_Data/6199843d92b9d5bd_0
+14e4232404326297c4ac999c2dd9e875188fe1cd17df1b12a1ff6a5cc61a9e4e  config/termix/Partitions/termix/Cache/Cache_Data/632845b35e2c3569_0
+5f8438944bb0fdd72f1db410880040a6493a81bbdd7fb2028cf4ea1aeec5fe03  config/termix/Partitions/termix/Cache/Cache_Data/637236d54fa8afe0_0
+cbb9914a633dd046ac516df6c45af3f33872459bfd3bebf9c4fe52c8484f5eaa  config/termix/Partitions/termix/Cache/Cache_Data/644aba7416caed41_0
+2e3f1e79e9479315f58620a311a2e87ced91078188ce6a743d72128b183bb6a6  config/termix/Partitions/termix/Cache/Cache_Data/6565eb3a6f441501_0
+0ac155a2e7432205f6ffb9c22e10d439cbd166aed0f69a7a976f806aabbe6944  config/termix/Partitions/termix/Cache/Cache_Data/6799004fe0b5ca78_0
+9379e1c1a5b4fb971b9451e2cedb3914166d5a05af2d3226cfd6c7b30548c336  config/termix/Partitions/termix/Cache/Cache_Data/679b6d55eab30459_0
+e0b84dc0ff657ceb2b0423386c46cc802c9b613f0631c9ed71f8d30ae5c2b5cf  config/termix/Partitions/termix/Cache/Cache_Data/69420c12903cb401_0
+613e13527221922d51148bf34652691295c2ed65e351f21aeb86c466ea98cdfb  config/termix/Partitions/termix/Cache/Cache_Data/6a5b4bd8e076bd31_0
+28ed028facb6bafcf5bde80a6a7eeb99c2344c50911f3acaa4687d7b619a5e18  config/termix/Partitions/termix/Cache/Cache_Data/6b0859d58c802a04_0
+df830a0118b11e0a376aab2bd9180808d44a0062d52b9015ecddf230759fb2b8  config/termix/Partitions/termix/Cache/Cache_Data/6b8dd2399e394f8a_0
+b6d1c9db01cf235ce37e29bb2ed40f262e7e0fd49c9e52321fa9ab9509659162  config/termix/Partitions/termix/Cache/Cache_Data/6bb50b5de93e28a4_0
+bfe6504b3a200fbb126e42d013cc62ebb3780ecec88f52f4b033c61b88eafc3a  config/termix/Partitions/termix/Cache/Cache_Data/6cb5091babb9d46b_0
+e08b807e534e958f7a40e22ce7d3c1ea84e385b5f5d018ac7fe60aaee6beffa9  config/termix/Partitions/termix/Cache/Cache_Data/6defe76dab4352f6_0
+e70c4bc76bb89753d75057f108c2813700b808fc63006eb9e3ec68234798dc97  config/termix/Partitions/termix/Cache/Cache_Data/7034851439a26914_0
+e89e159ae35033a7f9057c2305286fc4933aecf4583808be17ea2625ffe2470e  config/termix/Partitions/termix/Cache/Cache_Data/7284ba2da3774d43_0
+79aaf649c038387575323a8ec9e8d582e897f73cb5a9f281e6e539d606260069  config/termix/Partitions/termix/Cache/Cache_Data/72e79972d4cbee83_0
+1e888d729236fe162c85804fbf2a600a364142aa577ecc2c6dfb99d0302bf7f9  config/termix/Partitions/termix/Cache/Cache_Data/73901689f28ef7f4_0
+765497029bddb5086e948a97b7998165594b0b5be50fcd9dafffe3acd9b8e465  config/termix/Partitions/termix/Cache/Cache_Data/7730a8ea1f37c851_0
+7e9bfaf2f418d08d8212b2a4000d917e86e52cec4d02413d2cdddb51e61e3a03  config/termix/Partitions/termix/Cache/Cache_Data/77b8ceddcf32c87d_0
+ad788353fe9fecddbccde2e69e14cf232adab895fc0475aa62afce652a2a4439  config/termix/Partitions/termix/Cache/Cache_Data/77dbb298e4fbb781_0
+eeedbcd179be00833e58d148f43ecf0ba426b16a3bfb1f2b7096d312c5f5664e  config/termix/Partitions/termix/Cache/Cache_Data/783b30175f4ec127_0
+605114c06154b93f07084c4aa56b6795ade919399f7c7e37b56803ef48b5a672  config/termix/Partitions/termix/Cache/Cache_Data/7843849ac048a039_0
+8c9f4ac268574bc123de79f92e32369931b58bffa25ad860fd738eeeb6c0088f  config/termix/Partitions/termix/Cache/Cache_Data/78ed2fdcfd53c78e_0
+097092d69534147ef9110ef10a2d7f04da54d3372a4358508422bc7581313b40  config/termix/Partitions/termix/Cache/Cache_Data/7a8fb7a873ed03a2_0
+93102e39b9d33c2dbf25af522fcf2889014fbbb2d311e665a5200f5d99148816  config/termix/Partitions/termix/Cache/Cache_Data/7c0753d4173baede_0
+5d9bb93bca38b60c59dff57fb5fe551d6df7d13735f3930a1dadc6d2b1af8792  config/termix/Partitions/termix/Cache/Cache_Data/7d1489a1ef0fc757_0
+3e6476f9615a76146ec9f8fcd4a3d882e84baefc1e62d9e84e7b04917afda591  config/termix/Partitions/termix/Cache/Cache_Data/7d3aeec947c75b2c_0
+e4df3c1b377f9935d2453fe1338a6c954c34c72a55675d32fd7270dd56d51e4c  config/termix/Partitions/termix/Cache/Cache_Data/803255944f72c218_0
+2618bc2a5800056c1647e37b5ddd1ec28d3b0728e45db3bd9d2d1b4cb5abf76a  config/termix/Partitions/termix/Cache/Cache_Data/80a4fb3de5120f36_0
+bdd51be03d56b0212b689010210254b8da591fc138f399a3248ee55163ac571c  config/termix/Partitions/termix/Cache/Cache_Data/8117ef895526686c_0
+4f743b824f6308e49e6396d95439f8d23c9f017ac1ecabaaf2714a83f5dbdbe8  config/termix/Partitions/termix/Cache/Cache_Data/8424dea400a6805f_0
+150cf9e001149c49c0acab144906d3267f90c8c8475d0e0d3fa49d64269d3478  config/termix/Partitions/termix/Cache/Cache_Data/85b41eddc6ad21d7_0
+08371bcd9e48ce65413f23b68ec71d8940fc7d1f6e2ea6bd73edfc8be09d6cca  config/termix/Partitions/termix/Cache/Cache_Data/85f542f78ee553fd_0
+4ff77b89ac857dc3bb61b8f84d3e4875e310c7717e280e1464307757174e3ff7  config/termix/Partitions/termix/Cache/Cache_Data/8623add0ddabcfe4_0
+db3dd85fee0eaf16f43237e759004d675ec1ab05957cdc908cecf6d9a3a3f90b  config/termix/Partitions/termix/Cache/Cache_Data/86b377ba100c091a_0
+c6b5d9c3cabe7bd121d317e4bc918caf77e4ede1077edd83bda8d715bf25ef37  config/termix/Partitions/termix/Cache/Cache_Data/890d9b601476e2e9_0
+1ff7f15c98f8670c44c58942d4a5ff9735ef975ba1c928cca794bd9c7e8b776e  config/termix/Partitions/termix/Cache/Cache_Data/89e0b8d4b76794fd_0
+a245f4e01d16212e73349024e80c5dd0030b1c9f38d865cbfcd80fcb61d4695e  config/termix/Partitions/termix/Cache/Cache_Data/8a16d0f1b5b2a2ce_0
+702fea71557fdd5168cd0c903fb87e2568fa75c47bb60d41c8e36f4ac7443596  config/termix/Partitions/termix/Cache/Cache_Data/8b842379bb48fc4f_0
+1898411b11ae1ce52425d339b580ac53847e664952a8cac089ef4f6220cdddca  config/termix/Partitions/termix/Cache/Cache_Data/8e1ce7b76e0be24b_0
+e34bd3d256e301aa20933723c3171ab36dca22d3345c45572b83f3a5e5fa805f  config/termix/Partitions/termix/Cache/Cache_Data/8ed330090c47593f_0
+5007e9a7d84a01eedb97866f294e25a0cd410971c9a894036a8c4ed69f41faa2  config/termix/Partitions/termix/Cache/Cache_Data/91533ebb53f2cb05_0
+980f6ee976f69f8615b5e6f7058b57eb3aac4e7c1207a9b0163910380a19f25d  config/termix/Partitions/termix/Cache/Cache_Data/91f65be94d276164_0
+0c6e5d4a6d8db772e8d0b7a360f36de94ed5185e3e0ae3ae1fb28d7d3f295d70  config/termix/Partitions/termix/Cache/Cache_Data/926325a0d3973670_0
+6e3223d54ea83c33c1f04acaf704b3b3daf9472711fee551f58eea400a72b2e3  config/termix/Partitions/termix/Cache/Cache_Data/9515e79635439964_0
+65e1e9f9970e3bfafc2c3f0f66d5f85b1918c17480a9761dea1f9756a31708dd  config/termix/Partitions/termix/Cache/Cache_Data/9673f673303a4ddb_0
+6fb81fe84bb20bafc81e9779887e3b5690f266cccc963a9c467affbb69eeb08d  config/termix/Partitions/termix/Cache/Cache_Data/9744af2163e8780a_0
+0438d0f5019c8a1b7b77e93d57a8a5c6ff27b891e4be45237633892960e3b342  config/termix/Partitions/termix/Cache/Cache_Data/97cec285aa9f4760_0
+8b27706081f46b3c4e971bea977284307e8934781453b644bfa667053e059d08  config/termix/Partitions/termix/Cache/Cache_Data/9c624286e222f226_0
+3f1bb1936e0fd13f0e394ee641ec14b4e5af9ad9ee27922d70b3b9c0c7fac26d  config/termix/Partitions/termix/Cache/Cache_Data/9dd40289b0f5a30e_0
+dcbf245167f0a4fe888453456cb83482cd50d5dd459a3e7f7e6627a140f43f2e  config/termix/Partitions/termix/Cache/Cache_Data/a0bc09d481f2942e_0
+6c45c6f636a0a3d6061b4b176bbc4639be9ed1cafdf52e425e1c29d0b775376b  config/termix/Partitions/termix/Cache/Cache_Data/a10377f483e56026_0
+e9827676d3cca2a369f9d7f6e67f180e2fa2d55597454f7a156333c1712254ff  config/termix/Partitions/termix/Cache/Cache_Data/a242686dec4fcacd_0
+a04121425eb3554d7be9289d8869d633d7c9c90e10ba0f78c8a58ecbf65ef2e9  config/termix/Partitions/termix/Cache/Cache_Data/a2a2edb27c7a81fe_0
+aa8bcef44abc818a4dea806768c891bbd2885fc4163ea9f0cc2ead3e7398c666  config/termix/Partitions/termix/Cache/Cache_Data/a3f5b6e47af9d64e_0
+fe452d4ead7960b3629678320dcb9257c8198d27b0185a2b3f60f37075198ce4  config/termix/Partitions/termix/Cache/Cache_Data/a505ec1a516ba24d_0
+5e4e3d46d50e4f27f1c297b45bee8b3cd320907d79a62936b29762aa1ba3f18d  config/termix/Partitions/termix/Cache/Cache_Data/a51383e5b9c8ccef_0
+a9271abcb034b73a04c22a589e2c301ae2bcda8cbf6c0eaf478c4cd861f0d32b  config/termix/Partitions/termix/Cache/Cache_Data/a5bc105cbb551dff_0
+0c30f5fab7d5a62a690996267aad64d771e394585e378622ccf729705792ff36  config/termix/Partitions/termix/Cache/Cache_Data/a5eeb71c6efe78b9_0
+638fa62f50374225fd73d8d725f1d780b168f847b7d79959f333e7df2f6075e9  config/termix/Partitions/termix/Cache/Cache_Data/a601520ab98e425d_0
+9c1b0aca7c4b7e70c145c65e7f179aeb4490b1f4ecc264694b1fca18134e3127  config/termix/Partitions/termix/Cache/Cache_Data/a657bf1873cb5bd9_0
+fe82a87b65c17142ee92b47314d750b1bc6bef1cfcc2af1cbdafb809f4eb96e4  config/termix/Partitions/termix/Cache/Cache_Data/a6aee82cd97b14fe_0
+97db9f51f899bc5a9f5101538c81f043959bcfcf7da2a033fcc64b81b8aeb5fe  config/termix/Partitions/termix/Cache/Cache_Data/a6d0a9323db1769a_0
+9c5901da241b4ed3a23889da6a43d04ffb6ea9fff080e51bdb15702d2b32971d  config/termix/Partitions/termix/Cache/Cache_Data/a6da7cbbdb2d0bda_0
+31039dd3c1130ec5013a87c00460d1a67de6f08e2bc8ebad9f2b13e7afed2e1b  config/termix/Partitions/termix/Cache/Cache_Data/a74eda87135a46c4_0
+11c124e92a8d104d3ed059d929e0e3dc0e6545f64fc4fed5ce40166e167251ed  config/termix/Partitions/termix/Cache/Cache_Data/aa177ba8086e014c_0
+9cf439dbd8c2609c670c6d0294bb0325ac588addf1f5ec496d9555048966c2e8  config/termix/Partitions/termix/Cache/Cache_Data/ab469a2c6261ddde_0
+13ce071be5e2dcb1f65147a5634ec2903357777839d573f8d2649af59682070a  config/termix/Partitions/termix/Cache/Cache_Data/ac0e48547c8dddc9_0
+b6367478ec91f39a74b135953843e4d1a507449d2b443cedebd3c1e8964bc385  config/termix/Partitions/termix/Cache/Cache_Data/affae392277fb56d_0
+6c56aab2d34953f72663efd35f422bed91ec2ddac31bece9cc8a7c04ef219540  config/termix/Partitions/termix/Cache/Cache_Data/b22f4a3a5a8900dc_0
+8d218f4dee0899b29448783a19bb7375e207945502f76c733aaccea220ace603  config/termix/Partitions/termix/Cache/Cache_Data/b34c987a2eb056fe_0
+700f5a46dc119cd9598d76a12343eda8522d8a6dc72f05afaa5b402636aa2b41  config/termix/Partitions/termix/Cache/Cache_Data/b6cb3ada025fca4f_0
+826da3e1a8bbc80687dce20d8130bf1aa62e9cb22c80a526392d7bb021f0cd1f  config/termix/Partitions/termix/Cache/Cache_Data/bd5e2197cde5f901_0
+5e16eaebfc3df47effe466dac032fa0901d5518d03a09ada5d1e57086c64ce19  config/termix/Partitions/termix/Cache/Cache_Data/bdc1d66873a24151_0
+916a0ee5fc7021b440faf4040fd25975b37a7df3066bd855e2509630aa57a85c  config/termix/Partitions/termix/Cache/Cache_Data/bfd7b29382fc294a_0
+2fc952200d75be1fdb268771fa739bc35d67d50dd88f89b70231e372c7d4d0bb  config/termix/Partitions/termix/Cache/Cache_Data/c0f3a3d0f228bfcc_0
+1d9799b54f253b393aaf7955ea7df01b86b7b52b54ddc6a5bc36c28b51c5d0fb  config/termix/Partitions/termix/Cache/Cache_Data/c1cbd96adcf27ad5_0
+63e6f4d7a5dd4dc8ca81fe5e6eada67e1fc98fc5a4333ffac8eb3d5e2524bf8b  config/termix/Partitions/termix/Cache/Cache_Data/c4ec01bfc2a6d06a_0
+088c289b5d886fec701892cee9b32701ebb2cb61b4b93e3fc6a0f56406abb470  config/termix/Partitions/termix/Cache/Cache_Data/c62606be45cf4ede_0
+456637aba5022847882dc9fffd46943d5a966c047759025d5fb56513451de003  config/termix/Partitions/termix/Cache/Cache_Data/cd7fb574add311f6_0
+2134b275c9c2963daf7a3012a554f700d1c14e58ee5de4b4970d7aff1471dbc0  config/termix/Partitions/termix/Cache/Cache_Data/ce6a830533124020_0
+460da3bcd47aaec91992ffd9910f96c8bd557da60e3a78b4edd2c8c8589d43d4  config/termix/Partitions/termix/Cache/Cache_Data/d0588735b96b7e52_0
+733e8f2f5a7fe3163726036866bf2b3986a402828cb3a276d9aeb4639af12fea  config/termix/Partitions/termix/Cache/Cache_Data/d79be571b44cd82c_0
+e9a60fe19b12f9f0e384a68e264765ded6eb432629dbf168225544fcb5437b26  config/termix/Partitions/termix/Cache/Cache_Data/d88c641a20fc5ace_0
+8d6d54764d54849e7303c31e691c8b1354666a35542f058f619c18b43554da0c  config/termix/Partitions/termix/Cache/Cache_Data/d8ef521641cf0e7f_0
+54abf90db235afeb59da411038f88f429e39a7316e7267a17a4225f088159a6d  config/termix/Partitions/termix/Cache/Cache_Data/dafa094113c16edc_0
+06953f9ba1a4d06676d3018d8912e162c3b7e09ba976ae43ec7cd729a7349f41  config/termix/Partitions/termix/Cache/Cache_Data/db1045b4e3c5cdfd_0
+d0dd6643d23a7cde88e90876442c15407e4ce4dffee5cc18b3fb9bfb61241232  config/termix/Partitions/termix/Cache/Cache_Data/dc15c35bc4afa1a1_0
+62a06589f066e6c05d37a943bbc8e2f7771bb66dde73ce31f5c63ae5d1098825  config/termix/Partitions/termix/Cache/Cache_Data/de0024387798f777_0
+31a108359f39c09f37a19585f657560ec8050e70e50e5e793c320662970e23ce  config/termix/Partitions/termix/Cache/Cache_Data/e09558cabe4fef54_0
+687e9deebd0410735ada0f93577091e95dc65b0cf0bc39be782ada898723f581  config/termix/Partitions/termix/Cache/Cache_Data/e123c9fafac61dc0_0
+9a1ef1b0f317572caa1ece3c585ccaf37705bdac84e6c68b73b2d62e1815a0e6  config/termix/Partitions/termix/Cache/Cache_Data/e3b872505fa33ff3_0
+5fadc2fab332d98d91972951d2bb8f487032470a1def91c8c738be14b1d0b1ed  config/termix/Partitions/termix/Cache/Cache_Data/e3d879f81e325685_0
+dbc09ee1bba3c6a4eab376911f4e6c16e4c89ad91796a04e612bc8879eaefee8  config/termix/Partitions/termix/Cache/Cache_Data/e499a605effb2497_0
+5955cb693c5c1785316c940647613917e1e88b0a3c2984f7f768ec82549bf1a9  config/termix/Partitions/termix/Cache/Cache_Data/e636e82267b8dac0_0
+2605e0ef254be3b5c2da0e57641c6e936e97f343e520f4d6572bea91d40702fc  config/termix/Partitions/termix/Cache/Cache_Data/e6f9dd45e233dde9_0
+47a4e341a236f434023a66951c987ebe2207f204e62e7dd2ff827806b4d0f7b1  config/termix/Partitions/termix/Cache/Cache_Data/e7137f514bf9d351_0
+0bfc14ca261c23fa297e20e89027ffe2d85b9ca30f5b91013eb067b5b15a69f7  config/termix/Partitions/termix/Cache/Cache_Data/e8413c6dd5232936_0
+1392d50feec15b0fbbdd525919dcba7cdc083cd8d32a3350c33113b5bd6316ca  config/termix/Partitions/termix/Cache/Cache_Data/ed86900e303c035b_0
+a8efb708e16ca255af2d8c5cfd8caacb9e14678d6653b8495c6d2972e6fb3798  config/termix/Partitions/termix/Cache/Cache_Data/ed8e958772baf52d_0
+0299d12f47bcccfe3b6ce2fb4ea7feb65fa4df5a3983380335ef99336362f72f  config/termix/Partitions/termix/Cache/Cache_Data/f04d4354f961e3a9_0
+a8b3950d086ac94a184b23c073af93bdfc91b77c483b7852b055a741f6fc34cb  config/termix/Partitions/termix/Cache/Cache_Data/f25820a53306e579_0
+2e66b10953a8efc2ddcb1cebfba7bd9f1229fe2fabca3a6ceaed25ef8849fc71  config/termix/Partitions/termix/Cache/Cache_Data/f3c2c8d26749488d_0
+e6085d7a73049abb5c736ce535b9717cc6574b654daeb2c24b51724d5e28214d  config/termix/Partitions/termix/Cache/Cache_Data/f434008ed76bb3e8_0
+f429c51af0ac45ff678b1818a322bcd14060fa399b1f024dbc2f2115c8cf1850  config/termix/Partitions/termix/Cache/Cache_Data/f5095a1e48b9f29b_0
+68b0fb79a8af1bc2d0a60094a54ed627ca50ec027317a9413066ee59d7d9f4a4  config/termix/Partitions/termix/Cache/Cache_Data/f623dfb3f2aee59a_0
+f846164348f47dc5ec09196876803bd03ef9079ef7438cb919e0d6f5e00282b2  config/termix/Partitions/termix/Cache/Cache_Data/f852c1bddd38a4b9_0
+03c01bd6a599802ece9c9f4417d9dff658644599726d3ec670dfc36eb366bd90  config/termix/Partitions/termix/Cache/Cache_Data/fb0cd8841126c587_0
+2b1ac021d7f931efab1cd842326573f31aa3d8d83514e72afbaa141c2e56045e  config/termix/Partitions/termix/Cache/Cache_Data/fbbcdd8652a66be8_0
+cf9773171ff1f0d9e3e2c8347bf98137370962a5f7cdf79dfa06a3188a15dcc6  config/termix/Partitions/termix/Cache/Cache_Data/fc031c26ad554140_0
+c8ac5af07d9cd838548a6c214d404ba70be856b93d5559107394cee9c276d24e  config/termix/Partitions/termix/Cache/Cache_Data/fd16a1e6032d5faa_0
+f512415084c8877924854fb873c293ba32f71e8e77566208fd950918d25f1650  config/termix/Partitions/termix/Cache/Cache_Data/fdf92bf648600eef_0
+753704551b6ef67c5e4279442db7e9f2b87ae9083c9124915193e0c079e9ab63  config/termix/Partitions/termix/Cache/Cache_Data/fdfffedb69e2e294_0
+0e0a7183f12dd2b89330aaf1e9102f78309e0b32c760efe86dbfd33e1d2672d7  config/termix/Partitions/termix/Cache/Cache_Data/fe21d349fe1cefb1_0
+6672825a25a89cb198a995b13e9d0c14017d4ee31fa7af34b56e08ecba24cfc4  config/termix/Partitions/termix/Cache/Cache_Data/fe84c33b3ffdecb0_0
+67846bfdc68e536c9c70d46e6e67554bb682349981751da0cc74d9e17d7be4fc  config/termix/Partitions/termix/Cache/Cache_Data/ff4dc6c5c5a5c539_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Cache/Cache_Data/index
+c2861552c71c5e920acce3071e0f9fda28be6f5edbe1a1b31882c43b626b2ef7  config/termix/Partitions/termix/Cache/Cache_Data/index-dir/the-real-index
+9c169428d852e25bd59b27652ed533d2a1f09f96e4c329fa5e06f47e16731543  config/termix/Partitions/termix/Cache/No_Vary_Search/journal.baj
+0c2dd377ed0cc66161e9db8f89f7d8bcb3ad8c06c4a054bdcba214ab05f58c9a  config/termix/Partitions/termix/Cache/No_Vary_Search/snapshot.baf
+590d55bffa02cb216ac8b8b7419587203546f945d5a4cf4a4f74a3e9cfd6f581  config/termix/Partitions/termix/Code Cache/electron-preload/41C1B13B73E84A4FE61FC3B8750F03DACBDFAE604B307129FA9CDAAEF516F049-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+d056cd162d1df79f407d7026f4440023e8eadea29c101d77d71c468b1188b9df  config/termix/Partitions/termix/Code Cache/electron-preload/4FE13288B98816A17ECAFA6385DFBC4ABB592E57472B58994115ED797A4292B0-AB10F8A5BDF24D6E5B59BF56101525F78C4A2891F7FFB839709B863CB61CF760.cache
+a9718b40f0203674ff7a9a47ed3944511345a6b92ec06e6d6a81d92b1ba561e4  config/termix/Partitions/termix/Code Cache/js/070301b8daa6c17e_0
+e397303e79e5b43e289515fe4f51dd184417b6635a6fa696999d74540635fa12  config/termix/Partitions/termix/Code Cache/js/0a43008814be6c89_0
+e8b33dff0595a0af79dfc3f7a2b030bced6e477a58ea0a69cbcb23c37d10570a  config/termix/Partitions/termix/Code Cache/js/0acd2e99cc17f764_0
+12c967a689f6838f37941f4dcb44deae053f61c8211e18854fbbb35a75e3fe43  config/termix/Partitions/termix/Code Cache/js/15021c8a55257ccd_0
+3e7351d280f5ac84e35b5bf16cbb12fcefa091e926b5dad0d79dce7b4ae5a4bb  config/termix/Partitions/termix/Code Cache/js/1c963a7cfaf461e0_0
+61400a4da9b46bfd6624637052d504e267cec451f9c10ce60c6cf1fd20b32348  config/termix/Partitions/termix/Code Cache/js/1d73c8da3599e02e_0
+15a6be117168fd9e7b8498a522862392fc4014771aca762bb5281398f9d8b4a0  config/termix/Partitions/termix/Code Cache/js/276b25290af5e18e_0
+f2e714864dbb4e57b9226e8894241195e89ba2e0161a454ccb46f9a5fc1aca8b  config/termix/Partitions/termix/Code Cache/js/2808221fe4a340e7_0
+8d8bbcba299dd7c00eec5b3c83bec0afc5287f438e7eb943e5815de428916b57  config/termix/Partitions/termix/Code Cache/js/2b01ca085a173f80_0
+a8c3d9e2e46480229b4d6996398b86992cac8bb4a7495c6f0d565a99b1f45416  config/termix/Partitions/termix/Code Cache/js/3136a542bb70e1d2_0
+5bd6512c611fbc29e1811a4c6c215fef8c21a7eaac4ec3cdf356006d0de6e3bc  config/termix/Partitions/termix/Code Cache/js/31e91cba23b6820c_0
+ca31cbddb2fb8923b7e07476750cfc68b542934caae7f619f8f2229d460f9792  config/termix/Partitions/termix/Code Cache/js/428e3c0b256ffc15_0
+b71d389290dae86c338d6d540da7d09655f7d091f2e67119aa0d6d1507d8b348  config/termix/Partitions/termix/Code Cache/js/46029186fc2f0129_0
+35fa0841ad0843302361580e73d4c2bb4fa2213bb37a3959a552f4eab7228d8d  config/termix/Partitions/termix/Code Cache/js/47dcafbbfd802c5f_0
+d79fa1c9bba044c39948931283617e1ee2d9b9eeb909b0d875f7d7d3b78a38ec  config/termix/Partitions/termix/Code Cache/js/482f33de4d2f9593_0
+eaa776454c78fbb898e321c03bdf73bf21e40132093c1f3186e1a9fc64189f9f  config/termix/Partitions/termix/Code Cache/js/5a6ae6b77363a51d_0
+e372b14ac2a3bf2bc2d6dc0459bffbeb4d3da5ae3b2bb3f66d0670bee5d2e893  config/termix/Partitions/termix/Code Cache/js/67204cc88a68ecf8_0
+e3b1d258fbc6c33cc2af0b261d0b17ab4305bf7dc5bf8ab91bb3f8b1724a883e  config/termix/Partitions/termix/Code Cache/js/82a2a791f22823ff_0
+ee35b813de548d0d7280e935a9d25caca24f1acac55d0d9d57aaa15174ec0b24  config/termix/Partitions/termix/Code Cache/js/838dfc2863d4fd9c_0
+7afae2779dc658afd1bf81d8227d4da380ca55cc56bd6d41094bb296e2fadef8  config/termix/Partitions/termix/Code Cache/js/8b34e8a614769605_0
+5a05a757dcb5fc06c3c473a8421b303f2abf50d7200d0dad36be572d7ca50fdb  config/termix/Partitions/termix/Code Cache/js/8c33507c4ffdd475_0
+74ce9df93278355b9e25a7a98c404fae3480e30dc7a5536e0d1b4eece1c81e0d  config/termix/Partitions/termix/Code Cache/js/a4376a8a972d0708_0
+2105c629a9f7afb7e498d6d83e32ea4db2b3606f6730ffb4ca7be76419e2b41a  config/termix/Partitions/termix/Code Cache/js/a4a9f31141ae25f6_0
+913495425a6c85a0866edf465e2baa3dcc5d8e35e9d771a231687bec3ce14606  config/termix/Partitions/termix/Code Cache/js/ad4374fb11eb7c07_0
+6d06342b7c2dc07ff9cb1041099bb610cc165b2e8f3faa7368a88b25080d47c7  config/termix/Partitions/termix/Code Cache/js/b3505808cb0dcec7_0
+000f8d3dd78452c337a10e12bf2e6c847aa56472d6d0d1468ef59ac338766bd4  config/termix/Partitions/termix/Code Cache/js/c46b76650026e7ef_0
+0c4a46e561dc47f56852bab3bf487ec152382084002959615d1604ee7ae20942  config/termix/Partitions/termix/Code Cache/js/c72f1ded09c12616_0
+ccba3fa98642335b691d6ef0f1da2797df608fd9bca291a2fee29c54ddca5ef3  config/termix/Partitions/termix/Code Cache/js/c9274fbc63e3ad06_0
+8995515410c34cf4c0fe1c9276a2e844cd378efb50a37ae06526a28f488cc343  config/termix/Partitions/termix/Code Cache/js/d2ecc3a60dcaf5f9_0
+9698cde70a3b6da5a50c7367299e0155fbd459cdb5d5a6d3bec67a0dfaea9795  config/termix/Partitions/termix/Code Cache/js/d5856ee939b01872_0
+0319e76e698aa58713faac2378508c805a41fa19e340f92c0ac3c37949dbda8c  config/termix/Partitions/termix/Code Cache/js/dcf6da0d5fc39e71_0
+52e40db2ad802d8d347409d03982570c65ed5dc7b6a71dc398ad1c0761af0302  config/termix/Partitions/termix/Code Cache/js/e7a7e324f3218ce7_0
+12525d4eccb38a73cee77e2040bba96707d4753e5fb305f8839dd0dc2063cfad  config/termix/Partitions/termix/Code Cache/js/f244d8261f9df705_0
+92ffe48de9333f9b80f48e94b9454db86f6b330c5fa44ca1fc1b43a78dc7c276  config/termix/Partitions/termix/Code Cache/js/f276e012e1d29769_0
+7d0bae717dfe069ae3ba59c0a57b0267668eae3014d1357b39edd139376c9c8f  config/termix/Partitions/termix/Code Cache/js/f83a15955da5e4ae_0
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/js/index
+fea153a27eb0e3a5b6c0d1adfd1e0803536c68bdf7664b2776f67ec331e49fa2  config/termix/Partitions/termix/Code Cache/js/index-dir/the-real-index
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Code Cache/wasm/index
+7dd818c3e26db882bcfb93d41c00adff00751bd139134cd12267ffcaa363353e  config/termix/Partitions/termix/Code Cache/wasm/index-dir/the-real-index
+e63e5ecba16ce902f2c62dda454042ecca66a09d7a33f38fedac458d1a11f81b  config/termix/Partitions/termix/Cookies
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Cookies-journal
+97e8d54f8a7255106f66cf1b213c4a4d7b558d21310b1c2bfedc3d0d526dddda  config/termix/Partitions/termix/DIPS
+86cf6a9bd735d4cda1e83256986b7b9fe6067072d4447264da0f6d1e07996f3d  config/termix/Partitions/termix/DIPS-wal
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnGraphiteCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnGraphiteCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnGraphiteCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnGraphiteCache/data_3
+e0288975570b29302dabf7a33c5770fadbef3b0c4476abef30520d13d9e425c5  config/termix/Partitions/termix/DawnGraphiteCache/index
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/DawnWebGPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/DawnWebGPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/DawnWebGPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/DawnWebGPUCache/data_3
+04284abf9ebd1fa9578cc76254b14d18a13e42a8e30cb53770c7f3ea39f1e741  config/termix/Partitions/termix/DawnWebGPUCache/index
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Extension State/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Extension State/LOCK
+b042563f8c09b67f8ab4c1be0f5ba953dfae7191569619ecbe8486159960a3bb  config/termix/Partitions/termix/Extension State/LOG
+0bbd37a419153dbda270e19714329934da2e57ee9bb0dda22e23cc79031d4a48  config/termix/Partitions/termix/Extension State/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Extension State/MANIFEST-000001
+d6a5fe39cd672781b256e0e3102f7022635f1d4bb7cfcc90a80fffe4d0f3877e  config/termix/Partitions/termix/GPUCache/data_0
+902f30c1fb0597d0734bc34b979ec5d131f8f39a4b71b338083821216ec8d61b  config/termix/Partitions/termix/GPUCache/data_1
+ec1702806f4cc7c42a82fc2b38e89835fde7c64bb32060e0823c9077ca92efb7  config/termix/Partitions/termix/GPUCache/data_2
+e09f42c398d688dce168570291f1f92d079987deda3099a34adb9e8c0522b30c  config/termix/Partitions/termix/GPUCache/data_3
+ac023006dc7de1aaec15b60151d08ef44678802fbbe8dc3ef3e2fd45153d2b1e  config/termix/Partitions/termix/GPUCache/index
+1669f16cf28b2bb669bc7b75050a68cc0b173047ae8d6ea88d9fa92e087b4776  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOCK
+ce6a4fd7cdbbe24baf8adf0fd2ed246c97d30ab7d396a1b609379213d3df4083  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG
+d8071bfa41d843e6dcac9a5dd1a5fcf3ec618e175d4a1e5cf8ecdb6c89e0d53b  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/LOG.old
+720a78803b84cbcc8eb204d5cf8ea6ee2f693be0ab2124ddf2b81455de02a3ed  config/termix/Partitions/termix/IndexedDB/app_termix_0.indexeddb.leveldb/MANIFEST-000001
+88fd74bd2619ab34f9e8ed304d16e3258f1aee515d542d1b0a97aeb0cb62cd70  config/termix/Partitions/termix/Local Storage/leveldb/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Local Storage/leveldb/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Local Storage/leveldb/LOCK
+c9b1d01808c1c6593c3709ec45b6ecb2efea13df2902774c4259a5bf6d845f6f  config/termix/Partitions/termix/Local Storage/leveldb/LOG
+b4d6c3c926cc1a93faf7e912cc1ae157621ffeab5edb527f984bb349009b8964  config/termix/Partitions/termix/Local Storage/leveldb/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Local Storage/leveldb/MANIFEST-000001
+c9f78f914a7c8d271f582b3a866119ee090e0daf5726cf0a2e0e9b781c5f9af7  config/termix/Partitions/termix/Network Persistent State
+be4b8924ab38e8acf350e6e3b9f1f63a1a94952d8002759acd6946c4d5d0b5de  config/termix/Partitions/termix/Preferences
+ffd700cf04be6fe8d51e2ffb8a2e37bc3fa95a6679a4102fa35e8494c2350eae  config/termix/Partitions/termix/Session Storage/000003.log
+0f1bad70c7bd1e0a69562853ec529355462fcd0423263a3d39d6d0d70b780443  config/termix/Partitions/termix/Session Storage/CURRENT
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Session Storage/LOCK
+0384b9b2f763de53e097abbd2d0dea94a50ab2763a46ccf0a67daf4900bc6987  config/termix/Partitions/termix/Session Storage/LOG
+8da1cccbc73086f65542b3b7059dd47c5ba9e5edb6d0cd85478345a757e1cb8a  config/termix/Partitions/termix/Session Storage/LOG.old
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Partitions/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Partitions/termix/Shared Dictionary/cache/index
+5b1576bfa42833d8169e3326fd405d3daa32eca799e52831a141a3f41c1185a4  config/termix/Partitions/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Partitions/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Partitions/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/Trust Tokens-journal
+113fad4f6f87fafd43cdc3ec1226fa5023bb13215f3e90344b60e38df417dfdb  config/termix/Partitions/termix/WebStorage/QuotaManager
+4f20f15d95284a238b4fd9f1ec3b985a2af7381513604ab32dc97f999cc13ef8  config/termix/Partitions/termix/WebStorage/QuotaManager-journal
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/Partitions/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Partitions/termix/declarative_performance_observer.db-journal
+9abe2f60dcf2f75a42774172b4dcba8ffb2d4e9956c283928013f5069d394f4e  config/termix/Preferences
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Session Storage/LOCK
+e6ffc532ee6b8d96ef0fd8ba590f8b24374aa0300957158bf5f5991bca433fd3  config/termix/Session Storage/LOG
+f9d31b278e215eb0d0e9cd709edfa037e828f36214ab7906f612160fead4b2b4  config/termix/Session Storage/MANIFEST-000001
+fbcfe23a2ecb82b7100c50811691dde0a33aa3da8d176be9882a9db485dc0f2d  config/termix/Shared Dictionary/cache/index
+ff7a913ce7f5fa6d98e55e5647fd8f33f129dc909caaa614d5d65e898933c567  config/termix/Shared Dictionary/cache/index-dir/the-real-index
+0d6287fecedbc44ed9f51ded9de88629ec9f385ecff5da9a34e47e96fd5a9cba  config/termix/Shared Dictionary/db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Shared Dictionary/db-journal
+88bafa2a265212152b2405502209d64438a416ff594a040e666f031ef442a812  config/termix/Trust Tokens
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/Trust Tokens-journal
+4c8c3aa22f80cbd16843184e7a483619baeb366dc8fa67985ffc584b90821ddc  config/termix/WebStorage/QuotaManager
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/WebStorage/QuotaManager-journal
+1dbdfae0a49a1048cdfe91e95b1e2d80147aea4b2dde10d8b2ca3ef6a36f14c5  config/termix/app-origin.json
+b98880883fd8d975260f1807fa46a5156fcc4cc82bf6d657a417d8bb4e42cd55  config/termix/backend.pid
+4d45e6a74a1e807b02db9c2fbd0ef178a61b6db8dfcdfbc369c50601e4baa323  config/termix/client-cache-build.json
+eda4c9567974174f08a1dbcd8badf4d6199a7e9a8b78b8826548f49e20e7badf  config/termix/declarative_performance_observer.db
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  config/termix/declarative_performance_observer.db-journal
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/.env
+0ed68f008a762a0c2bcdb56160c394d44171ee328b35c90c46ad2b49a0b7fc1d  config/termix/server-data/.plugin-awake.json
+6318cb0d30cb18761dfb35693cdad07013e902f90ca60ac075fcb571ef473c34  config/termix/server-data/.preupgrade-backup-pre-plugin-runtime.json
+65086cb92e521507612e32434fccf395cb7f2fb5e28edc9a6f670819e6dc7510  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/.env
+74ce92748fd547c9f2683d883961d6af53feca850e0543591e640f37d61e872d  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/db.sqlite.encrypted
+6318cb0d30cb18761dfb35693cdad07013e902f90ca60ac075fcb571ef473c34  config/termix/server-data/backups/pre-plugin-runtime-2026-11-28T19-17-55-065Z/manifest.json
+f50fbf71351d02a3b14dbc3034ac3dbf67be7d3e18d8964b2d3abedb834dfe8f  config/termix/server-data/db.sqlite.encrypted
+4326749868cd096f7781c551c32a9efbaa240b43a9a69c9c79c0114c7faeff57  config/termix/termix-main.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  data/flatpak/.changed
+2e3fcc1095510ad8f1135db8ec36296a628c10608f03c176beec6525d49dcacd  data/flatpak/repo/config
+PASS termix install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 102
+Temporary profile removed; test exit=0

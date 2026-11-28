@@ -1,0 +1,19 @@
+commit 21d738dcab71e4c9da91cbd14416e300b8d485272e3858f90c1f296d751149d3
+Parent:  6203da3ceff37f513c22e6a06870438c4656c7ccbd182cf5516dd0da04e730f7
+ContentChecksum:  1d5cf7634b34070f19261cd17f6aff31adc44fff19b9d4a7c8689f6edb5c105d
+Date:  2026-10-01 10:36:21 +0000
+
+    Merge pull request #56 from flathub/chore/bump-runtime-2608 (e86fddd30385)
+
+    Name: net.opentabletdriver.OpenTabletDriver
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Thu Oct  1 11:14:12 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

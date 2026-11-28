@@ -1,0 +1,21 @@
+
+Kontact - Handle all your emails, calendars, contacts and more within a single
+window
+
+          ID: org.kde.kontact
+         Ref: app/org.kde.kontact/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 6.8.3
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 456.4 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: b8ebf6abeb90043cd3baba3295a02ff3ae73c9db474a8813951a9024c830d2f6
+      Parent: ff078ea3b23b67c6cb6fcd280ac5eec9459de1c89d8c19bbcc89fadec7b5d8ac
+     Subject: Remove unused trap to stop akonadiserver on exit (1368e1d39669)
+        Date: 2026-11-25 22:26:04 +0000

@@ -1,0 +1,20 @@
+
+Alpaca - Chat with AI models
+
+          ID: com.jeffser.Alpaca
+         Ref: app/com.jeffser.Alpaca/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 9.2.5
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 2.3 GB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: ced59ceb84b2a8824c270305f413e76720ebf0b1d4fcfe224c19b4cd25ae42eb
+      Parent: 8ef0f812ddb69320d85a06655691c2435057409b0aa2ec3083db4a7b947042cb
+     Subject: Merge pull request #193 from flathub/Jeffser-patch-4 (43b2b7acf5c9)
+        Date: 2026-08-03 15:49:16 +0000

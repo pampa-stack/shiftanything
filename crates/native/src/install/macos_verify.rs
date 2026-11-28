@@ -20,8 +20,12 @@ pub(crate) fn verify_with(
     team: &str,
     mut run: impl FnMut(&str, &[&str], Duration) -> Result<crate::process::RunOutput, String>,
 ) -> Result<(), String> {
+    use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, FREECAD, GODOT, OPENWORK_DESKTOP, PASEO, STELLARIUM, TERMIX};
+
     let path = bundle.to_str().ok_or("couldn't check the app's unusual path, so it wasn't installed")?;
     let requirement = identity_requirement(app, team)?;
+    // FreeCAD's official package exceeds one minute during deep verification on Apple Silicon.
+    let signature_timeout = if app.id == FREECAD.id { Duration::from_secs(180) } else { TIMEOUT };
     for (check, program, args) in [
         // Do not apply the outer app's team or identifier requirement to its nested code.
         ("signature integrity", CODESIGN, vec!["--verify", "--all-architectures", "--deep", "--strict", path]),
@@ -30,7 +34,7 @@ pub(crate) fn verify_with(
         // notarized result part of verification too (Apple DTS: codesign -R="notarized").
         ("notarization", CODESIGN, vec!["--verify", "--check-notarization", "-R=notarized", path]),
     ] {
-        let output = run(program, &args, TIMEOUT)
+        let output = run(program, &args, signature_timeout)
             .map_err(|reason| format!("macOS verification did not succeed ({check}: {reason}), so the app wasn't installed"))?;
         if !output.success {
             let reason = output.stderr.trim();
@@ -50,8 +54,13 @@ pub(crate) fn verify_with(
     // Ignore existing assessment objects AND avoid storing this assessment. This does not
     // bypass trust/revocation caches or prove a fresh OCSP response.
     // Uncached assessments of these large bundles have exceeded the default bound.
-    use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, TERMIX};
-    let policy_timeout = if [ACTUAL_BUDGET.id, APPFLOWY.id, GODOT.id, TERMIX.id].contains(&app.id) { Duration::from_secs(180) } else { TIMEOUT };
+    let policy_timeout = if [ACTUAL_BUDGET.id, APPFLOWY.id, FREECAD.id, GODOT.id, OPENWORK_DESKTOP.id, PASEO.id, TERMIX.id].contains(&app.id)
+        || (app.id, app.repo) == (STELLARIUM.id, STELLARIUM.repo)
+    {
+        Duration::from_secs(180)
+    } else {
+        TIMEOUT
+    };
     let output = run(SPCTL, &["--assess", "--type", "execute", "--ignore-cache", "--no-cache", "--raw", path], policy_timeout)
         .map_err(|reason| format!("macOS verification did not succeed (macOS policy: {reason}), so the app wasn't installed"))?;
     if !output.success {
@@ -95,10 +104,15 @@ fn identity_requirement(app: &CraftApp, team: &str) -> Result<String, String> {
         return Err("no valid macOS signing team is configured, so the app wasn't installed".into());
     }
     let mut identifiers = Vec::new();
+    let prusa = artcraft_launcher_core::curated::PRUSA_SLICER;
+    // Prusa's signed macOS identifier ends in a slash, unlike its Flatpak identifier.
+    let prusa_bundle = artcraft_launcher_core::curated::PRUSA_SLICER_MAC_BUNDLE;
     // Catalog data only, never an identifier supplied by the downloaded app. Keep approved
     // former IDs so detecting/updating an older bundle still agrees with the catalog.
     for id in app.bundle_ids() {
-        if id.is_empty() || !id.bytes().all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'-' | b'_')) {
+        let is_prusa_bundle =
+            (app.id, app.repo, app.mac_team, id.as_str()) == (prusa.id, prusa.repo, Some(team), prusa_bundle) && Some(team) == prusa.mac_team;
+        if !is_prusa_bundle && (id.is_empty() || !id.bytes().all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'-' | b'_'))) {
             return Err("no valid macOS bundle identity is configured, so the app wasn't installed".into());
         }
         identifiers.push(format!("identifier \"{id}\""));
@@ -130,6 +144,18 @@ pub(super) fn assessment_accepted(output: &str) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn only_reviewed_prusa_signer_can_use_the_slash_in_its_bundle_identifier() {
+        use artcraft_launcher_core::curated::PRUSA_SLICER;
+
+        let team = PRUSA_SLICER.mac_team.unwrap();
+        let requirement = identity_requirement(&PRUSA_SLICER, team).unwrap();
+        assert!(requirement.contains("identifier \"com.prusa3d.slic3r/\""));
+        assert!(identity_requirement(&PRUSA_SLICER, "OTHERTEAM").is_err());
+        assert!(identity_requirement(&CraftApp { repo: "other/PrusaSlicer", ..PRUSA_SLICER }, team).is_err());
+        assert!(identity_requirement(&CraftApp { former_bundles: &["other.id/"], ..PRUSA_SLICER }, team).is_err());
+    }
 
     fn solidcraft() -> &'static CraftApp {
         CraftApp::by_id("solidcraft").unwrap()
@@ -209,15 +235,15 @@ mod tests {
 
     #[test]
     fn mac_install_allows_longer_uncached_assessments_for_large_bundles() {
-        use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, GODOT, TERMIX};
+        use artcraft_launcher_core::curated::{ACTUAL_BUDGET, APPFLOWY, FREECAD, GODOT, OPENWORK_DESKTOP, PASEO, STELLARIUM, TERMIX};
 
-        for app in [&ACTUAL_BUDGET, &APPFLOWY, &GODOT, &TERMIX] {
+        for app in [&ACTUAL_BUDGET, &APPFLOWY, &FREECAD, &GODOT, &OPENWORK_DESKTOP, &PASEO, &STELLARIUM, &TERMIX] {
             verify_with(app, Path::new("/private/owned/Large.app"), app.mac_team.unwrap(), |program, args, timeout| {
                 if program == SPCTL && args.first() == Some(&"--assess") {
                     assert_eq!(timeout, Duration::from_secs(180));
                     return Ok(success(accepted()));
                 }
-                assert_eq!(timeout, TIMEOUT);
+                assert_eq!(timeout, if app.id == FREECAD.id && program == CODESIGN { Duration::from_secs(180) } else { TIMEOUT });
                 Ok(success(if program == SPCTL { "assessments enabled" } else { "" }))
             })
             .unwrap();

@@ -1,0 +1,20 @@
+
+Mullvad Browser - Free the internet from mass surveillance
+
+          ID: net.mullvad.MullvadBrowser
+         Ref: app/net.mullvad.MullvadBrowser/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 16.0.2
+     License: MPL-2.0
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 307.8 MB
+     Runtime: org.freedesktop.Platform/x86_64/26.08
+         Sdk: org.freedesktop.Sdk/x86_64/26.08
+
+      Commit: eca021e9a1986241e8f1d5903a1f2954f05d3de2f566371ed6ac9825426a0b57
+      Parent: b78c3d8bae5b70f91fa5227071a7b747e97c4718c2c4e83d4659f580d5aed15b
+     Subject: Merge pull request #121 from flathub/update-master-4100843 (3a3befcbbd28)
+        Date: 2026-11-17 17:55:03 +0000

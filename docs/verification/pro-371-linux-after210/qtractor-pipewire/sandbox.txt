@@ -1,0 +1,15 @@
+[Context]
+shared=!network;
+sockets=x11;!wayland;!pulseaudio;!system-bus;!ssh-auth;
+devices=all;
+filesystems=!host:reset;!xdg-run/pipewire-0;xdg-run/pipewire-shift-qtractor-40039:ro;!host;
+
+[Session Bus Policy]
+org.freedesktop.Flatpak=none
+
+[Environment]
+LIBGL_ALWAYS_SOFTWARE=1
+PIPEWIRE_REMOTE=pipewire-shift-qtractor-40039
+QT_X11_NO_MITSHM=1
+GSK_RENDERER=cairo
+LP_NUM_THREADS=2

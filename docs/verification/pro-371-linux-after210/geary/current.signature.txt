@@ -1,0 +1,19 @@
+commit 82d362d59473a0324b4b8cbcf01e825a89cbb4ca7ebb41e2b15ce5a08231bb2b
+Parent:  953cd1a9a373c7979dfb5fcbcc9b399a3fcee26845b5e858bc430c9e6c4cd1f2
+ContentChecksum:  6c784f6894b8f7fc57d07776227af861dbd806e4b932aaa5970f10f445c30c96
+Date:  2025-11-28 00:18:17 +0000
+
+    Merge pull request #86 from flathub/update-master-ebe07a8 (03f8cc55949a)
+
+    Name: org.gnome.Geary
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Fri Nov 28 01:02:53 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

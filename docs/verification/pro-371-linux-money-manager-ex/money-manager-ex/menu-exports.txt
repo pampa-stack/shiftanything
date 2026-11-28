@@ -1,0 +1,2 @@
+/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736/export/share/applications/org.moneymanagerex.MMEX.desktop
+/home/qa/profiles/money-manager-ex-canonical/data/flatpak/app/org.moneymanagerex.MMEX/x86_64/stable/58c0b733790a5b350d6c1f12696dd8ae3fb43c3acc86bd3cd729d3c3bcb2c736/export/share/icons/hicolor/scalable/apps/org.moneymanagerex.MMEX.svg

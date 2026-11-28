@@ -1,0 +1,40 @@
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   166Gi    23Gi    88%    3.2M  239M    1%   /System/Volumes/Data
+signal 8.35.0 bytes=271241278 sha256=2745ae6a735bb39cb35a5761b98faaea011ace66cf28bbe5f9cbbb2a73cc6804
+/dev/disk8          	GUID_partition_scheme
+/dev/disk8s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/signal/8.35.0/mount
+BUNDLE=Signal.app
+CFBundleIdentifier=org.whispersystems.signal-desktop
+CFBundleShortVersionString=8.35.0
+CFBundleVersion=1
+LSMinimumSystemVersion=13.0
+x86_64 arm64
+    minos 13.0
+Identifier=org.whispersystems.signal-desktop
+Authority=Developer ID Application: Signal Messenger, LLC (U68MSDN6DR)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=U68MSDN6DR
+PASS PREFLIGHT signal 8.35.0
+/private/tmp/shift-mac-air-batch.abBQbN1k/signal/8.35.0/mount/Signal.app: accepted
+source=Notarized Developer ID
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   167Gi    22Gi    89%    3.2M  234M    1%   /System/Volumes/Data
+signal 8.36.0 bytes=269303849 sha256=452c1c39ca0bada168e738e8022e682cafbbfd5be3cdf56f6c9d4bce4aef249c
+/dev/disk7          	GUID_partition_scheme
+/dev/disk7s1        	Apple_HFS                      	/private/tmp/shift-mac-air-batch.abBQbN1k/signal/8.36.0/mount
+BUNDLE=Signal.app
+CFBundleIdentifier=org.whispersystems.signal-desktop
+CFBundleShortVersionString=8.36.0
+CFBundleVersion=1
+LSMinimumSystemVersion=13.0
+x86_64 arm64
+    minos 13.0
+Identifier=org.whispersystems.signal-desktop
+Authority=Developer ID Application: Signal Messenger, LLC (U68MSDN6DR)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=U68MSDN6DR
+PASS PREFLIGHT signal 8.36.0
+/private/tmp/shift-mac-air-batch.abBQbN1k/signal/8.36.0/mount/Signal.app: accepted
+source=Notarized Developer ID

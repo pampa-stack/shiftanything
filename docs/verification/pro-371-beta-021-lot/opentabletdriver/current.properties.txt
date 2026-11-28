@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "OpenTabletDriver Guide"
+WM_CLASS(STRING) = "OpenTabletDriver.UX", "OpenTabletDriver.UX"

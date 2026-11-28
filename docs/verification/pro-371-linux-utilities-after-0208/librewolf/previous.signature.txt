@@ -1,0 +1,19 @@
+commit ba4b1902b95108123f0754740bcfccf7f4a7f8c3a1306dd4e5a674609f77082d
+Parent:  02e04434d29775b18c2cbf4f895a4f141cf4751006414af755df2807cb84989c
+ContentChecksum:  6b62e19213e6c78ada62bab03167b81bc6882cb8ef4eb2e9a54fa891e0d3dc9d
+Date:  2026-11-18 16:46:37 +0000
+
+    Update librewolf module (#277) (cce43ba2a497)
+
+    Name: io.gitlab.librewolf-community
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Nov 18 17:00:19 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

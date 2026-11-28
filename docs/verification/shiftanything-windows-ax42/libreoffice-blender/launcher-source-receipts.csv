@@ -1,0 +1,11 @@
+file,path,sha256
+source-00.txt,crates/core/src/curated.rs,9904e07e4a13d2c42301ceff3d68aa81284f8e7c413486de1aad17a2b9a575f6
+source-01.txt,crates/core/src/platform.rs,989f805eff5400388b1e41d33b16d54472df4ee1fa66cb57b618574376e30bee
+source-02.txt,crates/core/src/release.rs,21cb5338a7a4303ea6f73bb0f99b73699ed2e8cb26aea4026e403207bc1710de
+source-03.txt,crates/native/src/detect.rs,61feb0e7752ab488272c567d445275453310da48f60f3881695802f15776d7ef
+source-04.txt,crates/native/src/install.rs,f8b615a1498a477e18a8653663c65825e38837dc05f61049e77420b0d5e4a5db
+source-05.txt,crates/native/src/install/msi_batch.rs,a9fbdf9acc18c3f88377aa879a114723d2c8f4cfb9ca11c9f60300de3e10975b
+source-06.txt,crates/native/src/install/msi_batch/tests.rs,7a967e177e2b71780e6a4b4058bef3fba4d1ab153941076290e03982caf8248a
+source-07.txt,crates/native/src/install/msi_session.rs,c7df714f587040dd1dd1323580bffeed9589a48e4671d8e9d3eaa32c7b49cbe7
+source-08.txt,crates/native/src/source/libreoffice.rs,ecd89f346b8b51fa1d5cd9fc37a58dcc0e796b7e7fbbd67c0c3e17d70d0e3a58
+source-09.txt,apps/shiftanything-tauri-proof/verified-platforms.json,a9fa2575fed3a2ae9411044044ecbe4f6d1fe4966e4cdc077236f9d4257a5daf

@@ -1,0 +1,18 @@
+PASS PREFLIGHT invoke-community v1.8.4
+PASS PREFLIGHT invoke-community v1.8.5
+/dev/disk3s5   482797652 420895872  13869388    97% 6591405 138693880    5%   /System/Volumes/Data
+OFFICIAL INDEX invoke-community v1.8.4 digest=published
+OFFICIAL INDEX invoke-community v1.8.5 digest=published
+26.4
+Aqua
+assessments enabled
+PASS OFFICIAL v1.8.4 Dmg https://github.com/invoke-ai/launcher/releases/download/v1.8.4/Invoke-Community-Edition-1.8.4-arm64.dmg 132977226 1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6
+PASS OFFICIAL v1.8.5 Dmg https://github.com/invoke-ai/launcher/releases/download/v1.8.5/Invoke-Community-Edition-1.8.5-arm64.dmg 132949779 33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc
+NATIVE ORIGIN invoke-community GitHub
+PASS OFFICIAL v1.8.4 Dmg https://github.com/invoke-ai/launcher/releases/download/v1.8.4/Invoke-Community-Edition-1.8.4-arm64.dmg 132977226 1fef3202e4ffb8e17d7fdbc6b45640afd4a8f6d570bd7b6a903ab3d0052ac2d6
+PASS NATIVE invoke-community install: Invoke Community installed: 1.8.4; package_bytes=132977226; elapsed=33.379s
+NATIVE ORIGIN invoke-community GitHub
+PASS OFFICIAL v1.8.5 Dmg https://github.com/invoke-ai/launcher/releases/download/v1.8.5/Invoke-Community-Edition-1.8.5-arm64.dmg 132949779 33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc
+PASS NATIVE invoke-community update: Invoke Community updated to 1.8.5; package_bytes=132949779; elapsed=21.595s
+PASS NATIVE invoke-community remove: Invoke Community was removed; package_bytes=0; elapsed=0.108s
+PASS NATIVE CYCLE invoke-community (v1.8.4 → v1.8.5), private Trash and synthetic data preserved

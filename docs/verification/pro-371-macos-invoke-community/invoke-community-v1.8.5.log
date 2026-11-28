@@ -1,0 +1,30 @@
+2026-11-28T04:35:39+0100
+/dev/disk3s5   482797652 420704560  14060700    97% 6591430 140607000    4%   /System/Volumes/Data
+ARTIFACT 33642d5f8d23dee3891e12f3694e82ff7101c23e7806c70ff907426d592c34cc 132949779 https://github.com/invoke-ai/launcher/releases/download/v1.8.5/Invoke-Community-Edition-1.8.5-arm64.dmg
+BUNDLE=Invoke Community Edition.app
+CFBundleIdentifier=com.invoke.invoke-community-edition
+CFBundleShortVersionString=1.8.5
+CFBundleVersion=1.8.5
+CFBundleExecutable=Invoke Community Edition
+LSMinimumSystemVersion=11.0
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/invoke-community/v1.8.5/mount/Invoke Community Edition.app/Contents/MacOS/Invoke Community Edition: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/invoke-community/v1.8.5/mount/Invoke Community Edition.app/Contents/MacOS/Invoke Community Edition (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 15.4
+   ntools 1
+     tool 4
+  version 21.0
+Identifier=com.invoke.invoke-community-edition
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: LINCOLN DAVID STEIN (2RGH26SB2H)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=10 Oct 2026 at 18:06:45
+TeamIdentifier=2RGH26SB2H
+/private/tmp/shift-air-overnight.bLlVN22u/preflight/invoke-community/v1.8.5/mount/Invoke Community Edition.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT invoke-community v1.8.5

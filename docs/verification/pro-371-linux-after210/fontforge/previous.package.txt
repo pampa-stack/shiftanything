@@ -1,0 +1,20 @@
+
+FontForge - An outline font editor
+
+          ID: org.fontforge.FontForge
+         Ref: app/org.fontforge.FontForge/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 20251009
+     License: GPL-3.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 29.0 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: e34c7f5c21bb466ef95adc150374d95629865c48b395a3e7b6d81fce1e35a367
+      Parent: fa2f3e36d4b2ec7941f3e0f4ea1b4a2e4621ad7ca18a851eaa09933c969aa6f2
+     Subject: Merge pull request #56 from flathub/update-master-a4ce08c (851171d8113b)
+        Date: 2026-06-10 03:02:04 +0000

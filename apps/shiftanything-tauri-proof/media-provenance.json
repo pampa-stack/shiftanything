@@ -582,9 +582,13 @@
     {
       "app": "invidious",
       "slot": "logo",
-      "source": "https://avatars.githubusercontent.com/u/68407447?v=4&s=128",
+      "source": "https://raw.githubusercontent.com/iv-org/invidious/0f5e4945b3c762e5cdd49b61c8ce11b48fe483d7/assets/invidious-colored-vector.svg",
       "file": "media/invidious-logo.png",
-      "sha256": "2f067fcd7205b180a41e3d9c1931be1534504a6713a5ec34b7e6393bee55d7a4"
+      "sha256": "a88be2d219ec8562c4f9475416a8db26ecdb1f1dec9f25f2f356a41d00fccb97",
+      "source_sha256": "5970991e71514b4b66401fabe0a5e0cb20fef77a05e4e1f4203da1d2770a9e0b",
+      "credit": "Invidious",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
     },
     {
       "app": "joplin",
@@ -2011,14 +2015,6 @@
       "source_sha256": "3912e1156cd3aa4ccaa17bf65256dcb3f8388dcd6326176a3e775713dc215132"
     },
     {
-      "app": "cherry-studio",
-      "slot": "logo",
-      "source": "https://dl.flathub.org/media/com/cherry_ai/CherryStudio/0f1de73233a37b6571f5205b956fef14/icons/128x128/com.cherry_ai.CherryStudio.png",
-      "file": "media/cherry-studio-logo.png",
-      "sha256": "357fcc253204679bcfca874f71582f98722b4da3b71195fcc3471f67deb057a4",
-      "source_sha256": "a31f42699a4f0ff20d1351cc716f83bfe92354c3a9740b985bbf6daf9bf2ae66"
-    },
-    {
       "app": "alpaca",
       "slot": "logo",
       "source": "https://dl.flathub.org/media/com/jeffser/Alpaca/05980b75a516acf84a5d6fad3eee0f32/icons/128x128/com.jeffser.Alpaca.png",
@@ -2377,14 +2373,6 @@
       "file": "media/deepchat-logo.png",
       "sha256": "595922f5a503e916f94c5c0047df2c85c4f55787da351e9bc1cec7e247d71400",
       "source_sha256": "ed28cd9c62efe388f37f4ef91f6f4580b37f919db3cd1b6e6e6e2067b3d4f15f"
-    },
-    {
-      "app": "airi",
-      "slot": "logo",
-      "source": "https://raw.githubusercontent.com/moeru-ai/airi/main/apps/stage-tamagotchi/build/icon.png",
-      "file": "media/airi-logo.png",
-      "sha256": "c5bbb0e8060b818058bfcbd8228fbbcaf40d7fd8e186300df680ed508587644f",
-      "source_sha256": "52ae9c86881ecb54f979b54a2d8d42e0fc80db7c6d795a0d4be5534df4106744"
     },
     {
       "app": "subtitle-edit",
@@ -2997,10 +2985,10 @@
     {
       "app": "recordly",
       "slot": "logo",
-      "source": "https://raw.githubusercontent.com/webadderallorg/Recordly/HEAD/icons/icons/win/icon.ico",
+      "source": "https://raw.githubusercontent.com/webadderallorg/Recordly/e17a6f7021eee9f9144737ce12b1cd2a1e6da58b/icons/icons/png/128x128.png",
       "file": "media/recordly-logo.png",
-      "sha256": "8c38b63a1c36d421c0c68332d362494d6a30aa36506b72b297ad18340a30a4b5",
-      "source_sha256": "1602925f5b8c30ea6ee2f00123266082a10f4e8fbd7e88ef8b274f782dee396b"
+      "sha256": "23b2f571b39d036ce6a980b03cda0db321532d3159158b75ae33d8a4314ddd30",
+      "source_sha256": "23b2f571b39d036ce6a980b03cda0db321532d3159158b75ae33d8a4314ddd30"
     },
     {
       "app": "openscreen",
@@ -3221,10 +3209,10 @@
     {
       "app": "langflow",
       "slot": "logo",
-      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/HEAD/src/frontend/public/icons/icon.ico",
+      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/2b6faa1cc296499a38c7bdd5bc31d8de7e85bd0b/src/frontend/public/icons/128x128.png",
       "file": "media/langflow-logo.png",
-      "sha256": "0039907e1dbf9d40398db2b70918521bc6336efa56a1dbdb21ded3ae983da41e",
-      "source_sha256": "1134951f7a602692a55e2fb5b74d2860c202dac0a691b35d115976357953691d"
+      "sha256": "da7e44302a07d57132b05c8ae990e4ab6c00eb237279451a6582bdbbe6383be0",
+      "source_sha256": "da7e44302a07d57132b05c8ae990e4ab6c00eb237279451a6582bdbbe6383be0"
     },
     {
       "app": "localai",
@@ -3813,10 +3801,10 @@
     {
       "app": "stats",
       "slot": "logo",
-      "source": "https://mac-stats.com/logo.webp",
+      "source": "https://cdn.mac-stats.com/assets/icon.png",
       "file": "media/stats-logo.png",
-      "sha256": "9380b448e00c9fd315551c474a5e34958c2d5679a1452d1a0b50d44b705c50ae",
-      "source_sha256": "0a3bdee33a96538026b38c22171adb6660c10ea7e04b7d58400e8a072adbe60c"
+      "sha256": "fd3cbd9e51614473127f6db34f1f18288234e24aa932841ab96738b0a317a0bf",
+      "source_sha256": "fd3cbd9e51614473127f6db34f1f18288234e24aa932841ab96738b0a317a0bf"
     },
     {
       "app": "authentik-community",
@@ -4240,6 +4228,927 @@
       "file": "media/simplewall-logo.png",
       "sha256": "cd7d0614c410e240a61eeecb4dae70d5aa3dae5cce081af433accd42887e0df8",
       "source_sha256": "12a8c445613a525df7de2ebd075977f272113954a0228b0bb78f1aec131a4be4"
+    },
+    {
+      "app": "opengame",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nexu-io/opengame/f17151f3cc7838ddbe13d9b94392e0f983fc341b/packages/design-system/brand/apple-touch-icon.png",
+      "file": "media/opengame-logo.png",
+      "sha256": "d669dfc682b7f1169e5a0476f49ba882f75ac58f3e20dd2ab8a18cee45f6a125"
+    },
+    {
+      "app": "opengame",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/pampa-stack/shiftanything/8d01e24ac459b6847503f62d9baa1b069b3faea8/apps/shiftanything-tauri-proof/frontend/media/opengame-shot-0.png",
+      "file": "media/opengame-shot-0.png",
+      "sha256": "4bec184e8f1d5c96bfca0a14fbfcdc53f408c20f82b47119f6977a409a00f1df"
+    },
+    {
+      "app": "graphite",
+      "slot": "logo",
+      "source": "https://editor.graphite.art/apple-touch-icon.png",
+      "file": "media/graphite-logo.png",
+      "sha256": "c998b996745db96b3a04b4696b10f6e0624606b69c2a02a278b049761c3b8685",
+      "source_sha256": "a392ba4e6a7895b2cafaaf9fb0653a9d347b23ea0412e585248435dbe26a9828"
+    },
+    {
+      "app": "graphite",
+      "slot": "shot-0",
+      "source": "https://github.com/user-attachments/assets/decb7011-18c2-4c68-82af-d1fa5064244a",
+      "file": "media/graphite-shot-0.jpg",
+      "sha256": "b03ea511512273ae70c8fdf19aae0492dc072f46c8c4a24047592bef811f386f",
+      "source_sha256": "8d3489c64be1d6f22fdbd8982b0ff6b52efaab3661b4230ee25bbb0e11573e35"
+    },
+    {
+      "app": "openpencil",
+      "slot": "logo",
+      "source": "https://openpencil.dev/brand/favicon-96x96.png",
+      "file": "media/openpencil-logo.png",
+      "sha256": "a3f4bd93eb9eb230085676a373944ccb60a6d9007ceac7f0b4e413a2d3e21e22",
+      "source_sha256": "51a356c78210df5e0e700c4538f964b410f0960accb3a0f566185f94e5a6d21d"
+    },
+    {
+      "app": "openpencil",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/open-pencil/open-pencil/master/packages/docs/public/screenshot.png",
+      "file": "media/openpencil-shot-0.jpg",
+      "sha256": "0487d28721ff35da03899f983e9172e4d5a06c03f12688e9390b0955e416963d",
+      "source_sha256": "f5a24ed52fbba4e3222a3676241dbd767c3651f52d7f18ada358084bd5219e43"
+    },
+    {
+      "app": "ardour",
+      "slot": "logo",
+      "source": "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/icons/128x128/org.ardour.Ardour.png",
+      "file": "media/ardour-logo.png",
+      "sha256": "f73fb577808b066e61231992e51f1d2af1bfcc2e0f95cc6cbc0534bf80dc1011",
+      "source_sha256": "3ac57991c01503c3ece1e1e8cb5e8228833ff6e097fc5ac293da6a504ce353a8"
+    },
+    {
+      "app": "ardour",
+      "slot": "shot-0",
+      "source": "https://dl.flathub.org/media/org/ardour/Ardour/50de306acf7e450e28cba7654a1c34aa/screenshots/image-1_1248x702@1.png",
+      "file": "media/ardour-shot-0.jpg",
+      "sha256": "97f8e17b22b09ea74db3d6b04ec8b8c8861deb26ac441eed3b260b091c66af1d",
+      "source_sha256": "7da0d52a55af4fed02a1e0b1a589e809655597eef2990461fffec37c2757c51f"
+    },
+    {
+      "app": "novnc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/novnc/noVNC/v1.7.0/app/images/icons/novnc-ios-180.png",
+      "file": "media/novnc-logo.png",
+      "sha256": "343873349ebc689ebb75bbca25a05118ca10806de4b46c3b81560949e159d51e",
+      "source_sha256": "4053691ee642373acc680c7b0b05bf76d58de02e3a8aff936b641f02c6cb347e"
+    },
+    {
+      "app": "novnc",
+      "slot": "shot-0",
+      "source": "https://novnc.com/img/noVNC-3-connected.png",
+      "file": "media/novnc-shot-0.jpg",
+      "sha256": "9f0288e41fb114c7d7ca925f3ef5190d1041980f57b5324a5b8ded1bb9497084",
+      "source_sha256": "1e9ef455c3f6fc8e36a8772e3d5eb77e6c41ee82c822575ccbdf479ad7040808"
+    },
+    {
+      "app": "ultravnc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ultravnc/UltraVNC/main/vncviewer/res/logo.png",
+      "file": "media/ultravnc-logo.png",
+      "sha256": "834b4a7341c338565c3e03b5aa470b8eff21b3bc910002a57d9679f18901bf12",
+      "source_sha256": "bfcbf4047525e0f913c13e07989f0cad8d42977e227c52fdce48113b1c578365"
+    },
+    {
+      "app": "ultravnc",
+      "slot": "shot-0",
+      "source": "https://uvnc.com/images/ultravnc-viewer.png",
+      "file": "media/ultravnc-shot-0.jpg",
+      "sha256": "a2e2653c361920dd85c9a869ec54d746806ff0c9325078b00dfd114c782c0492",
+      "source_sha256": "1d4d728084544016bacf57cc8599ea34cdbbd4a23f715287bd4b4fe641278b88"
+    },
+    {
+      "app": "deskreen",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pavlobu/deskreen/master/resources/icon.png",
+      "file": "media/deskreen-logo.png",
+      "sha256": "7d1d38e255e37062ea52c326b6a4ef7a31b9f8c7ec357236bcca6941d428627d",
+      "source_sha256": "09e9fd930dc18cf29447877b603af8f0ea5fea53211996f541dce6870c6f20b2"
+    },
+    {
+      "app": "deskreen",
+      "slot": "shot-0",
+      "source": "https://deskreen.com/images/share-screen-to-all.jpeg",
+      "file": "media/deskreen-shot-0.jpg",
+      "sha256": "47fabe4e62b65e0ad438317da4c6e4b54b3c2f7a739d8f195cbdad16b534f9fc",
+      "source_sha256": "ca0275f34568a649086e519f7c6ef12f1af02e954860d86d45044c7ed9bfb7a0"
+    },
+    {
+      "app": "euro-office",
+      "slot": "logo",
+      "source": "https://euro-office.github.io/documentation/assets/logo.svg",
+      "file": "media/euro-office-logo.png",
+      "sha256": "1431c85a7de3da554caa70c5d99dbb9444cca58fbe776ea4c128261333699624",
+      "source_sha256": "25e3e10f105bf348d02ffa2f142f0c5cbcbcde0984be939fa6e6cb640e099832"
+    },
+    {
+      "app": "zammad",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/zammad/zammad/develop/public/apple-touch-icon.png",
+      "file": "media/zammad-logo.png",
+      "sha256": "722259d1266d0b5b150a87c854b8d5901499a5f2ea8f8d7f0352189459dab0f5",
+      "source_sha256": "722259d1266d0b5b150a87c854b8d5901499a5f2ea8f8d7f0352189459dab0f5",
+      "credit": "Zammad Foundation",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "frappe-helpdesk",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/frappe/helpdesk/develop/.github/hd-logo.svg",
+      "file": "media/frappe-helpdesk-logo.png",
+      "sha256": "516a633d18356f8cfe02bd01b7c94a030d10a616782c2066d19daf1ffd7a48c2",
+      "source_sha256": "672cd4e3b3ae85a54d067314959c397f893248c696d880ac57f583ffefa43951",
+      "credit": "Frappe Technologies",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "glpi",
+      "slot": "logo",
+      "source": "https://www.glpi-project.org/wp-content/uploads/2025/10/cropped-glpi-logo-ig-192x192.png",
+      "file": "media/glpi-logo.png",
+      "sha256": "5ddc061f95b1d702621d5e8baca3f8f9b1a5908e8f13cf1df5d185e761d56478",
+      "source_sha256": "5ddc061f95b1d702621d5e8baca3f8f9b1a5908e8f13cf1df5d185e761d56478",
+      "credit": "Teclib’ e comunità GLPI",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "mullvad-browser",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/mullvad/mullvad-browser/16.0.3/browser/branding/mb-release/default256.png",
+      "file": "media/mullvad-browser-logo.png",
+      "sha256": "f5f121277c71ccbad4f2a2c866299eb25c25687c0782fe9e086e913ead27924d",
+      "source_sha256": "f5f121277c71ccbad4f2a2c866299eb25c25687c0782fe9e086e913ead27924d",
+      "credit": "Mullvad VPN",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "aliasvault",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/aliasvault/aliasvault/main/core/assets/brand/app-icon-1024.png",
+      "file": "media/aliasvault-logo.png",
+      "sha256": "494fe4d16002d2f9e4e15dda738daf996e1376d334f20c3b458a37f1188c5ede",
+      "source_sha256": "2468fdc692f4ad95c31680c46baab06ab27306f3d38afbedffcc90f3fad97e0e",
+      "credit": "AliasVault",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "harbor",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/goharbor/website/f592bafad330584e5ddaaf0ba05ab44ac751e73e/static/img/logos/harbor-icon-color.png",
+      "file": "media/harbor-logo.png",
+      "sha256": "81d7e918e843ffe9fc7c1846d278fd0d0b856701681b38b67b8f093f41810812",
+      "source_sha256": "5aaae8050f2f64caf87036000047ed1d121f072276befa0137457a9a7bfeb683",
+      "credit": "Progetto Harbor · CNCF",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "zitadel",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/zitadel/zitadel/v4.20.6/apps/docs/public/zitadel-192x192.png",
+      "file": "media/zitadel-logo.png",
+      "sha256": "f7697a75605ae2f344461a96f093e524abdf80e2daf0a83db4cca1b7ad764e4b",
+      "source_sha256": "f7697a75605ae2f344461a96f093e524abdf80e2daf0a83db4cca1b7ad764e4b",
+      "credit": "ZITADEL",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "lulu",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/objective-see/LuLu/v4.6.0/LuLu/App/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+      "file": "media/lulu-logo.png",
+      "sha256": "46c9ed0936d0abd1afc923ecb7fdf61099fe8957abc4858d94a7663dd2f8ff64",
+      "source_sha256": "46c9ed0936d0abd1afc923ecb7fdf61099fe8957abc4858d94a7663dd2f8ff64",
+      "credit": "Objective-See Foundation",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "onionshare",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/onionshare/onionshare/v2.7.3/desktop/onionshare/resources/images/logo_transparent.png",
+      "file": "media/onionshare-logo.png",
+      "sha256": "f4c694065f05c56e91943542f185adeb35105a68199cbebf676fa3db326f3a64",
+      "source_sha256": "f4c694065f05c56e91943542f185adeb35105a68199cbebf676fa3db326f3a64",
+      "credit": "OnionShare Project",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "taskexplorer",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/DavidXanatos/TaskExplorer/v2.0.1/TaskExplorer/Resources/TaskExplorer.ico",
+      "file": "media/taskexplorer-logo.png",
+      "sha256": "db547c1c832a107275ebca4569bec25a0a75a9266fc3a49d5425af3eb8dc5c5c",
+      "source_sha256": "8d3b18991032f243ef25549b30ff4aec42fb3e0a46894951c73f30aa75f9db8b",
+      "credit": "David Xanatos",
+      "treatment": "ICO converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "bleachbit",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/bleachbit/bleachbit/v6.0.6/bleachbit.png",
+      "file": "media/bleachbit-logo.png",
+      "sha256": "1a0b9048e914d07bfa0386e9ed2e0878a76a0aa67b8095b492767a06cfcc1008",
+      "source_sha256": "1a0b9048e914d07bfa0386e9ed2e0878a76a0aa67b8095b492767a06cfcc1008",
+      "credit": "Andrew Ziem",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "infisical",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Infisical/infisical/v0.167.16/img/logotransparent.png",
+      "file": "media/infisical-logo.png",
+      "sha256": "fc9b068578c56fd2f332716f9cc4102694fee85eafa425ecda1225ab6788f7a7",
+      "source_sha256": "bd3c2161daef1c1ae0e1781426c09ca9f33a4dd27ab76bdd36701febd6106a31",
+      "credit": "Infisical",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "opencti",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/OpenCTI-Platform/opencti/7.261124.0/opencti-platform/opencti-front/public/assets/static/favicon.png",
+      "file": "media/opencti-logo.png",
+      "sha256": "2facb96238869fd2bbd868ad4be3fecb965b87380586f1ffd6d65bf17030e6b7",
+      "source_sha256": "cac56b60b430ee841adfef14e2b422a4fce98fec1a4490d34ba79015488c6221",
+      "credit": "Filigran",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "simplelogin",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/simple-login/app/v4.83.7/static/logo-without-text.svg",
+      "file": "media/simplelogin-logo.png",
+      "sha256": "14ff72a18f907eb525dc9429660ad35f2347c7183ffdbd22ec3d5d7fa1ea3516",
+      "source_sha256": "8d2992d480f8cd4538a0ce62974bcc26cd10b9ca44334c55391bb3b29dd5139f",
+      "credit": "SimpleLogin",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "addyio",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/anonaddy/anonaddy/v1.7.4/public/svg/icon-logo.svg",
+      "file": "media/addyio-logo.png",
+      "sha256": "c4ffdc201086c16855f235b2e6090f3e109a5d3dde8b1a89504f3f6f3ca161e5",
+      "source_sha256": "302300b7a874bfeabfcb188a455f3ddfa82b75ff1b35fc20dd4897151497356a",
+      "credit": "Will Browning",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "sftpgo",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/drakkan/sftpgo/v2.7.6/static/favicon.png",
+      "file": "media/sftpgo-logo.png",
+      "sha256": "a35c842060b5504b7fde185b54aeb8f11b58849bdcd239bc9e9087f9b19db82d",
+      "source_sha256": "a35c842060b5504b7fde185b54aeb8f11b58849bdcd239bc9e9087f9b19db82d",
+      "credit": "SFTPGo Project",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "bunkerweb",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/bunkerity/bunkerweb/v1.6.18/docs/assets/favicon.png",
+      "file": "media/bunkerweb-logo.png",
+      "sha256": "78cdda0188cd1e6348f513d4fa8c8f52b43d9576bd9b7a6ddda0a79712f57c14",
+      "source_sha256": "78cdda0188cd1e6348f513d4fa8c8f52b43d9576bd9b7a6ddda0a79712f57c14",
+      "credit": "Bunkerity",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "easytier",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/EasyTier/EasyTier/v2.6.4/easytier-gui/src-tauri/icons/icon.png",
+      "file": "media/easytier-logo.png",
+      "sha256": "1bbdff95392581bb673ea0512c46934bde75f3b150fad4c3a6eb310c2207af54",
+      "source_sha256": "1bbdff95392581bb673ea0512c46934bde75f3b150fad4c3a6eb310c2207af54",
+      "credit": "EasyTier Project",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "gui-for-singbox",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/GUI-for-Cores/GUI.for.SingBox/v1.29.0/build/appicon.png",
+      "file": "media/gui-for-singbox-logo.png",
+      "sha256": "e14d607a120f1c3aeadd7e49d14780cd0c57ca813c282ba3ab3864fa6825f14a",
+      "source_sha256": "08257d0d21c76a56e48e38105460927293a452ddc6b0b62db401bf5b5b9b7adf",
+      "credit": "GUI for Cores",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "v2raya",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/v2rayA/v2rayA/v2.5.16/gui/public/static/v2raya-icon.svg",
+      "file": "media/v2raya-logo.png",
+      "sha256": "32bd5fa187ec1084e626830a804e2553a3c4fe75a98d4063e1cf447ca8914c70",
+      "source_sha256": "1fbd85f662f94ee709617a77b624cbbaf652cb7e2ab04be2ff7b26562b1d5abc",
+      "credit": "v2rayA Project",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "karing",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/KaringX/karing/v1.2.26.2934/assets/images/app_icon_128.png",
+      "file": "media/karing-logo.png",
+      "sha256": "8f5c71c326915a270cea8d7f243bb254d065a8c6f3b6a77fa140df5894c136da",
+      "source_sha256": "8f5c71c326915a270cea8d7f243bb254d065a8c6f3b6a77fa140df5894c136da",
+      "credit": "KaringX",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "zoraxy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/tobychui/zoraxy/v3.3.5/docs/favicon.png",
+      "file": "media/zoraxy-logo.png",
+      "sha256": "833096908aa92fd1447fa07021d5677c28783d005e08bad527c1fb60b963cb0d",
+      "source_sha256": "833096908aa92fd1447fa07021d5677c28783d005e08bad527c1fb60b963cb0d",
+      "credit": "Toby Chui",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "moonlight",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/moonlight-stream/moonlight-qt/v6.2.0/app/deploy/steamlink/moonlight.png",
+      "file": "media/moonlight-logo.png",
+      "sha256": "6f73546965b091f2e0b1be247f66299ca9a8bf38e6ef19d10ddfa5655fb10de1",
+      "source_sha256": "6f73546965b091f2e0b1be247f66299ca9a8bf38e6ef19d10ddfa5655fb10de1",
+      "credit": "Moonlight Game Streaming Project",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "sunshine",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/SunshineStream/Sunshine/v2026.914.233613/sunshine.png",
+      "file": "media/sunshine-logo.png",
+      "sha256": "90736a95d7a801958abf0fb93be80dcb97a0a0e47b03818f8b7aae926591740b",
+      "source_sha256": "90736a95d7a801958abf0fb93be80dcb97a0a0e47b03818f8b7aae926591740b",
+      "credit": "Sunshine contributors",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "utm",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/utmapp/UTM/main/Platform/Assets.xcassets/AppIcon.appiconset/icon_256pt.png",
+      "file": "media/utm-logo.png",
+      "sha256": "c04e9ed766b520cb214346763bcdedcaa0e6b775eb3ab48cd2160c3f6cc0f555",
+      "source_sha256": "c04e9ed766b520cb214346763bcdedcaa0e6b775eb3ab48cd2160c3f6cc0f555",
+      "credit": "utmapp",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "monitorcontrol",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/MonitorControl/MonitorControl/main/MonitorControl/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+      "file": "media/monitorcontrol-logo.png",
+      "sha256": "686f1df2c0de1ed7218828efdbbcc2883ba8ee5b209ebd2a4ed887ecfe638fab",
+      "source_sha256": "686f1df2c0de1ed7218828efdbbcc2883ba8ee5b209ebd2a4ed887ecfe638fab",
+      "credit": "MonitorControl",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "rectangle",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/rxhanson/Rectangle/main/Rectangle/Assets.xcassets/AppIcon.appiconset/mac256pts1x.png",
+      "file": "media/rectangle-logo.png",
+      "sha256": "e1a27c763c8351d18de3986a845376286ba684fd1f0e39fa75f4d85a47e86f27",
+      "source_sha256": "e1a27c763c8351d18de3986a845376286ba684fd1f0e39fa75f4d85a47e86f27",
+      "credit": "Ryan Hanson",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "ice",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/jordanbaird/Ice/main/Ice/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+      "file": "media/ice-logo.png",
+      "sha256": "29f9f94782d308f7e6b41820a31b1dfc7abad1b597a3ff71410c005aca4ab5a6",
+      "source_sha256": "29f9f94782d308f7e6b41820a31b1dfc7abad1b597a3ff71410c005aca4ab5a6",
+      "credit": "jordanbaird",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "aerospace",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/nikitabobko/AeroSpace/056676ab02c05d2526f4ffb7022940a1111bdeea/resources/Assets.xcassets/AppIcon.appiconset/icon.png",
+      "file": "media/aerospace-logo.png",
+      "sha256": "6dbda7da2928ae243fa575b4a9c473c8476260c3d7d0888fe7a9f255a83e0fe6",
+      "source_sha256": "b8db3aa6871ad33d5070bf89b568587c233bbf9b57e7644e618d77864a23e562",
+      "credit": "nikitabobko",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "codeedit",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/CodeEditApp/CodeEdit/main/.github/CodeEdit-Icon-128%402x.png",
+      "file": "media/codeedit-logo.png",
+      "sha256": "d2b656f7d64ef645120e3cac33ebb2fbbe5d77e947a65a337b600961518db6b2",
+      "source_sha256": "d2b656f7d64ef645120e3cac33ebb2fbbe5d77e947a65a337b600961518db6b2",
+      "credit": "CodeEditApp",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "karabiner-elements",
+      "slot": "logo",
+      "source": "https://karabiner-elements.pqrs.org/images/logo.png",
+      "file": "media/karabiner-elements-logo.png",
+      "sha256": "0c6256b439a8e231f9f949993388d35c8608a1657fdb75a31419c570e866829f",
+      "source_sha256": "e0d0915ef7440c99f78dd70e3c4c122957e63acba9f8f1c83b1bc1a02851ef1b",
+      "credit": "pqrs-org",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "maccy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/p0deje/Maccy/master/Maccy/Assets.xcassets/AppIcon.appiconset/AppIcon%20%28Big%20Sur%29-256w.png",
+      "file": "media/maccy-logo.png",
+      "sha256": "4b82c48761c3c5bdc0b0b4df0fad3a95f0fc62a3775d5ec5764c6198f9da0a3c",
+      "source_sha256": "4b82c48761c3c5bdc0b0b4df0fad3a95f0fc62a3775d5ec5764c6198f9da0a3c",
+      "credit": "p0deje",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "aerial",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/AerialScreensaver/Aerial/main/Aerial/Resources/Icons/LogoIcon-128px%402x.png",
+      "file": "media/aerial-logo.png",
+      "sha256": "85e730408dcdaa1356a7db3a295b3e47f24cf250549de88360641480d5ac6180",
+      "source_sha256": "85e730408dcdaa1356a7db3a295b3e47f24cf250549de88360641480d5ac6180",
+      "credit": "AerialScreensaver",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "background-music",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/kyleneideck/BackgroundMusic/master/BGMApp/BGMApp/Images.xcassets/AppIcon.appiconset/appicon_256.png",
+      "file": "media/background-music-logo.png",
+      "sha256": "4c38abb20d334ecb75e07f9cab27bd124d4bcd795692231d6cb72aec7644f9c9",
+      "source_sha256": "4c38abb20d334ecb75e07f9cab27bd124d4bcd795692231d6cb72aec7644f9c9",
+      "credit": "kyleneideck",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "iterm2",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/gnachman/iTerm2/7149665183dc55a012567a3e8fcc9214974dba33/images/AppIcon.png",
+      "file": "media/iterm2-logo.png",
+      "sha256": "0d936db37b7dfb0a08cdf9c34a4b876ea821b55e484c567d947e24a08957f57a",
+      "source_sha256": "0d936db37b7dfb0a08cdf9c34a4b876ea821b55e484c567d947e24a08957f57a",
+      "credit": "George Nachman and iTerm2 contributors",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "xbar",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/matryer/xbar/d624239058997c80118eaebe2e7f8331b3c765e0/app/build/appicon.png",
+      "file": "media/xbar-logo.png",
+      "sha256": "7491534f2a79e23f1ab9c5dc3a89d9f7ce418a736d770e4ed1796ac4864964f5",
+      "source_sha256": "9f665a47d732930d64db43677414e1c6e3caec4a1fc1a3ae6b2b7c4a911905ac",
+      "credit": "matryer",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "alttab",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/lwouis/alt-tab-macos/master/docs/readme/app-icon.webp",
+      "file": "media/alttab-logo.png",
+      "sha256": "7778284f494497dd0df6de8e2062ae841f2186ba2a0d8394f2ea64beadc8ee1a",
+      "source_sha256": "e976ef99e0899a90a5fe647be89ffa9edc41a6eb6945fba22cc9c2c6ecba2837",
+      "credit": "lwouis",
+      "treatment": "WEBP converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "hammerspoon",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Hammerspoon/hammerspoon/master/Hammerspoon/Images.xcassets/AppIcon.appiconset/256.png",
+      "file": "media/hammerspoon-logo.png",
+      "sha256": "c8d9196b52a92b90a43e3253700d2332f39baec092a4f331a863c9a5602ba26a",
+      "source_sha256": "c8d9196b52a92b90a43e3253700d2332f39baec092a4f331a863c9a5602ba26a",
+      "credit": "The Hammerspoon Project",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "amethyst",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ianyh/Amethyst/development/Amethyst/Images.xcassets/AppIcon.appiconset/icon_256x256.png",
+      "file": "media/amethyst-logo.png",
+      "sha256": "e628cd8752ec7745ed0dfed419ceaaacea4637c31180ac31b9fd3a305e257abc",
+      "source_sha256": "e628cd8752ec7745ed0dfed419ceaaacea4637c31180ac31b9fd3a305e257abc",
+      "credit": "ianyh",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "hidden-bar",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/consolelabs/hidden/develop/hidden/Assets.xcassets/AppIcon.appiconset/icon_256%401x.png",
+      "file": "media/hidden-bar-logo.png",
+      "sha256": "ac69cd279d62983907df23bc72786535d977c464cfe84aa5fcb87a23eb188944",
+      "source_sha256": "ac69cd279d62983907df23bc72786535d977c464cfe84aa5fcb87a23eb188944",
+      "credit": "consolelabs",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "easydict",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/tisfeng/Easydict/dev/Easydict/App/Assets.xcassets/white-black-icon.appiconset/icon_256x256.png",
+      "file": "media/easydict-logo.png",
+      "sha256": "fa46c5add91d19820eeb9b1fada34407c29df770fa1db8b1a4c60f4b8b4bdf04",
+      "source_sha256": "fa46c5add91d19820eeb9b1fada34407c29df770fa1db8b1a4c60f4b8b4bdf04",
+      "credit": "tisfeng",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "sketchybar",
+      "slot": "logo",
+      "source": "https://felixkratz.github.io/SketchyBar/img/logo.svg",
+      "file": "media/sketchybar-logo.png",
+      "sha256": "6790a34e30e57c5a4fa2b66b2b048fb9a33fdc72258abeb956f86c1c9256d58c",
+      "source_sha256": "ab24aad786f2e0119fee0673bacd62e626455af0cf92fa46bcd9b757f3f00209",
+      "credit": "FelixKratz",
+      "treatment": "SVG rendered to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "playcover",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/PlayCover/PlayCover/develop/PlayCover/Assets.xcassets/AppIcon.appiconset/256%402x.png",
+      "file": "media/playcover-logo.png",
+      "sha256": "17f2f2b060a3237b7f0543f07fffa5b6ef836b7691e1519747040ea4aab9ba57",
+      "source_sha256": "17f2f2b060a3237b7f0543f07fffa5b6ef836b7691e1519747040ea4aab9ba57",
+      "credit": "PlayCover",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "loop-macos",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/mrkai77/Loop/develop/Loop/Assets.xcassets/App%20Icons/AppIcon-Holo.appiconset/appicon_256.png",
+      "file": "media/loop-macos-logo.png",
+      "sha256": "e3d0f3b1212045a242f79bc44b8bcf216e552d810271c3a7e96864b48d245a07",
+      "source_sha256": "e3d0f3b1212045a242f79bc44b8bcf216e552d810271c3a7e96864b48d245a07",
+      "credit": "mrkai77",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "boring-notch",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/TheBoredTeam/boring.notch/main/boringNotch/Assets.xcassets/AppIcon.appiconset/notch-stage-icon2%207.png",
+      "file": "media/boring-notch-logo.png",
+      "sha256": "46c26366799be40866c9ac92ae7320d07247c654eebf7949dd83764cdee00138",
+      "source_sha256": "46c26366799be40866c9ac92ae7320d07247c654eebf7949dd83764cdee00138",
+      "credit": "TheBoredTeam",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "netnewswire",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Ranchero-Software/NetNewsWire/main/Mac/Resources/Assets.xcassets/AppIcon.appiconset/Icon-MacOS-256x256%401x.png",
+      "file": "media/netnewswire-logo.png",
+      "sha256": "3898062ea66770bd058d79e48dd5a9fdc96fe56e53b0c6ed95872f14b8856f6a",
+      "source_sha256": "3898062ea66770bd058d79e48dd5a9fdc96fe56e53b0c6ed95872f14b8856f6a",
+      "credit": "Ranchero Software",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "pock",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/pock/pock/main/Pock/Bundle/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+      "file": "media/pock-logo.png",
+      "sha256": "a7f3137f9460cd9a1707770dfa1dd712fcc72d71377e5140b8f61bf6442ff303",
+      "source_sha256": "a7f3137f9460cd9a1707770dfa1dd712fcc72d71377e5140b8f61bf6442ff303",
+      "credit": "pock",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "eul",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/gao-sun/eul/master/Resource/Assets.xcassets/AppIcon.appiconset/eul%40256px.png",
+      "file": "media/eul-logo.png",
+      "sha256": "09dee63550de363ebfecb9586e61030e481c439034a630ca1f3c18c215eaa234",
+      "source_sha256": "09dee63550de363ebfecb9586e61030e481c439034a630ca1f3c18c215eaa234",
+      "credit": "gao-sun",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "sloth",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sveinbjornt/Sloth/master/resources/sloth_icon.png",
+      "file": "media/sloth-logo.png",
+      "sha256": "5e4ef6fa4182228fa50d5628b57a7050d11ee62598803885c735d385bd9e157a",
+      "source_sha256": "5e4ef6fa4182228fa50d5628b57a7050d11ee62598803885c735d385bd9e157a",
+      "credit": "sveinbjornt",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "clipy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Clipy/Clipy/develop/Clipy/Resources/Assets.xcassets/AppIcon.appiconset/256.png",
+      "file": "media/clipy-logo.png",
+      "sha256": "57437a92cb3b56fb65c14227df4aaa8d15b395bd511d384a0d00ef11ab53c508",
+      "source_sha256": "57437a92cb3b56fb65c14227df4aaa8d15b395bd511d384a0d00ef11ab53c508",
+      "credit": "Clipy",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "virtualbuddy",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/insidegui/VirtualBuddy/main/assets/VirtualBuddyIcon.png",
+      "file": "media/virtualbuddy-logo.png",
+      "sha256": "da23e1e255370f99631db45ee4b3e5e2cb9d6ee47acf41bd0569e4c69653ce25",
+      "source_sha256": "31ad20723ff26aaab49981647f6c88475d5179439113a40a860d2e33eac35228",
+      "credit": "insidegui",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "wwdc",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/insidegui/WWDC/master/WWDC/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+      "file": "media/wwdc-logo.png",
+      "sha256": "c7bd8af77ccbad66ce1aba15c5c38837e49aa94e9d8786dd6adae9b1a9c9f688",
+      "source_sha256": "c7bd8af77ccbad66ce1aba15c5c38837e49aa94e9d8786dd6adae9b1a9c9f688",
+      "credit": "insidegui",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "dozer",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Mortennn/Dozer/master/Dozer/Other/Assets.xcassets/AppIcon.appiconset/Icon_256x256.png",
+      "file": "media/dozer-logo.png",
+      "sha256": "32ec1e018939717fabeb2156262ff8007dc470f943eb78c5108a191ca95c0a0c",
+      "source_sha256": "32ec1e018939717fabeb2156262ff8007dc470f943eb78c5108a191ca95c0a0c",
+      "credit": "Mortennn",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "gifski",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sindresorhus/Gifski/main/Stuff/AppIcon.png",
+      "file": "media/gifski-logo.png",
+      "sha256": "12fb9b046ae8554625dd3e0174989be0912dd3a7751d640392e6dd23bd584d5f",
+      "source_sha256": "b5079b7329511e225cb001e1a029143723a6775f94213f8c01afa1dd764e0943",
+      "credit": "Sindre Sorhus",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "macvim",
+      "slot": "logo",
+      "source": "https://macvim.org/docs/MacVim.png",
+      "file": "media/macvim-logo.png",
+      "sha256": "5be4cca4c5069583381162ad93fb368817a12f9aec0f093a31dd645413d8371d",
+      "source_sha256": "5be4cca4c5069583381162ad93fb368817a12f9aec0f093a31dd645413d8371d",
+      "credit": "macvim-dev",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "linearmouse",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/linearmouse/linearmouse/main/LinearMouse/Assets.xcassets/AppIcon.appiconset/Icon-256.png",
+      "file": "media/linearmouse-logo.png",
+      "sha256": "e6502e5b998951092779f46b045d58192eb8d773a09789b6d515910007382ac5",
+      "source_sha256": "e6502e5b998951092779f46b045d58192eb8d773a09789b6d515910007382ac5",
+      "credit": "linearmouse",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "openinterminal",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/Ji4n1ng/OpenInTerminal/master/OpenInTerminal/Assets.xcassets/logo.imageset/AppIcon-iOS-Default-512x512%401x.png",
+      "file": "media/openinterminal-logo.png",
+      "sha256": "277f8e84a3d199b4088206fd7f2cd92c84bbaa898b5ac11d283d6425653dbd66",
+      "source_sha256": "277f8e84a3d199b4088206fd7f2cd92c84bbaa898b5ac11d283d6425653dbd66",
+      "credit": "Ji4n1ng",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "dockdoor",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ejbills/DockDoor/main/Assets/Assets.xcassets/AppIcon.appiconset/AppIcon-iOS-Default-256x256%401x.png",
+      "file": "media/dockdoor-logo.png",
+      "sha256": "f8e3a926a679fbf4e2ec240495f0fbb2eb86e9787490a37a695266debc53ce4d",
+      "source_sha256": "f8e3a926a679fbf4e2ec240495f0fbb2eb86e9787490a37a695266debc53ce4d",
+      "credit": "Ethan Bills and DockDoor contributors",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "meetingbar",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/leits/MeetingBar/master/MeetingBar/Assets.xcassets/AppIcon.appiconset/256x256.png",
+      "file": "media/meetingbar-logo.png",
+      "sha256": "0bf8173b6cd47a862232cf9e2651b2fbd90da51431d1ee59cd3d31cc11e34e27",
+      "source_sha256": "0bf8173b6cd47a862232cf9e2651b2fbd90da51431d1ee59cd3d31cc11e34e27",
+      "credit": "leits",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "mist",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/Mist/Assets.xcassets/App%20Icon%20-%20macOS%20Tahoe.appiconset/icon_256x256.png",
+      "file": "media/mist-logo.png",
+      "sha256": "7d17b9149c8ef0d4926b1e491055cdc7d704a6aa5ac75c5234eb051992890ccc",
+      "source_sha256": "7d17b9149c8ef0d4926b1e491055cdc7d704a6aa5ac75c5234eb051992890ccc",
+      "credit": "ninxsoft",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "finicky",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/johnste/finicky/678bb135599c063f7fc8f0ce9d6f1e22bcb7df6b/packages/finicky-ui/public/finicky-icon.png",
+      "file": "media/finicky-logo.png",
+      "sha256": "10657d682c66ff3b55f8090b2e7228df8b906c47287617b56d264478fc48fc76",
+      "source_sha256": "10657d682c66ff3b55f8090b2e7228df8b906c47287617b56d264478fc48fc76",
+      "credit": "johnste",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "swiftbar",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/swiftbar/SwiftBar/main/SwiftBar/Resources/Assets.xcassets/AppIcon.appiconset/mac_256.png",
+      "file": "media/swiftbar-logo.png",
+      "sha256": "dda920fc1e52ea6917fb4dea06cb420723c9221ab3fac7944c82dcfdad280170",
+      "source_sha256": "dda920fc1e52ea6917fb4dea06cb420723c9221ab3fac7944c82dcfdad280170",
+      "credit": "swiftbar",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "macshot",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sw33tLie/macshot/main/macshot/Assets.xcassets/AppIcon.appiconset/icon_256x256.png",
+      "file": "media/macshot-logo.png",
+      "sha256": "e40b481aacf0d7532efbeb2034a21065eb36aaa23e985e8150bbcf845d85f256",
+      "source_sha256": "e40b481aacf0d7532efbeb2034a21065eb36aaa23e985e8150bbcf845d85f256",
+      "credit": "sw33tLie",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "itsycal",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/sfsam/Itsycal/master/Itsycal/AppIcon.icon/Assets/AppIcon512%402x.png",
+      "file": "media/itsycal-logo.png",
+      "sha256": "448462e1f4c6caf8612c887d2474334b6b1ab919759c40a65adf0d68d2483634",
+      "source_sha256": "a112c47c4ce16353d4e57e6675a9d3928a8a97c97488d2fbe771b099815c72c6",
+      "credit": "Mowglii",
+      "treatment": "PNG converted to PNG",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "pika-color",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/superhighfives/pika/main/Pika/Assets/Assets.xcassets/AppIcon.appiconset/256x256.png",
+      "file": "media/pika-color-logo.png",
+      "sha256": "71847ba835420ea193c79f749a3ee2a7a4da3ebe3b80073ac940d397d9c4e122",
+      "source_sha256": "71847ba835420ea193c79f749a3ee2a7a4da3ebe3b80073ac940d397d9c4e122",
+      "credit": "Sam Gwilym",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "syncthing-macos",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/syncthing/syncthing-macos/v2/syncthing/Assets.xcassets/Syncthing.appiconset/icon_256x256.png",
+      "file": "media/syncthing-macos-logo.png",
+      "sha256": "207423976b10fdb7af79edeebd82c36fb183e64d45ff0b50a35c0c5da45c6ad4",
+      "source_sha256": "207423976b10fdb7af79edeebd82c36fb183e64d45ff0b50a35c0c5da45c6ad4",
+      "credit": "syncthing",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "markedit",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Icon.png",
+      "file": "media/markedit-logo.png",
+      "sha256": "5a3e173e79eeb2c417f532447782fdfc4a1bccd89e674a705d3aa788c096feb6",
+      "source_sha256": "5a3e173e79eeb2c417f532447782fdfc4a1bccd89e674a705d3aa788c096feb6",
+      "credit": "Ying Zhong",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "capso",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/App/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+      "file": "media/capso-logo.png",
+      "sha256": "80793ad0f7dcc5323e40fc1dcdf222fa298e5abe53e94c7e52c68245483e5665",
+      "source_sha256": "80793ad0f7dcc5323e40fc1dcdf222fa298e5abe53e94c7e52c68245483e5665",
+      "credit": "Zhihao Li",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "vorssaint",
+      "slot": "logo",
+      "source": "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/icon.png",
+      "file": "media/vorssaint-logo.png",
+      "sha256": "588c3fa5da7932294e8f50488fae8beca7cbc0507f1ed6ba102c7600fc79bcb2",
+      "source_sha256": "588c3fa5da7932294e8f50488fae8beca7cbc0507f1ed6ba102c7600fc79bcb2",
+      "credit": "Pedro Gomes",
+      "treatment": "original",
+      "purpose": "Catalog identification"
+    },
+    {
+      "app": "mist",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/ninxsoft/Mist/v0.40/README%20Resources/Example.png",
+      "file": "media/mist-shot-0.png",
+      "sha256": "b4f97324f248b8c5360f4f981ff69528297fba67dac488984ea1b20d39352844",
+      "source_sha256": "b4f97324f248b8c5360f4f981ff69528297fba67dac488984ea1b20d39352844",
+      "credit": "ninxsoft",
+      "treatment": "original",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "markedit",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Screenshots/01.png",
+      "file": "media/markedit-shot-0.png",
+      "sha256": "6e1d0468a86221b2092bcc04c290aef9bc443c4be5dd1c5ca910098941c897c6",
+      "source_sha256": "7086e6149b74604ffea6c99ec37288cdc87c77a7650e542aa8b79c6176e48e21",
+      "credit": "Ying Zhong",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "capso",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/.github/assets/annotation.jpeg",
+      "file": "media/capso-shot-0.jpg",
+      "sha256": "32eba3794b71fe26083cc356fb1f6c1494cd50727741f283afa24260d26002ad",
+      "source_sha256": "4ab76952ac28d4feb6e0fb66a76538ce0d38695333a7f9350eefb9a830304cce",
+      "credit": "Zhihao Li",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
+    },
+    {
+      "app": "vorssaint",
+      "slot": "shot-0",
+      "source": "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/panel-utilities.png",
+      "file": "media/vorssaint-shot-0.png",
+      "sha256": "09502d69d1b2fed2692ca4e9fb9a65c39bf59ab122f04d7d6ea84d5a4eac0584",
+      "source_sha256": "f1fd583844cf42f5261c1b46c69e2d4414dc77aac73019127695a3dc2ba0df47",
+      "credit": "Pedro Gomes",
+      "treatment": "Downscaled to at most 1600 px, no content edits",
+      "purpose": "Catalog preview"
     }
   ]
 }

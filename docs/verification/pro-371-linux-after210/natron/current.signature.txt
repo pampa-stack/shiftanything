@@ -1,0 +1,19 @@
+commit 3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2
+Parent:  f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f
+ContentChecksum:  c7a06ff0339876662d354a49e7968589c96eb749a5897c359e6cddc459325479
+Date:  2026-11-09 21:55:27 +0000
+
+    Merge pull request #41 from lines-of-codes/master (c40cf23ff32c)
+
+    Name: fr.natron.Natron
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Nov  9 23:00:50 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

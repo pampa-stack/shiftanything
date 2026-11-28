@@ -1,0 +1,342 @@
+[
+  {
+    "id": "boring-notch",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/TheBoredTeam/boring.notch/releases/tag/v2.7.3",
+    "asset_url": "https://github.com/TheBoredTeam/boring.notch/releases/download/v2.7.3/boringNotch.dmg",
+    "sha256": "23786382548d33c59b309db558e513a92e3f95b63d611544dcddf5d196e46698",
+    "bytes": 9727030,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "caesium",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
+    "asset_url": "https://github.com/Lymphatus/caesium-image-compressor/releases/download/v2.8.5/caesium-image-compressor-2.8.5-macos.dmg",
+    "sha256": "c6cec65bee37047e163d6d1337f15eae7a1327e19e1cb8cda19c28ed2480cfe0",
+    "bytes": 29735451,
+    "checked_at": "2026-11-28",
+    "reason": "intel_only"
+  },
+  {
+    "id": "copyq",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/hluk/CopyQ/releases/tag/v17.0.0",
+    "asset_url": "https://github.com/hluk/CopyQ/releases/download/v17.0.0/CopyQ-17.0.0-macos-13-m1.dmg",
+    "sha256": "d14ceb215821be1d127a4153f27b914b41d542749d92beb21e9446896db89346",
+    "bytes": 36751161,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "czkawka",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/qarmin/czkawka/releases/tag/12.0.2",
+    "asset_url": "https://github.com/qarmin/czkawka/releases/download/12.0.2/mac_czkawka_gui_arm64",
+    "sha256": "3c9f1aac6479a7851cf308b185529d192b17a80f535927224ae1301c7f3d2933",
+    "bytes": 29901968,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "darktable",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/darktable-org/darktable/releases/tag/release-5.6.2",
+    "asset_url": "https://github.com/darktable-org/darktable/releases/download/release-5.6.2/darktable-5.6.2-arm64.dmg",
+    "sha256": "6ff88e58a2a59cb07b0a1502fea7205e68cd783380a33a3ce7bda68ec29def0c",
+    "bytes": 88884896,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "deskflow",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/deskflow/deskflow/releases/tag/v1.27.0",
+    "asset_url": "https://github.com/deskflow/deskflow/releases/download/v1.27.0/deskflow-1.27.0-macos-arm64.dmg",
+    "sha256": "dd21e79e566314394214906d3338c505d337af536fc580c022ee3fadffad0c97",
+    "bytes": 29145871,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "filee",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/KnifeLemon/Filee/releases/tag/v2.5.0",
+    "asset_url": "https://github.com/KnifeLemon/Filee/releases/download/v2.5.0/Filee-2.5.0-osx-arm64.dmg",
+    "sha256": "2044f1237049bc1a39c66ae1976883bb58d7da99a9f4deef20b98ff82376c82b",
+    "bytes": 152142653,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "flameshot",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/flameshot-org/flameshot/releases/tag/v15.0.0",
+    "asset_url": "https://github.com/flameshot-org/flameshot/releases/download/v15.0.0/Flameshot-15.0.0-macos-arm64.dmg",
+    "sha256": "ff2f63fb630992385a8738f45fb819051dd6a30ff87909a8e98bfbf21170df3d",
+    "bytes": 38997972,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "fontforge",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/fontforge/fontforge/releases/tag/20251009",
+    "asset_url": "https://github.com/fontforge/fontforge/releases/download/20251009/FontForge-2025-10-09-MacOS.app.dmg",
+    "sha256": "ba9f883389188d822a36cd447e9a9940a2bf4c4254f49f9fa3aa622a69b73110",
+    "bytes": 60251338,
+    "checked_at": "2026-11-28",
+    "reason": "intel_only"
+  },
+  {
+    "id": "freetube",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/FreeTubeApp/FreeTube/releases/tag/v0.26.0-beta",
+    "asset_url": "https://github.com/FreeTubeApp/FreeTube/releases/download/v0.26.0-beta/freetube-0.26.0-beta-mac-arm64.dmg",
+    "sha256": "16b49e40297e35806aec173d2f2a9f2bf85e1e377207d40ac365c59e7a73a8b2",
+    "bytes": 131556841,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "gpt4all",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/nomic-ai/gpt4all/releases/tag/v3.10.0",
+    "asset_url": "https://github.com/nomic-ai/gpt4all/releases/download/v3.10.0/gpt4all-installer-macos-v3.10.0.dmg",
+    "sha256": "d0d98ab465de516af6d50fc013abbf9a8967274f2d171bbf69198873ce255b5f",
+    "bytes": 319600812,
+    "checked_at": "2026-11-28",
+    "reason": "intel_installer_only"
+  },
+  {
+    "id": "librecad",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/LibreCAD/LibreCAD/releases/tag/v2.2.1.6",
+    "asset_url": "https://github.com/LibreCAD/LibreCAD/releases/download/v2.2.1.6/LibreCAD-v2.2.1.6-arm64.dmg",
+    "sha256": "2c5049f5d38346b6152e5b000bb60060f3a2113484bba4bcb388cb690f275879",
+    "bytes": 98795332,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "mister-download-manager",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/anefzaoui/misterdownloadmanager/releases/tag/v0.5.2",
+    "asset_url": "https://github.com/anefzaoui/misterdownloadmanager/releases/download/v0.5.2/MisterDownloadManager-0.5.2-macos-arm64-experimental.dmg",
+    "sha256": "0217160ba08f56c5dad07642508828f259fcc283ed0b930514af712cf01aeea6",
+    "bytes": 15510960,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "mixxx-dj-software",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/mixxx",
+    "asset_url": "https://downloads.mixxx.org/releases/2.5.6/mixxx-2.5.6-macosarm.dmg",
+    "sha256": "f724cd8b0048a60963f11694acbffb2438a89c1cf732117559ac3031f8486e27",
+    "bytes": 65741985,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "mpv",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/mpv-player/mpv/releases/tag/v0.42.0",
+    "asset_url": "https://github.com/mpv-player/mpv/releases/download/v0.42.0/mpv-v0.42.0-macos-26-arm.zip",
+    "sha256": "81bffbda01d69eec566ee3f576a2d0089447ba4b21dece3954f08109d5435ce1",
+    "bytes": 48315731,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "normcap",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/dynobo/normcap/releases/tag/v0.6.0",
+    "asset_url": "https://github.com/dynobo/normcap/releases/download/v0.6.0/NormCap-0.6.0-arm64-macOS.dmg",
+    "sha256": "69ce59d6ac3fb6420d62b7fc2ac5bf703b5b34eec05ad319a41b1c2f979f9ee2",
+    "bytes": 76008653,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "notepadnext",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/dail8859/NotepadNext/releases/tag/v0.15",
+    "asset_url": "https://github.com/dail8859/NotepadNext/releases/download/v0.15/NotepadNext-v0.15-arm64.dmg",
+    "sha256": "b3c950c8f9909014d3ed6479bd477baf1d97ac36efe6a30716580d7df32686e9",
+    "bytes": 27752757,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "nuclear",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/nukeop/nuclear/releases/tag/player%401.56.4",
+    "asset_url": "https://github.com/nukeop/nuclear/releases/download/player%401.56.4/Nuclear_1.56.4_aarch64.dmg",
+    "sha256": "2632528185c171887fdae906165be6a154021de71952bf257c55bb78eba9eb39",
+    "bytes": 23690387,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "openhands-canvas",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/OpenHands/OpenHands/releases/tag/v1.46.0",
+    "asset_url": "https://github.com/OpenHands/OpenHands/releases/download/v1.46.0/OpenHands-Agent-Canvas-1.46.0-universal.dmg",
+    "sha256": "3285d4c3e2728583849eedff4504ae7ceffea2cde197c34bdd672e5cbaec8b62",
+    "bytes": 350126746,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "openrefine",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/OpenRefine/OpenRefine/releases/tag/3.10.1",
+    "asset_url": "https://github.com/OpenRefine/OpenRefine/releases/download/3.10.1/openrefine-mac-3.10.1.dmg",
+    "sha256": "5aeedcd9eaca5aef3b938bb7766d28a85dffb19550635196c38586d24ffb93f3",
+    "bytes": 180284302,
+    "checked_at": "2026-11-28",
+    "reason": "intel_only"
+  },
+  {
+    "id": "pdfsam-basic",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.0",
+    "asset_url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.0/pdfsam-basic-6.0.0-macos-arm64.dmg",
+    "sha256": "704b567abb2f76d36c5ea6ccf8329bc63335cfd873581c61f171eca757276dae",
+    "bytes": 98224395,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "pdfsam-basic",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/torakiki/pdfsam/releases/tag/v6.0.11",
+    "asset_url": "https://github.com/torakiki/pdfsam/releases/download/v6.0.11/pdfsam-basic-6.0.11-macos-arm64.dmg",
+    "sha256": "2c8516290cf0d3fcbaa3f55db9e40667811178c7f5f83c2869e6d594ceb036f0",
+    "bytes": 96667230,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "peazip",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/peazip/PeaZip/releases/tag/11.4.0",
+    "asset_url": "https://github.com/peazip/PeaZip/releases/download/11.4.0/peazip-11.4.0.DARWIN.aarch64.dmg",
+    "sha256": "b31ec81e13dbe21a6189637855e55b827b2c7de046ba97060b689ace3f6248f9",
+    "bytes": 26237034,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  },
+  {
+    "id": "pixelorama",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Orama-Interactive/Pixelorama/releases/tag/v1.2.4",
+    "asset_url": "https://github.com/Orama-Interactive/Pixelorama/releases/download/v1.2.4/Pixelorama-Mac.dmg",
+    "sha256": "aef909572cb008174e758fbc36998823363e44d9eaffa974b156d4284c549ce7",
+    "bytes": 72186942,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "qownnotes",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.16",
+    "asset_url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.16/QOwnNotes.dmg",
+    "sha256": "e861cc7a27d5308197162d0b2bb64c4cb82470f060434f07ae0015c57fae552a",
+    "bytes": 56019209,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "quickrecorder",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/lihaoyun6/QuickRecorder/releases/tag/1.6.9",
+    "asset_url": "https://github.com/lihaoyun6/QuickRecorder/releases/download/1.6.9/QuickRecorder_v1.6.9.dmg",
+    "sha256": "5a5901ff071a8a081c13224ffa8fa749c73e107b05b856b37e4368ac03d70ed0",
+    "bytes": 4651431,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "rapidraw",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/CyberTimon/RapidRAW/releases/tag/v1.7.1",
+    "asset_url": "https://github.com/CyberTimon/RapidRAW/releases/download/v1.7.1/02_RapidRAW_v1.7.1_macos-15_aarch64.dmg",
+    "sha256": "14f06525f3455518a09788271b000bc7abb4a90277c93726b11470ae77848c3f",
+    "bytes": 37254064,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "sniffnet",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",
+    "asset_url": "https://github.com/GyulyVGC/sniffnet/releases/download/v1.6.0/Sniffnet_macOS_AppleSilicon.dmg",
+    "sha256": "abb83f9c186e1f40e30e1760534af6329ec226fd8a4b8b6b9cce12de11a53626",
+    "bytes": 16382814,
+    "checked_at": "2026-11-28",
+    "reason": "unsigned"
+  },
+  {
+    "id": "qview",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/jurplel/qView/releases/tag/7.1",
+    "asset_url": "https://github.com/jurplel/qView/releases/download/7.1/qView-7.1.dmg",
+    "sha256": "fa34d0e54601b8557f4e879527b9bb1e728ace5c7c1c69cf126700ca4d0b5817",
+    "bytes": 43114041,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "rawtherapee",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/RawTherapee/RawTherapee/releases/tag/5.13",
+    "asset_url": "https://rawtherapee.com/shared/builds/mac/RawTherapee_MacOS_26.0_Universal_5.13.zip",
+    "sha256": "795a32a688afa5b127dfd768c25c77649859ababa206352e865f6587c66c45a7",
+    "bytes": 163367004,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "rawtherapee",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/rawtherapee",
+    "asset_url": "https://rawtherapee.com/shared/builds/mac/RawTherapee_MacOS_26.0_Universal_5.13.zip",
+    "sha256": "795a32a688afa5b127dfd768c25c77649859ababa206352e865f6587c66c45a7",
+    "bytes": 163367004,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "ultimaker-cura",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Ultimaker/Cura/releases/tag/5.14.0",
+    "asset_url": "https://github.com/Ultimaker/Cura/releases/download/5.14.0/UltiMaker-Cura-5.14.0-macos-ARM64.dmg",
+    "sha256": "b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21",
+    "bytes": 189533112,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "ultimaker-cura",
+    "target": "macos-arm64",
+    "release_source": "https://formulae.brew.sh/cask/ultimaker-cura",
+    "asset_url": "https://github.com/Ultimaker/Cura/releases/download/5.14.0/UltiMaker-Cura-5.14.0-macos-ARM64.dmg",
+    "sha256": "b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21",
+    "bytes": 189533112,
+    "checked_at": "2026-11-28",
+    "reason": "interactive_disk_image_license"
+  },
+  {
+    "id": "xournal",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/xournalpp/xournalpp/releases/tag/v1.3.8",
+    "asset_url": "https://github.com/xournalpp/xournalpp/releases/download/v1.3.8/xournalpp-1.3.8-macOS-ARM64.dmg",
+    "sha256": "7d992ef097afd6db304cb9df70615e67f1a1de412e06f7dc8f907fcde3b7d6d7",
+    "bytes": 42552771,
+    "checked_at": "2026-11-28",
+    "reason": "invalid_signature"
+  }
+]

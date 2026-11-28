@@ -1,0 +1,16 @@
+HOST Linux x86_64
+UTC 2026-11-28T00:53:14+00:00
+OFFICIAL GyulyVGC/sniffnet 1.5.1 21002744 sha256=04f209d5e45157c57a6fdf34acf82359df88be36046af247fa55693beda7722f
+PASS sniffnet install 934ms: Sniffnet installed: 1.5.1
+Exec="/fixture/home/Applications/Sniffnet_LinuxAppImage_amd64.AppImage" %F
+PASS sniffnet launch-old 0ms: Launch request accepted
+X11_WINDOW phase=launch-old title=Sniffnet
+OFFICIAL GyulyVGC/sniffnet 1.6.0 18721272 sha256=0d03ede587bd60f8d1aa84b007476aa8c88e63dd65c9e437fd70ab6ebc494d65
+PASS sniffnet update 658ms: Sniffnet updated to 1.6.0
+Exec="/fixture/home/Applications/Sniffnet_LinuxAppImage_amd64.AppImage" %F
+PASS sniffnet launch 1ms: Launch request accepted
+X11_WINDOW phase=launch title=Sniffnet
+PASS sniffnet uninstall 80ms: Sniffnet was removed
+PASS sniffnet install, update, uninstall, profile preserved; GUI old exit=0, new exit=0
+Elapsed seconds: 8
+Temporary profile removed; test exit=0

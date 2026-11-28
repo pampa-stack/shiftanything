@@ -1,0 +1,31 @@
+ARTIFACT e6168b27091fd002b4d7d47db02e40a02eb07431e4ed8037c260393434d0a73f 2727233 https://github.com/consolelabs/hidden/releases/download/v1.13.3/Hidden-Bar-v1.13.3-macos.zip
+BUNDLE=Hidden Bar.app
+CFBundleIdentifier=com.dwarvesv.minimalbar
+CFBundleShortVersionString=1.13.3
+CFBundleVersion=24
+CFBundleExecutable=Hidden Bar
+LSMinimumSystemVersion=13.0
+/private/tmp/shift-air-overnight.lHetztjZ/hidden-bar.GjCOo9lB/unpack/Hidden Bar.app/Contents/MacOS/Hidden Bar: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.lHetztjZ/hidden-bar.GjCOo9lB/unpack/Hidden Bar.app/Contents/MacOS/Hidden Bar (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.lHetztjZ/hidden-bar.GjCOo9lB/unpack/Hidden Bar.app/Contents/MacOS/Hidden Bar (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.lHetztjZ/hidden-bar.GjCOo9lB/unpack/Hidden Bar.app/Contents/MacOS/Hidden Bar (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+Identifier=com.dwarvesv.minimalbar
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Dwarves Foundation Company Limited (W777S7V8TN)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=22 Nov 2026 at 18:16:49
+TeamIdentifier=W777S7V8TN
+/private/tmp/shift-air-overnight.lHetztjZ/hidden-bar.GjCOo9lB/unpack/Hidden Bar.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Dwarves Foundation Company Limited (W777S7V8TN)
+PASS PREFLIGHT hidden-bar v1.13.3

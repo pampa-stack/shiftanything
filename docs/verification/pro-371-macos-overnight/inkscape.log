@@ -1,0 +1,77 @@
+2026-11-28T00:18:30+0100
+ARTIFACT f4aa9c9b2e06db432c6f81a494ad9aa59b87cb7d9539cd7e6f6000002cb9edff 156533257 https://media.inkscape.org/dl/resources/file/Inkscape-1.4.3_arm64.dmg
+BUNDLE=Inkscape.app
+CFBundleIdentifier=org.inkscape.Inkscape
+CFBundleShortVersionString=1.4.3
+CFBundleVersion=33103
+CFBundleExecutable=inkscape
+LSMinimumSystemVersion=11.3
+<scratch>/preflight/inkscape/1.4.3/mount/Inkscape.app/Contents/MacOS/inkscape: Mach-O 64-bit executable arm64
+<scratch>/preflight/inkscape/1.4.3/mount/Inkscape.app/Contents/MacOS/inkscape (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.3
+      sdk 11.3
+   ntools 1
+     tool LD
+  version 1115.7.3
+Identifier=org.inkscape.Inkscape
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Rene de Hesselle (SW3D6BB6A6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=26 Dec 2025 at 14:28:52
+TeamIdentifier=SW3D6BB6A6
+<scratch>/preflight/inkscape/1.4.3/mount/Inkscape.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT inkscape 1.4.3
+2026-11-28T00:18:30+0100
+ARTIFACT eacca94ab01e59467cdd5452a2867c3734450f9a4cfb3346956cc9b07f34f3f1 156920591 https://media.inkscape.org/dl/resources/file/Inkscape-1.4.4_arm64.dmg
+BUNDLE=Inkscape.app
+CFBundleIdentifier=org.inkscape.Inkscape
+CFBundleShortVersionString=1.4.4
+CFBundleVersion=34085
+CFBundleExecutable=inkscape
+LSMinimumSystemVersion=11.3
+<scratch>/preflight/inkscape/1.4.4/mount/Inkscape.app/Contents/MacOS/inkscape: Mach-O 64-bit executable arm64
+<scratch>/preflight/inkscape/1.4.4/mount/Inkscape.app/Contents/MacOS/inkscape (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.3
+      sdk 11.3
+   ntools 1
+     tool LD
+  version 1115.7.3
+Identifier=org.inkscape.Inkscape
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Rene de Hesselle (SW3D6BB6A6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=5 May 2026 at 01:42:15
+TeamIdentifier=SW3D6BB6A6
+<scratch>/preflight/inkscape/1.4.4/mount/Inkscape.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT inkscape 1.4.4
+PASS PREFLIGHT inkscape 1.4.3
+PASS PREFLIGHT inkscape 1.4.4
+OFFICIAL INDEX inks 1.4.3 digest=published
+OFFICIAL INDEX inks 1.4.4 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 1.4.3 Dmg https://media.inkscape.org/dl/resources/file/Inkscape-1.4.3_arm64.dmg 156533257 f4aa9c9b2e06db432c6f81a494ad9aa59b87cb7d9539cd7e6f6000002cb9edff
+PASS OFFICIAL 1.4.4 Dmg https://media.inkscape.org/dl/resources/file/Inkscape-1.4.4_arm64.dmg 156920591 eacca94ab01e59467cdd5452a2867c3734450f9a4cfb3346956cc9b07f34f3f1
+NATIVE ORIGIN inks Inkscape
+PASS OFFICIAL 1.4.3 Dmg https://media.inkscape.org/dl/resources/file/Inkscape-1.4.3_arm64.dmg 156533257 f4aa9c9b2e06db432c6f81a494ad9aa59b87cb7d9539cd7e6f6000002cb9edff
+PASS NATIVE inks install: Inkscape installed: 1.4.3; package_bytes=156533257; elapsed=203.691s
+PASS CLI inkscape --version: Inkscape 1.4.3 (0d15f75, 2025-12-25)
+NATIVE ORIGIN inks Inkscape
+PASS OFFICIAL 1.4.4 Dmg https://media.inkscape.org/dl/resources/file/Inkscape-1.4.4_arm64.dmg 156920591 eacca94ab01e59467cdd5452a2867c3734450f9a4cfb3346956cc9b07f34f3f1
+PASS NATIVE inks update: Inkscape updated to 1.4.4; package_bytes=156920591; elapsed=47.301s
+PASS CLI inkscape --version: Inkscape 1.4.4 (dcaf3e7, 2026-05-05)
+PASS NATIVE inks remove: Inkscape was removed; package_bytes=0; elapsed=0.146s
+PASS NATIVE CYCLE inks (1.4.3 → 1.4.4), private Trash and synthetic data preserved

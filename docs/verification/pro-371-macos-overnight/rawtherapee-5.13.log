@@ -1,0 +1,4 @@
+ARTIFACT 795a32a688afa5b127dfd768c25c77649859ababa206352e865f6587c66c45a7 163367004 https://rawtherapee.com/shared/builds/mac/RawTherapee_MacOS_26.0_Universal_5.13.zip
+INNER RawTherapee_MacOS_26.0_Universal_5.13/RawTherapee_MacOS_26.0_Universal_5.13.dmg 6e7eded55c4a49ab864675cb8f513867b94bb3ab90f85993a2a32e65dd73da2b
+hdiutil: attach canceled
+Software License Agreement: true

@@ -49,14 +49,16 @@ pub(super) fn configure(context: &mut Context<Wry>, isolated: bool) -> Result<Ch
     }
     let (channel, public_key) = channel(ENDPOINT, PUBLIC_KEY)?;
     installed_path().map_err(|_| "installation_unsupported")?;
-    context.config_mut().plugins.0.insert(
-        "updater".into(),
-        serde_json::json!({
-            "pubkey": public_key,
-            "requireSignedVersion": true,
-        }),
-    );
+    context.config_mut().plugins.0.insert("updater".into(), plugin_config(public_key));
     Ok(channel)
+}
+
+/// The updater plugin's settings. Its `Config` accepts unknown keys, so a misspelt flag would be dropped silently.
+fn plugin_config(public_key: &str) -> serde_json::Value {
+    serde_json::json!({
+        "pubkey": public_key,
+        "requireSignedVersion": true,
+    })
 }
 
 pub(super) async fn check(app: &AppHandle, channel: Channel) -> Result<Option<Update>, &'static str> {
@@ -219,7 +221,15 @@ fn apply(_exe: &Path, version: &str, bytes: &[u8]) -> Result<(), &'static str> {
 
 #[cfg(test)]
 mod tests {
-    use super::{channel, trusted_url};
+    use super::{channel, plugin_config, trusted_url};
+
+    #[test]
+    fn the_plugin_reads_the_signed_version_requirement() {
+        let config: tauri_plugin_updater::Config = serde_json::from_value(plugin_config("bWluaXNpZ24=")).unwrap();
+        assert!(config.require_signed_version);
+        assert_eq!(config.pubkey, "bWluaXNpZ24=");
+        assert!(!config.allow_downgrades);
+    }
 
     #[test]
     fn channel_fails_closed_for_partial_and_invalid_configurations() {

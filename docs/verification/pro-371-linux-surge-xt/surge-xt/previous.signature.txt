@@ -1,0 +1,19 @@
+commit c6cca9b482891a1be471dbdca98e40f826f7ab191f7b554ed817938a20f5e157
+Parent:  253b5fd3ede3261434b181467ad0ca515789522fef5ade4cc644095bcc503ada
+ContentChecksum:  d68a16f7f3fa0e528a3493d708945df2d15b67340af13907b5a0a740660cdbc1
+Date:  2025-09-04 23:23:01 +0000
+
+    Update runtime to 25.08 (d55b7226e4ad)
+
+    Name: org.surge_synth_team.surge-xt
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.1
+
+Found 1 signature:
+
+  Signature made Fri Sep  5 00:00:43 2025 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

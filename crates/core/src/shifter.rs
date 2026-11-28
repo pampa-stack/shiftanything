@@ -70,6 +70,12 @@ pub struct Score {
     pub missing_required: Vec<String>,
 }
 
+impl Score {
+    pub fn has_positive_coverage(&self) -> bool {
+        self.coverage.is_some_and(|coverage| coverage > 0)
+    }
+}
+
 pub fn data() -> Result<&'static Dataset, &'static str> {
     static DATA: OnceLock<Result<Dataset, String>> = OnceLock::new();
     DATA.get_or_init(|| serde_json::from_str(include_str!("../shifter.json")).map_err(|error| error.to_string())).as_ref().map_err(String::as_str)
@@ -198,13 +204,39 @@ mod tests {
         let choices = data.software("");
         assert!(choices.windows(2).all(|pair| normalize(pair[0].name) < normalize(pair[1].name)));
         assert!(data.software("PHÓTOSHÓP®").iter().any(|software| software.profile.is_some_and(|profile| profile.id == "photoshop")));
-        assert!(data.software("1Password").iter().all(|software| software.profile.is_none()));
+        assert!(data.software("Slack").iter().any(|software| software.profile.is_none()));
+        let password = data.software("One Password").into_iter().find_map(|software| software.profile).unwrap();
+        assert_eq!(password.id, "1password");
+        let selected = ["vault", "shared-vault"].map(String::from);
+        let scores = password.compare(&selected, &selected[1..]).unwrap();
+        let vaultwarden = scores.iter().find(|score| score.app_id == "vaultwarden").unwrap();
+        let keepassxc = scores.iter().find(|score| score.app_id == "keepassxc").unwrap();
+        assert_eq!(vaultwarden.supported, 2);
+        assert!(vaultwarden.missing_required.is_empty());
+        assert_eq!(keepassxc.supported, 1);
+        assert_eq!(keepassxc.missing_required, selected[1..]);
         assert!(data.software("no documented product by this name").is_empty());
         let arq = data.profiles.iter().find(|profile| profile.id == "arq").unwrap();
         let selected: Vec<_> = arq.features.iter().map(|feature| feature.id.clone()).collect();
         let scores = arq.compare(&selected, &[]).unwrap();
         assert!(scores.iter().any(|score| score.app_id == "kopia" && score.supported == selected.len()));
         assert!(scores.iter().any(|score| score.app_id == "backrest" && score.supported < selected.len()));
+    }
+
+    #[test]
+    fn guided_profiles_change_recommendations_with_the_selected_features() {
+        let data = data().unwrap();
+        for (query, id) in [("Word 365", "microsoft-word"), ("Zoom", "zoom"), ("Notion", "notion")] {
+            let profile = data.software(query).into_iter().find_map(|choice| choice.profile).unwrap();
+            assert_eq!(profile.id, id);
+            assert!(profile.features.len() >= 4);
+        }
+        let zoom = data.software("Zoom").into_iter().find_map(|choice| choice.profile).unwrap();
+        let breakout = zoom.features.iter().find(|feature| feature.id.contains("breakout")).unwrap().id.clone();
+        let selected = [breakout];
+        let scores = zoom.compare(&selected, &selected).unwrap();
+        assert!(scores.iter().any(|score| score.app_id == "jitsi-meet" && score.coverage == Some(100) && score.missing_required.is_empty()));
+        assert!(scores.iter().any(|score| score.app_id == "element" && score.supported == 0 && !score.missing_required.is_empty()));
     }
 
     #[test]
@@ -283,11 +315,14 @@ mod tests {
         let migration = vec!["migration".into()];
         let scores = comparison.compare(&migration, &migration).unwrap();
         let candidates: BTreeSet<_> = scores.iter().filter(|score| score.coverage.is_some()).map(|score| score.app_id.as_str()).collect();
-        assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "penpot"]));
-        assert!(scores.iter().all(|score| score.missing_required == migration));
+        assert_eq!(candidates, BTreeSet::from(["doop", "figcraft", "openpencil", "penpot"]));
+        let openpencil = scores.iter().find(|score| score.app_id == "openpencil").unwrap();
+        assert_eq!(openpencil.supported, 1);
+        assert!(openpencil.missing_required.is_empty());
+        assert!(scores.iter().filter(|score| score.app_id != "openpencil").all(|score| score.missing_required == migration));
         let doop = scores.iter().find(|score| score.app_id == "doop").unwrap();
         assert_eq!(doop.unsupported, 1);
-        assert!(scores.iter().filter(|score| candidates.contains(score.app_id.as_str()) && score.app_id != "doop").all(|score| score.partial == 1));
+        assert!(scores.iter().filter(|score| matches!(score.app_id.as_str(), "figcraft" | "penpot")).all(|score| score.partial == 1));
 
         let kits = crate::kits::data().unwrap();
         let step = kits.kits.iter().flat_map(|kit| &kit.steps).find(|step| step.paid.iter().any(|name| name == "Figma")).unwrap();

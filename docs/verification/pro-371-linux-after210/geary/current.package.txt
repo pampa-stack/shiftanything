@@ -1,0 +1,20 @@
+
+Geary - Send and receive email
+
+          ID: org.gnome.Geary
+         Ref: app/org.gnome.Geary/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 46.0
+     License: LGPL-2.1+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 28.0 MB
+     Runtime: org.gnome.Platform/x86_64/49
+         Sdk: org.gnome.Sdk/x86_64/49
+
+      Commit: 82d362d59473a0324b4b8cbcf01e825a89cbb4ca7ebb41e2b15ce5a08231bb2b
+      Parent: 953cd1a9a373c7979dfb5fcbcc9b399a3fcee26845b5e858bc430c9e6c4cd1f2
+     Subject: Merge pull request #86 from flathub/update-master-ebe07a8 (03f8cc55949a)
+        Date: 2025-11-28 00:18:17 +0000

@@ -577,16 +577,19 @@ impl Default for Machine {
     }
 }
 
-/// The suite on `machine` with `latest` as PhotoCraft's checked release (if any) and `answer` as
-/// every version list.
 fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Release>) -> VersionsHarness {
+    versions_harness_for("photocraft", machine, latest, answer)
+}
+
+/// The suite on `machine` with the target app's checked release (if any) and published versions.
+fn versions_harness_for(id: &str, machine: Machine, latest: Option<Release>, answer: Vec<Release>) -> VersionsHarness {
     struct DummyHost;
     impl Host for DummyHost {}
     let Machine { platform, theme, preferred, more, launcher_kind } = machine;
     let mut ev = events();
     ev.extend(more);
     if let Some(latest) = latest {
-        ev.push(Event::Latest { app: "photocraft".into(), latest: LatestRelease::Found(latest), from: Origin::GitHub });
+        ev.push(Event::Latest { app: id.into(), latest: LatestRelease::Found(latest), from: Origin::GitHub });
     }
     let sent = Rc::new(RefCell::new(Vec::new()));
     let queue = Rc::new(RefCell::new(ev));
@@ -605,8 +608,8 @@ fn versions_harness(machine: Machine, latest: Option<Release>, answer: Vec<Relea
         None,
     );
     h.run_steps(6);
-    if h.query_by_label("More actions for PhotoCraft").is_none() {
-        discover_management(&mut h, "photocraft");
+    if h.query_by_label(&version_actions_label(id)).is_none() {
+        discover_management(&mut h, id);
     }
     (h, sent, queue)
 }
@@ -619,11 +622,20 @@ fn version_menu(latest: Release, answer: Vec<Release>) -> VersionsHarness {
 
 /// [`version_menu`] on `machine`.
 fn version_menu_on(machine: Machine, latest: Release, answer: Vec<Release>) -> VersionsHarness {
-    let (mut h, sent, queue) = versions_harness(machine, Some(latest), answer);
-    // Not installed, PhotoCraft's card is further down.
-    h.get_by_label("More actions for PhotoCraft").scroll_to_me();
+    version_menu_for("photocraft", machine, latest, answer)
+}
+
+fn version_actions_label(id: &str) -> String {
+    let app = artcraft_launcher_core::CraftApp::by_id(id).unwrap();
+    format!("More actions for {}", app.name)
+}
+
+fn version_menu_for(id: &str, machine: Machine, latest: Release, answer: Vec<Release>) -> VersionsHarness {
+    let (mut h, sent, queue) = versions_harness_for(id, machine, Some(latest), answer);
+    let actions = version_actions_label(id);
+    h.get_by_label(&actions).scroll_to_me();
     h.run_steps(3);
-    h.get_by_label("More actions for PhotoCraft").click();
+    h.get_by_label(&actions).click();
     h.run_steps(3);
     h.get_by_label("Choose version").click();
     h.run_steps(4);
@@ -793,22 +805,28 @@ fn release_with(stem: &str, v: &str, assets: &[(&str, u64)]) -> Release {
     r
 }
 
-/// A PhotoCraft release for Windows with an MSI of 120 MB and a portable ZIP of 90 MB.
-fn windows_photocraft(v: &str) -> Release {
-    release_with("photocraft", v, &[("windows-x64.msi", 120), ("windows-x64-portable.zip", 90)])
+/// Synthetic MSI (120 MB) and portable ZIP (90 MB) for generic Windows version tests.
+/// PhotoCraft only accepts its separately tested, reviewed Windows packages.
+fn windows_vectorcraft(v: &str) -> Release {
+    release_with("vectorcraft", v, &[("windows-x64.msi", 120), ("windows-x64-portable.zip", 90)])
 }
 
 fn photocraft_installed(source: InstallSource) -> Event {
+    version_app_installed("photocraft", source)
+}
+
+fn version_app_installed(id: &str, source: InstallSource) -> Event {
+    let app = artcraft_launcher_core::CraftApp::by_id(id).unwrap();
     let installed = Installed {
         version: version::parse("0.4.1"),
         source,
-        location: "C:/Users/me/PhotoCraft".into(),
+        location: format!("C:/Users/me/{}", app.name),
         package: None,
         externally_managed: false,
         origin: None,
         installation: None,
     };
-    Event::Detected { app: "photocraft".into(), installed: Some(installed) }
+    Event::Detected { app: id.into(), installed: Some(installed) }
 }
 
 fn photocraft_not_installed() -> Event {
@@ -828,9 +846,13 @@ fn a_version_row_sizes_the_package_this_install_would_use() {
         (None, vec![], "120 MB", "a fresh install takes the MSI by default"),
     ];
     for (source, preferred, size, why) in cases {
-        let more = vec![source.map_or_else(photocraft_not_installed, photocraft_installed)];
+        let more =
+            vec![source.map_or_else(
+                || Event::Detected { app: "vectorcraft".into(), installed: None },
+                |source| version_app_installed("vectorcraft", source),
+            )];
         let machine = Machine { platform: windows, preferred, more, ..Machine::default() };
-        let (h, _, _) = version_menu_on(machine, windows_photocraft("0.5.0"), vec![windows_photocraft("0.5.0")]);
+        let (h, _, _) = version_menu_for("vectorcraft", machine, windows_vectorcraft("0.5.0"), vec![windows_vectorcraft("0.5.0")]);
         let facts = row_facts(&h, "v0.5.0 (latest release)").unwrap_or_default();
         assert!(facts.ends_with(&format!(" · {size}")), "{why}: {facts:?}");
         assert_eq!(painted_facts(&h, "v0.5.0 (latest release)").map(|(text, _)| text), Some(facts), "{why}");
@@ -937,12 +959,12 @@ fn the_version_dialog_wont_install_a_version_the_install_would_refuse() {
     assert!(!sent.borrow().iter().any(|c| matches!(c, Command::Install { .. })), "{:?}", sent.borrow());
 }
 
-/// Windows, with PhotoCraft as Windows Installer registered it: `v` holds only what the registry has.
-fn windows_with_msi_photocraft(v: &str) -> Machine {
+/// Windows, with VectorCraft as Windows Installer registered it: `v` holds only what the registry has.
+fn windows_with_msi_vectorcraft(v: &str) -> Machine {
     let installed = Installed {
         version: version::parse(v),
         source: InstallSource::Msi,
-        location: r"C:\Program Files\ArtCraft\PhotoCraft\photocraft.exe".into(),
+        location: r"C:\Program Files\ArtCraft\VectorCraft\vectorcraft.exe".into(),
         package: Some("{6B1C1C1E-0E0B-4B6B-9C59-2C1D2E3F4A5B}".into()),
         externally_managed: false,
         origin: None,
@@ -950,16 +972,16 @@ fn windows_with_msi_photocraft(v: &str) -> Machine {
     };
     Machine {
         platform: Platform { os: Os::Windows, arch: Arch::X64 },
-        more: vec![Event::Detected { app: "photocraft".into(), installed: Some(installed) }],
+        more: vec![Event::Detected { app: "vectorcraft".into(), installed: Some(installed) }],
         ..Default::default()
     }
 }
 
-/// PhotoCraft's published releases in #1617: a release candidate and the latest release.
+/// A release candidate and the latest stable release in the scenario from #1617.
 fn rc_and_latest() -> (Release, Release) {
-    let mut rc = windows_photocraft("0.24.0-rc.1");
+    let mut rc = windows_vectorcraft("0.24.0-rc.1");
     rc.prerelease = true;
-    (rc, windows_photocraft("0.23.1"))
+    (rc, windows_vectorcraft("0.23.1"))
 }
 
 /// The installs `sent` asked for.
@@ -983,25 +1005,25 @@ fn dialog_button<'h>(h: &'h Harness<'static, Option<LauncherUi>>, label: &'h str
 /// with the install beside it greyed out and saying why (#1616).
 fn a_chosen_version_that_cant_go_back_keeps_open_on_the_card() {
     let (rc, latest) = rc_and_latest();
-    let (mut h, sent, _) = versions_harness(windows_with_msi_photocraft("0.24.0"), Some(rc.clone()), vec![rc, latest]);
+    let (mut h, sent, _) = versions_harness_for("vectorcraft", windows_with_msi_vectorcraft("0.24.0"), Some(rc.clone()), vec![rc, latest]);
     h.state_mut()
         .as_mut()
         .expect("the harness built the launcher")
         .settings
         .versions
-        .insert("photocraft".into(), artcraft_launcher_core::protocol::VersionTrack::Pinned("v0.24.0-rc.1".into()));
+        .insert("vectorcraft".into(), artcraft_launcher_core::protocol::VersionTrack::Pinned("v0.24.0-rc.1".into()));
     h.run_steps(8);
-    h.get_by_label("More actions for PhotoCraft").scroll_to_me();
+    h.get_by_label("More actions for VectorCraft").scroll_to_me();
     h.run_steps(3);
     let install = h.get_by_label("Install version v0.24.0-rc.1");
     assert!(install.accesskit_node().is_disabled(), "going back would be refused");
     install.hover();
     h.run_steps(4);
-    h.get_by_label_contains("PhotoCraft 0.24.0 isn't published any more");
+    h.get_by_label_contains("VectorCraft 0.24.0 isn't published any more");
     sent.borrow_mut().clear();
     h.get_by_label("Open 0.24.0").click();
     h.run_steps(3);
-    assert_eq!(launches_and_installs(&sent, "photocraft"), (1, 0), "Open works: {:?}", sent.borrow());
+    assert_eq!(launches_and_installs(&sent, "vectorcraft"), (1, 0), "Open works: {:?}", sent.borrow());
     sent.borrow_mut().clear();
     h.get_by_label("Install version v0.24.0-rc.1").click();
     h.run_steps(3);
@@ -1014,18 +1036,18 @@ fn a_chosen_version_that_cant_go_back_keeps_open_on_the_card() {
 /// next release is offered as an update again (#1617).
 fn going_back_to_the_latest_release_keeps_following_releases() {
     let (rc, latest) = rc_and_latest();
-    let (mut h, sent, queue) = version_menu_on(windows_with_msi_photocraft("0.24.0-rc.1"), latest.clone(), vec![rc, latest]);
+    let (mut h, sent, queue) = version_menu_for("vectorcraft", windows_with_msi_vectorcraft("0.24.0-rc.1"), latest.clone(), vec![rc, latest]);
     h.query_all_by_role_and_label(egui::accesskit::Role::Button, "v0.23.1 (latest release)").next().expect("the latest release is offered").click();
     h.run_steps(4);
     sent.borrow_mut().clear();
     dialog_button(&h, "Install version v0.23.1").click();
     h.run_steps(4);
-    let picked = Command::InstallChosen { app: "photocraft".into(), tag: "v0.23.1".into(), fallback: None };
+    let picked = Command::InstallChosen { app: "vectorcraft".into(), tag: "v0.23.1".into(), fallback: None };
     assert_eq!(installs(&sent), [picked], "{:?}", sent.borrow());
-    assert_eq!(h.state().as_ref().unwrap().settings.versions.get("photocraft"), None, "still following the latest release");
+    assert_eq!(h.state().as_ref().unwrap().settings.versions.get("vectorcraft"), None, "still following the latest release");
     // Rolled back, and a newer release comes out: it is an update again.
-    let mut back = windows_with_msi_photocraft("0.23.1").more;
-    back.push(Event::Latest { app: "photocraft".into(), latest: LatestRelease::Found(windows_photocraft("0.23.2")), from: Origin::GitHub });
+    let mut back = windows_with_msi_vectorcraft("0.23.1").more;
+    back.push(Event::Latest { app: "vectorcraft".into(), latest: LatestRelease::Found(windows_vectorcraft("0.23.2")), from: Origin::GitHub });
     queue.borrow_mut().extend(back);
     h.run_steps(6);
     h.get_by_label_contains("Update to 0.23.2");
@@ -1036,16 +1058,16 @@ fn going_back_to_the_latest_release_keeps_following_releases() {
 /// latest release once the person agrees that a failure puts the 0.24.0 release candidate back.
 fn a_stuck_copy_goes_back_to_the_latest_release_after_a_warning() {
     let (rc, latest) = rc_and_latest();
-    let (mut h, sent, queue) = version_menu_on(windows_with_msi_photocraft("0.24.0"), latest.clone(), vec![rc, latest]);
+    let (mut h, sent, queue) = version_menu_for("vectorcraft", windows_with_msi_vectorcraft("0.24.0"), latest.clone(), vec![rc, latest]);
     h.query_all_by_role_and_label(egui::accesskit::Role::Button, "v0.23.1 (latest release)").next().expect("the latest release is offered").click();
     h.run_steps(4);
     dialog_button(&h, "Install version v0.23.1").click();
     h.run_steps(4);
     queue.borrow_mut().extend([
-        Event::GoBackFallback { app: "photocraft".into(), installed: "0.24.0".into(), chosen: "v0.23.1".into(), fallback: "v0.24.0-rc.1".into() },
+        Event::GoBackFallback { app: "vectorcraft".into(), installed: "0.24.0".into(), chosen: "v0.23.1".into(), fallback: "v0.24.0-rc.1".into() },
         Event::JobFinished {
-            app: "photocraft".into(),
-            result: Err("PhotoCraft 0.24.0 isn't published, so going back waits for your answer.".into()),
+            app: "vectorcraft".into(),
+            result: Err("VectorCraft 0.24.0 isn't published, so going back waits for your answer.".into()),
         },
     ]);
     h.run_steps(6);
@@ -1054,12 +1076,12 @@ fn a_stuck_copy_goes_back_to_the_latest_release_after_a_warning() {
     sent.borrow_mut().clear();
     h.get_by_label("Go back").click();
     h.run_steps(4);
-    let agreed = Command::InstallChosen { app: "photocraft".into(), tag: "v0.23.1".into(), fallback: Some("v0.24.0-rc.1".into()) };
+    let agreed = Command::InstallChosen { app: "vectorcraft".into(), tag: "v0.23.1".into(), fallback: Some("v0.24.0-rc.1".into()) };
     assert_eq!(installs(&sent), std::slice::from_ref(&agreed), "{:?}", sent.borrow());
     // The connection drops mid-download: Resume asks for the same release by name, with the same answer.
     queue.borrow_mut().extend([
-        Event::Paused { app: "photocraft".into(), download: Some(PausedDownload { done: 10 << 20, total: 120 << 20 }) },
-        Event::JobFinished { app: "photocraft".into(), result: Err(artcraft_launcher_core::protocol::PAUSED.into()) },
+        Event::Paused { app: "vectorcraft".into(), download: Some(PausedDownload { done: 10 << 20, total: 120 << 20 }) },
+        Event::JobFinished { app: "vectorcraft".into(), result: Err(artcraft_launcher_core::protocol::PAUSED.into()) },
     ]);
     h.run_steps(6);
     sent.borrow_mut().clear();
@@ -1072,7 +1094,7 @@ fn a_stuck_copy_goes_back_to_the_latest_release_after_a_warning() {
         h.run_steps(3);
     }
     assert!(installs(&sent).contains(&agreed), "{:?}", sent.borrow());
-    assert!(!installs(&sent).contains(&Command::Install { app: "photocraft".into() }), "{:?}", sent.borrow());
+    assert!(!installs(&sent).contains(&Command::Install { app: "vectorcraft".into() }), "{:?}", sent.borrow());
 }
 
 #[test]
@@ -1081,28 +1103,28 @@ fn a_stuck_copy_goes_back_to_the_latest_release_after_a_warning() {
 /// and the same fallback rather than a plain install (#1621).
 fn a_connection_caused_pause_keeps_the_agreed_version() {
     let (rc, latest) = rc_and_latest();
-    let (mut h, sent, queue) = version_menu_on(windows_with_msi_photocraft("0.24.0"), latest.clone(), vec![rc, latest]);
+    let (mut h, sent, queue) = version_menu_for("vectorcraft", windows_with_msi_vectorcraft("0.24.0"), latest.clone(), vec![rc, latest]);
     h.query_all_by_role_and_label(egui::accesskit::Role::Button, "v0.23.1 (latest release)").next().expect("the latest release is offered").click();
     h.run_steps(4);
     dialog_button(&h, "Install version v0.23.1").click();
     h.run_steps(4);
     queue.borrow_mut().extend([
-        Event::GoBackFallback { app: "photocraft".into(), installed: "0.24.0".into(), chosen: "v0.23.1".into(), fallback: "v0.24.0-rc.1".into() },
+        Event::GoBackFallback { app: "vectorcraft".into(), installed: "0.24.0".into(), chosen: "v0.23.1".into(), fallback: "v0.24.0-rc.1".into() },
         Event::JobFinished {
-            app: "photocraft".into(),
-            result: Err("PhotoCraft 0.24.0 isn't published, so going back waits for your answer.".into()),
+            app: "vectorcraft".into(),
+            result: Err("VectorCraft 0.24.0 isn't published, so going back waits for your answer.".into()),
         },
     ]);
     h.run_steps(6);
     sent.borrow_mut().clear();
     h.get_by_label("Go back").click();
     h.run_steps(4);
-    let agreed = Command::InstallChosen { app: "photocraft".into(), tag: "v0.23.1".into(), fallback: Some("v0.24.0-rc.1".into()) };
+    let agreed = Command::InstallChosen { app: "vectorcraft".into(), tag: "v0.23.1".into(), fallback: Some("v0.24.0-rc.1".into()) };
     assert_eq!(installs(&sent), std::slice::from_ref(&agreed), "{:?}", sent.borrow());
     // The connection keeps dropping: the download pauses, and the job ends as a pause that says so.
     queue.borrow_mut().extend([
-        Event::Paused { app: "photocraft".into(), download: Some(PausedDownload { done: 10 << 20, total: 120 << 20 }) },
-        Event::JobFinished { app: "photocraft".into(), result: Err(artcraft_launcher_core::protocol::PAUSED_BY_CONNECTION.into()) },
+        Event::Paused { app: "vectorcraft".into(), download: Some(PausedDownload { done: 10 << 20, total: 120 << 20 }) },
+        Event::JobFinished { app: "vectorcraft".into(), result: Err(artcraft_launcher_core::protocol::PAUSED_BY_CONNECTION.into()) },
     ]);
     h.run_steps(6);
     h.get_by_label_contains("the connection keeps dropping");
@@ -1116,7 +1138,7 @@ fn a_connection_caused_pause_keeps_the_agreed_version() {
         h.run_steps(3);
     }
     assert!(installs(&sent).contains(&agreed), "{:?}", sent.borrow());
-    assert!(!installs(&sent).contains(&Command::Install { app: "photocraft".into() }), "{:?}", sent.borrow());
+    assert!(!installs(&sent).contains(&Command::Install { app: "vectorcraft".into() }), "{:?}", sent.borrow());
 }
 
 #[test]
@@ -1124,18 +1146,19 @@ fn a_connection_caused_pause_keeps_the_agreed_version() {
 /// waits while the check still has an older release on screen.
 fn the_dialog_waits_for_the_latest_release_it_names() {
     let (rc, latest) = rc_and_latest();
-    let older = windows_photocraft("0.23.0");
-    let (mut h, sent, queue) = version_menu_on(windows_with_msi_photocraft("0.24.0-rc.1"), older.clone(), vec![rc, latest.clone(), older]);
+    let older = windows_vectorcraft("0.23.0");
+    let (mut h, sent, queue) =
+        version_menu_for("vectorcraft", windows_with_msi_vectorcraft("0.24.0-rc.1"), older.clone(), vec![rc, latest.clone(), older]);
     h.query_all_by_role_and_label(egui::accesskit::Role::Button, "v0.23.1 (latest release)").next().expect("the latest release is offered").click();
     h.run_steps(4);
     assert!(dialog_button(&h, "Install version v0.23.1").accesskit_node().is_disabled(), "v0.23.0 is still the checked release");
     assert!(h.query_by_label("Install version v0.23.0").is_none(), "the older checked release is never offered");
-    queue.borrow_mut().push(Event::Latest { app: "photocraft".into(), latest: LatestRelease::Found(latest), from: Origin::GitHub });
+    queue.borrow_mut().push(Event::Latest { app: "vectorcraft".into(), latest: LatestRelease::Found(latest), from: Origin::GitHub });
     h.run_steps(4);
     sent.borrow_mut().clear();
     dialog_button(&h, "Install version v0.23.1").click();
     h.run_steps(4);
-    assert_eq!(installs(&sent), [Command::InstallChosen { app: "photocraft".into(), tag: "v0.23.1".into(), fallback: None }]);
+    assert_eq!(installs(&sent), [Command::InstallChosen { app: "vectorcraft".into(), tag: "v0.23.1".into(), fallback: None }]);
 }
 
 #[test]
@@ -1407,9 +1430,9 @@ fn windows_package_harness(
 #[test]
 fn the_install_folder_default_follows_the_package_the_backend_falls_back_to() {
     let (mut h, initial) =
-        windows_package_harness(&[("photocraft", &["photocraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
+        windows_package_harness(&[("gridcraft", &["gridcraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
     h.run_steps(8);
-    discover_management(&mut h, "photocraft");
+    discover_management(&mut h, "gridcraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1434,10 +1457,10 @@ fn settings_shows_a_default_folder_only_when_every_app_shares_it() {
         h.run_steps(3);
         initial.take()
     };
-    let x64 = ["photocraft-0.6.0-windows-x64.msi", "photocraft-0.6.0-windows-x86.msi"];
-    let shared = open_settings_browse(&[("photocraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x64.msi"])]);
+    let x64 = ["gridcraft-0.6.0-windows-x64.msi", "gridcraft-0.6.0-windows-x86.msi"];
+    let shared = open_settings_browse(&[("gridcraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x64.msi"])]);
     assert_eq!(shared, Some(Some("Msi X64".into())));
-    let mixed = open_settings_browse(&[("photocraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x86.msi"])]);
+    let mixed = open_settings_browse(&[("gridcraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x86.msi"])]);
     assert_eq!(mixed, Some(None));
 }
 
@@ -4479,19 +4502,19 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
             self.0.now()
         }
         fn download_size(&self, app: &str) -> Option<(PackageKind, u64)> {
-            (app == "photocraft").then_some(self.1).flatten()
+            (app == "gridcraft").then_some(self.1).flatten()
         }
     }
     for (manage, installer_size, has_plan) in
         [(false, 100 << 20, true), (false, 0, true), (true, 100 << 20, true), (true, 0, true), (true, 100 << 20, false)]
     {
-        let mut r = release("photocraft", "0.5.0", NOW);
+        let mut r = release("gridcraft", "0.5.0", NOW);
         r.assets = [("windows-x64.msi", installer_size), ("windows-x64-portable.zip", 2 << 30), ("linux-x86_64.AppImage", 3 << 20)]
             .into_iter()
             .map(|(suffix, size)| Asset {
-                name: format!("photocraft-0.5.0-{suffix}"),
+                name: format!("gridcraft-0.5.0-{suffix}"),
                 size,
-                url: format!("https://github.com/storytold/photocraft/releases/download/v0.5.0/photocraft-0.5.0-{suffix}"),
+                url: format!("https://github.com/storytold/gridcraft/releases/download/v0.5.0/gridcraft-0.5.0-{suffix}"),
                 sha256: None,
             })
             .collect();
@@ -4499,13 +4522,13 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
         let mut backend = Some(Windows(
             Fake {
                 events: vec![
-                    Event::Latest { app: "photocraft".into(), latest: LatestRelease::Found(r), from: Origin::ArtCraftApi },
+                    Event::Latest { app: "gridcraft".into(), latest: LatestRelease::Found(r), from: Origin::ArtCraftApi },
                     Event::Detected {
-                        app: "photocraft".into(),
+                        app: "gridcraft".into(),
                         installed: Some(Installed {
                             version: version::parse("0.4.0"),
                             source: InstallSource::MacApp,
-                            location: "/fixture/PhotoCraft.app".into(),
+                            location: "/fixture/GridCraft.app".into(),
                             package: None,
                             externally_managed: false,
                             origin: None,
@@ -4540,7 +4563,7 @@ fn download_size_preview_uses_the_managed_plan_or_manual_platform_formats() {
         h.run_steps(4);
         // Keep the target card in view regardless of the suite's alphabetical order.
         h.get_by_role(egui::accesskit::Role::TextInput).click();
-        h.get_by_role(egui::accesskit::Role::TextInput).type_text("PhotoCraft");
+        h.get_by_role(egui::accesskit::Role::TextInput).type_text("GridCraft");
         h.run_steps(4);
         if manage && has_plan && installer_size > 0 {
             h.get_by_label("Download size: 100 MB");
@@ -5279,7 +5302,7 @@ fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
     h.run_steps(5);
     assert!(h.query_by_label("Select · PhotoCraft").is_none(), "installed apps are never selected for an implicit update");
     assert!(h.query_by_label("Select · GIMP").is_none(), "curated presence alone grants no recipe");
-    h.get_by_label("Self-hosted");
+    assert!(h.query_all_by_label("Self-hosted").next().is_some());
     h.get_by_label("Select · VectorCraft").click_accesskit();
     h.get_by_label("Select · DesignCraft").click_accesskit();
     h.run_steps(4);

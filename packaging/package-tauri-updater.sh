@@ -43,6 +43,7 @@ app_name='Sh*ftAnything.app'
 app_id=it.promptica.shiftanything
 mac_name="ShiftAnything-$version-macos-arm64.app.tar.gz"
 linux_name="ShiftAnything-$version-linux-amd64.deb"
+portable_name="ShiftAnything-$version-linux-amd64.tar.gz"
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 # shellcheck source=macos/check-bundle.sh
 . "$here/macos/check-bundle.sh"
@@ -117,18 +118,7 @@ hdiutil detach "$mount" -quiet
 mounted=0
 printf 'PASS notarized macOS installer and updater archive round-trip\n'
 
-[[ "$(/usr/bin/ar -p "$deb" debian-binary)" = 2.0 ]] || fail 'Invalid Debian package format.'
-members="$(/usr/bin/ar -t "$deb")"
-control="$(grep -E '^control\.tar(\.(gz|xz|zst|bz2))?$' <<< "$members")" || fail 'Missing Debian control archive.'
-data="$(grep -E '^data\.tar(\.(gz|xz|zst|bz2))?$' <<< "$members")" || fail 'Missing Debian data archive.'
-[[ "$control" != *$'\n'* && "$data" != *$'\n'* ]] || fail 'Unexpected Debian archive layout.'
-/usr/bin/ar -p "$deb" "$control" | /usr/bin/tar -xOf - ./control > "$work/deb-control"
-grep -qx 'Package: shiftanything' "$work/deb-control"
-grep -qx 'Architecture: amd64' "$work/deb-control"
-grep -Fxq "Version: $version" "$work/deb-control"
-/usr/bin/ar -p "$deb" "$data" | /usr/bin/tar -xOf - ./usr/bin/shiftanything > "$work/linux-launcher"
-/usr/bin/file -b "$work/linux-launcher" | grep -Eq '^ELF 64-bit .*x86-64'
-printf 'PASS Linux package identity, release checksum and executable architecture\n'
+bash "$here/linux/portable-tar.sh" "$version" "$deb" "$expected_deb_hash" "$assets"
 
 sign() {
   local asset=$1
@@ -177,12 +167,12 @@ if len(key_ids) != 1:
 PY
 (
   cd "$assets"
-  shasum -a 256 "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" latest.json > SHA256SUMS.txt
+  shasum -a 256 "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" latest.json > SHA256SUMS.txt
   shasum -a 256 -c SHA256SUMS.txt
 )
 # A fresh directory reserves the destination. The manifest is exposed only once its assets exist.
 mkdir -- "$output"
-for file in "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" SHA256SUMS.txt latest.json; do
+for file in "$mac_name" "$mac_name.sig" "$linux_name" "$linux_name.sig" "$portable_name" SHA256SUMS.txt latest.json; do
   mv -- "$assets/$file" "$output/$file"
 done
 printf 'PASS local updater assets ready for GitHub release v%s in %s\n' "$version" "$output"

@@ -1,0 +1,95 @@
+2026-11-28T08:16:16+00:00 zim AVAILABLE 16946900992
+zim before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+zim JobFinished: Ok("Flathub app installed")
+zim after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:16:19+00:00 zim current-install fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/applications/org.zim_wiki.Zim.desktop
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/16x16/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/22x22/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/24x24/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/32x32/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/48x48/apps/org.zim_wiki.Zim.png
+/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25/export/share/icons/hicolor/scalable/apps/org.zim_wiki.Zim.svg
+Updating app/org.zim_wiki.Zim/x86_64/stable
+F: Removing magic mime rule from exports
+
+Note that '/home/qa/profiles/zim-after210/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/zim-after210/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:16:21+00:00 zim previous e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed
+zim before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed", package: Some("org.zim_wiki.Zim"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.0"), update_available: false, can_remove: false, can_open: true }
+zim JobFinished: Err("Approved action rejected: native installation state changed")
+zim JobFinished: Err("This Flatpak is managed outside the launcher")
+zim after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed", package: Some("org.zim_wiki.Zim"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=12768 comm="xfwm4 --compositor=off --display=:83" label="unconfined")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=12782 comm="flatpak run --user --command=sh app/org.zim_wiki.Z" label="flatpak (unconfined)")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=12782 comm="flatpak run --user --command=sh app/org.zim_wiki.Z" label="flatpak (unconfined)")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=12805 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+zim before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=12904 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=12915 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:12921): dbind-WARNING **: 08:16:22.604: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:12915): xdg-desktop-portal-WARNING **: 08:16:22.618: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12915): xdg-desktop-portal-WARNING **: 08:16:22.618: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12915): xdg-desktop-portal-WARNING **: 08:16:22.618: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00661.742861] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00661.742903] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:12915): xdg-desktop-portal-WARNING **: 08:16:22.622: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[12407]: [session uid=1000 pid=12407] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=12904 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[12407]: [session uid=1000 pid=12407] Successfully activated service 'org.freedesktop.portal.Flatpak'
+zim JobFinished: Ok("Launch request accepted")
+zim after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.zim_wiki.Zim
+org.zim_wiki.Zim
+org.zim_wiki.Zim
+2026-11-28T08:16:33+00:00 zim previous GUI WM_NAME(STRING) = "Home - Notes"
+WM_CLASS(STRING) = "zim", "Zim"
+2026-11-28T08:16:33+00:00 zim AVAILABLE 16873160704
+zim before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.0"), update_available: true, can_remove: true, can_open: true }
+zim JobFinished: Ok("Flathub app updated")
+zim after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:16:35+00:00 zim current fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25
+/home/qa/profiles/zim-after210/.var/app/org.zim_wiki.Zim/fixture.txt: OK
+zim before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.2"), update_available: false, can_remove: true, can_open: true }
+zim JobFinished: Ok("Launch request accepted")
+zim after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.2"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.zim_wiki.Zim
+org.zim_wiki.Zim
+org.zim_wiki.Zim
+2026-11-28T08:16:45+00:00 zim current GUI WM_NAME(STRING) = "Home - Notes"
+WM_CLASS(STRING) = "org.zim_wiki.Zim", "Zim"
+zim before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 77, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/zim-after210/data/flatpak/app/org.zim_wiki.Zim/x86_64/stable/fdcdab6f69a1741d1a435242d6a785d303a79c2a4aac05c564e9d6bbfb63fd25", package: Some("org.zim_wiki.Zim"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.77.2"), update_available: false, can_remove: true, can_open: true }
+zim JobFinished: Ok("Flathub app removed")
+zim after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/zim-after210/.var/app/org.zim_wiki.Zim/fixture.txt: OK
+2026-11-28T08:16:46+00:00 zim PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T08:16:46+00:00 zim EXIT 0 remove
+
+(xfconfd:12788): xfconfd-WARNING **: 08:16:46.798: Name org.xfce.Xfconf lost on the message dbus, exiting.

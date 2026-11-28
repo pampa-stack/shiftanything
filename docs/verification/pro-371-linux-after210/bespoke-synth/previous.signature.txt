@@ -1,0 +1,19 @@
+commit 2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d
+Parent:  5e00be95a0dc28f78232cf51cd1c7ca5f15abf89a4ea510d5d7b7261c5a6e3dc
+ContentChecksum:  65888f16d22f83dd6a02b6b1bc7183451c41addd8c0e0346ce33d37f1321d76a
+Date:  2024-12-24 20:25:47 +0000
+
+    Update patches (cdcd57ec)
+
+    Name: com.bespokesynth.BespokeSynth
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.14.10
+
+Found 1 signature:
+
+  Signature made Wed Dec 25 00:07:44 2024 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

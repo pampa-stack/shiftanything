@@ -1,0 +1,81 @@
+2026-11-28T13:10:02+00:00 sweethome3d AVAILABLE 48426786816
+sweethome3d before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+sweethome3d JobFinished: Ok("Flathub app installed")
+sweethome3d after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:37+00:00 sweethome3d current-install b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c
+/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c/export/share/applications/com.sweethome3d.Sweethome3d.desktop
+/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c/export/share/icons/hicolor/256x256/apps/com.sweethome3d.Sweethome3d.png
+Updating app/com.sweethome3d.Sweethome3d/x86_64/stable
+
+Note that '/home/qa/profiles/sweethome3d-composited/data/flatpak/exports/share' is not in the search path
+set by the XDG_DATA_HOME and XDG_DATA_DIRS
+environment variables, so applications may not
+be able to find it until you set them. The
+directories currently searched are:
+
+- /home/qa/profiles/sweethome3d-composited/data
+- /usr/local/share/
+- /usr/share/
+
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:49+00:00 sweethome3d previous 7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f
+sweethome3d before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: false, can_open: true }
+sweethome3d JobFinished: Err("Approved action rejected: native installation state changed")
+sweethome3d JobFinished: Err("This Flatpak is managed outside the launcher")
+sweethome3d after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=14226 comm="xfwm4 --compositor=on --display=:78" label="unconfined")
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=14242 comm="flatpak run --user --command=sh app/com.sweethome3" label="flatpak (unconfined)")
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=14242 comm="flatpak run --user --command=sh app/com.sweethome3" label="flatpak (unconfined)")
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=14281 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+sweethome3d before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: true, can_remove: true, can_open: true }
+sweethome3d JobFinished: Ok("Launch request accepted")
+sweethome3d after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: true, can_remove: true, can_open: true })
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=14473 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[11903]: [session uid=1000 pid=11903] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=15378 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:15387): dbind-WARNING **: 13:11:56.132: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:15378): xdg-desktop-portal-WARNING **: 13:11:56.149: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15378): xdg-desktop-portal-WARNING **: 13:11:56.149: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15378): xdg-desktop-portal-WARNING **: 13:11:56.149: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:15378): xdg-desktop-portal-WARNING **: 13:11:56.155: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[11903]: [session uid=1000 pid=11903] Successfully activated service 'org.freedesktop.portal.Desktop'
+  Map State: IsViewable
+com.sweethome3d.Sweethome3d
+2026-11-28T13:12:02+00:00 sweethome3d previous GUI WM_NAME(STRING) = "Untitled - Sweet Home 3D"
+WM_CLASS(STRING) = "sun-awt-X11-XFramePeer", "com-eteks-sweethome3d-SweetHome3D"
+2026-11-28T13:12:02+00:00 sweethome3d AVAILABLE 36875739136
+sweethome3d before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: true, can_remove: true, can_open: true }
+sweethome3d JobFinished: Ok("Flathub app updated")
+sweethome3d after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:12:03+00:00 sweethome3d current b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c
+/home/qa/profiles/sweethome3d-composited/.var/app/com.sweethome3d.Sweethome3d/fixture.txt: OK
+sweethome3d before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: true, can_open: true }
+sweethome3d JobFinished: Ok("Launch request accepted")
+sweethome3d after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.sweethome3d.Sweethome3d
+2026-11-28T13:12:14+00:00 sweethome3d current GUI WM_NAME(STRING) = "Untitled - Sweet Home 3D"
+WM_CLASS(STRING) = "sun-awt-X11-XFramePeer", "com-eteks-sweethome3d-SweetHome3D"
+sweethome3d before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/sweethome3d-composited/data/flatpak/app/com.sweethome3d.Sweethome3d/x86_64/stable/b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c", package: Some("com.sweethome3d.Sweethome3d"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.5"), update_available: false, can_remove: true, can_open: true }
+sweethome3d JobFinished: Ok("Flathub app removed")
+sweethome3d after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/sweethome3d-composited/.var/app/com.sweethome3d.Sweethome3d/fixture.txt: OK
+2026-11-28T13:12:15+00:00 sweethome3d PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:12:16+00:00 sweethome3d EXIT 0 remove
+
+(xfconfd:14254): xfconfd-WARNING **: 13:12:16.548: Name org.xfce.Xfconf lost on the message dbus, exiting.

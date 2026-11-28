@@ -1,0 +1,2 @@
+WM_NAME(STRING) = "Trayscale"
+WM_CLASS(STRING) = "trayscale", "trayscale"

@@ -1,0 +1,30 @@
+2026-11-28T03:14:04+0100
+/dev/disk3s5   239362496 181924348  16310700    92% 3341201 163107000    2%   /System/Volumes/Data
+ARTIFACT f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347 144017558 https://github.com/freeplane/freeplane/releases/download/release-1.13.3/Freeplane-1.13.3-apple.dmg
+BUNDLE=Freeplane.app
+CFBundleIdentifier=org.freeplane.launcher
+CFBundleShortVersionString=1.13.3
+CFBundleVersion=1.13.3
+CFBundleExecutable=Freeplane
+LSMinimumSystemVersion=10.11
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/freeplane/release-1.13.3/mount/Freeplane.app/Contents/MacOS/Freeplane: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/freeplane/release-1.13.3/mount/Freeplane.app/Contents/MacOS/Freeplane (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 14.2
+   ntools 1
+     tool LD
+  version 1022.1
+Identifier=org.freeplane.launcher
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Dimitry Polivaev (CSHVD99Y7K)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=14 Jul 2026 at 23:53:14
+TeamIdentifier=CSHVD99Y7K
+/private/tmp/shift-air-overnight.6vTtP0Ar/preflight/freeplane/release-1.13.3/mount/Freeplane.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT freeplane release-1.13.3

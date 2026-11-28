@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v1.37.0 Dmg https://github.com/MarkEdit-app/MarkEdit/releases/download/v1.37.0/MarkEdit-1.37.0-apple-silicon.dmg 3418554 d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89
+PASS OFFICIAL v1.37.1 Dmg https://github.com/MarkEdit-app/MarkEdit/releases/download/v1.37.1/MarkEdit-1.37.1-apple-silicon.dmg 3425682 36fb91d3451c4d239ef168dd38614d1f4b24e56a50e696b2c8ac2d608ec54626
+NATIVE ORIGIN markedit GitHub
+PASS OFFICIAL v1.37.0 Dmg https://github.com/MarkEdit-app/MarkEdit/releases/download/v1.37.0/MarkEdit-1.37.0-apple-silicon.dmg 3418554 d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89
+PASS NATIVE markedit install: MarkEdit installed: 1.37.0; package_bytes=3418554; elapsed=28.054s
+1.37.0
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-markedit.FaqH0Uy3/Applications/MarkEdit.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: YING ZHONG (TCKG8FBVG6)
+NATIVE ORIGIN markedit GitHub
+PASS OFFICIAL v1.37.1 Dmg https://github.com/MarkEdit-app/MarkEdit/releases/download/v1.37.1/MarkEdit-1.37.1-apple-silicon.dmg 3425682 36fb91d3451c4d239ef168dd38614d1f4b24e56a50e696b2c8ac2d608ec54626
+PASS NATIVE markedit update: MarkEdit updated to 1.37.1; package_bytes=3425682; elapsed=6.596s
+1.37.1
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-markedit.FaqH0Uy3/Applications/MarkEdit.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: YING ZHONG (TCKG8FBVG6)
+PASS NATIVE markedit remove: MarkEdit was removed; package_bytes=0; elapsed=0.109s
+PASS NATIVE CYCLE markedit, private Trash and synthetic data preserved

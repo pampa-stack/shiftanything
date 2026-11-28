@@ -1,0 +1,70 @@
+2026-11-28T13:09:42+00:00 mandelbulber AVAILABLE 48046870528
+mandelbulber before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+mandelbulber JobFinished: Ok("Flathub app installed")
+mandelbulber after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:27+00:00 mandelbulber current-install 1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3
+/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3/export/share/applications/com.github.buddhi1980.mandelbulber2.desktop
+/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3/export/share/icons/hicolor/256x256/apps/com.github.buddhi1980.mandelbulber2.png
+Updating app/com.github.buddhi1980.mandelbulber2/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:33+00:00 mandelbulber previous 21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a
+mandelbulber before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: false, can_open: true }
+mandelbulber JobFinished: Err("Approved action rejected: native installation state changed")
+mandelbulber JobFinished: Err("This Flatpak is managed outside the launcher")
+mandelbulber after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=12819 comm="xfwm4 --compositor=on --display=:76" label="unconfined")
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=12834 comm="flatpak run --user --command=sh app/com.github.bud" label="flatpak (unconfined)")
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=12834 comm="flatpak run --user --command=sh app/com.github.bud" label="flatpak (unconfined)")
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=12876 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+mandelbulber before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=12977 comm="xdg-dbus-proxy --args=39" label="flatpak (unconfined)")
+dbus-daemon[11349]: [session uid=1000 pid=11349] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=12985 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:12992): dbind-WARNING **: 13:11:35.413: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:12985): xdg-desktop-portal-WARNING **: 13:11:35.432: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12985): xdg-desktop-portal-WARNING **: 13:11:35.432: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12985): xdg-desktop-portal-WARNING **: 13:11:35.433: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:12985): xdg-desktop-portal-WARNING **: 13:11:35.441: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[11349]: [session uid=1000 pid=11349] Successfully activated service 'org.freedesktop.portal.Desktop'
+mandelbulber JobFinished: Ok("Launch request accepted")
+mandelbulber after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.buddhi1980.mandelbulber2
+2026-11-28T13:11:53+00:00 mandelbulber previous GUI WM_NAME(STRING) = "Mandelbulber (/home/qa/profiles/mandelbulber-composited/.mandelbulber/settings/settings.fract)"
+WM_CLASS(STRING) = "mandelbulber2", "Mandelbulber"
+2026-11-28T13:11:53+00:00 mandelbulber AVAILABLE 36901486592
+mandelbulber before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/21bc57fe4895e0f019e8ae0d26f28be24b19ca75c8ed494f8476ea11e1f0652a", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: true, can_remove: true, can_open: true }
+mandelbulber JobFinished: Ok("Flathub app updated")
+mandelbulber after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T13:11:56+00:00 mandelbulber current 1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3
+/home/qa/profiles/mandelbulber-composited/.var/app/com.github.buddhi1980.mandelbulber2/fixture.txt: OK
+mandelbulber before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: true, can_open: true }
+mandelbulber JobFinished: Ok("Launch request accepted")
+mandelbulber after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.github.buddhi1980.mandelbulber2
+2026-11-28T13:12:12+00:00 mandelbulber current GUI WM_NAME(STRING) = "Mandelbulber (/home/qa/profiles/mandelbulber-composited/.mandelbulber/settings/settings.fract)"
+WM_CLASS(STRING) = "mandelbulber2", "Mandelbulber"
+mandelbulber before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 33, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/mandelbulber-composited/data/flatpak/app/com.github.buddhi1980.mandelbulber2/x86_64/stable/1097bff0e38fa7b45925543b38c2e328234f7fe040265634d884f44147fc3be3", package: Some("com.github.buddhi1980.mandelbulber2"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.33"), update_available: false, can_remove: true, can_open: true }
+mandelbulber JobFinished: Ok("Flathub app removed")
+mandelbulber after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/mandelbulber-composited/.var/app/com.github.buddhi1980.mandelbulber2/fixture.txt: OK
+2026-11-28T13:12:13+00:00 mandelbulber PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T13:12:15+00:00 mandelbulber EXIT 0 remove
+
+(xfconfd:12845): xfconfd-WARNING **: 13:12:15.559: Name org.xfce.Xfconf lost on the message dbus, exiting.

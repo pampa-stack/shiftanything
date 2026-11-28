@@ -1,0 +1,19 @@
+commit aba66c4cdf814f6ea3e50f3a8bd2d58047d0d7b1cf27d109ebdf677d72729b85
+Parent:  2b2fa07d5af6ed4c568ecee0feb1003f4a3a5e32e6b7b6bf2ab514a482d40d01
+ContentChecksum:  a85789de921d506de693f51f3176cc1734f2fb53f442047782051776984e8cd1
+Date:  2026-11-17 20:21:25 +0000
+
+    Fix update checker metadata for libudfread, libbluray and zvbi (#334) (1a809299b074)
+
+    Name: org.videolan.VLC
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Nov 17 21:00:43 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

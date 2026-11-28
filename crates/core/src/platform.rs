@@ -61,6 +61,10 @@ pub enum PackageKind {
     MacZip,
     /// An approved macOS PKG from which the launcher extracts one verified application.
     MacPkg,
+    /// A signed macOS .app bundle in a reviewed gzip-compressed tar archive.
+    MacTarGz,
+    /// A signed macOS .app bundle in a reviewed xz-compressed tar archive.
+    MacTarXz,
     AppImage,
     Deb,
     Rpm,
@@ -69,6 +73,9 @@ pub enum PackageKind {
     Flatpak,
     /// Linux or FreeBSD tarball (`bin/<app>`, `share/…`).
     TarGz,
+    /// Linux xz-compressed tarball holding one self-contained app folder. No recipe selects it
+    /// yet: see [`crate::pending`].
+    TarXz,
 }
 
 impl PackageKind {
@@ -79,12 +86,15 @@ impl PackageKind {
             Self::Dmg => "Disk image (.dmg)",
             Self::MacZip => "App archive (.zip)",
             Self::MacPkg => "Application package (.pkg)",
+            Self::MacTarGz => "App archive (.tar.gz)",
+            Self::MacTarXz => "App archive (.txz)",
             Self::AppImage => "AppImage",
             Self::Deb => "Debian package (.deb)",
             Self::Rpm => "RPM package (.rpm)",
             Self::ArchPkg => "Arch package (.pkg.tar.zst)",
             Self::Flatpak => "Flatpak bundle",
             Self::TarGz => "Tarball (.tar.gz)",
+            Self::TarXz => "Tarball (.tar.xz)",
         }
     }
 
@@ -100,7 +110,9 @@ impl PackageKind {
             Self::Rpm => ".rpm",
             Self::ArchPkg => ".pkg.tar.zst",
             Self::Flatpak => ".flatpak",
-            Self::TarGz => ".tar.gz",
+            Self::MacTarGz | Self::TarGz => ".tar.gz",
+            Self::TarXz => ".tar.xz",
+            Self::MacTarXz => ".txz",
         }
     }
 }
@@ -169,7 +181,7 @@ impl Platform {
     pub fn default_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
             Os::Linux => &[PackageKind::AppImage, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -179,7 +191,7 @@ impl Platform {
     pub fn download_kinds(self) -> &'static [PackageKind] {
         match self.os {
             Os::Windows => &[PackageKind::Msi, PackageKind::PortableZip],
-            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg],
+            Os::MacOs => &[PackageKind::Dmg, PackageKind::MacZip, PackageKind::MacPkg, PackageKind::MacTarGz, PackageKind::MacTarXz],
             Os::Linux => &[PackageKind::AppImage, PackageKind::Deb, PackageKind::Rpm, PackageKind::ArchPkg, PackageKind::Flatpak, PackageKind::TarGz],
             Os::FreeBsd => &[PackageKind::TarGz],
         }
@@ -351,6 +363,35 @@ pub fn parse_asset_name(name: &str, stems: &[&str]) -> Option<AssetName> {
     None
 }
 
+type AssetMatcher = fn(&Release, &Asset) -> bool;
+
+fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
+    use crate::{curated, release};
+
+    let recipes: [(&str, PackageKind, AssetMatcher); 19] = [
+        (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
+        (curated::RUFFLE.id, PackageKind::MacTarGz, release::ruffle_mac_asset),
+        (curated::SIGIL.id, PackageKind::MacTarXz, release::sigil_mac_asset),
+        (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
+        (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
+        (curated::NETNEWSWIRE.id, PackageKind::MacZip, release::netnewswire_mac_asset),
+        (curated::STELLARIUM.id, PackageKind::MacZip, release::stellarium_mac_asset),
+        (curated::ALT_TAB.id, PackageKind::MacZip, release::alt_tab_mac_asset),
+        (curated::AMETHYST.id, PackageKind::MacZip, release::amethyst_mac_asset),
+        (curated::HIDDEN_BAR.id, PackageKind::MacZip, release::hidden_bar_mac_asset),
+        (curated::SWIFTBAR.id, PackageKind::MacZip, release::swiftbar_mac_asset),
+        (curated::SLOTH.id, PackageKind::MacZip, release::sloth_mac_asset),
+        (curated::GITHUB_DESKTOP.id, PackageKind::MacZip, release::github_desktop_mac_asset),
+        (curated::ITERM2.id, PackageKind::MacZip, release::iterm2_mac_asset),
+        (curated::ITSYCAL.id, PackageKind::MacZip, release::itsycal_mac_asset),
+        (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
+        (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
+        (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
+        (curated::ICE.id, PackageKind::MacZip, release::ice_mac_asset),
+    ];
+    recipes.into_iter().find(|(id, _, _)| stems.contains(id)).map(|(_, kind, matches_asset)| (kind, matches_asset))
+}
+
 /// The best asset of `release` for `platform`, trying `kinds` in order and, within a kind, the
 /// platform's tokens in order (native before emulated).
 pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, kinds: &[PackageKind]) -> Option<(&'a Asset, PackageKind)> {
@@ -364,19 +405,32 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
-    if platform.os == Os::Linux && stems.contains(&crate::curated::GHOST_DOWNLOADER.id) {
+    if platform.os == Os::Linux && stems.contains(&crate::curated::NAPS2.id) {
+        if !kinds.contains(&PackageKind::Flatpak) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::naps2_linux_asset(release, asset)).map(|asset| (asset, PackageKind::Flatpak));
+    }
+    if platform.os == Os::Windows
+        && let Some(repo) = stems.iter().find_map(|id| crate::release::reviewed_windows_msi_repo(id))
+    {
+        let kind = *kinds.iter().find(|&&kind| kind == PackageKind::Msi)?;
+        return release.assets.iter().find(|asset| crate::release::reviewed_windows_msi_asset(repo, release, asset)).map(|asset| (asset, kind));
+    }
+    if platform.os == Os::Linux
+        && let Some(app) = crate::release::qualified_linux_appimage_recipe(stems)
+            .or_else(|| [crate::curated::GHOST_DOWNLOADER, crate::curated::HANDY].iter().find(|app| stems.contains(&app.id)))
+    {
         kinds.iter().find(|kind| **kind == PackageKind::AppImage)?;
         return release
             .assets
             .iter()
-            .find(|asset| crate::release::ghost_downloader_linux_asset(release, asset))
+            .find(|asset| match app.id {
+                "ghost-downloader" => crate::release::ghost_downloader_linux_asset(release, asset),
+                "handy" => crate::release::handy_linux_asset(release, asset),
+                _ => crate::release::qualified_linux_appimage_asset(app, release, asset),
+            })
             .map(|asset| (asset, PackageKind::AppImage));
-    }
-    if platform.os == Os::Linux && stems.contains(&crate::curated::HANDY.id) {
-        if !kinds.contains(&PackageKind::AppImage) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::handy_linux_asset(release, asset)).map(|asset| (asset, PackageKind::AppImage));
     }
     if platform.os == Os::MacOs
         && let Some(app) = crate::release::qualified_mac_dmg_recipe(stems)
@@ -390,17 +444,11 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
             .find(|asset| crate::release::qualified_mac_dmg_asset(app, release, asset))
             .map(|asset| (asset, PackageKind::Dmg));
     }
-    if stems.contains(&crate::curated::NAPS2.id) {
-        if !kinds.contains(&PackageKind::MacPkg) {
+    if let Some((kind, matches_asset)) = reviewed_mac_archive(stems) {
+        if platform.os != Os::MacOs || !kinds.contains(&kind) {
             return None;
         }
-        return release.assets.iter().find(|asset| crate::release::naps2_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacPkg));
-    }
-    if stems.contains(&crate::curated::KEYCASTR.id) {
-        if !kinds.contains(&PackageKind::MacZip) {
-            return None;
-        }
-        return release.assets.iter().find(|asset| crate::release::keycastr_mac_asset(release, asset)).map(|asset| (asset, PackageKind::MacZip));
+        return release.assets.iter().find(|asset| matches_asset(release, asset)).map(|asset| (asset, kind));
     }
     if stems.contains(&crate::curated::LAPCE.id) {
         if !kinds.contains(&PackageKind::Dmg) {
@@ -686,6 +734,12 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 
     let mac_arm64 = Platform { os: Os::MacOs, arch: Arch::Arm64 };
     let linux_x64 = Platform { os: Os::Linux, arch: Arch::X64 };
+    if platform.os == Os::MacOs && [crate::curated::RUFFLE.id, crate::curated::SIGIL.id].iter().any(|id| stems.contains(id)) {
+        return platform == mac_arm64;
+    }
+    if platform.os == Os::Windows && stems.iter().any(|id| crate::release::reviewed_windows_msi_repo(id).is_some()) {
+        return platform.arch == Arch::X64;
+    }
     if ["drawio", "audacity", "nextcloud-desktop", "cryptomator", "joplin", "notepadnext", "rapidraw", "rustdesk", "activitywatch"]
         .iter()
         .any(|id| stems.contains(id))
@@ -693,7 +747,30 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == linux_x64;
     }
-    if [crate::curated::GHOST_DOWNLOADER.id, crate::curated::LOSSLESSCUT.id, crate::curated::ZETTLR.id].iter().any(|id| stems.contains(id)) {
+    if crate::release::qualified_linux_appimage_recipe(stems).is_some() {
+        return platform == linux_x64
+            || (platform == mac_arm64
+                && ([crate::curated::DYAD.id, NEOVIDE.id, crate::curated::OPENSCREEN.id, crate::curated::TERMIX.id]
+                    .iter()
+                    .any(|id| stems.contains(id))
+                    || crate::release::qualified_mac_dmg_recipe(stems).is_some()));
+    }
+    if [
+        crate::curated::DBEAVER_CE.id,
+        crate::curated::GHOST_DOWNLOADER.id,
+        crate::curated::LOSSLESSCUT.id,
+        crate::curated::MUSESCORE.id,
+        crate::curated::ONLYOFFICE.id,
+        crate::curated::ORCA_SLICER.id,
+        crate::curated::PRUSA_SLICER.id,
+        crate::curated::ZETTLR.id,
+    ]
+    .iter()
+    .any(|id| stems.contains(id))
+    {
+        return platform == mac_arm64 || platform == linux_x64;
+    }
+    if stems.contains(&"craft-anything") {
         return platform == mac_arm64 || platform == linux_x64;
     }
     if crate::release::qualified_mac_dmg_recipe(stems).is_some() {
@@ -727,6 +804,21 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         TERMIX.id,
         NEOVIDE.id,
         crate::curated::KEYCASTR.id,
+        crate::curated::MACCY.id,
+        crate::curated::NETNEWSWIRE.id,
+        crate::curated::STELLARIUM.id,
+        crate::curated::ALT_TAB.id,
+        crate::curated::AMETHYST.id,
+        crate::curated::HIDDEN_BAR.id,
+        crate::curated::SWIFTBAR.id,
+        crate::curated::SLOTH.id,
+        crate::curated::GITHUB_DESKTOP.id,
+        crate::curated::ITERM2.id,
+        crate::curated::ITSYCAL.id,
+        crate::curated::LOOP.id,
+        crate::curated::DYAD.id,
+        crate::curated::HAMMERSPOON.id,
+        crate::curated::ICE.id,
         crate::curated::PICARD.id,
         crate::curated::LAPCE.id,
         crate::curated::VORTA.id,
@@ -738,7 +830,6 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::APPFLOWY.id,
         crate::curated::BLOCKBENCH.id,
         crate::curated::DB_BROWSER_SQLITE.id,
-        crate::curated::NAPS2.id,
         crate::curated::SUPER_PRODUCTIVITY.id,
     ]
     .iter()
@@ -746,11 +837,11 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     {
         return platform == mac_arm64;
     }
-    use crate::curated::{MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D};
-    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER, ONLYOFFICE].iter().any(|app| stems.contains(&app.id)) {
+    use crate::curated::{MUSESCORE, OPENSHOT, ORCA_SLICER, PENCIL2D};
+    if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
-    if stems.contains(&LOCALSEND.id) || stems.contains(&HANDY.id) {
+    if [LOCALSEND.id, HANDY.id, crate::curated::NAPS2.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64 || platform == linux_x64;
     }
     true
@@ -759,6 +850,127 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn openscreen_and_neovide_route_only_reviewed_appimages_on_linux_x64() {
+        use crate::curated::{NEOVIDE, OPENSCREEN};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (app, tags) in [(OPENSCREEN, ["v2.3.0", "v2.4.0"]), (NEOVIDE, ["0.17.3", "0.17.4"])] {
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_some());
+                assert!(pick_asset(&release, &[app.id], linux, &[PackageKind::AppImage]).is_some());
+                assert!(pick_asset(&release, &[app.id], Platform { arch: Arch::Arm64, ..linux }, &[PackageKind::AppImage]).is_none());
+                let asset = release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap();
+                asset.sha256 = Some("a".repeat(64));
+                assert!(pick_asset(&release, &[app.id], linux, &[PackageKind::AppImage]).is_none());
+            }
+        }
+    }
+
+    #[test]
+    fn craft_anything_uses_reviewed_dmg_on_apple_silicon() {
+        let id = "craft-anything";
+        let app = crate::CraftApp::by_id(id).unwrap();
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform| pick_asset(release, &[id], platform, &[PackageKind::Dmg]).is_some();
+        assert!(recipe_platform_verified(&[id], linux));
+        for tag in ["v0.6.0", "v0.6.1"] {
+            let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+            assert!(select(&release, mac));
+            assert!(!select(&release, Platform { arch: Arch::X64, ..mac }));
+            let dmg = release.assets.iter_mut().find(|asset| asset.name.ends_with(".dmg")).unwrap();
+            dmg.sha256 = Some("a".repeat(64));
+            assert!(!select(&release, mac));
+        }
+    }
+
+    #[test]
+    fn windows_x64_selects_only_reviewed_msi_receipts() {
+        use crate::release::release_from_sums;
+
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        for (id, releases) in [
+            ("lightcraft", [("v0.21.0", "lightcraft-0.21.0-windows-x64.msi"), ("v0.21.1", "lightcraft-0.21.1-windows-x64.msi")]),
+            ("photocraft", [("v0.23.0", "photocraft-0.23.0-windows-x64.msi"), ("v0.23.1", "photocraft-0.23.1-windows-x64.msi")]),
+            ("soundcraft", [("v0.20.0", "soundcraft-0.20.0-windows-x64.msi"), ("v0.20.1", "soundcraft-0.20.1-windows-x64.msi")]),
+            ("texturecraft", [("v0.6.0", "texturecraft-0.6.0-windows-x64.msi"), ("v0.6.1", "texturecraft-0.6.1-windows-x64.msi")]),
+            ("wordcraft", [("v0.18.0", "wordcraft-0.18.0-windows-x64.msi"), ("v0.19.1", "wordcraft-0.19.1-windows-x64.msi")]),
+            ("keepassxc", [("2.7.12", "KeePassXC-2.7.12-Win64.msi"), ("2.8.0", "KeePassXC-2.8.0-x64.msi")]),
+            ("drawio", [("v31.5.2", "draw.io-31.5.2.msi"), ("v32.7.4", "draw.io-32.7.4.msi")]),
+        ] {
+            let repo = crate::release::reviewed_windows_msi_repo(id).unwrap();
+            let select = |release: &Release, platform, kinds: &[PackageKind]| {
+                pick_asset(release, &[id], platform, kinds).map(|(asset, kind)| (asset.clone(), kind))
+            };
+            for (tag, name) in releases {
+                let mut release = release_from_sums(repo, tag, &[]);
+                let (verified, kind) = select(&release, windows, &[PackageKind::PortableZip, PackageKind::Msi]).unwrap();
+                assert_eq!(kind, PackageKind::Msi);
+                assert_eq!(verified.name, name);
+                assert!(verified.sha256.as_deref().is_some_and(crate::release::is_hex64));
+                for arch in [Arch::X86, Arch::Arm64] {
+                    assert!(select(&release, Platform { arch, ..windows }, &[PackageKind::Msi]).is_none());
+                }
+                assert!(select(&release, windows, &[PackageKind::PortableZip]).is_none());
+                for substituted in [
+                    Asset { sha256: None, ..verified.clone() },
+                    Asset { sha256: Some("a".repeat(64)), ..verified.clone() },
+                    Asset { size: verified.size + 1, ..verified.clone() },
+                    Asset { url: verified.url.replace(repo, "other/installer"), ..verified.clone() },
+                    Asset { name: verified.name.replace(".msi", "-x86.msi"), ..verified.clone() },
+                    Asset { name: verified.name.replace(".msi", "-portable.zip"), ..verified.clone() },
+                ] {
+                    release.assets = vec![substituted];
+                    assert!(select(&release, windows, &[PackageKind::Msi, PackageKind::PortableZip]).is_none());
+                }
+                release.assets = vec![verified];
+                release.prerelease = true;
+                assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+                release.prerelease = false;
+                release.version = crate::version::parse("99.0.0");
+                assert!(select(&release, windows, &[PackageKind::Msi]).is_none());
+            }
+            let future = release_from_sums(repo, "v99.0.0", &[("a".repeat(64), format!("{id}-99.0.0-windows-x64.msi"))]);
+            assert!(select(&future, windows, &[PackageKind::Msi]).is_none());
+        }
+    }
+
+    #[test]
+    fn libreoffice_windows_x64_uses_only_pinned_vendor_msis() {
+        use crate::{curated::LIBREOFFICE, release};
+
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        let select = |release: &Release, platform| pick_asset(release, &[LIBREOFFICE.id], platform, &[PackageKind::Msi]).is_some();
+        for tag in ["26.8.2", "26.8.3"] {
+            let version = release::libreoffice_stable_version(tag).unwrap();
+            let exact = release::libreoffice_windows_msi(&version).unwrap();
+            let mut release = Release { version: Some(version), tag: tag.to_string(), assets: vec![exact.clone()], ..Release::default() };
+            assert!(select(&release, windows));
+            assert!(!select(&release, Platform { arch: Arch::Arm64, ..windows }));
+            assert!(!select(&release, Platform { arch: Arch::X86, ..windows }));
+            for substituted in [
+                Asset { name: exact.name.replace("x86-64", "x86"), ..exact.clone() },
+                Asset { url: exact.url.replace("download.documentfoundation.org", "other.example"), ..exact.clone() },
+                Asset { sha256: None, ..exact.clone() },
+                Asset { sha256: Some("a".repeat(64)), ..exact.clone() },
+                Asset { size: exact.size + 1, ..exact.clone() },
+            ] {
+                release.assets = vec![substituted];
+                assert!(!select(&release, windows));
+            }
+            release.assets = vec![exact];
+            release.prerelease = true;
+            assert!(!select(&release, windows));
+            release.prerelease = false;
+            release.tag = format!("v{tag}");
+            assert!(!select(&release, windows));
+        }
+        assert!(release::libreoffice_windows_msi(&crate::version::Version::new(26, 8, 4)).is_none());
+    }
 
     #[test]
     fn super_productivity_macos_requires_stable_tag_and_official_arm64_asset() {
@@ -818,8 +1030,50 @@ mod tests {
         let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
         for (app, tags) in [
             (crate::curated::OPENCLAW, ["v2026.11.9", "v2026.11.10"]),
+            (crate::curated::PLAYCOVER, ["3.0.0", "3.1.0"]),
+            (crate::curated::MATERIAL_MAKER, ["1.7", "1.8"]),
+            (crate::curated::MULLVAD_BROWSER, ["16.0.2", "16.0.3"]),
+            (crate::curated::OPENBOARD, ["v1.7.6", "v1.7.7"]),
+            (crate::curated::MARKEDIT, ["v1.37.0", "v1.37.1"]),
+            (crate::curated::CAPSO, ["v1.2.10", "v1.2.11"]),
+            (crate::curated::VORSSAINT, ["v3.4.4", "v3.4.5"]),
+            (crate::curated::ONIONSHARE, ["v2.7.2", "v2.7.3"]),
+            (crate::curated::ZULIP, ["v5.14.2", "v5.14.3"]),
+            (crate::curated::AIDER_DESK, ["v0.92.0", "v0.93.0"]),
             (crate::curated::RUSTDESK, ["1.5.1", "1.5.3"]),
+            (crate::curated::DESKREEN, ["v3.2.15", "v3.2.16"]),
+            (crate::curated::MOONLIGHT, ["v6.1.0", "v6.2.0"]),
+            (crate::curated::SUNSHINE, ["v2026.906.222525", "v2026.914.233613"]),
+            (crate::curated::OPENTTD, ["15.2", "15.3"]),
+            (crate::curated::GNUCASH, ["5.16", "5.17"]),
+            (crate::curated::FLOORP, ["v12.21.1", "v12.21.2"]),
+            (crate::curated::JELLYFIN_DESKTOP, ["v1.11.1", "v1.12.0"]),
+            (crate::curated::RECTANGLE, ["v2.0.4", "v2.0.5"]),
+            (crate::curated::CODEEDIT, ["v0.3.5", "v0.3.6"]),
+            (crate::curated::BLENDER, ["5.2.5", "5.3.0"]),
+            (crate::curated::GIMP, ["3.2.6", "3.2.8"]),
+            (crate::curated::KRITA, ["5.3.4.1", "5.3.5"]),
+            (crate::curated::VLC, ["3.0.23", "3.0.24"]),
+            (crate::curated::INKSCAPE, ["1.4.3", "1.4.4"]),
+            (crate::curated::KDENLIVE, ["26.08.2", "26.08.3"]),
+            (crate::curated::SUBTITLE_EDIT, ["v5.3.0", "v5.4.0"]),
+            (crate::curated::DEEPCHAT, ["v1.1.3", "v1.1.4"]),
+            (crate::curated::EASYDICT, ["2.25.0", "2.26.0"]),
+            (crate::curated::UTM, ["v5.0.8", "v5.0.9-2"]),
+            (crate::curated::OPENMTP, ["v3.2.25", "v3.3.0"]),
+            (crate::curated::INVOKE_COMMUNITY, ["v1.8.4", "v1.8.5"]),
+            (crate::curated::MIST, ["v0.30", "v0.40"]),
+            (crate::curated::COTEDITOR, ["7.1.3", "7.2.0"]),
+            (crate::curated::MACSHOT, ["v4.3.0", "v4.4.0"]),
+            (crate::curated::FREEPLANE, ["release-1.13.3", "release-1.13.5"]),
+            (crate::curated::DOCKDOOR, ["1.42.4", "1.42.5"]),
+            (crate::curated::MACVIM, ["release-183", "release-184"]),
+            (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
+            (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),
+            (crate::curated::LINEAR_MOUSE, ["v0.12.0", "v0.13.0"]),
+            (crate::curated::FINICKY, ["v4.2.1", "v4.2.2"]),
+            (crate::curated::VIRTUALBUDDY, ["2.2", "2.2.1"]),
             (crate::curated::OLLAMA, ["v0.40.17", "v0.40.18"]),
             (crate::curated::SIYUAN, ["v3.8.11", "v3.8.12"]),
             (crate::curated::MAGPIE, ["v0.1.4969", "v0.1.4971"]),
@@ -832,11 +1086,15 @@ mod tests {
             (crate::curated::OSAURUS, ["1.0.12", "1.0.13"]),
             (crate::curated::ZEN, ["1.24.2b", "1.24.3b"]),
             (crate::curated::HEADLAMP, ["v0.45.0", "v0.46.0"]),
+            (crate::curated::KAP, ["v3.5.5", "v3.6.0"]),
+            (crate::curated::SIMPLEX_CHAT, ["v7.1.3", "v7.1.4"]),
             (crate::curated::LOCALAI, ["v5.0.0", "v5.0.1"]),
             (crate::curated::UPSCAYL, ["v2.11.5", "v2.15.0"]),
             (crate::curated::LOSSLESSCUT, ["v3.70.1", "v3.70.2"]),
             (crate::curated::BRUNO, ["v4.3.0", "v4.4.0"]),
-            (crate::curated::CHERRY_STUDIO, ["v2.2.2", "v2.2.3"]),
+            (crate::curated::ONLYOFFICE, ["v9.4.0", "v10.0.0"]),
+            (crate::curated::AIONUI, ["v2.2.1", "v2.2.2"]),
+            (crate::curated::SCUMMVM, ["v2026.3.0", "v2026.4.0"]),
             (crate::curated::ANYTHING_LLM, ["v1.19.0", "v1.20.0"]),
             (crate::curated::T3_CODE, ["v0.1.12", "v0.1.13"]),
             (crate::curated::VOICE_STUDIO, ["v0.5.7", "v0.5.8"]),
@@ -855,7 +1113,10 @@ mod tests {
                 untrusted.prerelease = true;
                 assert!(!selects(&untrusted, host));
                 untrusted = release.clone();
-                untrusted.assets[0].url = untrusted.assets[0].url.replace(tag, "v0.0.1");
+                untrusted.assets[0].url = untrusted.assets[0].url.replace(tag.trim_start_matches('v'), "0.0.1");
+                assert!(!selects(&untrusted, host));
+                untrusted = release.clone();
+                untrusted.assets[0].url = untrusted.assets[0].url.replacen("https://", "https://example.invalid/", 1);
                 assert!(!selects(&untrusted, host));
                 untrusted = release.clone();
                 untrusted.assets[0].sha256 = None;
@@ -868,6 +1129,191 @@ mod tests {
                 assert!(!selects(&untrusted, host));
             }
         }
+    }
+
+    #[test]
+    fn monitorcontrol_selects_only_the_reviewed_apple_silicon_package() {
+        let app = crate::curated::MONITORCONTROL;
+        let host = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selects = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::Dmg]).is_some();
+        let stable = crate::release::release_from_sums(app.repo, "v4.4.0", &[]);
+        assert!(selects(&stable, host));
+        assert!(!selects(&stable, Platform { arch: Arch::X64, ..host }));
+        let mut older = crate::release::release_from_sums(app.repo, "v4.2.0", &[]);
+        older.assets.push(Asset {
+            name: "MonitorControl.4.2.0.dmg".into(),
+            url: "https://github.com/MonitorControl/MonitorControl/releases/download/v4.2.0/MonitorControl.4.2.0.dmg".into(),
+            size: 20_436_666,
+            sha256: Some("43deae2bac157b50f6b8bbd62fea4547a2dc9ab53b7209abd98e6d3efbd30e02".into()),
+        });
+        assert!(!selects(&older, host));
+        let mut modified = stable;
+        modified.assets[0].sha256 = None;
+        assert!(!selects(&modified, host));
+    }
+
+    #[test]
+    fn freeplane_cannot_select_the_unnotarized_intermediate_release() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let app = crate::curated::FREEPLANE;
+        let mut release = crate::release::release_from_sums(app.repo, "release-1.13.4", &[]);
+        let name = "Freeplane-1.13.4-apple.dmg";
+        release.assets.push(Asset {
+            name: name.into(),
+            size: 147_305_756,
+            url: format!("{}{}/{name}", crate::release::download_prefix(app.repo), release.tag),
+            sha256: Some("109885a01fb229bb7789469d79f04227561a4d91b3700dd7b958261449623981".into()),
+        });
+        assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
+    }
+
+    #[test]
+    fn selects_only_reviewed_stable_apple_silicon_archives() {
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        for (app, tags) in [
+            (crate::curated::MACCY, ["2.7.1", "2.8.0"]),
+            (crate::curated::STELLARIUM, ["v26.2", "v26.3"]),
+            (crate::curated::ALT_TAB, ["v11.10.1", "v11.10.2"]),
+            (crate::curated::AMETHYST, ["v0.25.0", "v0.25.1"]),
+            (crate::curated::HIDDEN_BAR, ["v1.13.3", "v1.13.4"]),
+            (crate::curated::SWIFTBAR, ["v2.1.0", "v2.1.1"]),
+            (crate::curated::SLOTH, ["3.5", "3.6"]),
+            (crate::curated::LOOP, ["1.4.1", "1.4.2"]),
+            (crate::curated::DYAD, ["v1.23.0", "v1.24.0"]),
+            (crate::curated::HAMMERSPOON, ["1.1.0", "1.1.1"]),
+            (crate::curated::ICE, ["0.11.11", "0.11.12"]),
+        ] {
+            let accepts = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                release.assets.retain(|asset| asset.name.ends_with(".zip"));
+                assert_eq!(release.assets.len(), 1);
+                assert!(accepts(&release, mac), "{} {tag}", app.id);
+                assert!(!accepts(&release, Platform { arch: Arch::X64, ..mac }));
+                assert!(!accepts(&release, Platform { os: Os::Linux, ..mac }));
+                assert!(pick_asset(&release, &[app.id], mac, &[PackageKind::Dmg]).is_none());
+                let mut untrusted = release.clone();
+                untrusted.prerelease = true;
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release.clone();
+                untrusted.assets[0].size += 1;
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release.clone();
+                untrusted.assets[0].url = untrusted.assets[0].url.replace(app.repo, "example/replacement");
+                assert!(!accepts(&untrusted, mac));
+                untrusted = release;
+                untrusted.assets[0].sha256 = None;
+                assert!(!accepts(&untrusted, mac));
+            }
+        }
+    }
+
+    #[test]
+    fn github_desktop_accepts_only_the_reviewed_current_apple_silicon_zip() {
+        let app = crate::curated::GITHUB_DESKTOP;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+        let mut release = crate::release::release_from_sums(app.repo, "release-3.7.1", &[]);
+        assert_eq!(pick_asset(&release, &[app.id], mac, &[PackageKind::MacZip]).unwrap().0.size, 556_131_016);
+        assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+        assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+        release.assets[0].name = "GitHub.Desktop-x64.zip".into();
+        assert!(!selected(&release, mac));
+        release.assets[0].name = "GitHub.Desktop-arm64.zip".into();
+        release.assets[0].size += 1;
+        assert!(!selected(&release, mac));
+        let future = crate::release::release_from_sums(app.repo, "release-3.7.2", &[]);
+        assert!(!selected(&future, mac));
+        let mut previous = crate::release::release_from_sums(app.repo, "release-3.7.0", &[]);
+        let name = "GitHub.Desktop-arm64.zip";
+        previous.assets.push(Asset {
+            name: name.into(),
+            size: 538_188_819,
+            url: format!("{}{}/{name}", crate::release::download_prefix(app.repo), previous.tag),
+            sha256: Some("cc41c3cfdae2eaa332ef6547f82c6e672b5a11b0bf637aada2bf2796921eb1a5".into()),
+        });
+        assert!(!selected(&previous, mac));
+    }
+
+    #[test]
+    fn iterm2_offers_only_the_reviewed_modern_stable_zip_on_apple_silicon() {
+        let app = crate::curated::ITERM2;
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let mut release = crate::release::iterm2_mac_release("3.7.9").unwrap();
+        let selected = |release: &Release, platform| pick_asset(release, &[app.id], platform, &[PackageKind::MacZip]).is_some();
+        assert!(selected(&release, mac));
+        assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+        assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+        assert!(!selected(&crate::release::iterm2_mac_release("3.7.10").unwrap(), mac));
+        release.assets[0].size += 1;
+        assert!(!selected(&release, mac));
+        assert!(crate::release::iterm2_mac_release("3.7.8").is_none());
+    }
+
+    #[test]
+    fn itsycal_selects_only_the_pinned_zip_on_apple_silicon() {
+        use crate::curated::ITSYCAL;
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, platform| pick_asset(release, &[ITSYCAL.id], platform, &[PackageKind::MacZip]).is_some();
+        for tag in ["0.15.14", "0.15.15"] {
+            let mut release = crate::release::itsycal_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+            release.assets[0].sha256 = None;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&crate::release::itsycal_mac_release("0.29.0").unwrap(), mac));
+    }
+
+    #[test]
+    fn signal_offers_only_the_reviewed_official_dmg_on_apple_silicon() {
+        use crate::curated::SIGNAL_DESKTOP;
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, target| pick_asset(release, &[SIGNAL_DESKTOP.id], target, &[PackageKind::Dmg]).is_some();
+        for tag in ["8.35.0", "8.36.0"] {
+            let mut release = crate::release::signal_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+            let original = release.assets[0].clone();
+            release.assets[0].size += 1;
+            assert!(!selected(&release, mac));
+            release.assets[0] = original.clone();
+            release.assets[0].url = original.url.replace("updates.signal.org", "example.test");
+            assert!(!selected(&release, mac));
+            release.assets[0] = original;
+            release.prerelease = true;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&crate::release::signal_mac_release("8.37.0").unwrap(), mac));
+    }
+
+    #[test]
+    fn firefox_requires_an_exact_reviewed_mozilla_package_on_apple_silicon() {
+        use crate::curated::FIREFOX;
+        use crate::release::{FIREFOX_REVIEWED_TAGS, firefox_mac_release};
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, target| pick_asset(release, &[FIREFOX.id], target, &[PackageKind::Dmg]).is_some();
+        for tag in FIREFOX_REVIEWED_TAGS {
+            let mut release = firefox_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Windows, ..mac }));
+            let original = release.assets[0].clone();
+            release.assets[0].size += 1;
+            assert!(!selected(&release, mac));
+            release.assets[0] = original.clone();
+            release.assets[0].url = original.url.replace("/en-US/", "/it/");
+            assert!(!selected(&release, mac));
+            release.assets[0] = original;
+            release.assets[0].sha256 = None;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&firefox_mac_release("162.0").unwrap(), mac));
     }
 
     #[test]
@@ -919,11 +1365,37 @@ mod tests {
     }
 
     #[test]
+    fn naps2_linux_requires_the_reviewed_bundle_for_its_architecture() {
+        use crate::curated::NAPS2;
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform, kinds: &[PackageKind]| {
+            pick_asset(release, &[NAPS2.id], platform, kinds).map(|(asset, kind)| (asset.name.clone(), kind))
+        };
+        for tag in ["v8.6.0", "v8.6.1"] {
+            let mut release = crate::release::release_from_sums(NAPS2.repo, tag, &[]);
+            let name = format!("naps2-{}-linux-x64.flatpak", &tag[1..]);
+            let flatpak = &[PackageKind::Flatpak];
+            assert_eq!(select(&release, linux, flatpak), Some((name.clone(), PackageKind::Flatpak)));
+            assert!(select(&release, linux, &[PackageKind::Deb, PackageKind::MacPkg]).is_none());
+            assert!(select(&release, Platform { arch: Arch::Arm64, ..linux }, flatpak).is_none());
+            assert!(select(&release, Platform { os: Os::MacOs, arch: Arch::Arm64 }, flatpak).is_none());
+            release.prerelease = true;
+            assert!(select(&release, linux, flatpak).is_none());
+            release.prerelease = false;
+            release.assets.iter_mut().find(|asset| asset.name == name).unwrap().sha256 = Some("a".repeat(64));
+            assert!(select(&release, linux, flatpak).is_none());
+        }
+    }
+
+    #[test]
     fn reviewed_linux_appimages_require_verified_stable_asset_metadata() {
         use crate::curated::{LOSSLESSCUT, MUSESCORE, ONLYOFFICE, OPENSHOT, ORCA_SLICER, PENCIL2D, ZETTLR};
 
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         for (app, version, filename) in [
+            (crate::curated::OPENCODE, "2.4.2", "opencode-desktop-linux-x86_64.AppImage"),
+            (crate::curated::ORCA, "1.4.280", "orca-linux.AppImage"),
             (PENCIL2D, "0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage"),
             (OPENSHOT, "4.1.1", "OpenShot-v4.1.1-x86_64.AppImage"),
             (MUSESCORE, "4.7.7", "MuseScore-Studio-4.7.7.261109195-x86_64.AppImage"),
@@ -960,9 +1432,55 @@ mod tests {
     }
 
     #[test]
+    fn qualified_appimages_match_reviewed_bytes_and_platform() {
+        use crate::curated::{
+            DUST3D, INVOKE_COMMUNITY, MISTER_DOWNLOAD_MANAGER, OPEN_PENCIL, OPENWORK_DESKTOP, PASEO, RAWTHERAPEE, T3_CODE, ULTIMAKER_CURA,
+            VOICE_STUDIO,
+        };
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        for (app, tags) in [
+            (MISTER_DOWNLOAD_MANAGER, ["v0.5.0", "v0.5.2"]),
+            (DUST3D, ["1.1.5", "1.1.6"]),
+            (INVOKE_COMMUNITY, ["v1.8.4", "v1.8.5"]),
+            (RAWTHERAPEE, ["5.12", "5.13"]),
+            (OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
+            (OPENWORK_DESKTOP, ["v0.18.72", "v0.18.73"]),
+            (PASEO, ["v0.18.0", "v0.18.1"]),
+            (T3_CODE, ["v0.1.12", "v0.1.13"]),
+            (ULTIMAKER_CURA, ["5.13.0", "5.14.0"]),
+            (VOICE_STUDIO, ["v0.5.7", "v0.5.8"]),
+        ] {
+            let select = |release: &Release, host| pick_asset(release, &[app.id], host, &[PackageKind::AppImage]).is_some();
+            assert!(recipe_platform_verified(&[app.id], linux));
+            assert_eq!(
+                recipe_platform_verified(&[app.id], Platform { os: Os::MacOs, arch: Arch::Arm64 }),
+                crate::release::qualified_mac_dmg_recipe(&[app.id]).is_some(),
+            );
+            for tag in tags {
+                let mut release = crate::release::release_from_sums(app.repo, tag, &[]);
+                assert!(select(&release, linux), "{} {tag}", app.id);
+                assert!(!select(&release, Platform { arch: Arch::Arm64, ..linux }));
+                assert!(!select(&release, Platform { os: Os::Windows, ..linux }));
+                release.prerelease = true;
+                assert!(!select(&release, linux));
+                release.prerelease = false;
+                let asset = release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap();
+                asset.sha256 = Some("f".repeat(64));
+                assert!(!select(&release, linux));
+            }
+            assert!(!select(&crate::release::release_from_sums(app.repo, "v99.0.0", &[]), linux));
+        }
+    }
+
+    #[test]
     fn tested_linux_appimages_are_available_without_github_api_quota() {
         let platform = Platform { os: Os::Linux, arch: Arch::X64 };
         for (repo, tag, filename, size) in [
+            ("anomalyco/opencode", "v2.4.1", "opencode-desktop-linux-x86_64.AppImage", 325_645_884),
+            ("anomalyco/opencode", "v2.4.2", "opencode-desktop-linux-x86_64.AppImage", 325_566_590),
+            ("stablyai/orca", "v1.4.279", "orca-linux.AppImage", 287_088_086),
+            ("stablyai/orca", "v1.4.280", "orca-linux.AppImage", 285_631_432),
             ("pencil2d/pencil", "v0.7.1", "pencil2d-linux-amd64-v0.7.1.AppImage", 60_471_800),
             ("pencil2d/pencil", "v0.7.2", "pencil2d-linux-amd64-v0.7.2.AppImage", 60_471_800),
             ("OpenShot/openshot-qt", "v4.1.0", "OpenShot-v4.1.0-x86_64.AppImage", 258_708_672),
@@ -1046,8 +1564,9 @@ mod tests {
     fn texturecraft_selects_published_desktop_assets() {
         let release =
             crate::release::parse_github_release(include_str!("../tests/fixtures/texturecraft-release.json"), "storytold/texturecraft").unwrap();
+        let windows = Platform { os: Os::Windows, arch: Arch::X64 };
+        assert!(pick_asset(&release, &["texturecraft"], windows, &[PackageKind::Msi]).is_none());
         for (os, kind, expected) in [
-            (Os::Windows, PackageKind::Msi, "texturecraft-0.1.0-windows-x64.msi"),
             (Os::MacOs, PackageKind::Dmg, "texturecraft-0.1.0-macos-universal.dmg"),
             (Os::Linux, PackageKind::Flatpak, "texturecraft-0.1.0-linux-x86_64.flatpak"),
         ] {
@@ -1177,19 +1696,20 @@ mod tests {
         let r = release(PHOTO);
         let pick = |os, arch, kinds: &[PackageKind]| pick_asset(&r, &["photocraft"], Platform { os, arch }, kinds).map(|(a, _)| a.name.clone());
         assert_eq!(pick(Os::MacOs, Arch::Arm64, &[PackageKind::Dmg]).as_deref(), Some("photocraft-0.5.0-macos-universal.dmg"));
-        assert_eq!(pick(Os::Windows, Arch::X64, &[PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x64.msi"));
-        // No arm64 MSI in this release: Windows on ARM runs the x64 build.
-        assert_eq!(pick(Os::Windows, Arch::Arm64, &[PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x64.msi"));
         assert_eq!(pick(Os::Linux, Arch::Arm64, &[PackageKind::AppImage]).as_deref(), Some("photocraft-0.5.0-linux-aarch64.AppImage"));
         assert_eq!(pick(Os::Linux, Arch::Arm64, &[PackageKind::TarGz]), None);
         assert_eq!(pick(Os::Linux, Arch::Riscv64, &[PackageKind::TarGz]).as_deref(), Some("photocraft-0.5.0-linux-riscv64.tar.gz"));
         assert_eq!(pick(Os::FreeBsd, Arch::X64, &[PackageKind::TarGz]).as_deref(), Some("photocraft-0.5.0-freebsd-x86_64.tar.gz"));
+        let windows = release(&["generic-0.5.0-windows-x64.msi", "generic-0.5.0-windows-x86.msi", "generic-0.5.0-windows-x64-portable.zip"]);
+        let pick_windows = |arch, kinds: &[PackageKind]| {
+            pick_asset(&windows, &["generic"], Platform { os: Os::Windows, arch }, kinds).map(|(asset, _)| asset.name.as_str())
+        };
+        assert_eq!(pick_windows(Arch::X64, &[PackageKind::Msi]), Some("generic-0.5.0-windows-x64.msi"));
+        // No arm64 MSI in this release: Windows on ARM runs the x64 build.
+        assert_eq!(pick_windows(Arch::Arm64, &[PackageKind::Msi]), Some("generic-0.5.0-windows-x64.msi"));
         // Preference order across kinds.
-        assert_eq!(
-            pick(Os::Windows, Arch::X64, &[PackageKind::PortableZip, PackageKind::Msi]).as_deref(),
-            Some("photocraft-0.5.0-windows-x64-portable.zip")
-        );
-        assert_eq!(pick(Os::Windows, Arch::X86, &[PackageKind::PortableZip, PackageKind::Msi]).as_deref(), Some("photocraft-0.5.0-windows-x86.msi"));
+        assert_eq!(pick_windows(Arch::X64, &[PackageKind::PortableZip, PackageKind::Msi]), Some("generic-0.5.0-windows-x64-portable.zip"));
+        assert_eq!(pick_windows(Arch::X86, &[PackageKind::PortableZip, PackageKind::Msi]), Some("generic-0.5.0-windows-x86.msi"));
 
         let p_riscv = Platform { os: Os::Linux, arch: Arch::Riscv64 };
         assert_eq!(

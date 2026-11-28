@@ -1,0 +1,19 @@
+commit 3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb
+Parent:  73967f3f8b62009cffadea088209f606cf1b517c38e9b3dde51e32ab09480434
+ContentChecksum:  8ebc70dbc8bc438ae4a71e6447bace98b639c7384a74c2c9f7e9bb700bc86437
+Date:  2026-10-27 06:53:50 +0000
+
+    Use x11 socket, instead of the fallback-xll (#90) (c16e538b5aaa)
+
+    Name: org.atheme.audacious
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Oct 27 07:00:42 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

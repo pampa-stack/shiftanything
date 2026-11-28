@@ -1,0 +1,2 @@
+/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6/export/share/applications/org.famistudio.FamiStudio.desktop
+/home/qa/profiles/famistudio-after210-retry/data/flatpak/app/org.famistudio.FamiStudio/x86_64/stable/bda2d442be3a4da8a730c780572a4f0ebdc0d5f481f66b68c37270e375c2f5d6/export/share/icons/hicolor/scalable/apps/org.famistudio.FamiStudio.svg

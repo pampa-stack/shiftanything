@@ -1,0 +1,51 @@
+2026-11-28T02:22:11+00:00 hydrus AVAILABLE 27443453952
+hydrus before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+hydrus JobFinished: Ok("Flathub app installed")
+hydrus after install: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("676"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:23:26+00:00 hydrus current-install f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f
+/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f/export/share/applications/io.github.hydrusnetwork.hydrus.desktop
+/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f/export/share/icons/hicolor/128x128/apps/io.github.hydrusnetwork.hydrus.png
+Updating app/io.github.hydrusnetwork.hydrus/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:23:42+00:00 hydrus previous f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36
+hydrus before external: Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("673"), update_available: false, can_remove: false, can_open: true }
+hydrus JobFinished: Err("Approved action rejected: native installation state changed")
+hydrus JobFinished: Err("This Flatpak is managed outside the launcher")
+hydrus after external: Some(Status { installable: false, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("673"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4558]: [session uid=1000 pid=4558] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5335 comm="xfwm4 --compositor=off --display=:87" label="unconfined")
+dbus-daemon[4558]: [session uid=1000 pid=4558] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4558]: [session uid=1000 pid=4558] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5348 comm="flatpak run --user --command=sh app/io.github.hydr" label="flatpak (unconfined)")
+dbus-daemon[4558]: [session uid=1000 pid=4558] Successfully activated service 'org.freedesktop.Flatpak'
+hydrus before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("673"), update_available: true, can_remove: true, can_open: true }
+hydrus JobFinished: Ok("Launch request accepted")
+hydrus after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("673"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.hydrusnetwork.hydrus
+2026-11-28T02:24:01+00:00 hydrus previous GUI WM_NAME(STRING) = "main"
+WM_CLASS(STRING) = "hydrus_client", "Hydrus Client"
+2026-11-28T02:24:01+00:00 hydrus AVAILABLE 18454487040
+hydrus before update: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("673"), update_available: true, can_remove: true, can_open: true }
+hydrus JobFinished: Ok("Flathub app updated")
+hydrus after update: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("676"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:24:15+00:00 hydrus current f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f
+/home/qa/profiles/hydrus-after210/.var/app/io.github.hydrusnetwork.hydrus/fixture.txt: OK
+hydrus before open: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("676"), update_available: false, can_remove: true, can_open: true }
+hydrus JobFinished: Ok("Launch request accepted")
+hydrus after open: Some(Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("676"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.hydrusnetwork.hydrus
+2026-11-28T02:24:32+00:00 hydrus current GUI WM_NAME(STRING) = "main"
+WM_CLASS(STRING) = "hydrus_client", "Hydrus Client"
+hydrus before remove: Status { installable: true, installed: Some(Installed { version: None, source: Flatpak, location: "/home/qa/profiles/hydrus-after210/data/flatpak/app/io.github.hydrusnetwork.hydrus/x86_64/stable/f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f", package: Some("io.github.hydrusnetwork.hydrus"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("676"), update_available: false, can_remove: true, can_open: true }
+hydrus JobFinished: Ok("Flathub app removed")
+hydrus after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/hydrus-after210/.var/app/io.github.hydrusnetwork.hydrus/fixture.txt: OK
+2026-11-28T02:24:33+00:00 hydrus PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:24:37+00:00 hydrus EXIT 0 remove
+
+(xfconfd:5360): xfconfd-WARNING **: 02:24:37.074: Name org.xfce.Xfconf lost on the message dbus, exiting.

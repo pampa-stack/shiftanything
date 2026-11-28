@@ -44,6 +44,8 @@ def comparison_data():
 def comparison_results(results, evidence, selected, *, shortlist=False):
     rows = []
     for row in results:
+        if not shortlist and (row["coverage"] or 0) <= 0:
+            continue
         known = evidence.get(row["app_id"], {})
         if shortlist:
             sources = {feature: known.get(feature, {"state": "unverified"}) for feature in selected}
@@ -75,7 +77,9 @@ def compare_apps(
 ) -> dict[str, Any]:
     """Compare documented features using an explicitly selected profile, or a manual name.
 
-    Comparisons cover the whole catalog. Manual callers may pass an app_ids shortlist.
+    Catalog-wide comparisons return only alternatives with positive documented coverage.
+    To inspect specific apps including zero or unverified coverage, pass an app_ids
+    shortlist with a manual software_name.
     Coverage is rounded half up: supported / ALL selected features. Partial, unsupported,
     and unverified are separate. No percentage for empty selection or all unverified.
     Omitted evidence entries are unverified. This tool never installs or changes evidence.

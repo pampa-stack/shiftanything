@@ -1,0 +1,61 @@
+2026-11-28T14:03:34+00:00 blender AVAILABLE 54457139200
+blender before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+blender JobFinished: Ok("Flathub app installed")
+blender after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T14:04:25+00:00 blender current-install 3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c
+/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c/export/share/applications/org.blender.Blender.desktop
+/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c/export/share/icons/hicolor/scalable/apps/org.blender.Blender.svg
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/25.08
+Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+Installing runtime/org.freedesktop.Platform/x86_64/25.08
+Updating app/org.blender.Blender/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T14:05:16+00:00 blender previous 9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f
+blender before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f", package: Some("org.blender.Blender"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.1"), update_available: false, can_remove: false, can_open: true }
+blender JobFinished: Err("Approved action rejected: native installation state changed")
+blender JobFinished: Err("This Flatpak is managed outside the launcher")
+blender after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 5, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f", package: Some("org.blender.Blender"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[4940]: [session uid=1000 pid=4940] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=6512 comm="xfwm4 --compositor=on --display=:92" label="unconfined")
+dbus-daemon[4940]: [session uid=1000 pid=4940] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[4940]: [session uid=1000 pid=4940] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=6525 comm="flatpak run --user --command=sh app/org.blender.Bl" label="flatpak (unconfined)")
+dbus-daemon[4940]: [session uid=1000 pid=4940] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[4940]: [session uid=1000 pid=4940] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=6525 comm="flatpak run --user --command=sh app/org.blender.Bl" label="flatpak (unconfined)")
+dbus-daemon[4940]: [session uid=1000 pid=4940] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=6551 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[4940]: [session uid=1000 pid=4940] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[4940]: [session uid=1000 pid=4940] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+blender before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.1"), update_available: true, can_remove: true, can_open: true }
+blender JobFinished: Ok("Launch request accepted")
+blender after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.blender.Blender
+2026-11-28T14:05:27+00:00 blender previous GUI WM_NAME(STRING) = "(Unsaved) - Blender 5.1.2"
+WM_CLASS(STRING) = "(Unsaved) - Blender 5.1.2", "(Unsaved) - Blender 5.1.2"
+2026-11-28T14:05:27+00:00 blender AVAILABLE 47314493440
+blender before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/9be200683db4ae56dbd7c35f7547779cb8dac8a39f12971311c6e092b7481c1f", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.1"), update_available: true, can_remove: true, can_open: true }
+blender JobFinished: Ok("Flathub app updated")
+blender after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T14:05:36+00:00 blender current 3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c
+/home/qa/profiles/blender-composited/.var/app/org.blender.Blender/fixture.txt: OK
+blender before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3"), update_available: false, can_remove: true, can_open: true }
+blender JobFinished: Ok("Launch request accepted")
+blender after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.blender.Blender
+2026-11-28T14:05:46+00:00 blender current GUI WM_NAME(STRING) = "(Unsaved) â\302\200\302\224 Blender 5.3.0"
+WM_CLASS(STRING) = "Blender", "Blender"
+blender before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 5, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/blender-composited/data/flatpak/app/org.blender.Blender/x86_64/stable/3e510e35073011eaf3266b8eb7f88363df9e7630807c6d442b4cdfa2bd7e779c", package: Some("org.blender.Blender"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("5.3"), update_available: false, can_remove: true, can_open: true }
+blender JobFinished: Ok("Flathub app removed")
+blender after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/blender-composited/.var/app/org.blender.Blender/fixture.txt: OK
+2026-11-28T14:05:47+00:00 blender PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T14:05:48+00:00 blender EXIT 0 remove
+
+(xfconfd:6537): xfconfd-WARNING **: 14:05:48.364: Name org.xfce.Xfconf lost on the message dbus, exiting.

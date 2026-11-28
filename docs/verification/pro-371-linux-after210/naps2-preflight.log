@@ -1,0 +1,23 @@
+naps2-8.6.0-linux-x64.deb	17830950	sha256:bc618ce0da3817409757e828b23c03992530951a769d1debe7291e48db9b3626	https://github.com/cyanfish/naps2/releases/download/v8.6.0/naps2-8.6.0-linux-x64.deb
+naps2-8.6.1-linux-x64.deb	17889058	sha256:312f9b6b47fbc4606a7632988da28c759696b0b4600b54def6c6b4a9dfeaf346	https://github.com/cyanfish/naps2/releases/download/v8.6.1/naps2-8.6.1-linux-x64.deb
+
+naps2-8.6.0-linux-x64.deb
+<qa-package-dir>/naps2-8.6.0-linux-x64.deb: OK
+Package: naps2
+Version: 8.6.0
+Architecture: amd64
+Depends: libsane1
+control
+./usr/lib/naps2/naps2
+./usr/share/applications/naps2.desktop
+/usr/lib/naps2/naps2
+naps2-8.6.1-linux-x64.deb
+<qa-package-dir>/naps2-8.6.1-linux-x64.deb: OK
+Package: naps2
+Version: 8.6.1
+Architecture: amd64
+Depends: libsane1
+control
+./usr/lib/naps2/naps2
+./usr/share/applications/naps2.desktop
+/usr/lib/naps2/naps2

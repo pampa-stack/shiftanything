@@ -1,0 +1,4 @@
+2026-11-28T14:38:36+0100
+/dev/disk3s5   239362496 173497464  24737460    88% 3239119 247374600    1%   /System/Volumes/Data
+ARTIFACT 704b567abb2f76d36c5ea6ccf8329bc63335cfd873581c61f171eca757276dae 98224395 https://github.com/torakiki/pdfsam/releases/download/v6.0.0/pdfsam-basic-6.0.0-macos-arm64.dmg
+hdiutil: attach canceled

@@ -1,0 +1,8 @@
+org.freedesktop.Platform.GL.default/x86_64/25.08	26.2.7
+org.freedesktop.Platform.GL.default/x86_64/25.08-extra	26.2.7
+org.freedesktop.Platform.GL.default/x86_64/26.08	26.2.5
+org.freedesktop.Platform.GL.default/x86_64/26.08-extra	26.2.5
+org.freedesktop.Platform.codecs-extra/x86_64/25.08-extra
+org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra
+org.gnome.Platform/x86_64/50
+org.gnome.Platform/x86_64/51

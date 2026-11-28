@@ -1,0 +1,19 @@
+commit c7bd92724cea9d82fe826507aebe371591961d26f2413f3f976e083454072a5f
+Parent:  131cfcec2d744419fb429a8a23e193ad879eccd9442604ca909d7a226e61c5d2
+ContentChecksum:  f0b44f21d80fab590f0f487d48d3a6454246bac0db1a6e6a91fb0c9471c03afd
+Date:  2026-10-27 12:13:23 +0000
+
+    Merge pull request #16 from flathub/certifi-2026.10.19 (9b0f42412cb6)
+
+    Name: com.github.tenderowl.frog
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Oct 27 13:12:44 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

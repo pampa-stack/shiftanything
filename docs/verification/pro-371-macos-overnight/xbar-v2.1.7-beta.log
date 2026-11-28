@@ -1,0 +1,32 @@
+2026-11-28T11:34:33+0100
+/dev/disk3s5   239362496 173473916  24761008    88% 3238831 247610080    1%   /System/Volumes/Data
+ARTIFACT 0a7ea7c40e4d4e2ecce0dae3c9c3773d459ddf5af86744f70c44b9f9901bc73f 8484887 https://github.com/matryer/xbar/releases/download/v2.1.7-beta/xbar.v2.1.7-beta.dmg
+BUNDLE=xbar.app
+CFBundleIdentifier=com.xbarapp.app
+CFBundleShortVersionString=v2.1.7-beta
+CFBundleVersion=v2.1.7-beta
+CFBundleExecutable=xbar
+LSMinimumSystemVersion=10.13.0
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/xbar/v2.1.7-beta/mount/xbar.app/Contents/MacOS/xbar: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/xbar/v2.1.7-beta/mount/xbar.app/Contents/MacOS/xbar (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/xbar/v2.1.7-beta/mount/xbar.app/Contents/MacOS/xbar (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/xbar/v2.1.7-beta/mount/xbar.app/Contents/MacOS/xbar (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 12.0
+   ntools 1
+     tool LD
+  version 711.0
+Identifier=com.xbarapp.app
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Mat Ryer (N3H5B92L5N)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=29 Oct 2021 at 12:07:33
+TeamIdentifier=N3H5B92L5N
+/private/tmp/shift-air-overnight.VjFfIbB5/preflight/xbar/v2.1.7-beta/mount/xbar.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT xbar v2.1.7-beta

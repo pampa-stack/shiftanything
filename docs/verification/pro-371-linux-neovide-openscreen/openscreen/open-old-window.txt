@@ -1,0 +1,5 @@
+openscreen
+Window 4194307
+  Position: 304,711 (screen: 0)
+  Geometry: 673x184
+WM_CLASS(STRING) = "openscreen", "openscreen"

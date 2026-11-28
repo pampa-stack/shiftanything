@@ -1,0 +1,80 @@
+2026-11-27T22:55:01+00:00 gnome-boxes AVAILABLE 26785574912
+gnome-boxes before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+gnome-boxes JobFinished: Ok("Flathub app installed")
+gnome-boxes after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:14+00:00 gnome-boxes current-install 476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f
+/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f/export/share/applications/org.gnome.Boxes.desktop
+/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f/export/share/icons/hicolor/scalable/apps/org.gnome.Boxes.svg
+Installing runtime/org.gnome.Platform.Locale/x86_64/49
+Installing runtime/org.gnome.Platform/x86_64/49
+Updating app/org.gnome.Boxes/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:56:48+00:00 gnome-boxes previous b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf
+gnome-boxes before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf", package: Some("org.gnome.Boxes"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: false, can_remove: false, can_open: true }
+gnome-boxes JobFinished: Err("Approved action rejected: native installation state changed")
+gnome-boxes JobFinished: Err("This Flatpak is managed outside the launcher")
+gnome-boxes after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf", package: Some("org.gnome.Boxes"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=62530 comm="xfwm4 --compositor=off --display=:96" label="unconfined")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=62543 comm="flatpak run --user --command=sh app/org.gnome.Boxe" label="flatpak (unconfined)")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=62543 comm="flatpak run --user --command=sh app/org.gnome.Boxe" label="flatpak (unconfined)")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=62569 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+gnome-boxes before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.16' (uid=1000 pid=62669 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.17' (uid=1000 pid=62688 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:62694): dbind-WARNING **: 22:56:50.327: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:62688): xdg-desktop-portal-WARNING **: 22:56:50.342: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62688): xdg-desktop-portal-WARNING **: 22:56:50.342: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:62688): xdg-desktop-portal-WARNING **: 22:56:50.342: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][03055.612091] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][03055.612461] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:62688): xdg-desktop-portal-WARNING **: 22:56:50.351: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[60177]: [session uid=1000 pid=60177] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.21' (uid=1000 pid=62669 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[60177]: [session uid=1000 pid=60177] Successfully activated service 'org.freedesktop.portal.Flatpak'
+gnome-boxes JobFinished: Ok("Launch request accepted")
+gnome-boxes after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Boxes
+org.gnome.Boxes
+org.gnome.Boxes
+2026-11-27T22:56:59+00:00 gnome-boxes previous GUI WM_NAME(STRING) = "Boxes"
+WM_CLASS(STRING) = "org.gnome.Boxes", "Org.gnome.Boxes"
+2026-11-27T22:56:59+00:00 gnome-boxes AVAILABLE 16014745600
+gnome-boxes before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 49, minor: 1, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/b00f0bb9f4e39fc55aff316c262139bb30785f552b286c69379218d0a82c13cf", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("49.1"), update_available: true, can_remove: true, can_open: true }
+gnome-boxes JobFinished: Ok("Flathub app updated")
+gnome-boxes after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-27T22:57:03+00:00 gnome-boxes current 476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f
+/home/qa/profiles/gnome-boxes/.var/app/org.gnome.Boxes/fixture.txt: OK
+gnome-boxes before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true }
+gnome-boxes JobFinished: Ok("Launch request accepted")
+gnome-boxes after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.gnome.Boxes
+org.gnome.Boxes
+org.gnome.Boxes
+2026-11-27T22:57:13+00:00 gnome-boxes current GUI WM_NAME(STRING) = "Boxes"
+WM_CLASS(STRING) = "org.gnome.Boxes", "Org.gnome.Boxes"
+gnome-boxes before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 50, minor: 0, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/gnome-boxes/data/flatpak/app/org.gnome.Boxes/x86_64/stable/476600abc122ef11ed4ec4cf880465e3834449447188e29db1a3c91e66abf47f", package: Some("org.gnome.Boxes"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("50.0"), update_available: false, can_remove: true, can_open: true }
+gnome-boxes JobFinished: Ok("Flathub app removed")
+gnome-boxes after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/gnome-boxes/.var/app/org.gnome.Boxes/fixture.txt: OK
+2026-11-27T22:57:14+00:00 gnome-boxes PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-27T22:57:15+00:00 gnome-boxes EXIT 0 remove
+
+(xfconfd:62554): xfconfd-WARNING **: 22:57:15.059: Name org.xfce.Xfconf lost on the message dbus, exiting.

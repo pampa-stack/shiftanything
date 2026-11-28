@@ -1,0 +1,20 @@
+
+Passwords and Keys - Manage your passwords and encryption keys
+
+          ID: org.gnome.seahorse.Application
+         Ref: app/org.gnome.seahorse.Application/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 47.0
+     License: GPL-2.0+ and LGPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 5.3 MB
+     Runtime: org.gnome.Platform/x86_64/50
+         Sdk: org.gnome.Sdk/x86_64/50
+
+      Commit: 0890db4b0ae5f07ddd8933f91bff200cdcc0ade0a2c43eda1d2da49456b66610
+      Parent: cf5ccb1557e2c3eaa6d8d49fdd9d81a11a126ca1ff94a960f2a58f400003c341
+     Subject: Merge pull request #23 from flathub/update-runtime (caeaf8778027)
+        Date: 2026-03-21 23:00:13 +0000

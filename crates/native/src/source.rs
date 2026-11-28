@@ -16,14 +16,36 @@
 use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
-use artcraft_launcher_core::curated::{ENTE_AUTH, LIBREOFFICE, OPENCODE, TERMIX};
+use artcraft_launcher_core::curated::{
+    BLENDER, ELEMENT, ENTE_AUTH, FIREFOX, GIMP, INKSCAPE, ITERM2, ITSYCAL, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP,
+    TERMIX, VLC, ZOTERO,
+};
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
 use serde::{Deserialize, Serialize};
 
 use crate::http::{Fetched, Http};
 
+mod blender;
+mod element;
+mod firefox;
+mod gimp;
+mod inkscape;
+mod iterm2;
+mod itsycal;
+mod kdenlive;
+mod krita;
 mod libreoffice;
+mod signal;
+mod videolan;
+
+fn appcast_attribute<'a>(attributes: &'a str, name: &str) -> Option<&'a str> {
+    let mut fields = attributes.split('"');
+    let pairs = std::iter::from_fn(|| Some((fields.next()?, fields.next()?)));
+    let mut values = pairs.filter_map(|(key, value)| (key.trim().strip_suffix('=')?.trim_end() == name).then_some(value));
+    let value = values.next()?;
+    values.next().is_none().then_some(value)
+}
 
 /// One answer from a source.
 #[derive(Clone, Debug)]
@@ -66,7 +88,22 @@ pub trait ReleaseSource: Send + Sync {
             Ok(list) => release::choose_version_for(&list, track, query.separate_nightly).map_or(LatestRelease::None, LatestRelease::Found),
             Err(why) => LatestRelease::Failed(why),
         };
-        let source = if query.repo == LIBREOFFICE.repo { Source::TheDocumentFoundation } else { Source::GitHubApi };
+        let source = match query.repo.as_str() {
+            repo if repo == LIBREOFFICE.repo => Source::TheDocumentFoundation,
+            repo if repo == ZOTERO.repo => Source::Zotero,
+            repo if repo == BLENDER.repo => Source::Blender,
+            repo if repo == GIMP.repo => Source::Gimp,
+            repo if repo == KRITA.repo => Source::Krita,
+            repo if repo == VLC.repo => Source::VideoLan,
+            repo if repo == INKSCAPE.repo => Source::Inkscape,
+            repo if repo == KDENLIVE.repo => Source::Kdenlive,
+            repo if repo == ITERM2.repo => Source::ITerm2,
+            repo if repo == ITSYCAL.repo => Source::Itsycal,
+            repo if repo == SIGNAL_DESKTOP.repo => Source::Signal,
+            repo if repo == FIREFOX.repo => Source::Mozilla,
+            repo if repo == ELEMENT.repo => Source::Element,
+            _ => Source::GitHubApi,
+        };
         Answer { latest, source }
     }
     /// The release `track` follows in the version list saved last time, however old, without
@@ -376,15 +413,24 @@ impl GitHubSource {
         release::opencode_desktop_release(&bytes).ok_or_else(|| "OpenCode's desktop release manifest is invalid.".into())
     }
 
+    fn latest_netnewswire(&self) -> Result<Release, String> {
+        let target = self.http.redirect_target(release::NETNEWSWIRE_STABLE_MAC_URL)?.ok_or("NetNewsWire's Mac download is unavailable")?;
+        release::netnewswire_mac_release_from_download(&target).ok_or_else(|| "NetNewsWire's Mac download did not name a stable Mac release".into())
+    }
+
     fn ask_opencode_pages(&self, query: &ReleaseQuery) -> Result<Answer, String> {
-        let release = self.opencode_desktop_manifest()?;
+        let mut release = self.opencode_desktop_manifest()?;
         let repo = &query.repo;
-        let asset = &release.assets[0];
         let manifest_url = format!("{}{}/{}", release::download_prefix(repo), release.tag, release::checksum_manifest_name(repo));
         let sums = self.http.get_text(&manifest_url)?.ok_or("OpenCode's GitHub release is missing its checksum manifest.")?;
-        if !release::parse_sha256sums(&sums).iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash)) {
+        let sums = release::parse_sha256sums(&sums);
+        let corroborated = |asset: &artcraft_launcher_core::release::Asset| {
+            sums.iter().any(|(hash, name)| *name == asset.name && asset.sha256.as_ref() == Some(hash))
+        };
+        if !corroborated(&release.assets[0]) {
             return Err("OpenCode's desktop and GitHub release checksums disagree.".into());
         }
+        release.assets.retain(corroborated);
         self.store(repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
         Ok(Answer { latest: LatestRelease::Found(release), source: Source::GitHubPages })
     }
@@ -555,6 +601,16 @@ fn with_former<T>(query: &ReleaseQuery, ask: impl Fn(&ReleaseQuery) -> T, no_rel
 }
 
 impl GitHubSource {
+    fn latest_zotero(&self) -> Result<Release, String> {
+        let version = self
+            .http
+            .redirect_target(release::ZOTERO_STABLE_URL)?
+            .as_deref()
+            .and_then(release::zotero_stable_version)
+            .ok_or("Zotero did not advertise a valid macOS release")?;
+        Ok(release::zotero_release(version))
+    }
+
     fn versions_in(&self, query: &ReleaseQuery, max_age: i64) -> Result<Vec<Release>, String> {
         if let Some((at, list)) = self.cache.lock().unwrap_or_else(PoisonError::into_inner).versions.get(&query.repo)
             // A list stamped in the future (the clock set back since) isn't recent.
@@ -564,6 +620,32 @@ impl GitHubSource {
         }
         let list = if query.repo == LIBREOFFICE.repo {
             libreoffice::releases(&self.http, false)?
+        } else if query.repo == ZOTERO.repo {
+            release::zotero_release_history(self.latest_zotero()?)
+        } else if query.repo == BLENDER.repo {
+            blender::releases(&self.http, false)?
+        } else if query.repo == GIMP.repo {
+            gimp::releases(&self.http, false)?
+        } else if query.repo == VLC.repo {
+            videolan::releases(&self.http, false)?
+        } else if query.repo == INKSCAPE.repo {
+            inkscape::releases(&self.http, false)?
+        } else if query.repo == ITERM2.repo {
+            iterm2::releases(&self.http)?
+        } else if query.repo == ITSYCAL.repo {
+            itsycal::releases(&self.http, false)?
+        } else if query.repo == SIGNAL_DESKTOP.repo {
+            signal::releases(&self.http)?
+        } else if query.repo == FIREFOX.repo {
+            firefox::releases(&self.http, false)?
+        } else if query.repo == ELEMENT.repo {
+            element::releases(&self.http, false)?
+        } else if query.repo == KDENLIVE.repo {
+            kdenlive::releases(&self.http, false)?
+        } else if query.repo == KRITA.repo {
+            krita::releases(&self.http, false)?
+        } else if query.repo == NETNEWSWIRE.repo {
+            release::netnewswire_mac_release_history(self.latest_netnewswire()?)
         } else {
             if self.limited() {
                 return Err("GitHub's request limit was reached. Try again later.".into());
@@ -624,6 +706,15 @@ impl ReleaseSource for GitHubSource {
     }
 
     fn latest(&self, query: &ReleaseQuery, prereleases: bool) -> Answer {
+        if query.repo == ZOTERO.repo {
+            return match self.latest_zotero() {
+                Ok(release) => {
+                    self.store(&query.repo, Entry { etag: None, release: Some(release.clone()), prereleases: false, fetched_at: crate::now() });
+                    Answer { latest: LatestRelease::Found(release), source: Source::Zotero }
+                }
+                Err(why) => Answer { latest: self.cached(query, false).unwrap_or(LatestRelease::Failed(why)), source: Source::Cache },
+            };
+        }
         if query.repo == LIBREOFFICE.repo {
             let latest = match libreoffice::releases(&self.http, true) {
                 Ok(versions) => {
@@ -635,12 +726,89 @@ impl ReleaseSource for GitHubSource {
             };
             return Answer { latest, source: Source::TheDocumentFoundation };
         }
+        let publisher = match query.repo.as_str() {
+            repo if repo == BLENDER.repo => Some((Source::Blender, blender::releases(&self.http, true))),
+            repo if repo == GIMP.repo => Some((Source::Gimp, gimp::releases(&self.http, true))),
+            repo if repo == KRITA.repo => Some((Source::Krita, krita::releases(&self.http, true))),
+            repo if repo == VLC.repo => Some((Source::VideoLan, videolan::releases(&self.http, true))),
+            repo if repo == INKSCAPE.repo => Some((Source::Inkscape, inkscape::releases(&self.http, true))),
+            repo if repo == KDENLIVE.repo => Some((Source::Kdenlive, kdenlive::releases(&self.http, true))),
+            repo if repo == ITERM2.repo => Some((Source::ITerm2, iterm2::releases(&self.http))),
+            repo if repo == ITSYCAL.repo => Some((Source::Itsycal, itsycal::releases(&self.http, true))),
+            repo if repo == SIGNAL_DESKTOP.repo => Some((Source::Signal, signal::releases(&self.http))),
+            repo if repo == FIREFOX.repo => Some((Source::Mozilla, firefox::releases(&self.http, true))),
+            repo if repo == ELEMENT.repo => Some((Source::Element, element::releases(&self.http, true))),
+            repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
+            _ => None,
+        };
+        if let Some((source, releases)) = publisher {
+            return match releases {
+                Ok(releases) => {
+                    let release = releases.into_iter().next();
+                    self.store(&query.repo, Entry { etag: None, release: release.clone(), prereleases: false, fetched_at: crate::now() });
+                    Answer { latest: release.map_or(LatestRelease::None, LatestRelease::Found), source }
+                }
+                Err(why) => Answer { latest: self.cached(query, false).unwrap_or(LatestRelease::Failed(why)), source: Source::Cache },
+            };
+        }
         with_former(query, |q| self.latest_in(q, prereleases), |a| a.latest == LatestRelease::None)
     }
 
     fn cached(&self, query: &ReleaseQuery, prereleases: bool) -> Option<LatestRelease> {
+        if query.repo == ZOTERO.repo {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if saved.html_url == release::ZOTERO_CHANGELOG && !saved.prerelease => saved
+                    .version
+                    .filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)
+                    .map(release::zotero_release)
+                    .map(LatestRelease::Found),
+                _ => None,
+            };
+        }
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
+        }
+        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, ITSYCAL.repo, SIGNAL_DESKTOP.repo, FIREFOX.repo, ELEMENT.repo]
+            .contains(&query.repo.as_str())
+        {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if !saved.prerelease => {
+                    let mut release = if query.repo == KRITA.repo {
+                        release::krita_mac_release(&saved.tag)?
+                    } else if query.repo == VLC.repo {
+                        release::vlc_mac_release(&saved.tag)?
+                    } else if query.repo == INKSCAPE.repo {
+                        release::inkscape_mac_release(&saved.tag)?
+                    } else if query.repo == ITERM2.repo {
+                        release::iterm2_mac_release(&saved.tag)?
+                    } else if query.repo == ITSYCAL.repo {
+                        release::itsycal_mac_release(&saved.tag)?
+                    } else if query.repo == SIGNAL_DESKTOP.repo {
+                        release::signal_mac_release(&saved.tag)?
+                    } else if query.repo == FIREFOX.repo {
+                        release::firefox_mac_release(&saved.tag)?
+                    } else if query.repo == ELEMENT.repo {
+                        release::element_mac_release(&saved.tag)?
+                    } else {
+                        release::kdenlive_mac_release(&saved.tag)?
+                    };
+                    release.assets.retain(|asset| saved.assets.contains(asset));
+                    (saved.html_url == release.html_url && saved.version == release.version).then_some(LatestRelease::Found(release))
+                }
+                _ => None,
+            };
+        }
+        if [BLENDER.repo, GIMP.repo].contains(&query.repo.as_str()) {
+            return match self.cached_in(query, false) {
+                Some(LatestRelease::Found(saved)) if !saved.prerelease => {
+                    let version =
+                        saved.version.filter(|version| version.pre.is_empty() && version.build.is_empty() && version.to_string() == saved.tag)?;
+                    let mut release = if query.repo == BLENDER.repo { release::blender_release(version) } else { release::gimp_release(version) };
+                    release.assets.retain(|asset| saved.assets.contains(asset));
+                    (saved.html_url == release.html_url).then_some(LatestRelease::Found(release))
+                }
+                _ => None,
+            };
         }
         with_former(query, |q| self.cached_in(q, prereleases), |c| matches!(c, None | Some(LatestRelease::None)))
     }
@@ -653,7 +821,26 @@ impl ReleaseSource for GitHubSource {
         if repo == OPENCODE.repo {
             return self.opencode_desktop_manifest().ok().map(|release| release.tag);
         }
-        if repo == LIBREOFFICE.repo {
+        if repo == NETNEWSWIRE.repo {
+            return self.latest_netnewswire().ok().map(|release| release.tag);
+        }
+        if [
+            LIBREOFFICE.repo,
+            ZOTERO.repo,
+            BLENDER.repo,
+            GIMP.repo,
+            KRITA.repo,
+            VLC.repo,
+            INKSCAPE.repo,
+            KDENLIVE.repo,
+            ITERM2.repo,
+            ITSYCAL.repo,
+            SIGNAL_DESKTOP.repo,
+            FIREFOX.repo,
+            ELEMENT.repo,
+        ]
+        .contains(&repo)
+        {
             return None;
         }
         match self.http.redirect_target(&latest_page(repo)) {

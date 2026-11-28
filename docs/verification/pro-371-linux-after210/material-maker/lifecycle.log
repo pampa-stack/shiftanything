@@ -1,0 +1,76 @@
+2026-11-28T02:41:39+00:00 material-maker AVAILABLE 24140181504
+material-maker before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+material-maker JobFinished: Ok("Flathub app installed")
+material-maker after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:42:03+00:00 material-maker current-install c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933
+/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933/export/share/applications/io.github.RodZill4.Material-Maker.desktop
+/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933/export/share/icons/hicolor/256x256/apps/io.github.RodZill4.Material-Maker.png
+Updating app/io.github.RodZill4.Material-Maker/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:42:05+00:00 material-maker previous f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945
+material-maker before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: false, can_open: true }
+material-maker JobFinished: Err("Approved action rejected: native installation state changed")
+material-maker JobFinished: Err("This Flatpak is managed outside the launcher")
+material-maker after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=10439 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=10452 comm="flatpak run --user --command=sh app/io.github.RodZ" label="flatpak (unconfined)")
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=10452 comm="flatpak run --user --command=sh app/io.github.RodZ" label="flatpak (unconfined)")
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=10478 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+material-maker before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=10577 comm="xdg-dbus-proxy --args=36" label="flatpak (unconfined)")
+dbus-daemon[8878]: [session uid=1000 pid=8878] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=10599 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:10605): dbind-WARNING **: 02:42:06.502: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:10599): xdg-desktop-portal-WARNING **: 02:42:06.519: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10599): xdg-desktop-portal-WARNING **: 02:42:06.519: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:10599): xdg-desktop-portal-WARNING **: 02:42:06.519: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00478.890326] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00478.890372] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:10599): xdg-desktop-portal-WARNING **: 02:42:06.524: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[8878]: [session uid=1000 pid=8878] Successfully activated service 'org.freedesktop.portal.Desktop'
+
+(xdg-desktop-portal-gtk:10605): xdg-desktop-portal-gtk-WARNING **: 02:42:06.529: Backend call failed: Cannot invoke method; proxy is for the well-known name org.freedesktop.ScreenSaver without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+material-maker JobFinished: Ok("Launch request accepted")
+material-maker after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.RodZill4.Material-Maker
+2026-11-28T02:42:22+00:00 material-maker previous GUI WM_NAME(STRING) = "Material Maker v1.8"
+WM_CLASS(STRING) = "Godot_Engine", "Material Maker"
+2026-11-28T02:42:22+00:00 material-maker AVAILABLE 21743525888
+material-maker before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/f6765192f15304c77720a2a8b8efc68515d2c61d6d15fb0f8990da0d651fb945", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: true, can_remove: true, can_open: true }
+material-maker JobFinished: Ok("Flathub app updated")
+material-maker after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:42:24+00:00 material-maker current c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933
+/home/qa/profiles/material-maker-after210/.var/app/io.github.RodZill4.Material-Maker/fixture.txt: OK
+material-maker before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: true, can_open: true }
+
+(xdg-desktop-portal-gtk:10605): xdg-desktop-portal-gtk-WARNING **: 02:42:24.721: Backend call failed: Cannot invoke method; proxy is for the well-known name org.freedesktop.ScreenSaver without an owner, and proxy was constructed with the G_DBUS_PROXY_FLAGS_DO_NOT_AUTO_START flag
+material-maker JobFinished: Ok("Launch request accepted")
+material-maker after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.RodZill4.Material-Maker
+2026-11-28T02:42:40+00:00 material-maker current GUI WM_NAME(STRING) = "Material Maker v1.8"
+WM_CLASS(STRING) = "Godot_Engine", "Material Maker"
+material-maker before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 8, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/material-maker-after210/data/flatpak/app/io.github.RodZill4.Material-Maker/x86_64/stable/c060d943b83c7312f83e2e681be71fbba050de6fb7aa2b6694c88b86cb9f5933", package: Some("io.github.RodZill4.Material-Maker"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.8"), update_available: false, can_remove: true, can_open: true }
+material-maker JobFinished: Ok("Flathub app removed")
+material-maker after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/material-maker-after210/.var/app/io.github.RodZill4.Material-Maker/fixture.txt: OK
+2026-11-28T02:42:41+00:00 material-maker PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:42:42+00:00 material-maker EXIT 0 remove
+
+(xfconfd:10464): xfconfd-WARNING **: 02:42:42.365: Name org.xfce.Xfconf lost on the message dbus, exiting.

@@ -1,0 +1,30 @@
+2026-11-28T11:01:07+0100
+/dev/disk3s5   239362496 173407408  24827516    88% 3238753 248275160    1%   /System/Volumes/Data
+ARTIFACT b76af25384f8aaa0ba322f8b5523aea712d9750d9f3e79cac55dc783796439cd 168847627 https://github.com/logseq/logseq/releases/download/2.0.1/Logseq-darwin-arm64-2.0.1.dmg
+BUNDLE=Logseq.app
+CFBundleIdentifier=com.logseq.logseq
+CFBundleShortVersionString=2.0.1
+CFBundleVersion=2.0.1
+CFBundleExecutable=Logseq
+LSMinimumSystemVersion=12.0
+/private/tmp/shift-air-overnight.logseq-openra.7I3vdaW1/preflight/logseq/2.0.1/mount/Logseq.app/Contents/MacOS/Logseq: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.logseq-openra.7I3vdaW1/preflight/logseq/2.0.1/mount/Logseq.app/Contents/MacOS/Logseq (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 12.0
+      sdk 26.2
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=com.logseq.logseq
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Logseq Inc. (K378MFWK59)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=13 Jul 2026 at 08:27:07
+TeamIdentifier=K378MFWK59
+/private/tmp/shift-air-overnight.logseq-openra.7I3vdaW1/preflight/logseq/2.0.1/mount/Logseq.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT logseq-db 2.0.1

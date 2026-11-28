@@ -1,0 +1,20 @@
+
+Sigil - Multi-platform EPUB ebook editor
+
+          ID: com.sigil_ebook.Sigil
+         Ref: app/com.sigil_ebook.Sigil/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 2.8.6
+     License: GPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 729.9 MB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: dde4421d419856c0767f8b215eb3cf731ac68231d09498fca3106666cb6183a3
+      Parent: 3ab07f3f1adc45a25f24a468db96484c68dbdf23f5aebadb7ff449f712058c07
+     Subject: Merge pull request #78 from flathub/update-version (460fb6bc0b09)
+        Date: 2026-11-16 14:50:01 +0000

@@ -1,0 +1,18 @@
+PASS PREFLIGHT freeplane release-1.13.3
+PASS PREFLIGHT freeplane release-1.13.5
+/dev/disk3s5   239362496 181703376  16531672    92% 3341013 165316720    2%   /System/Volumes/Data
+OFFICIAL INDEX freeplane release-1.13.3 digest=published
+OFFICIAL INDEX freeplane release-1.13.5 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL release-1.13.3 Dmg https://github.com/freeplane/freeplane/releases/download/release-1.13.3/Freeplane-1.13.3-apple.dmg 144017558 f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347
+PASS OFFICIAL release-1.13.5 Dmg https://github.com/freeplane/freeplane/releases/download/release-1.13.5/Freeplane-1.13.5-apple.dmg 147343258 14e0badf46ac98aa3919503700772c66c02b59c0bba4711c370d149838d6acfb
+NATIVE ORIGIN freeplane GitHub
+PASS OFFICIAL release-1.13.3 Dmg https://github.com/freeplane/freeplane/releases/download/release-1.13.3/Freeplane-1.13.3-apple.dmg 144017558 f6c8639cbe91ca431c84b44eb64ab0b3f984454ec0203e1132e49586265a2347
+PASS NATIVE freeplane install: Freeplane installed: 1.13.3; package_bytes=144017558; elapsed=38.957s
+NATIVE ORIGIN freeplane GitHub
+PASS OFFICIAL release-1.13.5 Dmg https://github.com/freeplane/freeplane/releases/download/release-1.13.5/Freeplane-1.13.5-apple.dmg 147343258 14e0badf46ac98aa3919503700772c66c02b59c0bba4711c370d149838d6acfb
+PASS NATIVE freeplane update: Freeplane updated to 1.13.5; package_bytes=147343258; elapsed=32.141s
+PASS NATIVE freeplane remove: Freeplane was removed; package_bytes=0; elapsed=0.193s
+PASS NATIVE CYCLE freeplane (release-1.13.3 → release-1.13.5), private Trash and synthetic data preserved

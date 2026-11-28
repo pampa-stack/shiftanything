@@ -463,6 +463,57 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, url, max)
     }
 
+    pub(crate) fn get_blender_index(&self, series: Option<(u64, u64)>) -> Result<Option<Vec<u8>>, String> {
+        let base = artcraft_launcher_core::release::BLENDER_DMG_URL;
+        let url = series.map_or_else(|| base.to_string(), |(major, minor)| format!("{base}Blender{major}.{minor}/"));
+        Self::get_bytes_with(&self.no_redirect, &url, 256 * 1024)
+    }
+
+    pub(crate) fn get_gimp_index(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::GIMP_INDEX_URL, 256 * 1024)
+    }
+
+    pub(crate) fn get_krita_downloads(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::KRITA_DOWNLOADS_URL, 128 * 1024)
+    }
+
+    pub(crate) fn get_vlc_stable_index(&self) -> Result<Option<Vec<u8>>, String> {
+        let url = format!("{}last/macosx/", artcraft_launcher_core::release::VLC_DMG_URL);
+        Self::get_bytes_with(&self.no_redirect, &url, 128 * 1024)
+    }
+
+    pub(crate) fn get_iterm2_appcast(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::ITERM2_APPCAST_URL, 32 * 1024)
+    }
+
+    pub(crate) fn get_itsycal_appcast(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::ITSYCAL_APPCAST_URL, 32 * 1024)
+    }
+
+    pub(crate) fn get_signal_mac_feed(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::SIGNAL_MAC_FEED, 32 * 1024)
+    }
+
+    pub(crate) fn get_element_index(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::ELEMENT_RELEASES_URL, 256 * 1024)
+    }
+
+    pub(crate) fn get_firefox_versions(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::FIREFOX_VERSIONS_URL, 32 * 1024)
+    }
+
+    pub(crate) fn get_firefox_sums(&self, tag: &str) -> Result<Option<Vec<u8>>, String> {
+        if !artcraft_launcher_core::release::valid_tag(tag) {
+            return Err("Invalid Firefox version".into());
+        }
+        let url = format!("{}{tag}/SHA256SUMS", artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL);
+        Self::get_bytes_with(&self.no_redirect, &url, 1024 * 1024)
+    }
+
+    pub(crate) fn get_kdenlive_releases(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::KDENLIVE_RELEASES_URL, 256 * 1024)
+    }
+
     fn get_bytes_with(agent: &ureq::Agent, url: &str, max: usize) -> Result<Option<Vec<u8>>, String> {
         let mut resp = agent.get(url).call().map_err(|e| format!("{UNREACHABLE} {} ({e})", host(url)))?;
         match resp.status().as_u16() {
@@ -606,9 +657,34 @@ impl Http {
         let agent = if is_loopback(url) { &self.direct_download } else { &self.download };
         let (physical, agent) = self.request(url, agent).map_err(AttemptError::Fatal)?;
         let mut req = agent.get(physical.as_ref()).header("Accept-Encoding", "identity");
-        if url.starts_with(artcraft_launcher_core::release::CALIBRE_DMG_URL) {
+        if [
+            artcraft_launcher_core::release::CALIBRE_DMG_URL,
+            artcraft_launcher_core::release::OPENTTD_DMG_URL,
+            artcraft_launcher_core::release::ZOTERO_DMG_URL,
+            artcraft_launcher_core::release::BLENDER_DMG_URL,
+            artcraft_launcher_core::release::VLC_DMG_URL,
+            artcraft_launcher_core::release::INKSCAPE_DMG_URL,
+            artcraft_launcher_core::release::KDENLIVE_DMG_URL,
+            artcraft_launcher_core::release::ITERM2_ZIP_URL,
+            artcraft_launcher_core::release::ITSYCAL_ZIP_URL,
+            artcraft_launcher_core::release::SIGNAL_DMG_URL,
+            artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL,
+            artcraft_launcher_core::release::ELEMENT_DMG_URL,
+            artcraft_launcher_core::release::AIONUI_DMG_URL,
+            artcraft_launcher_core::release::SCUMMVM_DMG_URL,
+        ]
+        .iter()
+        .any(|prefix| url.starts_with(prefix))
+        {
             req = req.config().https_only(true).max_redirects(0).build();
-        } else if url.starts_with(artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL) {
+        } else if [
+            artcraft_launcher_core::release::LIBREOFFICE_STABLE_URL,
+            artcraft_launcher_core::release::GIMP_DMG_URL,
+            artcraft_launcher_core::release::KRITA_DMG_URL,
+        ]
+        .iter()
+        .any(|prefix| url.starts_with(prefix))
+        {
             req = req.config().https_only(true).build();
         }
         if have > 0 {

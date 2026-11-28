@@ -1,0 +1,15 @@
+ARTIFACT aef909572cb008174e758fbc36998823363e44d9eaffa974b156d4284c549ce7 72186942 https://github.com/Orama-Interactive/Pixelorama/releases/download/v1.2.4/Pixelorama-Mac.dmg
+PUBLISHED SHA256 MATCH
+APP_COUNT 1
+CFBundleIdentifier com.orama-interactive.pixelorama
+CFBundleShortVersionString 1.2.4
+CFBundleExecutable Pixelorama
+LSMinimumSystemVersion unset
+x86_64 arm64
+Identifier=com.orama-interactive.pixelorama
+Signature=adhoc
+TeamIdentifier=not set
+CODESIGN PASS
+<read-only-mount>/Pixelorama.app: rejected
+GATEKEEPER FAIL
+"disk16" ejected.

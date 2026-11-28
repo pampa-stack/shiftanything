@@ -1,0 +1,20 @@
+
+KBackup - Create backups as .tar files to a local folder or remote URL
+
+          ID: org.kde.kbackup
+         Ref: app/org.kde.kbackup/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 26.08.3
+     License: GPL-2.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 947.7 kB
+     Runtime: org.kde.Platform/x86_64/6.11
+         Sdk: org.kde.Sdk/x86_64/6.11
+
+      Commit: 390144909347dd1391ed567d291f6f7ac4890671e54efb16905d07486eacd7b1
+      Parent: 7cd7600f0ea32b2fb902b274e6525ce32cc48de8b2ef9352f11b1bde9d3e2c55
+     Subject: Merge pull request #8 from flathub/update-master-4d1bca4 (1bc70a438e0e)
+        Date: 2026-11-17 10:12:43 +0000

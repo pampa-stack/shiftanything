@@ -1,0 +1,5 @@
+RawTherapee 5.12
+Window 6291463
+  Position: 0,48 (screen: 0)
+  Geometry: 1280x876
+WM_CLASS(STRING) = "AppRun.wrapped", "AppRun.wrapped"

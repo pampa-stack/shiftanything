@@ -1,0 +1,7 @@
+# Hidden Bar on Mac Apple Silicon
+
+[Hidden Bar](https://github.com/consolelabs/hidden) is an MIT-licensed menu bar organizer. Both reviewed official ZIPs contain `Hidden Bar.app` (`com.dwarvesv.minimalbar`), signed by Dwarves Foundation Company Limited (`W777S7V8TN`). Both passed published SHA-256, ARM64, strict deep signing, Gatekeeper and notarization checks on a MacBook Air with macOS 26.6.2. They report minimum macOS 13.0. [1.13.3 receipt](hidden-bar-v1.13.3.log) · [1.13.4 receipt](hidden-bar-v1.13.4.log)
+
+The isolated launcher probe downloaded and installed [1.13.3](https://github.com/consolelabs/hidden/releases/tag/v1.13.3), downloaded and applied [1.13.4](https://github.com/consolelabs/hidden/releases/tag/v1.13.4), then moved the updated bundle to the temporary profile's Trash. It preserved the synthetic user-data marker. The ZIP extraction skips well-formed AppleDouble metadata mirrored under the exact bundle path and keeps the signed Sparkle framework layout. Release-list metadata came from the official expanded assets. App launch and interaction with the menu bar require a GUI session and were outside this SSH background test. [Native cycle log](hidden-bar-native.log)
+
+To repeat on Apple Silicon, use the [isolated native probe](../pro-371-macos-overnight/README.md) with the two expanded asset pages and preflight logs. Then run `bash run-native.sh hidden-bar consolelabs/hidden 'Hidden Bar' v1.13.3 v1.13.4`.

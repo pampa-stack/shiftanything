@@ -1,0 +1,29 @@
+DMG UltiMaker-Cura-5.14.0-macos-ARM64.dmg
+BYTES 189533112
+b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21  UltiMaker-Cura-5.14.0-macos-ARM64.dmg
+verificato   CRC32 $50DD52CD
+CFBundleIdentifier nl.ultimaker.cura_UltiMaker_Cura
+CFBundleShortVersionString 5.14.0
+CFBundleExecutable UltiMaker-Cura
+arm64
+<verified-read-only-mount>/UltiMaker Cura.app/Contents/MacOS/UltiMaker-Cura (architecture arm64):
+Load command 10
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 11.0
+      sdk 13.1
+   ntools 1
+     tool LD
+  version 820.1
+Identifier=nl.ultimaker.cura_UltiMaker_Cura
+Authority=Developer ID Application: Ultimaker B.V. (V4B3JXRRQS)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=V4B3JXRRQS
+CODESIGN PASS
+<verified-read-only-mount>/UltiMaker Cura.app: accepted
+source=Notarized Developer ID
+GATEKEEPER PASS
+ARTIFACT b517488218c134ef36a7845540dd0778205ffedb24f83f0ee41f67423ffcbf21 189533112 https://github.com/Ultimaker/Cura/releases/download/5.14.0/UltiMaker-Cura-5.14.0-macos-ARM64.dmg
+PASS PREFLIGHT ultimaker-cura 5.14.0

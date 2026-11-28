@@ -65,6 +65,23 @@ fn finder_launch(args: &[OsString]) -> bool {
     cfg!(target_os = "macos") && args.len() == 1 && args[0].as_encoded_bytes().starts_with(b"-psn_")
 }
 
+pub(crate) fn relaunch(executable: &Path) -> io::Result<()> {
+    use std::process::{Command, Stdio};
+
+    let args: Vec<_> = std::env::args_os().skip(1).collect();
+    let mut command = Command::new(executable);
+    if !finder_launch(&args) {
+        command.args(args);
+    }
+    #[cfg(unix)]
+    {
+        use std::os::unix::process::CommandExt;
+        command.process_group(0);
+    }
+    command.stdin(Stdio::null()).stdout(Stdio::null()).stderr(Stdio::null()).spawn()?;
+    Ok(())
+}
+
 fn desktop() -> Result<Option<Launch>, StartupError> {
     let root = artcraft_launcher_native::paths::Paths::new()?.data.join("desktop");
     fs::create_dir_all(root.parent().ok_or("Missing launcher data folder")?)?;

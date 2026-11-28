@@ -1,0 +1,20 @@
+
+JASP - Classical and Bayesian Statistics
+
+          ID: org.jaspstats.JASP
+         Ref: app/org.jaspstats.JASP/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 0.98.1
+     License: AGPL-3.0+
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 3.2 GB
+     Runtime: org.kde.Platform/x86_64/6.10
+         Sdk: org.kde.Sdk/x86_64/6.10
+
+      Commit: 0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d
+      Parent: 96f081085c841d2429ca2616cfffe2ce198f07fcef4b4325cb4d839860a6f2d0
+     Subject: 0.98.1 (#193) (8937bf00c782)
+        Date: 2026-07-07 14:00:46 +0000

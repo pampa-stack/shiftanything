@@ -1,8 +1,11 @@
 //! Local desktop launcher with approved native lifecycle operations.
+#![cfg_attr(all(target_os = "windows", not(debug_assertions)), windows_subsystem = "windows")]
 #![deny(clippy::unwrap_used, clippy::expect_used, clippy::panic)]
+mod app_restart;
 mod catalog_links;
 mod discovery;
 mod favorites;
+mod github_stats;
 mod launcher_update;
 mod media;
 mod session;
@@ -15,7 +18,7 @@ use artcraft_launcher_core::mcp_config::{McpConfigFormat, catalog_config};
 use serde::{Deserialize, Serialize};
 use session::NativeState;
 use std::sync::Mutex;
-use tauri::{WebviewUrl, WebviewWindowBuilder};
+use tauri::{Manager, WebviewUrl, WebviewWindowBuilder};
 
 #[derive(Deserialize)]
 #[serde(rename_all = "lowercase")]
@@ -26,6 +29,8 @@ enum SocialLink {
     Reddit,
     X,
     Discord,
+    Github,
+    Releases,
 }
 impl SocialLink {
     fn url(&self) -> &'static str {
@@ -36,6 +41,8 @@ impl SocialLink {
             Self::Reddit => "https://www.reddit.com/user/Comfortable_Ice_4281/",
             Self::X => "https://x.com/Pampaeyes",
             Self::Discord => "https://discord.gg/Xrg2kksz2m",
+            Self::Github => "https://github.com/pampa-stack/shiftanything",
+            Self::Releases => "https://github.com/pampa-stack/shiftanything/releases",
         }
     }
 }
@@ -127,13 +134,19 @@ fn request_native_action(operation: Operation, apps: Vec<String>, state: tauri::
     state.lock().map_err(|e| e.to_string())?.request(operation, apps)
 }
 #[tauri::command]
-fn decide_native_action(
-    request_id: String,
-    approve: bool,
-    open_after_install: Option<bool>,
-    state: tauri::State<'_, Mutex<NativeState>>,
-) -> Result<(), String> {
-    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve, open_after_install.unwrap_or(false))
+async fn decide_native_action(request_id: String, approve: bool, open_after_install: Option<bool>, app: tauri::AppHandle) -> Result<(), String> {
+    let state = app.state::<Mutex<NativeState>>();
+    let bundles = state.lock().map_err(|e| e.to_string())?.begin_decision(&request_id, approve)?;
+    let quit_results = if bundles.is_empty() {
+        Default::default()
+    } else {
+        let ids: Vec<_> = bundles.keys().cloned().collect();
+        match tauri::async_runtime::spawn_blocking(move || app_restart::quit_for_update(&bundles)).await {
+            Ok(results) => results,
+            Err(error) => ids.into_iter().map(|id| (id, Err(error.to_string()))).collect(),
+        }
+    };
+    state.lock().map_err(|e| e.to_string())?.decide(&request_id, approve, open_after_install.unwrap_or(false), quit_results)
 }
 #[tauri::command]
 fn check_native_updates(state: tauri::State<'_, Mutex<NativeState>>) -> Result<(), String> {
@@ -212,11 +225,14 @@ fn local_navigation(url: &tauri::Url) -> bool {
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let Some(launch) = startup::start(std::env::args_os().skip(1).collect())? else { return Ok(()) };
+    // Package replacement can invalidate current_exe() on the old process.
+    let executable = std::env::current_exe();
     let isolated = launch.isolated;
     let capture_window = launch.capture_window;
     let lifecycle = launch.lifecycle;
     let state = NativeState::new(launch.root.clone(), lifecycle, isolated)?;
     let catalog_media = media::Media::new(state.catalog_media());
+    let project_stats = github_stats::Store::new(&launch.root);
     println!("DESKTOP_PID={}", std::process::id());
     let page = format!("{}.html", launch.language);
     let webview_directory = launch.root.join("webview");
@@ -225,14 +241,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let builder = tauri::Builder::default();
     #[cfg(target_os = "macos")]
     let builder = builder.activate_ignoring_other_apps(false);
-    builder
+    let exit_code = builder
         .manage(Mutex::new(state))
         .manage(catalog_media)
+        .manage(project_stats)
         .manage(launcher_updater)
         .invoke_handler(tauri::generate_handler![
             catalog_snapshot,
             media::fetch_catalog_media,
             discovery_data,
+            github_stats::project_stats,
             open_social_link,
             open_catalog_link,
             native_snapshot,
@@ -245,6 +263,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             launcher_update::launcher_update_state,
             launcher_update::launcher_update_check,
             launcher_update::launcher_update_install,
+            launcher_update::launcher_update_restart,
             mcp_configuration,
             mcp_connection,
             open_mcp_docs,
@@ -270,7 +289,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             println!("Local-only window created; native lifecycle enabled: {lifecycle}");
             Ok(())
         })
-        .run(context)?;
+        .build(context)?
+        .run_return(|_, _| {});
+    if exit_code == launcher_update::RESTART_EXIT_CODE {
+        // The new process must be able to acquire the same desktop instance lock.
+        drop(launch);
+        startup::relaunch(&executable?)?;
+    } else if exit_code != 0 {
+        std::process::exit(exit_code);
+    }
     Ok(())
 }
 #[cfg(test)]

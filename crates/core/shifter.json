@@ -1,8 +1,7 @@
 {
   "schema_version": 1,
-  "checked_on": "2026-11-27",
+  "checked_on": "2026-11-28",
   "suggested_software": [
-    "1Password",
     "Adobe After Effects",
     "Adobe Audition",
     "Adobe InDesign",
@@ -2455,6 +2454,75 @@
           }
         },
         {
+          "app_id": "openpencil",
+          "evidence": {
+            "canvas": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Editor per livelli, forme vettoriali e testo.",
+                "en": "Editor for layers, vector shapes and text."
+              }
+            },
+            "auto_layout": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Layout automatico e vincoli modificabili nel pannello di design.",
+                "en": "Editable auto layout and constraints in the design panel."
+              }
+            },
+            "components": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Componenti riutilizzabili con istanze, slot e varianti.",
+                "en": "Reusable components with instances, slots and variants."
+              }
+            },
+            "tokens": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Token di design organizzati in collezioni con più modalità.",
+                "en": "Design tokens in collections with multiple modes."
+              }
+            },
+            "prototypes": {
+              "state": "partial",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "L’anteprima documenta controlli e stati interattivi dei componenti.",
+                "en": "The preview documents interactive controls and component states."
+              }
+            },
+            "collaboration": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Modifica in tempo reale peer-to-peer con link, cursori e commenti.",
+                "en": "Peer-to-peer live editing with share links, cursors and comments."
+              }
+            },
+            "handoff": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Esporta componenti Vue, React e Storybook e codice HTML o Tailwind.",
+                "en": "Exports Vue, React and Storybook components and HTML or Tailwind code."
+              }
+            },
+            "migration": {
+              "state": "supported",
+              "source": "https://openpencil.dev/",
+              "note": {
+                "it": "Apre e salva file .fig con livelli, componenti, variabili e layout modificabili.",
+                "en": "Opens and saves .fig files with editable layers, components, variables and layout."
+              }
+            }
+          }
+        },
+        {
           "app_id": "penpot",
           "evidence": {
             "canvas": {
@@ -2858,6 +2926,1610 @@
               "note": {
                 "it": "Rilegge un file locale personalizzato; la documentazione non indica una sorgente URL per quel file.",
                 "en": "Reloads a custom local file. The documentation lists no URL source for that file."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "1password",
+      "name": "1Password",
+      "aliases": [
+        "1 Password",
+        "OnePassword",
+        "One Password"
+      ],
+      "features": [
+        {
+          "id": "vault",
+          "name": {
+            "it": "Archivio cifrato delle credenziali",
+            "en": "Encrypted credential vault"
+          },
+          "source": "https://1password.com/features"
+        },
+        {
+          "id": "autofill",
+          "name": {
+            "it": "Compilazione automatica nel browser",
+            "en": "Browser autofill"
+          },
+          "source": "https://support.1password.com/save-fill-passwords/"
+        },
+        {
+          "id": "passkeys",
+          "name": {
+            "it": "Salvare e usare passkey nel browser",
+            "en": "Save and use passkeys in the browser"
+          },
+          "source": "https://support.1password.com/save-use-passkeys/"
+        },
+        {
+          "id": "shared-vault",
+          "name": {
+            "it": "Archivi condivisi per famiglie o team",
+            "en": "Shared vaults for families or teams"
+          },
+          "source": "https://support.1password.com/create-share-vaults/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "vaultwarden",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://github.com/dani-garcia/vaultwarden/wiki#supported-features",
+              "note": {
+                "it": "Archivio personale cifrato, con interfaccia web sul proprio server.",
+                "en": "Encrypted personal vault with a web interface on your own server."
+              }
+            },
+            "autofill": {
+              "state": "supported",
+              "source": "https://bitwarden.com/help/auto-fill-browser/",
+              "note": {
+                "it": "Richiede l’estensione Bitwarden collegata al proprio server Vaultwarden.",
+                "en": "Requires the Bitwarden browser extension connected to your Vaultwarden server."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://bitwarden.com/help/storing-passkeys/",
+              "note": {
+                "it": "Le estensioni Bitwarden compatibili salvano e usano le passkey.",
+                "en": "Compatible Bitwarden extensions save and use passkeys."
+              }
+            },
+            "shared-vault": {
+              "state": "supported",
+              "source": "https://github.com/dani-garcia/vaultwarden/wiki#supported-features",
+              "note": {
+                "it": "Organizzazioni e raccolte condivise con controllo degli accessi.",
+                "en": "Organizations and shared collections with access controls."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "keepassxc",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide",
+              "note": {
+                "it": "Archivio KeePass cifrato salvato come file locale.",
+                "en": "Encrypted KeePass vault stored as a local file."
+              }
+            },
+            "autofill": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_browser_integration",
+              "note": {
+                "it": "L’estensione KeePassXC-Browser compila i login dal database aperto.",
+                "en": "KeePassXC-Browser fills logins from the open database."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_passkeys",
+              "note": {
+                "it": "Richiede KeePassXC-Browser e un database collegato.",
+                "en": "Requires KeePassXC-Browser and a connected database."
+              }
+            },
+            "shared-vault": {
+              "state": "partial",
+              "source": "https://keepassxc.org/docs/KeePassXC_UserGuide#_database_sharing_with_keeshare",
+              "note": {
+                "it": "KeeShare condivide gruppi tramite file. La sincronizzazione va configurata a parte.",
+                "en": "KeeShare shares groups through files. Sync must be set up separately."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "secrets",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://apps.gnome.org/Secrets/",
+              "note": {
+                "it": "Archivio KeePass cifrato con interfaccia desktop GNOME.",
+                "en": "Encrypted KeePass vault with a GNOME desktop interface."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "aliasvault",
+          "evidence": {
+            "vault": {
+              "state": "supported",
+              "source": "https://docs.aliasvault.com/",
+              "note": {
+                "it": "L’archivio viene cifrato sul dispositivo prima di inviarlo al server.",
+                "en": "The vault is encrypted on the device before it reaches the server."
+              }
+            },
+            "passkeys": {
+              "state": "supported",
+              "source": "https://docs.aliasvault.com/",
+              "note": {
+                "it": "L’autenticatore WebAuthn salva le passkey nell’archivio cifrato.",
+                "en": "The WebAuthn authenticator saves passkeys in the encrypted vault."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bartender",
+      "name": "Bartender",
+      "aliases": [
+        "Bartender 7",
+        "Bartender for Mac"
+      ],
+      "features": [
+        {
+          "id": "hide",
+          "name": {
+            "it": "Nascondere e mostrare icone",
+            "en": "Hide and reveal icons"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "search",
+          "name": {
+            "it": "Cercare nella barra dei menu",
+            "en": "Search menu bar items"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "shortcuts",
+          "name": {
+            "it": "Scorciatoie per mostrare le icone",
+            "en": "Keyboard shortcuts to reveal icons"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        },
+        {
+          "id": "profiles",
+          "name": {
+            "it": "Profili attivati da eventi",
+            "en": "Event-triggered layout profiles"
+          },
+          "source": "https://www.macbartender.com/Bartender7/release_notes/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "ice",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Raggruppa le icone nelle sezioni visibile, nascosta e sempre nascosta.",
+                "en": "Organizes icons into visible, hidden and always-hidden sections."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Pannello di ricerca delle icone della barra.",
+                "en": "Provides a search panel for menu bar items."
+              }
+            },
+            "shortcuts": {
+              "state": "supported",
+              "source": "https://github.com/jordanbaird/Ice#featuresroadmap",
+              "note": {
+                "it": "Scorciatoie per mostrare o richiudere sezioni.",
+                "en": "Keyboard shortcuts toggle sections."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "hidden-bar",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/consolelabs/hidden#readme",
+              "note": {
+                "it": "Espande o richiude le icone dietro un separatore.",
+                "en": "Expands or hides icons behind a separator."
+              }
+            },
+            "shortcuts": {
+              "state": "supported",
+              "source": "https://github.com/consolelabs/hidden#readme",
+              "note": {
+                "it": "Scorciatoia configurabile per mostrare gli elementi nascosti.",
+                "en": "Configurable shortcut to reveal hidden items."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "dozer",
+          "evidence": {
+            "hide": {
+              "state": "supported",
+              "source": "https://github.com/Mortennn/Dozer#readme",
+              "note": {
+                "it": "Nasconde gli elementi a sinistra del separatore.",
+                "en": "Hides items to the left of a separator."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cleanshot",
+      "name": "CleanShot X",
+      "aliases": [
+        "CleanShot",
+        "CleanShotX"
+      ],
+      "features": [
+        {
+          "id": "crop",
+          "name": {
+            "it": "Cattura di un’area dello schermo",
+            "en": "Capture a screen region"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "annotate",
+          "name": {
+            "it": "Aggiunta di frecce, testo e sfocature",
+            "en": "Add arrows, text and blur"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "scroll",
+          "name": {
+            "it": "Cattura con scorrimento",
+            "en": "Scrolling capture"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "ocr",
+          "name": {
+            "it": "Copia del testo da una cattura",
+            "en": "Copy text from a capture"
+          },
+          "source": "https://cleanshot.com/features"
+        },
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrazione MP4 o GIF",
+            "en": "Record to MP4 or GIF"
+          },
+          "source": "https://cleanshot.com/features"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "macshot",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Seleziona la regione o l’intero schermo.",
+                "en": "Select a region or capture the full screen."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Disegna frecce, forme, testo e sfocature.",
+                "en": "Draw arrows, shapes, text and blur."
+              }
+            },
+            "scroll": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Unisce scorrimenti verticali o orizzontali.",
+                "en": "Stitches vertical and horizontal scrolling captures."
+              }
+            },
+            "ocr": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Riconosce il testo della schermata con OCR.",
+                "en": "Recognizes text from a screenshot with OCR."
+              }
+            },
+            "record": {
+              "state": "supported",
+              "source": "https://github.com/sw33tLie/macshot#readme",
+              "note": {
+                "it": "Registra un’area o tutto lo schermo in MP4 o GIF.",
+                "en": "Record an area or the full screen to MP4 or GIF."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "flameshot",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://flameshot.org/",
+              "note": {
+                "it": "Permette di selezionare la regione da catturare.",
+                "en": "Select a region to capture."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://flameshot.org/",
+              "note": {
+                "it": "Aggiunge testo, frecce e sfocature alla cattura.",
+                "en": "Add text, arrows and blur to a capture."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "ksnip",
+          "evidence": {
+            "crop": {
+              "state": "supported",
+              "source": "https://github.com/ksnip/ksnip#features",
+              "note": {
+                "it": "Cattura un’area rettangolare dello schermo.",
+                "en": "Capture a rectangular area of the screen."
+              }
+            },
+            "annotate": {
+              "state": "supported",
+              "source": "https://github.com/ksnip/ksnip#features",
+              "note": {
+                "it": "Aggiunge frecce, testo e sfocatura.",
+                "en": "Add arrows, text and blur."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "normcap",
+          "evidence": {
+            "ocr": {
+              "state": "supported",
+              "source": "https://github.com/dynobo/normcap#readme",
+              "note": {
+                "it": "Copia il testo riconosciuto da una regione selezionata.",
+                "en": "Copy recognized text from a selected screen region."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "moom",
+      "name": "Moom",
+      "aliases": [
+        "Moom 4"
+      ],
+      "features": [
+        {
+          "id": "tile",
+          "name": {
+            "it": "Ridimensionare le finestre con scorciatoie",
+            "en": "Resize windows with shortcuts"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        },
+        {
+          "id": "edges",
+          "name": {
+            "it": "Agganciare ai bordi e agli angoli",
+            "en": "Snap to edges and corners"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        },
+        {
+          "id": "layouts",
+          "name": {
+            "it": "Salvare e riaprire layout di più app",
+            "en": "Save and recall multi-app layouts"
+          },
+          "source": "https://manytricks.com/moom/help/index.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rectangle",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "Ridimensiona le finestre con scorciatoie frazionarie.",
+                "en": "Resize windows with shortcuts for fractional layouts."
+              }
+            },
+            "edges": {
+              "state": "supported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "Aggancia trascinando fino a un bordo o un angolo.",
+                "en": "Snap by dragging a window to an edge or corner."
+              }
+            },
+            "layouts": {
+              "state": "unsupported",
+              "source": "https://rectangleapp.com/comparison",
+              "note": {
+                "it": "I layout di più app fanno parte di Rectangle Pro.",
+                "en": "Multi-app layouts are a Rectangle Pro feature."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "loop-macos",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://github.com/MrKai77/Loop#readme",
+              "note": {
+                "it": "Ridimensiona le finestre con azioni da scorciatoia.",
+                "en": "Resize windows with keyboard-triggered actions."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "amethyst",
+          "evidence": {
+            "tile": {
+              "state": "supported",
+              "source": "https://github.com/ianyh/Amethyst#readme",
+              "note": {
+                "it": "Distribuisce le finestre nel layout con scorciatoie.",
+                "en": "Arrange windows in layouts using keyboard shortcuts."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "parallels",
+      "name": "Parallels Desktop",
+      "aliases": [
+        "Parallels",
+        "Parallels Desktop for Mac"
+      ],
+      "features": [
+        {
+          "id": "windows",
+          "name": {
+            "it": "Eseguire Windows 11 su Apple Silicon",
+            "en": "Run Windows 11 on Apple Silicon"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "linux",
+          "name": {
+            "it": "Eseguire Linux su Apple Silicon",
+            "en": "Run Linux on Apple Silicon"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "folders",
+          "name": {
+            "it": "Cartelle condivise tra macOS e Windows",
+            "en": "Share folders between macOS and Windows"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        },
+        {
+          "id": "coherence",
+          "name": {
+            "it": "Finestre Windows integrate nella scrivania Mac",
+            "en": "Windows apps on the Mac desktop in Coherence mode"
+          },
+          "source": "https://www.parallels.com/products/desktop/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "utm",
+          "evidence": {
+            "windows": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/windows/",
+              "note": {
+                "it": "Guida ufficiale per avviare Windows 11 ARM in una VM.",
+                "en": "Official guide for running Windows 11 ARM in a VM."
+              }
+            },
+            "folders": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/windows/",
+              "note": {
+                "it": "La guida documenta la condivisione tramite SPICE WebDAV.",
+                "en": "The guide documents folder sharing through SPICE WebDAV."
+              }
+            },
+            "linux": {
+              "state": "supported",
+              "source": "https://docs.getutm.app/guides/ubuntu/",
+              "note": {
+                "it": "Guida Ubuntu con immagine ARM per Apple Silicon.",
+                "en": "Ubuntu guide with an ARM image for Apple Silicon."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "virtualbuddy",
+          "evidence": {
+            "linux": {
+              "state": "supported",
+              "source": "https://github.com/insidegui/VirtualBuddy#features",
+              "note": {
+                "it": "Esegue distribuzioni Linux compatibili come guest su Apple Silicon.",
+                "en": "Runs compatible Linux distributions as guests on Apple Silicon."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "paste",
+      "name": "Paste",
+      "aliases": [
+        "Paste.app",
+        "Paste for Mac",
+        "Paste Clipboard Manager"
+      ],
+      "features": [
+        {
+          "id": "history",
+          "name": {
+            "it": "Cronologia degli appunti",
+            "en": "Clipboard history"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "search",
+          "name": {
+            "it": "Ricerca nella cronologia",
+            "en": "Search clipboard history"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "pin",
+          "name": {
+            "it": "Contenuti fissati e raccolte",
+            "en": "Pinned items and collections"
+          },
+          "source": "https://pasteapp.io/"
+        },
+        {
+          "id": "sync",
+          "name": {
+            "it": "Sincronizzazione Mac, iPhone e iPad",
+            "en": "Sync across Mac, iPhone and iPad"
+          },
+          "source": "https://pasteapp.io/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "maccy",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Conserva gli elementi copiati nel Mac.",
+                "en": "Keeps items copied on the Mac."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Filtra gli appunti digitando nella finestra della cronologia.",
+                "en": "Filter clipboard items by typing in the history window."
+              }
+            },
+            "pin": {
+              "state": "partial",
+              "source": "https://github.com/p0deje/Maccy#usage",
+              "note": {
+                "it": "Si possono fissare elementi singoli in cima alla cronologia.",
+                "en": "Pin individual items at the top of the history list."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "clipy",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://github.com/Clipy/Clipy#readme",
+              "note": {
+                "it": "Mantiene gli appunti recenti accessibili dal menu.",
+                "en": "Keeps recent clipboard items accessible from the menu."
+              }
+            },
+            "pin": {
+              "state": "partial",
+              "source": "https://github.com/Clipy/Clipy#readme",
+              "note": {
+                "it": "Gli snippet riutilizzabili si gestiscono a parte.",
+                "en": "Manage reusable snippets separately."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "copyq",
+          "evidence": {
+            "history": {
+              "state": "supported",
+              "source": "https://copyq.readthedocs.io/en/latest/",
+              "note": {
+                "it": "Registra le modifiche recenti agli appunti.",
+                "en": "Records recent clipboard changes."
+              }
+            },
+            "search": {
+              "state": "supported",
+              "source": "https://copyq.readthedocs.io/en/latest/",
+              "note": {
+                "it": "Permette di cercare e recuperare un elemento.",
+                "en": "Search for and retrieve a previous item."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "power-bi",
+      "name": "Power BI",
+      "aliases": [
+        "Microsoft Power BI",
+        "Power BI Desktop",
+        "PowerBI"
+      ],
+      "features": [
+        {
+          "id": "sql",
+          "name": {
+            "it": "Collegamento a un database SQL",
+            "en": "Connect to a SQL database"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview"
+        },
+        {
+          "id": "visualizations",
+          "name": {
+            "it": "Grafici e indicatori",
+            "en": "Charts and indicators"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        },
+        {
+          "id": "dashboard",
+          "name": {
+            "it": "Dashboard condivisibili",
+            "en": "Shareable dashboards"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/fundamentals/power-bi-overview"
+        },
+        {
+          "id": "filters",
+          "name": {
+            "it": "Filtri interattivi sui grafici",
+            "en": "Interactive chart filters"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        },
+        {
+          "id": "dax",
+          "name": {
+            "it": "Misure DAX",
+            "en": "DAX measures"
+          },
+          "source": "https://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualizations-overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "apache-superset",
+          "evidence": {
+            "sql": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "visualizations": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "dashboard": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            },
+            "filters": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "grafana",
+          "evidence": {
+            "visualizations": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/",
+              "note": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              }
+            },
+            "dashboard": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/",
+              "note": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "visualizations": {
+              "state": "supported",
+              "source": "https://help.libreoffice.org/latest/en-US/text/schart/main0000.html",
+              "note": {
+                "it": "Crea grafici di confronto o andamento a partire da intervalli di un foglio Calc.",
+                "en": "Make comparison or trend charts from Calc cell ranges."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "site24x7",
+      "name": "Site24x7",
+      "aliases": [
+        "Site 24x7",
+        "Site24x7 Website Monitoring"
+      ],
+      "features": [
+        {
+          "id": "uptime",
+          "name": {
+            "it": "Controlli di disponibilità HTTP",
+            "en": "HTTP availability checks"
+          },
+          "source": "https://www.site24x7.com/website-monitoring.html"
+        },
+        {
+          "id": "metrics",
+          "name": {
+            "it": "Metriche e storico dei server",
+            "en": "Server metrics and history"
+          },
+          "source": "https://www.site24x7.com/server-monitoring.html"
+        },
+        {
+          "id": "cron",
+          "name": {
+            "it": "Avvisi per job pianificati assenti",
+            "en": "Missed scheduled job alerts"
+          },
+          "source": "https://www.site24x7.com/cron-monitoring.html"
+        },
+        {
+          "id": "transactions",
+          "name": {
+            "it": "Test sintetici di transazioni web multistep",
+            "en": "Multi-step synthetic web transaction monitoring"
+          },
+          "source": "https://www.site24x7.com/website-monitoring.html"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "uptime",
+          "evidence": {
+            "uptime": {
+              "state": "supported",
+              "source": "https://github.com/louislam/uptime-kuma#features",
+              "note": {
+                "it": "Controlla se i siti e le API rispondono e invia una notifica quando diventano irraggiungibili.",
+                "en": "Check that sites and APIs respond and notify you when they become unreachable."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gatus",
+          "evidence": {
+            "uptime": {
+              "state": "supported",
+              "source": "https://github.com/TwiN/gatus#features",
+              "note": {
+                "it": "Controlla HTTP, DNS e TCP secondo condizioni configurabili e mostra lo stato dei servizi.",
+                "en": "Check HTTP, DNS, and TCP with configurable conditions and display service status."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "beszel",
+          "evidence": {
+            "metrics": {
+              "state": "supported",
+              "source": "https://beszel.dev/",
+              "note": {
+                "it": "Mostra lo storico di CPU, memoria e rete dei server e dei container.",
+                "en": "View historical CPU, memory, and network usage for servers and containers."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "healthchecks",
+          "evidence": {
+            "cron": {
+              "state": "supported",
+              "source": "https://healthchecks.io/docs/monitoring_cron_jobs/",
+              "note": {
+                "it": "Avvisa quando un backup pianificato, uno script o un altro job smette di inviare il segnale atteso.",
+                "en": "Get alerts when a scheduled backup, script, or other job misses its expected check-in."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft-word",
+      "name": "Microsoft Word",
+      "aliases": [
+        "Word",
+        "MS Word",
+        "Word 365"
+      ],
+      "features": [
+        {
+          "id": "docx",
+          "name": {
+            "it": "Aprire e modificare documenti DOCX",
+            "en": "Open and edit DOCX documents"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "track-changes",
+          "name": {
+            "it": "Revisioni con accetta e rifiuta",
+            "en": "Track changes with accept and reject"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "pdf-export",
+          "name": {
+            "it": "Esportare un documento in PDF",
+            "en": "Export a document to PDF"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        },
+        {
+          "id": "table-of-contents",
+          "name": {
+            "it": "Creare un sommario dai titoli",
+            "en": "Build a table of contents from headings"
+          },
+          "source": "https://support.microsoft.com/en-us/word/word-features-comparison-word-for-the-web-vs-desktop"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "docx": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer apre, modifica e salva documenti DOCX.",
+                "en": "Writer opens, edits and saves DOCX documents."
+              }
+            },
+            "track-changes": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer registra le revisioni e permette di accettarle o rifiutarle.",
+                "en": "Writer tracks changes and lets you accept or reject them."
+              }
+            },
+            "pdf-export": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer esporta i documenti in PDF.",
+                "en": "Writer exports documents to PDF."
+              }
+            },
+            "table-of-contents": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS74/GS7402-GettingStartedWithWriter.html",
+              "note": {
+                "it": "Writer può creare un indice a partire dagli stili dei titoli.",
+                "en": "Writer builds a table of contents from heading styles."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "onlyoffice",
+          "evidence": {
+            "docx": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/tools-and-settings/save-print-download",
+              "note": {
+                "it": "Desktop Editors salva i documenti in DOCX.",
+                "en": "Desktop Editors saves documents in DOCX."
+              }
+            },
+            "track-changes": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/collaboration/review",
+              "note": {
+                "it": "Il pannello Revisioni consente di registrare, accettare e rifiutare le modifiche.",
+                "en": "Review tools let you track, accept, and reject changes."
+              }
+            },
+            "pdf-export": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/document-editor/tools-and-settings/save-print-download",
+              "note": {
+                "it": "L’editor può salvare una copia PDF del documento.",
+                "en": "The editor can save a PDF copy of a document."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft-excel",
+      "name": "Microsoft Excel",
+      "aliases": [
+        "Excel",
+        "Excel 365",
+        "Microsoft 365 Excel",
+        "MS Excel"
+      ],
+      "features": [
+        {
+          "id": "xlsx",
+          "name": {
+            "it": "Aprire, modificare e salvare XLSX",
+            "en": "Open, edit and save XLSX"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/change-the-default-file-format-for-saving-workbooks"
+        },
+        {
+          "id": "csv",
+          "name": {
+            "it": "Importare ed esportare CSV",
+            "en": "Import and export CSV"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/import-or-export-text-txt-or-csv-files"
+        },
+        {
+          "id": "pivot",
+          "name": {
+            "it": "Creare tabelle pivot da un intervallo",
+            "en": "Create pivot tables from a cell range"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/create-a-pivottable-to-analyze-worksheet-data"
+        },
+        {
+          "id": "charts",
+          "name": {
+            "it": "Creare grafici a colonne, linee e torta",
+            "en": "Create column, line and pie charts"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/get-started/create-a-chart-from-start-to-finish"
+        },
+        {
+          "id": "vba",
+          "name": {
+            "it": "Eseguire macro VBA esistenti",
+            "en": "Run existing VBA macros"
+          },
+          "source": "https://support.microsoft.com/en-us/excel/edit-a-macro"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "libreoffice",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://help.libreoffice.org/latest/en-US/text/shared/guide/ms_user.html",
+              "note": {
+                "it": "Calc apre, modifica e salva cartelle XLSX.",
+                "en": "Calc opens, edits and saves XLSX workbooks."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS248/GS24803-GettingStartedWithCalc.html",
+              "note": {
+                "it": "Calc importa e salva dati CSV con delimitatori configurabili.",
+                "en": "Calc imports and saves CSV data with configurable separators."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/GS248/GS24803-GettingStartedWithCalc.html",
+              "note": {
+                "it": "Genera una tabella pivot dal foglio e scegli i campi da riepilogare.",
+                "en": "Build a pivot table from the sheet and choose which fields to summarize."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://books.libreoffice.org/en/CG76/CG76-CalcGuide.pdf",
+              "note": {
+                "it": "Calc include grafici a colonne, a linee e a torta.",
+                "en": "Calc includes column, line and pie charts."
+              }
+            },
+            "vba": {
+              "state": "partial",
+              "source": "https://help.libreoffice.org/latest/en-GB/text/sbasic/shared/vbasupport.html",
+              "note": {
+                "it": "Calc esegue una parte delle macro VBA. Alcune richiedono modifiche.",
+                "en": "Calc runs some VBA macros. Others require changes."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "onlyoffice",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx",
+              "note": {
+                "it": "Desktop Editors apre, modifica e salva fogli XLSX.",
+                "en": "Desktop Editors opens, edits and saves XLSX spreadsheets."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet_editor/about.aspx",
+              "note": {
+                "it": "L’editor apre e salva fogli di calcolo in formato CSV.",
+                "en": "The editor opens and saves spreadsheets in CSV format."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet-editor/editing-rows-columns/pivot-tables",
+              "note": {
+                "it": "Il pannello pivot raggruppa e riepiloga un intervallo di celle.",
+                "en": "The pivot panel groups and summarizes a range of cells."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/spreadsheet-editor/operations-on-objects/insert-chart",
+              "note": {
+                "it": "L’editor crea grafici a colonne, a linee e a torta.",
+                "en": "The editor creates column, line and pie charts."
+              }
+            },
+            "vba": {
+              "state": "unsupported",
+              "source": "https://api.onlyoffice.com/docs/macros/guides/converting-vba-macros",
+              "note": {
+                "it": "Le macro di Excel devono essere convertite in JavaScript.",
+                "en": "Excel macros need to be converted to JavaScript."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "gridcraft",
+          "evidence": {
+            "xlsx": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft#readme",
+              "note": {
+                "it": "XLSX è il formato nativo. Alcuni documenti complessi possono perdere formattazione.",
+                "en": "XLSX is the native format. Some complex files may lose formatting."
+              }
+            },
+            "csv": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Importa ed esporta CSV. L’export scrive i valori grezzi delle celle.",
+                "en": "Imports and exports CSV. Export writes raw cell values."
+              }
+            },
+            "pivot": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Crea tabelle pivot con raggruppamento e aggiornamento dei dati.",
+                "en": "Creates pivot tables with grouping and data refresh."
+              }
+            },
+            "charts": {
+              "state": "supported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/roadmap.md",
+              "note": {
+                "it": "Include grafici a colonne, a linee e a torta. La configurazione avanzata degli assi è limitata.",
+                "en": "Includes column, line and pie charts. Advanced axis settings are limited."
+              }
+            },
+            "vba": {
+              "state": "unsupported",
+              "source": "https://github.com/storytold/gridcraft/blob/main/docs/target-app-parity.md",
+              "note": {
+                "it": "L’app conserva il progetto VBA di un file XLSM senza eseguirlo.",
+                "en": "The app preserves the VBA project in an XLSM file without running it."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "zoom",
+      "name": "Zoom",
+      "aliases": [
+        "Zoom Meetings",
+        "Zoom Workplace"
+      ],
+      "features": [
+        {
+          "id": "group-video",
+          "name": {
+            "it": "Videochiamate di gruppo",
+            "en": "Group video calls"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0065566"
+        },
+        {
+          "id": "screenshare",
+          "name": {
+            "it": "Condividere lo schermo",
+            "en": "Share your screen"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0060596"
+        },
+        {
+          "id": "meeting-chat",
+          "name": {
+            "it": "Chat durante la riunione",
+            "en": "In-meeting chat"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061300"
+        },
+        {
+          "id": "breakout",
+          "name": {
+            "it": "Dividere la riunione in sottogruppi",
+            "en": "Split a call into breakout rooms"
+          },
+          "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061583"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "jitsi-meet",
+          "evidence": {
+            "group-video": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Riunioni video con più partecipanti.",
+                "en": "Video meetings with multiple participants."
+              }
+            },
+            "screenshare": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Permette di condividere desktop e presentazioni.",
+                "en": "Participants can share their desktop and presentations."
+              }
+            },
+            "meeting-chat": {
+              "state": "supported",
+              "source": "https://jitsi.org/jitsi-meet/",
+              "note": {
+                "it": "Include messaggi di testo nella riunione.",
+                "en": "Includes text chat during a meeting."
+              }
+            },
+            "breakout": {
+              "state": "supported",
+              "source": "https://jitsi.github.io/handbook/docs/dev-guide/dev-guide-iframe-commands/#addbreakoutroom",
+              "note": {
+                "it": "L’host può creare sottogruppi durante la riunione.",
+                "en": "The host can create breakout rooms during a meeting."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "element",
+          "evidence": {
+            "group-video": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call integra le chiamate video di gruppo su Matrix.",
+                "en": "Element Call provides group video calls in Matrix."
+              }
+            },
+            "screenshare": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call condivide lo schermo. L’audio condiviso dipende dalla piattaforma.",
+                "en": "Element Call shares the screen. Sharing system audio depends on platform."
+              }
+            },
+            "meeting-chat": {
+              "state": "supported",
+              "source": "https://element.io/blog/operator-i-need-an-exit-from-big-tech-calls/",
+              "note": {
+                "it": "Element Call integra la chat durante la chiamata.",
+                "en": "Element Call includes in-call chat."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "aliases": [
+        "Notion Workspace",
+        "Notion.so"
+      ],
+      "features": [
+        {
+          "id": "rich-text",
+          "name": {
+            "it": "Pagine con testo formattato, titoli e liste",
+            "en": "Pages with formatted text, headings and lists"
+          },
+          "source": "https://www.notion.com/help/writing-and-editing-basics"
+        },
+        {
+          "id": "structured-table",
+          "name": {
+            "it": "Database con campi e righe",
+            "en": "Databases with fields and rows"
+          },
+          "source": "https://www.notion.com/help/create-a-database"
+        },
+        {
+          "id": "board",
+          "name": {
+            "it": "Vista Kanban per stato",
+            "en": "Kanban view by status"
+          },
+          "source": "https://www.notion.com/help/boards"
+        },
+        {
+          "id": "calendar",
+          "name": {
+            "it": "Vista calendario dei dati",
+            "en": "Calendar view of records"
+          },
+          "source": "https://www.notion.com/help/calendars"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "appflowy",
+          "evidence": {
+            "rich-text": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/blog-highlights/demystifying-appflowy-editors-codebase",
+              "note": {
+                "it": "L’editor compone documenti con testo formattato, titoli e liste.",
+                "en": "The editor builds documents with formatted text, headings and lists."
+              }
+            },
+            "structured-table": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Grid mostra righe e campi di un database AppFlowy.",
+                "en": "Grid shows the rows and fields of an AppFlowy database."
+              }
+            },
+            "board": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Board mostra i record come schede raggruppate.",
+                "en": "Board displays records as grouped cards."
+              }
+            },
+            "calendar": {
+              "state": "supported",
+              "source": "https://docs.appflowy.io/docs/documentation/software-contributions/architecture/frontend/database-view",
+              "note": {
+                "it": "Calendar visualizza i record in base alle date.",
+                "en": "Calendar displays records by date."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "joplin",
+          "evidence": {
+            "rich-text": {
+              "state": "supported",
+              "source": "https://joplinapp.org/help/apps/rich_text_editor/",
+              "note": {
+                "it": "L’editor visuale permette di scrivere note formattate.",
+                "en": "The visual editor supports formatted notes."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "teamviewer",
+      "name": "TeamViewer",
+      "aliases": [
+        "TeamViewer Remote",
+        "TeamViewer Classic"
+      ],
+      "features": [
+        {
+          "id": "remote-desktop",
+          "name": {
+            "it": "Vedere e controllare un desktop remoto",
+            "en": "View and control a remote desktop"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/remote-control/remote-session-toolbar/"
+        },
+        {
+          "id": "file-transfer",
+          "name": {
+            "it": "Trasferire file tra i due computer",
+            "en": "Transfer files between computers"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/remote-control/remote-session-toolbar/"
+        },
+        {
+          "id": "text-clipboard",
+          "name": {
+            "it": "Copiare e incollare testo tra i computer",
+            "en": "Copy and paste text between computers"
+          },
+          "source": "https://www.teamviewer.com/en/global/support/knowledge-base/teamviewer-remote/remote-control/control-clipboard-sync-during-remote-support-sessions/"
+        },
+        {
+          "id": "browser-client",
+          "name": {
+            "it": "Controllare un computer dal browser",
+            "en": "Control a computer from your browser"
+          },
+          "source": "https://www.teamviewer.com/en-us/global/support/knowledge-base/teamviewer-remote/get-started/get-started-with-teamviewer-remote/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "rustdesk",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/client/",
+              "note": {
+                "it": "Il client controlla desktop su Windows, macOS e Linux.",
+                "en": "The client controls desktops on Windows, macOS, and Linux."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/self-host/client-configuration/advanced-settings/#enable-file-transfer",
+              "note": {
+                "it": "Il client permette di trasferire file tra i dispositivi.",
+                "en": "The client supports transferring files between devices."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://rustdesk.com/docs/en/self-host/client-configuration/advanced-settings/#enable-clipboard",
+              "note": {
+                "it": "Gli appunti di testo si possono condividere durante la sessione.",
+                "en": "Text can be shared between clipboards during the session."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://rustdesk.com/blog/rustdesk-web-client-v2-preview/",
+              "note": {
+                "it": "Il client web pubblico controlla altri dispositivi. Per ospitare anche il client web serve Server Pro.",
+                "en": "The public web client controls other devices. Hosting the web client yourself requires Server Pro."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "guacamole",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#client-screen",
+              "note": {
+                "it": "Mostra il desktop remoto e inoltra mouse e tastiera tramite il gateway.",
+                "en": "Displays the remote desktop and relays mouse and keyboard input through the gateway."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#transferring-files",
+              "note": {
+                "it": "Carica e scarica file sulle connessioni RDP o SFTP configurate per il trasferimento.",
+                "en": "Uploads and downloads files over RDP or SFTP connections configured for file transfer."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/using-guacamole.html#copying-pasting-text",
+              "note": {
+                "it": "Condivide il testo degli appunti. Se il browser limita la sincronizzazione, resta disponibile il pannello manuale.",
+                "en": "Shares clipboard text. A manual panel remains available if the browser limits clipboard sync."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://guacamole.apache.org/doc/1.6.0/gug/introduction.html",
+              "note": {
+                "it": "L’interfaccia HTML5 si apre nel browser. Serve un gateway Guacamole.",
+                "en": "The HTML5 interface opens in a browser. A Guacamole gateway is required."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "meshcentral",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#desktop-control",
+              "note": {
+                "it": "La scheda Desktop permette di vedere e controllare i dispositivi associati.",
+                "en": "The Desktop tab lets you view and control enrolled devices."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#manage-computer",
+              "note": {
+                "it": "La scheda File gestisce upload e download separatamente dal desktop.",
+                "en": "The Files tab handles uploads and downloads separately from the desktop view."
+              }
+            },
+            "text-clipboard": {
+              "state": "supported",
+              "source": "https://github.com/Ylianst/MeshCentral/blob/f606944569b0a49ac09978e0ddc31375608d9dc2/views/default.handlebars#L8757-L8783",
+              "note": {
+                "it": "Il client web scambia il testo degli appunti quando il browser e la sessione lo consentono.",
+                "en": "The web client exchanges clipboard text when the browser and session allow it."
+              }
+            },
+            "browser-client": {
+              "state": "supported",
+              "source": "https://docs.meshcentral.com/meshcentral/#manage-computer",
+              "note": {
+                "it": "La console web apre il desktop dei dispositivi gestiti.",
+                "en": "The web console opens the desktop of managed devices."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "remmina",
+          "evidence": {
+            "remote-desktop": {
+              "state": "supported",
+              "source": "https://remmina.org/",
+              "note": {
+                "it": "Il client desktop per Linux supporta RDP, VNC e altri protocolli.",
+                "en": "The Linux desktop client supports RDP, VNC, and other protocols."
+              }
+            },
+            "file-transfer": {
+              "state": "supported",
+              "source": "https://remmina.org/",
+              "note": {
+                "it": "Il progetto documenta la condivisione di file tramite il client.",
+                "en": "The project documents file sharing through the client."
               }
             }
           }

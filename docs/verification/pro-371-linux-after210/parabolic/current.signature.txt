@@ -1,0 +1,19 @@
+commit dddc32696f9612c3d7f9e8a3ca1da0592fefc4e40acd4a07c60a1c998f7cfd46
+Parent:  be83cfe9ea909c4fa80c0a86d62a880ad7b7783993c29e719d076f9ed68bdc30
+ContentChecksum:  f9086e12bd34fd250453d8f59b694c4ec912fa3eb6ef2eda4fbbc23fbfb73169
+Date:  2026-10-28 06:58:29 +0000
+
+    Update certifi to 2026.10.19 (#220) (19db1e29e11f)
+
+    Name: org.nickvision.tubeconverter
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Wed Oct 28 08:03:03 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

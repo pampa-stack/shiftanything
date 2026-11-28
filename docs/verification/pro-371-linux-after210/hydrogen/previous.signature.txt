@@ -1,0 +1,19 @@
+commit d105adf5096f7aabe379c546f893b38358da2ed1639d34047f1a72866d6c304c
+Parent:  3bd63962dfb964d1549c93421eccc75600552583522a204276cb0252de16c898
+ContentChecksum:  c1887d32566c358d5f646dd94f871dc91067d7fa7bc4ad3139661600b7124516
+Date:  2026-08-09 02:44:29 +0000
+
+    Update runtime to 6.11 (47c4ce394160)
+
+    Name: org.hydrogenmusic.Hydrogen
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Aug  9 03:00:11 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

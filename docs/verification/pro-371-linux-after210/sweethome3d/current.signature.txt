@@ -1,0 +1,19 @@
+commit b11f928cd1e8a675846ea3aa12796327d45c495c82d668b2ac782c81aa7f340c
+Parent:  7040c008145206220575f2e74354c7e9a3cc2de557a640218f444fd2433cd31f
+ContentChecksum:  4082e27d31361fccbe25bdd0ea55adff5a9ed9848bb7d5ab409e467e2fc1fbb0
+Date:  2026-09-07 19:30:22 +0000
+
+    Remove bundle creation in build script (c83cf658e341)
+
+    Name: com.sweethome3d.Sweethome3d
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Mon Sep  7 19:45:04 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

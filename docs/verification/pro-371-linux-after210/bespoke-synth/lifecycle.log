@@ -1,0 +1,80 @@
+2026-11-28T15:30:11+00:00 bespoke-synth AVAILABLE 36704530432
+bespoke-synth before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+bespoke-synth JobFinished: Ok("Flathub app installed")
+bespoke-synth after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:30:29+00:00 bespoke-synth current-install 93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6/export/share/applications/com.bespokesynth.BespokeSynth.desktop
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6/export/share/icons/hicolor/512x512/apps/com.bespokesynth.BespokeSynth.png
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.Locale/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.freedesktop.Platform/x86_64/24.08
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/com.bespokesynth.BespokeSynth/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:30:44+00:00 bespoke-synth previous 2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d
+bespoke-synth before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: false, can_open: true }
+bespoke-synth JobFinished: Err("Approved action rejected: native installation state changed")
+bespoke-synth JobFinished: Err("This Flatpak is managed outside the launcher")
+bespoke-synth after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[36330]: [session uid=1000 pid=36330] Activating service name='org.xfce.Xfconf' requested by ':1.6' (uid=1000 pid=36835 comm="xfwm4 --compositor=on --display=:94" label="unconfined")
+dbus-daemon[36330]: [session uid=1000 pid=36330] Successfully activated service 'org.xfce.Xfconf'
+Default Sink: shift_qa
+dbus-daemon[36330]: [session uid=1000 pid=36330] Activating service name='org.freedesktop.Flatpak' requested by ':1.8' (uid=1000 pid=36866 comm="flatpak run --user --command=sh app/com.bespokesyn" label="flatpak (unconfined)")
+dbus-daemon[36330]: [session uid=1000 pid=36330] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[36330]: [session uid=1000 pid=36330] Activating service name='org.freedesktop.portal.Documents' requested by ':1.8' (uid=1000 pid=36866 comm="flatpak run --user --command=sh app/com.bespokesyn" label="flatpak (unconfined)")
+dbus-daemon[36330]: [session uid=1000 pid=36330] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.10' (uid=1000 pid=36882 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[36330]: [session uid=1000 pid=36330] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[36330]: [session uid=1000 pid=36330] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+bespoke-synth before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: true, can_remove: true, can_open: true }
+bespoke-synth JobFinished: Ok("Launch request accepted")
+bespoke-synth after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.bespokesynth.BespokeSynth
+X Error of failed request:  BadColor (invalid Colormap parameter)
+  Major opcode of failed request:  91 (X_QueryColors)
+  Resource id in failed request:  0x0
+  Serial number of failed request:  83
+  Current serial number in output stream:  83
+2026-11-28T15:30:56+00:00 bespoke-synth previous GUI WM_NAME(UTF8_STRING) = "bespoke synth"
+WM_CLASS(STRING) = "BespokeSynth", "BespokeSynth"
+2026-11-28T15:30:56+00:00 bespoke-synth AVAILABLE 33299857408
+bespoke-synth before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/2d21aa08fdace9cdb88a5fa936abf497fa9436bb347d8f8f828c24cb3945643d", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: true, can_remove: true, can_open: true }
+bespoke-synth JobFinished: Ok("Flathub app updated")
+bespoke-synth after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T15:30:58+00:00 bespoke-synth current 93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/.var/app/com.bespokesynth.BespokeSynth/fixture.txt: OK
+bespoke-synth before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: true, can_open: true }
+bespoke-synth JobFinished: Ok("Launch request accepted")
+bespoke-synth after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+com.bespokesynth.BespokeSynth
+X Error of failed request:  BadColor (invalid Colormap parameter)
+  Major opcode of failed request:  91 (X_QueryColors)
+  Resource id in failed request:  0x0
+  Serial number of failed request:  83
+  Current serial number in output stream:  83
+2026-11-28T15:31:08+00:00 bespoke-synth current GUI WM_NAME(UTF8_STRING) = "bespoke synth"
+WM_CLASS(STRING) = "BespokeSynth", "BespokeSynth"
+bespoke-synth before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 3, patch: 0 }), source: Flatpak, location: "/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/data/flatpak/app/com.bespokesynth.BespokeSynth/x86_64/stable/93c567bf378785a406734ba32664b4f48d0225fb793023f05889ec80702cedc6", package: Some("com.bespokesynth.BespokeSynth"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.3.0"), update_available: false, can_remove: true, can_open: true }
+bespoke-synth JobFinished: Ok("Flathub app removed")
+bespoke-synth after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/q.12tDba2V/profiles/bespoke-synth-composited/.var/app/com.bespokesynth.BespokeSynth/fixture.txt: OK
+2026-11-28T15:31:09+00:00 bespoke-synth PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T15:31:10+00:00 bespoke-synth EXIT 0 remove
+
+(xfconfd:36850): xfconfd-WARNING **: 15:31:10.149: Name org.xfce.Xfconf lost on the message dbus, exiting.

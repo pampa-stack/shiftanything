@@ -3059,6 +3059,27 @@ pub const RASPBERRY_PI_IMAGER: crate::CraftApp = crate::CraftApp {
     mac_team: Some("8RDZTRXE62"),
 };
 
+pub const WWDC: crate::CraftApp = crate::CraftApp {
+    id: "wwdc",
+    name: "WWDC for macOS",
+    tagline: "Find and watch Apple developer conference sessions",
+    repo: "insidegui/WWDC",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [60, 133, 223],
+    ink_light: [24, 81, 148],
+    ink_dark: [153, 206, 255],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Guilherme Rambo",
+    msi_publisher: None,
+    bundle: Some("io.wwdc.app"),
+    site: Some("https://wwdc.io/"),
+    mac_bundle_name: Some("WWDC"),
+    mac_team: Some("8C7439RJLG"),
+};
+
 pub const OPENMTP: crate::CraftApp = crate::CraftApp {
     id: "openmtp",
     name: "OpenMTP",
@@ -3405,6 +3426,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     EASYDICT,
     UTM,
     RASPBERRY_PI_IMAGER,
+    WWDC,
     OPENMTP,
     INVOKE_COMMUNITY,
     MIST,

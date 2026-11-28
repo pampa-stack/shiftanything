@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager) ;; *) exit 2 ;; esac
+case "$id" in craft-anything|moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|sloth|jellyfin-desktop|iterm2|itsycal|github-desktop|aionui|ruffle|scummvm|raspberry-pi-imager|wwdc) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -195,6 +195,22 @@ for tag in (old, new):
         published_digests = set(re.findall(rf'^([a-f0-9]{{64}})\s+\*?{re.escape(name)}\s*$', checksum, re.M))
         assert published_digests == {digest}, published_digests
         version = tag
+    elif app_id == 'wwdc':
+        assert repo == 'insidegui/WWDC'
+        assert tag in ('7.4.2', '7.5')
+        build = {'7.4.2': '1040', '7.5': '1044'}[tag]
+        assert name == f'WWDC_v{tag}-{build}.dmg'
+        assert url == f'https://github.com/{repo}/releases/download/{tag}/{name}'
+        html = Path(f'wwdc-{tag}-assets.html').read_text()
+        assert f'href="/{repo}/releases/download/{tag}/{name}"' in html
+        signature = Path(f'wwdc-{tag}.log').read_text()
+        for fact in (f'CFBundleShortVersionString {tag}', 'TeamIdentifier=8C7439RJLG', 'source=Notarized Developer ID'):
+            assert fact in signature.splitlines(), fact
+        published_digests = set()
+        if tag == '7.5':
+            cask = json.loads(Path('wwdc-cask.json').read_text())
+            assert cask['url'] == url and cask['sha256'] == digest
+        version = '7.5.0' if tag == '7.5' else tag
     elif app_id == 'openttd':
         assert re.fullmatch(r'\d+\.\d+', tag)
         assert url == f'https://cdn.openttd.org/openttd-releases/{tag}/openttd-{tag}-macos-universal.dmg'
@@ -315,6 +331,40 @@ fi
 for phase in "${phases[@]}"; do
     run_phase "$phase"
     [[ "$(cat "$profile/synthetic-user-data.txt")" == "synthetic user data" ]]
+    if [[ "$id" == wwdc && "$phase" != remove ]]; then
+        run_phase open
+        python3 - "$profile/Applications/WWDC.app/Contents/MacOS/WWDC" <<'PYWWDC'
+import os, signal, subprocess, sys, time
+
+executable = sys.argv[1]
+
+def current_processes():
+    processes = subprocess.check_output(['/bin/ps', '-axww', '-o', 'pid=,comm='], text=True)
+    return {int(pid) for line in processes.splitlines() if line.strip()
+            for pid, command in [line.strip().split(maxsplit=1)] if command == executable}
+
+for attempt in range(50):
+    matches = current_processes()
+    if len(matches) == 1:
+        break
+    time.sleep(0.2)
+else:
+    raise SystemExit('WWDC did not start exactly one process from the isolated bundle')
+
+[pid] = matches
+time.sleep(2)
+assert pid in current_processes(), 'WWDC exited immediately'
+os.kill(pid, signal.SIGTERM)
+for attempt in range(50):
+    if pid not in current_processes():
+        break
+    time.sleep(0.2)
+else:
+    raise SystemExit('WWDC did not exit after SIGTERM')
+print('PASS OPEN AND CLOSE WWDC executable in the isolated profile')
+PYWWDC
+    fi
+
     if [[ ( "$id" == openttd || "$id" == blender || "$id" == gimp || "$id" == vlc || "$id" == inks || "$id" == scummvm ) && "$phase" != remove ]]; then
         python3 - "$id" "$profile" "$phase" "$old" "$new" <<'PYLAUNCH'
 from pathlib import Path

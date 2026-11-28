@@ -181,6 +181,7 @@ fn main() -> Result<(), String> {
             "raspberry-pi-imager",
             "ruffle",
             "scummvm",
+            "wwdc",
             "freeplane",
         ]
         .contains(&app.id)
@@ -240,6 +241,17 @@ fn main() -> Result<(), String> {
     let initial = installed.as_ref().and_then(|installed| installed.version.as_ref()).map(ToString::to_string);
     if installed.as_ref().is_some_and(|installed| Path::new(&installed.location) != bundle) {
         return Err(format!("Unexpected initial location {installed:?}"));
+    }
+
+    if id == "wwdc" && phase == "open" && initial.as_deref().is_some_and(|installed| installed == before.version() || installed == after.version()) {
+        backend.send(Command::Launch { app: id.clone(), args: Vec::new() });
+        let result = wait_for(&mut backend, |event| match event {
+            Event::JobFinished { app, result } if app == *id => Some(result),
+            _ => None,
+        })??;
+        assert_marker(&home)?;
+        println!("PASS NATIVE {id} {phase}: {result}");
+        return Ok(());
     }
 
     let expected = match (phase.as_str(), initial.as_deref()) {

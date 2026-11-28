@@ -1,0 +1,18 @@
+ARTIFACT 539aead52153a6decde115ba75f5a60848cbbdbd7bca3472347e5fc9d449d20c 19325975 https://github.com/insidegui/WWDC/releases/download/7.5/WWDC_v7.5-1044.dmg
+APP_COUNT 1
+CFBundleIdentifier io.wwdc.app
+CFBundleShortVersionString 7.5
+CFBundleExecutable WWDC
+LSMinimumSystemVersion 12.0
+x86_64 arm64
+Identifier=io.wwdc.app
+Authority=Developer ID Application: GUILHERME RAMBO (8C7439RJLG)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+TeamIdentifier=8C7439RJLG
+CODESIGN PASS
+<private scratch>/WWDC.app: accepted
+source=Notarized Developer ID
+GATEKEEPER PASS
+"disk16" ejected.
+PASS PREFLIGHT wwdc 7.5

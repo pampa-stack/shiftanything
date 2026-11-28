@@ -24187,6 +24187,52 @@
     }
   },
   {
+    "id": "nextcloud-calendar",
+    "name": "Nextcloud Calendar",
+    "repo": "https://github.com/nextcloud/calendar",
+    "author": "Nextcloud",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Organizza eventi e promemoria, condividi calendari e sincronizzali con CalDAV. Richiede un server Nextcloud.",
+      "en": "Schedule events and reminders, share calendars, and sync them via CalDAV. Requires a Nextcloud server."
+    },
+    "alternatives": [
+      "Google Calendar",
+      "Microsoft Outlook Calendar"
+    ],
+    "license": "AGPL-3.0",
+    "license_url": "https://github.com/nextcloud/calendar/blob/main/LICENSE",
+    "website": "https://apps.nextcloud.com/apps/calendar",
+    "releases": "https://github.com/nextcloud-releases/calendar/releases",
+    "delivery": "self-hosted",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/nextcloud/calendar/main/img/favicon-touch.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/nextcloud/calendar/main/screenshots/week_new_event.png"
+    ],
+    "media_source": "https://apps.nextcloud.com/apps/calendar",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://docs.nextcloud.com/server/stable/user_manual/en/groupware/calendar.html"
+    },
+    "stars": {
+      "count": 1201,
+      "source": "https://github.com/nextcloud/calendar/stargazers",
+      "date": "2026-11-28"
+    },
+    "release": {
+      "version": "v6.7.0",
+      "date": "2026-11-18",
+      "source": "https://github.com/nextcloud-releases/calendar/releases/tag/v6.7.0",
+      "packages": []
+    }
+  },
+  {
     "id": "node-red",
     "name": "Node-RED",
     "repo": "https://github.com/node-red/node-red",

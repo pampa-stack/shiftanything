@@ -2811,6 +2811,147 @@
           ]
         }
       ]
+    },
+    {
+      "id": "training-documentation",
+      "name": {
+        "it": "Formazione e documentazione",
+        "en": "Training and documentation"
+      },
+      "description": {
+        "it": "Prepara materiali didattici e procedure, poi registrali e rendili consultabili.",
+        "en": "Prepare training materials and procedures, then record and share them."
+      },
+      "steps": [
+        {
+          "id": "notes",
+          "name": {
+            "it": "Raccogliere i materiali",
+            "en": "Collect materials"
+          },
+          "paid": [
+            "Evernote",
+            "Notion"
+          ],
+          "compare": "notion",
+          "options": [
+            {
+              "app": "joplin",
+              "use": {
+                "it": "Organizza gli appunti scritti offline in taccuini con tag e allegati.",
+                "en": "Organize offline notes into notebooks with tags and attachments."
+              },
+              "source": "https://joplinapp.org/help/"
+            },
+            {
+              "app": "trilium",
+              "use": {
+                "it": "Collega gli appunti tra loro e raccoglili in un archivio gerarchico disponibile offline.",
+                "en": "Link notes together and organize them in a hierarchy that works offline."
+              },
+              "source": "https://triliumnotes.org/"
+            }
+          ]
+        },
+        {
+          "id": "annotate",
+          "name": {
+            "it": "Commentare le dispense",
+            "en": "Annotate handouts"
+          },
+          "paid": [
+            "Adobe Acrobat Pro"
+          ],
+          "compare": "acrobat",
+          "options": [
+            {
+              "app": "xournal",
+              "use": {
+                "it": "Scrivi o evidenzia sulle pagine del PDF con la penna e poi esportale.",
+                "en": "Write or highlight on PDF pages with a stylus and then export them."
+              },
+              "source": "https://xournalpp.github.io/guide/pdfs/"
+            },
+            {
+              "app": "okular",
+              "use": {
+                "it": "Evidenzia brani di testo e aggiungi note o commenti nel lettore.",
+                "en": "Highlight text and add notes or comments in the reader."
+              },
+              "source": "https://docs.kde.org/stable_kf6/en/okular/okular/annotations.html"
+            }
+          ]
+        },
+        {
+          "id": "slides",
+          "name": {
+            "it": "Comporre la lezione",
+            "en": "Build the lesson slides"
+          },
+          "paid": [
+            "Microsoft PowerPoint"
+          ],
+          "options": [
+            {
+              "app": "libreoffice",
+              "use": {
+                "it": "Crea diapositive e presentazioni multimediali con Impress.",
+                "en": "Create slides and multimedia presentations in Impress."
+              },
+              "source": "https://help.libreoffice.org/latest/en-US/text/simpress/main0000.html"
+            },
+            {
+              "app": "onlyoffice",
+              "use": {
+                "it": "Modifica temi, transizioni e note del relatore nell’editor di diapositive.",
+                "en": "Edit themes, transitions and speaker notes in the slide editor."
+              },
+              "source": "https://helpcenter.onlyoffice.com/docs/userguides/presentation-editor/working-with-slides/set-slide-parameters"
+            }
+          ]
+        },
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare una dimostrazione",
+            "en": "Record a demonstration"
+          },
+          "paid": [
+            "Loom"
+          ],
+          "compare": "loom",
+          "options": [
+            {
+              "app": "obs",
+              "use": {
+                "it": "Registra la dimostrazione con schermo, webcam e microfono nella stessa scena.",
+                "en": "Record a demonstration with screen, webcam and microphone in one scene."
+              },
+              "source": "https://obsproject.com/kb/quick-start-guide"
+            }
+          ]
+        },
+        {
+          "id": "captions",
+          "name": {
+            "it": "Correggere e sincronizzare i sottotitoli",
+            "en": "Correct and sync captions"
+          },
+          "paid": [
+            "Camtasia"
+          ],
+          "options": [
+            {
+              "app": "subtitle-edit",
+              "use": {
+                "it": "Adatta il testo al parlato e controlla il sincronismo sulla forma d’onda.",
+                "en": "Match captions to the spoken words and check timing against the waveform."
+              },
+              "source": "https://subtitleedit.github.io/subtitleedit/overview.html"
+            }
+          ]
+        }
+      ]
     }
   ],
   "rankings": [

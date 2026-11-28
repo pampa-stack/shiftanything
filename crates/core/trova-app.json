@@ -2629,6 +2629,331 @@
           "source": "https://docs.qgis.org/3.44/en/docs/user_manual/introduction/qgis_gui.html"
         }
       ]
+    },
+    {
+      "id": "offline-notes",
+      "example": {
+        "it": "Organizza i miei appunti senza internet",
+        "en": "Organize my notes offline"
+      },
+      "match": [
+        [
+          "appunt",
+          "offline"
+        ],
+        [
+          "appunt",
+          "senza internet"
+        ],
+        [
+          "organizz",
+          "appunt"
+        ],
+        [
+          "colleg",
+          "appunt"
+        ],
+        [
+          "taccuin",
+          "local"
+        ],
+        [
+          "notes",
+          "offline"
+        ],
+        [
+          "organiz",
+          "notes"
+        ],
+        [
+          "link",
+          "notes"
+        ],
+        [
+          "evernote"
+        ],
+        [
+          "onenote"
+        ]
+      ],
+      "exclude": [
+        "riunion",
+        "meeting"
+      ],
+      "apps": [
+        {
+          "id": "joplin",
+          "reason": {
+            "it": "Organizza gli appunti scritti offline in taccuini con tag e allegati.",
+            "en": "Organize offline notes into notebooks with tags and attachments."
+          },
+          "source": "https://joplinapp.org/help/"
+        },
+        {
+          "id": "trilium",
+          "reason": {
+            "it": "Collega gli appunti tra loro e raccoglili in un archivio gerarchico disponibile offline.",
+            "en": "Link notes together and organize them in a hierarchy that works offline."
+          },
+          "source": "https://triliumnotes.org/"
+        }
+      ]
+    },
+    {
+      "id": "annotate-pdf",
+      "example": {
+        "it": "Annota ed evidenzia un PDF",
+        "en": "Annotate and highlight a PDF"
+      },
+      "match": [
+        [
+          "pdf",
+          "annot"
+        ],
+        [
+          "pdf",
+          "evidenz"
+        ],
+        [
+          "pdf",
+          "highlight"
+        ],
+        [
+          "pdf",
+          "comment"
+        ],
+        [
+          "pdf",
+          "a mano"
+        ],
+        [
+          "pdf",
+          "stylus"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "xournal",
+          "reason": {
+            "it": "Scrivi o evidenzia sulle pagine del PDF con la penna e poi esportale.",
+            "en": "Write or highlight on PDF pages with a stylus and then export them."
+          },
+          "source": "https://xournalpp.github.io/guide/pdfs/"
+        },
+        {
+          "id": "okular",
+          "reason": {
+            "it": "Evidenzia brani di testo e aggiungi note o commenti nel lettore.",
+            "en": "Highlight text and add notes or comments in the reader."
+          },
+          "source": "https://docs.kde.org/stable_kf6/en/okular/okular/annotations.html"
+        }
+      ]
+    },
+    {
+      "id": "slides",
+      "example": {
+        "it": "Prepara una presentazione con diapositive",
+        "en": "Create a slide presentation"
+      },
+      "match": [
+        [
+          "powerpoint"
+        ],
+        [
+          "pptx"
+        ],
+        [
+          "crea",
+          "presentazion"
+        ],
+        [
+          "prepar",
+          "presentazion"
+        ],
+        [
+          "modifi",
+          "diapositiv"
+        ],
+        [
+          "diapositiv"
+        ],
+        [
+          "slide",
+          "presentation"
+        ],
+        [
+          "creat",
+          "slides"
+        ],
+        [
+          "present",
+          "slides"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "libreoffice",
+          "reason": {
+            "it": "Crea diapositive e presentazioni multimediali con Impress.",
+            "en": "Create slides and multimedia presentations in Impress."
+          },
+          "source": "https://help.libreoffice.org/latest/en-US/text/simpress/main0000.html"
+        },
+        {
+          "id": "onlyoffice",
+          "reason": {
+            "it": "Modifica temi, transizioni e note del relatore nell’editor di diapositive.",
+            "en": "Edit themes, transitions and speaker notes in the slide editor."
+          },
+          "source": "https://helpcenter.onlyoffice.com/docs/userguides/presentation-editor/working-with-slides/set-slide-parameters"
+        }
+      ]
+    },
+    {
+      "id": "rss-reading",
+      "example": {
+        "it": "Segui blog e giornali da un lettore RSS",
+        "en": "Follow blogs and news in an RSS reader"
+      },
+      "match": [
+        [
+          "rss"
+        ],
+        [
+          "feed",
+          "atom"
+        ],
+        [
+          "feedly"
+        ],
+        [
+          "inoreader"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "netnewswire",
+          "reason": {
+            "it": "Leggi le notizie dei siti che segui su Mac e tieni traccia degli articoli letti.",
+            "en": "Read news from the sites you follow on Mac and track which articles you’ve read."
+          },
+          "source": "https://netnewswire.com/"
+        },
+        {
+          "id": "rssguard",
+          "reason": {
+            "it": "Leggi feed RSS e Atom dal desktop e organizza gli articoli con filtri ed etichette.",
+            "en": "Read RSS and Atom feeds on your desktop and organize articles with filters and tags."
+          },
+          "source": "https://rssguard.readthedocs.io/en/latest/services/standard.html"
+        },
+        {
+          "id": "freshrss",
+          "reason": {
+            "it": "Raccogli e cerca i feed RSS e Atom in un lettore web sul tuo server.",
+            "en": "Collect and search RSS and Atom feeds in a web reader on your own server."
+          },
+          "source": "https://freshrss.org/"
+        }
+      ]
+    },
+    {
+      "id": "ebook-library",
+      "example": {
+        "it": "Organizza i miei ebook e converti un EPUB",
+        "en": "Organize my ebooks and convert an EPUB"
+      },
+      "match": [
+        [
+          "epub"
+        ],
+        [
+          "ebook"
+        ],
+        [
+          "e book"
+        ],
+        [
+          "libri digital"
+        ],
+        [
+          "libreria",
+          "kindle"
+        ],
+        [
+          "libreria",
+          "kobo"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "calibre",
+          "reason": {
+            "it": "Ordina gli ebook per autore o tag, correggi i metadati e converti i file per il tuo lettore.",
+            "en": "Organize ebooks by author or tag, edit their metadata, and convert files for your e-reader."
+          },
+          "source": "https://calibre-ebook.com/about"
+        }
+      ]
+    },
+    {
+      "id": "desktop-calendar",
+      "example": {
+        "it": "Organizza gli appuntamenti in un calendario",
+        "en": "Organize my appointments in a calendar"
+      },
+      "match": [
+        [
+          "calendar",
+          "appunt"
+        ],
+        [
+          "calendar",
+          "appointment"
+        ],
+        [
+          "calendar",
+          "desktop"
+        ],
+        [
+          "calendario",
+          "computer"
+        ],
+        [
+          "calendar",
+          "offline"
+        ],
+        [
+          "caldav"
+        ]
+      ],
+      "apps": [
+        {
+          "id": "gnome-calendar",
+          "reason": {
+            "it": "Crea eventi in calendari locali o sincronizzati con CalDAV, con viste per settimana, mese e agenda.",
+            "en": "Create events in local or CalDAV calendars and see them in week, month, or agenda views."
+          },
+          "source": "https://apps.gnome.org/Calendar/"
+        },
+        {
+          "id": "evolution",
+          "reason": {
+            "it": "Gestisci appuntamenti, ricorrenze, promemoria e inviti nello stesso programma di posta.",
+            "en": "Manage appointments, recurring events, reminders, and invitations in the same app as your email."
+          },
+          "source": "https://help.gnome.org/evolution/#calendar"
+        },
+        {
+          "id": "nextcloud-calendar",
+          "reason": {
+            "it": "Condividi calendari e appuntamenti con il tuo gruppo via browser su un server Nextcloud.",
+            "en": "Share calendars and appointments with your team in the browser on a Nextcloud server."
+          },
+          "source": "https://docs.nextcloud.com/server/stable/user_manual/en/groupware/calendar.html"
+        }
+      ]
     }
   ]
 }

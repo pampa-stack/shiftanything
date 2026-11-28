@@ -1,0 +1,8 @@
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/applications/org.openttd.OpenTTD.desktop
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/128x128/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/16x16/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/256x256/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/32x32/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/48x48/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/64x64/apps/org.openttd.OpenTTD.png
+/home/qa/profiles/openttd-after210/data/flatpak/app/org.openttd.OpenTTD/x86_64/stable/d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc/export/share/icons/hicolor/scalable/apps/org.openttd.OpenTTD.svg

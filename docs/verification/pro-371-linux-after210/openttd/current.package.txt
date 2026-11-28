@@ -1,0 +1,20 @@
+
+OpenTTD - Open source simulation game based upon Transport Tycoon Deluxe
+
+          ID: org.openttd.OpenTTD
+         Ref: app/org.openttd.OpenTTD/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 15.3
+     License: GPL-2.0-only
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 201.5 MB
+     Runtime: org.freedesktop.Platform/x86_64/25.08
+         Sdk: org.freedesktop.Sdk/x86_64/25.08
+
+      Commit: d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc
+      Parent: 04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f
+     Subject: Merge pull request #158 from flathub/housekeeping (49c969a6d578)
+        Date: 2026-09-01 18:50:26 +0000

@@ -1,0 +1,19 @@
+commit d8c78e4e2d79806b5771d82d429373b4cdac626fd18d6724bc2e5107e8a900cc
+Parent:  04a63a1220e454597d00e3a090c3ff39fd2ad1eadd7141bbb620e05cef2f5a0f
+ContentChecksum:  c1ab100c95d7b485068afa6ef5de288f3c67e5811b0ababc840e4b3c7727041a
+Date:  2026-09-01 18:50:26 +0000
+
+    Merge pull request #158 from flathub/housekeeping (49c969a6d578)
+
+    Name: org.openttd.OpenTTD
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Tue Sep  1 19:00:31 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

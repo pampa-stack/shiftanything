@@ -174,3 +174,9 @@ Il 28 novembre il backend di `e3faf0a` con le due ricette candidate ha installat
 ### Preflight NAPS2 su Ubuntu x64
 
 I DEB ufficiali 8.6.0 e 8.6.1 corrispondono per dimensione e SHA-256 alle ricevute GitHub. Entrambi dichiarano architettura amd64 e dipendenza da `libsane1`, e contengono l’eseguibile e la voce desktop. Il guest ha ispezionato gli archivi senza installarli. Il conteggio Linux richiede ancora il ciclo nativo. [Rilasci ufficiali](https://github.com/cyanfish/naps2/releases) · [Ricevute e preflight](naps2-preflight.log)
+
+I bundle Flatpak x64 ufficiali hanno passato il controllo SHA-256. Il 28 novembre, in un profilo privato su Ubuntu 24.04, Flatpak ha installato e aperto NAPS2 8.6.0, distribuito la voce desktop e l’icona, applicato il bundle 8.6.1, aperto la nuova versione e rimosso l’app. Il file sintetico è sopravvissuto all’aggiornamento e alla rimozione. Il comando ordinario `flatpak update` ha lasciato installata la 8.6.0. Il bundle crea l’origine locale disabilitata `naps2-origin` senza URL. La prova usa il comando Flatpak direttamente. La ricetta Linux richiede ancora l’integrazione e una prova nel launcher. [Download ufficiali](https://www.naps2.com/download) · [Ricevute Flatpak](naps2-flatpak.tsv) · [Schermata 8.6.0](naps2-flatpak-previous.png)
+
+### AiderDesk su Linux x64
+
+La dimensione e lo SHA-256 dell’AppImage ufficiale 0.93.0 sono corretti. Nel guest Ubuntu 24.04 la prova non privilegiata dei namespace utente viene rifiutata. Lo script `AppRun` del pacchetto in quel caso aggiunge `--no-sandbox` a Electron. La ricetta Linux rimane disabilitata. [Pacchetto ufficiale](https://github.com/magiksoft/aider-desk/releases/tag/v0.93.0)

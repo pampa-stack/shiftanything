@@ -348,3 +348,7 @@ On 28 November 2026 the native backend downloaded and installed Zulip Desktop 5.
 ### AiderDesk on Apple Silicon
 
 On 28 November 2026 the native backend installed AiderDesk 0.92.0, discovered and applied 0.93.0, and removed the app to the private Trash on the MacBook Air running macOS 26.6.2. Both official ARM64 DMGs matched the published SHA-256. The installed bundles passed strict signature and Gatekeeper checks as notarized Developer ID releases for Magiksoft s.r.o. (team `S585J6UY5L`). Both require macOS 13 or later. The SSH proof covers package management and preservation of synthetic user data. GUI launch and the Intel build remain untested here. Use `bash run-two-dmg.sh aiderdesk` with the linked TSV in the marked test directory. [Official releases](https://github.com/magiksoft/aider-desk/releases) · [Package receipts](aiderdesk.tsv) · [Native cycle](aiderdesk-native.log) · [0.92.0 preflight](aiderdesk-v0.92.0.log) · [0.93.0 preflight](aiderdesk-v0.93.0.log)
+
+### Furnace on Apple Silicon
+
+The 0.6.8.3 ARM64 DMG downloaded on 28 November matched the official SHA-256 and contained an ARM64 bundle targeting macOS 11. The bundle has no Developer ID team and failed the notarization check. Installation from the launcher remains disabled on macOS. [Official release](https://github.com/tildearrow/furnace/releases/tag/v0.6.8.3)

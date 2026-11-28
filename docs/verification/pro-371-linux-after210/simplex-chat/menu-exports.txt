@@ -1,0 +1,2 @@
+/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939/export/share/applications/chat.simplex.simplex.desktop
+/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939/export/share/icons/hicolor/512x512/apps/chat.simplex.simplex.png

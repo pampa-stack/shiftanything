@@ -1,0 +1,58 @@
+2026-11-28T03:11:15+00:00 simplex-chat AVAILABLE 17518465024
+simplex-chat before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+simplex-chat JobFinished: Ok("Flathub app installed")
+simplex-chat after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:11:49+00:00 simplex-chat current-install f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939
+/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939/export/share/applications/chat.simplex.simplex.desktop
+/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939/export/share/icons/hicolor/512x512/apps/chat.simplex.simplex.png
+Updating app/chat.simplex.simplex/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:11:57+00:00 simplex-chat previous 47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295
+simplex-chat before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295", package: Some("chat.simplex.simplex"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.4"), update_available: false, can_remove: false, can_open: true }
+simplex-chat JobFinished: Err("Approved action rejected: native installation state changed")
+simplex-chat JobFinished: Err("This Flatpak is managed outside the launcher")
+simplex-chat after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295", package: Some("chat.simplex.simplex"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.4"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[18033]: [session uid=1000 pid=18033] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=18575 comm="xfwm4 --compositor=off --display=:96" label="unconfined")
+dbus-daemon[18033]: [session uid=1000 pid=18033] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[18033]: [session uid=1000 pid=18033] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=18588 comm="flatpak run --user --command=sh app/chat.simplex.s" label="flatpak (unconfined)")
+dbus-daemon[18033]: [session uid=1000 pid=18033] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[18033]: [session uid=1000 pid=18033] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=18588 comm="flatpak run --user --command=sh app/chat.simplex.s" label="flatpak (unconfined)")
+dbus-daemon[18033]: [session uid=1000 pid=18033] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=18614 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[18033]: [session uid=1000 pid=18033] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[18033]: [session uid=1000 pid=18033] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+simplex-chat before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.4"), update_available: true, can_remove: true, can_open: true }
+simplex-chat JobFinished: Ok("Launch request accepted")
+simplex-chat after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.4"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+chat.simplex.simplex
+XGetWindowProperty[_NET_WM_DESKTOP] failed (code=1)
+2026-11-28T03:12:24+00:00 simplex-chat previous GUI WM_NAME(STRING) = "Content window"
+WM_CLASS(STRING) = "chat-simplex-desktop-MainKt", "chat-simplex-desktop-MainKt"
+2026-11-28T03:12:24+00:00 simplex-chat AVAILABLE 14402723840
+simplex-chat before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 4 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/47f98b68a167fd14a4fddd8d38ad4efeb4694d10c6da1a3c21b79e9d988c9295", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.4"), update_available: true, can_remove: true, can_open: true }
+simplex-chat JobFinished: Ok("Flathub app updated")
+simplex-chat after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.5"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:12:27+00:00 simplex-chat current f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939
+/home/qa/profiles/simplex-chat-after210/.var/app/chat.simplex.simplex/fixture.txt: OK
+simplex-chat before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.5"), update_available: false, can_remove: true, can_open: true }
+simplex-chat JobFinished: Ok("Launch request accepted")
+simplex-chat after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.5"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+chat.simplex.simplex
+XGetWindowProperty[_NET_WM_DESKTOP] failed (code=1)
+2026-11-28T03:12:53+00:00 simplex-chat current GUI WM_NAME(STRING) = "Content window"
+WM_CLASS(STRING) = "chat-simplex-desktop-MainKt", "chat-simplex-desktop-MainKt"
+simplex-chat before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 7, minor: 1, patch: 5 }), source: Flatpak, location: "/home/qa/profiles/simplex-chat-after210/data/flatpak/app/chat.simplex.simplex/x86_64/stable/f91290e4dde51e24fa7678d94fb22004c859cb89af497727fabcec2e81fb5939", package: Some("chat.simplex.simplex"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("7.1.5"), update_available: false, can_remove: true, can_open: true }
+simplex-chat JobFinished: Ok("Flathub app removed")
+simplex-chat after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/simplex-chat-after210/.var/app/chat.simplex.simplex/fixture.txt: OK
+2026-11-28T03:12:54+00:00 simplex-chat PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T03:12:55+00:00 simplex-chat EXIT 0 remove
+
+(xfconfd:18600): xfconfd-WARNING **: 03:12:55.572: Name org.xfce.Xfconf lost on the message dbus, exiting.

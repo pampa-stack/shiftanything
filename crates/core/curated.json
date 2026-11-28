@@ -34780,7 +34780,15 @@
           "size_max": 15953799
         }
       ]
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "org.deskflow.deskflow",
+        "source": "https://flathub.org/apps/org.deskflow.deskflow"
+      }
+    ]
   },
   {
     "id": "openmtp",

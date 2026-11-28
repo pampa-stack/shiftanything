@@ -1,0 +1,72 @@
+2026-11-28T03:05:12+00:00 deskflow AVAILABLE 22118809600
+deskflow before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+deskflow JobFinished: Ok("Flathub app installed")
+deskflow after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 27, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.27.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:05:13+00:00 deskflow current-install 7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d
+/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d/export/share/applications/org.deskflow.deskflow.desktop
+/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d/export/share/icons/hicolor/512x512/apps/org.deskflow.deskflow.png
+Updating app/org.deskflow.deskflow/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:05:15+00:00 deskflow previous 83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380
+deskflow before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 26, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380", package: Some("org.deskflow.deskflow"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.26.0"), update_available: false, can_remove: false, can_open: true }
+deskflow JobFinished: Err("Approved action rejected: native installation state changed")
+deskflow JobFinished: Err("This Flatpak is managed outside the launcher")
+deskflow after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 1, minor: 26, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380", package: Some("org.deskflow.deskflow"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.26.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5766 comm="xfwm4 --compositor=off --display=:91" label="unconfined")
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5779 comm="flatpak run --user --command=sh app/org.deskflow.d" label="flatpak (unconfined)")
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=5779 comm="flatpak run --user --command=sh app/org.deskflow.d" label="flatpak (unconfined)")
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=5805 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+deskflow before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 26, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.26.0"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.12' (uid=1000 pid=6008 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
+dbus-daemon[5261]: [session uid=1000 pid=5261] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.13' (uid=1000 pid=6025 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:6032): dbind-WARNING **: 03:05:16.612: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:6025): xdg-desktop-portal-WARNING **: 03:05:16.636: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6025): xdg-desktop-portal-WARNING **: 03:05:16.636: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:6025): xdg-desktop-portal-WARNING **: 03:05:16.636: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][00460.127359] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][00460.127413] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:6025): xdg-desktop-portal-WARNING **: 03:05:16.642: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[5261]: [session uid=1000 pid=5261] Successfully activated service 'org.freedesktop.portal.Desktop'
+deskflow JobFinished: Ok("Launch request accepted")
+deskflow after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 26, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.26.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.deskflow.deskflow
+2026-11-28T03:05:47+00:00 deskflow previous GUI WM_NAME(STRING) = "Deskflow"
+WM_CLASS(STRING) = "deskflow", "Deskflow"
+2026-11-28T03:05:47+00:00 deskflow AVAILABLE 22095519744
+deskflow before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 26, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.26.0"), update_available: true, can_remove: true, can_open: true }
+deskflow JobFinished: Ok("Flathub app updated")
+deskflow after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 27, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.27.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T03:05:49+00:00 deskflow current 7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d
+/home/qa/profiles/deskflow-after210/.var/app/org.deskflow.deskflow/fixture.txt: OK
+deskflow before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 27, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.27.0"), update_available: false, can_remove: true, can_open: true }
+deskflow JobFinished: Ok("Launch request accepted")
+deskflow after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 27, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.27.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.deskflow.deskflow
+2026-11-28T03:06:05+00:00 deskflow current GUI WM_NAME(STRING) = "Deskflow"
+WM_CLASS(STRING) = "deskflow", "Deskflow"
+deskflow before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 1, minor: 27, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/deskflow-after210/data/flatpak/app/org.deskflow.deskflow/x86_64/stable/7f0d76e405eccee35b6f61c4a645cd25253ff3993104e6e8ef310429d704010d", package: Some("org.deskflow.deskflow"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("1.27.0"), update_available: false, can_remove: true, can_open: true }
+deskflow JobFinished: Ok("Flathub app removed")
+deskflow after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/deskflow-after210/.var/app/org.deskflow.deskflow/fixture.txt: OK
+2026-11-28T03:06:06+00:00 deskflow PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T03:06:06+00:00 deskflow EXIT 0 remove
+
+(xfconfd:5791): xfconfd-WARNING **: 03:06:06.344: Name org.xfce.Xfconf lost on the message dbus, exiting.

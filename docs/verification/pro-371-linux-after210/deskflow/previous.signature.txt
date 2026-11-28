@@ -1,0 +1,19 @@
+commit 83a6a2eac07929a24bba7c92efd888e43132ae0d4c7748d6d8a13ce176f66380
+Parent:  de009819b1d5f650651b860d332525a7b8a28d01cf43e8b839c3caed5002ef06
+ContentChecksum:  1e6c4160e401f0e8e816530c90d718b818306c90ba5879c7a19b1a98a866bc9a
+Date:  2026-09-12 16:39:35 +0000
+
+    libportal: Update 0.10.0.tar.gz to 0.11.0 (9f727e981c2e)
+
+    Name: org.deskflow.deskflow
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Sep 12 17:03:28 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

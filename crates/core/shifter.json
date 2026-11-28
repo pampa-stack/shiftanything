@@ -5516,6 +5516,716 @@
           }
         }
       ]
+    },
+    {
+      "id": "bettertouchtool",
+      "name": "BetterTouchTool",
+      "aliases": [],
+      "features": [
+        {
+          "id": "input",
+          "name": {
+            "it": "Rimappare tastiera e mouse",
+            "en": "Remap keyboard and mouse"
+          },
+          "source": "https://folivora.ai/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "karabiner-elements",
+          "evidence": {
+            "input": {
+              "state": "supported",
+              "source": "https://github.com/pqrs-org/Karabiner-Elements#readme",
+              "note": {
+                "it": "Rimappa tasti con regole semplici o combinazioni.",
+                "en": "Remap keys using simple rules or combinations."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "linearmouse",
+          "evidence": {
+            "input": {
+              "state": "supported",
+              "source": "https://github.com/linearmouse/linearmouse#readme",
+              "note": {
+                "it": "Regola scorrimento, accelerazione e tasti del mouse.",
+                "en": "Adjust mouse scrolling, acceleration and buttons."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bluebeam-revu",
+      "name": "Bluebeam Revu",
+      "aliases": [],
+      "features": [
+        {
+          "id": "markups",
+          "name": {
+            "it": "Annotare piante e tavole",
+            "en": "Review and mark up drawings"
+          },
+          "source": "https://www.bluebeam.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "okular",
+          "evidence": {
+            "markups": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.kde.okular",
+              "note": {
+                "it": "Aggiungi evidenziazioni e note al PDF.",
+                "en": "Highlight and add notes to PDF drawings."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bookfusion-advanced",
+      "name": "BookFusion Advanced",
+      "aliases": [],
+      "features": [
+        {
+          "id": "ebooks",
+          "name": {
+            "it": "Organizzare gli ebook",
+            "en": "Organize ebooks"
+          },
+          "source": "https://www.bookfusion.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "calibre",
+          "evidence": {
+            "ebooks": {
+              "state": "supported",
+              "source": "https://manual.calibre-ebook.com/gui.html",
+              "note": {
+                "it": "Correggi copertine e metadati, converti gli ebook e trasferiscili al lettore.",
+                "en": "Edit ebook covers and metadata, convert formats and send books to your reader."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "buffer",
+      "name": "Buffer",
+      "aliases": [],
+      "features": [
+        {
+          "id": "calendar",
+          "name": {
+            "it": "Pianificare i post social",
+            "en": "Schedule social posts"
+          },
+          "source": "https://buffer.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "postiz",
+          "evidence": {
+            "calendar": {
+              "state": "supported",
+              "source": "https://docs.postiz.com/self-host/installation/overview",
+              "note": {
+                "it": "Prepara e programma contenuti sui canali supportati.",
+                "en": "Prepare and schedule content for supported channels."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "camtasia",
+      "name": "Camtasia",
+      "aliases": [],
+      "features": [
+        {
+          "id": "captions",
+          "name": {
+            "it": "Correggere e sincronizzare i sottotitoli",
+            "en": "Correct and sync captions"
+          },
+          "source": "https://www.techsmith.com/camtasia/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "subtitle-edit",
+          "evidence": {
+            "captions": {
+              "state": "supported",
+              "source": "https://subtitleedit.github.io/subtitleedit/overview.html",
+              "note": {
+                "it": "Adatta il testo al parlato e controlla il sincronismo sulla forma d’onda.",
+                "en": "Match captions to the spoken words and check timing against the waveform."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "chief-architect",
+      "name": "Chief Architect",
+      "aliases": [],
+      "features": [
+        {
+          "id": "bim",
+          "name": {
+            "it": "Modello BIM",
+            "en": "BIM model"
+          },
+          "source": "https://www.chiefarchitect.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "free",
+          "evidence": {
+            "bim": {
+              "state": "supported",
+              "source": "https://www.freecad.org/",
+              "note": {
+                "it": "Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.",
+                "en": "Parametric modeling, BIM tools and IFC. Verify interchange with your practice."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cloudflare-application-services",
+      "name": "Cloudflare Application Services",
+      "aliases": [],
+      "features": [
+        {
+          "id": "https",
+          "name": {
+            "it": "Configurare domini e HTTPS",
+            "en": "Set up domains and HTTPS"
+          },
+          "source": "https://www.cloudflare.com/application-services/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "nginx-proxy-manager",
+          "evidence": {
+            "https": {
+              "state": "supported",
+              "source": "https://nginxproxymanager.com/guide/#features",
+              "note": {
+                "it": "Gestisci domini interni o pubblici e certificati HTTPS dalla dashboard di Nginx.",
+                "en": "Manage internal or public domains and HTTPS certificates from the Nginx dashboard."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "cronitor",
+      "name": "Cronitor",
+      "aliases": [],
+      "features": [
+        {
+          "id": "scheduled-jobs",
+          "name": {
+            "it": "Controllare i job pianificati",
+            "en": "Monitor scheduled jobs"
+          },
+          "source": "https://cronitor.io/cron-job-monitoring"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "healthchecks",
+          "evidence": {
+            "scheduled-jobs": {
+              "state": "supported",
+              "source": "https://healthchecks.io/docs/monitoring_cron_jobs/",
+              "note": {
+                "it": "Avvisa quando un backup pianificato, uno script o un altro job smette di inviare il segnale atteso.",
+                "en": "Get alerts when a scheduled backup, script, or other job misses its expected check-in."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "daisydisk",
+      "name": "DaisyDisk",
+      "aliases": [],
+      "features": [
+        {
+          "id": "storage",
+          "name": {
+            "it": "Capire dove finisce lo spazio",
+            "en": "Find what uses disk space"
+          },
+          "source": "https://daisydiskapp.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "filelight",
+          "evidence": {
+            "storage": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.kde.filelight",
+              "note": {
+                "it": "Visualizza l’occupazione per cartella e cerca i file più grandi.",
+                "en": "Visualize disk usage by folder and find the biggest files."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "datadog",
+      "name": "Datadog",
+      "aliases": [],
+      "features": [
+        {
+          "id": "server-metrics",
+          "name": {
+            "it": "Osservare risorse e avvisi",
+            "en": "Track resource usage and alerts"
+          },
+          "source": "https://www.datadoghq.com/product/infrastructure-monitoring/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "beszel",
+          "evidence": {
+            "server-metrics": {
+              "state": "supported",
+              "source": "https://beszel.dev/",
+              "note": {
+                "it": "Mostra lo storico di CPU, memoria e rete dei server e dei container.",
+                "en": "View historical CPU, memory, and network usage for servers and containers."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "grafana",
+          "evidence": {
+            "server-metrics": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/alerting/",
+              "note": {
+                "it": "Imposta avvisi sulle metriche e sui log delle fonti che hai collegato.",
+                "en": "Set alerts on metrics and logs from your data sources."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "datagrip",
+      "name": "DataGrip",
+      "aliases": [],
+      "features": [
+        {
+          "id": "database",
+          "name": {
+            "it": "Consultare il database",
+            "en": "Inspect databases"
+          },
+          "source": "https://www.jetbrains.com/datagrip/"
+        },
+        {
+          "id": "query",
+          "name": {
+            "it": "Interrogare database e file SQLite",
+            "en": "Query databases and SQLite files"
+          },
+          "source": "https://www.jetbrains.com/datagrip/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "dbeaver-ce",
+          "evidence": {
+            "database": {
+              "state": "supported",
+              "source": "https://dbeaver.com/docs/dbeaver/",
+              "note": {
+                "it": "Gestisci connessioni, modifica query ed esplora gli schemi.",
+                "en": "Manage connections, edit queries and browse schemas."
+              }
+            },
+            "query": {
+              "state": "supported",
+              "source": "https://dbeaver.com/docs/dbeaver/SQL-Editor/",
+              "note": {
+                "it": "Scrivi query SQL, controlla il risultato e riusa gli script salvati.",
+                "en": "Write SQL queries, inspect their results, and reuse saved scripts."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "db-browser-for-sqlite",
+          "evidence": {
+            "query": {
+              "state": "supported",
+              "source": "https://sqlitebrowser.org/",
+              "note": {
+                "it": "Apri database SQLite locali, esplora le tabelle ed esegui query SQL.",
+                "en": "Open local SQLite databases, browse tables, and run SQL queries."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "aliases": [],
+      "features": [
+        {
+          "id": "clip",
+          "name": {
+            "it": "Preparare clip e sottotitoli",
+            "en": "Produce clips and captions"
+          },
+          "source": "https://www.descript.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kdenlive",
+          "evidence": {
+            "clip": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html",
+              "note": {
+                "it": "Taglia clip, aggiungi sottotitoli ed esporta per la pubblicazione.",
+                "en": "Cut clips, add subtitles and export for publishing."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dropbox-business",
+      "name": "Dropbox Business",
+      "aliases": [],
+      "features": [
+        {
+          "id": "storage",
+          "name": {
+            "it": "Condividere cartelle di lavoro",
+            "en": "Share work folders"
+          },
+          "source": "https://www.dropbox.com/business"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "nextcloud-files",
+          "evidence": {
+            "storage": {
+              "state": "supported",
+              "source": "https://github.com/nextcloud/server#readme",
+              "note": {
+                "it": "Gestisci condivisioni e permessi dal server Nextcloud.",
+                "en": "Manage shares and permissions on a Nextcloud server."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "endnote",
+      "name": "EndNote",
+      "aliases": [],
+      "features": [
+        {
+          "id": "sources",
+          "name": {
+            "it": "Catalogare articoli e fonti",
+            "en": "Catalog research sources"
+          },
+          "source": "https://endnote.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "zotero",
+          "evidence": {
+            "sources": {
+              "state": "supported",
+              "source": "https://github.com/zotero/zotero",
+              "note": {
+                "it": "Salva riferimenti, allegati e metadati in una raccolta.",
+                "en": "Save references, attachments and metadata in a library."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "enscape",
+      "name": "Enscape",
+      "aliases": [],
+      "features": [
+        {
+          "id": "render",
+          "name": {
+            "it": "Rendering",
+            "en": "Rendering"
+          },
+          "source": "https://www.chaos.com/enscape"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "blender",
+          "evidence": {
+            "render": {
+              "state": "supported",
+              "source": "https://docs.blender.org/manual/en/4.5/render/index.html",
+              "note": {
+                "it": "Materiali, luci e rendering statici o animati.",
+                "en": "Materials, lighting, still renders and animations."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "evernote",
+      "name": "Evernote",
+      "aliases": [],
+      "features": [
+        {
+          "id": "notes",
+          "name": {
+            "it": "Mantenere la documentazione",
+            "en": "Maintain documentation"
+          },
+          "source": "https://evernote.com/"
+        },
+        {
+          "id": "notes-training-documentation",
+          "name": {
+            "it": "Raccogliere i materiali",
+            "en": "Collect materials"
+          },
+          "source": "https://evernote.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "joplin",
+          "evidence": {
+            "notes": {
+              "state": "supported",
+              "source": "https://joplinapp.org/help/apps/",
+              "note": {
+                "it": "Organizza note, allegati e checklist in taccuini.",
+                "en": "Organize notes, attachments and checklists in notebooks."
+              }
+            },
+            "notes-training-documentation": {
+              "state": "supported",
+              "source": "https://joplinapp.org/help/",
+              "note": {
+                "it": "Organizza gli appunti scritti offline in taccuini con tag e allegati.",
+                "en": "Organize offline notes into notebooks with tags and attachments."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "trilium",
+          "evidence": {
+            "notes-training-documentation": {
+              "state": "supported",
+              "source": "https://triliumnotes.org/",
+              "note": {
+                "it": "Collega gli appunti tra loro e raccoglili in un archivio gerarchico disponibile offline.",
+                "en": "Link notes together and organize them in a hierarchy that works offline."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "eztitles",
+      "name": "EZTitles",
+      "aliases": [],
+      "features": [
+        {
+          "id": "subtitles",
+          "name": {
+            "it": "Correggere i sottotitoli",
+            "en": "Fix subtitles"
+          },
+          "source": "https://www.eztitles.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "subtitle-edit",
+          "evidence": {
+            "subtitles": {
+              "state": "supported",
+              "source": "https://subtitleedit.github.io/subtitleedit/faq.html",
+              "note": {
+                "it": "Correggi i tempi dei sottotitoli con l’anteprima video ed esporta in SRT o WebVTT.",
+                "en": "Fix subtitle timing against the video and export as SRT or WebVTT."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "final-cut-pro",
+      "name": "Final Cut Pro",
+      "aliases": [],
+      "features": [
+        {
+          "id": "editing",
+          "name": {
+            "it": "Montaggio video",
+            "en": "Video editing"
+          },
+          "source": "https://www.apple.com/final-cut-pro/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kdenlive",
+          "evidence": {
+            "editing": {
+              "state": "supported",
+              "source": "https://docs.kdenlive.org/en/getting_started/quickstart.html",
+              "note": {
+                "it": "Monta clip e audio su più tracce con transizioni ed effetti.",
+                "en": "Edit video and audio across multiple tracks with transitions and effects."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "filmcraft",
+          "evidence": {
+            "editing": {
+              "state": "supported",
+              "source": "https://github.com/storytold/filmcraft#edit",
+              "note": {
+                "it": "Monta su più tracce e passa ai pannelli per colore ed effetti.",
+                "en": "Edit across multiple tracks and switch to color and effects workspaces."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "shotcut",
+          "evidence": {
+            "editing": {
+              "state": "supported",
+              "source": "https://www.shotcut.org/features/",
+              "note": {
+                "it": "Monta in timeline clip con risoluzioni e frequenze di fotogrammi diverse.",
+                "en": "Edit clips with different resolutions and frame rates on the same timeline."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "fl-studio",
+      "name": "FL Studio",
+      "aliases": [],
+      "features": [
+        {
+          "id": "rhythm",
+          "name": {
+            "it": "Programmare la batteria",
+            "en": "Program drums"
+          },
+          "source": "https://www.image-line.com/fl-studio/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "hydrogen",
+          "evidence": {
+            "rhythm": {
+              "state": "supported",
+              "source": "https://github.com/hydrogen-music/hydrogen",
+              "note": {
+                "it": "Costruisci pattern ritmici e concatenali in una canzone.",
+                "en": "Build drum patterns and arrange them into a song."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "freshbooks",
+      "name": "FreshBooks",
+      "aliases": [],
+      "features": [
+        {
+          "id": "invoice",
+          "name": {
+            "it": "Preparare e seguire fatture",
+            "en": "Prepare and track invoices"
+          },
+          "source": "https://www.freshbooks.com/invoice"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "invoiceplane",
+          "evidence": {
+            "invoice": {
+              "state": "supported",
+              "source": "https://github.com/InvoicePlane/InvoicePlane",
+              "note": {
+                "it": "Gestisci clienti, preventivi, fatture e pagamenti registrati.",
+                "en": "Manage clients, quotes, invoices and recorded payments."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

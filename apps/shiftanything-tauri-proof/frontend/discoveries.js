@@ -25,6 +25,25 @@
     return result;
   }
 
+  const icons = {
+    ranking: 'M3 13V8M8 13V3M13 13V6',
+    expand: 'M3 6l5 5 5-5',
+  };
+  // Commands (not filters) share the accent colour, an icon and their own place in the layout.
+  function command(value, icon, action) {
+    const result = button('', action, 'btn btn-command');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 16 16');
+    svg.setAttribute('aria-hidden', 'true');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', icons[icon]);
+    svg.append(path);
+    const text = node('span', value);
+    result.append(svg, text);
+    result.label = text;
+    return result;
+  }
+
   function source(text, id, url) {
     const link = node('a', text, 'source-link');
     link.href = url;
@@ -196,10 +215,10 @@
     const moreExamples = node('div', '', 'find-more-examples');
     moreExamples.id = 'find-more-examples';
     moreExamples.hidden = true;
-    const more = button(it ? 'Altri esempi' : 'More examples', () => {
+    const more = command(it ? 'Altri esempi' : 'More examples', 'expand', () => {
       moreExamples.hidden = !moreExamples.hidden;
       more.setAttribute('aria-expanded', String(!moreExamples.hidden));
-      more.textContent = moreExamples.hidden ? (it ? 'Altri esempi' : 'More examples') : (it ? 'Meno esempi' : 'Fewer examples');
+      more.label.textContent = moreExamples.hidden ? (it ? 'Altri esempi' : 'More examples') : (it ? 'Meno esempi' : 'Fewer examples');
     });
     more.setAttribute('aria-controls', moreExamples.id);
     more.setAttribute('aria-expanded', 'false');
@@ -420,6 +439,7 @@
     const roles = node('div', '', 'kit-tabs');
     const roleTabs = work.kits.map(kit => {
       const tab = addTab(roles, label(kit.name), () => {
+        ranking.setAttribute('aria-pressed', 'false');
         rankings.hidden = true;
         rolePanel.hidden = false;
         renderKit(kit);
@@ -427,7 +447,13 @@
       const searchable = [kit.name, kit.description, ...kit.steps.map(step => step.name)].flatMap(value => [value.it, value.en]);
       return {tab, fields:searchable.map(value => ' ' + normalize(value))};
     });
-    addTab(roles, rankingHeading, () => { rolePanel.hidden = true; rankings.hidden = false; });
+    const ranking = command(rankingHeading, 'ranking', () => {
+      for (const item of roles.children) item.setAttribute('aria-pressed', 'false');
+      ranking.setAttribute('aria-pressed', 'true');
+      rolePanel.hidden = true;
+      rankings.hidden = false;
+    });
+    ranking.setAttribute('aria-pressed', 'false');
     for (const sample of work.rankings) addTab(studies, label(sample.name), () => renderRanking(sample));
     const kitSearch = node('input');
     kitSearch.type = 'search';
@@ -439,7 +465,7 @@
     kitSearchLabel.htmlFor = kitSearch.id;
     kitSearchLabel.append(kitSearch);
     const kitControls = node('div', '', 'discovery-controls kit-controls');
-    kitControls.append(kitSearchLabel);
+    kitControls.append(kitSearchLabel, ranking);
     const noKits = node('p', it?'Nessun kit corrispondente.':'No matching kits.', 'discovery-feedback');
     noKits.setAttribute('role', 'status');
     noKits.hidden = true;

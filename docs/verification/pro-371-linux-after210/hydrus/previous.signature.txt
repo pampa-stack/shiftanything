@@ -1,0 +1,19 @@
+commit f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36
+Parent:  2ccbd3a6b237e412b98745ce16ac31e917566fe3e44abad714187eb0a9e139b5
+ContentChecksum:  c42e18d26602236ab40534569b99e913fe0b1111b200545e163415b6efc322ea
+Date:  2026-06-01 12:09:04 +0000
+
+    hydrus: Update hydrus.git to 673 (3ba830e16928)
+
+    Name: io.github.hydrusnetwork.hydrus
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.6
+
+Found 1 signature:
+
+  Signature made Mon Jun  1 13:00:18 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

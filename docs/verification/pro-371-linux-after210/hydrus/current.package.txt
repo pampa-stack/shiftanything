@@ -1,0 +1,20 @@
+
+Hydrus - Organize media on the desktop
+
+          ID: io.github.hydrusnetwork.hydrus
+         Ref: app/io.github.hydrusnetwork.hydrus/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 676
+     License: WTFPL
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 565.0 MB
+     Runtime: org.kde.Platform/x86_64/6.10
+         Sdk: org.kde.Sdk/x86_64/6.10
+
+      Commit: f152ec48dcbbcffab2c681f8f0504cd69163b4e7197664e6b85abcbae612a48f
+      Parent: f8e8ecb637a4cd1d40704fe7f14dc3afaea0d74bb24c76f0d1556e88a7d43f36
+     Subject: Update certifi to 2026.10.19 (#250) (933c8cdbf74f)
+        Date: 2026-10-27 20:40:53 +0000

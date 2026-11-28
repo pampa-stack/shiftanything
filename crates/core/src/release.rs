@@ -710,6 +710,9 @@ pub fn release_tag_version(repo: &str, tag: &str) -> Option<Version> {
         picard_version(tag)
     } else if repo == crate::curated::ANKI.repo {
         anki_date_version(tag).or_else(|| version::parse(tag))
+    } else if repo == crate::curated::UTM.repo && tag == "v5.0.9-2" {
+        // The stable retag contains UTM 5.0.9 build 132, not a prerelease.
+        version::parse("5.0.9")
     } else if repo == crate::curated::ZEN.repo {
         zen_release_version(tag)
     } else if repo == crate::curated::GODOT_RELEASES_REPO {
@@ -1114,6 +1117,8 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::KDENLIVE,
         crate::curated::SUBTITLE_EDIT,
         crate::curated::DEEPCHAT,
+        crate::curated::EASYDICT,
+        crate::curated::UTM,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1134,6 +1139,8 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
                 version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor)
             } else if (app.id, app.repo) == (crate::curated::VIRTUALBUDDY.id, crate::curated::VIRTUALBUDDY.repo) {
                 release.tag == version.to_string() || (version.patch == 0 && release.tag == format!("{}.{}", version.major, version.minor))
+            } else if (app.id, app.repo) == (crate::curated::UTM.id, crate::curated::UTM.repo) && release.tag == "v5.0.9-2" {
+                release_tag_version(app.repo, &release.tag).as_ref() == Some(version)
             } else if app.id == crate::curated::ANKI.id {
                 anki_date_version(&release.tag).as_ref() == Some(version)
             } else if (app.id, app.repo) == (crate::curated::ZEN.id, crate::curated::ZEN.repo) {
@@ -1141,6 +1148,7 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
             } else if [crate::curated::RUSTDESK.id, crate::curated::VSCODIUM.id].contains(&app.id)
                 || (app.id, app.repo) == (crate::curated::OSAURUS.id, crate::curated::OSAURUS.repo)
                 || (app.id, app.repo) == (crate::curated::FREECAD.id, crate::curated::FREECAD.repo)
+                || (app.id, app.repo) == (crate::curated::EASYDICT.id, crate::curated::EASYDICT.repo)
                 || app.uses_zotero_releases()
                 || app.uses_blender_releases()
                 || app.uses_gimp_releases()
@@ -1377,6 +1385,10 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
             ("Ghost-Downloader-v4.6.1-Linux-x86_64.AppImage", 86_133_240, "68e6615f66d10f26c127e94d6db6926064831488fb6f5d93f1189ed4d21519eb"),
             ("Ghost-Downloader-v4.6.1-macOS-arm64.dmg", 59_261_074, "85f87ae7d2100b2296bf09097cc3e56011b1dc96e05fab7e1c7af6bf29caf38c"),
         ],
+        ("utmapp/UTM", "v5.0.8") => &[("UTM.dmg", 304_304_581, "7b2d7b2e2a02b3de1757ef19a8f36573e6d9cceae8c8cca0abcbcaa4a852019a")],
+        ("utmapp/UTM", "v5.0.9-2") => &[("UTM.dmg", 304_699_821, "1a76ddcf61ab424a5ae1d1b68a16a9b2e84b748716afce905ee77740d8e86127")],
+        ("tisfeng/Easydict", "2.25.0") => &[("Easydict.dmg", 35_766_921, "a8b6893cd3366c864eaac22fd8fadd52968c5119dd40fe5d61947cad3d2bfd16")],
+        ("tisfeng/Easydict", "2.26.0") => &[("Easydict.dmg", 35_761_660, "b88e29e8ffb62ecad2159964e2b2c06150c522c1de34f41c62faadd750d5715e")],
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }
@@ -2771,6 +2783,14 @@ mod tests {
         assert_eq!(official.version, Some(Version::new(4, 0, 2)));
         assert_eq!(official.tag, "Audacity-4.0.2");
         assert!(parse_github_release(json, "example/audacity").unwrap().version.is_none());
+    }
+
+    #[test]
+    fn utm_only_maps_the_reviewed_retag_to_a_stable_version() {
+        let repo = crate::curated::UTM.repo;
+        assert_eq!(release_tag_version(repo, "v5.0.9-2"), Some(Version::new(5, 0, 9)));
+        assert!(!release_tag_version("example/UTM", "v5.0.9-2").unwrap().pre.is_empty());
+        assert!(!release_tag_version(repo, "v5.0.10-2").unwrap().pre.is_empty());
     }
 
     #[test]

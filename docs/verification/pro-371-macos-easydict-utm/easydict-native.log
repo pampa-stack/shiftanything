@@ -1,0 +1,18 @@
+PASS PREFLIGHT easydict 2.25.0
+PASS PREFLIGHT easydict 2.26.0
+/dev/disk3s5   239362496 180917292  17317756    92% 3339862 173177560    2%   /System/Volumes/Data
+OFFICIAL INDEX easydict 2.25.0 digest=published
+OFFICIAL INDEX easydict 2.26.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL 2.25.0 Dmg https://github.com/tisfeng/Easydict/releases/download/2.25.0/Easydict.dmg 35766921 a8b6893cd3366c864eaac22fd8fadd52968c5119dd40fe5d61947cad3d2bfd16
+PASS OFFICIAL 2.26.0 Dmg https://github.com/tisfeng/Easydict/releases/download/2.26.0/Easydict.dmg 35761660 b88e29e8ffb62ecad2159964e2b2c06150c522c1de34f41c62faadd750d5715e
+NATIVE ORIGIN easydict GitHub
+PASS OFFICIAL 2.25.0 Dmg https://github.com/tisfeng/Easydict/releases/download/2.25.0/Easydict.dmg 35766921 a8b6893cd3366c864eaac22fd8fadd52968c5119dd40fe5d61947cad3d2bfd16
+PASS NATIVE easydict install: Easydict installed: 2.25.0; package_bytes=35766921; elapsed=46.399s
+NATIVE ORIGIN easydict GitHub
+PASS OFFICIAL 2.26.0 Dmg https://github.com/tisfeng/Easydict/releases/download/2.26.0/Easydict.dmg 35761660 b88e29e8ffb62ecad2159964e2b2c06150c522c1de34f41c62faadd750d5715e
+PASS NATIVE easydict update: Easydict updated to 2.26.0; package_bytes=35761660; elapsed=24.835s
+PASS NATIVE easydict remove: Easydict was removed; package_bytes=0; elapsed=0.108s
+PASS NATIVE CYCLE easydict (2.25.0 → 2.26.0), private Trash and synthetic data preserved

@@ -2681,6 +2681,48 @@ pub const DEEPCHAT: crate::CraftApp = crate::CraftApp {
     mac_team: Some("Y7P5QLKLYG"),
 };
 
+pub const EASYDICT: crate::CraftApp = crate::CraftApp {
+    id: "easydict",
+    name: "Easydict",
+    tagline: "Look up and translate text from the macOS menu bar",
+    repo: "tisfeng/Easydict",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [65, 104, 188],
+    ink_light: [36, 63, 119],
+    ink_dark: [172, 190, 246],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Canglong Dai",
+    msi_publisher: None,
+    bundle: Some("com.izual.Easydict"),
+    site: Some("https://github.com/tisfeng/Easydict"),
+    mac_bundle_name: None,
+    mac_team: Some("45Z6V4YD5U"),
+};
+
+pub const UTM: crate::CraftApp = crate::CraftApp {
+    id: "utm",
+    name: "UTM",
+    tagline: "Create and run virtual machines on macOS",
+    repo: "utmapp/UTM",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [67, 126, 190],
+    ink_light: [31, 72, 117],
+    ink_dark: [169, 206, 247],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Turing Software, LLC",
+    msi_publisher: None,
+    bundle: Some("com.utmapp.UTM"),
+    site: Some("https://getutm.app/"),
+    mac_bundle_name: None,
+    mac_team: Some("WDNLXAD4W8"),
+};
+
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GHOST_DOWNLOADER,
     HANDY,
@@ -2799,6 +2841,8 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     KDENLIVE,
     SUBTITLE_EDIT,
     DEEPCHAT,
+    EASYDICT,
+    UTM,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

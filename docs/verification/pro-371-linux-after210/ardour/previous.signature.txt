@@ -1,0 +1,19 @@
+commit f67817a9d5389d6878490fad0bd05fe83d83b4e038f0a4af706a68d05fe78912
+Parent:  76c940119c78be4db2dcba9da874f5b2a858b8c3af9858c5b56a3332104f7924
+ContentChecksum:  72c12dcecd11a1c59d1144a81a115cad70af2bb9158697f398e0c6a8041d8638
+Date:  2026-10-04 03:22:03 +0000
+
+    simplify boost build (b179b1f38b3b)
+
+    Name: org.ardour.Ardour
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sun Oct  4 05:34:21 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

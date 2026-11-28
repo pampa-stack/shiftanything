@@ -1,0 +1,7 @@
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/applications/org.ardour.Ardour.desktop
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/16x16/apps/org.ardour.Ardour.png
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/22x22/apps/org.ardour.Ardour.png
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/256x256/apps/org.ardour.Ardour.png
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/32x32/apps/org.ardour.Ardour.png
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/48x48/apps/org.ardour.Ardour.png
+/home/qa/profiles/ardour-pulse-after210/data/flatpak/app/org.ardour.Ardour/x86_64/stable/2a1d2ce89949078c76c8a82f380368ab214fb08da5ffe1c1f17488defa68c5d7/export/share/icons/hicolor/512x512/apps/org.ardour.Ardour.png

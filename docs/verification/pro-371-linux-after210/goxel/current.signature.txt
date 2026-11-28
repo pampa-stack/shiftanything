@@ -1,0 +1,19 @@
+commit 0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e
+Parent:  6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6
+ContentChecksum:  f1b03806a4fd7784c457614658e3116631ca618ec62088cdacae09a169f8ce0a
+Date:  2026-02-24 01:27:57 +0000
+
+    Update to version 0.15.1 and add screenshots (#49) (4d2d49bd156f)
+
+    Name: io.github.guillaumechereau.Goxel
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Tue Feb 24 01:47:10 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

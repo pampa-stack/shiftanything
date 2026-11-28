@@ -1,0 +1,19 @@
+commit 6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6
+Parent:  6057a3f0eab79bcdf17c071b539b6e2e5d5b92147a0891a325eeb579a18a85ef
+ContentChecksum:  0d26ef4b330a7fc047ebf277c700fa516b8bead813bee59f723bb3d7554ce591
+Date:  2024-03-19 01:53:14 +0000
+
+    Update SCons-4.6.0.tar.gz to 4.7.0 (2c6d493b)
+
+    Name: io.github.guillaumechereau.Goxel
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.14.5
+
+Found 1 signature:
+
+  Signature made Tue Mar 19 05:02:19 2024 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

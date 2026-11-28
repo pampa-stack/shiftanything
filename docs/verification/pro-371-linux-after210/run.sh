@@ -82,6 +82,19 @@ open_gui() {
             say "On $DISPLAY, create the Shift-QA session ($phase) and start the private PulseAudio output"
             timeout 120 xdotool search --sync --onlyvisible --name "$pattern" >/dev/null
             ;;
+        zim)
+            if [[ "$phase" == previous ]]; then
+                dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^Add Notebook$' | sed -n '1p')
+                xdotool windowactivate --sync "$dialog" key Tab ctrl+a
+                xdotool type "$HOME/Notes"
+                read -r width height < <(xdotool getwindowgeometry --shell "$dialog" | awk -F= '
+                    $1 == "WIDTH" {width = $2}
+                    $1 == "HEIGHT" {print width, $2}
+                ')
+                xdotool mousemove --window "$dialog" "$((width - 55))" "$((height - 29))" click 1
+                test -d "$HOME/Notes"
+            fi
+            ;;
         fontforge)
             dialog=$(timeout 20 xdotool search --sync --onlyvisible --name '^Open Font$' | sed -n '1p')
             read -r width height < <(xdotool getwindowgeometry --shell "$dialog" | awk -F= '
@@ -207,7 +220,7 @@ printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/porta
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
 flags+=(--nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
-if [[ "$slug" == ardour || "$slug" == famistudio ]]; then
+if [[ "$slug" == ardour || "$slug" == famistudio || "$slug" == hydrogen ]]; then
     # An isolated test signal path, with no hardware and no connection to system audio.
     mkdir -p "$XDG_RUNTIME_DIR/pulse"
     export PULSE_SERVER="unix:$XDG_RUNTIME_DIR/pulse/native"
@@ -233,6 +246,10 @@ if [[ "$slug" == calibre ]]; then
     calibre_library="$HOME/Calibre Library"
     mkdir -p "$calibre_library"
     flags+=(--filesystem="$calibre_library")
+fi
+if [[ "$slug" == zim ]]; then
+    mkdir -p "$HOME/Notes"
+    flags+=(--filesystem="$HOME/Notes")
 fi
 if [[ "$slug" == bleachbit ]]; then
     mkdir -p "$HOME/.config/bleachbit"

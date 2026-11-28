@@ -491,6 +491,23 @@ mod linux {
             if !valid_commit(&commit) {
                 return Err("Flatpak did not return an exact deployment commit".into());
             }
+            // Goxel's AppStream reports 0.13.0 for both signed revisions tested in QA.
+            // Use the version displayed by the app only for each known Flathub deployment.
+            let version = match (reference, origin, version, commit.as_str()) {
+                (
+                    "app/io.github.guillaumechereau.Goxel/x86_64/stable",
+                    REMOTE,
+                    "0.13.0",
+                    "6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6",
+                ) => "0.14.0",
+                (
+                    "app/io.github.guillaumechereau.Goxel/x86_64/stable",
+                    REMOTE,
+                    "0.13.0",
+                    "0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e",
+                ) => "0.15.1",
+                _ => version,
+            };
             deployments.push(Deployment { origin: origin.into(), commit, scope: scope.into(), version: version.into() });
         }
         Ok(deployments)
@@ -627,6 +644,21 @@ mod linux {
             let label = selected(&deployments).version_label();
             assert_eq!(label, Some("1.7.3"));
             assert_eq!(label.and_then(version::parse), version::parse("1.7.3"));
+        }
+
+        #[test]
+        fn corrects_stale_goxel_version_only_for_the_reviewed_flathub_commits() {
+            let reference = "app/io.github.guillaumechereau.Goxel/x86_64/stable";
+            let rows = format!("{reference}\tflathub\tuser\t0.13.0");
+            let current = "0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e";
+            let label = |rows: &str, commit: &str| {
+                let deployments = parse_deployments(rows, reference, |_| Ok(commit.into())).unwrap();
+                selected(&deployments).version_label().map(str::to_owned)
+            };
+            assert_eq!(label(&rows, current).as_deref(), Some("0.15.1"));
+            assert_eq!(label(&rows, COMMIT).as_deref(), Some("0.13.0"));
+            assert_eq!(label(&rows.replace("flathub", "other"), current).as_deref(), Some("0.13.0"));
+            assert_eq!(label(&rows.replace("0.13.0", "0.15.1"), current).as_deref(), Some("0.15.1"));
         }
 
         #[test]

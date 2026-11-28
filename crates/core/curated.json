@@ -12331,9 +12331,9 @@
       "source": "https://flathub.org/apps/io.github.guillaumechereau.Goxel"
     },
     "release": {
-      "version": "0.13.0",
-      "date": "2023-12-27",
-      "source": "https://flathub.org/apps/io.github.guillaumechereau.Goxel",
+      "version": "0.15.1",
+      "date": "2024-07-28",
+      "source": "https://github.com/guillaumechereau/goxel/releases/tag/v0.15.1",
       "packages": []
     },
     "stars": {

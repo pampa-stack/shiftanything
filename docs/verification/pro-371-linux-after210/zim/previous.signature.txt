@@ -1,0 +1,19 @@
+commit e2bac1e59d7bfe15baff90e8153ca9db43dfc98138f2833ee5d47fa0b77d6bed
+Parent:  b34848f3fe7e667c78a40b3f7576e73a48453ad249deb72f8163afc0c97a1769
+ContentChecksum:  8fda0d888e23cc668be9fe467148381a5f14305be5b75a0cd4c6bba2e30a1326
+Date:  2026-07-04 17:29:26 +0000
+
+    Bump modules and delete unneeded patch (9580f43e0cb1)
+
+    Name: org.zim_wiki.Zim
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Jul  4 18:00:59 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

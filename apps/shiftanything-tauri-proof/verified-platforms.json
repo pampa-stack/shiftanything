@@ -234,12 +234,14 @@
       "gnu-octave",
       "gnucash",
       "godot-engine",
+      "goxel",
       "gpt4all",
       "gridcraft",
       "gromit",
       "handbrake",
       "handy",
       "headlamp",
+      "hydrogen",
       "hydrus",
       "icon-library",
       "inks",
@@ -384,6 +386,7 @@
       "zed",
       "zen",
       "zettlr",
+      "zim",
       "zotero"
     ]
   },

@@ -1,0 +1,66 @@
+2026-11-28T08:19:21+00:00 goxel AVAILABLE 16917901312
+goxel before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+goxel JobFinished: Ok("Flathub app installed")
+goxel after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:19:22+00:00 goxel current-install 0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/applications/io.github.guillaumechereau.Goxel.desktop
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/128x128/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/16x16/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/24x24/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/256x256/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/32x32/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/48x48/apps/io.github.guillaumechereau.Goxel.png
+/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e/export/share/icons/hicolor/64x64/apps/io.github.guillaumechereau.Goxel.png
+Info: org.freedesktop.Platform is end-of-life, with reason: org.freedesktop.Platform 23.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.Locale is end-of-life, with reason: org.freedesktop.Platform 23.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 23.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 23.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/io.github.guillaumechereau.Goxel/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:19:23+00:00 goxel previous 6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6
+goxel before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.0"), update_available: false, can_remove: false, can_open: true }
+goxel JobFinished: Err("Approved action rejected: native installation state changed")
+goxel JobFinished: Err("This Flatpak is managed outside the launcher")
+goxel after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[14580]: [session uid=1000 pid=14580] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=14930 comm="xfwm4 --compositor=off --display=:85" label="unconfined")
+dbus-daemon[14580]: [session uid=1000 pid=14580] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[14580]: [session uid=1000 pid=14580] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=14953 comm="flatpak run --user --command=sh app/io.github.guil" label="flatpak (unconfined)")
+dbus-daemon[14580]: [session uid=1000 pid=14580] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[14580]: [session uid=1000 pid=14580] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=14953 comm="flatpak run --user --command=sh app/io.github.guil" label="flatpak (unconfined)")
+dbus-daemon[14580]: [session uid=1000 pid=14580] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=14969 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[14580]: [session uid=1000 pid=14580] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[14580]: [session uid=1000 pid=14580] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+goxel before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.0"), update_available: true, can_remove: true, can_open: true }
+goxel JobFinished: Ok("Launch request accepted")
+goxel after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.guillaumechereau.Goxel
+2026-11-28T08:19:40+00:00 goxel previous GUI WM_NAME(STRING) = "Goxel 0.14.0 *"
+WM_CLASS(STRING) = "Goxel", "Goxel"
+2026-11-28T08:19:40+00:00 goxel AVAILABLE 16897957888
+goxel before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 14, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/6529af40848649a25b3bce47c5104af29a6fff9cd5f1f6959211a458d5061fe6", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.14.0"), update_available: true, can_remove: true, can_open: true }
+goxel JobFinished: Ok("Flathub app updated")
+goxel after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T08:19:42+00:00 goxel current 0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e
+/home/qa/profiles/goxel-after210/.var/app/io.github.guillaumechereau.Goxel/fixture.txt: OK
+goxel before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true }
+goxel JobFinished: Ok("Launch request accepted")
+goxel after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+io.github.guillaumechereau.Goxel
+2026-11-28T08:19:52+00:00 goxel current GUI WM_NAME(STRING) = "Goxel 0.15.1 "
+WM_CLASS(STRING) = "Goxel", "Goxel"
+goxel before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 15, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/goxel-after210/data/flatpak/app/io.github.guillaumechereau.Goxel/x86_64/stable/0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e", package: Some("io.github.guillaumechereau.Goxel"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.15.1"), update_available: false, can_remove: true, can_open: true }
+goxel JobFinished: Ok("Flathub app removed")
+goxel after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/goxel-after210/.var/app/io.github.guillaumechereau.Goxel/fixture.txt: OK
+2026-11-28T08:19:53+00:00 goxel PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T08:19:53+00:00 goxel EXIT 0 remove
+
+(xfconfd:14945): xfconfd-WARNING **: 08:19:53.135: Name org.xfce.Xfconf lost on the message dbus, exiting.

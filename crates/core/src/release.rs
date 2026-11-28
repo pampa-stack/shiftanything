@@ -146,6 +146,10 @@ pub fn firefox_mac_release(tag: &str) -> Option<Release> {
 pub const ITERM2_DOWNLOADS_URL: &str = "https://iterm2.com/downloads.html";
 pub const ITERM2_APPCAST_URL: &str = "https://iterm2.com/appcasts/final_modern.xml";
 pub const ITERM2_ZIP_URL: &str = "https://iterm2.com/downloads/stable/";
+pub const ITSYCAL_RELEASES_URL: &str = "https://www.mowglii.com/itsycal/versionhistory";
+pub const ITSYCAL_APPCAST_URL: &str = "https://s3.amazonaws.com/itsycal/itsycal.xml";
+pub const ITSYCAL_APPCAST_DOWNLOADS: &str = "https://s3.amazonaws.com/itsycal/";
+pub const ITSYCAL_ZIP_URL: &str = "https://itsycal.s3.amazonaws.com/";
 pub const NETNEWSWIRE_STABLE_MAC_URL: &str = "https://netnewswire.com/NetNewsWire.zip";
 type DigestReceipt = (&'static str, u64, &'static str);
 const ZOTERO_DMG_RECEIPTS: &[(&str, DigestReceipt)] = &[
@@ -249,6 +253,40 @@ pub fn iterm2_mac_release(tag: &str) -> Option<Release> {
 pub fn iterm2_mac_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && iterm2_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
+}
+
+/// Report stable Itsycal releases, with install assets only for qualified ZIPs.
+pub fn itsycal_mac_release(tag: &str) -> Option<Release> {
+    let version = Version::parse(tag).ok()?;
+    if version.to_string() != tag || !version.pre.is_empty() || !version.build.is_empty() || version < Version::new(0, 15, 14) {
+        return None;
+    }
+    let reviewed = match tag {
+        "0.15.14" => Some((1_068_566, "c66dc8a76dfb9d13396fc7bc3f5b18a41d8710840fb091aa849af747439bc949")),
+        "0.15.15" => Some((1_074_708, "35116fb8a6afe79ca6177554774be9a4c961f1bf47371c7a8f0f39a8b0c7d331")),
+        _ => None,
+    };
+    let assets = reviewed
+        .into_iter()
+        .map(|(size, digest)| {
+            let name = format!("Itsycal-{tag}.zip");
+            Asset { url: format!("{ITSYCAL_ZIP_URL}{name}"), name, size, sha256: Some(digest.into()) }
+        })
+        .collect();
+    Some(Release {
+        assets,
+        name: format!("Itsycal {tag}"),
+        html_url: ITSYCAL_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
+pub fn itsycal_mac_asset(release: &Release, asset: &Asset) -> bool {
+    !release.prerelease
+        && release.html_url == ITSYCAL_RELEASES_URL
+        && itsycal_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset))
 }
 
 /// A stable release may be listed before its exact package has passed qualification.

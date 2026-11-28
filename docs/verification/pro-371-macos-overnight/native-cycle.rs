@@ -93,6 +93,7 @@ fn native_release(backend: &mut NativeBackend, id: &str) -> Result<Release, Stri
                     | Origin::Inkscape
                     | Origin::Kdenlive
                     | Origin::ITerm2
+                    | Origin::Itsycal
                     | Origin::Signal
                     | Origin::Mozilla
                     | Origin::Element
@@ -150,6 +151,7 @@ fn main() -> Result<(), String> {
             "hidden-bar",
             "swiftbar",
             "iterm2",
+            "itsycal",
             "github-desktop",
             "linearmouse",
             "loop-macos",

@@ -16,13 +16,7 @@ fn advertised_release(xml: &str) -> Result<Release, String> {
                 return None;
             }
             let (attributes, _) = enclosure.split_once('>')?;
-            let value = |name| {
-                let mut fields = attributes.split('"');
-                let pairs = std::iter::from_fn(|| Some((fields.next()?, fields.next()?)));
-                let mut matches = pairs.filter_map(|(key, value)| (key.trim().strip_suffix('=')?.trim_end() == name).then_some(value));
-                let value = matches.next()?;
-                matches.next().is_none().then_some(value)
-            };
+            let value = |name| super::appcast_attribute(attributes, name);
             let tag = value("sparkle:version")?;
             let mut release = iterm2_mac_release(tag)?;
             let url = value("url")?;

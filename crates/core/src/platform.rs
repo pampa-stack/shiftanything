@@ -356,7 +356,7 @@ type AssetMatcher = fn(&Release, &Asset) -> bool;
 fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
     use crate::{curated, release};
 
-    let recipes: [(&str, PackageKind, AssetMatcher); 15] = [
+    let recipes: [(&str, PackageKind, AssetMatcher); 16] = [
         (curated::NAPS2.id, PackageKind::MacPkg, release::naps2_mac_asset),
         (curated::KEYCASTR.id, PackageKind::MacZip, release::keycastr_mac_asset),
         (curated::MACCY.id, PackageKind::MacZip, release::maccy_mac_asset),
@@ -368,6 +368,7 @@ fn reviewed_mac_archive(stems: &[&str]) -> Option<(PackageKind, AssetMatcher)> {
         (curated::SWIFTBAR.id, PackageKind::MacZip, release::swiftbar_mac_asset),
         (curated::GITHUB_DESKTOP.id, PackageKind::MacZip, release::github_desktop_mac_asset),
         (curated::ITERM2.id, PackageKind::MacZip, release::iterm2_mac_asset),
+        (curated::ITSYCAL.id, PackageKind::MacZip, release::itsycal_mac_asset),
         (curated::LOOP.id, PackageKind::MacZip, release::loop_mac_asset),
         (curated::DYAD.id, PackageKind::MacZip, release::dyad_mac_asset),
         (curated::HAMMERSPOON.id, PackageKind::MacZip, release::hammerspoon_mac_asset),
@@ -780,6 +781,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::SWIFTBAR.id,
         crate::curated::GITHUB_DESKTOP.id,
         crate::curated::ITERM2.id,
+        crate::curated::ITSYCAL.id,
         crate::curated::LOOP.id,
         crate::curated::DYAD.id,
         crate::curated::HAMMERSPOON.id,
@@ -1158,6 +1160,23 @@ mod tests {
         release.assets[0].size += 1;
         assert!(!selected(&release, mac));
         assert!(crate::release::iterm2_mac_release("3.7.8").is_none());
+    }
+
+    #[test]
+    fn itsycal_selects_only_the_pinned_zip_on_apple_silicon() {
+        use crate::curated::ITSYCAL;
+
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let selected = |release: &Release, platform| pick_asset(release, &[ITSYCAL.id], platform, &[PackageKind::MacZip]).is_some();
+        for tag in ["0.15.14", "0.15.15"] {
+            let mut release = crate::release::itsycal_mac_release(tag).unwrap();
+            assert!(selected(&release, mac));
+            assert!(!selected(&release, Platform { arch: Arch::X64, ..mac }));
+            assert!(!selected(&release, Platform { os: Os::Linux, ..mac }));
+            release.assets[0].sha256 = None;
+            assert!(!selected(&release, mac));
+        }
+        assert!(!selected(&crate::release::itsycal_mac_release("0.29.0").unwrap(), mac));
     }
 
     #[test]

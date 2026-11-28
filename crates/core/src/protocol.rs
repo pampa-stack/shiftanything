@@ -256,6 +256,8 @@ pub enum Origin {
     Kdenlive,
     /// iTerm2’s official modern stable appcast.
     ITerm2,
+    /// Itsycal’s official, OS-specific stable appcast.
+    Itsycal,
     /// Signal Desktop’s stable macOS feed.
     Signal,
     /// Mozilla’s official stable Firefox release index.
@@ -278,6 +280,7 @@ impl Origin {
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
+            Self::Itsycal => "Mowglii",
             Self::Signal => "Signal",
             Self::Mozilla => "Mozilla",
             Self::Element => "Element",
@@ -313,6 +316,8 @@ pub enum Source {
     Kdenlive,
     /// iTerm2’s official modern stable appcast.
     ITerm2,
+    /// Itsycal’s official, OS-specific stable appcast.
+    Itsycal,
     /// Signal Desktop’s stable macOS feed.
     Signal,
     /// Mozilla’s official stable Firefox release index.
@@ -338,6 +343,7 @@ impl Source {
             Self::Inkscape => "Inkscape",
             Self::Kdenlive => "KDE",
             Self::ITerm2 => "iTerm2",
+            Self::Itsycal => "Mowglii",
             Self::Signal => "Signal",
             Self::Mozilla => "Mozilla",
             Self::Element => "Element",

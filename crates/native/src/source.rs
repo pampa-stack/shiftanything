@@ -17,8 +17,8 @@ use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
 use artcraft_launcher_core::curated::{
-    BLENDER, ELEMENT, ENTE_AUTH, FIREFOX, GIMP, INKSCAPE, ITERM2, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP, TERMIX, VLC,
-    ZOTERO,
+    BLENDER, ELEMENT, ENTE_AUTH, FIREFOX, GIMP, INKSCAPE, ITERM2, ITSYCAL, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP,
+    TERMIX, VLC, ZOTERO,
 };
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
@@ -32,11 +32,20 @@ mod firefox;
 mod gimp;
 mod inkscape;
 mod iterm2;
+mod itsycal;
 mod kdenlive;
 mod krita;
 mod libreoffice;
 mod signal;
 mod videolan;
+
+fn appcast_attribute<'a>(attributes: &'a str, name: &str) -> Option<&'a str> {
+    let mut fields = attributes.split('"');
+    let pairs = std::iter::from_fn(|| Some((fields.next()?, fields.next()?)));
+    let mut values = pairs.filter_map(|(key, value)| (key.trim().strip_suffix('=')?.trim_end() == name).then_some(value));
+    let value = values.next()?;
+    values.next().is_none().then_some(value)
+}
 
 /// One answer from a source.
 #[derive(Clone, Debug)]
@@ -89,6 +98,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == INKSCAPE.repo => Source::Inkscape,
             repo if repo == KDENLIVE.repo => Source::Kdenlive,
             repo if repo == ITERM2.repo => Source::ITerm2,
+            repo if repo == ITSYCAL.repo => Source::Itsycal,
             repo if repo == SIGNAL_DESKTOP.repo => Source::Signal,
             repo if repo == FIREFOX.repo => Source::Mozilla,
             repo if repo == ELEMENT.repo => Source::Element,
@@ -622,6 +632,8 @@ impl GitHubSource {
             inkscape::releases(&self.http, false)?
         } else if query.repo == ITERM2.repo {
             iterm2::releases(&self.http)?
+        } else if query.repo == ITSYCAL.repo {
+            itsycal::releases(&self.http, false)?
         } else if query.repo == SIGNAL_DESKTOP.repo {
             signal::releases(&self.http)?
         } else if query.repo == FIREFOX.repo {
@@ -722,6 +734,7 @@ impl ReleaseSource for GitHubSource {
             repo if repo == INKSCAPE.repo => Some((Source::Inkscape, inkscape::releases(&self.http, true))),
             repo if repo == KDENLIVE.repo => Some((Source::Kdenlive, kdenlive::releases(&self.http, true))),
             repo if repo == ITERM2.repo => Some((Source::ITerm2, iterm2::releases(&self.http))),
+            repo if repo == ITSYCAL.repo => Some((Source::Itsycal, itsycal::releases(&self.http, true))),
             repo if repo == SIGNAL_DESKTOP.repo => Some((Source::Signal, signal::releases(&self.http))),
             repo if repo == FIREFOX.repo => Some((Source::Mozilla, firefox::releases(&self.http, true))),
             repo if repo == ELEMENT.repo => Some((Source::Element, element::releases(&self.http, true))),
@@ -755,7 +768,7 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, SIGNAL_DESKTOP.repo, FIREFOX.repo, ELEMENT.repo]
+        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, ITSYCAL.repo, SIGNAL_DESKTOP.repo, FIREFOX.repo, ELEMENT.repo]
             .contains(&query.repo.as_str())
         {
             return match self.cached_in(query, false) {
@@ -768,6 +781,8 @@ impl ReleaseSource for GitHubSource {
                         release::inkscape_mac_release(&saved.tag)?
                     } else if query.repo == ITERM2.repo {
                         release::iterm2_mac_release(&saved.tag)?
+                    } else if query.repo == ITSYCAL.repo {
+                        release::itsycal_mac_release(&saved.tag)?
                     } else if query.repo == SIGNAL_DESKTOP.repo {
                         release::signal_mac_release(&saved.tag)?
                     } else if query.repo == FIREFOX.repo {
@@ -819,6 +834,7 @@ impl ReleaseSource for GitHubSource {
             INKSCAPE.repo,
             KDENLIVE.repo,
             ITERM2.repo,
+            ITSYCAL.repo,
             SIGNAL_DESKTOP.repo,
             FIREFOX.repo,
             ELEMENT.repo,

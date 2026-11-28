@@ -153,7 +153,7 @@ fn recipe_macos_minimum(app: &CraftApp) -> Option<(u16, u16)> {
         (&[recipe::VORTA.id], (14, 4)),
         (&[recipe::OSAURUS.id], (15, 5)),
         (&[recipe::NETNEWSWIRE.id], (15, 0)),
-        (&[recipe::KRITA.id, recipe::VLC.id], (11, 0)),
+        (&[recipe::ITSYCAL.id, recipe::KRITA.id, recipe::VLC.id], (11, 0)),
         (&[recipe::COTEDITOR.id], (26, 0)),
         (&[recipe::OPENCLAW.id], (26, 2)),
     ];
@@ -166,24 +166,32 @@ fn macos_major_minor(version: &str) -> Option<(u16, u16)> {
     Some((parts.next()?.parse().ok()?, parts.next().unwrap_or("0").parse().ok()?))
 }
 
+pub(crate) fn current_macos_major_minor() -> Option<(u16, u16)> {
+    #[cfg(target_os = "macos")]
+    {
+        static MACOS_VERSION: std::sync::OnceLock<Option<(u16, u16)>> = std::sync::OnceLock::new();
+        *MACOS_VERSION.get_or_init(|| {
+            std::process::Command::new("/usr/bin/sw_vers")
+                .arg("-productVersion")
+                .env_remove("SYSTEM_VERSION_COMPAT")
+                .output()
+                .ok()
+                .filter(|output| output.status.success())
+                .and_then(|output| String::from_utf8(output.stdout).ok())
+                .and_then(|version| macos_major_minor(&version))
+        })
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        None
+    }
+}
+
 /// Some reviewed Apple Silicon packages require a minimum macOS version.
 pub fn recipe_system_supported(app: &CraftApp) -> bool {
     #[cfg(target_os = "macos")]
     {
-        let Some(minimum) = recipe_macos_minimum(app) else { return true };
-        static MACOS_VERSION: std::sync::OnceLock<Option<(u16, u16)>> = std::sync::OnceLock::new();
-        MACOS_VERSION
-            .get_or_init(|| {
-                std::process::Command::new("/usr/bin/sw_vers")
-                    .arg("-productVersion")
-                    .env_remove("SYSTEM_VERSION_COMPAT")
-                    .output()
-                    .ok()
-                    .filter(|output| output.status.success())
-                    .and_then(|output| String::from_utf8(output.stdout).ok())
-                    .and_then(|version| macos_major_minor(&version))
-            })
-            .is_some_and(|version| version >= minimum)
+        recipe_macos_minimum(app).is_none_or(|minimum| current_macos_major_minor().is_some_and(|version| version >= minimum))
     }
     #[cfg(not(target_os = "macos"))]
     {
@@ -724,6 +732,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
     let iterm2 = artcraft_launcher_core::curated::ITERM2;
     if app.id == iterm2.id {
         return (app.uses_iterm2_releases() && release::iterm2_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
+    }
+    if app.id == artcraft_launcher_core::curated::ITSYCAL.id {
+        return (app.uses_itsycal_releases() && release::itsycal_mac_asset(release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::LOOP.id {
         return (app.repo == artcraft_launcher_core::curated::LOOP.repo && release::loop_mac_asset(release, asset))
@@ -2425,6 +2436,7 @@ pub mod macos {
             || (app.id, app.repo) == (HIDDEN_BAR.id, HIDDEN_BAR.repo)
             || (app.id, app.repo) == (SWIFTBAR.id, SWIFTBAR.repo)
             || app.uses_iterm2_releases()
+            || app.uses_itsycal_releases()
             || (app.id, app.repo) == (GITHUB_DESKTOP.id, GITHUB_DESKTOP.repo)
             || (app.id, app.repo) == (STELLARIUM.id, STELLARIUM.repo);
         extract_app_zip(archive, unpacked.path(), &format!("{}.app", app.mac_bundle_name()), framework_links)?;
@@ -2514,6 +2526,7 @@ pub mod macos {
         match (framework_links, bundle) {
             (true, "GitHub Desktop.app") => (4096, 1_211_690_181),
             (true, "iTerm.app") => (4500, DEFAULT_ZIP_BYTES),
+            (true, "Itsycal.app") => (166, 3_033_757),
             (true, "Stellarium.app") => (4473, 877_976_263),
             _ => (4096, DEFAULT_ZIP_BYTES),
         }
@@ -2568,7 +2581,8 @@ pub mod macos {
             let swiftbar_metadata = framework_links
                 && bundle == "SwiftBar.app"
                 && (name == SWIFTBAR_SIDECAR || (entry.is_dir() && SWIFTBAR_SIDECAR.starts_with(name.as_ref())));
-            let mirrored_metadata = hidden_bar_metadata || swiftbar_metadata;
+            let itsycal_metadata = framework_links && bundle == "Itsycal.app" && itsycal_localization_metadata(name.as_ref(), entry.is_dir());
+            let mirrored_metadata = hidden_bar_metadata || swiftbar_metadata || itsycal_metadata;
             let dyad_git_root = dyad_git_link_root(bundle, relative);
             let is_dyad_git_link = dyad_git_root.is_some();
             let stellarium_target = stellarium_library_link(bundle, relative);
@@ -2662,6 +2676,17 @@ pub mod macos {
             return None;
         }
         Some(roots.join(framework))
+    }
+
+    fn itsycal_localization_metadata(name: &str, directory: bool) -> bool {
+        // The reviewed archives contain Finder metadata only for these localized menu files.
+        const RESOURCES: &str = "__MACOSX/Itsycal.app/Contents/Resources/";
+        const LANGUAGES: [&str; 6] = ["cs", "de", "fr", "it", "ko", "zh-Hans"];
+        (directory && RESOURCES.starts_with(name))
+            || LANGUAGES.iter().any(|lang| {
+                let folder = format!("{RESOURCES}{lang}.lproj/");
+                if directory { name == folder } else { name.strip_prefix(&folder) == Some("._MainMenu.strings") }
+            })
     }
 
     fn stellarium_library_link(bundle: &str, relative: &Path) -> Option<&'static str> {

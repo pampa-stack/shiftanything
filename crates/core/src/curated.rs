@@ -2366,6 +2366,27 @@ pub const ITERM2: crate::CraftApp = crate::CraftApp {
     mac_team: Some("H7V7XYVQ7D"),
 };
 
+pub const ITSYCAL: crate::CraftApp = crate::CraftApp {
+    id: "itsycal",
+    name: "Itsycal",
+    tagline: "Browse dates and events in a menu bar calendar",
+    repo: "sfsam/Itsycal",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [55, 111, 181],
+    ink_light: [28, 74, 132],
+    ink_dark: [155, 199, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Mowglii",
+    msi_publisher: None,
+    bundle: Some("com.mowglii.ItsycalApp"),
+    site: Some("https://www.mowglii.com/itsycal/"),
+    mac_bundle_name: None,
+    mac_team: Some("HFT3T55WND"),
+};
+
 pub const LINEAR_MOUSE: crate::CraftApp = crate::CraftApp {
     id: "linearmouse",
     name: "LinearMouse",
@@ -3229,6 +3250,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     SWIFTBAR,
     GITHUB_DESKTOP,
     ITERM2,
+    ITSYCAL,
     SIGNAL_DESKTOP,
     FIREFOX,
     ELEMENT,

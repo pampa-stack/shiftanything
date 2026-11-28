@@ -1290,6 +1290,7 @@ impl LauncherUi {
         let mut inkscape = false;
         let mut kdenlive = false;
         let mut iterm2 = false;
+        let mut itsycal = false;
         let mut signal = false;
         let mut mozilla = false;
         let mut element = false;
@@ -1307,6 +1308,7 @@ impl LauncherUi {
                     Some(Origin::Inkscape) => inkscape = true,
                     Some(Origin::Kdenlive) => kdenlive = true,
                     Some(Origin::ITerm2) => iterm2 = true,
+                    Some(Origin::Itsycal) => itsycal = true,
                     Some(Origin::Signal) => signal = true,
                     Some(Origin::Mozilla) => mozilla = true,
                     Some(Origin::Element) => element = true,
@@ -1326,6 +1328,7 @@ impl LauncherUi {
             (inkscape, Origin::Inkscape),
             (kdenlive, Origin::Kdenlive),
             (iterm2, Origin::ITerm2),
+            (itsycal, Origin::Itsycal),
             (signal, Origin::Signal),
             (mozilla, Origin::Mozilla),
             (element, Origin::Element),

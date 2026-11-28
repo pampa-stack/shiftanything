@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|monitorcontrol|gnucash|floorp|stellarium|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|itsycal|github-desktop) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -45,6 +45,24 @@ for tag in (old, new):
         if tag == new:
             assert Path('inkscape-stable-location.txt').read_text().strip() == f'/release/inkscape-{tag}/'
         published_digests = {digest}
+        version = tag
+    elif app_id == 'itsycal':
+        assert tag in ('0.15.14', '0.15.15')
+        assert name == f'Itsycal-{tag}.zip'
+        assert url == f'https://itsycal.s3.amazonaws.com/{name}'
+        signature = Path(f'itsycal-{tag}.log').read_text().splitlines()
+        assert 'CFBundleIdentifier=com.mowglii.ItsycalApp' in signature
+        assert f'CFBundleShortVersionString={tag}' in signature
+        assert 'TeamIdentifier=HFT3T55WND' in signature
+        assert 'source=Notarized Developer ID' in signature
+        if tag == new:
+            import xml.etree.ElementTree as ET
+            ns = {'sparkle': 'http://www.andymatuschak.org/xml-namespaces/sparkle'}
+            [item] = [item for item in ET.parse('itsycal.xml').iter('item')
+                      if item.find('enclosure').get('url') == f'https://s3.amazonaws.com/itsycal/{name}']
+            assert item.find('enclosure').get('length') == size
+            assert item.findtext('sparkle:minimumSystemVersion', namespaces=ns) == '11.0'
+        published_digests = set()
         version = tag
     elif app_id == 'iterm2':
         assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
@@ -192,7 +210,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop', 'signal-desktop', 'firefox', 'element'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'itsycal', 'github-desktop', 'signal-desktop', 'firefox', 'element'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion

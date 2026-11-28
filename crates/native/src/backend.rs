@@ -2620,6 +2620,8 @@ fn source_used_of(sources: &[Source]) -> Source {
         Source::Element
     } else if sources.contains(&Source::ITerm2) {
         Source::ITerm2
+    } else if sources.contains(&Source::Itsycal) {
+        Source::Itsycal
     } else if sources.contains(&Source::Kdenlive) {
         Source::Kdenlive
     } else if sources.contains(&Source::Krita) {
@@ -2871,6 +2873,7 @@ fn feed_for_app<'a>(feed: Option<&'a Feed>, app: &CraftApp) -> Option<&'a Feed> 
         || app.uses_inkscape_releases()
         || app.uses_kdenlive_releases()
         || app.uses_iterm2_releases()
+        || app.uses_itsycal_releases()
         || app.uses_signal_releases()
         || app.uses_firefox_releases()
         || app.uses_element_releases()
@@ -2903,6 +2906,8 @@ fn release_origin(app: &CraftApp) -> Origin {
         Origin::Element
     } else if app.uses_iterm2_releases() {
         Origin::ITerm2
+    } else if app.uses_itsycal_releases() {
+        Origin::Itsycal
     } else if app.uses_kdenlive_releases() {
         Origin::Kdenlive
     } else if app.uses_krita_releases() {

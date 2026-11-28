@@ -1,0 +1,26 @@
+ARTIFACT 612f2300340a48b6ea959982a754b5596aa78138485717b1a94bec6df7b9d8b0 1905120 https://itsycal.s3.amazonaws.com/Itsycal-0.29.0.zip
+CFBundleIdentifier=com.mowglii.ItsycalApp
+CFBundleShortVersionString=0.29.0
+CFBundleVersion=7008
+LSMinimumSystemVersion=27.0
+SUFeedURL=https://s3.amazonaws.com/itsycal/itsycal.xml
+<scratch>/Itsycal.app/Contents/MacOS/Itsycal (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 27.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=com.mowglii.ItsycalApp
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: Sanjay Madan (HFT3T55WND)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=13 Nov 2026 at 21:52:14
+TeamIdentifier=HFT3T55WND
+<scratch>/Itsycal.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT itsycal 0.29.0

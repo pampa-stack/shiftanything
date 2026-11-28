@@ -139,6 +139,9 @@ impl CraftApp {
         if self.uses_iterm2_releases() {
             return crate::release::ITERM2_DOWNLOADS_URL.to_string();
         }
+        if self.uses_itsycal_releases() {
+            return crate::release::ITSYCAL_RELEASES_URL.to_string();
+        }
         if self.uses_signal_releases() {
             return crate::release::SIGNAL_DOWNLOADS_URL.to_string();
         }
@@ -209,6 +212,10 @@ impl CraftApp {
         (self.id, self.repo) == (crate::curated::ITERM2.id, crate::curated::ITERM2.repo)
     }
 
+    pub fn uses_itsycal_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ITSYCAL.id, crate::curated::ITSYCAL.repo)
+    }
+
     pub fn uses_signal_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::SIGNAL_DESKTOP.id, crate::curated::SIGNAL_DESKTOP.repo)
     }
@@ -243,6 +250,7 @@ impl CraftApp {
             || (self.id, self.repo) == (crate::curated::HIDDEN_BAR.id, crate::curated::HIDDEN_BAR.repo)
             || (self.id, self.repo) == (crate::curated::SWIFTBAR.id, crate::curated::SWIFTBAR.repo)
             || self.uses_iterm2_releases()
+            || self.uses_itsycal_releases()
             || (self.id, self.repo) == (crate::curated::GITHUB_DESKTOP.id, crate::curated::GITHUB_DESKTOP.repo)
             || (self.id, self.repo) == (crate::curated::LOOP.id, crate::curated::LOOP.repo)
             || (self.id, self.repo) == (crate::curated::DYAD.id, crate::curated::DYAD.repo)

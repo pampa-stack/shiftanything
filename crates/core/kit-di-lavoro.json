@@ -2952,6 +2952,147 @@
           ]
         }
       ]
+    },
+    {
+      "id": "digital-media-library",
+      "name": {
+        "it": "Biblioteca digitale",
+        "en": "Digital media library"
+      },
+      "description": {
+        "it": "Organizza film, musica ed ebook, prepara i file per i tuoi dispositivi e conserva una copia di sicurezza.",
+        "en": "Organize films, music and ebooks, prepare files for your devices and keep a backup."
+      },
+      "steps": [
+        {
+          "id": "films",
+          "name": {
+            "it": "Catalogare e riprodurre film",
+            "en": "Catalog and play films"
+          },
+          "paid": [
+            "Plex Pass"
+          ],
+          "options": [
+            {
+              "app": "jellyfin",
+              "use": {
+                "it": "Organizza film e serie per libreria e riproducili da un server che gestisci tu.",
+                "en": "Organize films and shows into libraries and stream them from your own server."
+              },
+              "source": "https://jellyfin.org/docs/general/quick-start/"
+            },
+            {
+              "app": "vlc",
+              "use": {
+                "it": "Riproduci un file locale o apri un flusso di rete da un indirizzo.",
+                "en": "Play a local file or open a network stream from its address."
+              },
+              "source": "https://docs.videolan.me/vlc-user/desktop/3.0/en/basic/media.html"
+            }
+          ]
+        },
+        {
+          "id": "music",
+          "name": {
+            "it": "Ascoltare la propria musica",
+            "en": "Stream your music collection"
+          },
+          "paid": [
+            "Audirvāna Origin"
+          ],
+          "options": [
+            {
+              "app": "navidrome",
+              "use": {
+                "it": "Ascolta la tua collezione dal browser o da un client compatibile con Subsonic.",
+                "en": "Listen to your collection in a browser or a Subsonic-compatible client."
+              },
+              "source": "https://www.navidrome.org/docs/overview/"
+            }
+          ]
+        },
+        {
+          "id": "convert",
+          "name": {
+            "it": "Convertire più video in coda",
+            "en": "Convert multiple videos in a queue"
+          },
+          "paid": [
+            "Adobe Media Encoder"
+          ],
+          "options": [
+            {
+              "app": "handbrake",
+              "use": {
+                "it": "Imposta i formati di uscita e accoda più conversioni video.",
+                "en": "Choose output settings and queue several video conversions."
+              },
+              "source": "https://handbrake.fr/docs/en/latest/advanced/queue.html"
+            }
+          ]
+        },
+        {
+          "id": "subtitles",
+          "name": {
+            "it": "Correggere i sottotitoli",
+            "en": "Fix subtitles"
+          },
+          "paid": [
+            "EZTitles"
+          ],
+          "options": [
+            {
+              "app": "subtitle-edit",
+              "use": {
+                "it": "Correggi i tempi dei sottotitoli con l’anteprima video ed esporta in SRT o WebVTT.",
+                "en": "Fix subtitle timing against the video and export as SRT or WebVTT."
+              },
+              "source": "https://subtitleedit.github.io/subtitleedit/faq.html"
+            }
+          ]
+        },
+        {
+          "id": "ebooks",
+          "name": {
+            "it": "Organizzare gli ebook",
+            "en": "Organize ebooks"
+          },
+          "paid": [
+            "BookFusion Advanced"
+          ],
+          "options": [
+            {
+              "app": "calibre",
+              "use": {
+                "it": "Correggi copertine e metadati, converti gli ebook e trasferiscili al lettore.",
+                "en": "Edit ebook covers and metadata, convert formats and send books to your reader."
+              },
+              "source": "https://manual.calibre-ebook.com/gui.html"
+            }
+          ]
+        },
+        {
+          "id": "backup",
+          "name": {
+            "it": "Creare una copia di sicurezza",
+            "en": "Back up the collection"
+          },
+          "paid": [
+            "Backblaze Computer Backup"
+          ],
+          "options": [
+            {
+              "app": "kopia",
+              "use": {
+                "it": "Salva copie cifrate su un disco o su una destinazione di rete e ripristina versioni precedenti.",
+                "en": "Save encrypted snapshots to a drive or network destination and restore earlier versions."
+              },
+              "source": "https://kopia.io/docs/features/"
+            }
+          ]
+        }
+      ]
     }
   ],
   "rankings": [

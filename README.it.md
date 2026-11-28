@@ -35,6 +35,10 @@ Scarica il pacchetto dalla [landing di Sh*ftAnything](https://promptica.it/shift
 - **Kit di lavoro** — Scopri gli strumenti per ogni fase di un mestiere, dal ritocco alla prototipazione, e scegli quali installare.
 - **Collega agente** — Collega un coding agent con MCP locale. La configurazione usa Python tramite `uv` e le azioni di gestione richiedono conferma nel launcher.
 
+### Gestisci le app installate
+
+![Le mie app mostra le versioni installate, il controllo aggiornamenti e i pulsanti per aprire le app](docs/screenshots/shiftanything-my-apps-it.webp)
+
 ### Confronta le funzioni con SH\*FTER
 
 ![SH*FTER confronta quattro alternative a Photoshop con copertura documentata e fonti](docs/screenshots/shiftanything-shifter-it.webp)

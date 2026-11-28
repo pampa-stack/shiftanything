@@ -1407,9 +1407,9 @@ fn windows_package_harness(
 #[test]
 fn the_install_folder_default_follows_the_package_the_backend_falls_back_to() {
     let (mut h, initial) =
-        windows_package_harness(&[("photocraft", &["photocraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
+        windows_package_harness(&[("gridcraft", &["gridcraft-0.6.0-windows-x86.msi"])], vec![artcraft_launcher_core::PackageKind::PortableZip]);
     h.run_steps(8);
-    discover_management(&mut h, "photocraft");
+    discover_management(&mut h, "gridcraft");
     h.get_by_label("Install").scroll_to_me();
     h.run_steps(3);
     h.get_by_label("Install").click();
@@ -1434,10 +1434,10 @@ fn settings_shows_a_default_folder_only_when_every_app_shares_it() {
         h.run_steps(3);
         initial.take()
     };
-    let x64 = ["photocraft-0.6.0-windows-x64.msi", "photocraft-0.6.0-windows-x86.msi"];
-    let shared = open_settings_browse(&[("photocraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x64.msi"])]);
+    let x64 = ["gridcraft-0.6.0-windows-x64.msi", "gridcraft-0.6.0-windows-x86.msi"];
+    let shared = open_settings_browse(&[("gridcraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x64.msi"])]);
     assert_eq!(shared, Some(Some("Msi X64".into())));
-    let mixed = open_settings_browse(&[("photocraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x86.msi"])]);
+    let mixed = open_settings_browse(&[("gridcraft", &x64), ("vectorcraft", &["vectorcraft-0.6.0-windows-x86.msi"])]);
     assert_eq!(mixed, Some(None));
 }
 
@@ -5279,7 +5279,7 @@ fn work_kits_only_submit_new_native_apps_after_one_confirmation() {
     h.run_steps(5);
     assert!(h.query_by_label("Select · PhotoCraft").is_none(), "installed apps are never selected for an implicit update");
     assert!(h.query_by_label("Select · GIMP").is_none(), "curated presence alone grants no recipe");
-    h.get_by_label("Self-hosted");
+    assert!(h.query_all_by_label("Self-hosted").next().is_some());
     h.get_by_label("Select · VectorCraft").click_accesskit();
     h.get_by_label("Select · DesignCraft").click_accesskit();
     h.run_steps(4);

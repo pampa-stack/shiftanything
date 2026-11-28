@@ -40,6 +40,16 @@
     "reason": "not_notarized"
   },
   {
+    "id": "sniffnet",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/GyulyVGC/sniffnet/releases/tag/v1.6.0",
+    "asset_url": "https://github.com/GyulyVGC/sniffnet/releases/download/v1.6.0/Sniffnet_macOS_AppleSilicon.dmg",
+    "sha256": "abb83f9c186e1f40e30e1760534af6329ec226fd8a4b8b6b9cce12de11a53626",
+    "bytes": 16382814,
+    "checked_at": "2026-11-28",
+    "reason": "unsigned"
+  },
+  {
     "id": "xournal",
     "target": "macos-arm64",
     "release_source": "https://github.com/xournalpp/xournalpp/releases/tag/v1.3.8",

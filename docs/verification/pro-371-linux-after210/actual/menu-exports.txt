@@ -1,0 +1,2 @@
+/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e/export/share/applications/com.actualbudget.actual.desktop
+/home/qa/profiles/actual-after210/data/flatpak/app/com.actualbudget.actual/x86_64/stable/b3f39f6ed473dba20a038001b8ce5c6217796cd41d6936b28f457dab82a9664e/export/share/icons/hicolor/512x512/apps/com.actualbudget.actual.png

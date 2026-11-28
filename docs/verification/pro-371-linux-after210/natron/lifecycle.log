@@ -1,0 +1,64 @@
+2026-11-28T02:06:46+00:00 natron AVAILABLE 19641761792
+natron before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+natron JobFinished: Ok("Flathub app installed")
+natron after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:08:21+00:00 natron current-install 3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2
+/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2/export/share/applications/fr.natron.Natron.desktop
+/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2/export/share/icons/hicolor/256x256/apps/fr.natron.Natron.png
+Info: org.freedesktop.Sdk is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Sdk.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08
+Installing runtime/org.freedesktop.Platform.GL.default/x86_64/24.08extra
+Installing runtime/org.freedesktop.Platform.openh264/x86_64/2.5.1
+Installing runtime/org.freedesktop.Sdk.Locale/x86_64/24.08
+Installing runtime/org.freedesktop.Sdk/x86_64/24.08
+Info: org.freedesktop.Sdk is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Sdk.Locale is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Info: org.freedesktop.Platform.GL.default is end-of-life, with reason: org.freedesktop.Platform 24.08 is no longer receiving fixes and security updates. Please update to a supported runtime version.
+Updating app/fr.natron.Natron/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:09:07+00:00 natron previous f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f
+natron before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f", package: Some("fr.natron.Natron"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: false, can_open: true }
+natron JobFinished: Err("Approved action rejected: native installation state changed")
+natron JobFinished: Err("This Flatpak is managed outside the launcher")
+natron after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f", package: Some("fr.natron.Natron"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[11625]: [session uid=1000 pid=11625] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=13594 comm="xfwm4 --compositor=off --display=:86" label="unconfined")
+dbus-daemon[11625]: [session uid=1000 pid=11625] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[11625]: [session uid=1000 pid=11625] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=13607 comm="flatpak run --user --command=sh app/fr.natron.Natr" label="flatpak (unconfined)")
+dbus-daemon[11625]: [session uid=1000 pid=11625] Successfully activated service 'org.freedesktop.Flatpak'
+natron before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: true, can_remove: true, can_open: true }
+natron JobFinished: Ok("Launch request accepted")
+natron after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+fr.natron.Natron
+2026-11-28T02:09:39+00:00 natron previous GUI WM_NAME(STRING) = "Natron"
+WM_CLASS(STRING) = "Natron", "Natron"
+2026-11-28T02:09:39+00:00 natron AVAILABLE 19048476672
+natron before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/f18342798967749b23de756280460c4c035beb8fe8f4dc842a64bcc8c1d0a17f", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: true, can_remove: true, can_open: true }
+natron JobFinished: Ok("Flathub app updated")
+natron after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:09:42+00:00 natron current 3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2
+/home/qa/profiles/natron-after210/.var/app/fr.natron.Natron/fixture.txt: OK
+natron before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: true, can_open: true }
+natron JobFinished: Ok("Launch request accepted")
+natron after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+fr.natron.Natron
+2026-11-28T02:10:13+00:00 natron current GUI WM_NAME(STRING) = "Natron"
+WM_CLASS(STRING) = "Natron", "Natron"
+natron before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 2, minor: 5, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/natron-after210/data/flatpak/app/fr.natron.Natron/x86_64/stable/3ce8e5c077ee3c670cb50ea436b1a4eb291fc90aa97fbdd9c82056d2ede3efe2", package: Some("fr.natron.Natron"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("2.5.0"), update_available: false, can_remove: true, can_open: true }
+natron JobFinished: Ok("Flathub app removed")
+natron after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/natron-after210/.var/app/fr.natron.Natron/fixture.txt: OK
+2026-11-28T02:10:15+00:00 natron PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:10:17+00:00 natron EXIT 0 remove
+
+(xfconfd:13619): xfconfd-WARNING **: 02:10:17.091: Name org.xfce.Xfconf lost on the message dbus, exiting.

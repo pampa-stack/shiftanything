@@ -13224,6 +13224,14 @@
     "website": "https://actualbudget.org",
     "releases": "https://github.com/actualbudget/actual/releases",
     "delivery": "desktop",
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.actualbudget.actual",
+        "source": "https://flathub.org/apps/com.actualbudget.actual"
+      }
+    ],
     "agent": {
       "kind": "api",
       "source": "https://actualbudget.org/docs/api/"

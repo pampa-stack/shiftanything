@@ -1,0 +1,19 @@
+commit be8b8b7bb48bb923eb5b773a4fb77de6823c51839e6b2bc04b4d5560ac89d692
+Parent:  90789aabda62167d60d7c55399566678c046d1ba57aaf6d30827bf2776828df2
+ContentChecksum:  fc2dff154aa15657d8d104106b4dee81a87c73ccd0541778a03f63271188059a
+Date:  2026-10-02 16:05:35 +0000
+
+    Merge pull request #21 from flathub/release/26.10.0 (d84bed73abde)
+
+    Name: com.actualbudget.actual
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Fri Oct  2 17:00:41 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

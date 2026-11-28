@@ -3114,12 +3114,12 @@ mod recipe_tests {
             assert!(super::verified_linux_appimage(app, linux));
             assert!(!super::verified_linux_appimage(app, arm));
         }
-        for app in [super::DUST3D, super::DYAD, super::RAWTHERAPEE, super::SNIFFNET] {
+        for app in [super::DESKREEN, super::DUST3D, super::DYAD, super::OPENCHAMBER, super::RAWTHERAPEE, super::RECORDLY, super::SNIFFNET] {
             assert!(super::verified_linux_appimage(&app, linux));
             assert!(!super::verified_linux_appimage(&app, arm));
             assert!(!super::verified_linux_appimage(&CraftApp { repo: "unrelated/repository", ..app }, linux));
         }
-        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 49);
+        assert_eq!(super::NATIVE_APPS.iter().filter(|app| super::verified_linux_appimage(app, linux)).count(), 52);
     }
 
     #[test]

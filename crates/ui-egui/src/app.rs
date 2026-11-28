@@ -1292,6 +1292,7 @@ impl LauncherUi {
         let mut iterm2 = false;
         let mut signal = false;
         let mut mozilla = false;
+        let mut element = false;
         for e in &self.entries {
             if matches!(e.latest, Some(LatestRelease::Found(_) | LatestRelease::None)) {
                 match e.origin {
@@ -1308,6 +1309,7 @@ impl LauncherUi {
                     Some(Origin::ITerm2) => iterm2 = true,
                     Some(Origin::Signal) => signal = true,
                     Some(Origin::Mozilla) => mozilla = true,
+                    Some(Origin::Element) => element = true,
                     None => {}
                 }
             }
@@ -1326,6 +1328,7 @@ impl LauncherUi {
             (iterm2, Origin::ITerm2),
             (signal, Origin::Signal),
             (mozilla, Origin::Mozilla),
+            (element, Origin::Element),
         ]
         .into_iter()
         .filter(|&(present, _)| present)

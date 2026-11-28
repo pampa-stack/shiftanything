@@ -142,6 +142,9 @@ impl CraftApp {
         if self.uses_signal_releases() {
             return crate::release::SIGNAL_DOWNLOADS_URL.to_string();
         }
+        if self.uses_element_releases() {
+            return crate::release::ELEMENT_RELEASES_URL.to_string();
+        }
         if self.uses_firefox_releases() {
             return crate::release::FIREFOX_RELEASES_URL.to_string();
         }
@@ -208,6 +211,10 @@ impl CraftApp {
 
     pub fn uses_signal_releases(&self) -> bool {
         (self.id, self.repo) == (crate::curated::SIGNAL_DESKTOP.id, crate::curated::SIGNAL_DESKTOP.repo)
+    }
+
+    pub fn uses_element_releases(&self) -> bool {
+        (self.id, self.repo) == (crate::curated::ELEMENT.id, crate::curated::ELEMENT.repo)
     }
 
     pub fn uses_firefox_releases(&self) -> bool {

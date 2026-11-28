@@ -17,7 +17,8 @@ use std::collections::BTreeMap;
 use std::sync::{Mutex, PoisonError};
 
 use artcraft_launcher_core::curated::{
-    BLENDER, ENTE_AUTH, FIREFOX, GIMP, INKSCAPE, ITERM2, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP, TERMIX, VLC, ZOTERO,
+    BLENDER, ELEMENT, ENTE_AUTH, FIREFOX, GIMP, INKSCAPE, ITERM2, KDENLIVE, KRITA, LIBREOFFICE, NETNEWSWIRE, OPENCODE, SIGNAL_DESKTOP, TERMIX, VLC,
+    ZOTERO,
 };
 use artcraft_launcher_core::protocol::{LatestRelease, Source};
 use artcraft_launcher_core::release::{self, Release, ReleaseQuery};
@@ -26,6 +27,7 @@ use serde::{Deserialize, Serialize};
 use crate::http::{Fetched, Http};
 
 mod blender;
+mod element;
 mod firefox;
 mod gimp;
 mod inkscape;
@@ -89,6 +91,7 @@ pub trait ReleaseSource: Send + Sync {
             repo if repo == ITERM2.repo => Source::ITerm2,
             repo if repo == SIGNAL_DESKTOP.repo => Source::Signal,
             repo if repo == FIREFOX.repo => Source::Mozilla,
+            repo if repo == ELEMENT.repo => Source::Element,
             _ => Source::GitHubApi,
         };
         Answer { latest, source }
@@ -623,6 +626,8 @@ impl GitHubSource {
             signal::releases(&self.http)?
         } else if query.repo == FIREFOX.repo {
             firefox::releases(&self.http, false)?
+        } else if query.repo == ELEMENT.repo {
+            element::releases(&self.http, false)?
         } else if query.repo == KDENLIVE.repo {
             kdenlive::releases(&self.http, false)?
         } else if query.repo == KRITA.repo {
@@ -719,6 +724,7 @@ impl ReleaseSource for GitHubSource {
             repo if repo == ITERM2.repo => Some((Source::ITerm2, iterm2::releases(&self.http))),
             repo if repo == SIGNAL_DESKTOP.repo => Some((Source::Signal, signal::releases(&self.http))),
             repo if repo == FIREFOX.repo => Some((Source::Mozilla, firefox::releases(&self.http, true))),
+            repo if repo == ELEMENT.repo => Some((Source::Element, element::releases(&self.http, true))),
             repo if repo == NETNEWSWIRE.repo => Some((Source::GitHubPages, self.latest_netnewswire().map(|release| vec![release]))),
             _ => None,
         };
@@ -749,7 +755,9 @@ impl ReleaseSource for GitHubSource {
         if query.repo == LIBREOFFICE.repo {
             return self.cached_in(query, false);
         }
-        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, SIGNAL_DESKTOP.repo, FIREFOX.repo].contains(&query.repo.as_str()) {
+        if [KRITA.repo, VLC.repo, INKSCAPE.repo, KDENLIVE.repo, ITERM2.repo, SIGNAL_DESKTOP.repo, FIREFOX.repo, ELEMENT.repo]
+            .contains(&query.repo.as_str())
+        {
             return match self.cached_in(query, false) {
                 Some(LatestRelease::Found(saved)) if !saved.prerelease => {
                     let mut release = if query.repo == KRITA.repo {
@@ -764,6 +772,8 @@ impl ReleaseSource for GitHubSource {
                         release::signal_mac_release(&saved.tag)?
                     } else if query.repo == FIREFOX.repo {
                         release::firefox_mac_release(&saved.tag)?
+                    } else if query.repo == ELEMENT.repo {
+                        release::element_mac_release(&saved.tag)?
                     } else {
                         release::kdenlive_mac_release(&saved.tag)?
                     };
@@ -811,6 +821,7 @@ impl ReleaseSource for GitHubSource {
             ITERM2.repo,
             SIGNAL_DESKTOP.repo,
             FIREFOX.repo,
+            ELEMENT.repo,
         ]
         .contains(&repo)
         {

@@ -1,0 +1,32 @@
+2026-11-28T06:23:18+0100
+/dev/disk3s5   482797652 424107296  11707712    98% 6606027 117077120    5%   /System/Volumes/Data
+ARTIFACT 374a19159a7108128ea6bbcaca30c4909249f41068edb01746669a05db65e276 308561528 https://packages.element.io/desktop/install/macos/Element-1.12.35-universal.dmg
+BUNDLE=Element.app
+CFBundleIdentifier=im.riot.app
+CFBundleShortVersionString=1.12.35
+CFBundleVersion=1.12.35
+CFBundleExecutable=Element
+LSMinimumSystemVersion=13.0
+/private/tmp/shift-air-overnight.2qP7Nh8K/preflight/element/1.12.35/mount/Element.app/Contents/MacOS/Element: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]
+/private/tmp/shift-air-overnight.2qP7Nh8K/preflight/element/1.12.35/mount/Element.app/Contents/MacOS/Element (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/private/tmp/shift-air-overnight.2qP7Nh8K/preflight/element/1.12.35/mount/Element.app/Contents/MacOS/Element (for architecture arm64):	Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.2qP7Nh8K/preflight/element/1.12.35/mount/Element.app/Contents/MacOS/Element (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 26.5
+   ntools 1
+     tool 4
+  version 23.0
+Identifier=im.riot.app
+Format=app bundle with Mach-O universal (x86_64 arm64)
+Authority=Developer ID Application: Vector Creations Limited (7J4U792NQT)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=12 Nov 2026 at 18:23:35
+TeamIdentifier=7J4U792NQT
+/private/tmp/shift-air-overnight.2qP7Nh8K/preflight/element/1.12.35/mount/Element.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT element 1.12.35

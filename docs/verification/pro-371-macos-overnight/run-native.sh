@@ -11,7 +11,7 @@ repo="$2"
 app="$3"
 old="$4"
 new="$5"
-case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|macshot|signal-desktop|firefox|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
+case "$id" in moonlight|openpencil|airi|sunshine|openttd|rectangle|codeedit|maccy|blender|gimp|netnewswire|krita|vlc|inks|kdenlive|subtitle-edit|openwhispr|deepchat|alttab|linearmouse|loop-macos|dyad|finicky|hammerspoon|ice|virtualbuddy|easydict|utm|openmtp|invoke-community|mist|coteditor|macshot|signal-desktop|firefox|element|freeplane|amethyst|dockdoor|macvim|hidden-bar|swiftbar|iterm2|github-desktop) ;; *) exit 2 ;; esac
 for tag in "$old" "$new"; do
     log_id="$id"
     [[ "$id" != openpencil ]] || log_id=open-pencil
@@ -57,6 +57,17 @@ for tag in (old, new):
             [asset] = [item for item in ET.parse('final_modern.xml').iter('enclosure') if item.get('url') == url]
             assert asset.get('length') == size
         published_digests = {digest}
+        version = tag
+    elif app_id == 'element':
+        assert re.fullmatch(r'\d+\.\d+\.\d+', tag)
+        name = f'Element-{tag}-universal.dmg'
+        assert url == f'https://packages.element.io/desktop/install/macos/{name}'
+        official = Path('element-index.html').read_text()
+        assert f'href="{name}"' in official
+        if tag == new:
+            versions = re.findall(r'href="Element-(\d+\.\d+\.\d+)-universal\.dmg"', official)
+            assert max(versions, key=lambda value: tuple(map(int, value.split('.')))) == tag
+        published_digests = set()
         version = tag
     elif app_id == 'firefox':
         assert re.fullmatch(r'\d+\.\d+(?:\.\d+)?', tag)
@@ -179,7 +190,7 @@ for tag in (old, new):
     tsv.append(f'{tag}\t{name}\t{size}\t{digest}\t{url}\n')
     print(f'OFFICIAL INDEX {app_id} {tag} digest={"published" if published_digests else "computed, signer/notarization corroborated"}')
 Path(f'{app_id}.tsv').write_text("".join(tsv))
-if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop', 'signal-desktop', 'firefox'):
+if app_id not in ('blender', 'gimp', 'netnewswire', 'krita', 'vlc', 'inks', 'kdenlive', 'iterm2', 'github-desktop', 'signal-desktop', 'firefox', 'element'):
     Path(cache).write_text(json.dumps({'entries': {}, 'versions': {repo: [int(time.time()), releases[::-1]]}}) + '\n')
 PY
 sw_vers -productVersion

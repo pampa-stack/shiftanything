@@ -85,6 +85,7 @@ fn native_release(backend: &mut NativeBackend, id: &str) -> Result<Release, Stri
                     | Origin::ITerm2
                     | Origin::Signal
                     | Origin::Mozilla
+                    | Origin::Element
             )
             .then_some(latest)
         }
@@ -156,6 +157,7 @@ fn main() -> Result<(), String> {
             "macshot",
             "signal-desktop",
             "firefox",
+            "element",
             "freeplane",
         ]
         .contains(&app.id)

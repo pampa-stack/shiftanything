@@ -596,6 +596,27 @@ pub const SIGNAL_DESKTOP: crate::CraftApp = crate::CraftApp {
     mac_team: Some("U68MSDN6DR"),
 };
 
+pub const ELEMENT: crate::CraftApp = crate::CraftApp {
+    id: "element",
+    name: "Element",
+    tagline: "Open-source Matrix messaging desktop app",
+    repo: "element-hq/element-web",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [13, 171, 123],
+    ink_light: [0, 87, 64],
+    ink_dark: [105, 234, 190],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Vector Creations Limited",
+    msi_publisher: None,
+    bundle: Some("im.riot.app"),
+    site: Some("https://element.io/"),
+    mac_bundle_name: Some("Element"),
+    mac_team: Some("7J4U792NQT"),
+};
+
 pub const FIREFOX: crate::CraftApp = crate::CraftApp {
     id: "firefox",
     name: "Firefox",
@@ -3126,6 +3147,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     ITERM2,
     SIGNAL_DESKTOP,
     FIREFOX,
+    ELEMENT,
     LINEAR_MOUSE,
     LOOP,
     DYAD,

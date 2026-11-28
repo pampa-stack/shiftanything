@@ -490,6 +490,10 @@ impl Http {
         Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::SIGNAL_MAC_FEED, 32 * 1024)
     }
 
+    pub(crate) fn get_element_index(&self) -> Result<Option<Vec<u8>>, String> {
+        Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::ELEMENT_RELEASES_URL, 256 * 1024)
+    }
+
     pub(crate) fn get_firefox_versions(&self) -> Result<Option<Vec<u8>>, String> {
         Self::get_bytes_with(&self.no_redirect, artcraft_launcher_core::release::FIREFOX_VERSIONS_URL, 32 * 1024)
     }
@@ -660,6 +664,7 @@ impl Http {
             artcraft_launcher_core::release::ITERM2_ZIP_URL,
             artcraft_launcher_core::release::SIGNAL_DMG_URL,
             artcraft_launcher_core::release::FIREFOX_ARCHIVE_URL,
+            artcraft_launcher_core::release::ELEMENT_DMG_URL,
         ]
         .iter()
         .any(|prefix| url.starts_with(prefix))

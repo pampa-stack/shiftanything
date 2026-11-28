@@ -103,6 +103,24 @@ pub const KRITA_DMG_URL: &str = "https://download.kde.org/stable/krita/";
 pub const SIGNAL_DOWNLOADS_URL: &str = "https://signal.org/download/";
 pub const SIGNAL_DMG_URL: &str = "https://updates.signal.org/desktop/";
 pub const SIGNAL_MAC_FEED: &str = "https://updates.signal.org/desktop/latest-mac.yml";
+pub const ELEMENT_RELEASES_URL: &str = "https://packages.element.io/desktop/install/macos/index.html";
+pub const ELEMENT_DMG_URL: &str = "https://packages.element.io/desktop/install/macos/";
+
+pub fn element_mac_release(tag: &str) -> Option<Release> {
+    let version = version::parse(tag)?;
+    if !version.pre.is_empty() || !version.build.is_empty() || tag != version.to_string() {
+        return None;
+    }
+    Some(Release {
+        assets: reviewed_assets(crate::curated::ELEMENT.repo, tag).collect(),
+        name: format!("Element {tag}"),
+        html_url: ELEMENT_RELEASES_URL.to_string(),
+        version: Some(version),
+        tag: tag.to_string(),
+        ..Release::default()
+    })
+}
+
 pub const FIREFOX_RELEASES_URL: &str = "https://www.firefox.com/en-US/releases/";
 pub const FIREFOX_ARCHIVE_URL: &str = "https://archive.mozilla.org/pub/firefox/releases/";
 pub const FIREFOX_VERSIONS_URL: &str = "https://product-details.mozilla.org/1.0/firefox_versions.json";
@@ -1225,6 +1243,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MACSHOT,
         crate::curated::SIGNAL_DESKTOP,
         crate::curated::FIREFOX,
+        crate::curated::ELEMENT,
         crate::curated::FREEPLANE,
         crate::curated::DOCKDOOR,
         crate::curated::MACVIM,
@@ -1235,6 +1254,11 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
 pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: &Asset) -> bool {
     if app.uses_signal_releases() {
         return signal_mac_asset(release, asset);
+    }
+    if app.uses_element_releases() {
+        return !release.prerelease
+            && release.html_url == ELEMENT_RELEASES_URL
+            && element_mac_release(&release.tag).is_some_and(|verified| verified.version == release.version && verified.assets.contains(asset));
     }
     if app.uses_firefox_releases() {
         return !release.prerelease
@@ -2248,6 +2272,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("zotero/zotero", tag) => {
             ZOTERO_DMG_RECEIPTS.iter().find(|&&(reviewed, _)| reviewed == tag).map_or(&[], |(_, receipt)| std::slice::from_ref(receipt))
         }
+        ("element-hq/element-web", "1.12.35") => {
+            &[("Element-1.12.35-universal.dmg", 308_561_528, "374a19159a7108128ea6bbcaca30c4909249f41068edb01746669a05db65e276")]
+        }
+        ("element-hq/element-web", "1.12.36") => {
+            &[("Element-1.12.36-universal.dmg", 309_305_729, "01133c2196702d6bd3587a65b0c29fac166facbe10c38e2ddf4b2366487120cb")]
+        }
         ("mozilla-firefox/firefox", "160.0.1") => {
             &[("Firefox-160.0.1.dmg", 165_761_466, "db9a522291d82cbe9a2b2922822def4db0a79d4fa3e614979039d705b13b1c25")]
         }
@@ -2278,6 +2308,8 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         } else if repo == crate::curated::GIMP.repo {
             let (series, _) = tag.rsplit_once('.')?;
             format!("{GIMP_DMG_URL}v{series}/macos/{name}")
+        } else if repo == crate::curated::ELEMENT.repo {
+            format!("{ELEMENT_DMG_URL}{name}")
         } else if repo == crate::curated::FIREFOX.repo {
             format!("{FIREFOX_ARCHIVE_URL}{tag}/mac/en-US/Firefox%20{tag}.dmg")
         } else {

@@ -260,6 +260,8 @@ pub enum Origin {
     Signal,
     /// Mozilla’s official stable Firefox release index.
     Mozilla,
+    /// Element's official stable macOS package index.
+    Element,
 }
 
 impl Origin {
@@ -278,6 +280,7 @@ impl Origin {
             Self::ITerm2 => "iTerm2",
             Self::Signal => "Signal",
             Self::Mozilla => "Mozilla",
+            Self::Element => "Element",
         }
     }
 }
@@ -314,6 +317,8 @@ pub enum Source {
     Signal,
     /// Mozilla’s official stable Firefox release index.
     Mozilla,
+    /// Element's official stable macOS package index.
+    Element,
     /// Saved answers from an earlier check.
     Cache,
 }
@@ -335,6 +340,7 @@ impl Source {
             Self::ITerm2 => "iTerm2",
             Self::Signal => "Signal",
             Self::Mozilla => "Mozilla",
+            Self::Element => "Element",
             Self::Cache => "saved results",
         }
     }

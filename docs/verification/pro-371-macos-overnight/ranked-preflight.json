@@ -1,5 +1,15 @@
 [
   {
+    "id": "caesium",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/Lymphatus/caesium-image-compressor/releases/tag/v2.8.5",
+    "asset_url": "https://github.com/Lymphatus/caesium-image-compressor/releases/download/v2.8.5/caesium-image-compressor-2.8.5-macos.dmg",
+    "sha256": "c6cec65bee37047e163d6d1337f15eae7a1327e19e1cb8cda19c28ed2480cfe0",
+    "bytes": 29735451,
+    "checked_at": "2026-11-28",
+    "reason": "intel_only"
+  },
+  {
     "id": "copyq",
     "target": "macos-arm64",
     "release_source": "https://github.com/hluk/CopyQ/releases/tag/v17.0.0",
@@ -100,6 +110,16 @@
     "reason": "invalid_signature"
   },
   {
+    "id": "normcap",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/dynobo/normcap/releases/tag/v0.6.0",
+    "asset_url": "https://github.com/dynobo/normcap/releases/download/v0.6.0/NormCap-0.6.0-arm64-macOS.dmg",
+    "sha256": "69ce59d6ac3fb6420d62b7fc2ac5bf703b5b34eec05ad319a41b1c2f979f9ee2",
+    "bytes": 76008653,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
     "id": "notepadnext",
     "target": "macos-arm64",
     "release_source": "https://github.com/dail8859/NotepadNext/releases/tag/v0.15",
@@ -136,6 +156,16 @@
     "asset_url": "https://github.com/Orama-Interactive/Pixelorama/releases/download/v1.2.4/Pixelorama-Mac.dmg",
     "sha256": "aef909572cb008174e758fbc36998823363e44d9eaffa974b156d4284c549ce7",
     "bytes": 72186942,
+    "checked_at": "2026-11-28",
+    "reason": "not_notarized"
+  },
+  {
+    "id": "qownnotes",
+    "target": "macos-arm64",
+    "release_source": "https://github.com/pbek/QOwnNotes/releases/tag/v26.11.16",
+    "asset_url": "https://github.com/pbek/QOwnNotes/releases/download/v26.11.16/QOwnNotes.dmg",
+    "sha256": "e861cc7a27d5308197162d0b2bb64c4cb82470f060434f07ae0015c57fae552a",
+    "bytes": 56019209,
     "checked_at": "2026-11-28",
     "reason": "not_notarized"
   },

@@ -1,0 +1,20 @@
+
+OpenToonz - 2D animation
+
+          ID: io.github.OpenToonz
+         Ref: app/io.github.OpenToonz/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 1.8.0
+     License: BSD-3-Clause
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 127.4 MB
+     Runtime: org.kde.Platform/x86_64/5.15-25.08
+         Sdk: org.kde.Sdk/x86_64/5.15-25.08
+
+      Commit: 0920c8058c12df034cc2e670fe5b88e3392368f9b8e74f2b9230c6f1b884877c
+      Parent: 66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505
+     Subject: Update to 1.8.0 (aed6bd2f9fab)
+        Date: 2026-07-25 01:09:57 +0000

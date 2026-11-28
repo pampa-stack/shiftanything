@@ -86,6 +86,15 @@ open_gui() {
                 sleep 4
             fi
             ;;
+        opentoonz)
+            dialog=$(timeout 35 xdotool search --sync --onlyvisible --name '^OpenToonz Startup$' | sed -n '1p')
+            xdotool windowactivate --sync "$dialog" key Alt+F4
+            for ((attempt=0;attempt<25;attempt++)); do
+                if ! xwininfo -id "$dialog" 2>/dev/null | grep -Fq 'Map State: IsViewable'; then break; fi
+                sleep .4
+            done
+            if xwininfo -id "$dialog" 2>/dev/null | grep -Fq 'Map State: IsViewable'; then return 1; fi
+            ;;
     esac
     for ((attempt=0;attempt<110;attempt++)); do
         xwininfo -root -tree > "$out/$phase.window-tree.txt"

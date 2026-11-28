@@ -1,0 +1,19 @@
+commit 66d3efcd566a525cb932f30b463005700acf4b36e0a29e39a05572a8640c1505
+Parent:  f437cf71a6bae8e0725facc0e3afdb0245428baf093f4abe48d86c52138b7807
+ContentChecksum:  f09739ebb3649fdd700d0873a595ed6fa0e56eb46bcfa94055286b386819ebfc
+Date:  2026-01-30 03:44:26 +0000
+
+    Use lzo module from runtime and more (5d30d8632d1f)
+
+    Name: io.github.OpenToonz
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Jan 30 04:01:08 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 167] = [
+pub const RECIPES: [(&str, &str); 168] = [
     ("gnome-calculator", "org.gnome.Calculator"),
     ("gnome-text-editor", "org.gnome.TextEditor"),
     ("loupe", "org.gnome.Loupe"),
@@ -164,6 +164,7 @@ pub const RECIPES: [(&str, &str); 167] = [
     ("actual", "com.actualbudget.actual"),
     ("natron", "fr.natron.Natron"),
     ("hydrus", "io.github.hydrusnetwork.hydrus"),
+    ("opentoonz", "io.github.OpenToonz"),
     ("audacious", "org.atheme.audacious"),
     ("freeplane", "org.freeplane.App"),
     ("fontforge", "org.fontforge.FontForge"),
@@ -349,6 +350,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "actual" => "https://github.com/actualbudget/actual",
         "natron" => "https://github.com/NatronGitHub/Natron",
         "hydrus" => "https://github.com/hydrusnetwork/hydrus",
+        "opentoonz" => "https://github.com/opentoonz/opentoonz",
         "audacious" => "https://github.com/audacious-media-player/audacious",
         "freeplane" => "https://github.com/freeplane/freeplane",
         "fontforge" => "https://github.com/fontforge/fontforge",

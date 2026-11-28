@@ -20,6 +20,12 @@ export XDG_CACHE_HOME=$HOME/cache XDG_STATE_HOME=$HOME/state XDG_RUNTIME_DIR=$HO
 export FLATPAK_USER_DIR=$XDG_DATA_HOME/flatpak FLATPAK_CONFIG_DIR=$XDG_CONFIG_HOME/flatpak-system
 export FLATPAK_SYSTEM_DIR=$HOME/system-flatpak
 export DISPLAY=:$display_number XAUTHORITY=$XDG_RUNTIME_DIR/xauth
+if [[ "$slug" == easyeffects ]]; then
+    # Flatpak exports xdg-run from the canonical runtime directory in this guest.
+    XDG_RUNTIME_DIR=/run/user/$(id -u)
+    export XDG_RUNTIME_DIR
+    test -O "$XDG_RUNTIME_DIR" && test "$(stat -c %a "$XDG_RUNTIME_DIR")" = 700
+fi
 export GDK_BACKEND=x11 QT_QPA_PLATFORM=xcb QT_QUICK_BACKEND=software
 export GSK_RENDERER=cairo LIBGL_ALWAYS_SOFTWARE=1 LP_NUM_THREADS=2
 ostree --repo="$FLATPAK_SYSTEM_DIR/repo" init --mode=bare-user-only
@@ -60,6 +66,15 @@ verify() {
 
 open_gui() {
     local phase=$1 window='' candidate verify_window='' dialog width height
+    if [[ "$slug" == easyeffects ]]; then
+        # shellcheck disable=SC2016
+        flatpak run --user --command=sh "$ref" -c '
+            test -S "$XDG_RUNTIME_DIR/$PIPEWIRE_REMOTE" || { echo "Missing private PipeWire socket"; exit 1; }
+            test ! -e "$XDG_RUNTIME_DIR/pipewire-0" || { echo "Unexpected default PipeWire socket"; exit 1; }
+            test ! -e /dev/snd || { echo "Unexpected ALSA device directory"; exit 1; }
+        '
+        say "$phase sandbox sees the private PipeWire socket and no /dev/snd"
+    fi
     flatpak run --user --command=sh "$ref" -c 'readlink /proc/self/ns/net; cat /proc/net/dev' > "$out/$phase.network.txt"
     test "$(head -1 "$out/$phase.network.txt")" != "$(readlink /proc/self/ns/net)"
     test "$(awk -F: 'NR>3 {gsub(/ /,"",$1); print $1}' "$out/$phase.network.txt")" = lo
@@ -219,7 +234,14 @@ mkdir -p "$XDG_CONFIG_HOME/xdg-desktop-portal"
 printf '[preferred]\ndefault=gtk\n' > "$XDG_CONFIG_HOME/xdg-desktop-portal/portals.conf"
 dbus-update-activation-environment HOME XDG_DATA_HOME XDG_CONFIG_HOME XDG_CACHE_HOME XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY FLATPAK_USER_DIR FLATPAK_CONFIG_DIR FLATPAK_SYSTEM_DIR
 flags=(--unshare=network --nofilesystem=host:reset --nosocket=system-bus --nosocket=wayland --nosocket=ssh-auth --socket=x11 --nodevice=all)
-flags+=(--nofilesystem=xdg-run/pipewire-0 --no-talk-name=org.freedesktop.Flatpak)
+flags+=(--no-talk-name=org.freedesktop.Flatpak)
+if [[ "$slug" == easyeffects ]]; then
+    # shellcheck source=/dev/null
+    source "$guest_home/easyeffects-pipewire.sh"
+    flags+=(--nofilesystem=xdg-run/pipewire-0 "--filesystem=xdg-run/$PIPEWIRE_REMOTE:ro" "--env=PIPEWIRE_REMOTE=$PIPEWIRE_REMOTE")
+else
+    flags+=(--nofilesystem=xdg-run/pipewire-0)
+fi
 if [[ "$slug" == ardour || "$slug" == famistudio || "$slug" == hydrogen ]]; then
     # An isolated test signal path, with no hardware and no connection to system audio.
     mkdir -p "$XDG_RUNTIME_DIR/pulse"

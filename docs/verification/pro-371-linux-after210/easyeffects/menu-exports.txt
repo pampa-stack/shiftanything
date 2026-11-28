@@ -1,0 +1,2 @@
+/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3/export/share/applications/com.github.wwmm.easyeffects.desktop
+/home/qa/profiles/easyeffects-after210/data/flatpak/app/com.github.wwmm.easyeffects/x86_64/stable/db0248a68e1aed5cae1923df6fa649aecc8c6b3d61601578d004fd5c27e9bfc3/export/share/icons/hicolor/scalable/apps/com.github.wwmm.easyeffects.svg

@@ -19519,7 +19519,15 @@
     },
     "platform_support": {
       "linux": "https://flathub.org/apps/com.github.wwmm.easyeffects"
-    }
+    },
+    "distribution": [
+      {
+        "platform": "linux",
+        "manager": "flatpak",
+        "id": "com.github.wwmm.easyeffects",
+        "source": "https://flathub.org/apps/com.github.wwmm.easyeffects"
+      }
+    ]
   },
   {
     "id": "umi-ocr",

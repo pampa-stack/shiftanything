@@ -322,3 +322,15 @@ The GitHub package digests matched both official downloads on 28 November. PeaZi
 ### OpenBoard
 
 On 28 November 2026, the native backend installed OpenBoard 1.7.6, updated it to 1.7.7, and removed it into the private Trash on the MacBook Air. Both official DMGs matched the publisher's SHA-256 and passed the ARM64, strict signature and Gatekeeper checks for team `A6HNXYT969`. The synthetic profile marker survived. The test ran over SSH and did not open the GUI. [Official releases](https://github.com/OpenBoard-org/OpenBoard/releases) · [Native cycle](openboard.log) · [Package receipts](openboard.tsv)
+
+### MarkEdit and Capso on Apple Silicon
+
+On 28 November 2026 the launcher installed MarkEdit 1.37.0, discovered and applied 1.37.1, and removed the app to the private Trash on a MacBook Air running macOS 26.6.2. The official DMGs (3,418,554 and 3,425,682 bytes) matched GitHub’s published SHA-256. Both installed bundles passed strict signature, ARM64 and Gatekeeper checks as notarized Developer ID releases for team `TCKG8FBVG6`. The packages require macOS 26 or later. [Official releases](https://github.com/MarkEdit-app/MarkEdit/releases) · [Native cycle](markedit-native.log) · [1.37.0 package](markedit-v1.37.0.log) · [1.37.1 package](markedit-v1.37.1.log)
+
+The same test installed Capso 1.2.10, discovered and applied 1.2.11, and removed it to the private Trash. Both official DMGs (10,402,244 and 10,734,508 bytes) passed the same checks for team `T247WTJV77`. The packages require macOS 15 or later. [Official releases](https://github.com/lzhgus/Capso/releases) · [Native cycle](capso-native.log) · [1.2.10 package](capso-v1.2.10.log) · [1.2.11 package](capso-v1.2.11.log)
+
+Both runs started with an empty download cache and a historical release list. Synthetic user data survived both cycles. The SSH runs did not open the apps or test on Intel. To reproduce, place the matching TSV files and compiled `native-cycle` in the marked Air test directory, then run `bash run-two-dmg.sh markedit` and `bash run-two-dmg.sh capso` while those updates are current.
+
+### Vorssaint on Apple Silicon
+
+On the same MacBook Air, the launcher installed Vorssaint 3.4.4, resolved and applied 3.4.5, and moved the bundle into the test profile’s Trash. The official DMGs (28,244,392 and 29,041,485 bytes) matched the published SHA-256 and the installed bundles passed strict signature, ARM64 and Gatekeeper checks as notarized Developer ID releases for team `3D485NHW29`. The packages require macOS 14 or later. A first concurrent run hit the GitHub request limit during update discovery. The sequential run passed all package operations and preserved synthetic data. The SSH run did not open the GUI or test on Intel. Use the matching TSV with `bash run-two-dmg.sh vorssaint` in the marked test directory. [Official releases](https://github.com/vorssaint/vorssaint-utils/releases) · [Native cycle](vorssaint-native.log) · [3.4.4 package](vorssaint-v3.4.4.log) · [3.4.5 package](vorssaint-v3.4.5.log)

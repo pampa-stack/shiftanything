@@ -1,0 +1,22 @@
+26.6.2
+assessments enabled
+PASS OFFICIAL v3.4.4 Dmg https://github.com/vorssaint/vorssaint-utils/releases/download/v3.4.4/Vorssaint-3.4.4.dmg 28244392 952582444fe60d460a0453dea7392a5b6641d98c79d60e98f9f25d323bdb47d3
+PASS OFFICIAL v3.4.5 Dmg https://github.com/vorssaint/vorssaint-utils/releases/download/v3.4.5/Vorssaint-3.4.5.dmg 29041485 f4f1eb6ccb3d5b4e3a16f5350dfdd0d541e6130b3e5a418f1f0017ad8540eb89
+NATIVE ORIGIN vorssaint GitHub
+PASS OFFICIAL v3.4.4 Dmg https://github.com/vorssaint/vorssaint-utils/releases/download/v3.4.4/Vorssaint-3.4.4.dmg 28244392 952582444fe60d460a0453dea7392a5b6641d98c79d60e98f9f25d323bdb47d3
+PASS NATIVE vorssaint install: Vorssaint installed: 3.4.4; package_bytes=28244392; elapsed=25.716s
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-vorssaint.foWAfbqq/Applications/Vorssaint.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Pedro Gomes (3D485NHW29)
+3.4.4
+PASS ARCHITECTURE SIGNATURE GATEKEEPER install
+NATIVE ORIGIN vorssaint GitHub
+PASS OFFICIAL v3.4.5 Dmg https://github.com/vorssaint/vorssaint-utils/releases/download/v3.4.5/Vorssaint-3.4.5.dmg 29041485 f4f1eb6ccb3d5b4e3a16f5350dfdd0d541e6130b3e5a418f1f0017ad8540eb89
+PASS NATIVE vorssaint update: Vorssaint updated to 3.4.5; package_bytes=29041485; elapsed=10.574s
+3.4.5
+PASS ARCHITECTURE SIGNATURE GATEKEEPER update
+/private/tmp/shift-air-overnight.Kh38e0rO/profile-vorssaint.foWAfbqq/Applications/Vorssaint.app: accepted
+source=Notarized Developer ID
+origin=Developer ID Application: Pedro Gomes (3D485NHW29)
+PASS NATIVE vorssaint remove: Vorssaint was removed; package_bytes=0; elapsed=0.110s
+PASS NATIVE CYCLE vorssaint, private Trash and synthetic data preserved

@@ -1,0 +1,30 @@
+2026-11-28T15:48:29+0100
+/dev/disk3s5   239362496 174590548  23644376    89% 3239251 236443760    1%   /System/Volumes/Data
+ARTIFACT d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89 3418554 https://github.com/MarkEdit-app/MarkEdit/releases/download/v1.37.0/MarkEdit-1.37.0-apple-silicon.dmg
+BUNDLE=MarkEdit.app
+CFBundleIdentifier=app.cyan.markedit
+CFBundleShortVersionString=1.37.0
+CFBundleVersion=97
+CFBundleExecutable=MarkEdit
+LSMinimumSystemVersion=26.0
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/markedit/v1.37.0/mount/MarkEdit.app/Contents/MacOS/MarkEdit: Mach-O 64-bit executable arm64
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/markedit/v1.37.0/mount/MarkEdit.app/Contents/MacOS/MarkEdit (architecture arm64):
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 26.0
+      sdk 27.0
+   ntools 1
+     tool LD
+  version 27037.1
+Identifier=app.cyan.markedit
+Format=app bundle with Mach-O thin (arm64)
+Authority=Developer ID Application: YING ZHONG (TCKG8FBVG6)
+Authority=Developer ID Certification Authority
+Authority=Apple Root CA
+Timestamp=18 Oct 2026 at 04:52:31
+TeamIdentifier=TCKG8FBVG6
+/private/tmp/shift-air-overnight.Kh38e0rO/preflight/markedit/v1.37.0/mount/MarkEdit.app: accepted
+source=Notarized Developer ID
+PASS PREFLIGHT markedit v1.37.0

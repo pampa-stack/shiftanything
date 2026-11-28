@@ -199,6 +199,9 @@ fn main() -> Result<(), String> {
             "material-maker",
             "mullvad-browser",
             "openboard",
+            "markedit",
+            "capso",
+            "vorssaint",
             "freeplane",
         ]
         .contains(&app.id)

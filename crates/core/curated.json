@@ -35139,5 +35139,173 @@
       "source": "https://github.com/NickvisionApps/Parabolic/releases/tag/2026.5.0",
       "packages": []
     }
+  },
+  {
+    "id": "markedit",
+    "name": "MarkEdit",
+    "repo": "https://github.com/MarkEdit-app/MarkEdit",
+    "author": "Ying Zhong",
+    "level": "base",
+    "category": "ufficio",
+    "description": {
+      "it": "Scrivi e modifica documenti Markdown in un editor nativo. Include evidenziazione della sintassi, ricerca nel testo e scorciatoie per la formattazione.",
+      "en": "Write and edit Markdown documents in a native editor with syntax highlighting, text search and formatting shortcuts."
+    },
+    "alternatives": [
+      "iA Writer"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/MarkEdit-app/MarkEdit/blob/v1.37.1/LICENSE",
+    "website": "https://github.com/MarkEdit-app/MarkEdit",
+    "releases": "https://github.com/MarkEdit-app/MarkEdit/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Screenshots/01.png",
+      "https://raw.githubusercontent.com/MarkEdit-app/MarkEdit/v1.37.1/Screenshots/02.png"
+    ],
+    "media_source": "https://github.com/MarkEdit-app/MarkEdit/tree/v1.37.1",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://github.com/MarkEdit-app/MarkEdit#readme"
+    },
+    "stars": {
+      "count": 6031,
+      "date": "2026-11-28",
+      "source": "https://api.github.com/repos/MarkEdit-app/MarkEdit"
+    },
+    "platform_support": {
+      "macos": "https://github.com/MarkEdit-app/MarkEdit/releases/tag/v1.37.1"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.37.1",
+      "date": "2026-11-04",
+      "source": "https://github.com/MarkEdit-app/MarkEdit/releases/tag/v1.37.1",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 3425682,
+          "size_max": 3425682
+        }
+      ]
+    }
+  },
+  {
+    "id": "capso",
+    "name": "Capso",
+    "repo": "https://github.com/lzhgus/Capso",
+    "author": "Zhihao Li",
+    "level": "base",
+    "category": "video",
+    "description": {
+      "it": "Cattura regioni, finestre e pagine a scorrimento. Annota gli screenshot, estrai testo con OCR e registra lo schermo in video o GIF.",
+      "en": "Capture regions, windows and scrolling pages. Annotate screenshots, extract text with OCR and record the screen as video or GIF."
+    },
+    "alternatives": [
+      "CleanShot X"
+    ],
+    "license": "MIT",
+    "license_url": "https://github.com/lzhgus/Capso/blob/v1.2.11/LICENSE",
+    "website": "https://www.awesomemacapp.com/app/capso",
+    "releases": "https://github.com/lzhgus/Capso/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/App/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/.github/assets/annotation.jpeg",
+      "https://raw.githubusercontent.com/lzhgus/Capso/v1.2.11/.github/assets/beautify.jpeg"
+    ],
+    "media_source": "https://github.com/lzhgus/Capso/tree/v1.2.11",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://github.com/lzhgus/Capso#readme"
+    },
+    "stars": {
+      "count": 1562,
+      "date": "2026-11-28",
+      "source": "https://api.github.com/repos/lzhgus/Capso"
+    },
+    "platform_support": {
+      "macos": "https://github.com/lzhgus/Capso/releases/tag/v1.2.11"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "1.2.11",
+      "date": "2026-11-26",
+      "source": "https://github.com/lzhgus/Capso/releases/tag/v1.2.11",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 10734508,
+          "size_max": 10734508
+        }
+      ]
+    }
+  },
+  {
+    "id": "vorssaint",
+    "name": "Vorssaint",
+    "repo": "https://github.com/vorssaint/vorssaint-utils",
+    "author": "Pedro Gomes",
+    "level": "base",
+    "category": "sistema",
+    "description": {
+      "it": "Riunisce nella barra dei menu volume per app, monitor di sistema, gestione delle finestre e cronologia locale degli appunti.",
+      "en": "Manage per-app volume, system monitoring, window layout and local clipboard history from the menu bar."
+    },
+    "alternatives": [
+      "BetterTouchTool"
+    ],
+    "license": "GPL-3.0",
+    "license_url": "https://github.com/vorssaint/vorssaint-utils/blob/v3.4.5/LICENSE",
+    "website": "https://vorssaint.com/",
+    "releases": "https://github.com/vorssaint/vorssaint-utils/releases",
+    "delivery": "desktop",
+    "agent": {
+      "kind": "unknown",
+      "source": null
+    },
+    "logo": "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/icon.png",
+    "screenshots": [
+      "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/panel-utilities.png",
+      "https://raw.githubusercontent.com/vorssaint/vorssaint-utils/v3.4.5/docs/assets/readme/panel-system.png"
+    ],
+    "media_source": "https://github.com/vorssaint/vorssaint-utils/tree/v3.4.5",
+    "review": {
+      "method": "fonti_ufficiali",
+      "date": "2026-11-28",
+      "source": "https://github.com/vorssaint/vorssaint-utils#readme"
+    },
+    "stars": {
+      "count": 36789,
+      "date": "2026-11-28",
+      "source": "https://api.github.com/repos/vorssaint/vorssaint-utils"
+    },
+    "platform_support": {
+      "macos": "https://github.com/vorssaint/vorssaint-utils/releases/tag/v3.4.5"
+    },
+    "platform_scope_complete": true,
+    "release": {
+      "version": "3.4.5",
+      "date": "2026-11-25",
+      "source": "https://github.com/vorssaint/vorssaint-utils/releases/tag/v3.4.5",
+      "packages": [
+        {
+          "platform": "macos",
+          "size_min": 29041485,
+          "size_max": 29041485
+        }
+      ]
+    }
   }
 ]

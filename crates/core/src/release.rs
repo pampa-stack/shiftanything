@@ -1242,6 +1242,9 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::MATERIAL_MAKER,
         crate::curated::MULLVAD_BROWSER,
         crate::curated::OPENBOARD,
+        crate::curated::MARKEDIT,
+        crate::curated::CAPSO,
+        crate::curated::VORSSAINT,
         crate::curated::RUSTDESK,
         crate::curated::OPENCODE,
         crate::curated::OLLAMA,
@@ -1671,6 +1674,20 @@ pub fn sigil_mac_asset(release: &Release, asset: &Asset) -> bool {
 // Official package receipts apply only to the original repository, tag and exact asset.
 fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asset> + 'a {
     let receipts: &[(&str, u64, &str)] = match (repo, tag) {
+        ("MarkEdit-app/MarkEdit", "v1.37.0") => {
+            &[("MarkEdit-1.37.0-apple-silicon.dmg", 3_418_554, "d3d576d7066a7ee6ff83de608552d55a0d5f3d3c8c238e222aaf86d8af01cd89")]
+        }
+        ("MarkEdit-app/MarkEdit", "v1.37.1") => {
+            &[("MarkEdit-1.37.1-apple-silicon.dmg", 3_425_682, "36fb91d3451c4d239ef168dd38614d1f4b24e56a50e696b2c8ac2d608ec54626")]
+        }
+        ("lzhgus/Capso", "v1.2.10") => &[("Capso-1.2.10.dmg", 10_402_244, "cb69b06203b73811dfa0d48b869617eacc7808d5433e55d7e62767ec0a40344f")],
+        ("lzhgus/Capso", "v1.2.11") => &[("Capso-1.2.11.dmg", 10_734_508, "78187b1d529e1fcf78fba658f8f63333ed9cf6c86a84403eddb380cfecba9c56")],
+        ("vorssaint/vorssaint-utils", "v3.4.4") => {
+            &[("Vorssaint-3.4.4.dmg", 28_244_392, "952582444fe60d460a0453dea7392a5b6641d98c79d60e98f9f25d323bdb47d3")]
+        }
+        ("vorssaint/vorssaint-utils", "v3.4.5") => {
+            &[("Vorssaint-3.4.5.dmg", 29_041_485, "f4f1eb6ccb3d5b4e3a16f5350dfdd0d541e6130b3e5a418f1f0017ad8540eb89")]
+        }
         ("OpenBoard-org/OpenBoard", "v1.7.6") => {
             &[("OpenBoard-1.7.6.dmg", 463_841_224, "33c41fc8debe93dbb99fb2643470ea07418f02071900c7c9b68f44dfe59d9332")]
         }

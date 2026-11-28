@@ -16,6 +16,15 @@ case "$id" in
     openboard)
         repo=OpenBoard-org/OpenBoard app=OpenBoard bundle_id=org.oe-f.OpenBoard team=A6HNXYT969
         ;;
+    markedit)
+        repo=MarkEdit-app/MarkEdit app=MarkEdit bundle_id=app.cyan.markedit team=TCKG8FBVG6
+        ;;
+    capso)
+        repo=lzhgus/Capso app=Capso bundle_id=com.awesomemacapps.capso team=T247WTJV77
+        ;;
+    vorssaint)
+        repo=vorssaint/vorssaint-utils app=Vorssaint bundle_id=com.vorssaint.utils team=3D485NHW29
+        ;;
     *) exit 2 ;;
 esac
 [[ $(uname -m) == arm64 && "$root" == /private/tmp/shift-air-overnight.* && -O "$root" && -f "$root/.shift-owned" ]]

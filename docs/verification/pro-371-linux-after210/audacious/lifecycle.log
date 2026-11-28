@@ -1,0 +1,80 @@
+2026-11-28T02:48:59+00:00 audacious AVAILABLE 24076636160
+audacious before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
+audacious JobFinished: Ok("Flathub app installed")
+audacious after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:51:01+00:00 audacious current-install 3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/applications/org.atheme.audacious.desktop
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/128x128/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/16x16/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/24x24/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/256x256/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/32x32/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/48x48/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/64x64/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/96x96/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/scalable/apps/org.atheme.audacious.svg
+Updating app/org.atheme.audacious/x86_64/stable
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:51:04+00:00 audacious previous 36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d
+audacious before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d", package: Some("org.atheme.audacious"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.1"), update_available: false, can_remove: false, can_open: true }
+audacious JobFinished: Err("Approved action rejected: native installation state changed")
+audacious JobFinished: Err("This Flatpak is managed outside the launcher")
+audacious after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d", package: Some("org.atheme.audacious"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.1"), update_available: false, can_remove: false, can_open: true })
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=17646 comm="xfwm4 --compositor=off --display=:89" label="unconfined")
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=17659 comm="flatpak run --user --command=sh app/org.atheme.aud" label="flatpak (unconfined)")
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=17659 comm="flatpak run --user --command=sh app/org.atheme.aud" label="flatpak (unconfined)")
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=17686 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.freedesktop.portal.Documents'
+Ignoring invalid max threads value 4294967295 > max (100000).
+audacious before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.1"), update_available: true, can_remove: true, can_open: true }
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=17784 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[16285]: [session uid=1000 pid=16285] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=17798 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+
+(xdg-desktop-portal-gtk:17805): dbind-WARNING **: 02:51:05.739: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+
+(/usr/libexec/xdg-desktop-portal:17798): xdg-desktop-portal-WARNING **: 02:51:05.758: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:17798): xdg-desktop-portal-WARNING **: 02:51:05.758: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+
+(/usr/libexec/xdg-desktop-portal:17798): xdg-desktop-portal-WARNING **: 02:51:05.758: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+[W][01018.122442] pw.conf      | [          conf.c: 1031 try_load_conf()] can't load config client.conf: No such file or directory
+[E][01018.122496] pw.conf      | [          conf.c: 1060 pw_conf_load_conf_for_context()] can't load config client.conf: No such file or directory
+
+(/usr/libexec/xdg-desktop-portal:17798): xdg-desktop-portal-WARNING **: 02:51:05.763: Failed connect to PipeWire: Couldn't create PipeWire context
+dbus-daemon[16285]: [session uid=1000 pid=16285] Successfully activated service 'org.freedesktop.portal.Desktop'
+audacious JobFinished: Ok("Launch request accepted")
+audacious after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.1"), update_available: true, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.atheme.audacious
+2026-11-28T02:51:15+00:00 audacious previous GUI WM_NAME(STRING) = "Audacious"
+WM_CLASS(STRING) = "audacious", "Audacious"
+2026-11-28T02:51:15+00:00 audacious AVAILABLE 18627342336
+audacious before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/36ea0532df6ad671fc087559f6cf5d7d90a16483dceac5f4a626190d3f078d2d", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.1"), update_available: true, can_remove: true, can_open: true }
+audacious JobFinished: Ok("Flathub app updated")
+audacious after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.2"), update_available: false, can_remove: true, can_open: true })
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+2026-11-28T02:51:17+00:00 audacious current 3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb
+/home/qa/profiles/audacious-after210/.var/app/org.atheme.audacious/fixture.txt: OK
+audacious before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.2"), update_available: false, can_remove: true, can_open: true }
+audacious JobFinished: Ok("Launch request accepted")
+audacious after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.2"), update_available: false, can_remove: true, can_open: true })
+  Map State: IsViewable
+org.atheme.audacious
+2026-11-28T02:51:28+00:00 audacious current GUI WM_NAME(STRING) = "Audacious"
+WM_CLASS(STRING) = "audacious", "Audacious"
+audacious before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 4, minor: 6, patch: 2 }), source: Flatpak, location: "/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb", package: Some("org.atheme.audacious"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("4.6.2"), update_available: false, can_remove: true, can_open: true }
+audacious JobFinished: Ok("Flathub app removed")
+audacious after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
+/home/qa/profiles/audacious-after210/.var/app/org.atheme.audacious/fixture.txt: OK
+2026-11-28T02:51:29+00:00 audacious PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T02:51:33+00:00 audacious EXIT 0 remove
+
+(xfconfd:17671): xfconfd-WARNING **: 02:51:33.436: Name org.xfce.Xfconf lost on the message dbus, exiting.

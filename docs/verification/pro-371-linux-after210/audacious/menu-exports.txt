@@ -1,0 +1,10 @@
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/applications/org.atheme.audacious.desktop
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/128x128/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/16x16/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/24x24/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/256x256/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/32x32/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/48x48/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/64x64/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/96x96/apps/org.atheme.audacious.png
+/home/qa/profiles/audacious-after210/data/flatpak/app/org.atheme.audacious/x86_64/stable/3f652186ae22ea512af31b3f093d85b5f210549ad6268f3d3a01a5b0af2f95eb/export/share/icons/hicolor/scalable/apps/org.atheme.audacious.svg

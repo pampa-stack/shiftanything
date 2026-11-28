@@ -1,17 +1,14 @@
-2026-11-28T10:22:36+00:00 jasp AVAILABLE 19455270912
+2026-11-28T10:47:54+00:00 jasp AVAILABLE 20401864704
 jasp before install: Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false }
 jasp JobFinished: Ok("Flathub app installed")
-jasp after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: true, can_open: true })
+jasp after install: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 99, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.99.0"), update_available: false, can_remove: true, can_open: true })
   Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
   Primary key ID 4184DD4D907A7CAE
-2026-11-28T10:23:33+00:00 jasp current-install a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a
+2026-11-28T10:47:59+00:00 jasp current-install a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a
 /home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/applications/org.jaspstats.JASP.desktop
 /home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/128x128/apps/org.jaspstats.JASP.png
 /home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/64x64/apps/org.jaspstats.JASP.png
 /home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a/export/share/icons/hicolor/scalable/apps/org.jaspstats.JASP.svg
-Installing runtime/org.kde.KStyle.Adwaita/x86_64/6.10
-Installing runtime/org.kde.Platform.Locale/x86_64/6.10
-Installing runtime/org.kde.Platform/x86_64/6.10
 Updating app/org.jaspstats.JASP/x86_64/stable
 
 Note that '/home/qa/profiles/jasp-after210/data/flatpak/exports/share' is not in the search path
@@ -26,65 +23,65 @@ directories currently searched are:
 
   Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
   Primary key ID 4184DD4D907A7CAE
-2026-11-28T10:24:15+00:00 jasp previous 0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d
+2026-11-28T10:48:24+00:00 jasp previous 0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d
 jasp before external: Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d", package: Some("org.jaspstats.JASP"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: false, can_open: true }
 jasp JobFinished: Err("Approved action rejected: native installation state changed")
 jasp JobFinished: Err("This Flatpak is managed outside the launcher")
 jasp after external: Some(Status { installable: false, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d", package: Some("org.jaspstats.JASP"), externally_managed: true, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: false, can_open: true })
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.xfce.Xfconf' requested by ':1.5' (uid=1000 pid=9725 comm="xfwm4 --compositor=off --display=:43" label="unconfined")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.xfce.Xfconf'
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.Flatpak' requested by ':1.7' (uid=1000 pid=9738 comm="flatpak run --user --command=sh app/org.jaspstats." label="flatpak (unconfined)")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.Flatpak'
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.portal.Documents' requested by ':1.7' (uid=1000 pid=9738 comm="flatpak run --user --command=sh app/org.jaspstats." label="flatpak (unconfined)")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.9' (uid=1000 pid=9764 comm="/usr/libexec/xdg-document-portal" label="unconfined")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.portal.Documents'
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.xfce.Xfconf' requested by ':1.4' (uid=1000 pid=5440 comm="xfwm4 --compositor=off --display=:87" label="unconfined")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.xfce.Xfconf'
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.Flatpak' requested by ':1.6' (uid=1000 pid=5453 comm="flatpak run --user --command=sh app/org.jaspstats." label="flatpak (unconfined)")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.Flatpak'
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.portal.Documents' requested by ':1.6' (uid=1000 pid=5453 comm="flatpak run --user --command=sh app/org.jaspstats." label="flatpak (unconfined)")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.impl.portal.PermissionStore' requested by ':1.8' (uid=1000 pid=5479 comm="/usr/libexec/xdg-document-portal" label="unconfined")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.impl.portal.PermissionStore'
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.portal.Documents'
 Ignoring invalid max threads value 4294967295 > max (100000).
 jasp before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: true, can_remove: true, can_open: true }
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.14' (uid=1000 pid=9863 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.15' (uid=1000 pid=9873 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.portal.Desktop' requested by ':1.13' (uid=1000 pid=5579 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.impl.portal.desktop.gtk' requested by ':1.14' (uid=1000 pid=5589 comm="/usr/libexec/xdg-desktop-portal" label="unconfined")
 
-(xdg-desktop-portal-gtk:9880): dbind-WARNING **: 10:24:17.750: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
+(xdg-desktop-portal-gtk:5596): dbind-WARNING **: 10:48:26.974: AT-SPI: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.impl.portal.desktop.gtk'
 
-(/usr/libexec/xdg-desktop-portal:9873): xdg-desktop-portal-WARNING **: 10:24:17.772: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:5589): xdg-desktop-portal-WARNING **: 10:48:26.994: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
 
-(/usr/libexec/xdg-desktop-portal:9873): xdg-desktop-portal-WARNING **: 10:24:17.772: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:5589): xdg-desktop-portal-WARNING **: 10:48:26.994: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
 
-(/usr/libexec/xdg-desktop-portal:9873): xdg-desktop-portal-WARNING **: 10:24:17.772: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
+(/usr/libexec/xdg-desktop-portal:5589): xdg-desktop-portal-WARNING **: 10:48:26.995: Failed to load RealtimeKit property: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.RealtimeKit1 was not provided by any .service files
 
-(/usr/libexec/xdg-desktop-portal:9873): xdg-desktop-portal-WARNING **: 10:24:17.777: Failed connect to PipeWire: Couldn't connect to PipeWire
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.portal.Desktop'
-dbus-daemon[6149]: [session uid=1000 pid=6149] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.19' (uid=1000 pid=9863 comm="xdg-dbus-proxy --args=38" label="flatpak (unconfined)")
-dbus-daemon[6149]: [session uid=1000 pid=6149] Successfully activated service 'org.freedesktop.portal.Flatpak'
+(/usr/libexec/xdg-desktop-portal:5589): xdg-desktop-portal-WARNING **: 10:48:27.000: Failed connect to PipeWire: Couldn't connect to PipeWire
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.portal.Desktop'
+dbus-daemon[5090]: [session uid=1000 pid=5090] Activating service name='org.freedesktop.portal.Flatpak' requested by ':1.18' (uid=1000 pid=5579 comm="xdg-dbus-proxy --args=37" label="flatpak (unconfined)")
+dbus-daemon[5090]: [session uid=1000 pid=5090] Successfully activated service 'org.freedesktop.portal.Flatpak'
 jasp JobFinished: Ok("Launch request accepted")
 jasp after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: true, can_remove: true, can_open: true })
   Map State: IsViewable
 org.jaspstats.JASP
 org.jaspstats.JASP
-2026-11-28T10:24:49+00:00 jasp previous GUI WM_NAME(STRING) = "JASP"
+2026-11-28T10:48:58+00:00 jasp previous GUI WM_NAME(STRING) = "JASP"
 WM_CLASS(STRING) = "JASP", "JASP"
-2026-11-28T10:24:49+00:00 jasp AVAILABLE 15368257536
+2026-11-28T10:48:58+00:00 jasp AVAILABLE 20642922496
 jasp before update: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: true, can_remove: true, can_open: true }
 jasp JobFinished: Ok("Flathub app updated")
-jasp after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: true, can_open: true })
+jasp after update: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 99, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.99.0"), update_available: false, can_remove: true, can_open: true })
   Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
   Primary key ID 4184DD4D907A7CAE
-2026-11-28T10:25:18+00:00 jasp current a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a
+2026-11-28T10:49:34+00:00 jasp current a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a
 /home/qa/profiles/jasp-after210/.var/app/org.jaspstats.JASP/fixture.txt: OK
-jasp before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: true, can_open: true }
+jasp before open: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 99, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.99.0"), update_available: false, can_remove: true, can_open: true }
 jasp JobFinished: Ok("Launch request accepted")
-jasp after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: true, can_open: true })
+jasp after open: Some(Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 99, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.99.0"), update_available: false, can_remove: true, can_open: true })
   Map State: IsViewable
 org.jaspstats.JASP
 org.jaspstats.JASP
-2026-11-28T10:25:28+00:00 jasp current GUI WM_NAME(STRING) = "JASP"
+2026-11-28T10:49:45+00:00 jasp current GUI WM_NAME(STRING) = "JASP"
 WM_CLASS(STRING) = "JASP", "JASP"
-jasp before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 98, patch: 1 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.98.1"), update_available: false, can_remove: true, can_open: true }
+jasp before remove: Status { installable: true, installed: Some(Installed { version: Some(Version { major: 0, minor: 99, patch: 0 }), source: Flatpak, location: "/home/qa/profiles/jasp-after210/data/flatpak/app/org.jaspstats.JASP/x86_64/stable/a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a", package: Some("org.jaspstats.JASP"), externally_managed: false, origin: Some("flathub"), installation: Some("user") }), installed_version_label: Some("0.99.0"), update_available: false, can_remove: true, can_open: true }
 jasp JobFinished: Ok("Flathub app removed")
 jasp after remove: Some(Status { installable: true, installed: None, installed_version_label: None, update_available: false, can_remove: false, can_open: false })
 /home/qa/profiles/jasp-after210/.var/app/org.jaspstats.JASP/fixture.txt: OK
-2026-11-28T10:25:34+00:00 jasp PASS signed native cycle, two GUI opens and synthetic data retained
-2026-11-28T10:25:34+00:00 jasp EXIT 0 remove
+2026-11-28T10:49:51+00:00 jasp PASS signed native cycle, two GUI opens and synthetic data retained
+2026-11-28T10:49:51+00:00 jasp EXIT 0 remove
 
-(xfconfd:9750): xfconfd-WARNING **: 10:25:34.441: Name org.xfce.Xfconf lost on the message dbus, exiting.
+(xfconfd:5465): xfconfd-WARNING **: 10:49:51.141: Name org.xfce.Xfconf lost on the message dbus, exiting.

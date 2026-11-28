@@ -491,8 +491,8 @@ mod linux {
             if !valid_commit(&commit) {
                 return Err("Flatpak did not return an exact deployment commit".into());
             }
-            // Goxel's AppStream reports 0.13.0 for both signed revisions tested in QA.
-            // Use the version displayed by the app only for each known Flathub deployment.
+            // Some AppStream versions are stale. Use the observed app version only
+            // for the exact Flathub deployments verified in QA.
             let version = match (reference, origin, version, commit.as_str()) {
                 (
                     "app/io.github.guillaumechereau.Goxel/x86_64/stable",
@@ -506,6 +506,9 @@ mod linux {
                     "0.13.0",
                     "0ca337f50e5934f6f827237c3c30d3b475c3382720f61925f92cb087da2bc61e",
                 ) => "0.15.1",
+                ("app/org.jaspstats.JASP/x86_64/stable", REMOTE, "0.98.1", "a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a") => {
+                    "0.99.0"
+                }
                 _ => version,
             };
             deployments.push(Deployment { origin: origin.into(), commit, scope: scope.into(), version: version.into() });
@@ -659,6 +662,24 @@ mod linux {
             assert_eq!(label(&rows, COMMIT).as_deref(), Some("0.13.0"));
             assert_eq!(label(&rows.replace("flathub", "other"), current).as_deref(), Some("0.13.0"));
             assert_eq!(label(&rows.replace("0.13.0", "0.15.1"), current).as_deref(), Some("0.15.1"));
+        }
+
+        #[test]
+        fn corrects_stale_jasp_version_only_for_the_reviewed_flathub_commit() {
+            let reference = "app/org.jaspstats.JASP/x86_64/stable";
+            let current = "a142fa6e6685d28a398463259fed880160efebbbe8a7b6440266381a8bdfa14a";
+            let previous = "0c963797dbc4497bbe14842058f81b05847edcfa94c084fbbbd184915217577d";
+            let label = |reference: &str, origin: &str, version: &str, commit: &str| {
+                let rows = format!("{reference}\t{origin}\tuser\t{version}");
+                let deployments = parse_deployments(&rows, reference, |_| Ok(commit.into())).unwrap();
+                selected(&deployments).version_label().map(str::to_owned)
+            };
+            assert_eq!(label(reference, "flathub", "0.98.1", current).as_deref(), Some("0.99.0"));
+            assert_eq!(label(reference, "flathub", "0.98.1", previous).as_deref(), Some("0.98.1"));
+            assert_eq!(label(reference, "other", "0.98.1", current).as_deref(), Some("0.98.1"));
+            assert_eq!(label(reference, "flathub", "0.99.1", current).as_deref(), Some("0.99.1"));
+            let beta = "app/org.jaspstats.JASP/x86_64/beta";
+            assert_eq!(label(beta, "flathub", "0.98.1", current).as_deref(), Some("0.98.1"));
         }
 
         #[test]

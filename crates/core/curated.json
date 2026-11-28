@@ -12481,9 +12481,9 @@
       "source": "https://flathub.org/apps/org.jaspstats.JASP"
     },
     "release": {
-      "version": "0.98.1",
-      "date": "2026-07-06",
-      "source": "https://flathub.org/apps/org.jaspstats.JASP",
+      "version": "0.99.0",
+      "date": "2026-10-21",
+      "source": "https://github.com/jasp-stats/jasp-desktop/releases/tag/v0.99.0",
       "packages": []
     },
     "stars": {

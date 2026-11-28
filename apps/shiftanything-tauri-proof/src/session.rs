@@ -703,6 +703,7 @@ mod tests {
             "drawio",
             "keepassxc",
             "libreoffice",
+            "lightcraft",
             "photocraft",
             "soundcraft",
             "texturecraft",

@@ -876,6 +876,7 @@ mod tests {
 
         let windows = Platform { os: Os::Windows, arch: Arch::X64 };
         for (id, releases) in [
+            ("lightcraft", [("v0.21.0", "lightcraft-0.21.0-windows-x64.msi"), ("v0.21.1", "lightcraft-0.21.1-windows-x64.msi")]),
             ("photocraft", [("v0.23.0", "photocraft-0.23.0-windows-x64.msi"), ("v0.23.1", "photocraft-0.23.1-windows-x64.msi")]),
             ("soundcraft", [("v0.20.0", "soundcraft-0.20.0-windows-x64.msi"), ("v0.20.1", "soundcraft-0.20.1-windows-x64.msi")]),
             ("texturecraft", [("v0.6.0", "texturecraft-0.6.0-windows-x64.msi"), ("v0.6.1", "texturecraft-0.6.1-windows-x64.msi")]),

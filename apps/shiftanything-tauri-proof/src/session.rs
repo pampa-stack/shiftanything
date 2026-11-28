@@ -704,6 +704,7 @@ mod tests {
             "keepassxc",
             "libreoffice",
             "photocraft",
+            "soundcraft",
             "texturecraft",
             "wordcraft"
         ]));

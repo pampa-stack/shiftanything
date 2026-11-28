@@ -1,0 +1,20 @@
+
+Contacts - Manage your contacts
+
+          ID: org.gnome.Contacts
+         Ref: app/org.gnome.Contacts/x86_64/stable
+        Arch: x86_64
+      Branch: stable
+     Version: 51.0
+     License: GPL-2.0-or-later
+      Origin: flathub
+  Collection: org.flathub.Stable
+Installation: user
+   Installed: 28.6 MB
+     Runtime: org.gnome.Platform/x86_64/51
+         Sdk: org.gnome.Sdk/x86_64/51
+
+      Commit: 80e107fdcfc3a4dc65da9dff1076d9af8bf6c899cae1a590c0fed0e410e11c87
+      Parent: 8d43797895871c1f92e4460ae2e0ab3a2f404787bf755df2cf1470e1b0c68dce
+     Subject: Merge pull request #100 from ostfriese4/libportal-shared-modules (d27a9ba34534)
+        Date: 2026-10-31 12:06:48 +0000

@@ -105,7 +105,7 @@ Il 28 novembre il backend di `8c4e50b` con le ricette candidate ha installato, a
 - **Warehouse 2.2.0.** Due revisioni firmate hanno aperto la finestra dei pacchetti nel profilo isolato. [Flathub](https://flathub.org/apps/io.github.flattool.Warehouse) · [Prima](warehouse/previous.png) · [Dopo](warehouse/current.png) · [Log](warehouse/lifecycle.log)
 - **wxMaxima 26.09.0 → 26.10.0.** Entrambe le versioni hanno aperto il foglio di lavoro. Nel display virtuale il dialogo iniziale appare nero. [Flathub](https://flathub.org/apps/io.github.wxmaxima_developers.wxMaxima) · [Prima](wxmaxima/previous.png) · [Dopo](wxmaxima/current.png) · [Log](wxmaxima/lifecycle.log)
 
-GNOME Contacts resta fuori dalla verifica. Nel guest il runner ha ricevuto l’esito di avvio ma la finestra della versione precedente non è comparsa.
+- **GNOME Contacts 50.0 → 51.0.** Il backend ha installato, aperto, aggiornato e rimosso entrambe le revisioni firmate su Ubuntu 24.04 x64. Con Evolution Data Server presente nel guest, entrambe hanno aperto la configurazione della rubrica locale. La prova ha preservato un file sintetico senza configurare account o contatti. [Flathub](https://flathub.org/apps/org.gnome.Contacts) · [Manifest Flathub](https://github.com/flathub/org.gnome.Contacts/blob/d27a9ba34534e1bb453da78790330cc17bfb5c10/org.gnome.Contacts.yml) · [Prima](gnome-contacts/previous.png) · [Dopo](gnome-contacts/current.png) · [Log](gnome-contacts/lifecycle.log)
 
 ## Sei app Flathub aggiuntive
 
@@ -131,6 +131,8 @@ Per Ardour installare anche `pulseaudio` e `pulseaudio-utils` nel guest. Aprire 
 Per FamiStudio usare gli stessi pacchetti di PulseAudio. Nel guest senza hardware passato dall'host, caricare il modulo Linux `snd-seq-dummy` e dare all'utente QA accesso a `/dev/snd/seq` tramite il gruppo audio. Aprire una nuova sessione del guest affinché il gruppo sia attivo. Le aperture del test usano il solo loopback.
 
 Per ripetere le prove di Geary, HomeBank o File Roller, usare `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh geary 82` con l’ID dell’app e un display libero. Il runner abilita il compositing e imposta il renderer Cairo per GTK.
+
+Per GNOME Contacts installare anche `evolution-data-server` nel guest pulito. La prova è passata con Ubuntu 24.04 e il pacchetto `3.52.3-0ubuntu1.2`, usando `SHIFT_QA_COMPOSITOR=on dbus-run-session -- bash ~/after210-run.sh gnome-contacts 82`. Senza il servizio la richiesta di avvio viene accettata, ma la finestra non appare.
 
 ## Frog su Linux x64
 

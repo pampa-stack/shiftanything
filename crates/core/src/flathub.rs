@@ -1,7 +1,7 @@
 //! Reviewed Flathub identity and target scope for the launcher.
 use crate::{Arch, Os, Platform, curated::App};
 
-pub const RECIPES: [(&str, &str); 210] = [
+pub const RECIPES: [(&str, &str); 211] = [
     ("kopia", "io.kopia.KopiaUI"),
     ("parabolic", "org.nickvision.tubeconverter"),
     ("siyuan", "org.b3log.siyuan"),
@@ -120,6 +120,7 @@ pub const RECIPES: [(&str, &str); 210] = [
     ("color-palette", "org.gnome.design.Palette"),
     ("video-trimmer", "org.gnome.gitlab.YaLTeR.VideoTrimmer"),
     ("gnome-connections", "org.gnome.Connections"),
+    ("gnome-contacts", "org.gnome.Contacts"),
     ("tokodon", "org.kde.tokodon"),
     ("neochat", "org.kde.neochat"),
     ("workbench", "re.sonny.Workbench"),
@@ -349,6 +350,7 @@ pub fn approved_catalog_identity(app: &App) -> bool {
         "color-palette" => "https://gitlab.gnome.org/World/design/palette",
         "video-trimmer" => "https://gitlab.gnome.org/YaLTeR/video-trimmer",
         "gnome-connections" => "https://gitlab.gnome.org/GNOME/connections",
+        "gnome-contacts" => "https://gitlab.gnome.org/GNOME/gnome-contacts",
         "tokodon" => "https://invent.kde.org/network/tokodon",
         "neochat" => "https://invent.kde.org/network/neochat",
         "workbench" => "https://workbench.sonny.re/source",

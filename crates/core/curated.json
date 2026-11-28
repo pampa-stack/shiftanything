@@ -3490,8 +3490,8 @@
     "level": "base",
     "category": "comm",
     "description": {
-      "it": "Rubrica e gestione dei contatti",
-      "en": "Manage your contacts"
+      "it": "Gestisci i contatti in una rubrica locale o collegata agli account GNOME. Su Linux usa Evolution Data Server.",
+      "en": "Manage contacts in a local address book or through GNOME Online Accounts. On Linux it uses Evolution Data Server."
     },
     "alternatives": [],
     "license": "GPL-2.0-or-later",

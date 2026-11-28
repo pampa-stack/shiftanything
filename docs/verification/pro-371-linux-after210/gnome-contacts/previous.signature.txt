@@ -1,0 +1,19 @@
+commit 68bb34c2dd0059b468c958b7401c509a545de984ef72dff3971a00ba83bf4a76
+Parent:  d4978f60ed04f3eeadd2ccde3be92ab1555078d8d9feb8de9e558f8f93fb515c
+ContentChecksum:  8c05813ca373b4770568e75ab92b241fa71dc79a057d78e3a32b1e67fe954538
+Date:  2026-03-19 23:10:26 +0000
+
+    Merge pull request #98 from flathub/update-master-c9a2e8c (5d2525223370)
+
+    Name: org.gnome.Contacts
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.16.2
+
+Found 1 signature:
+
+  Signature made Fri Mar 20 00:00:47 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

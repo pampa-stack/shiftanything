@@ -1,0 +1,19 @@
+commit 80e107fdcfc3a4dc65da9dff1076d9af8bf6c899cae1a590c0fed0e410e11c87
+Parent:  8d43797895871c1f92e4460ae2e0ab3a2f404787bf755df2cf1470e1b0c68dce
+ContentChecksum:  8e67f9fb834127707376febca63f390e3a902c679b5ab1bee168ba276e9f3111
+Date:  2026-10-31 12:06:48 +0000
+
+    Merge pull request #100 from ostfriese4/libportal-shared-modules (d27a9ba34534)
+
+    Name: org.gnome.Contacts
+    Arch: x86_64
+    Branch: stable
+    Built with: Flatpak 1.18.1
+
+Found 1 signature:
+
+  Signature made Sat Oct 31 13:02:17 2026 using RSA key ID 562702E9E3ED7EE8
+  Good signature from "Flathub Repo Signing Key <flathub@flathub.org>"
+  Primary key ID 4184DD4D907A7CAE
+  Key expires Mon Jun 14 13:19:40 2027
+  Primary key expires Mon Jun 14 13:18:56 2027

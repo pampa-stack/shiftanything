@@ -26,6 +26,19 @@ export default {
     ],
     "source": "https://www.audacityteam.org/"
   },
+  "blender": {
+    "en": [
+      "Model, sculpt and apply materials to 3D objects.",
+      "Rig and animate characters and objects.",
+      "Render scenes with Cycles and combine images in the compositor."
+    ],
+    "it": [
+      "Modella, scolpisci e applica materiali a oggetti 3D.",
+      "Prepara scheletri e controlli per animare personaggi e oggetti.",
+      "Renderizza scene con Cycles e combina immagini nel compositore."
+    ],
+    "source": "https://www.blender.org/"
+  },
   "cadcraft": {
     "en": [
       "Draft 2D plans and drawings with snaps, layers and dimensions that follow the geometry.",
@@ -62,6 +75,19 @@ export default {
       "Organizza le osservazioni in un progetto e controlla le revisioni."
     ],
     "source": "https://getartcraft.com/apps/craft-anything"
+  },
+  "darktable": {
+    "en": [
+      "Import and organize a photo library, including RAW files.",
+      "Edit exposure and colors while storing adjustments separately from the original.",
+      "Export processed images to share them or use them in other applications."
+    ],
+    "it": [
+      "Importa e organizza una libreria di foto, compresi i file RAW.",
+      "Modifica l’esposizione e i colori salvando le regolazioni senza alterare l’originale.",
+      "Esporta le immagini elaborate per condividerle o usarle in altri programmi."
+    ],
+    "source": "https://docs.darktable.org/usermanual/development/en/overview/"
   },
   "deckcraft": {
     "en": [
@@ -141,6 +167,19 @@ export default {
     ],
     "source": "https://getartcraft.com/apps/filmcraft"
   },
+  "free": {
+    "en": [
+      "Draw dimensioned, constrained 2D profiles and turn them into 3D solids.",
+      "Modify parts by changing parameters in the model history.",
+      "Create technical drawings and exchange models in formats such as STEP, STL or IFC."
+    ],
+    "it": [
+      "Disegna profili 2D con quote e vincoli e trasformali in solidi 3D.",
+      "Modifica le parti cambiando i parametri nella cronologia del modello.",
+      "Crea tavole tecniche e scambia modelli in formati come STEP, STL o IFC."
+    ],
+    "source": "https://www.freecad.org/features.php?lang=en"
+  },
   "gimp": {
     "en": [
       "Edit images with layers, channels and paths.",
@@ -193,6 +232,19 @@ export default {
     ],
     "source": "https://github.com/cjpais/Handy"
   },
+  "home-assistant": {
+    "en": [
+      "Control compatible devices from dashboards organized by room.",
+      "Set up automations for lights, sensors and other household devices.",
+      "Track production and consumption in the Energy dashboard."
+    ],
+    "it": [
+      "Controlla dispositivi compatibili da dashboard organizzate per stanza.",
+      "Imposta automazioni per luci, sensori e altri dispositivi della casa.",
+      "Tieni d’occhio produzione e consumi con la dashboard Energia."
+    ],
+    "source": "https://www.home-assistant.io/"
+  },
   "immich": {
     "en": [
       "Automatically back up phone photos and videos to your own server.",
@@ -205,6 +257,19 @@ export default {
       "Trova immagini per persone, luoghi e contenuto visivo."
     ],
     "source": "https://github.com/immich-app/immich"
+  },
+  "inks": {
+    "en": [
+      "Draw vector shapes and edit path nodes and segments.",
+      "Arrange artwork on modular or isometric grids and manage color palettes.",
+      "Clip images with the Shape Builder and export PDFs with internal links."
+    ],
+    "it": [
+      "Disegna forme vettoriali e modifica nodi e segmenti nei tracciati.",
+      "Organizza disegni su griglie modulari o isometriche e gestisci palette di colori.",
+      "Ritaglia immagini con lo strumento Crea forme ed esporta PDF con link interni."
+    ],
+    "source": "https://wiki.inkscape.org/wiki/Release_notes/1.4"
   },
   "joplin": {
     "en": [
@@ -282,6 +347,30 @@ export default {
     ],
     "source": "https://localsend.org/"
   },
+  "meetily": {
+    "en": [
+      "Record and transcribe meetings on your device.",
+      "Summarize the meeting using a configured local model."
+    ],
+    "it": [
+      "Registra e trascrivi riunioni sul dispositivo.",
+      "Genera un riepilogo della riunione con un modello locale configurato."
+    ],
+    "source": "https://meetily.ai/"
+  },
+  "normcap": {
+    "en": [
+      "Extract text from a screen region in multiple languages.",
+      "Recognize characters on your device and copy the result as text.",
+      "Read information encoded in QR codes and barcodes."
+    ],
+    "it": [
+      "Estrai testo da un’area dello schermo, anche in più lingue.",
+      "Riconosci caratteri sul dispositivo e copia il risultato come testo.",
+      "Leggi le informazioni contenute in codici QR e a barre."
+    ],
+    "source": "https://dynobo.github.io/normcap/"
+  },
   "obs": {
     "en": [
       "Record your screen or stream live.",
@@ -307,6 +396,17 @@ export default {
       "Carica immagini per i modelli che supportano input visivi."
     ],
     "source": "https://ollama.com/blog/new-app"
+  },
+  "orca": {
+    "en": [
+      "Run multiple coding agents in separate Git worktrees.",
+      "Switch between chat, terminal, browser and diff review in one app."
+    ],
+    "it": [
+      "Tieni aperti più coding agent, ciascuno nel suo worktree Git.",
+      "Passa tra chat, terminale, browser e revisione delle modifiche nella stessa app."
+    ],
+    "source": "https://orca.dev/"
   },
   "pdfcraft": {
     "en": [
@@ -362,6 +462,19 @@ export default {
     ],
     "source": "https://learn.microsoft.com/en-us/windows/powertoys/"
   },
+  "rizzo-pii": {
+    "en": [
+      "Detect personal information locally in Italian legal text.",
+      "Replace personal data with placeholders and keep the mapping on your device.",
+      "Restore the original values locally when needed."
+    ],
+    "it": [
+      "Rileva in locale dati personali nei testi legali italiani.",
+      "Sostituisci i dati con segnaposto e conserva la corrispondenza sul dispositivo.",
+      "Ripristina i valori originali in locale quando serve."
+    ],
+    "source": "https://rizzo-ai-academy.github.io/rizzo-pii/"
+  },
   "soundcraft": {
     "en": [
       "Record and edit multitrack audio and MIDI.",
@@ -374,6 +487,17 @@ export default {
       "Modifica il MIDI nel piano roll e usa effetti integrati o plugin CLAP."
     ],
     "source": "https://getartcraft.com/apps/soundcraft"
+  },
+  "syncthing": {
+    "en": [
+      "Sync a folder directly with approved computers and devices.",
+      "Choose folders to share and check sync status in the dashboard."
+    ],
+    "it": [
+      "Sincronizza una cartella direttamente con computer e dispositivi approvati.",
+      "Scegli quali cartelle condividere e verifica lo stato dalla dashboard."
+    ],
+    "source": "https://docs.syncthing.net/intro/getting-started.html"
   },
   "texturecraft": {
     "en": [
@@ -388,6 +512,19 @@ export default {
     ],
     "source": "https://getartcraft.com/apps/texturecraft"
   },
+  "uptime": {
+    "en": [
+      "Check sites and services with HTTP, TCP, DNS or ping monitors.",
+      "Detect outages and send notifications by email or other supported services.",
+      "Review response charts and publish status pages."
+    ],
+    "it": [
+      "Controlla siti e servizi con verifiche HTTP, TCP, DNS o ping.",
+      "Rileva problemi e invia notifiche via email o servizi compatibili.",
+      "Consulta i grafici di risposta e pubblica pagine di stato."
+    ],
+    "source": "https://github.com/louislam/uptime-kuma"
+  },
   "vectorcraft": {
     "en": [
       "Draw and edit paths with the pen, snapping guides and shape operations.",
@@ -400,6 +537,19 @@ export default {
       "Vettorializza immagini raster e importa o esporta SVG e PDF."
     ],
     "source": "https://getartcraft.com/apps/vectorcraft"
+  },
+  "vlc": {
+    "en": [
+      "Play local video and audio files, discs and network streams.",
+      "Load external subtitles and synchronize them with the video.",
+      "Adjust playback with audio and video filters."
+    ],
+    "it": [
+      "Riproduci file video e audio locali, dischi e flussi di rete.",
+      "Carica sottotitoli esterni e sincronizzali con il video.",
+      "Modifica la riproduzione con filtri audio e video."
+    ],
+    "source": "https://images.videolan.org/vlc/features.html"
   },
   "wordcraft": {
     "en": [

@@ -6991,6 +6991,586 @@
           }
         }
       ]
+    },
+    {
+      "id": "procreate",
+      "name": "Procreate",
+      "aliases": [],
+      "features": [
+        {
+          "id": "illustration",
+          "name": {
+            "it": "Illustrazione digitale",
+            "en": "Digital illustration"
+          },
+          "source": "https://procreate.com/procreate"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "krita",
+          "evidence": {
+            "illustration": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/org.kde.krita",
+              "note": {
+                "it": "Disegna con pennelli, livelli e stabilizzatori.",
+                "en": "Draw with brushes, layers and stabilizers."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "pro-tools",
+      "name": "Pro Tools",
+      "aliases": [
+        "Avid Pro Tools"
+      ],
+      "features": [
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare strumenti",
+            "en": "Record instruments"
+          },
+          "source": "https://www.avid.com/pro-tools"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "ardour",
+          "evidence": {
+            "record": {
+              "state": "supported",
+              "source": "https://manual.ardour.org/",
+              "note": {
+                "it": "Registra più tracce e gestisci ingressi e uscite dalla sessione.",
+                "en": "Record multiple tracks and route session inputs and outputs."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "quizlet-plus",
+      "name": "Quizlet Plus",
+      "aliases": [],
+      "features": [
+        {
+          "id": "revision",
+          "name": {
+            "it": "Fare ripasso programmato",
+            "en": "Schedule revision"
+          },
+          "source": "https://quizlet.com/upgrade"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "anki",
+          "evidence": {
+            "revision": {
+              "state": "supported",
+              "source": "https://github.com/ankitects/anki",
+              "note": {
+                "it": "Ripassa schede con un algoritmo di ripetizione dilazionata.",
+                "en": "Review flashcards with a spaced-repetition algorithm."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "resilio-sync-home",
+      "name": "Resilio Sync Home",
+      "aliases": [],
+      "features": [
+        {
+          "id": "sync",
+          "name": {
+            "it": "Sincronizzare cartelle",
+            "en": "Synchronize folders"
+          },
+          "source": "https://www.resilio.com/sync/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "syncthing",
+          "evidence": {
+            "sync": {
+              "state": "supported",
+              "source": "https://github.com/syncthing/syncthing#readme",
+              "note": {
+                "it": "Sincronizza le cartelle autorizzate direttamente tra i dispositivi.",
+                "en": "Sync authorized folders directly between devices."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "revit",
+      "name": "Revit",
+      "aliases": [],
+      "features": [
+        {
+          "id": "bim",
+          "name": {
+            "it": "Modello BIM",
+            "en": "BIM model"
+          },
+          "source": "https://www.autodesk.com/products/revit/overview"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "free",
+          "evidence": {
+            "bim": {
+              "state": "supported",
+              "source": "https://www.freecad.org/",
+              "note": {
+                "it": "Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.",
+                "en": "Parametric modeling, BIM tools and IFC. Verify interchange with your practice."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "riverside",
+      "name": "Riverside",
+      "aliases": [],
+      "features": [
+        {
+          "id": "record",
+          "name": {
+            "it": "Registrare voce e ospiti",
+            "en": "Record voices and guests"
+          },
+          "source": "https://riverside.fm/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "obs",
+          "evidence": {
+            "record": {
+              "state": "supported",
+              "source": "https://obsproject.com/kb/advanced-recording-guide-and-multi-track-audio",
+              "note": {
+                "it": "Registra sorgenti diverse con tracce separate configurabili.",
+                "en": "Record different sources with configurable separate tracks."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "serum",
+      "name": "Serum",
+      "aliases": [],
+      "features": [
+        {
+          "id": "design",
+          "name": {
+            "it": "Creare suoni",
+            "en": "Design sounds"
+          },
+          "source": "https://xferrecords.com/products/serum-2"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "surge-xt",
+          "evidence": {
+            "design": {
+              "state": "supported",
+              "source": "https://surge-synthesizer.github.io/",
+              "note": {
+                "it": "Combina oscillatori, filtri e modulazioni nel sintetizzatore.",
+                "en": "Combine oscillators, filters and modulation in the synthesizer."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "simplify3d",
+      "name": "Simplify3D",
+      "aliases": [],
+      "features": [
+        {
+          "id": "slice",
+          "name": {
+            "it": "Preparare il G-code",
+            "en": "Prepare G-code"
+          },
+          "source": "https://www.simplify3d.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "prusaslicer",
+          "evidence": {
+            "slice": {
+              "state": "supported",
+              "source": "https://flathub.org/apps/com.prusa3d.PrusaSlicer",
+              "note": {
+                "it": "Imposta materiali e supporti e visualizza l’anteprima dei percorsi.",
+                "en": "Set materials and supports and preview tool paths."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "orca-slicer",
+          "evidence": {
+            "slice": {
+              "state": "supported",
+              "source": "https://www.orcaslicer.com/",
+              "note": {
+                "it": "Calibra filamento e stampa, poi esporta il G-code.",
+                "en": "Calibrate filament and print settings, then export G-code."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sip",
+      "name": "Sip",
+      "aliases": [],
+      "features": [
+        {
+          "id": "color",
+          "name": {
+            "it": "Campionare i colori",
+            "en": "Sample colors"
+          },
+          "source": "https://sipapp.io/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "pika-color",
+          "evidence": {
+            "color": {
+              "state": "supported",
+              "source": "https://github.com/superhighfives/pika#readme",
+              "note": {
+                "it": "Preleva i colori dallo schermo e confronta il contrasto.",
+                "en": "Pick colors from the screen and check their contrast."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "softplan",
+      "name": "SoftPlan",
+      "aliases": [],
+      "features": [
+        {
+          "id": "bim",
+          "name": {
+            "it": "Modello BIM",
+            "en": "BIM model"
+          },
+          "source": "https://www.softplan.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "free",
+          "evidence": {
+            "bim": {
+              "state": "supported",
+              "source": "https://www.freecad.org/",
+              "note": {
+                "it": "Modello parametrico, strumenti BIM e IFC. Verifica gli scambi con lo studio.",
+                "en": "Parametric modeling, BIM tools and IFC. Verify interchange with your practice."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tableau",
+      "name": "Tableau",
+      "aliases": [],
+      "features": [
+        {
+          "id": "dashboard",
+          "name": {
+            "it": "Pubblicare dashboard interattive",
+            "en": "Publish interactive dashboards"
+          },
+          "source": "https://www.tableau.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "apache-superset",
+          "evidence": {
+            "dashboard": {
+              "state": "supported",
+              "source": "https://superset.apache.org/user-docs/using-superset/creating-your-first-dashboard/",
+              "note": {
+                "it": "Collega una fonte SQL e pubblica grafici e filtri in una dashboard.",
+                "en": "Connect a SQL data source and publish charts and filters in a dashboard."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "grafana",
+          "evidence": {
+            "dashboard": {
+              "state": "supported",
+              "source": "https://grafana.com/docs/grafana/latest/visualizations/dashboards/",
+              "note": {
+                "it": "Organizza grafici e indicatori in un pannello collegato a fonti dati esistenti.",
+                "en": "Organize charts and indicators in a dashboard connected to existing data sources."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "trello",
+      "name": "Trello",
+      "aliases": [],
+      "features": [
+        {
+          "id": "board",
+          "name": {
+            "it": "Tenere una bacheca operativa",
+            "en": "Run a work board"
+          },
+          "source": "https://trello.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "kanboard",
+          "evidence": {
+            "board": {
+              "state": "supported",
+              "source": "https://docs.kanboard.org/en/latest/admin_guide/installation.html",
+              "note": {
+                "it": "Distribuisci le attività per colonne, responsabili e date.",
+                "en": "Organize work by stage, assignee and date."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "vikunja",
+          "evidence": {
+            "board": {
+              "state": "supported",
+              "source": "https://vikunja.io/docs/installing/",
+              "note": {
+                "it": "Usa viste a lista, Kanban o Gantt per lo stesso progetto.",
+                "en": "Use list, Kanban or Gantt views for a project."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "typeform",
+      "name": "Typeform",
+      "aliases": [],
+      "features": [
+        {
+          "id": "feedback",
+          "name": {
+            "it": "Raccogliere feedback",
+            "en": "Collect feedback"
+          },
+          "source": "https://www.typeform.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "formbricks",
+          "evidence": {
+            "feedback": {
+              "state": "supported",
+              "source": "https://formbricks.com/docs/self-hosting/overview",
+              "note": {
+                "it": "Pubblica sondaggi con la versione Community self-hosted.",
+                "en": "Publish surveys with the self-hosted Community edition."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "unity",
+      "name": "Unity",
+      "aliases": [],
+      "features": [
+        {
+          "id": "prototype",
+          "name": {
+            "it": "Creare scene e prototipi",
+            "en": "Build scenes and prototypes"
+          },
+          "source": "https://unity.com/"
+        },
+        {
+          "id": "delivery",
+          "name": {
+            "it": "Esportare e provare una build",
+            "en": "Export and test a build"
+          },
+          "source": "https://unity.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "godot-engine",
+          "evidence": {
+            "prototype": {
+              "state": "supported",
+              "source": "https://docs.godotengine.org/en/stable/",
+              "note": {
+                "it": "Crea scene e organizza il gioco con nodi riutilizzabili.",
+                "en": "Build scenes and organize the game with reusable nodes."
+              }
+            },
+            "delivery": {
+              "state": "supported",
+              "source": "https://docs.godotengine.org/en/stable/",
+              "note": {
+                "it": "Configura un preset di esportazione e genera una build da provare.",
+                "en": "Configure an export preset and generate a build to test."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "unreal-engine",
+      "name": "Unreal Engine",
+      "aliases": [],
+      "features": [
+        {
+          "id": "prototype",
+          "name": {
+            "it": "Creare scene e prototipi",
+            "en": "Build scenes and prototypes"
+          },
+          "source": "https://www.unrealengine.com/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "godot-engine",
+          "evidence": {
+            "prototype": {
+              "state": "supported",
+              "source": "https://docs.godotengine.org/en/stable/",
+              "note": {
+                "it": "Crea scene e organizza il gioco con nodi riutilizzabili.",
+                "en": "Build scenes and organize the game with reusable nodes."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "warp",
+      "name": "Warp",
+      "aliases": [],
+      "features": [
+        {
+          "id": "terminal",
+          "name": {
+            "it": "Gestire sessioni di lavoro",
+            "en": "Manage terminal sessions"
+          },
+          "source": "https://www.warp.dev/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "iterm2",
+          "evidence": {
+            "terminal": {
+              "state": "supported",
+              "source": "https://iterm2.com/features.html",
+              "note": {
+                "it": "Usa schede e riquadri affiancati nelle sessioni su macOS.",
+                "en": "Use tabs and side-by-side panes in macOS terminal sessions."
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "witch",
+      "name": "Witch",
+      "aliases": [],
+      "features": [
+        {
+          "id": "switch",
+          "name": {
+            "it": "Passare a una finestra",
+            "en": "Switch between windows"
+          },
+          "source": "https://manytricks.com/witch/"
+        }
+      ],
+      "candidates": [
+        {
+          "app_id": "alttab",
+          "evidence": {
+            "switch": {
+              "state": "supported",
+              "source": "https://github.com/lwouis/alt-tab-macos#readme",
+              "note": {
+                "it": "Seleziona una finestra dalle anteprime con la tastiera.",
+                "en": "Select a window from previews using the keyboard."
+              }
+            }
+          }
+        },
+        {
+          "app_id": "dockdoor",
+          "evidence": {
+            "switch": {
+              "state": "supported",
+              "source": "https://dockdoor.net/",
+              "note": {
+                "it": "Mostra anteprime dal Dock e passa alla finestra selezionata.",
+                "en": "Preview windows from the Dock and switch to the selected one."
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }

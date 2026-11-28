@@ -173,9 +173,13 @@ Il 28 novembre il backend di `e3faf0a` con le due ricette candidate ha installat
 
 ### Preflight NAPS2 su Ubuntu x64
 
-I DEB ufficiali 8.6.0 e 8.6.1 corrispondono per dimensione e SHA-256 alle ricevute GitHub. Entrambi dichiarano architettura amd64 e dipendenza da `libsane1`, e contengono l’eseguibile e la voce desktop. Il guest ha ispezionato gli archivi senza installarli. Il conteggio Linux richiede ancora il ciclo nativo. [Rilasci ufficiali](https://github.com/cyanfish/naps2/releases) · [Ricevute e preflight](naps2-preflight.log)
+I DEB ufficiali 8.6.0 e 8.6.1 corrispondono per dimensione e SHA-256 alle ricevute GitHub. Entrambi dichiarano architettura amd64 e dipendenza da `libsane1`, e contengono l’eseguibile e la voce desktop. Il guest ha ispezionato gli archivi senza installarli. [Rilasci ufficiali](https://github.com/cyanfish/naps2/releases) · [Ricevute e preflight](naps2-preflight.log)
 
-I bundle Flatpak x64 ufficiali hanno passato il controllo SHA-256. Il 28 novembre, in un profilo privato su Ubuntu 24.04, Flatpak ha installato e aperto NAPS2 8.6.0, distribuito la voce desktop e l’icona, applicato il bundle 8.6.1, aperto la nuova versione e rimosso l’app. Il file sintetico è sopravvissuto all’aggiornamento e alla rimozione. Il comando ordinario `flatpak update` ha lasciato installata la 8.6.0. Il bundle crea l’origine locale disabilitata `naps2-origin` senza URL. La prova usa il comando Flatpak direttamente. La ricetta Linux richiede ancora l’integrazione e una prova nel launcher. [Download ufficiali](https://www.naps2.com/download) · [Ricevute Flatpak](naps2-flatpak.tsv) · [Schermata 8.6.0](naps2-flatpak-previous.png)
+La prova iniziale ha usato Flatpak direttamente. Entrambi i bundle ufficiali hanno passato il controllo SHA-256, aperto NAPS2 ed esportato l’icona e la voce desktop. Il comando ordinario `flatpak update` ha lasciato installata la 8.6.0. Il bundle crea l’origine locale disabilitata `naps2-origin` senza URL. [Download ufficiali](https://www.naps2.com/download) · [Ricevute Flatpak](naps2-flatpak.tsv)
+
+Il 28 novembre NativeBackend ha completato installazione, apertura, aggiornamento 8.6.0 → 8.6.1 e rimozione su Ubuntu 24.04 x64. Il launcher ha scaricato entrambi i bundle via HTTPS e verificato gli hash. Le finestre, aperte con il solo loopback, hanno prodotto PNG identici. La rimozione ha eliminato l’icona e la voce desktop e conservato il file sintetico. Una prova separata con Flatpak presente e un profilo privo di remoti ha installato anche il runtime. La verifica copre il ciclo dal motore e la finestra di NAPS2. [Log del ciclo](naps2/lifecycle.log) · [Finestra](naps2/window.png) · [Installazione in profilo nuovo](naps2/cold.log)
+
+Per riprodurre nel guest di prova, compilare [il probe](naps2/naps2-native-cycle.rs) come binario temporaneo del crate native. Creare un profilo con `mktemp -d /home/qa/n.XXXXXXXX`, copiarvi il probe come `naps2-native-cycle` e [il runner](naps2/run.sh) come `run.sh`. Avviare `dbus-run-session -- bash "$profile/run.sh" prepare "$profile"` e poi lo stesso comando con `cycle`. [Prova senza remoti preconfigurati](naps2/cold.sh)
 
 ### AiderDesk su Linux x64
 

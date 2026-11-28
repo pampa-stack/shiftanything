@@ -1417,6 +1417,15 @@ pub fn qualified_mac_dmg_asset(app: &crate::CraftApp, release: &Release, asset: 
 
 /// A PKG is extracted only after qualification of that exact release and layout.
 pub fn naps2_mac_asset(release: &Release, asset: &Asset) -> bool {
+    asset.name.ends_with(".pkg") && reviewed_naps2_asset(release, asset)
+}
+
+/// Only the publisher's reviewed x64 bundles are eligible for the Linux user installation.
+pub fn naps2_linux_asset(release: &Release, asset: &Asset) -> bool {
+    asset.name.ends_with("-linux-x64.flatpak") && reviewed_naps2_asset(release, asset)
+}
+
+fn reviewed_naps2_asset(release: &Release, asset: &Asset) -> bool {
     !release.prerelease
         && release.version.as_ref().is_some_and(|version| release.tag == format!("v{version}"))
         && reviewed_assets(crate::curated::NAPS2.repo, &release.tag).any(|reviewed| {
@@ -2417,12 +2426,14 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("zen-browser/desktop", "1.24.3b") => {
             &[("zen.macos-universal.dmg", 240_816_809, "86f6a01e786095d7661c68357396a00cd3e169d6ae5e176245077bb701af8b65")]
         }
-        ("cyanfish/naps2", "v8.6.0") => {
-            &[("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc")]
-        }
-        ("cyanfish/naps2", "v8.6.1") => {
-            &[("naps2-8.6.1-mac-arm64.pkg", 27_550_717, "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601")]
-        }
+        ("cyanfish/naps2", "v8.6.0") => &[
+            ("naps2-8.6.0-mac-arm64.pkg", 27_484_564, "57aeb20a9d1c0601aa5ec50f5171ac2e3ea6d88b9fafc9e13af217a8912503bc"),
+            ("naps2-8.6.0-linux-x64.flatpak", 21_105_688, "2169c0a55c1cabbf8053075ab0ad47d992da1d55818489d593a33e9e638b2226"),
+        ],
+        ("cyanfish/naps2", "v8.6.1") => &[
+            ("naps2-8.6.1-mac-arm64.pkg", 27_550_717, "94c53d010c674dd3bfbfecfcb8af8a2cf6b6206196954dcd5181d47446f0e601"),
+            ("naps2-8.6.1-linux-x64.flatpak", 21_212_400, "f433399b062b68a87092537667ebce716564faa9967a6dee48b89d4b0d370759"),
+        ],
         ("solvespace/solvespace", "v3.2") => &[(SOLVESPACE_MAC_DMG, 13_333_565, "714ca23cc6989c1fd842b353412ef9ba24a23eb2f17446c1bc91740d79869b51")],
         ("solvespace/solvespace", "v3.3") => &[(SOLVESPACE_MAC_DMG, 13_136_637, "9a83620fb2a34dd26961e35a8054a2ee68f36e3dfeaaefb443d3308c9cfc1f11")],
         ("lapce/lapce", "v0.4.5") => &[(LAPCE_MAC_DMG, 46_084_234, "354e7e5b89e9f9eb1c08d32fa08906b9230b825c0dcc70624585c4e026fd13b8")],

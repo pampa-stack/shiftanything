@@ -400,6 +400,12 @@ pub fn pick_asset<'a>(release: &'a Release, stems: &[&str], platform: Platform, 
     if !recipe_platform_verified(stems, platform) {
         return None;
     }
+    if platform.os == Os::Linux && stems.contains(&crate::curated::NAPS2.id) {
+        if !kinds.contains(&PackageKind::Flatpak) {
+            return None;
+        }
+        return release.assets.iter().find(|asset| crate::release::naps2_linux_asset(release, asset)).map(|asset| (asset, PackageKind::Flatpak));
+    }
     if platform.os == Os::Windows
         && let Some(repo) = stems.iter().find_map(|id| crate::release::reviewed_windows_msi_repo(id))
     {
@@ -817,7 +823,6 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
         crate::curated::APPFLOWY.id,
         crate::curated::BLOCKBENCH.id,
         crate::curated::DB_BROWSER_SQLITE.id,
-        crate::curated::NAPS2.id,
         crate::curated::SUPER_PRODUCTIVITY.id,
     ]
     .iter()
@@ -829,7 +834,7 @@ pub fn recipe_platform_verified(stems: &[&str], platform: Platform) -> bool {
     if [PENCIL2D, OPENSHOT, MUSESCORE, ORCA_SLICER].iter().any(|app| stems.contains(&app.id)) {
         return platform == linux_x64;
     }
-    if stems.contains(&LOCALSEND.id) || stems.contains(&HANDY.id) {
+    if [LOCALSEND.id, HANDY.id, crate::curated::NAPS2.id].iter().any(|id| stems.contains(id)) {
         return platform == mac_arm64 || platform == linux_x64;
     }
     true
@@ -1350,6 +1355,30 @@ mod tests {
         future.version = crate::version::parse("v8.6.2");
         future.tag = "v8.6.2".into();
         assert!(!select(&future, mac));
+    }
+
+    #[test]
+    fn naps2_linux_requires_the_reviewed_bundle_for_its_architecture() {
+        use crate::curated::NAPS2;
+
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let select = |release: &Release, platform, kinds: &[PackageKind]| {
+            pick_asset(release, &[NAPS2.id], platform, kinds).map(|(asset, kind)| (asset.name.clone(), kind))
+        };
+        for tag in ["v8.6.0", "v8.6.1"] {
+            let mut release = crate::release::release_from_sums(NAPS2.repo, tag, &[]);
+            let name = format!("naps2-{}-linux-x64.flatpak", &tag[1..]);
+            let flatpak = &[PackageKind::Flatpak];
+            assert_eq!(select(&release, linux, flatpak), Some((name.clone(), PackageKind::Flatpak)));
+            assert!(select(&release, linux, &[PackageKind::Deb, PackageKind::MacPkg]).is_none());
+            assert!(select(&release, Platform { arch: Arch::Arm64, ..linux }, flatpak).is_none());
+            assert!(select(&release, Platform { os: Os::MacOs, arch: Arch::Arm64 }, flatpak).is_none());
+            release.prerelease = true;
+            assert!(select(&release, linux, flatpak).is_none());
+            release.prerelease = false;
+            release.assets.iter_mut().find(|asset| asset.name == name).unwrap().sha256 = Some("a".repeat(64));
+            assert!(select(&release, linux, flatpak).is_none());
+        }
     }
 
     #[test]

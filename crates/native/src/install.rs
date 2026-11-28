@@ -829,9 +829,9 @@ pub(crate) fn bind_artifact_version(app: &CraftApp, release: &Release, asset: &A
         return (app.repo == recipe.repo && release::qualified_mac_dmg_asset(recipe, release, asset)).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::NAPS2.id {
-        return (app.repo == artcraft_launcher_core::curated::NAPS2.repo && release::naps2_mac_asset(release, asset))
-            .then_some(())
-            .ok_or_else(mismatch);
+        let matches = (cfg!(all(target_os = "macos", target_arch = "aarch64")) && release::naps2_mac_asset(release, asset))
+            || (cfg!(all(target_os = "linux", target_arch = "x86_64")) && release::naps2_linux_asset(release, asset));
+        return (app.repo == artcraft_launcher_core::curated::NAPS2.repo && matches).then_some(()).ok_or_else(mismatch);
     }
     if app.id == artcraft_launcher_core::curated::BLOCKBENCH.id {
         return (app.repo == artcraft_launcher_core::curated::BLOCKBENCH.repo && release::blockbench_mac_asset(release, asset))
@@ -1350,6 +1350,15 @@ pub fn is_managed_elsewhere(app: &CraftApp, installed: &Installed) -> bool {
 }
 
 fn managed_elsewhere_with(app: &CraftApp, installed: &Installed, uninstall: bool, repo_fn: impl Fn(&str) -> Option<String>) -> Option<String> {
+    #[cfg(target_os = "linux")]
+    if app.id == artcraft_launcher_core::curated::NAPS2.id
+        && (installed.source != InstallSource::Flatpak
+            || installed.installation.as_deref() != Some("user")
+            || installed.externally_managed
+            || installed.package.as_deref() != Some(artcraft_launcher_core::curated::NAPS2_LINUX_FLATPAK_ID))
+    {
+        return Some("NAPS2 was installed outside the launcher. Manage that copy the way it was installed.".into());
+    }
     match installed.source {
         InstallSource::Pacman if !uninstall && !is_release_arch_package(app, installed) => {
             let pkg = installed.package.clone().unwrap_or_else(|| app.id.to_string());
@@ -2000,6 +2009,9 @@ pub(crate) mod linux {
                 let user = process::flatpak_command().args(["uninstall", "--user", "-y", "--noninteractive", &id]).status();
                 if user.is_ok_and(|s| s.success()) {
                     return Ok(());
+                }
+                if app.id == artcraft_launcher_core::curated::NAPS2.id {
+                    return Err(format!("couldn't uninstall the user Flatpak {id}"));
                 }
                 if process::in_sandbox() {
                     let system = process::flatpak_command().args(["uninstall", "--system", "-y", "--noninteractive", &id]).status();
@@ -3948,6 +3960,34 @@ fn complete_nightly_install(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[cfg(target_os = "linux")]
+    #[test]
+    fn naps2_only_manages_the_official_user_bundle() {
+        use artcraft_launcher_core::curated::{NAPS2, NAPS2_LINUX_FLATPAK_ID};
+
+        let user_bundle = Installed {
+            version: None,
+            source: InstallSource::Flatpak,
+            location: NAPS2_LINUX_FLATPAK_ID.into(),
+            package: Some(NAPS2_LINUX_FLATPAK_ID.into()),
+            externally_managed: false,
+            origin: Some("naps2-origin".into()),
+            installation: Some("user".into()),
+        };
+        assert!(!is_managed_elsewhere(&NAPS2, &user_bundle));
+        assert!(managed_elsewhere(&NAPS2, &user_bundle, true).is_none());
+        for copy in [
+            Installed { source: InstallSource::Deb, ..user_bundle.clone() },
+            Installed { source: InstallSource::Rpm, ..user_bundle.clone() },
+            Installed { installation: Some("system".into()), ..user_bundle.clone() },
+            Installed { externally_managed: true, ..user_bundle.clone() },
+            Installed { package: Some("com.naps2.desktop".into()), ..user_bundle },
+        ] {
+            assert!(is_managed_elsewhere(&NAPS2, &copy));
+            assert!(managed_elsewhere(&NAPS2, &copy, true).is_some());
+        }
+    }
 
     #[cfg(target_os = "macos")]
     #[test]

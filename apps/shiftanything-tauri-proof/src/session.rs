@@ -3,13 +3,13 @@ use crate::app_restart::{self, OpenBundles};
 use artcraft_launcher_core::{
     CraftApp, Os, PackageKind, Platform,
     automation::{InventoryEntry, Operation, Request, Snapshot as Inventory},
-    curated::verified_linux_appimage,
+    curated::{NAPS2, verified_linux_appimage},
     platform::{pick_asset, recipe_platform_verified},
     protocol::{Backend, BackendOptions, CANCELLED, Command, Event, INSTALL_CANCELLED, InstallLocations, JobPhase, LatestRelease},
     release::{Asset, Release},
     status::Installed,
 };
-use artcraft_launcher_native::{NativeBackend, automation};
+use artcraft_launcher_native::{NativeBackend, automation, install};
 use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -101,13 +101,11 @@ fn verified_installs(platform: Option<Platform>) -> &'static BTreeSet<String> {
 }
 
 fn compatible_asset<'a>(app: &CraftApp, platform: Platform, release: &'a Release) -> Option<&'a Asset> {
-    let allowed = if platform.os == Os::Linux {
-        if !verified_linux_appimage(app, platform) {
-            return None;
-        }
-        &[PackageKind::AppImage]
-    } else {
-        platform.download_kinds()
+    let allowed = match platform.os {
+        Os::Linux if (app.id, app.repo) == (NAPS2.id, NAPS2.repo) => &[PackageKind::Flatpak],
+        Os::Linux if verified_linux_appimage(app, platform) => &[PackageKind::AppImage],
+        Os::Linux => return None,
+        _ => platform.download_kinds(),
     };
     let stems: Vec<_> = app.stems().collect();
     let kinds: Vec<_> = allowed.iter().copied().filter(|kind| app.installs(*kind)).collect();
@@ -297,8 +295,12 @@ impl NativeState {
                     _ => None,
                 };
                 let has_asset = platform.zip(release).and_then(|(platform, release)| compatible_asset(app, platform, release)).is_some();
-                let installable =
-                    self.enabled && verified.contains(app.id) && has_asset && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true));
+                let naps2_linux = app.id == NAPS2.id && platform.is_some_and(|platform| platform.os == Os::Linux);
+                let installable = self.enabled
+                    && verified.contains(app.id)
+                    && has_asset
+                    && installed.is_none_or(|_| self.installable.get(app.id) == Some(&true))
+                    && (!naps2_linux || artcraft_launcher_native::process::is_flatpak_available());
                 let update_available = installable
                     && installed.zip(release).is_some_and(|(installed, release)| {
                         !installed.externally_managed
@@ -316,7 +318,7 @@ impl NativeState {
                     installable,
                     update_available,
                     can_open: None,
-                    can_remove: None,
+                    can_remove: naps2_linux.then(|| installed.is_some_and(|copy| install::managed_elsewhere(app, copy, true).is_none())),
                     installed_version: installed.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
                     latest_version: release.and_then(|entry| entry.version.as_ref()).map(artcraft_launcher_core::version::label),
                     job: self.jobs.get(app.id).map(|phase| format!("{phase:?}")),
@@ -696,7 +698,8 @@ mod tests {
         let linux = Platform { os: Os::Linux, arch: Arch::X64 };
         let windows = Platform { os: Os::Windows, arch: Arch::X64 };
         assert!(verified_installs(Some(mac)).contains("naps2"));
-        assert!(!verified_installs(Some(linux)).contains("naps2"));
+        assert!(verified_installs(Some(linux)).contains("naps2"));
+        assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("naps2"));
         assert!(verified_installs(Some(linux)).contains("photocraft"));
         assert!(!verified_installs(Some(Platform { arch: Arch::Arm64, ..linux })).contains("photocraft"));
         assert!(verified_installs(Some(windows)).iter().map(String::as_str).eq([
@@ -792,6 +795,18 @@ mod tests {
             release.assets.iter_mut().find(|asset| asset.name.ends_with(".AppImage")).unwrap().sha256 = None;
             assert!(compatible_asset(app, platform, &release).is_none());
         }
+    }
+
+    #[test]
+    fn naps2_offers_only_the_reviewed_package_for_its_platform() {
+        let linux = Platform { os: Os::Linux, arch: Arch::X64 };
+        let mac = Platform { os: Os::MacOs, arch: Arch::Arm64 };
+        let mut release = artcraft_launcher_core::release::release_from_sums(NAPS2.repo, "v8.6.1", &[]);
+        assert_eq!(compatible_asset(&NAPS2, linux, &release).unwrap().name, "naps2-8.6.1-linux-x64.flatpak");
+        assert_eq!(compatible_asset(&NAPS2, mac, &release).unwrap().name, "naps2-8.6.1-mac-arm64.pkg");
+        assert!(compatible_asset(&NAPS2, Platform { arch: Arch::Arm64, ..linux }, &release).is_none());
+        release.assets.iter_mut().find(|asset| asset.name.ends_with(".flatpak")).unwrap().sha256 = None;
+        assert!(compatible_asset(&NAPS2, linux, &release).is_none());
     }
 
     #[test]

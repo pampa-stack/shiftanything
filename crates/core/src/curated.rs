@@ -1360,6 +1360,8 @@ pub const DB_BROWSER_SQLITE: crate::CraftApp = crate::CraftApp {
     mac_team: Some("C34AV33YLK"),
 };
 
+pub const NAPS2_LINUX_FLATPAK_ID: &str = "com.naps2.Naps2";
+
 pub const NAPS2: crate::CraftApp = crate::CraftApp {
     id: "naps2",
     name: "NAPS2",

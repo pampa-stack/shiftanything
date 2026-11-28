@@ -3,7 +3,7 @@
 //! Pure functions over the tools' text output, so they're tested on every platform; only Linux
 //! runs the tools (`detect::linux`).
 
-use artcraft_launcher_core::{CraftApp, InstallSource, version};
+use artcraft_launcher_core::{CraftApp, InstallSource, curated, version};
 
 /// One installed package that belongs to a Craft App.
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -131,6 +131,9 @@ pub fn parse_flatpak_info(text: &str) -> Option<String> {
 /// (`photocraft`) or the reverse-DNS bundle id (`ai.storyteller.photocraft`).
 pub fn candidate_names(app: &CraftApp, manager: InstallSource) -> Vec<String> {
     match manager {
+        InstallSource::Flatpak if (app.id, app.repo) == (curated::NAPS2.id, curated::NAPS2.repo) => {
+            vec![curated::NAPS2_LINUX_FLATPAK_ID.into()]
+        }
         InstallSource::Flatpak => app.bundle_ids().collect(),
         InstallSource::Pacman => {
             app.stems().flat_map(|s| [s.to_string(), format!("{s}-bin"), format!("{s}-git")]).chain(std::iter::once(app.bundle_id())).collect()

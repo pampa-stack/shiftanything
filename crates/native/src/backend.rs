@@ -1675,7 +1675,7 @@ fn downgrade_previous(
 /// update can't run. [`run_install`] and the UI's [`Event::Installable`] both ask this.
 fn repository_update<'a>(app: &CraftApp, existing: Option<&'a Installed>, options: &BackendOptions) -> Option<Result<&'a Installed, String>> {
     let inst = existing.filter(|i| i.source == artcraft_launcher_core::InstallSource::Flatpak && i.externally_managed)?;
-    Some(if !matches!(options.versions.get(app.id), None | Some(VersionTrack::Stable)) {
+    Some(if app.id == artcraft_launcher_core::curated::NAPS2.id || !matches!(options.versions.get(app.id), None | Some(VersionTrack::Stable)) {
         Err(install::managed_elsewhere(app, inst, false).unwrap_or_else(|| "Update this app through its Flatpak repository".into()))
     } else if !cfg!(target_os = "linux") {
         Err(flatpak_unsupported(app))

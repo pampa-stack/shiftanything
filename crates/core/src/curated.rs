@@ -2702,6 +2702,27 @@ pub const UTM: crate::CraftApp = crate::CraftApp {
     mac_team: Some("WDNLXAD4W8"),
 };
 
+pub const OPENMTP: crate::CraftApp = crate::CraftApp {
+    id: "openmtp",
+    name: "OpenMTP",
+    tagline: "Transfer files between Android devices and a Mac over USB",
+    repo: "ganeshrvel/openmtp",
+    former_repo: None,
+    former_ids: &[],
+    former_names: &[],
+    former_bundles: &[],
+    color: [77, 128, 223],
+    ink_light: [40, 67, 127],
+    ink_dark: [164, 192, 249],
+    kind: crate::catalog::AppKind::Community,
+    publisher: "Ganesh Rathinavel",
+    msi_publisher: None,
+    bundle: Some("io.ganeshrvel.openmtp"),
+    site: Some("https://openmtp.ganeshrvel.com/"),
+    mac_bundle_name: None,
+    mac_team: Some("6UR4H85SA2"),
+};
+
 pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     GHOST_DOWNLOADER,
     HANDY,
@@ -2821,6 +2842,7 @@ pub(crate) static COMMUNITY_RECIPES: &[crate::CraftApp] = &[
     DEEPCHAT,
     EASYDICT,
     UTM,
+    OPENMTP,
 ];
 
 const fn native_apps() -> [crate::CraftApp; crate::SUITE.len() + COMMUNITY_RECIPES.len()] {

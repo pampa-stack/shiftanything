@@ -961,6 +961,7 @@ mod tests {
             (crate::curated::DEEPCHAT, ["v1.1.3", "v1.1.4"]),
             (crate::curated::EASYDICT, ["2.25.0", "2.26.0"]),
             (crate::curated::UTM, ["v5.0.8", "v5.0.9-2"]),
+            (crate::curated::OPENMTP, ["v3.2.25", "v3.3.0"]),
             (crate::curated::OPEN_PENCIL, ["v0.16.0", "v0.17.0"]),
             (crate::curated::OPEN_WHISPR, ["v1.12.1", "v1.12.2"]),
             (crate::curated::OPENCODE, ["v2.4.1", "v2.4.2"]),

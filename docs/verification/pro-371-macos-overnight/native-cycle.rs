@@ -133,6 +133,7 @@ fn main() -> Result<(), String> {
             "virtualbuddy",
             "easydict",
             "utm",
+            "openmtp",
         ]
         .contains(&app.id)
         || app.mac_team.is_none()

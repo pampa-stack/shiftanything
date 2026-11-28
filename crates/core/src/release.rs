@@ -1118,6 +1118,7 @@ pub fn qualified_mac_dmg_recipe(stems: &[&str]) -> Option<&'static crate::CraftA
         crate::curated::DEEPCHAT,
         crate::curated::EASYDICT,
         crate::curated::UTM,
+        crate::curated::OPENMTP,
     ];
     RECIPES.iter().find(|app| stems.contains(&app.id))
 }
@@ -1388,6 +1389,12 @@ fn reviewed_assets<'a>(repo: &'a str, tag: &'a str) -> impl Iterator<Item = Asse
         ("utmapp/UTM", "v5.0.9-2") => &[("UTM.dmg", 304_699_821, "1a76ddcf61ab424a5ae1d1b68a16a9b2e84b748716afce905ee77740d8e86127")],
         ("tisfeng/Easydict", "2.25.0") => &[("Easydict.dmg", 35_766_921, "a8b6893cd3366c864eaac22fd8fadd52968c5119dd40fe5d61947cad3d2bfd16")],
         ("tisfeng/Easydict", "2.26.0") => &[("Easydict.dmg", 35_761_660, "b88e29e8ffb62ecad2159964e2b2c06150c522c1de34f41c62faadd750d5715e")],
+        ("ganeshrvel/openmtp", "v3.2.25") => {
+            &[("openmtp-3.2.25-mac-arm64.dmg", 123_800_559, "801babe2b3629d12f59431189cf45f3c5d5006bc75e8a6871a7d0c97f17ec47f")]
+        }
+        ("ganeshrvel/openmtp", "v3.3.0") => {
+            &[("openmtp-3.3.0-mac-arm64.dmg", 126_208_067, "bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425")]
+        }
         ("cjpais/Handy", "v0.10.1") => {
             &[("Handy_0.10.1_amd64.AppImage", 123_988_472, "f89e267b89983d069a9cbfa74b5e93aa3fa04455702b84fb55a5e6792048395f")]
         }

@@ -1,0 +1,18 @@
+PASS PREFLIGHT openmtp v3.2.25
+PASS PREFLIGHT openmtp v3.3.0
+/dev/disk3s5   239362496 181283232  16951816    92% 3339963 169518160    2%   /System/Volumes/Data
+OFFICIAL INDEX openmtp v3.2.25 digest=computed, signer/notarization corroborated
+OFFICIAL INDEX openmtp v3.3.0 digest=published
+26.6.2
+Background
+assessments enabled
+PASS OFFICIAL v3.2.25 Dmg https://github.com/ganeshrvel/openmtp/releases/download/v3.2.25/openmtp-3.2.25-mac-arm64.dmg 123800559 801babe2b3629d12f59431189cf45f3c5d5006bc75e8a6871a7d0c97f17ec47f
+PASS OFFICIAL v3.3.0 Dmg https://github.com/ganeshrvel/openmtp/releases/download/v3.3.0/openmtp-3.3.0-mac-arm64.dmg 126208067 bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425
+NATIVE ORIGIN openmtp GitHub
+PASS OFFICIAL v3.2.25 Dmg https://github.com/ganeshrvel/openmtp/releases/download/v3.2.25/openmtp-3.2.25-mac-arm64.dmg 123800559 801babe2b3629d12f59431189cf45f3c5d5006bc75e8a6871a7d0c97f17ec47f
+PASS NATIVE openmtp install: OpenMTP installed: 3.2.25; package_bytes=123800559; elapsed=40.964s
+NATIVE ORIGIN openmtp GitHub
+PASS OFFICIAL v3.3.0 Dmg https://github.com/ganeshrvel/openmtp/releases/download/v3.3.0/openmtp-3.3.0-mac-arm64.dmg 126208067 bf6c2cbbea94c001cb781e1ed6ab2259ebcad01d8fce58120e5dcc253c228425
+PASS NATIVE openmtp update: OpenMTP updated to 3.3.0; package_bytes=126208067; elapsed=33.093s
+PASS NATIVE openmtp remove: OpenMTP was removed; package_bytes=0; elapsed=0.084s
+PASS NATIVE CYCLE openmtp (v3.2.25 → v3.3.0), private Trash and synthetic data preserved
